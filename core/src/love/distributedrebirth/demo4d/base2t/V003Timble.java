@@ -25,6 +25,11 @@ public final class V003Timble implements BaseNumber<V003Timble> {
 	}
 	
 	@Override
+	public int getBitCount() {
+		return T08PartOctal.BIT_COUNT;
+	}
+	
+	@Override
 	public V003Timble toClone() {
 		return new V003Timble(getValue());
 	}

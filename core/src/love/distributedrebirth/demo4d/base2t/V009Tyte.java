@@ -31,6 +31,11 @@ public final class V009Tyte implements BaseNumberTyte<V009Tyte> {
 	}
 	
 	@Override
+	public int getBitCount() {
+		return T08PartOctal.BIT_COUNT * T03PartTrit.LENGTH;
+	}
+	
+	@Override
 	public V009Tyte toClone() {
 		return new V009Tyte(cloneIterator());
 	}

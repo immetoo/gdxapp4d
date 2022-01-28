@@ -40,6 +40,11 @@ public final class V036Teger implements BaseNumberTyte<V036Teger> {
 	}
 	
 	@Override
+	public int getBitCount() {
+		return T08PartOctal.BIT_COUNT * T12PartUncial.LENGTH;
+	}
+	
+	@Override
 	public V036Teger toClone() {
 		return new V036Teger(cloneIterator());
 	}

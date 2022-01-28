@@ -30,6 +30,11 @@ public final class V072Tong implements BaseNumberTyte<V072Tong> {
 	}
 	
 	@Override
+	public int getBitCount() {
+		return T08PartOctal.BIT_COUNT * T12PartUncial.LENGTH * T02PartBinary.LENGTH;
+	}
+	
+	@Override
 	public V072Tong toClone() {
 		return new V072Tong(cloneIterator());
 	}

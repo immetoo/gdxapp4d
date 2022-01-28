@@ -56,6 +56,11 @@ public final class V144Tocta implements BaseNumberTyte<V144Tocta> {
 	}
 	
 	@Override
+	public int getBitCount() {
+		return T08PartOctal.BIT_COUNT * T12PartUncial.LENGTH * T04PartQuad.LENGTH;
+	}
+	
+	@Override
 	public V144Tocta toClone() {
 		return new V144Tocta(cloneIterator());
 	}

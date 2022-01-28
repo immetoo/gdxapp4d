@@ -15,6 +15,7 @@ public enum T08PartOctal implements BasePartIdentifierAlt, BasePartIdentifierTon
 	;
 	
 	public static int LENGTH = 8;
+	public static int BIT_COUNT = 3;
 	private static final byte BITMASK = 0x07;
 	private final String identifier;
 	private final String identifierAlt;  // absolute

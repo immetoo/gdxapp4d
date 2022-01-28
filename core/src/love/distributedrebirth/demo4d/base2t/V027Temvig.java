@@ -31,6 +31,11 @@ public final class V027Temvig implements BaseNumberTyte<V027Temvig> {
 	}
 	
 	@Override
+	public int getBitCount() {
+		return T08PartOctal.BIT_COUNT * T03PartTrit.LENGTH * T03PartTrit.LENGTH;
+	}
+	
+	@Override
 	public V027Temvig toClone() {
 		return new V027Temvig(cloneIterator());
 	}

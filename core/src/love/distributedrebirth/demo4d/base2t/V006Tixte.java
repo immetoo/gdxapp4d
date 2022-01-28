@@ -24,12 +24,17 @@ public final class V006Tixte implements BaseNumber<V006Tixte> {
 	public void setValue(T02PartBinary part, V003Timble value) {
 		values[part.ordinal()] = value;
 	}
-
+	
+	@Override
+	public int getBitCount() {
+		return T08PartOctal.BIT_COUNT * T02PartBinary.LENGTH;
+	}
+	
 	@Override
 	public V006Tixte toClone() {
 		return new V006Tixte(cloneIterator());
 	}
-
+	
 	@Override
 	public void fillOctalValues(T08PartOctalBaseAppender appender) {
 		T02PartBinary.forEach(v -> getValue(v).fillOctalValues(appender));

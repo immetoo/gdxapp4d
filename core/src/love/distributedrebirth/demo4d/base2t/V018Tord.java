@@ -38,6 +38,11 @@ public final class V018Tord implements BaseNumberTyte<V018Tord> {
 	}
 	
 	@Override
+	public int getBitCount() {
+		return T08PartOctal.BIT_COUNT * T06PartSeximal.LENGTH;
+	}
+	
+	@Override
 	public V018Tord toClone() {
 		return new V018Tord(cloneIterator());
 	}
