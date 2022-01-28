@@ -15,7 +15,17 @@ import com.badlogic.gdx.utils.ScreenUtils;
 
 import imgui.ImGui;
 import imgui.type.ImBoolean;
+import love.distributedrebirth.demo4d.matrix4d.ScreenMatrix4D;
 import love.distributedrebirth.demo4d.music.MusicManager;
+import love.distributedrebirth.demo4d.music.MusicPlayerRenderer;
+import love.distributedrebirth.demo4d.screen.BasicConsoleRenderer;
+import love.distributedrebirth.demo4d.screen.HebrewWalletRenderer;
+import love.distributedrebirth.demo4d.screen.ScreenCredits;
+import love.distributedrebirth.demo4d.screen.ScreenDefault;
+import love.distributedrebirth.demo4d.screen.ScreenHelp;
+import love.distributedrebirth.demo4d.screen.ScreenIntro;
+import love.distributedrebirth.demo4d.screen.ScreenIntroMission;
+import love.distributedrebirth.demo4d.screen.ScreenUnicode4D;
 import net.spookygames.gdx.nativefilechooser.NativeFileChooser;
 
 public class Demo4DMain extends Game {
@@ -29,10 +39,11 @@ public class Demo4DMain extends Game {
 	public MusicManager music;
 	
 	private Map<Class<? extends Screen>,Screen> screens;
+	private Map<Class<? extends ImGuiRenderer>,ImGuiRenderer> widgets;
 	private ImBoolean showImGuiDemo = new ImBoolean(false);
 	private ImBoolean showMusicPlayer = new ImBoolean(false);
 	private ImBoolean showHebrewWallet = new ImBoolean(false);
-	private MainScreenRender render;
+	private ImBoolean showBasicConsole = new ImBoolean(false);
 	
 	public Demo4DMain(List<String> args, NativeFileChooser fileChooser) {
 		this.args = args;
@@ -51,9 +62,11 @@ public class Demo4DMain extends Game {
 		music = new MusicManager();
 		music.init();
 		
-		render = new MainScreenRender(this);
-		
 		ImGuiSetup.init();
+		widgets = new HashMap<>();
+		putWidget(new MusicPlayerRenderer(this));
+		putWidget(new HebrewWalletRenderer(this));
+		putWidget(new BasicConsoleRenderer(this));
 		
 		screens = new HashMap<>();
 		putScreen(new ScreenIntro(this));
@@ -86,6 +99,10 @@ public class Demo4DMain extends Game {
 		screens.put(screen.getClass(), screen);
 	}
 	
+	private void putWidget(ImGuiRenderer widget) {
+		widgets.put(widget.getClass(), widget);
+	}
+	
 	public void selectScreen(Class<? extends Screen> screenClass) {
 		Screen screen = screens.get(screenClass);
 		if (screen == null) {
@@ -106,10 +123,13 @@ public class Demo4DMain extends Game {
 			ImGui.showDemoWindow(showImGuiDemo);
 		}
 		if (showMusicPlayer.get()) {
-			//render.renderMusicPlayer(showMusicPlayer);
+			widgets.get(MusicPlayerRenderer.class).render(showMusicPlayer);
 		}
 		if (showHebrewWallet.get()) {
-			render.renderHebrewWallet(showHebrewWallet);
+			widgets.get(HebrewWalletRenderer.class).render(showHebrewWallet);
+		}
+		if (showBasicConsole.get()) {
+			widgets.get(BasicConsoleRenderer.class).render(showBasicConsole);
 		}
 		if (screen != null) {
 			screen.render(Gdx.graphics.getDeltaTime());
@@ -130,24 +150,30 @@ public class Demo4DMain extends Game {
 			if (ImGui.menuItem("Unicode4D")) {
 				selectScreen(ScreenUnicode4D.class);
 			}
-			if (ImGui.menuItem("Hebrew Wallet")) {
-				showHebrewWallet.set(true);
-			}
-			ImGui.separator();
-			if (ImGui.menuItem("ImGui")) {
-				showImGuiDemo.set(true);
-			}
-			ImGui.separator();
-			if (ImGui.menuItem("Stop Music")) {
-				music.stop();
-			}
-			if (ImGui.menuItem("Music Player")) {
-				showMusicPlayer.set(true);
-			}
 			ImGui.separator();
 			if (ImGui.menuItem("Exit")) {
 				dispose();
 				System.exit(0);
+			}
+			ImGui.endMenu();
+		}
+		if (ImGui.beginMenu("Widgets")) {
+			if (ImGui.menuItem("ImGui Demo")) {
+				showImGuiDemo.set(true);
+			}
+			ImGui.separator();
+			if (ImGui.menuItem("Hebrew Wallet")) {
+				showHebrewWallet.set(true);
+			}
+			if (ImGui.menuItem("Basic Console")) {
+				showBasicConsole.set(true);
+			}
+			ImGui.separator();
+			if (ImGui.menuItem("Music Player")) {
+				showMusicPlayer.set(true);
+			}
+			if (ImGui.menuItem("Stop Music")) {
+				music.stop();
 			}
 			ImGui.endMenu();
 		}
