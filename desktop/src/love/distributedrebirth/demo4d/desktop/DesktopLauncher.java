@@ -7,7 +7,7 @@ import com.badlogic.gdx.Files.FileType;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 
-import love.distributedrebirth.demo4d.MainScreen;
+import love.distributedrebirth.demo4d.Demo4DMain;
 import net.spookygames.gdx.nativefilechooser.desktop.DesktopFileChooser;
 
 public class DesktopLauncher {
@@ -27,7 +27,7 @@ public class DesktopLauncher {
 		config.setTitle(WINDOW_TITLE);
 		config.setWindowedMode(800, 600);
 		config.setWindowIcon(FileType.Internal, WINDOW_ICONS);
-		new Lwjgl3Application(new MainScreen(args, new DesktopFileChooser()), config);
+		new Lwjgl3Application(new Demo4DMain(args, new DesktopFileChooser()), config);
 	}
 	
 	private static void printMessage() {
