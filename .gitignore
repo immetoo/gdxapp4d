@@ -31,6 +31,7 @@
 # Ignore some eclipse files
 .settings
 .classpath
+.project
 
 # Ignore netbeans directory
 nbproject
