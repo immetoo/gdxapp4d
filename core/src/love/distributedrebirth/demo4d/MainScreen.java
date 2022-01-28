@@ -1,13 +1,24 @@
 package love.distributedrebirth.demo4d;
 
+import java.util.List;
+
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
 
+import net.spookygames.gdx.nativefilechooser.NativeFileChooser;
+
 public class MainScreen extends ApplicationAdapter {
+	private List<String> args;
+	public NativeFileChooser fileChooser;
 	SpriteBatch batch;
 	BitmapFont font;
+	
+	public MainScreen(List<String> args, NativeFileChooser fileChooser) {
+		this.args = args;
+		this.fileChooser = fileChooser;
+	}
 	
 	@Override
 	public void create () {
