@@ -1,6 +1,6 @@
 package love.distributedrebirth.demo4d.fraction4d;
 
-public enum HebrewGetậlVowel {
+public enum HebrewDigitVowel {
 	NONE     (0,  (char) 0x0000),
 	VOWEL_1  (1,  (char) 0x05B4),
 	VOWEL_2  (2,  (char) 0x05B5),
@@ -23,7 +23,7 @@ public enum HebrewGetậlVowel {
 	private final int fractionOffset;
 	private final char character;
 	
-	private HebrewGetậlVowel(int fractionOffset, char character) {
+	private HebrewDigitVowel(int fractionOffset, char character) {
 		this.fractionOffset = fractionOffset;
 		this.character = character;
 	}
@@ -36,16 +36,16 @@ public enum HebrewGetậlVowel {
 		return character;
 	}
 	
-	public static HebrewGetậlVowel indexOf(int index) {
+	public static HebrewDigitVowel indexOf(int index) {
 		return values()[index & BITMASK];
 	}
 	
-	public static HebrewGetậlVowel valueOf(char codePoint) {
-		for (HebrewGetậlVowel vowel:values()) {
+	public static HebrewDigitVowel valueOf(char codePoint) {
+		for (HebrewDigitVowel vowel:values()) {
 			if (vowel.getCharacter() == codePoint) {
 				return vowel;
 			}
 		}
-		return HebrewGetậlVowel.NONE;
+		return HebrewDigitVowel.NONE;
 	}
 }

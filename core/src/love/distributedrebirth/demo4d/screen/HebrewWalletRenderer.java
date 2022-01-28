@@ -6,7 +6,7 @@ import imgui.flag.ImGuiTableFlags;
 import imgui.type.ImBoolean;
 import love.distributedrebirth.demo4d.Demo4DMain;
 import love.distributedrebirth.demo4d.ImGuiRendererMain;
-import love.distributedrebirth.demo4d.fraction4d.HebrewGê̄ld;
+import love.distributedrebirth.demo4d.fraction4d.Gê̄ldGetậl;
 
 public class HebrewWalletRenderer extends ImGuiRendererMain {
 
@@ -40,7 +40,7 @@ public class HebrewWalletRenderer extends ImGuiRendererMain {
 				"הזפץ","מספר","צצצצ","ץאאא","דואר"
 			};
 		for (String data:walletData) {
-			HebrewGê̄ld geld = new HebrewGê̄ld(data);
+			Gê̄ldGetậl geld = new Gê̄ldGetậl(data);
 			ImGui.tableNextRow();
 			ImGui.tableNextColumn();
 			ImGui.text(data.length()==2||data.length()==3?"OUT":"IN");

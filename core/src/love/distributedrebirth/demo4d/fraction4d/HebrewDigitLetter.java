@@ -1,6 +1,6 @@
 package love.distributedrebirth.demo4d.fraction4d;
 
-public enum HebrewGetậlLetter {
+public enum HebrewDigitLetter {
 	// Unicode is horror in any language else than ascii;
 	// VS Alphabet order
 	// VS Unicode order
@@ -70,7 +70,7 @@ public enum HebrewGetậlLetter {
 	private final int decimal;
 	private final char character;
 	
-	private HebrewGetậlLetter(int decimal, char character) {
+	private HebrewDigitLetter(int decimal, char character) {
 		this.decimal = decimal;
 		this.character = character;
 	}
@@ -83,16 +83,16 @@ public enum HebrewGetậlLetter {
 		return character;
 	}
 	
-	public static HebrewGetậlLetter indexOf(int index) {
+	public static HebrewDigitLetter indexOf(int index) {
 		return values()[index & BITMASK];
 	}
 	
-	public static HebrewGetậlLetter valueOf(char codePoint) {
-		for (HebrewGetậlLetter vowel:values()) {
+	public static HebrewDigitLetter valueOf(char codePoint) {
+		for (HebrewDigitLetter vowel:values()) {
 			if (vowel.getCharacter() == codePoint) {
 				return vowel;
 			}
 		}
-		return HebrewGetậlLetter.NONE;
+		return HebrewDigitLetter.NONE;
 	}
 }
