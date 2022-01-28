@@ -1,0 +1,45 @@
+#
+# Ignore files in the demo4D project.
+#
+
+# Ignore project resources
+# none yet
+
+# Ignore gradle work folder
+.gradle
+
+# Ignore binary files and formats
+*.o
+*.class
+*.old
+*.bak
+*.backup
+*.dat
+*.data
+*.gif
+*.bmp
+*.pdf
+*.doc
+*.zip
+*.gz
+*.db
+*.ini
+
+# Ignore ~ backup files.
+*~
+
+# Ignore some eclipse files
+.settings
+.classpath
+
+# Ignore netbeans directory
+nbproject
+
+# Ignore mac finder files
+.DS_Store
+
+# Ignore windows files. 
+# none (done by .db and .ini)
+
+# Ignore kde dolphin files
+.directory
