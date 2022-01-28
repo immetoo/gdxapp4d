@@ -3,7 +3,8 @@
 #
 
 # Ignore project resources
-# none yet
+core/bin
+desktop/bin
 
 # Ignore gradle work folder
 .gradle
