@@ -35,6 +35,18 @@ public final class V072Tong implements BaseNumberTyte<V072Tong> {
 		values[part.ordinal()] = value;
 	}
 	
+	public V009Tyte getTytePart(T08PartOctal part) {
+		return getValue(part.splitPartBinary(T03PartTrit.PART_1))
+				.getValue(part.splitPartBinary(T03PartTrit.PART_2))
+				.getValue(part.splitPartBinary(T03PartTrit.PART_3));
+	}
+	
+	public void setTytePart(T08PartOctal part, V009Tyte value) {
+		getValue(part.splitPartBinary(T03PartTrit.PART_1))
+		.getValue(part.splitPartBinary(T03PartTrit.PART_2))
+		.setValue(part.splitPartBinary(T03PartTrit.PART_3), value);
+	}
+	
 	@Override
 	public int getBitCount() {
 		return BIT_COUNT;
