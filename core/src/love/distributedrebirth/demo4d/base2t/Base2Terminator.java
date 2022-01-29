@@ -7,6 +7,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+/**
+ * 
+ * @author willemtsade ©Δ∞ 仙上主天
+ * 
+ */
 public class Base2Terminator {
 	private static final int STREAM_EOF = -1;
 	private static final int BLOCK_TONG_SIZE = 18;

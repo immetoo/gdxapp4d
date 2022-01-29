@@ -1,5 +1,10 @@
 package love.distributedrebirth.demo4d.base2t;
 
+/**
+ * 
+ * @author willemtsade ©Δ∞ 仙上主天
+ * 
+ */
 public final class V144Tocta implements BaseNumberTyte<V144Tocta> {
 
 	private V072Tong[] values = new V072Tong[T02PartBinary.LENGTH];

@@ -5,6 +5,11 @@ import com.badlogic.gdx.Screen;
 import love.distributedrebirth.demo4d.Demo4DMain;
 import love.distributedrebirth.demo4d.music.MusicSongType;
 
+/**
+ * 
+ * @author willemtsade ©Δ∞ 仙上主天
+ * 
+ */
 public class ScreenIntroMission extends ScrollScreenAdapter {
 	private final String missionText = String.join("\n",
 			"To a Waterfowl",

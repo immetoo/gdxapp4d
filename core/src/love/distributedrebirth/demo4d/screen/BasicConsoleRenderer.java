@@ -6,6 +6,11 @@ import imgui.type.ImBoolean;
 import love.distributedrebirth.demo4d.Demo4DMain;
 import love.distributedrebirth.demo4d.ImGuiRendererMain;
 
+/**
+ * 
+ * @author willemtsade ©Δ∞ 仙上主天
+ * 
+ */
 public class BasicConsoleRenderer extends ImGuiRendererMain {
 
 	public BasicConsoleRenderer(Demo4DMain main) {

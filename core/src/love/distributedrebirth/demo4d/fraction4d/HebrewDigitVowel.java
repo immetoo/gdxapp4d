@@ -1,5 +1,10 @@
 package love.distributedrebirth.demo4d.fraction4d;
 
+/**
+ * 
+ * @author willemtsade ©Δ∞ 仙上主天
+ * 
+ */
 public enum HebrewDigitVowel {
 	NONE     (0,  (char) 0x0000),
 	VOWEL_1  (1,  (char) 0x05B4),

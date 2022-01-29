@@ -8,6 +8,11 @@ import imgui.flag.ImGuiCond;
 import love.distributedrebirth.demo4d.Demo4DMain;
 import love.distributedrebirth.demo4d.Demo4DMainAdapter;
 
+/**
+ * 
+ * @author willemtsade ©Δ∞ 仙上主天
+ * 
+ */
 public class ScreenUnicode4D extends Demo4DMainAdapter {
 	
 	public ScreenUnicode4D(final Demo4DMain main) {

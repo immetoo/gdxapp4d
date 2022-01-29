@@ -8,6 +8,11 @@ import love.distributedrebirth.demo4d.Demo4DMain;
 import love.distributedrebirth.demo4d.ImGuiRendererMain;
 import love.distributedrebirth.demo4d.fraction4d.Gê̄ldGetậl;
 
+/**
+ * 
+ * @author willemtsade ©Δ∞ 仙上主天
+ * 
+ */
 public class HebrewWalletRenderer extends ImGuiRendererMain {
 
 	public HebrewWalletRenderer(Demo4DMain main) {

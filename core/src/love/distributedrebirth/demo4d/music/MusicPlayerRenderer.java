@@ -14,6 +14,11 @@ import love.distributedrebirth.demo4d.Demo4DMain;
 import net.spookygames.gdx.nativefilechooser.NativeFileChooserCallback;
 import net.spookygames.gdx.nativefilechooser.NativeFileChooserConfiguration;
 
+/**
+ * 
+ * @author willemtsade ©Δ∞ 仙上主天
+ * 
+ */
 public class MusicPlayerRenderer extends ImGuiRendererMain {
 
 	public MusicPlayerRenderer(Demo4DMain main) {

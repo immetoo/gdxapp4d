@@ -2,6 +2,11 @@ package love.distributedrebirth.demo4d.base2t;
 
 import java.util.function.Consumer;
 
+/**
+ * 
+ * @author willemtsade ©Δ∞ 仙上主天
+ * 
+ */
 public enum T06PartSeximal implements BasePartIdentifierAlt,BasePartIdentifierTone {
 
 	PART_1("0","A","˧˥"),

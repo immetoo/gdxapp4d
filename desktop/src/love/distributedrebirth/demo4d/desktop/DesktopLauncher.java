@@ -10,6 +10,11 @@ import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 import love.distributedrebirth.demo4d.Demo4DMain;
 import net.spookygames.gdx.nativefilechooser.desktop.DesktopFileChooser;
 
+/**
+ * 
+ * @author willemtsade ©Δ∞ 仙上主天
+ * 
+ */
 public class DesktopLauncher {
 	
 	private static String WINDOW_TITLE = "demo⁴ᴰ";

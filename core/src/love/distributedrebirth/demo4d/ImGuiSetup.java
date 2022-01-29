@@ -9,6 +9,11 @@ import imgui.ImGuiIO;
 import imgui.gl3.ImGuiImplGl3;
 import imgui.glfw.ImGuiImplGlfw;
 
+/**
+ * 
+ * @author willemtsade ©Δ∞ 仙上主天
+ * 
+ */
 public class ImGuiSetup {
 	public static final ImGuiImplGlfw imGuiImp = new ImGuiImplGlfw();
 	public static final ImGuiImplGl3 imGuiGlImp = new ImGuiImplGl3();

@@ -3,6 +3,11 @@ package love.distributedrebirth.demo4d.base2t;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 
+ * @author willemtsade ©Δ∞ 仙上主天
+ * 
+ */
 public interface BaseNumber<V extends BaseNumber<V>> {
 	
 	int getBitCount();

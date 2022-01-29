@@ -8,6 +8,11 @@ import love.distributedrebirth.demo4d.base2t.V009TyteBaseAppender;
 import love.distributedrebirth.demo4d.base2t.V009TyteBaseIterator;
 import love.distributedrebirth.demo4d.base2t.V144Tocta;
 
+/**
+ * 
+ * @author willemtsade ©Δ∞ 仙上主天
+ * 
+ */
 public class GroßGetậl {
 	
 	public static int NUMERATOR_SIZE = 7;

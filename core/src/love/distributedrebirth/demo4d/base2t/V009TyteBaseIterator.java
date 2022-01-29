@@ -2,6 +2,11 @@ package love.distributedrebirth.demo4d.base2t;
 
 import java.util.Iterator;
 
+/**
+ * 
+ * @author willemtsade ©Δ∞ 仙上主天
+ * 
+ */
 public final class V009TyteBaseIterator implements Iterator<V009Tyte> {
 
 	private final Iterator<V009Tyte> iterator;

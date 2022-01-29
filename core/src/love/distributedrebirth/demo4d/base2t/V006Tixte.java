@@ -1,5 +1,10 @@
 package love.distributedrebirth.demo4d.base2t;
 
+/**
+ * 
+ * @author willemtsade ©Δ∞ 仙上主天
+ * 
+ */
 public final class V006Tixte implements BaseNumber<V006Tixte> {
 
 	private V003Timble[] values = new V003Timble[T02PartBinary.LENGTH];

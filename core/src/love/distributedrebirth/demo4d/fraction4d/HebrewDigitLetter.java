@@ -1,5 +1,10 @@
 package love.distributedrebirth.demo4d.fraction4d;
 
+/**
+ * 
+ * @author willemtsade ©Δ∞ 仙上主天
+ * 
+ */
 public enum HebrewDigitLetter {
 	// Unicode is horror in any language else than ascii;
 	// VS Alphabet order

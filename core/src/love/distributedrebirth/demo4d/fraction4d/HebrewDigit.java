@@ -4,6 +4,11 @@ import love.distributedrebirth.demo4d.base2t.T03PartTrit;
 import love.distributedrebirth.demo4d.base2t.T08PartOctal;
 import love.distributedrebirth.demo4d.base2t.V009Tyte;
 
+/**
+ * 
+ * @author willemtsade ©Δ∞ 仙上主天
+ * 
+ */
 public class HebrewDigit {
 
 	private static final double NUMERATOR_ONE = 1d;

@@ -7,6 +7,11 @@ import com.badlogic.gdx.utils.ScreenUtils;
 
 import love.distributedrebirth.demo4d.Demo4DMain;
 
+/**
+ * 
+ * @author willemtsade ©Δ∞ 仙上主天
+ * 
+ */
 public class ScreenDefault extends ScreenAdapter {
 	private final Demo4DMain main;
 	private Texture backgroundImage;

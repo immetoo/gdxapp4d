@@ -7,6 +7,11 @@ import love.distributedrebirth.demo4d.base2t.T04PartQuad;
 import love.distributedrebirth.demo4d.base2t.V018Tord;
 import love.distributedrebirth.demo4d.base2t.V036Teger;
 
+/**
+ * 
+ * @author willemtsade ©Δ∞ 仙上主天
+ * 
+ */
 public class Gê̄ldGetậl {
 
 	private final HebrewDigit nummerAlphabet;

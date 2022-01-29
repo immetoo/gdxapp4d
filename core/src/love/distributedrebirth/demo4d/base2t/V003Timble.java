@@ -1,5 +1,10 @@
 package love.distributedrebirth.demo4d.base2t;
 
+/**
+ * 
+ * @author willemtsade ©Δ∞ 仙上主天
+ * 
+ */
 public final class V003Timble implements BaseNumber<V003Timble> {
 
 	private T08PartOctal value;

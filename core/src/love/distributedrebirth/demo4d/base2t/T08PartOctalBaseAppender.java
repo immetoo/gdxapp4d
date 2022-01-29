@@ -2,6 +2,11 @@ package love.distributedrebirth.demo4d.base2t;
 
 import java.util.Collection;
 
+/**
+ * 
+ * @author willemtsade ©Δ∞ 仙上主天
+ * 
+ */
 public final class T08PartOctalBaseAppender implements BaseAppender<T08PartOctal> {
 
 	private final Collection<T08PartOctal> collection;

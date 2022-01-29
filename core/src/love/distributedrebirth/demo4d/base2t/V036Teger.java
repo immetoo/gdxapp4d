@@ -1,5 +1,10 @@
 package love.distributedrebirth.demo4d.base2t;
 
+/**
+ * 
+ * @author willemtsade ©Δ∞ 仙上主天
+ * 
+ */
 public final class V036Teger implements BaseNumberTyte<V036Teger> {
 
 	private V018Tord[] values = new V018Tord[T02PartBinary.LENGTH];

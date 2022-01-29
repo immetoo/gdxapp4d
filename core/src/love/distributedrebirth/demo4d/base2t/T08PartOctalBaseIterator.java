@@ -2,6 +2,11 @@ package love.distributedrebirth.demo4d.base2t;
 
 import java.util.Iterator;
 
+/**
+ * 
+ * @author willemtsade ©Δ∞ 仙上主天
+ * 
+ */
 public final class T08PartOctalBaseIterator implements Iterator<T08PartOctal> {
 
 	private final Iterator<T08PartOctal> iterator;
