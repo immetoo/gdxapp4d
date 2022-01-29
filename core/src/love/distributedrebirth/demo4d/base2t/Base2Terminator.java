@@ -14,7 +14,7 @@ import java.util.List;
  */
 public class Base2Terminator {
 	private static final int STREAM_EOF = -1;
-	private static final int BLOCK_TONG_SIZE = 18;
+	private static final int BLOCK_TONG_SIZE = 9;
 	private static final int BLOCK_TOCTA_SIZE = 18;
 	private static final int SHIFT_8 = 8;
 	private static final int SHIFT_16 = 16;
