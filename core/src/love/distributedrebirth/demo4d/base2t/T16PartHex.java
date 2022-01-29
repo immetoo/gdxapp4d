@@ -1,6 +1,10 @@
 package love.distributedrebirth.demo4d.base2t;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Map;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 /**
  * 
@@ -31,6 +35,9 @@ public enum T16PartHex implements BasePartIdentifierAlt {
 	private final String identifierTone;
 	private final String identifierLetter;
 	private final String identifierAlt;
+	
+	private static final Map<String, T16PartHex> TONE_MAP = Collections.unmodifiableMap(
+			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getIdentifierTone(), v -> v)));
 	private static final BasePartIdentifierAltInfo ALT_INFO = new BasePartIdentifierAltInfo(
 			"Dual-tone multi-frequency signaling","https://en.wikipedia.org/wiki/Dual-tone_multi-frequency_signaling");
 	
@@ -68,5 +75,9 @@ public enum T16PartHex implements BasePartIdentifierAlt {
 		for (T16PartHex value:values()) {
 			consumer.accept(value);
 		}
+	}
+	
+	public static T16PartHex valueOfTone(String identifierTone) {
+		return TONE_MAP.get(identifierTone);
 	}
 }

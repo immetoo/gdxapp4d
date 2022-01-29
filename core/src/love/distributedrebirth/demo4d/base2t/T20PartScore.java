@@ -1,6 +1,10 @@
 package love.distributedrebirth.demo4d.base2t;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Map;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 /**
  * 
@@ -36,6 +40,9 @@ public enum T20PartScore implements BasePartIdentifierAlt {
 	private final String identifierTone;
 	private final String identifierLetter;
 	private final String identifierAlt;
+	
+	private static final Map<String, T20PartScore> TONE_MAP = Collections.unmodifiableMap(
+			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getIdentifierTone(), v -> v)));
 	private static final BasePartIdentifierAltInfo ALT_INFO = new BasePartIdentifierAltInfo(
 			"Open Location Code","https://en.wikipedia.org/wiki/Open_Location_Code");
 	
@@ -69,5 +76,9 @@ public enum T20PartScore implements BasePartIdentifierAlt {
 		for (T20PartScore value:values()) {
 			consumer.accept(value);
 		}
+	}
+	
+	public static T20PartScore valueOfTone(String identifierTone) {
+		return TONE_MAP.get(identifierTone);
 	}
 }

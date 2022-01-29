@@ -1,6 +1,10 @@
 package love.distributedrebirth.demo4d.base2t;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Map;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 /**
  * 
@@ -17,6 +21,9 @@ public enum T03PartTrit implements BasePartIdentifier {
 	public static int LENGTH = 3;
 	private final String identifierTone;
 	private final String identifierLetter;
+	
+	private static final Map<String, T03PartTrit> TONE_MAP = Collections.unmodifiableMap(
+			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getIdentifierTone(), v -> v)));
 	
 	private T03PartTrit(String identifierTone, String identifierLetter) {
 		this.identifierTone = identifierTone;
@@ -37,5 +44,9 @@ public enum T03PartTrit implements BasePartIdentifier {
 		for (T03PartTrit value:values()) {
 			consumer.accept(value);
 		}
+	}
+	
+	public static T03PartTrit valueOfTone(String identifierTone) {
+		return TONE_MAP.get(identifierTone);
 	}
 }

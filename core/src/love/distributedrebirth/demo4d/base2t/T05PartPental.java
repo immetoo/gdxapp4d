@@ -1,6 +1,10 @@
 package love.distributedrebirth.demo4d.base2t;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Map;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 /**
  * 
@@ -20,6 +24,9 @@ public enum T05PartPental implements BasePartIdentifierAlt {
 	private final String identifierTone;
 	private final String identifierLetter;
 	private final String identifierAlt; // FIXME: escaped to keep normal line height in IDE
+	
+	private static final Map<String, T05PartPental> TONE_MAP = Collections.unmodifiableMap(
+			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getIdentifierTone(), v -> v)));
 	private static final BasePartIdentifierAltInfo ALT_INFO = new BasePartIdentifierAltInfo(
 			"Wuxing","https://en.wikipedia.org/wiki/Wuxing_(Chinese_philosophy)");
 	
@@ -53,5 +60,9 @@ public enum T05PartPental implements BasePartIdentifierAlt {
 		for (T05PartPental value:values()) {
 			consumer.accept(value);
 		}
+	}
+	
+	public static T05PartPental valueOfTone(String identifierTone) {
+		return TONE_MAP.get(identifierTone);
 	}
 }

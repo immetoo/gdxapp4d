@@ -1,6 +1,10 @@
 package love.distributedrebirth.demo4d.base2t;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Map;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 /**
  * 
@@ -21,6 +25,9 @@ public enum T06PartSeximal implements BasePartIdentifierAlt {
 	private final String identifierTone;
 	private final String identifierLetter;
 	private final String identifierAlt;
+	
+	private static final Map<String, T06PartSeximal> TONE_MAP = Collections.unmodifiableMap(
+			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getIdentifierTone(), v -> v)));
 	private static final BasePartIdentifierAltInfo ALT_INFO = new BasePartIdentifierAltInfo(
 			"ADFGVX cipher","https://en.wikipedia.org/wiki/ADFGVX_cipher");
 	
@@ -62,5 +69,9 @@ public enum T06PartSeximal implements BasePartIdentifierAlt {
 		for (T06PartSeximal value:values()) {
 			consumer.accept(value);
 		}
+	}
+	
+	public static T06PartSeximal valueOfTone(String identifierTone) {
+		return TONE_MAP.get(identifierTone);
 	}
 }

@@ -1,6 +1,10 @@
 package love.distributedrebirth.demo4d.base2t;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Map;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 /**
  * 
@@ -28,6 +32,9 @@ public enum T12PartUncial implements BasePartIdentifierAlt {
 	private final String identifierTone;
 	private final String identifierLetter;
 	private final String identifierAlt;
+	
+	private static final Map<String, T12PartUncial> TONE_MAP = Collections.unmodifiableMap(
+			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getIdentifierTone(), v -> v)));
 	private static final BasePartIdentifierAltInfo ALT_INFO = new BasePartIdentifierAltInfo(
 			"Transdecimal symbols","https://en.wikipedia.org/wiki/Duodecimal#Transdecimal_symbols");
 	
@@ -61,5 +68,9 @@ public enum T12PartUncial implements BasePartIdentifierAlt {
 		for (T12PartUncial value:values()) {
 			consumer.accept(value);
 		}
+	}
+	
+	public static T12PartUncial valueOfTone(String identifierTone) {
+		return TONE_MAP.get(identifierTone);
 	}
 }

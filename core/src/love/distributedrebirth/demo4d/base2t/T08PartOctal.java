@@ -1,6 +1,10 @@
 package love.distributedrebirth.demo4d.base2t;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Map;
 import java.util.function.Consumer;
+import java.util.stream.Collectors;
 
 /**
  * 
@@ -24,9 +28,11 @@ public enum T08PartOctal implements BasePartIdentifierAlt {
 	private static final byte BITMASK = 0x07;
 	private final String identifierTone; // absolute
 	private final String identifierLetter;
-	private final String identifierAlt; // relative
-	
+	private final String identifierAlt; // relative	
 	private final int shiftBits;
+	
+	private static final Map<String, T08PartOctal> TONE_MAP = Collections.unmodifiableMap(
+			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getIdentifierTone(), v -> v)));
 	private static final BasePartIdentifierAltInfo ALT_INFO = new BasePartIdentifierAltInfo(
 			"Tone Letters","https://en.wikipedia.org/wiki/Tone_letter");
 	
@@ -77,5 +83,9 @@ public enum T08PartOctal implements BasePartIdentifierAlt {
 		for (T08PartOctal value:values()) {
 			consumer.accept(value);
 		}
+	}
+	
+	public static T08PartOctal valueOfTone(String identifierTone) {
+		return TONE_MAP.get(identifierTone);
 	}
 }
