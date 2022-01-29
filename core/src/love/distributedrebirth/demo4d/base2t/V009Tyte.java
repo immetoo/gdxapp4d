@@ -7,6 +7,7 @@ package love.distributedrebirth.demo4d.base2t;
  */
 public final class V009Tyte implements BaseNumberTyte<V009Tyte> {
 
+	public static int BIT_COUNT = V003Timble.BIT_COUNT * T03PartTrit.LENGTH;
 	private V003Timble[] values = new V003Timble[T03PartTrit.LENGTH];
 	
 	public V009Tyte() {
@@ -37,7 +38,7 @@ public final class V009Tyte implements BaseNumberTyte<V009Tyte> {
 	
 	@Override
 	public int getBitCount() {
-		return T08PartOctal.BIT_COUNT * T03PartTrit.LENGTH;
+		return BIT_COUNT;
 	}
 	
 	@Override

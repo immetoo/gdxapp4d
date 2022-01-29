@@ -7,6 +7,7 @@ package love.distributedrebirth.demo4d.base2t;
  */
 public final class V144Tocta implements BaseNumberTyte<V144Tocta> {
 
+	public static int BIT_COUNT = V072Tong.BIT_COUNT * T02PartBinary.LENGTH;
 	private V072Tong[] values = new V072Tong[T02PartBinary.LENGTH];
 	
 	public V144Tocta() {
@@ -62,7 +63,7 @@ public final class V144Tocta implements BaseNumberTyte<V144Tocta> {
 	
 	@Override
 	public int getBitCount() {
-		return T08PartOctal.BIT_COUNT * T12PartUncial.LENGTH * T04PartQuad.LENGTH;
+		return BIT_COUNT;
 	}
 	
 	@Override

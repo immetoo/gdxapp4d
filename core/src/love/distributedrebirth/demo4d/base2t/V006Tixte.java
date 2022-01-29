@@ -7,6 +7,7 @@ package love.distributedrebirth.demo4d.base2t;
  */
 public final class V006Tixte implements BaseNumber<V006Tixte> {
 
+	public static int BIT_COUNT = V003Timble.BIT_COUNT * T02PartBinary.LENGTH;
 	private V003Timble[] values = new V003Timble[T02PartBinary.LENGTH];
 	
 	public V006Tixte() {
@@ -32,7 +33,7 @@ public final class V006Tixte implements BaseNumber<V006Tixte> {
 	
 	@Override
 	public int getBitCount() {
-		return T08PartOctal.BIT_COUNT * T02PartBinary.LENGTH;
+		return BIT_COUNT;
 	}
 	
 	@Override

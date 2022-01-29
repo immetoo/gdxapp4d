@@ -7,6 +7,7 @@ package love.distributedrebirth.demo4d.base2t;
  */
 public final class V018Tord implements BaseNumberTyte<V018Tord> {
 
+	public static int BIT_COUNT = V009Tyte.BIT_COUNT * T02PartBinary.LENGTH;
 	private V009Tyte[] values = new V009Tyte[T02PartBinary.LENGTH];
 	
 	public V018Tord() {
@@ -44,7 +45,7 @@ public final class V018Tord implements BaseNumberTyte<V018Tord> {
 	
 	@Override
 	public int getBitCount() {
-		return T08PartOctal.BIT_COUNT * T06PartSeximal.LENGTH;
+		return BIT_COUNT;
 	}
 	
 	@Override

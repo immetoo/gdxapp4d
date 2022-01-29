@@ -7,6 +7,7 @@ package love.distributedrebirth.demo4d.base2t;
  */
 public final class V072Tong implements BaseNumberTyte<V072Tong> {
 
+	public static int BIT_COUNT = V036Teger.BIT_COUNT * T02PartBinary.LENGTH;
 	private V036Teger[] values = new V036Teger[T02PartBinary.LENGTH];
 	
 	public V072Tong() {
@@ -36,7 +37,7 @@ public final class V072Tong implements BaseNumberTyte<V072Tong> {
 	
 	@Override
 	public int getBitCount() {
-		return T08PartOctal.BIT_COUNT * T12PartUncial.LENGTH * T02PartBinary.LENGTH;
+		return BIT_COUNT;
 	}
 	
 	@Override
