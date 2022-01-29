@@ -8,7 +8,7 @@ public final class V009Tyte implements BaseNumberTyte<V009Tyte> {
 		this(new V003Timble(), new V003Timble(), new V003Timble());
 	}
 	
-	public V009Tyte(T08PartOctalIterator values) {
+	public V009Tyte(T08PartOctalBaseIterator values) {
 		this(new V003Timble(values), new V003Timble(values), new V003Timble(values));
 	}
 	

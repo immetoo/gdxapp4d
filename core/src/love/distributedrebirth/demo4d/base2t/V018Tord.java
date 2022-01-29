@@ -8,11 +8,11 @@ public final class V018Tord implements BaseNumberTyte<V018Tord> {
 		this(new V009Tyte(), new V009Tyte());
 	}
 	
-	public V018Tord(T08PartOctalIterator values) {
+	public V018Tord(T08PartOctalBaseIterator values) {
 		this(new V009Tyte(values), new V009Tyte(values));
 	}
 	
-	public V018Tord(V009TyteIterator values) {
+	public V018Tord(V009TyteBaseIterator values) {
 		this(values.next(), values.next());
 	}
 	

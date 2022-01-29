@@ -8,11 +8,11 @@ public final class V036Teger implements BaseNumberTyte<V036Teger> {
 		this(new V018Tord(), new V018Tord());
 	}
 	
-	public V036Teger(T08PartOctalIterator values) {
+	public V036Teger(T08PartOctalBaseIterator values) {
 		this(new V018Tord(values), new V018Tord(values));
 	}
 	
-	public V036Teger(V009TyteIterator values) {
+	public V036Teger(V009TyteBaseIterator values) {
 		this(new V018Tord(values), new V018Tord(values));
 	}
 	

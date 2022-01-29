@@ -8,11 +8,11 @@ public final class V072Tong implements BaseNumberTyte<V072Tong> {
 		this(new V036Teger(), new V036Teger());
 	}
 	
-	public V072Tong(T08PartOctalIterator values) {
+	public V072Tong(T08PartOctalBaseIterator values) {
 		this(new V036Teger(values), new V036Teger(values));
 	}
 	
-	public V072Tong(V009TyteIterator values) {
+	public V072Tong(V009TyteBaseIterator values) {
 		this(new V036Teger(values), new V036Teger(values));
 	}
 	

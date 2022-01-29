@@ -8,7 +8,7 @@ public final class V006Tixte implements BaseNumber<V006Tixte> {
 		this(new V003Timble(), new V003Timble());
 	}
 	
-	public V006Tixte(T08PartOctalIterator values) {
+	public V006Tixte(T08PartOctalBaseIterator values) {
 		this(new V003Timble(values), new V003Timble(values));
 	}
 	

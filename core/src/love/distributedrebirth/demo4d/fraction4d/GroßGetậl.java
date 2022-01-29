@@ -5,7 +5,7 @@ import java.util.List;
 
 import love.distributedrebirth.demo4d.base2t.V009Tyte;
 import love.distributedrebirth.demo4d.base2t.V009TyteBaseAppender;
-import love.distributedrebirth.demo4d.base2t.V009TyteIterator;
+import love.distributedrebirth.demo4d.base2t.V009TyteBaseIterator;
 import love.distributedrebirth.demo4d.base2t.V144Tocta;
 
 public class GroßGetậl {
@@ -43,7 +43,7 @@ public class GroßGetậl {
 		for (int i=0;i<DENOMINATOR_SIZE;i++) {
 			tytes.add(denominator[i]);
 		}
-		V009TyteIterator iterator = new V009TyteIterator(tytes.iterator());
+		V009TyteBaseIterator iterator = new V009TyteBaseIterator(tytes.iterator());
 		V144Tocta result = new V144Tocta(iterator);
 		return result;
 	}

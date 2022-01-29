@@ -8,7 +8,7 @@ public final class V003Timble implements BaseNumber<V003Timble> {
 		this(T08PartOctal.PART_1);
 	}
 	
-	public V003Timble(T08PartOctalIterator values) {
+	public V003Timble(T08PartOctalBaseIterator values) {
 		this(values.next());
 	}
 	

@@ -8,11 +8,11 @@ public final class V144Tocta implements BaseNumberTyte<V144Tocta> {
 		this(new V072Tong(), new V072Tong());
 	}
 	
-	public V144Tocta(T08PartOctalIterator values) {
+	public V144Tocta(T08PartOctalBaseIterator values) {
 		this(new V072Tong(values), new V072Tong(values));
 	}
 	
-	public V144Tocta(V009TyteIterator values) {
+	public V144Tocta(V009TyteBaseIterator values) {
 		this(new V072Tong(values), new V072Tong(values));
 	}
 	

@@ -8,11 +8,11 @@ public final class V027Temvig implements BaseNumberTyte<V027Temvig> {
 		this(new V009Tyte(), new V009Tyte(), new V009Tyte());
 	}
 	
-	public V027Temvig(T08PartOctalIterator values) {
+	public V027Temvig(T08PartOctalBaseIterator values) {
 		this(new V009Tyte(values), new V009Tyte(values), new V009Tyte(values));
 	}
 	
-	public V027Temvig(V009TyteIterator values) {
+	public V027Temvig(V009TyteBaseIterator values) {
 		this(values.next(), values.next(), values.next());
 	}
 	
