@@ -1,5 +1,10 @@
 package love.distributedrebirth.demo4d.fraction4d;
 
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 /**
  * 
  * @author willemtsade ©Δ∞ 仙上主天
@@ -75,6 +80,9 @@ public enum HebrewDigitLetter {
 	private final int decimal;
 	private final char character;
 	
+	private static final Map<Character, HebrewDigitLetter> CHAR_MAP = Collections.unmodifiableMap(
+			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getCharacter(), v -> v)));
+	
 	private HebrewDigitLetter(int decimal, char character) {
 		this.decimal = decimal;
 		this.character = character;
@@ -92,12 +100,7 @@ public enum HebrewDigitLetter {
 		return values()[index & BITMASK];
 	}
 	
-	public static HebrewDigitLetter valueOf(char codePoint) {
-		for (HebrewDigitLetter vowel:values()) {
-			if (vowel.getCharacter() == codePoint) {
-				return vowel;
-			}
-		}
-		return HebrewDigitLetter.NONE;
+	public static HebrewDigitLetter valueOfCharacter(char codePoint) {
+		return CHAR_MAP.getOrDefault(codePoint, HebrewDigitLetter.NONE);
 	}
 }

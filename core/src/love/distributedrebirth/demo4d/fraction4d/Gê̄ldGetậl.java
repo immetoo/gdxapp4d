@@ -61,7 +61,7 @@ public class Gê̄ldGetậl {
 				continue;
 			}
 			if (geldDigit != null) {
-				HebrewDigitVowel vowel = HebrewDigitVowel.valueOf(codePoint);
+				HebrewDigitVowel vowel = HebrewDigitVowel.valueOfCharacter(codePoint);
 				if (!HebrewDigitVowel.NONE.equals(vowel)) {
 					geldDigit.setVowel(vowel);
 					result.add(geldDigit);
@@ -71,7 +71,7 @@ public class Gê̄ldGetậl {
 					result.add(geldDigit);
 				}
 			}
-			HebrewDigitLetter letter = HebrewDigitLetter.valueOf(codePoint);
+			HebrewDigitLetter letter = HebrewDigitLetter.valueOfCharacter(codePoint);
 			if (HebrewDigitLetter.NONE.equals(letter)) {
 				throw new IllegalArgumentException("Unknown fraction codepoint: 0x"+Integer.toHexString(codePoint));
 			}
