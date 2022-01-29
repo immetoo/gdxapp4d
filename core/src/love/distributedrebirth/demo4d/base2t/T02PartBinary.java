@@ -7,29 +7,29 @@ import java.util.function.Consumer;
  * @author willemtsade ©Δ∞ 仙上主天
  * 
  */
-public enum T02PartBinary implements BasePartIdentifierTone {
+public enum T02PartBinary implements BasePartIdentifier {
 
-	PART_1("0","˥"),
-	PART_2("1","˩"),
+	PART_1("˧","0"),
+	PART_2("꜔","1"),
 	;
 	
 	public static int LENGTH = 2;
-	private final String identifier;
 	private final String identifierTone;
+	private final String identifierLetter;
 	
-	private T02PartBinary(String identifier, String identifierTone) {
-		this.identifier = identifier;
+	private T02PartBinary(String identifierTone, String identifierLetter) {
 		this.identifierTone = identifierTone;
-	}
-	
-	@Override
-	public String getIdentifier() {
-		return identifier;
+		this.identifierLetter = identifierLetter;
 	}
 	
 	@Override
 	public String getIdentifierTone() {
 		return identifierTone;
+	}
+	
+	@Override
+	public String getIdentifierLetter() {
+		return identifierLetter;
 	}
 	
 	public static void forEach(Consumer<T02PartBinary> consumer) {

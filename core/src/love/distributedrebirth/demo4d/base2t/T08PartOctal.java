@@ -7,48 +7,49 @@ import java.util.function.Consumer;
  * @author willemtsade ©Δ∞ 仙上主天
  * 
  */
-public enum T08PartOctal implements BasePartIdentifierAlt, BasePartIdentifierTone {
+public enum T08PartOctal implements BasePartIdentifierAlt {
 
-	PART_1("0","˧˥˩","˥˩˧", 0),
-	PART_2("1","˧˩˥","˩˥˧", 3),
-	PART_3("2","˧˥˦","˥˦˧", 6),
-	PART_4("3","˧˩˨","˩˨˧", 9),
-	PART_5("4","˧˦˦","˦˦˧", 12),
-	PART_6("5","˧˨˨","˨˨˧", 15),
-	PART_7("6","˧˥˥","˥˥˧", 18),
-	PART_8("7","˧˩˩","˩˩˧", 21),
+	PART_1("˧˥˩","0","˥˩˧", 0),
+	PART_2("˧˩˥","1","˩˥˧", 3),
+	PART_3("˧˥˦","2","˥˦˧", 6),
+	PART_4("˧˩˨","3","˩˨˧", 9),
+	PART_5("˧˦˦","4","˦˦˧", 12),
+	PART_6("˧˨˨","5","˨˨˧", 15),
+	PART_7("˧˥˥","6","˥˥˧", 18),
+	PART_8("˧˩˩","7","˩˩˧", 21),
 	;
 	
 	public static int LENGTH = 8;
 	public static int BIT_COUNT = 3;
 	private static final byte BITMASK = 0x07;
-	private final String identifier;
-	private final String identifierAlt;  // absolute
-	private final String identifierTone; // relative
+	private final String identifierTone; // absolute
+	private final String identifierLetter;
+	private final String identifierAlt; // relative
+	
 	private final int shiftBits;
 	private static final BasePartIdentifierAltInfo ALT_INFO = new BasePartIdentifierAltInfo(
 			"Tone Letters","https://en.wikipedia.org/wiki/Tone_letter");
 	
-	private T08PartOctal(String identifier, String identifierAlt, String identifierTone, int shiftBits) {
-		this.identifier = identifier;
-		this.identifierAlt = identifierAlt;
+	private T08PartOctal(String identifierTone, String identifierLetter, String identifierAlt, int shiftBits) {
 		this.identifierTone = identifierTone;
+		this.identifierLetter = identifierLetter;
+		this.identifierAlt = identifierAlt;
 		this.shiftBits = shiftBits;
-	}
-	
-	@Override
-	public String getIdentifier() {
-		return identifier;
-	}
-	
-	@Override
-	public String getIdentifierAlt() {
-		return identifierAlt;
 	}
 	
 	@Override
 	public String getIdentifierTone() {
 		return identifierTone;
+	}
+	
+	@Override
+	public String getIdentifierLetter() {
+		return identifierLetter;
+	}
+	
+	@Override
+	public String getIdentifierAlt() {
+		return identifierAlt;
 	}
 	
 	@Override

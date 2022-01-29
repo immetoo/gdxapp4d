@@ -7,40 +7,40 @@ import java.util.function.Consumer;
  * @author willemtsade ©Δ∞ 仙上主天
  * 
  */
-public enum T04PartQuad implements BasePartIdentifierAlt,BasePartIdentifierTone {
+public enum T04PartQuad implements BasePartIdentifierAlt {
 
-	PART_1("0","N","˥"),
-	PART_2("1","E","˦"),
-	PART_3("2","W","˨"),
-	PART_4("3","S","˩"),
+	PART_1("˥","0","N"),
+	PART_2("˦","1","E"),
+	PART_3("˨","2","W"),
+	PART_4("˩","3","S"),
 	;
 	
 	public static int LENGTH = 4;
-	private final String identifier;
-	private final String identifierAlt;
 	private final String identifierTone;
+	private final String identifierLetter;
+	private final String identifierAlt;
 	private static final BasePartIdentifierAltInfo ALT_INFO = new BasePartIdentifierAltInfo(
 			"Cardinal direction","https://simple.wikipedia.org/wiki/Cardinal_direction");
 	
-	private T04PartQuad(String identifier, String identifierAlt, String identifierTone) {
-		this.identifier = identifier;
-		this.identifierAlt = identifierAlt;
+	private T04PartQuad(String identifierTone, String identifierLetter, String identifierAlt) {
 		this.identifierTone = identifierTone;
-	}
-	
-	@Override
-	public String getIdentifier() {
-		return identifier;
-	}
-	
-	@Override
-	public String getIdentifierAlt() {
-		return identifierAlt;
+		this.identifierLetter = identifierLetter;
+		this.identifierAlt = identifierAlt;
 	}
 	
 	@Override
 	public String getIdentifierTone() {
 		return identifierTone;
+	}
+	
+	@Override
+	public String getIdentifierLetter() {
+		return identifierLetter;
+	}
+	
+	@Override
+	public String getIdentifierAlt() {
+		return identifierAlt;
 	}
 	
 	@Override
