@@ -38,7 +38,7 @@ public class DesktopLauncher {
 	private static void printMessage() {
 		System.out.println("==========================");
 		System.out.println("     @Ω\u4ed9⁴ ˧꜏⋇꜊꜔ ⁴ﷲΩ@    ");
-		System.out.println("        ©Δ∞ \u4ed9\u4e0a\u4e3b\u5929       ");
+		System.out.println("        ©Δ∞ 仙上主天       ");
 		System.out.println("בְּרֵאשִׁית :o: יְסוֺד :o: יִשְׂרָאֵל");
 		System.out.println("==========================");
 		System.out.println("Welcome to the matrix;");
