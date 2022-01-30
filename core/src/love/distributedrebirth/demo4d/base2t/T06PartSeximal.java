@@ -21,12 +21,12 @@ import love.distributedrebirth.demo4d.base2t.facet.BasePartSplit6;
  */
 public enum T06PartSeximal implements BaseFacet,BasePartAlt1,BasePartSplit6 {
 
-	PART_1("˧˥","0","四","4","A"),
-	PART_2("˧˩","1","五","5","D"),
-	PART_3("˨˦","2","六","6","F"),
-	PART_4("˦˨","3","七","7","G"),
-	PART_5("˩˧","4","八","8","V"),
-	PART_6("˥˧","5","九","9","X"),
+	PART_1("˦","0","四","4","A"),
+	PART_2("˨","1","五","5","D"),
+	PART_3("꜓","2","六","6","F"),
+	PART_4("꜕","3","七","7","G"),
+	PART_5("꜊","4","八","8","V"),
+	PART_6("꜏","5","九","9","X"),
 	;
 	
 	public static int LENGTH = 6;

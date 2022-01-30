@@ -19,15 +19,14 @@ import love.distributedrebirth.demo4d.base2t.facet.BasePartSplit8;
  */
 public enum T08PartOctal implements BaseFacet,BasePartAlt2,BasePartSplit8 {
 
-	// FIXME make 8 tone letters
-	PART_1("˩","0","心","heart","˧˥˩","˥˩˧", 0),
-	PART_2("˥","1","頭","head", "˧˩˥","˩˥˧", 3),
-	PART_3("˦","2","眼","eye",  "˧˥˦","˥˦˧", 6),
-	PART_4("˨","3","嘴","mouth","˧˩˨","˩˨˧", 9),
-	PART_5("˦","4","臂","arm",  "˧˦˦","˦˦˧", 12),
-	PART_6("˨","5","手","hand", "˧˨˨","˨˨˧", 15),
-	PART_7("˥","6","肢","leg",  "˧˥˥","˥˥˧", 18),
-	PART_8("˩","7","腳","feet", "˧˩˩","˩˩˧", 21),
+	PART_1("˥","0","心","heart","˧˥˩","˥˩˧", 0),
+	PART_2("˩","1","頭","head", "˧˩˥","˩˥˧", 3),
+	PART_3("꜒","2","眼","eye",  "˧˥˦","˥˦˧", 6),
+	PART_4("꜖","3","嘴","mouth","˧˩˨","˩˨˧", 9),
+	PART_5("꜈","4","臂","arm",  "˧˦˦","˦˦˧", 12),
+	PART_6("꜌","5","手","hand", "˧˨˨","˨˨˧", 15),
+	PART_7("꜍","6","肢","leg",  "˧˥˥","˥˥˧", 18),
+	PART_8("꜑","7","腳","feet", "˧˩˩","˩˩˧", 21),
 	;
 	
 	public static int LENGTH = 8;
