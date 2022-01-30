@@ -32,7 +32,7 @@ public class HebrewWalletRenderer extends ImGuiRendererMain {
 		if (ImGui.button("Pay")) {
 		}
 		int flags = ImGuiTableFlags.ScrollX | ImGuiTableFlags.RowBg | ImGuiTableFlags.BordersOuter | ImGuiTableFlags.BordersV;
-		ImGui.beginTable("wallet", 4, flags);
+		ImGui.beginTable("wallet", 5, flags);
 		ImGui.tableSetupColumn("In/Out");
 		ImGui.tableSetupColumn("AmountRaw");
 		ImGui.tableSetupColumn("AmountFix");
@@ -46,13 +46,14 @@ public class HebrewWalletRenderer extends ImGuiRendererMain {
 			};
 		for (String data:walletData) {
 			Gê̄ldGetậl geld = new Gê̄ldGetậl(data);
+			Gê̄ldGetậl geld2 = new Gê̄ldGetậl(geld.toTeger().toClone().toClone()); // unit test
 			ImGui.tableNextRow();
 			ImGui.tableNextColumn();
 			ImGui.text(data.length()==2||data.length()==3?"OUT":"IN");
 			ImGui.tableNextColumn();
 			ImGui.text(data);
 			ImGui.tableNextColumn();
-			ImGui.text(geld.toHebrewString(true)); // true=reverse for ImGui
+			ImGui.text(geld2.toHebrewString(true)); // true=reverse for ImGui
 			ImGui.tableNextColumn();
 			ImGui.text(Double.toString(geld.getTotalDecimalValue()));
 		}
