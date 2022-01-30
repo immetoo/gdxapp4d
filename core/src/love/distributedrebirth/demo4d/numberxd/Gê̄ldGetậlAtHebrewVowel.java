@@ -1,4 +1,4 @@
-package love.distributedrebirth.demo4d.number4d;
+package love.distributedrebirth.demo4d.numberxd;
 
 import java.util.Arrays;
 import java.util.Collections;

@@ -1,4 +1,4 @@
-package love.distributedrebirth.demo4d.number4d;
+package love.distributedrebirth.demo4d.numberxd;
 
 import love.distributedrebirth.demo4d.base2t.T03PartTrit;
 import love.distributedrebirth.demo4d.base2t.T08PartOctal;
