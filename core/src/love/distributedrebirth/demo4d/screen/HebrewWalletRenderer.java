@@ -6,7 +6,7 @@ import imgui.flag.ImGuiTableFlags;
 import imgui.type.ImBoolean;
 import love.distributedrebirth.demo4d.Demo4DMain;
 import love.distributedrebirth.demo4d.ImGuiRendererMain;
-import love.distributedrebirth.demo4d.numberxd.Gê̄ldGetậl;
+import love.distributedrebirth.numberxd.Gê̄ldGetậl;
 
 /**
  * 

@@ -1,0 +1,59 @@
+package love.distributedrebirth.numberxd.base2t;
+
+/**
+ * Holds an 27 bit value.
+ * 
+ * @author willemtsade ©Δ∞ 仙上主天
+ * 
+ */
+public final class V01BTemvig implements BaseNumberTyte<V01BTemvig> {
+
+	public static int BIT_COUNT = V009Tyte.BIT_COUNT * T03PartTrit.LENGTH;
+	private V009Tyte[] values = new V009Tyte[T03PartTrit.LENGTH];
+	
+	public V01BTemvig() {
+		this(new V009Tyte(), new V009Tyte(), new V009Tyte());
+	}
+	
+	public V01BTemvig(T08PartOctalBaseIterator values) {
+		this(new V009Tyte(values), new V009Tyte(values), new V009Tyte(values));
+	}
+	
+	public V01BTemvig(V009TyteBaseIterator values) {
+		this(values.next(), values.next(), values.next());
+	}
+	
+	private V01BTemvig(V009Tyte valueHigh, V009Tyte valueMedium, V009Tyte valueLow) {
+		setValue(T03PartTrit.PART_1, valueHigh);
+		setValue(T03PartTrit.PART_2, valueMedium);
+		setValue(T03PartTrit.PART_3, valueLow);
+	}
+	
+	public V009Tyte getValue(T03PartTrit part) {
+		return values[part.ordinal()];
+	}
+	
+	public void setValue(T03PartTrit part, V009Tyte value) {
+		values[part.ordinal()] = value;
+	}
+	
+	@Override
+	public int getBitCount() {
+		return BIT_COUNT;
+	}
+	
+	@Override
+	public V01BTemvig toClone() {
+		return new V01BTemvig(cloneIterator());
+	}
+	
+	@Override
+	public void fillOctalValues(T08PartOctalBaseAppender appender) {
+		T03PartTrit.forEach(v -> getValue(v).fillOctalValues(appender));
+	}
+
+	@Override
+	public void fillTyteValues(V009TyteBaseAppender appender) {
+		T03PartTrit.forEach(v -> getValue(v).fillTyteValues(appender));
+	}
+}
