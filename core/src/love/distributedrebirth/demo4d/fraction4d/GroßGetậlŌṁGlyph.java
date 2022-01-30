@@ -3,7 +3,7 @@ package love.distributedrebirth.demo4d.fraction4d;
 import love.distributedrebirth.demo4d.base2t.BaseNumber;
 import love.distributedrebirth.demo4d.base2t.T08PartOctalBaseAppender;
 import love.distributedrebirth.demo4d.base2t.T08PartOctalBaseIterator;
-import love.distributedrebirth.demo4d.base2t.V144Tocta;
+import love.distributedrebirth.demo4d.base2t.V090Tocta;
 
 abstract public class GroßGetậlŌṁGlyph<V extends GroßGetậlŌṁGlyph<V> & BaseNumber<V>> implements BaseNumber<V> {
 	
@@ -59,7 +59,7 @@ abstract public class GroßGetậlŌṁGlyph<V extends GroßGetậlŌṁGlyph<V>
 	
 	@Override
 	public final int getBitCount() {
-		return V144Tocta.BIT_COUNT * valuesLength;
+		return V090Tocta.BIT_COUNT * valuesLength;
 	}
 	
 	@Override

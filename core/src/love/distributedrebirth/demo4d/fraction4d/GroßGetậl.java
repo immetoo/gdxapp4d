@@ -9,7 +9,7 @@ import love.distributedrebirth.demo4d.base2t.T08PartOctalBaseIterator;
 import love.distributedrebirth.demo4d.base2t.V009Tyte;
 import love.distributedrebirth.demo4d.base2t.V009TyteBaseAppender;
 import love.distributedrebirth.demo4d.base2t.V009TyteBaseIterator;
-import love.distributedrebirth.demo4d.base2t.V144Tocta;
+import love.distributedrebirth.demo4d.base2t.V090Tocta;
 
 /**
  * 
@@ -50,7 +50,7 @@ public class GroßGetậl implements BaseNumberTyte<GroßGetậl> {
 		}
 	}
 	
-	public GroßGetậl(V144Tocta tocta) {
+	public GroßGetậl(V090Tocta tocta) {
 		List<V009Tyte> tytes = new ArrayList<>();
 		tocta.fillTyteValues(new V009TyteBaseAppender(tytes));
 		for (int i=0;i<NUMERATOR_SIZE;i++) {
@@ -61,13 +61,13 @@ public class GroßGetậl implements BaseNumberTyte<GroßGetậl> {
 		}
 	}
 	
-	public V144Tocta toTocta() {
-		return new V144Tocta(cloneIterator());
+	public V090Tocta toTocta() {
+		return new V090Tocta(cloneIterator());
 	}
 
 	@Override
 	public int getBitCount() {
-		return V144Tocta.BIT_COUNT;
+		return V090Tocta.BIT_COUNT;
 	}
 
 	@Override
