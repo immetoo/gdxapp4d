@@ -2,16 +2,21 @@ package love.distributedrebirth.demo4d.base2t;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
+
+import love.distributedrebirth.demo4d.base2t.facet.BaseFacet;
+import love.distributedrebirth.demo4d.base2t.facet.BaseFacetKey;
+import love.distributedrebirth.demo4d.base2t.facet.BasePartAlt1;
 
 /**
  * The distribution by 12.
  * @author willemtsade ©Δ∞ 仙上主天
  * 
  */
-public enum T12PartUncial implements BasePartIdentifierAlt {
+public enum T12PartUncial implements BaseFacet,BasePartAlt1 {
 
 	// TODO: fixup tone letters for 12 parts
 	PART_1 ("˥","0","日","sun","0"),
@@ -29,55 +34,27 @@ public enum T12PartUncial implements BasePartIdentifierAlt {
 	;
 	
 	public static int LENGTH = 12;
-	private final String identifierTone;
-	private final String identifierLetter;
-	private final String chinaKey;
-	private final String chinaValue;
-	private final String identifierAlt;
-	
+	private final Map<BaseFacetKey, Object> facetStore = new HashMap<>();
+	private static final String ALT_1_NAME = "Transdecimal symbols";
+	private static final String ALT_1_WIKI = "https://en.wikipedia.org/wiki/Duodecimal#Transdecimal_symbols";
 	private static final Map<String, T12PartUncial> TONE_MAP = Collections.unmodifiableMap(
 			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getIdentifierTone(), v -> v)));
 	private static final Map<String, T12PartUncial> CHINA_MAP = Collections.unmodifiableMap(
 			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getChinaKey(), v -> v)));
-	private static final BasePartIdentifierAltInfo ALT_INFO = new BasePartIdentifierAltInfo(
-			"Transdecimal symbols","https://en.wikipedia.org/wiki/Duodecimal#Transdecimal_symbols");
 	
-	private T12PartUncial(String identifierTone, String identifierLetter, String chinaKey, String chinaValue, String identifierAlt) {
-		this.identifierTone = identifierTone;
-		this.identifierLetter = identifierLetter;
-		this.chinaKey = chinaKey;
-		this.chinaValue = chinaValue;
-		this.identifierAlt = identifierAlt;
+	private T12PartUncial(String idTone, String idLetter, String chinaKey, String chinaValue, String alt1Value) {
+		this.getFacetStore().put(BaseFacetKey.ID_TONE, idTone);
+		this.getFacetStore().put(BaseFacetKey.ID_LETTER, idLetter);
+		this.getFacetStore().put(BaseFacetKey.CHINA_KEY, chinaKey);
+		this.getFacetStore().put(BaseFacetKey.CHINA_VALUE, chinaValue);
+		this.getFacetStore().put(BaseFacetKey.ALT_1_VALUE, alt1Value);
+		this.getFacetStore().put(BaseFacetKey.ALT_1_NAME, ALT_1_NAME);
+		this.getFacetStore().put(BaseFacetKey.ALT_1_WIKI, ALT_1_WIKI);
 	}
 	
 	@Override
-	public String getIdentifierTone() {
-		return identifierTone;
-	}
-	
-	@Override
-	public String getIdentifierLetter() {
-		return identifierLetter;
-	}
-	
-	@Override
-	public String getChinaKey() {
-		return chinaKey;
-	}
-	
-	@Override
-	public String getChinaValue() {
-		return chinaValue;
-	}
-	
-	@Override
-	public String getIdentifierAlt() {
-		return identifierAlt;
-	}
-	
-	@Override
-	public BasePartIdentifierAltInfo getIdentifierAltInfo() {
-		return ALT_INFO;
+	public Map<BaseFacetKey, Object> getFacetStore() {
+		return facetStore;
 	}
 	
 	public static void forEach(Consumer<T12PartUncial> consumer) {

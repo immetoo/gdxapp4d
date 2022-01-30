@@ -2,9 +2,15 @@ package love.distributedrebirth.demo4d.base2t;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
+
+import love.distributedrebirth.demo4d.base2t.facet.BasePartAlt1;
+import love.distributedrebirth.demo4d.base2t.facet.BaseFacet;
+import love.distributedrebirth.demo4d.base2t.facet.BaseFacetKey;
+import love.distributedrebirth.demo4d.base2t.facet.BasePartSplit6;
 
 /**
  * TThe distribution by 6.
@@ -13,7 +19,7 @@ import java.util.stream.Collectors;
  * @author willemtsade ©Δ∞ 仙上主天
  * 
  */
-public enum T06PartSeximal implements BasePartIdentifierAlt {
+public enum T06PartSeximal implements BaseFacet,BasePartAlt1,BasePartSplit6 {
 
 	PART_1("˧˥","0","四","4","A"),
 	PART_2("˧˩","1","五","5","D"),
@@ -24,63 +30,27 @@ public enum T06PartSeximal implements BasePartIdentifierAlt {
 	;
 	
 	public static int LENGTH = 6;
-	private final String identifierTone;
-	private final String identifierLetter;
-	private final String chinaKey;
-	private final String chinaValue;
-	private final String identifierAlt;
-	
+	private final Map<BaseFacetKey, Object> facetStore = new HashMap<>();
+	private static final String ALT_1_NAME = "ADFGVX cipher";
+	private static final String ALT_1_WIKI = "https://en.wikipedia.org/wiki/ADFGVX_cipher";
 	private static final Map<String, T06PartSeximal> TONE_MAP = Collections.unmodifiableMap(
 			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getIdentifierTone(), v -> v)));
 	private static final Map<String, T06PartSeximal> CHINA_MAP = Collections.unmodifiableMap(
 			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getChinaKey(), v -> v)));
-	private static final BasePartIdentifierAltInfo ALT_INFO = new BasePartIdentifierAltInfo(
-			"ADFGVX cipher","https://en.wikipedia.org/wiki/ADFGVX_cipher");
 	
-	private T06PartSeximal(String identifierTone, String identifierLetter, String chinaKey, String chinaValue, String identifierAlt) {
-		this.identifierTone = identifierTone;
-		this.identifierLetter = identifierLetter;
-		this.chinaKey = chinaKey;
-		this.chinaValue = chinaValue;
-		this.identifierAlt = identifierAlt;
+	private T06PartSeximal(String idTone, String idLetter, String chinaKey, String chinaValue, String alt1Value) {
+		this.getFacetStore().put(BaseFacetKey.ID_TONE, idTone);
+		this.getFacetStore().put(BaseFacetKey.ID_LETTER, idLetter);
+		this.getFacetStore().put(BaseFacetKey.CHINA_KEY, chinaKey);
+		this.getFacetStore().put(BaseFacetKey.CHINA_VALUE, chinaValue);
+		this.getFacetStore().put(BaseFacetKey.ALT_1_VALUE, alt1Value);
+		this.getFacetStore().put(BaseFacetKey.ALT_1_NAME, ALT_1_NAME);
+		this.getFacetStore().put(BaseFacetKey.ALT_1_WIKI, ALT_1_WIKI);
 	}
 	
 	@Override
-	public String getIdentifierTone() {
-		return identifierTone;
-	}
-	
-	@Override
-	public String getIdentifierLetter() {
-		return identifierLetter;
-	}
-	
-	@Override
-	public String getChinaKey() {
-		return chinaKey;
-	}
-	
-	@Override
-	public String getChinaValue() {
-		return chinaValue;
-	}
-	
-	@Override
-	public String getIdentifierAlt() {
-		return identifierAlt;
-	}
-	
-	@Override
-	public BasePartIdentifierAltInfo getIdentifierAltInfo() {
-		return ALT_INFO;
-	}
-	
-	public T02PartBinary splitPartBinary() {
-		return T02PartBinary.values()[ordinal() & 1];
-	}
-	
-	public T03PartTrit splitPartTrit() {
-		return T03PartTrit.values()[ordinal() >> 1];
+	public Map<BaseFacetKey, Object> getFacetStore() {
+		return facetStore;
 	}
 	
 	public static void forEach(Consumer<T06PartSeximal> consumer) {
