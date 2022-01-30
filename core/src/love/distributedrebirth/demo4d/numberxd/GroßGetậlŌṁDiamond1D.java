@@ -1,6 +1,6 @@
 package love.distributedrebirth.demo4d.numberxd;
 
-public class GroßGetậlŌṁGlyphDiamond6D extends GroßGetậlŌṁGlyph6D<GroßGetậlŌṁGlyphDiamond6D> {
+public class GroßGetậlŌṁDiamond1D extends GroßGetậlŌṁ1D<GroßGetậlŌṁDiamond1D> {
 
 	// 0th = 1 * V144Tocta (1)
 	// 1th = 1+3 * V144Tocta (4)
@@ -8,7 +8,7 @@ public class GroßGetậlŌṁGlyphDiamond6D extends GroßGetậlŌṁGlyph6D<Gr
 	// 3th = 1+3+6+14 * V144Tocta (24)
 	// etc
 	
-	public GroßGetậlŌṁGlyphDiamond6D(byte level) {
+	public GroßGetậlŌṁDiamond1D(byte level) {
 		super(level);
 	}
 	
@@ -18,7 +18,7 @@ public class GroßGetậlŌṁGlyphDiamond6D extends GroßGetậlŌṁGlyph6D<Gr
 	}
 	
 	@Override
-	protected GroßGetậlŌṁGlyphDiamond6D toCloneFractal(byte level) {
-		return new GroßGetậlŌṁGlyphDiamond6D(level);
+	protected GroßGetậlŌṁDiamond1D toCloneFractal(byte level) {
+		return new GroßGetậlŌṁDiamond1D(level);
 	}
 }
