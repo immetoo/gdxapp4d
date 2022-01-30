@@ -11,14 +11,14 @@ import love.distributedrebirth.demo4d.base2t.V009TyteBaseAppender;
  * @author willemtsade ©Δ∞ 仙上主天
  * 
  */
-public class KaassGetậl implements BaseNumberTyte<KaassGetậl> {
+public class OKaassGetậl implements BaseNumberTyte<OKaassGetậl> {
 	
-	private KlompGetậl[] kaas;
+	private OKlompGetậl[] kaas;
 	private final int kaasCuts;
 	
-	public KaassGetậl(int kaasCuts) {
+	public OKaassGetậl(int kaasCuts) {
 		this.kaasCuts = kaasCuts;
-		this.kaas = new KlompGetậl[kaasCuts];
+		this.kaas = new OKlompGetậl[kaasCuts];
 	}
 	
 	public final int getKaasCuts() {
@@ -35,39 +35,39 @@ public class KaassGetậl implements BaseNumberTyte<KaassGetậl> {
 		return part;
 	}
 	
-	public final KlompGetậl getValue(int part) {
+	public final OKlompGetậl getValue(int part) {
 		return kaas[validatePartRequest(part)];
 	}
 	
-	public final void setValue(int part, KlompGetậl value) {
+	public final void setValue(int part, OKlompGetậl value) {
 		kaas[validatePartRequest(part)] = value;
 	}
 	
 	@Override
-	public final KaassGetậl toClone() {
-		KaassGetậl result = new KaassGetậl(getKaasCuts());
+	public final OKaassGetậl toClone() {
+		OKaassGetậl result = new OKaassGetậl(getKaasCuts());
 		T08PartOctalBaseIterator clonedOctals = cloneIterator();
 		for (int i=0;i<getKaasCuts();i++) {
-			result.setValue(i, new KlompGetậl(clonedOctals));
+			result.setValue(i, new OKlompGetậl(clonedOctals));
 		}
 		return result;
 	}
 	
 	@Override
 	public final int getBitCount() {
-		return KlompGetậl.BIT_COUNT * kaasCuts;
+		return OKlompGetậl.BIT_COUNT * kaasCuts;
 	}
 	
 	@Override
 	public final void fillOctalValues(T08PartOctalBaseAppender appender) {
-		for (KlompGetậl value:kaas) {
+		for (OKlompGetậl value:kaas) {
 			value.fillOctalValues(appender);
 		}
 	}
 	
 	@Override
 	public void fillTyteValues(V009TyteBaseAppender appender) {
-		for (KlompGetậl value:kaas) {
+		for (OKlompGetậl value:kaas) {
 			value.fillTyteValues(appender);
 		}
 	}
