@@ -11,14 +11,14 @@ import love.distributedrebirth.demo4d.base2t.V009TyteBaseAppender;
  * @author willemtsade ©Δ∞ 仙上主天
  * 
  */
-public class ŌṁKaassGetậl implements BaseNumberTyte<ŌṁKaassGetậl> {
+public class ŌṁKaassGetậl4D implements BaseNumberTyte<ŌṁKaassGetậl4D> {
 	
-	private ŌṁKlompGetậl[] kaas;
+	private ŌṁKlompGetậl4D[] kaas;
 	private final int kaasCuts;
 	
-	public ŌṁKaassGetậl(int kaasCuts) {
+	public ŌṁKaassGetậl4D(int kaasCuts) {
 		this.kaasCuts = kaasCuts;
-		this.kaas = new ŌṁKlompGetậl[kaasCuts];
+		this.kaas = new ŌṁKlompGetậl4D[kaasCuts];
 	}
 	
 	public final int getKaasCuts() {
@@ -35,39 +35,39 @@ public class ŌṁKaassGetậl implements BaseNumberTyte<ŌṁKaassGetậl> {
 		return part;
 	}
 	
-	public final ŌṁKlompGetậl getValue(int part) {
+	public final ŌṁKlompGetậl4D getValue(int part) {
 		return kaas[validatePartRequest(part)];
 	}
 	
-	public final void setValue(int part, ŌṁKlompGetậl value) {
+	public final void setValue(int part, ŌṁKlompGetậl4D value) {
 		kaas[validatePartRequest(part)] = value;
 	}
 	
 	@Override
-	public final ŌṁKaassGetậl toClone() {
-		ŌṁKaassGetậl result = new ŌṁKaassGetậl(getKaasCuts());
+	public final ŌṁKaassGetậl4D toClone() {
+		ŌṁKaassGetậl4D result = new ŌṁKaassGetậl4D(getKaasCuts());
 		T08PartOctalBaseIterator clonedOctals = cloneIterator();
 		for (int i=0;i<getKaasCuts();i++) {
-			result.setValue(i, new ŌṁKlompGetậl(clonedOctals));
+			result.setValue(i, new ŌṁKlompGetậl4D(clonedOctals));
 		}
 		return result;
 	}
 	
 	@Override
 	public final int getBitCount() {
-		return ŌṁKlompGetậl.BIT_COUNT * kaasCuts;
+		return ŌṁKlompGetậl4D.BIT_COUNT * kaasCuts;
 	}
 	
 	@Override
 	public final void fillOctalValues(T08PartOctalBaseAppender appender) {
-		for (ŌṁKlompGetậl value:kaas) {
+		for (ŌṁKlompGetậl4D value:kaas) {
 			value.fillOctalValues(appender);
 		}
 	}
 	
 	@Override
 	public void fillTyteValues(V009TyteBaseAppender appender) {
-		for (ŌṁKlompGetậl value:kaas) {
+		for (ŌṁKlompGetậl4D value:kaas) {
 			value.fillTyteValues(appender);
 		}
 	}

@@ -9,7 +9,7 @@ import love.distributedrebirth.demo4d.base2t.V654Triz;
 import love.distributedrebirth.demo4d.base2t.VCA8Tath;
 
 /**
- * Holds an 25920 bit value. (3240 bytes)
+ * Holds an 25920 bit value in stereo 4D. (3240 bytes)
  * 
  * 4 * VCA8Tath red
  * 4 * VCA8Tath blue
@@ -17,18 +17,18 @@ import love.distributedrebirth.demo4d.base2t.VCA8Tath;
  * @author willemtsade ©Δ∞ 仙上主天
  * 
  */
-public class ŌṁKlompGetậl implements BaseNumberTyte<ŌṁKlompGetậl> {
+public class ŌṁKlompGetậl4D implements BaseNumberTyte<ŌṁKlompGetậl4D> {
 
 	public static int BIT_COUNT = V654Triz.BIT_COUNT * T08PartOctal.LENGTH;
 	private final VCA8Tath[] values = new VCA8Tath[T08PartOctal.LENGTH];
 	
-	public ŌṁKlompGetậl() {
+	public ŌṁKlompGetậl4D() {
 		for (int i=0;i<T08PartOctal.LENGTH;i++) {
 			this.values[i] = new VCA8Tath();
 		}
 	}
 	
-	public ŌṁKlompGetậl(T08PartOctalBaseIterator values) {
+	public ŌṁKlompGetậl4D(T08PartOctalBaseIterator values) {
 		for (int i=0;i<T08PartOctal.LENGTH;i++) {
 			this.values[i] = new VCA8Tath(values);
 		}
@@ -48,8 +48,8 @@ public class ŌṁKlompGetậl implements BaseNumberTyte<ŌṁKlompGetậl> {
 	}
 	
 	@Override
-	public ŌṁKlompGetậl toClone() {
-		return new ŌṁKlompGetậl(cloneIterator());
+	public ŌṁKlompGetậl4D toClone() {
+		return new ŌṁKlompGetậl4D(cloneIterator());
 	}
 	
 	@Override

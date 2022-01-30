@@ -1,0 +1,24 @@
+package love.distributedrebirth.demo4d.numberxd;
+
+public class GroßGetậlŌṁGlyphDiamond1D extends GroßGetậlŌṁGlyph1D<GroßGetậlŌṁGlyphDiamond1D> {
+
+	// 0th = 1 * V144Tocta (1)
+	// 1th = 1+3 * V144Tocta (4)
+	// 2th = 1+3+6 * V144Tocta (10)
+	// 3th = 1+3+6+14 * V144Tocta (24)
+	// etc
+	
+	public GroßGetậlŌṁGlyphDiamond1D(byte level) {
+		super(level);
+	}
+	
+	protected int resolveFractalLevel(byte level) {
+		// TODO
+		return level;
+	}
+	
+	@Override
+	protected GroßGetậlŌṁGlyphDiamond1D toCloneFractal(byte level) {
+		return new GroßGetậlŌṁGlyphDiamond1D(level);
+	}
+}
