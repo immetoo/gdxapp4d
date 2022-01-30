@@ -1,37 +1,38 @@
 package love.distributedrebirth.demo4d.base2t;
 
 /**
+ * Holds an 72 bit value.
  * 
  * @author willemtsade ©Δ∞ 仙上主天
  * 
  */
-public final class V072Tong implements BaseNumberTyte<V072Tong> {
+public final class V048Tong implements BaseNumberTyte<V048Tong> {
 
-	public static int BIT_COUNT = V036Teger.BIT_COUNT * T02PartBinary.LENGTH;
-	private V036Teger[] values = new V036Teger[T02PartBinary.LENGTH];
+	public static int BIT_COUNT = V024Teger.BIT_COUNT * T02PartBinary.LENGTH;
+	private V024Teger[] values = new V024Teger[T02PartBinary.LENGTH];
 	
-	public V072Tong() {
-		this(new V036Teger(), new V036Teger());
+	public V048Tong() {
+		this(new V024Teger(), new V024Teger());
 	}
 	
-	public V072Tong(T08PartOctalBaseIterator values) {
-		this(new V036Teger(values), new V036Teger(values));
+	public V048Tong(T08PartOctalBaseIterator values) {
+		this(new V024Teger(values), new V024Teger(values));
 	}
 	
-	public V072Tong(V009TyteBaseIterator values) {
-		this(new V036Teger(values), new V036Teger(values));
+	public V048Tong(V009TyteBaseIterator values) {
+		this(new V024Teger(values), new V024Teger(values));
 	}
 	
-	private V072Tong(V036Teger valueHigh, V036Teger valueLow) {
+	private V048Tong(V024Teger valueHigh, V024Teger valueLow) {
 		setValue(T02PartBinary.PART_1, valueHigh);
 		setValue(T02PartBinary.PART_2, valueLow);
 	}
 	
-	public V036Teger getValue(T02PartBinary part) {
+	public V024Teger getValue(T02PartBinary part) {
 		return values[part.ordinal()];
 	}
 	
-	public void setValue(T02PartBinary part, V036Teger value) {
+	public void setValue(T02PartBinary part, V024Teger value) {
 		values[part.ordinal()] = value;
 	}
 	
@@ -53,8 +54,8 @@ public final class V072Tong implements BaseNumberTyte<V072Tong> {
 	}
 	
 	@Override
-	public V072Tong toClone() {
-		return new V072Tong(cloneIterator());
+	public V048Tong toClone() {
+		return new V048Tong(cloneIterator());
 	}
 	
 	@Override

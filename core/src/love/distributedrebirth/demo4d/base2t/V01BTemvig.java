@@ -1,28 +1,29 @@
 package love.distributedrebirth.demo4d.base2t;
 
 /**
+ * Holds an 27 bit value.
  * 
  * @author willemtsade ©Δ∞ 仙上主天
  * 
  */
-public final class V027Temvig implements BaseNumberTyte<V027Temvig> {
+public final class V01BTemvig implements BaseNumberTyte<V01BTemvig> {
 
 	public static int BIT_COUNT = V009Tyte.BIT_COUNT * T03PartTrit.LENGTH;
 	private V009Tyte[] values = new V009Tyte[T03PartTrit.LENGTH];
 	
-	public V027Temvig() {
+	public V01BTemvig() {
 		this(new V009Tyte(), new V009Tyte(), new V009Tyte());
 	}
 	
-	public V027Temvig(T08PartOctalBaseIterator values) {
+	public V01BTemvig(T08PartOctalBaseIterator values) {
 		this(new V009Tyte(values), new V009Tyte(values), new V009Tyte(values));
 	}
 	
-	public V027Temvig(V009TyteBaseIterator values) {
+	public V01BTemvig(V009TyteBaseIterator values) {
 		this(values.next(), values.next(), values.next());
 	}
 	
-	private V027Temvig(V009Tyte valueHigh, V009Tyte valueMedium, V009Tyte valueLow) {
+	private V01BTemvig(V009Tyte valueHigh, V009Tyte valueMedium, V009Tyte valueLow) {
 		setValue(T03PartTrit.PART_1, valueHigh);
 		setValue(T03PartTrit.PART_2, valueMedium);
 		setValue(T03PartTrit.PART_3, valueLow);
@@ -42,8 +43,8 @@ public final class V027Temvig implements BaseNumberTyte<V027Temvig> {
 	}
 	
 	@Override
-	public V027Temvig toClone() {
-		return new V027Temvig(cloneIterator());
+	public V01BTemvig toClone() {
+		return new V01BTemvig(cloneIterator());
 	}
 	
 	@Override

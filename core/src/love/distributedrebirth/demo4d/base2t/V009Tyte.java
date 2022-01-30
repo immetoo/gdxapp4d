@@ -1,6 +1,7 @@
 package love.distributedrebirth.demo4d.base2t;
 
 /**
+ * Holds an 9 bit value.
  * 
  * @author willemtsade ©Δ∞ 仙上主天
  * 

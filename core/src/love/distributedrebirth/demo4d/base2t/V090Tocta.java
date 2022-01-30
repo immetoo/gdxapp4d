@@ -1,37 +1,38 @@
 package love.distributedrebirth.demo4d.base2t;
 
 /**
+ * Holds an 144 bit value.
  * 
  * @author willemtsade ©Δ∞ 仙上主天
  * 
  */
-public final class V144Tocta implements BaseNumberTyte<V144Tocta> {
+public final class V090Tocta implements BaseNumberTyte<V090Tocta> {
 
-	public static int BIT_COUNT = V072Tong.BIT_COUNT * T02PartBinary.LENGTH;
-	private V072Tong[] values = new V072Tong[T02PartBinary.LENGTH];
+	public static int BIT_COUNT = V048Tong.BIT_COUNT * T02PartBinary.LENGTH;
+	private V048Tong[] values = new V048Tong[T02PartBinary.LENGTH];
 	
-	public V144Tocta() {
-		this(new V072Tong(), new V072Tong());
+	public V090Tocta() {
+		this(new V048Tong(), new V048Tong());
 	}
 	
-	public V144Tocta(T08PartOctalBaseIterator values) {
-		this(new V072Tong(values), new V072Tong(values));
+	public V090Tocta(T08PartOctalBaseIterator values) {
+		this(new V048Tong(values), new V048Tong(values));
 	}
 	
-	public V144Tocta(V009TyteBaseIterator values) {
-		this(new V072Tong(values), new V072Tong(values));
+	public V090Tocta(V009TyteBaseIterator values) {
+		this(new V048Tong(values), new V048Tong(values));
 	}
 	
-	private V144Tocta(V072Tong valueHigh, V072Tong valueLow) {
+	private V090Tocta(V048Tong valueHigh, V048Tong valueLow) {
 		setValue(T02PartBinary.PART_1, valueHigh);
 		setValue(T02PartBinary.PART_2, valueLow);
 	}
 	
-	public V072Tong getValue(T02PartBinary part) {
+	public V048Tong getValue(T02PartBinary part) {
 		return values[part.ordinal()];
 	}
 	
-	public void setValue(T02PartBinary part, V072Tong value) {
+	public void setValue(T02PartBinary part, V048Tong value) {
 		values[part.ordinal()] = value;
 	}
 	
@@ -49,13 +50,13 @@ public final class V144Tocta implements BaseNumberTyte<V144Tocta> {
 		.setValue(part.splitPartBinary(T04PartQuad.PART_4), value);
 	}
 	
-	public V018Tord getTordPart(T08PartOctal part) {
+	public V012Tord getTordPart(T08PartOctal part) {
 		return getValue(part.splitPartBinary(T03PartTrit.PART_1))
 			.getValue(part.splitPartBinary(T03PartTrit.PART_2))
 			.getValue(part.splitPartBinary(T03PartTrit.PART_3));
 	}
 	
-	public void setTordPart(T08PartOctal part, V018Tord value) {
+	public void setTordPart(T08PartOctal part, V012Tord value) {
 		getValue(part.splitPartBinary(T03PartTrit.PART_1))
 		.getValue(part.splitPartBinary(T03PartTrit.PART_2))
 		.setValue(part.splitPartBinary(T03PartTrit.PART_3), value);
@@ -67,8 +68,8 @@ public final class V144Tocta implements BaseNumberTyte<V144Tocta> {
 	}
 	
 	@Override
-	public V144Tocta toClone() {
-		return new V144Tocta(cloneIterator());
+	public V090Tocta toClone() {
+		return new V090Tocta(cloneIterator());
 	}
 	
 	@Override

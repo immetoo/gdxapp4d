@@ -1,28 +1,29 @@
 package love.distributedrebirth.demo4d.base2t;
 
 /**
+ * Holds an 18 bit value.
  * 
  * @author willemtsade ©Δ∞ 仙上主天
  * 
  */
-public final class V018Tord implements BaseNumberTyte<V018Tord> {
+public final class V012Tord implements BaseNumberTyte<V012Tord> {
 
 	public static int BIT_COUNT = V009Tyte.BIT_COUNT * T02PartBinary.LENGTH;
 	private V009Tyte[] values = new V009Tyte[T02PartBinary.LENGTH];
 	
-	public V018Tord() {
+	public V012Tord() {
 		this(new V009Tyte(), new V009Tyte());
 	}
 	
-	public V018Tord(T08PartOctalBaseIterator values) {
+	public V012Tord(T08PartOctalBaseIterator values) {
 		this(new V009Tyte(values), new V009Tyte(values));
 	}
 	
-	public V018Tord(V009TyteBaseIterator values) {
+	public V012Tord(V009TyteBaseIterator values) {
 		this(values.next(), values.next());
 	}
 	
-	private V018Tord(V009Tyte valueHigh, V009Tyte valueLow) {
+	private V012Tord(V009Tyte valueHigh, V009Tyte valueLow) {
 		setValue(T02PartBinary.PART_1, valueHigh);
 		setValue(T02PartBinary.PART_2, valueLow);
 	}
@@ -49,8 +50,8 @@ public final class V018Tord implements BaseNumberTyte<V018Tord> {
 	}
 	
 	@Override
-	public V018Tord toClone() {
-		return new V018Tord(cloneIterator());
+	public V012Tord toClone() {
+		return new V012Tord(cloneIterator());
 	}
 	
 	@Override

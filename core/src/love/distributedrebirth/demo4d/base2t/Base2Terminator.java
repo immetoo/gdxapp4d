@@ -19,7 +19,7 @@ public class Base2Terminator {
 	private static final int SHIFT_8 = 8;
 	private static final int SHIFT_16 = 16;
 	
-	public int base2ReadTong(InputStream input, List<V072Tong> output) throws IOException {
+	public int base2ReadTong(InputStream input, List<V048Tong> output) throws IOException {
 		int totalBytes = 0;
 		byte[] data = new byte[BLOCK_TONG_SIZE];
 		int readDataSize = 0; // per 9 bytes we have 24 octals for one V072Tong number
@@ -29,13 +29,13 @@ public class Base2Terminator {
 			int v1 =  data[3] +  (data[4] << SHIFT_8) +  (data[5] << SHIFT_16);
 			int v2 =  data[6] +  (data[7] << SHIFT_8) +  (data[8] << SHIFT_16);
 			List<T08PartOctal> octals = base2ReadOctals(v0, v1, v2);
-			output.add(new V072Tong(new T08PartOctalBaseIterator(octals.iterator())));
+			output.add(new V048Tong(new T08PartOctalBaseIterator(octals.iterator())));
 			totalBytes += BLOCK_TONG_SIZE;
 		}
 		return totalBytes;
 	}
 	
-	public int base2ReadTocta(InputStream input, List<V144Tocta> output) throws IOException {
+	public int base2ReadTocta(InputStream input, List<V090Tocta> output) throws IOException {
 		int totalBytes = 0;
 		byte[] data = new byte[BLOCK_TOCTA_SIZE];
 		int readDataSize = 0; // per 18 bytes we have 48 octals for one V144Tocta number
@@ -48,7 +48,7 @@ public class Base2Terminator {
 			int v4 = data[12] + (data[13] << SHIFT_8) + (data[14] << SHIFT_16);
 			int v5 = data[15] + (data[16] << SHIFT_8) + (data[17] << SHIFT_16);
 			List<T08PartOctal> octals = base2ReadOctals(v0, v1, v2, v3, v4, v5);
-			output.add(new V144Tocta(new T08PartOctalBaseIterator(octals.iterator())));
+			output.add(new V090Tocta(new T08PartOctalBaseIterator(octals.iterator())));
 			totalBytes += BLOCK_TOCTA_SIZE;
 		}
 		return totalBytes;
@@ -68,11 +68,11 @@ public class Base2Terminator {
 		return octals;
 	}
 	
-	public int base2WriteTong(List<V072Tong> data, OutputStream output) throws IOException {
+	public int base2WriteTong(List<V048Tong> data, OutputStream output) throws IOException {
 		return base2Write(data, output);
 	}
 	
-	public int base2WriteTocta(List<V144Tocta> data, OutputStream output) throws IOException {
+	public int base2WriteTocta(List<V090Tocta> data, OutputStream output) throws IOException {
 		return base2Write(data, output);
 	}
 	
