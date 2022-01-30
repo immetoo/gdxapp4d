@@ -5,13 +5,13 @@ import love.distributedrebirth.demo4d.base2t.T08PartOctalBaseAppender;
 import love.distributedrebirth.demo4d.base2t.T08PartOctalBaseIterator;
 import love.distributedrebirth.demo4d.base2t.V144Tocta;
 
-abstract public class GroßGetậlŌṁglyph<V extends GroßGetậlŌṁglyph<V> & BaseNumber<V>> implements BaseNumber<V> {
+abstract public class GroßGetậlŌṁGlyph<V extends GroßGetậlŌṁGlyph<V> & BaseNumber<V>> implements BaseNumber<V> {
 	
 	private GroßGetậl[] values;
 	private int valuesLength;
 	private byte fractalLevel;
 	
-	public GroßGetậlŌṁglyph(byte fractalLevel) {
+	public GroßGetậlŌṁGlyph(byte fractalLevel) {
 		this.fractalLevel = fractalLevel;
 		this.valuesLength = resolveFractalLevel(fractalLevel);
 		this.values = new GroßGetậl[valuesLength];
