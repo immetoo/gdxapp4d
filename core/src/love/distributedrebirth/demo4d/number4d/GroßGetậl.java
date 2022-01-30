@@ -1,4 +1,4 @@
-package love.distributedrebirth.demo4d.fraction4d;
+package love.distributedrebirth.demo4d.number4d;
 
 import java.util.ArrayList;
 import java.util.List;

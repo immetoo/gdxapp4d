@@ -1,4 +1,4 @@
-package love.distributedrebirth.demo4d.fraction4d;
+package love.distributedrebirth.demo4d.number4d;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,24 +13,24 @@ import love.distributedrebirth.demo4d.base2t.V024Teger;
  */
 public class Gê̄ldGetậl {
 
-	private final Gê̄ldGetậlHebrew nummerAlphabet;
-	private final Gê̄ldGetậlHebrew nummerDeelA;
-	private final Gê̄ldGetậlHebrew nummerDeelB;
-	private final Gê̄ldGetậlHebrew nummerDeelC;
+	private final Gê̄ldGetậlAtHebrew nummerAlphabet;
+	private final Gê̄ldGetậlAtHebrew nummerDeelA;
+	private final Gê̄ldGetậlAtHebrew nummerDeelB;
+	private final Gê̄ldGetậlAtHebrew nummerDeelC;
 	private final double totalDecimalValue;
 	private static final Character LEFT_TO_RIGHT_MARK = 0x200E;
 	private static final Character RIGHT_TO_LEFT_MARK = 0x200F;
 	
 	public Gê̄ldGetậl(V024Teger teger) {
 		this(
-				new Gê̄ldGetậlHebrew(teger.getTytePart(T04PartQuad.PART_1)),
-				new Gê̄ldGetậlHebrew(teger.getTytePart(T04PartQuad.PART_2)),
-				new Gê̄ldGetậlHebrew(teger.getTytePart(T04PartQuad.PART_3)),
-				new Gê̄ldGetậlHebrew(teger.getTytePart(T04PartQuad.PART_4))
+				new Gê̄ldGetậlAtHebrew(teger.getTytePart(T04PartQuad.PART_1)),
+				new Gê̄ldGetậlAtHebrew(teger.getTytePart(T04PartQuad.PART_2)),
+				new Gê̄ldGetậlAtHebrew(teger.getTytePart(T04PartQuad.PART_3)),
+				new Gê̄ldGetậlAtHebrew(teger.getTytePart(T04PartQuad.PART_4))
 			);
 	}
 	
-	public Gê̄ldGetậl(Gê̄ldGetậlHebrew nummerAlphabet, Gê̄ldGetậlHebrew nummerDeelA, Gê̄ldGetậlHebrew nummerDeelB, Gê̄ldGetậlHebrew nummerDeelC) {
+	public Gê̄ldGetậl(Gê̄ldGetậlAtHebrew nummerAlphabet, Gê̄ldGetậlAtHebrew nummerDeelA, Gê̄ldGetậlAtHebrew nummerDeelB, Gê̄ldGetậlAtHebrew nummerDeelC) {
 		this.nummerAlphabet = nummerAlphabet;
 		this.nummerDeelA = nummerDeelA;
 		this.nummerDeelB = nummerDeelB;
@@ -48,9 +48,9 @@ public class Gê̄ldGetậl {
 		if (money.length() > 8) { // RL + 4 chars + 3 vowels
 			throw new IllegalArgumentException("Money length should not exceed 8 codepoints");
 		}
-		List<Gê̄ldGetậlHebrew> result = new ArrayList<>();
+		List<Gê̄ldGetậlAtHebrew> result = new ArrayList<>();
 		
-		Gê̄ldGetậlHebrew geldDigit = null;
+		Gê̄ldGetậlAtHebrew geldDigit = null;
 		for (int i=0;i<money.length();i++) {
 			char codePoint = (char) money.codePointAt(i);
 			if (LEFT_TO_RIGHT_MARK.equals(codePoint)) {
@@ -60,8 +60,8 @@ public class Gê̄ldGetậl {
 				continue;
 			}
 			if (geldDigit != null) {
-				Gê̄ldGetậlHebrewVowel vowel = Gê̄ldGetậlHebrewVowel.valueOfCharacter(codePoint);
-				if (!Gê̄ldGetậlHebrewVowel.NONE.equals(vowel)) {
+				Gê̄ldGetậlAtHebrewVowel vowel = Gê̄ldGetậlAtHebrewVowel.valueOfCharacter(codePoint);
+				if (!Gê̄ldGetậlAtHebrewVowel.NONE.equals(vowel)) {
 					geldDigit.setVowel(vowel);
 					result.add(geldDigit);
 					geldDigit = null;
@@ -70,11 +70,11 @@ public class Gê̄ldGetậl {
 					result.add(geldDigit);
 				}
 			}
-			Gê̄ldGetậlHebrewLetter letter = Gê̄ldGetậlHebrewLetter.valueOfCharacter(codePoint);
-			if (Gê̄ldGetậlHebrewLetter.NONE.equals(letter)) {
+			Gê̄ldGetậlAtHebrewLetter letter = Gê̄ldGetậlAtHebrewLetter.valueOfCharacter(codePoint);
+			if (Gê̄ldGetậlAtHebrewLetter.NONE.equals(letter)) {
 				throw new IllegalArgumentException("Unknown fraction codepoint: 0x"+Integer.toHexString(codePoint));
 			}
-			geldDigit = new Gê̄ldGetậlHebrew(letter);
+			geldDigit = new Gê̄ldGetậlAtHebrew(letter);
 		}
 		if (geldDigit != null) {
 			result.add(geldDigit);
@@ -83,24 +83,24 @@ public class Gê̄ldGetậl {
 		if (result.isEmpty()) {
 			throw new IllegalArgumentException("No hebrew money found");
 		}
-		Gê̄ldGetậlHebrew full = result.get(0);
-		Gê̄ldGetậlHebrew deelA = null;
-		Gê̄ldGetậlHebrew deelB = null;
-		Gê̄ldGetậlHebrew deelC = null;
+		Gê̄ldGetậlAtHebrew full = result.get(0);
+		Gê̄ldGetậlAtHebrew deelA = null;
+		Gê̄ldGetậlAtHebrew deelB = null;
+		Gê̄ldGetậlAtHebrew deelC = null;
 		if (result.size() > 1) {
 			deelA = result.get(1);
 		} else {
-			deelA = new Gê̄ldGetậlHebrew();
+			deelA = new Gê̄ldGetậlAtHebrew();
 		}
 		if (result.size() > 2) {
 			deelB = result.get(2);
 		} else {
-			deelB = new Gê̄ldGetậlHebrew();
+			deelB = new Gê̄ldGetậlAtHebrew();
 		}
 		if (result.size() > 3) {
 			deelC = result.get(3);
 		} else {
-			deelC = new Gê̄ldGetậlHebrew();
+			deelC = new Gê̄ldGetậlAtHebrew();
 		}
 		this.nummerAlphabet = full;
 		this.nummerDeelA = deelA;
@@ -111,35 +111,35 @@ public class Gê̄ldGetậl {
 	
 	private double calculateDecimalValue() {
 		boolean hasFourDigits = 
-				!Gê̄ldGetậlHebrewLetter.NONE.equals(nummerDeelA.getLetter()) && 
-				!Gê̄ldGetậlHebrewLetter.NONE.equals(nummerDeelB.getLetter()) &&
-				!Gê̄ldGetậlHebrewLetter.NONE.equals(nummerDeelC.getLetter());
+				!Gê̄ldGetậlAtHebrewLetter.NONE.equals(nummerDeelA.getLetter()) && 
+				!Gê̄ldGetậlAtHebrewLetter.NONE.equals(nummerDeelB.getLetter()) &&
+				!Gê̄ldGetậlAtHebrewLetter.NONE.equals(nummerDeelC.getLetter());
 		double totalDecimalValue = nummerAlphabet.toDecimalValue(hasFourDigits);
-		if (!Gê̄ldGetậlHebrewLetter.NONE.equals(nummerDeelA.getLetter())) {
+		if (!Gê̄ldGetậlAtHebrewLetter.NONE.equals(nummerDeelA.getLetter())) {
 			totalDecimalValue += nummerDeelA.toDecimalValue(false);
 		}
-		if (!Gê̄ldGetậlHebrewLetter.NONE.equals(nummerDeelB.getLetter())) {
+		if (!Gê̄ldGetậlAtHebrewLetter.NONE.equals(nummerDeelB.getLetter())) {
 			totalDecimalValue += nummerDeelB.toDecimalValue(false);
 		}
-		if (!Gê̄ldGetậlHebrewLetter.NONE.equals(nummerDeelC.getLetter())) {
+		if (!Gê̄ldGetậlAtHebrewLetter.NONE.equals(nummerDeelC.getLetter())) {
 			totalDecimalValue += nummerDeelC.toDecimalValue(false);
 		}
 		return totalDecimalValue;
 	}
 	
-	public Gê̄ldGetậlHebrew getNummerAlphabet() {
+	public Gê̄ldGetậlAtHebrew getNummerAlphabet() {
 		return nummerAlphabet;
 	}
 	
-	public Gê̄ldGetậlHebrew getNummerDeelA() {
+	public Gê̄ldGetậlAtHebrew getNummerDeelA() {
 		return nummerDeelA;
 	}
 	
-	public Gê̄ldGetậlHebrew getNummerDeelB() {
+	public Gê̄ldGetậlAtHebrew getNummerDeelB() {
 		return nummerDeelB;
 	}
 	
-	public Gê̄ldGetậlHebrew getNummerDeelC() {
+	public Gê̄ldGetậlAtHebrew getNummerDeelC() {
 		return nummerDeelC;
 	}
 	
@@ -164,24 +164,24 @@ public class Gê̄ldGetậl {
 		StringBuilder buf = new StringBuilder();
 		buf.append(RIGHT_TO_LEFT_MARK);
 		buf.append(nummerAlphabet.getLetter().getCharacter());
-		if (!Gê̄ldGetậlHebrewVowel.NONE.equals(nummerAlphabet.getVowel())) {
+		if (!Gê̄ldGetậlAtHebrewVowel.NONE.equals(nummerAlphabet.getVowel())) {
 			buf.append(nummerAlphabet.getVowel().getCharacter());
 		}
-		if (!Gê̄ldGetậlHebrewLetter.NONE.equals(nummerDeelA.getLetter())) {
+		if (!Gê̄ldGetậlAtHebrewLetter.NONE.equals(nummerDeelA.getLetter())) {
 			buf.append(nummerDeelA.getLetter().getCharacter());
-			if (!Gê̄ldGetậlHebrewVowel.NONE.equals(nummerDeelA.getVowel())) {
+			if (!Gê̄ldGetậlAtHebrewVowel.NONE.equals(nummerDeelA.getVowel())) {
 				buf.append(nummerDeelA.getVowel().getCharacter());
 			}
 		}
-		if (!Gê̄ldGetậlHebrewLetter.NONE.equals(nummerDeelB.getLetter())) {
+		if (!Gê̄ldGetậlAtHebrewLetter.NONE.equals(nummerDeelB.getLetter())) {
 			buf.append(nummerDeelB.getLetter().getCharacter());
-			if (!Gê̄ldGetậlHebrewVowel.NONE.equals(nummerDeelB.getVowel())) {
+			if (!Gê̄ldGetậlAtHebrewVowel.NONE.equals(nummerDeelB.getVowel())) {
 				buf.append(nummerDeelB.getVowel().getCharacter());
 			}
 		}
-		if (!Gê̄ldGetậlHebrewLetter.NONE.equals(nummerDeelC.getLetter())) {
+		if (!Gê̄ldGetậlAtHebrewLetter.NONE.equals(nummerDeelC.getLetter())) {
 			buf.append(nummerDeelC.getLetter().getCharacter());
-			if (!Gê̄ldGetậlHebrewVowel.NONE.equals(nummerDeelC.getVowel())) {
+			if (!Gê̄ldGetậlAtHebrewVowel.NONE.equals(nummerDeelC.getVowel())) {
 				buf.append(nummerDeelC.getVowel().getCharacter());
 			}
 		}

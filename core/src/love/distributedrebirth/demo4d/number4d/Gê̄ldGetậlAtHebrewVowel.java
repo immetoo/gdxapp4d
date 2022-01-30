@@ -1,4 +1,4 @@
-package love.distributedrebirth.demo4d.fraction4d;
+package love.distributedrebirth.demo4d.number4d;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
  * @author willemtsade ©Δ∞ 仙上主天
  * 
  */
-public enum Gê̄ldGetậlHebrewVowel {
+public enum Gê̄ldGetậlAtHebrewVowel {
 	NONE     (0,  (char) 0x0000),
 	VOWEL_1  (1,  (char) 0x05B4),
 	VOWEL_2  (2,  (char) 0x05B5),
@@ -33,10 +33,10 @@ public enum Gê̄ldGetậlHebrewVowel {
 	private final int fractionOffset;
 	private final char character;
 	
-	private static final Map<Character, Gê̄ldGetậlHebrewVowel> CHAR_MAP = Collections.unmodifiableMap(
+	private static final Map<Character, Gê̄ldGetậlAtHebrewVowel> CHAR_MAP = Collections.unmodifiableMap(
 			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getCharacter(), v -> v)));
 	
-	private Gê̄ldGetậlHebrewVowel(int fractionOffset, char character) {
+	private Gê̄ldGetậlAtHebrewVowel(int fractionOffset, char character) {
 		this.fractionOffset = fractionOffset;
 		this.character = character;
 	}
@@ -49,11 +49,11 @@ public enum Gê̄ldGetậlHebrewVowel {
 		return character;
 	}
 	
-	public static Gê̄ldGetậlHebrewVowel indexOf(int index) {
+	public static Gê̄ldGetậlAtHebrewVowel indexOf(int index) {
 		return values()[index & BITMASK];
 	}
 	
-	public static Gê̄ldGetậlHebrewVowel valueOfCharacter(char codePoint) {
-		return CHAR_MAP.getOrDefault(codePoint, Gê̄ldGetậlHebrewVowel.NONE);
+	public static Gê̄ldGetậlAtHebrewVowel valueOfCharacter(char codePoint) {
+		return CHAR_MAP.getOrDefault(codePoint, Gê̄ldGetậlAtHebrewVowel.NONE);
 	}
 }

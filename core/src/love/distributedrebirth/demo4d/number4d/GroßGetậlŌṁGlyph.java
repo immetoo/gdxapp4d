@@ -1,4 +1,4 @@
-package love.distributedrebirth.demo4d.fraction4d;
+package love.distributedrebirth.demo4d.number4d;
 
 import love.distributedrebirth.demo4d.base2t.BaseNumber;
 import love.distributedrebirth.demo4d.base2t.T08PartOctalBaseAppender;

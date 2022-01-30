@@ -1,4 +1,4 @@
-package love.distributedrebirth.demo4d.fraction4d;
+package love.distributedrebirth.demo4d.number4d;
 
 import love.distributedrebirth.demo4d.base2t.BaseNumberTyte;
 import love.distributedrebirth.demo4d.base2t.T08PartOctal;
@@ -17,18 +17,18 @@ import love.distributedrebirth.demo4d.base2t.VCA8Tath;
  * @author willemtsade ©Δ∞ 仙上主天
  * 
  */
-public class OKlompGetậl implements BaseNumberTyte<OKlompGetậl> {
+public class ŌṁKlompGetậl implements BaseNumberTyte<ŌṁKlompGetậl> {
 
 	public static int BIT_COUNT = V654Triz.BIT_COUNT * T08PartOctal.LENGTH;
 	private final VCA8Tath[] values = new VCA8Tath[T08PartOctal.LENGTH];
 	
-	public OKlompGetậl() {
+	public ŌṁKlompGetậl() {
 		for (int i=0;i<T08PartOctal.LENGTH;i++) {
 			this.values[i] = new VCA8Tath();
 		}
 	}
 	
-	public OKlompGetậl(T08PartOctalBaseIterator values) {
+	public ŌṁKlompGetậl(T08PartOctalBaseIterator values) {
 		for (int i=0;i<T08PartOctal.LENGTH;i++) {
 			this.values[i] = new VCA8Tath(values);
 		}
@@ -48,8 +48,8 @@ public class OKlompGetậl implements BaseNumberTyte<OKlompGetậl> {
 	}
 	
 	@Override
-	public OKlompGetậl toClone() {
-		return new OKlompGetậl(cloneIterator());
+	public ŌṁKlompGetậl toClone() {
+		return new ŌṁKlompGetậl(cloneIterator());
 	}
 	
 	@Override

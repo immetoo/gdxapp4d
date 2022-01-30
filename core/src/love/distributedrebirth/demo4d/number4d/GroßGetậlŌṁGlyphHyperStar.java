@@ -1,4 +1,4 @@
-package love.distributedrebirth.demo4d.fraction4d;
+package love.distributedrebirth.demo4d.number4d;
 
 public class GroßGetậlŌṁGlyphHyperStar extends GroßGetậlŌṁGlyph<GroßGetậlŌṁGlyphHyperStar> {
 
