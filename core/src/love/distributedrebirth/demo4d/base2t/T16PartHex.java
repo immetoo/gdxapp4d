@@ -7,43 +7,49 @@ import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 /**
- * 
+ * The distribution by 16.
  * @author willemtsade ©Δ∞ 仙上主天
  * 
  */
 public enum T16PartHex implements BasePartIdentifierAlt {
 
-	PART_1 ("˧˥˩","0","1"),
-	PART_2 ("˧˩˥","1","2"),
-	PART_3 ("˧˥˦","2","3"),
-	PART_4 ("˧˩˨","3","A"),
-	PART_5 ("˧˦˦","4","4"),
-	PART_6 ("˧˨˨","5","5"),
-	PART_7 ("˧˥˥","6","6"),
-	PART_8 ("˧˩˩","7","B"),
-	PART_9 ("˥˩˧","8","7"),
-	PART_10("˩˥˧","9","8"),
-	PART_11("˥˦˧","A","9"),
-	PART_12("˩˨˧","B","C"),
-	PART_13("˦˦˧","C","*"),
-	PART_14("˨˨˧","D","0"),
-	PART_15("˥˥˧","E","#"),
-	PART_16("˩˩˧","F","D"),
+	PART_1 ("˧˥˩","0","氫","hydrogen","1"),
+	PART_2 ("˧˩˥","1","氦","helium","2"),
+	PART_3 ("˧˥˦","2","鋰","lithium","3"),
+	PART_4 ("˧˩˨","3","鈹","beryllium","A"),
+	PART_5 ("˧˦˦","4","硼","boron","4"),
+	PART_6 ("˧˨˨","5","碳","carbon","5"),
+	PART_7 ("˧˥˥","6","氮","nitrogen","6"),
+	PART_8 ("˧˩˩","7","氧","oxygen","B"),
+	PART_9 ("˥˩˧","8","氟","fluorine","7"),
+	PART_10("˩˥˧","9","氖","neon","8"),
+	PART_11("˥˦˧","A","鈉","sodium","9"),
+	PART_12("˩˨˧","B","鎂","magnesium","C"),
+	PART_13("˦˦˧","C","鋁","aluminium","*"),
+	PART_14("˨˨˧","D","矽","silicon","0"),
+	PART_15("˥˥˧","E","磷","phosphorus","#"),
+	PART_16("˩˩˧","F","硫","sulfur","D"),
 	;
 	
 	public static int LENGTH = 16;
 	private final String identifierTone;
 	private final String identifierLetter;
+	private final String chinaKey;
+	private final String chinaValue;
 	private final String identifierAlt;
 	
 	private static final Map<String, T16PartHex> TONE_MAP = Collections.unmodifiableMap(
 			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getIdentifierTone(), v -> v)));
+	private static final Map<String, T16PartHex> CHINA_MAP = Collections.unmodifiableMap(
+			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getChinaKey(), v -> v)));
 	private static final BasePartIdentifierAltInfo ALT_INFO = new BasePartIdentifierAltInfo(
 			"Dual-tone multi-frequency signaling","https://en.wikipedia.org/wiki/Dual-tone_multi-frequency_signaling");
 	
-	private T16PartHex(String identifierTone, String identifierLetter, String identifierAlt) {
+	private T16PartHex(String identifierTone, String identifierLetter, String chinaKey, String chinaValue, String identifierAlt) {
 		this.identifierTone = identifierTone;
 		this.identifierLetter = identifierLetter;
+		this.chinaKey = chinaKey;
+		this.chinaValue = chinaValue;
 		this.identifierAlt = identifierAlt;
 	}
 	
@@ -55,6 +61,16 @@ public enum T16PartHex implements BasePartIdentifierAlt {
 	@Override
 	public String getIdentifierLetter() {
 		return identifierLetter;
+	}
+	
+	@Override
+	public String getChinaKey() {
+		return chinaKey;
+	}
+	
+	@Override
+	public String getChinaValue() {
+		return chinaValue;
 	}
 	
 	@Override
@@ -79,5 +95,9 @@ public enum T16PartHex implements BasePartIdentifierAlt {
 	
 	public static T16PartHex valueOfTone(String identifierTone) {
 		return TONE_MAP.get(identifierTone);
+	}
+	
+	public static T16PartHex valueOfChina(String chinaKey) {
+		return CHINA_MAP.get(chinaKey);
 	}
 }

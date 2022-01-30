@@ -22,7 +22,7 @@ public final class V018Tord implements BaseNumberTyte<V018Tord> {
 		this(values.next(), values.next());
 	}
 	
-	public V018Tord(V009Tyte valueHigh, V009Tyte valueLow) {
+	private V018Tord(V009Tyte valueHigh, V009Tyte valueLow) {
 		setValue(T02PartBinary.PART_1, valueHigh);
 		setValue(T02PartBinary.PART_2, valueLow);
 	}

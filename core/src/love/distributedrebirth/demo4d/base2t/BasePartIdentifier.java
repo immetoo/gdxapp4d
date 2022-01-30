@@ -7,7 +7,13 @@ package love.distributedrebirth.demo4d.base2t;
  */
 public interface BasePartIdentifier {
 
+	int ordinal();
+	
 	String getIdentifierTone();
 	
 	String getIdentifierLetter();
+	
+	String getChinaKey();
+	
+	String getChinaValue();
 }

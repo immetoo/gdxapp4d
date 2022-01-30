@@ -22,7 +22,7 @@ public final class V144Tocta implements BaseNumberTyte<V144Tocta> {
 		this(new V072Tong(values), new V072Tong(values));
 	}
 	
-	public V144Tocta(V072Tong valueHigh, V072Tong valueLow) {
+	private V144Tocta(V072Tong valueHigh, V072Tong valueLow) {
 		setValue(T02PartBinary.PART_1, valueHigh);
 		setValue(T02PartBinary.PART_2, valueLow);
 	}

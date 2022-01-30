@@ -18,7 +18,7 @@ public final class V006Tixte implements BaseNumber<V006Tixte> {
 		this(new V003Timble(values), new V003Timble(values));
 	}
 	
-	public V006Tixte(V003Timble valueHigh, V003Timble valueLow) {
+	private V006Tixte(V003Timble valueHigh, V003Timble valueLow) {
 		setValue(T02PartBinary.PART_1, valueHigh);
 		setValue(T02PartBinary.PART_2, valueLow);
 	}

@@ -22,7 +22,7 @@ public final class V072Tong implements BaseNumberTyte<V072Tong> {
 		this(new V036Teger(values), new V036Teger(values));
 	}
 	
-	public V072Tong(V036Teger valueHigh, V036Teger valueLow) {
+	private V072Tong(V036Teger valueHigh, V036Teger valueLow) {
 		setValue(T02PartBinary.PART_1, valueHigh);
 		setValue(T02PartBinary.PART_2, valueLow);
 	}

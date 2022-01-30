@@ -22,7 +22,7 @@ public final class V009Tyte implements BaseNumberTyte<V009Tyte> {
 		this(new V003Timble(valueHigh), new V003Timble(valueMedium), new V003Timble(valueLow));
 	}
 	
-	public V009Tyte(V003Timble valueHigh, V003Timble valueMedium, V003Timble valueLow) {
+	private V009Tyte(V003Timble valueHigh, V003Timble valueMedium, V003Timble valueLow) {
 		setValue(T03PartTrit.PART_1, valueHigh);
 		setValue(T03PartTrit.PART_2, valueMedium);
 		setValue(T03PartTrit.PART_3, valueLow);

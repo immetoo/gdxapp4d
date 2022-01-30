@@ -22,7 +22,7 @@ public final class V036Teger implements BaseNumberTyte<V036Teger> {
 		this(new V018Tord(values), new V018Tord(values));
 	}
 	
-	public V036Teger(V018Tord valueHigh, V018Tord valueLow) {
+	private V036Teger(V018Tord valueHigh, V018Tord valueLow) {
 		setValue(T02PartBinary.PART_1, valueHigh);
 		setValue(T02PartBinary.PART_2, valueLow);
 	}

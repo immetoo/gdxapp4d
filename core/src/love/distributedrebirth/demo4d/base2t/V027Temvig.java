@@ -22,7 +22,7 @@ public final class V027Temvig implements BaseNumberTyte<V027Temvig> {
 		this(values.next(), values.next(), values.next());
 	}
 	
-	public V027Temvig(V009Tyte valueHigh, V009Tyte valueMedium, V009Tyte valueLow) {
+	private V027Temvig(V009Tyte valueHigh, V009Tyte valueMedium, V009Tyte valueLow) {
 		setValue(T03PartTrit.PART_1, valueHigh);
 		setValue(T03PartTrit.PART_2, valueMedium);
 		setValue(T03PartTrit.PART_3, valueLow);

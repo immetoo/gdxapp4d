@@ -7,33 +7,32 @@ import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 /**
- * 
+ * The distribution by 5 called Wuxing.
  * @author willemtsade ©Δ∞ 仙上主天
- * 
  */
-public enum T05PartPental implements BasePartIdentifierAlt {
+public enum T05PartPental implements BasePartIdentifier {
 
-	PART_1("˥","0","\u706b"),
-	PART_2("˦","1","\u571f"),
-	PART_3("˧","2","\u91d1"),
-	PART_4("˨","3","\u6c34"),
-	PART_5("˩","4","\u6728"),
+	PART_1("˥","0","火","fire"),
+	PART_2("˦","1","水","water"),
+	PART_3("˧","2","木","wood"),
+	PART_4("˨","3","金","gold"),
+	PART_5("˩","4","土","earth"),
 	;
 	
 	public static int LENGTH = 5;
 	private final String identifierTone;
 	private final String identifierLetter;
-	private final String identifierAlt; // FIXME: escaped to keep normal line height in IDE
+	private final String chinaKey;
+	private final String chinaValue;
 	
 	private static final Map<String, T05PartPental> TONE_MAP = Collections.unmodifiableMap(
 			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getIdentifierTone(), v -> v)));
-	private static final BasePartIdentifierAltInfo ALT_INFO = new BasePartIdentifierAltInfo(
-			"Wuxing","https://en.wikipedia.org/wiki/Wuxing_(Chinese_philosophy)");
 	
-	private T05PartPental(String identifierTone, String identifierLetter, String identifierAlt) {
+	private T05PartPental(String identifierTone, String identifierLetter, String chinaKey, String chinaValue) {
 		this.identifierTone = identifierTone;
 		this.identifierLetter = identifierLetter;
-		this.identifierAlt = identifierAlt;
+		this.chinaKey = chinaKey;
+		this.chinaValue = chinaValue;
 	}
 	
 	@Override
@@ -47,13 +46,13 @@ public enum T05PartPental implements BasePartIdentifierAlt {
 	}
 	
 	@Override
-	public String getIdentifierAlt() {
-		return identifierAlt;
+	public String getChinaKey() {
+		return chinaKey;
 	}
 	
 	@Override
-	public BasePartIdentifierAltInfo getIdentifierAltInfo() {
-		return ALT_INFO;
+	public String getChinaValue() {
+		return chinaValue;
 	}
 	
 	public static void forEach(Consumer<T05PartPental> consumer) {
