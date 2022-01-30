@@ -1,15 +1,20 @@
-package love.distributedrebirth.demo4d.base2t;
+package love.distributedrebirth.demo4d.fraction4d;
 
-abstract public class VŌṁglyph<V extends VŌṁglyph<V> & BaseNumber<V>> implements BaseNumber<V> {
+import love.distributedrebirth.demo4d.base2t.BaseNumber;
+import love.distributedrebirth.demo4d.base2t.T08PartOctalBaseAppender;
+import love.distributedrebirth.demo4d.base2t.T08PartOctalBaseIterator;
+import love.distributedrebirth.demo4d.base2t.V144Tocta;
+
+abstract public class GroßGetậlŌṁglyph<V extends GroßGetậlŌṁglyph<V> & BaseNumber<V>> implements BaseNumber<V> {
 	
-	private V144Tocta[] values;
+	private GroßGetậl[] values;
 	private int valuesLength;
 	private byte fractalLevel;
 	
-	public VŌṁglyph(byte fractalLevel) {
+	public GroßGetậlŌṁglyph(byte fractalLevel) {
 		this.fractalLevel = fractalLevel;
 		this.valuesLength = resolveFractalLevel(fractalLevel);
-		this.values = new V144Tocta[valuesLength];
+		this.values = new GroßGetậl[valuesLength];
 	}
 	
 	abstract protected int resolveFractalLevel(byte level);
@@ -32,11 +37,11 @@ abstract public class VŌṁglyph<V extends VŌṁglyph<V> & BaseNumber<V>> impl
 		return part;
 	}
 	
-	public final V144Tocta getValue(int part) {
+	public final GroßGetậl getValue(int part) {
 		return values[validatePartRequest(part)];
 	}
 	
-	public final void setValue(int part, V144Tocta value) {
+	public final void setValue(int part, GroßGetậl value) {
 		values[validatePartRequest(part)] = value;
 	}
 	
@@ -47,7 +52,7 @@ abstract public class VŌṁglyph<V extends VŌṁglyph<V> & BaseNumber<V>> impl
 		V result = toCloneFractal(getFractalLevel());
 		T08PartOctalBaseIterator clonedOctals = cloneIterator();
 		for (int i=0;i<getValuesLength();i++) {
-			result.setValue(i, new V144Tocta(clonedOctals));
+			result.setValue(i, new GroßGetậl(clonedOctals));
 		}
 		return result;
 	}
@@ -59,7 +64,7 @@ abstract public class VŌṁglyph<V extends VŌṁglyph<V> & BaseNumber<V>> impl
 	
 	@Override
 	public final void fillOctalValues(T08PartOctalBaseAppender appender) {
-		for (V144Tocta value:values) {
+		for (GroßGetậl value:values) {
 			value.fillOctalValues(appender);
 		}
 	}

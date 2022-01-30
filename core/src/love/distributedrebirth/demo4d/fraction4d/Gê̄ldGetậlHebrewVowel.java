@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
  * @author willemtsade ©Δ∞ 仙上主天
  * 
  */
-public enum HebrewDigitVowel {
+public enum Gê̄ldGetậlHebrewVowel {
 	NONE     (0,  (char) 0x0000),
 	VOWEL_1  (1,  (char) 0x05B4),
 	VOWEL_2  (2,  (char) 0x05B5),
@@ -33,10 +33,10 @@ public enum HebrewDigitVowel {
 	private final int fractionOffset;
 	private final char character;
 	
-	private static final Map<Character, HebrewDigitVowel> CHAR_MAP = Collections.unmodifiableMap(
+	private static final Map<Character, Gê̄ldGetậlHebrewVowel> CHAR_MAP = Collections.unmodifiableMap(
 			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getCharacter(), v -> v)));
 	
-	private HebrewDigitVowel(int fractionOffset, char character) {
+	private Gê̄ldGetậlHebrewVowel(int fractionOffset, char character) {
 		this.fractionOffset = fractionOffset;
 		this.character = character;
 	}
@@ -49,11 +49,11 @@ public enum HebrewDigitVowel {
 		return character;
 	}
 	
-	public static HebrewDigitVowel indexOf(int index) {
+	public static Gê̄ldGetậlHebrewVowel indexOf(int index) {
 		return values()[index & BITMASK];
 	}
 	
-	public static HebrewDigitVowel valueOfCharacter(char codePoint) {
-		return CHAR_MAP.getOrDefault(codePoint, HebrewDigitVowel.NONE);
+	public static Gê̄ldGetậlHebrewVowel valueOfCharacter(char codePoint) {
+		return CHAR_MAP.getOrDefault(codePoint, Gê̄ldGetậlHebrewVowel.NONE);
 	}
 }

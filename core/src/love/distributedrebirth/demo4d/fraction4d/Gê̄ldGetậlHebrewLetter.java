@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
  * @author willemtsade ©Δ∞ 仙上主天
  * 
  */
-public enum HebrewDigitLetter {
+public enum Gê̄ldGetậlHebrewLetter {
 	// Unicode is horror in any language else than ascii;
 	// VS Alphabet order
 	// VS Unicode order
@@ -80,10 +80,10 @@ public enum HebrewDigitLetter {
 	private final int decimal;
 	private final char character;
 	
-	private static final Map<Character, HebrewDigitLetter> CHAR_MAP = Collections.unmodifiableMap(
+	private static final Map<Character, Gê̄ldGetậlHebrewLetter> CHAR_MAP = Collections.unmodifiableMap(
 			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getCharacter(), v -> v)));
 	
-	private HebrewDigitLetter(int decimal, char character) {
+	private Gê̄ldGetậlHebrewLetter(int decimal, char character) {
 		this.decimal = decimal;
 		this.character = character;
 	}
@@ -96,11 +96,11 @@ public enum HebrewDigitLetter {
 		return character;
 	}
 	
-	public static HebrewDigitLetter indexOf(int index) {
+	public static Gê̄ldGetậlHebrewLetter indexOf(int index) {
 		return values()[index & BITMASK];
 	}
 	
-	public static HebrewDigitLetter valueOfCharacter(char codePoint) {
-		return CHAR_MAP.getOrDefault(codePoint, HebrewDigitLetter.NONE);
+	public static Gê̄ldGetậlHebrewLetter valueOfCharacter(char codePoint) {
+		return CHAR_MAP.getOrDefault(codePoint, Gê̄ldGetậlHebrewLetter.NONE);
 	}
 }
