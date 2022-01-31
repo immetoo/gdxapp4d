@@ -8,6 +8,11 @@ import org.junit.jupiter.api.Test;
 
 import love.distributedrebirth.numberxd.base2t.facet.BasePart;
 
+/**
+ * 
+ * 
+ * @author willemtsade ©Δ∞ 仙上主天
+ */
 public class BasePartFactoryTest {
 
 	@Test
