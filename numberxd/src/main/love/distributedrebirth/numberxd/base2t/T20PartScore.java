@@ -91,7 +91,7 @@ public enum T20PartScore implements BasePart,BasePartAlt3 {
 		return CHINA_MAP.get(chinaKey);
 	}
 	
-	public static T20PartScore valueOfOpenLC(String chinaKey) {
-		return OPENLC_MAP.get(chinaKey);
+	public static T20PartScore valueOfOpenLC(String openLCKey) {
+		return OPENLC_MAP.get(openLCKey);
 	}
 }
