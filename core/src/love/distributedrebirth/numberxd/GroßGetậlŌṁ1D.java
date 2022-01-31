@@ -49,7 +49,7 @@ abstract public class GroßGetậlŌṁ1D<V extends GroßGetậlŌṁ1D<V> & Bas
 	@Override
 	public final V toClone() {
 		V result = toCloneFractal(getFractalLevel());
-		T08PartOctalBaseIterator clonedOctals = cloneIterator();
+		T08PartOctalBaseIterator clonedOctals = iteratorOctalsByClone();
 		for (int i=0;i<getValuesLength();i++) {
 			result.setValue(i, new GroßGetậl1D(clonedOctals));
 		}
@@ -62,9 +62,9 @@ abstract public class GroßGetậlŌṁ1D<V extends GroßGetậlŌṁ1D<V> & Bas
 	}
 	
 	@Override
-	public final void fillOctalValues(T08PartOctalBaseAppender appender) {
+	public final void fillOctalsByClone(T08PartOctalBaseAppender appender) {
 		for (GroßGetậl1D value:values) {
-			value.fillOctalValues(appender);
+			value.fillOctalsByClone(appender);
 		}
 	}
 }

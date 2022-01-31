@@ -51,16 +51,16 @@ public class GroßGetậl6D implements BaseNumberTyte<GroßGetậl6D> {
 
 	@Override
 	public GroßGetậl6D toClone() {
-		return new GroßGetậl6D(cloneIterator());
+		return new GroßGetậl6D(iteratorOctalsByClone());
 	}
 
 	@Override
-	public void fillOctalValues(T08PartOctalBaseAppender appender) {
-		T12PartUncial.forEach(v -> getValue(v).fillOctalValues(appender));
+	public void fillOctalsByClone(T08PartOctalBaseAppender appender) {
+		T12PartUncial.forEach(v -> getValue(v).fillOctalsByClone(appender));
 	}
 
 	@Override
-	public void fillTyteValues(V009TyteBaseAppender appender) {
-		T12PartUncial.forEach(v -> getValue(v).fillTyteValues(appender));
+	public void fillTytesByReference(V009TyteBaseAppender appender) {
+		T12PartUncial.forEach(v -> getValue(v).fillTytesByReference(appender));
 	}
 }

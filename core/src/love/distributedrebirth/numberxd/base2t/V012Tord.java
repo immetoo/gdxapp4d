@@ -40,10 +40,6 @@ public final class V012Tord implements BaseNumberTyte<V012Tord> {
 		return getValue(part.splitPartBinary()).getValue(part.splitPartTrit());
 	}
 	
-	public void setTimblePart(T06PartSeximal part, V003Timble value) {
-		getValue(part.splitPartBinary()).setValue(part.splitPartTrit(), value);;
-	}
-	
 	@Override
 	public int getBitCount() {
 		return BIT_COUNT;
@@ -51,16 +47,16 @@ public final class V012Tord implements BaseNumberTyte<V012Tord> {
 	
 	@Override
 	public V012Tord toClone() {
-		return new V012Tord(cloneIterator());
+		return new V012Tord(iteratorOctalsByClone());
 	}
 	
 	@Override
-	public void fillOctalValues(T08PartOctalBaseAppender appender) {
-		T02PartBinary.forEach(v -> getValue(v).fillOctalValues(appender));
+	public void fillOctalsByClone(T08PartOctalBaseAppender appender) {
+		T02PartBinary.forEach(v -> getValue(v).fillOctalsByClone(appender));
 	}
 
 	@Override
-	public void fillTyteValues(V009TyteBaseAppender appender) {
-		T02PartBinary.forEach(v -> getValue(v).fillTyteValues(appender));
+	public void fillTytesByReference(V009TyteBaseAppender appender) {
+		T02PartBinary.forEach(v -> getValue(v).fillTytesByReference(appender));
 	}
 }

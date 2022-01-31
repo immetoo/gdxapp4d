@@ -49,16 +49,16 @@ public class ŌṁKlompGetậl4D implements BaseNumberTyte<ŌṁKlompGetậl4D> 
 	
 	@Override
 	public ŌṁKlompGetậl4D toClone() {
-		return new ŌṁKlompGetậl4D(cloneIterator());
+		return new ŌṁKlompGetậl4D(iteratorOctalsByClone());
 	}
 	
 	@Override
-	public void fillOctalValues(T08PartOctalBaseAppender appender) {
-		T08PartOctal.forEach(v -> getValue(v).fillOctalValues(appender));
+	public void fillOctalsByClone(T08PartOctalBaseAppender appender) {
+		T08PartOctal.forEach(v -> getValue(v).fillOctalsByClone(appender));
 	}
 	
 	@Override
-	public void fillTyteValues(V009TyteBaseAppender appender) {
-		T08PartOctal.forEach(v -> getValue(v).fillTyteValues(appender));
+	public void fillTytesByReference(V009TyteBaseAppender appender) {
+		T08PartOctal.forEach(v -> getValue(v).fillTytesByReference(appender));
 	}
 }

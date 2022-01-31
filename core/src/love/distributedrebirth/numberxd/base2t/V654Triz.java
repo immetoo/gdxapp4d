@@ -38,16 +38,16 @@ public class V654Triz implements BaseNumberTyte<V654Triz> {
 	
 	@Override
 	public V654Triz toClone() {
-		return new V654Triz(cloneIterator());
+		return new V654Triz(iteratorOctalsByClone());
 	}
 	
 	@Override
-	public void fillOctalValues(T08PartOctalBaseAppender appender) {
-		T60Sexagesimal.forEach(v -> getValue(v).fillOctalValues(appender));
+	public void fillOctalsByClone(T08PartOctalBaseAppender appender) {
+		T60Sexagesimal.forEach(v -> getValue(v).fillOctalsByClone(appender));
 	}
 
 	@Override
-	public void fillTyteValues(V009TyteBaseAppender appender) {
-		T60Sexagesimal.forEach(v -> getValue(v).fillTyteValues(appender));
+	public void fillTytesByReference(V009TyteBaseAppender appender) {
+		T60Sexagesimal.forEach(v -> getValue(v).fillTytesByReference(appender));
 	}
 }

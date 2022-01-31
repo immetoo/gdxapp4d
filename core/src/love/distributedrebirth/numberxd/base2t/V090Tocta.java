@@ -69,16 +69,16 @@ public final class V090Tocta implements BaseNumberTyte<V090Tocta> {
 	
 	@Override
 	public V090Tocta toClone() {
-		return new V090Tocta(cloneIterator());
+		return new V090Tocta(iteratorOctalsByClone());
 	}
 	
 	@Override
-	public void fillOctalValues(T08PartOctalBaseAppender appender) {
-		T02PartBinary.forEach(v -> getValue(v).fillOctalValues(appender));
+	public void fillOctalsByClone(T08PartOctalBaseAppender appender) {
+		T02PartBinary.forEach(v -> getValue(v).fillOctalsByClone(appender));
 	}
 
 	@Override
-	public void fillTyteValues(V009TyteBaseAppender appender) {
-		T02PartBinary.forEach(v -> getValue(v).fillTyteValues(appender));
+	public void fillTytesByReference(V009TyteBaseAppender appender) {
+		T02PartBinary.forEach(v -> getValue(v).fillTytesByReference(appender));
 	}
 }

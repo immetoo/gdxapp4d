@@ -9,7 +9,7 @@ package love.distributedrebirth.numberxd.base2t;
 public final class V009Tyte implements BaseNumberTyte<V009Tyte> {
 
 	public static int BIT_COUNT = V003Timble.BIT_COUNT * T03PartTrit.LENGTH;
-	private V003Timble[] values = new V003Timble[T03PartTrit.LENGTH];
+	private final V003Timble[] values = new V003Timble[T03PartTrit.LENGTH];
 	
 	public V009Tyte() {
 		this(new V003Timble(), new V003Timble(), new V003Timble());
@@ -24,17 +24,13 @@ public final class V009Tyte implements BaseNumberTyte<V009Tyte> {
 	}
 	
 	private V009Tyte(V003Timble valueHigh, V003Timble valueMedium, V003Timble valueLow) {
-		setValue(T03PartTrit.PART_1, valueHigh);
-		setValue(T03PartTrit.PART_2, valueMedium);
-		setValue(T03PartTrit.PART_3, valueLow);
+		values[T03PartTrit.PART_1.ordinal()] = valueHigh;
+		values[T03PartTrit.PART_2.ordinal()] = valueMedium;
+		values[T03PartTrit.PART_3.ordinal()] = valueLow;
 	}
 	
 	public V003Timble getValue(T03PartTrit part) {
 		return values[part.ordinal()];
-	}
-	
-	public void setValue(T03PartTrit part, V003Timble value) {
-		values[part.ordinal()] = value;
 	}
 	
 	@Override
@@ -44,16 +40,16 @@ public final class V009Tyte implements BaseNumberTyte<V009Tyte> {
 	
 	@Override
 	public V009Tyte toClone() {
-		return new V009Tyte(cloneIterator());
+		return new V009Tyte(iteratorOctalsByClone());
 	}
 	
 	@Override
-	public void fillOctalValues(T08PartOctalBaseAppender appender) {
-		T03PartTrit.forEach(v -> getValue(v).fillOctalValues(appender));
+	public void fillOctalsByClone(T08PartOctalBaseAppender appender) {
+		T03PartTrit.forEach(v -> getValue(v).fillOctalsByClone(appender));
 	}
 
 	@Override
-	public void fillTyteValues(V009TyteBaseAppender appender) {
+	public void fillTytesByReference(V009TyteBaseAppender appender) {
 		appender.add(this);
 	}
 }

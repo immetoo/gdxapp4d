@@ -9,7 +9,7 @@ package love.distributedrebirth.numberxd.base2t;
 public final class V003Timble implements BaseNumber<V003Timble> {
 
 	public static int BIT_COUNT = T08PartOctal.BIT_COUNT;
-	private T08PartOctal value;
+	private final T08PartOctal value;
 	
 	public V003Timble() {
 		this(T08PartOctal.PART_1);
@@ -20,10 +20,6 @@ public final class V003Timble implements BaseNumber<V003Timble> {
 	}
 	
 	public V003Timble(T08PartOctal value) {
-		setValue(value);
-	}
-	
-	public void setValue(T08PartOctal value) {
 		this.value = value;
 	}
 	
@@ -42,7 +38,7 @@ public final class V003Timble implements BaseNumber<V003Timble> {
 	}
 	
 	@Override
-	public void fillOctalValues(T08PartOctalBaseAppender appender) {
+	public void fillOctalsByClone(T08PartOctalBaseAppender appender) {
 		appender.add(getValue());
 	}
 }

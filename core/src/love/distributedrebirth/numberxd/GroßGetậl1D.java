@@ -54,7 +54,7 @@ public class GroßGetậl1D implements BaseNumberTyte<GroßGetậl1D> {
 	
 	public GroßGetậl1D(V090Tocta tocta) {
 		List<V009Tyte> tytes = new ArrayList<>();
-		tocta.fillTyteValues(new V009TyteBaseAppender(tytes));
+		tocta.fillTytesByReference(new V009TyteBaseAppender(tytes));
 		for (int i=0;i<NUMERATOR_SIZE;i++) {
 			numerator[i] = tytes.get(i);
 		}
@@ -63,8 +63,12 @@ public class GroßGetậl1D implements BaseNumberTyte<GroßGetậl1D> {
 		}
 	}
 	
-	public V090Tocta toTocta() {
-		return new V090Tocta(cloneIterator());
+	public V090Tocta toToctaByReference() {
+		return new V090Tocta(iteratorTytesByReference());
+	}
+	
+	public V090Tocta toToctaByClone() {
+		return new V090Tocta(iteratorOctalsByClone());
 	}
 
 	@Override
@@ -74,21 +78,21 @@ public class GroßGetậl1D implements BaseNumberTyte<GroßGetậl1D> {
 
 	@Override
 	public GroßGetậl1D toClone() {
-		return new GroßGetậl1D(cloneIterator());
+		return new GroßGetậl1D(iteratorOctalsByClone());
 	}
 
 	@Override
-	public void fillOctalValues(T08PartOctalBaseAppender appender) {
+	public void fillOctalsByClone(T08PartOctalBaseAppender appender) {
 		for (int i=0;i<NUMERATOR_SIZE;i++) {
-			numerator[i].fillOctalValues(appender);
+			numerator[i].fillOctalsByClone(appender);
 		}
 		for (int i=0;i<DENOMINATOR_SIZE;i++) {
-			denominator[i].fillOctalValues(appender);
+			denominator[i].fillOctalsByClone(appender);
 		}
 	}
 
 	@Override
-	public void fillTyteValues(V009TyteBaseAppender appender) {
+	public void fillTytesByReference(V009TyteBaseAppender appender) {
 		for (int i=0;i<NUMERATOR_SIZE;i++) {
 			appender.add(numerator[i]);
 		}

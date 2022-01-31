@@ -80,7 +80,7 @@ public class Base2Terminator {
 		int totalBytes = 0; // per 8 octa's is 3 bytes
 		List<T08PartOctal> octals = new ArrayList<>();
 		T08PartOctalBaseAppender appender = new T08PartOctalBaseAppender(octals);
-		data.forEach(v -> v.fillOctalValues(appender));
+		data.forEach(v -> v.fillOctalsByClone(appender));
 		Iterator<T08PartOctal> read = octals.iterator();
 		while (read.hasNext()) {
 			int byteTriplet = 0;

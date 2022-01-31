@@ -46,7 +46,7 @@ public class ŌṁKaassGetậl4D implements BaseNumberTyte<ŌṁKaassGetậl4D> 
 	@Override
 	public final ŌṁKaassGetậl4D toClone() {
 		ŌṁKaassGetậl4D result = new ŌṁKaassGetậl4D(getKaasCuts());
-		T08PartOctalBaseIterator clonedOctals = cloneIterator();
+		T08PartOctalBaseIterator clonedOctals = iteratorOctalsByClone();
 		for (int i=0;i<getKaasCuts();i++) {
 			result.setValue(i, new ŌṁKlompGetậl4D(clonedOctals));
 		}
@@ -59,16 +59,16 @@ public class ŌṁKaassGetậl4D implements BaseNumberTyte<ŌṁKaassGetậl4D> 
 	}
 	
 	@Override
-	public final void fillOctalValues(T08PartOctalBaseAppender appender) {
+	public final void fillOctalsByClone(T08PartOctalBaseAppender appender) {
 		for (ŌṁKlompGetậl4D value:kaas) {
-			value.fillOctalValues(appender);
+			value.fillOctalsByClone(appender);
 		}
 	}
 	
 	@Override
-	public void fillTyteValues(V009TyteBaseAppender appender) {
+	public void fillTytesByReference(V009TyteBaseAppender appender) {
 		for (ŌṁKlompGetậl4D value:kaas) {
-			value.fillTyteValues(appender);
+			value.fillTytesByReference(appender);
 		}
 	}
 }

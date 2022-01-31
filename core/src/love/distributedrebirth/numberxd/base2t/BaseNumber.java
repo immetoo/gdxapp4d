@@ -10,19 +10,21 @@ import java.util.List;
  */
 public interface BaseNumber<V extends BaseNumber<V>> {
 	
+	static float CIRCLE_DEGREE = 360f;
+	
 	int getBitCount();
 	
-	default int getSliceAngle() {
-		return 360/getBitCount();
+	default float getSliceAngle() {
+		return CIRCLE_DEGREE/getBitCount();
 	}
 	
 	V toClone();
 	
-	void fillOctalValues(T08PartOctalBaseAppender appender);
+	void fillOctalsByClone(T08PartOctalBaseAppender appender);
 	
-	default T08PartOctalBaseIterator cloneIterator() {
+	default T08PartOctalBaseIterator iteratorOctalsByClone() {
 		List<T08PartOctal> octals = new ArrayList<>();
-		fillOctalValues(new T08PartOctalBaseAppender(octals));
+		fillOctalsByClone(new T08PartOctalBaseAppender(octals));
 		return new T08PartOctalBaseIterator(octals.iterator());
 	}
 }

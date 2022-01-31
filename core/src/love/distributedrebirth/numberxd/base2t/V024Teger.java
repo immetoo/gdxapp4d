@@ -53,16 +53,16 @@ public final class V024Teger implements BaseNumberTyte<V024Teger> {
 	
 	@Override
 	public V024Teger toClone() {
-		return new V024Teger(cloneIterator());
+		return new V024Teger(iteratorOctalsByClone());
 	}
 	
 	@Override
-	public void fillOctalValues(T08PartOctalBaseAppender appender) {
-		T02PartBinary.forEach(v -> getValue(v).fillOctalValues(appender));
+	public void fillOctalsByClone(T08PartOctalBaseAppender appender) {
+		T02PartBinary.forEach(v -> getValue(v).fillOctalsByClone(appender));
 	}
 
 	@Override
-	public void fillTyteValues(V009TyteBaseAppender appender) {
-		T02PartBinary.forEach(v -> getValue(v).fillTyteValues(appender));
+	public void fillTytesByReference(V009TyteBaseAppender appender) {
+		T02PartBinary.forEach(v -> getValue(v).fillTytesByReference(appender));
 	}
 }

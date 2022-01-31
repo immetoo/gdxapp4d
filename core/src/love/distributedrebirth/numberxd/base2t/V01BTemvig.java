@@ -44,16 +44,16 @@ public final class V01BTemvig implements BaseNumberTyte<V01BTemvig> {
 	
 	@Override
 	public V01BTemvig toClone() {
-		return new V01BTemvig(cloneIterator());
+		return new V01BTemvig(iteratorOctalsByClone());
 	}
 	
 	@Override
-	public void fillOctalValues(T08PartOctalBaseAppender appender) {
-		T03PartTrit.forEach(v -> getValue(v).fillOctalValues(appender));
+	public void fillOctalsByClone(T08PartOctalBaseAppender appender) {
+		T03PartTrit.forEach(v -> getValue(v).fillOctalsByClone(appender));
 	}
 
 	@Override
-	public void fillTyteValues(V009TyteBaseAppender appender) {
-		T03PartTrit.forEach(v -> getValue(v).fillTyteValues(appender));
+	public void fillTytesByReference(V009TyteBaseAppender appender) {
+		T03PartTrit.forEach(v -> getValue(v).fillTytesByReference(appender));
 	}
 }

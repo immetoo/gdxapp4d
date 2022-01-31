@@ -38,11 +38,11 @@ public final class V006Tixte implements BaseNumber<V006Tixte> {
 	
 	@Override
 	public V006Tixte toClone() {
-		return new V006Tixte(cloneIterator());
+		return new V006Tixte(iteratorOctalsByClone());
 	}
 	
 	@Override
-	public void fillOctalValues(T08PartOctalBaseAppender appender) {
-		T02PartBinary.forEach(v -> getValue(v).fillOctalValues(appender));
+	public void fillOctalsByClone(T08PartOctalBaseAppender appender) {
+		T02PartBinary.forEach(v -> getValue(v).fillOctalsByClone(appender));
 	}
 }
