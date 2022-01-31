@@ -84,19 +84,19 @@ public class BasePartRenderer extends ImGuiRendererMain {
 			}
 			ImGui.tableNextColumn();
 			if (part instanceof BasePartAlt2) {
-				ImGui.text(BasePartAlt2.class.cast(part).getAlt1Value());
+				ImGui.text(BasePartAlt2.class.cast(part).getAlt2Value());
 			} else {
 				ImGui.text("");
 			}
 			ImGui.tableNextColumn();
 			if (part instanceof BasePartAlt3) {
-				ImGui.text(BasePartAlt3.class.cast(part).getAlt1Value());
+				ImGui.text(BasePartAlt3.class.cast(part).getAlt3Value());
 			} else {
 				ImGui.text("");
 			}
 			ImGui.tableNextColumn();
 			if (part instanceof BasePartAlt4) {
-				ImGui.text(BasePartAlt4.class.cast(part).getAlt1Value());
+				ImGui.text(BasePartAlt4.class.cast(part).getAlt4Value());
 			} else {
 				ImGui.text("");
 			}
