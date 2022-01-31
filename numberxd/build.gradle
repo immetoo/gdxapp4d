@@ -1,6 +1,9 @@
 sourceCompatibility = appJvmCode
 [compileJava, compileTestJava]*.options*.encoding = appEncoding
 
-sourceSets.main.java.srcDirs = [ "src/main/", "src/resources/" ]
+sourceSets.main.java.srcDirs = [ "src/main/"]
+sourceSets.main.resources.srcDirs = [ "src/resources/" ]
+sourceSets.test.java.srcDirs = [ "src/test/"]
+sourceSets.test.resources.srcDirs = [ "src/test-resources/" ]
 
 eclipse.project.name = appName + "-numberxd"
