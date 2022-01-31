@@ -22,12 +22,24 @@ public class BasePartFactoryTest {
 	}
 	
 	@Test
-	public void testGlobalChinaMap() {
+	public void testGlobalChinaKeyMap() {
 		Map<String,String> global = new HashMap<>();
 		for (int base:BasePartFactory.getSupportedBases()) {
 			for (BasePart part:BasePartFactory.buildBasePartsByBase(base)) {
 				Assertions.assertFalse(global.containsKey(part.getChinaKey()));
 				global.put(part.getChinaKey(), part.getChinaValue());
+			}
+		}
+		Assertions.assertTrue(global.size() > 1);
+	}
+	
+	@Test
+	public void testGlobalChinaValueMap() {
+		Map<String,String> global = new HashMap<>();
+		for (int base:BasePartFactory.getSupportedBases()) {
+			for (BasePart part:BasePartFactory.buildBasePartsByBase(base)) {
+				Assertions.assertFalse(global.containsKey(part.getChinaValue()));
+				global.put(part.getChinaValue(), part.getChinaValue());
 			}
 		}
 		Assertions.assertTrue(global.size() > 1);
