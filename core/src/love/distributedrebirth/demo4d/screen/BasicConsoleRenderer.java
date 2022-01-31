@@ -8,8 +8,8 @@ import love.distributedrebirth.demo4d.ImGuiRendererMain;
 
 /**
  * 
- * @author willemtsade ©Δ∞ 仙上主天
  * 
+ * @author willemtsade ©Δ∞ 仙上主天
  */
 public class BasicConsoleRenderer extends ImGuiRendererMain {
 

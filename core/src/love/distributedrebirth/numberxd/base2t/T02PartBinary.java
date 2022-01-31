@@ -12,8 +12,8 @@ import love.distributedrebirth.numberxd.base2t.facet.BaseFacetKey;
 
 /**
  * The distribution by 2.
- * @author willemtsade ©Δ∞ 仙上主天
  * 
+ * @author willemtsade ©Δ∞ 仙上主天
  */
 public enum T02PartBinary implements BasePart {
 

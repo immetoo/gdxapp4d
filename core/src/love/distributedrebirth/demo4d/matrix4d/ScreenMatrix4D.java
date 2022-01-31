@@ -32,8 +32,8 @@ import love.distributedrebirth.demo4d.Demo4DMainAdapter;
 
 /**
  * 
- * @author willemtsade ©Δ∞ 仙上主天
  * 
+ * @author willemtsade ©Δ∞ 仙上主天
  */
 public class ScreenMatrix4D extends Demo4DMainAdapter {
 	public Environment environment;

@@ -13,11 +13,11 @@ import love.distributedrebirth.numberxd.base2t.facet.BasePartAlt1;
 import love.distributedrebirth.numberxd.base2t.facet.BasePartSplit6;
 
 /**
- * TThe distribution by 6.
+ * The distribution by 6.
+ * 
  * NOTE: The sexi karlson-speaker is china design 3=6 and 6=9 and in quad space, zero is the result.
  * 
  * @author willemtsade ©Δ∞ 仙上主天
- * 
  */
 public enum T06PartSeximal implements BasePart,BasePartAlt1,BasePartSplit6 {
 

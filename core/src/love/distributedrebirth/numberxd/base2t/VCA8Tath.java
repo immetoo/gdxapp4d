@@ -4,7 +4,6 @@ package love.distributedrebirth.numberxd.base2t;
  * Holds an 3240 bit value.
  * 
  * @author willemtsade ©Δ∞ 仙上主天
- * 
  */
 public class VCA8Tath implements BaseNumberTyte<VCA8Tath> {
 

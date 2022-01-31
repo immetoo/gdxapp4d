@@ -14,8 +14,8 @@ import love.distributedrebirth.numberxd.base2t.facet.BasePartSplit8;
 
 /**
  * The distribution by 8.
- * @author willemtsade ©Δ∞ 仙上主天
  * 
+ * @author willemtsade ©Δ∞ 仙上主天
  */
 public enum T08PartOctal implements BasePart,BasePartAlt2,BasePartSplit8 {
 

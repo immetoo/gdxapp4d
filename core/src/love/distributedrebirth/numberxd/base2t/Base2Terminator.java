@@ -8,9 +8,9 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
+ * Terminate from and to classical bytes.
  * 
  * @author willemtsade ©Δ∞ 仙上主天
- * 
  */
 public class Base2Terminator {
 	private static final int STREAM_EOF = -1;

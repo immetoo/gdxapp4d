@@ -12,6 +12,7 @@ import love.distributedrebirth.numberxd.base2t.facet.BaseFacetKey;
 
 /**
  * The distribution by 5 called Wuxing.
+ * 
  * @author willemtsade ©Δ∞ 仙上主天
  */
 public enum T05PartPental implements BasePart {

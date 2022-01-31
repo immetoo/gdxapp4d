@@ -11,9 +11,9 @@ import imgui.glfw.ImGuiImplGlfw;
 import love.distributedrebirth.numberxd.base2t.T60Sexagesimal;
 
 /**
+ * Create and shutdown of ImGui and font activations.
  * 
  * @author willemtsade ©Δ∞ 仙上主天
- * 
  */
 public class ImGuiSetup {
 	public static final ImGuiImplGlfw imGuiImp = new ImGuiImplGlfw();

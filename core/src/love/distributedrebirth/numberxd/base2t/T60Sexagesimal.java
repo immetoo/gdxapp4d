@@ -14,7 +14,6 @@ import love.distributedrebirth.numberxd.base2t.facet.BaseFacetKey;
  * The distribution by 60.
  * 
  * @author willemtsade ©Δ∞ 仙上主天
- * 
  */
 public enum T60Sexagesimal implements BasePart {
 

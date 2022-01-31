@@ -1,5 +1,10 @@
 package love.distributedrebirth.numberxd.base2t.facet;
 
+/**
+ * 
+ * 
+ * @author willemtsade ©Δ∞ 仙上主天
+ */
 public enum BaseFacetKey {
 
 	ID_TONE,

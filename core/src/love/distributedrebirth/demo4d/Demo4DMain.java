@@ -30,9 +30,9 @@ import love.distributedrebirth.demo4d.screen.ScreenUnicode4D;
 import net.spookygames.gdx.nativefilechooser.NativeFileChooser;
 
 /**
+ * Main loop render dispatcher and event handling.
  * 
  * @author willemtsade ©Δ∞ 仙上主天
- * 
  */
 public class Demo4DMain extends Game {
 	private List<String> args;

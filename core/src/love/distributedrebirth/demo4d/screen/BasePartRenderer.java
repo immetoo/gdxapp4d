@@ -14,8 +14,8 @@ import love.distributedrebirth.numberxd.base2t.facet.BasePart;
 
 /**
  * 
- * @author willemtsade ©Δ∞ 仙上主天
  * 
+ * @author willemtsade ©Δ∞ 仙上主天
  */
 public class BasePartRenderer extends ImGuiRendererMain {
 

@@ -11,8 +11,8 @@ import love.distributedrebirth.demo4d.music.MusicSongType;
 
 /**
  * 
- * @author willemtsade ©Δ∞ 仙上主天
  * 
+ * @author willemtsade ©Δ∞ 仙上主天
  */
 public class ScreenIntro extends ScreenAdapter {
 	private final Demo4DMain main;

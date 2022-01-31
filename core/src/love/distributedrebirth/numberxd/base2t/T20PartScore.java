@@ -13,8 +13,8 @@ import love.distributedrebirth.numberxd.base2t.facet.BasePartAlt1;
 
 /**
  * The distribution by 20.
- * @author willemtsade ©Δ∞ 仙上主天
  * 
+ * @author willemtsade ©Δ∞ 仙上主天
  */
 public enum T20PartScore implements BasePart,BasePartAlt1 {
 

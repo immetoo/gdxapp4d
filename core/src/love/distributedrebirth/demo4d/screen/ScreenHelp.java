@@ -6,8 +6,8 @@ import love.distributedrebirth.demo4d.Demo4DMain;
 
 /**
  * 
- * @author willemtsade ©Δ∞ 仙上主天
  * 
+ * @author willemtsade ©Δ∞ 仙上主天
  */
 public class ScreenHelp extends ScrollScreenAdapter {
 	private final String creditsText = String.join("\n",

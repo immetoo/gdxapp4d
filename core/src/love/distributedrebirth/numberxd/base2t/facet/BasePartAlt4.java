@@ -1,5 +1,10 @@
 package love.distributedrebirth.numberxd.base2t.facet;
 
+/**
+ * 
+ * 
+ * @author willemtsade ©Δ∞ 仙上主天
+ */
 public interface BasePartAlt4 extends BasePartAlt3 {
 
 	default String getAlt4Value() {

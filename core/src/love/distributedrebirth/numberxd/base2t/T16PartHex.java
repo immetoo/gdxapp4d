@@ -14,8 +14,8 @@ import love.distributedrebirth.numberxd.base2t.facet.BasePartSplit16;
 
 /**
  * The distribution by 16.
- * @author willemtsade ©Δ∞ 仙上主天
  * 
+ * @author willemtsade ©Δ∞ 仙上主天
  */
 public enum T16PartHex implements BasePart,BasePartAlt1,BasePartSplit16 {
 

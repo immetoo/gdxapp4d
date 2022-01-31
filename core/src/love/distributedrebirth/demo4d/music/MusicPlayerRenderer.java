@@ -16,8 +16,8 @@ import net.spookygames.gdx.nativefilechooser.NativeFileChooserConfiguration;
 
 /**
  * 
- * @author willemtsade ©Δ∞ 仙上主天
  * 
+ * @author willemtsade ©Δ∞ 仙上主天
  */
 public class MusicPlayerRenderer extends ImGuiRendererMain {
 

@@ -4,8 +4,8 @@ import com.badlogic.gdx.audio.Music;
 
 /**
  * 
- * @author willemtsade ©Δ∞ 仙上主天
  * 
+ * @author willemtsade ©Δ∞ 仙上主天
  */
 public class MusicSong {
 	protected final Music music;

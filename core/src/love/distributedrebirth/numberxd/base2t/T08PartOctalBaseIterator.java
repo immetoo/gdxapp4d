@@ -3,9 +3,9 @@ package love.distributedrebirth.numberxd.base2t;
 import java.util.Iterator;
 
 /**
+ * Iterator model for Octals.
  * 
  * @author willemtsade ©Δ∞ 仙上主天
- * 
  */
 public final class T08PartOctalBaseIterator implements Iterator<T08PartOctal> {
 

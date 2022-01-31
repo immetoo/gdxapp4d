@@ -4,7 +4,6 @@ package love.distributedrebirth.numberxd.base2t;
  * Holds an 36 bit value.
  * 
  * @author willemtsade ©Δ∞ 仙上主天
- * 
  */
 public final class V024Teger implements BaseNumberTyte<V024Teger> {
 

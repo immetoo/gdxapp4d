@@ -4,7 +4,6 @@ package love.distributedrebirth.numberxd.base2t;
  * Holds an 3 bit value.
  * 
  * @author willemtsade ©Δ∞ 仙上主天
- * 
  */
 public final class V003Timble implements BaseNumber<V003Timble> {
 

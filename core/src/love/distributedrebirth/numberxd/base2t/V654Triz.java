@@ -4,7 +4,6 @@ package love.distributedrebirth.numberxd.base2t;
  * Holds an 1620 bit value.
  * 
  * @author willemtsade ©Δ∞ 仙上主天
- * 
  */
 public class V654Triz implements BaseNumberTyte<V654Triz> {
 

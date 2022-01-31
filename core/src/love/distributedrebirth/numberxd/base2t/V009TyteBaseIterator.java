@@ -3,9 +3,9 @@ package love.distributedrebirth.numberxd.base2t;
 import java.util.Iterator;
 
 /**
+ * Iterator model for Tytes.
  * 
  * @author willemtsade ©Δ∞ 仙上主天
- * 
  */
 public final class V009TyteBaseIterator implements Iterator<V009Tyte> {
 

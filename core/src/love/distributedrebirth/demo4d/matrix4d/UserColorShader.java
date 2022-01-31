@@ -13,8 +13,8 @@ import com.badlogic.gdx.utils.GdxRuntimeException;
 
 /**
  * 
- * @author willemtsade ©Δ∞ 仙上主天
  * 
+ * @author willemtsade ©Δ∞ 仙上主天
  */
 public class UserColorShader implements Shader {
 	ShaderProgram program;

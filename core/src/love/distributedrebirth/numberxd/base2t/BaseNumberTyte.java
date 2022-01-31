@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Adds Tyte fill and reference support.
  * 
  * @author willemtsade ©Δ∞ 仙上主天
- * 
  */
 public interface BaseNumberTyte<V extends BaseNumber<V>> extends BaseNumber<V> {
 	

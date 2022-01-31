@@ -1,9 +1,9 @@
 package love.distributedrebirth.numberxd.base2t;
 
 /**
+ * Holds an 6 bit value.
  * 
  * @author willemtsade ©Δ∞ 仙上主天
- * 
  */
 public final class V006Tixte implements BaseNumber<V006Tixte> {
 

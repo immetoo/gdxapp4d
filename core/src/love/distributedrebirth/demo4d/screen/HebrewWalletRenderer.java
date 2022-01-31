@@ -10,8 +10,8 @@ import love.distributedrebirth.numberxd.Gê̄ldGetậl;
 
 /**
  * 
- * @author willemtsade ©Δ∞ 仙上主天
  * 
+ * @author willemtsade ©Δ∞ 仙上主天
  */
 public class HebrewWalletRenderer extends ImGuiRendererMain {
 

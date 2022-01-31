@@ -14,8 +14,8 @@ import love.distributedrebirth.numberxd.base2t.facet.BasePartSplit4;
 
 /**
  * The distribution by 4.
- * @author willemtsade ©Δ∞ 仙上主天
  * 
+ * @author willemtsade ©Δ∞ 仙上主天
  */
 public enum T04PartQuad implements BasePart,BasePartAlt1,BasePartSplit4 {
 

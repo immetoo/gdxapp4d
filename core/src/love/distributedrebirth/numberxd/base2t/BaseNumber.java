@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Octal base based number interface.
  * 
  * @author willemtsade ©Δ∞ 仙上主天
- * 
  */
 public interface BaseNumber<V extends BaseNumber<V>> {
 	
