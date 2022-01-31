@@ -8,6 +8,7 @@ import imgui.ImGui;
 import imgui.ImGuiIO;
 import imgui.gl3.ImGuiImplGl3;
 import imgui.glfw.ImGuiImplGlfw;
+import love.distributedrebirth.numberxd.base2t.T60Sexagesimal;
 
 /**
  * 
@@ -55,6 +56,11 @@ public class ImGuiSetup {
 		rangesBuilder.addRanges(glyphRangesToneLetters0);
 		rangesBuilder.addText("@Ω\u4ed9⁴ ˧꜏⋇꜊꜔ ⁴ﷲΩ@");
 		rangesBuilder.addText("©Δ∞ \u4ed9\u4e0a\u4e3b\u5929");
+		
+		for (T60Sexagesimal value:T60Sexagesimal.values()) {
+			rangesBuilder.addText(value.getIdentifierLetter());
+			rangesBuilder.addText(value.getChinaKey());
+		}
 
 		final ImFontConfig fontConfig = new ImFontConfig();
 		fontConfig.setMergeMode(true);  // Enable merge mode to merge cyrillic, japanese and icons with default font

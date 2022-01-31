@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
-import love.distributedrebirth.numberxd.base2t.facet.BaseFacet;
+import love.distributedrebirth.numberxd.base2t.facet.BasePart;
 import love.distributedrebirth.numberxd.base2t.facet.BaseFacetKey;
 import love.distributedrebirth.numberxd.base2t.facet.BasePartAlt1;
 import love.distributedrebirth.numberxd.base2t.facet.BasePartSplit16;
@@ -17,7 +17,7 @@ import love.distributedrebirth.numberxd.base2t.facet.BasePartSplit16;
  * @author willemtsade ©Δ∞ 仙上主天
  * 
  */
-public enum T16PartHex implements BaseFacet,BasePartAlt1,BasePartSplit16 {
+public enum T16PartHex implements BasePart,BasePartAlt1,BasePartSplit16 {
 
 	PART_1 ("˥","0","氫","hydrogen","1"),
 	PART_2 ("˦","1","氦","helium","2"),

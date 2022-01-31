@@ -5,7 +5,7 @@ package love.distributedrebirth.numberxd.base2t.facet;
  * @author willemtsade ©Δ∞ 仙上主天
  * 
  */
-public interface BaseFacet extends BaseFacetStore {
+public interface BasePart extends BaseFacetStore {
 
 	int ordinal();
 	

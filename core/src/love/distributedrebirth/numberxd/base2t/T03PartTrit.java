@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
-import love.distributedrebirth.numberxd.base2t.facet.BaseFacet;
+import love.distributedrebirth.numberxd.base2t.facet.BasePart;
 import love.distributedrebirth.numberxd.base2t.facet.BaseFacetKey;
 
 /**
@@ -15,7 +15,7 @@ import love.distributedrebirth.numberxd.base2t.facet.BaseFacetKey;
  * @author willemtsade ©Δ∞ 仙上主天
  * 
  */
-public enum T03PartTrit implements BaseFacet {
+public enum T03PartTrit implements BasePart {
 
 	PART_1("˦","0","一","1"),
 	PART_2("˧","1","二","2"),

@@ -18,6 +18,7 @@ import imgui.type.ImBoolean;
 import love.distributedrebirth.demo4d.matrix4d.ScreenMatrix4D;
 import love.distributedrebirth.demo4d.music.MusicManager;
 import love.distributedrebirth.demo4d.music.MusicPlayerRenderer;
+import love.distributedrebirth.demo4d.screen.BasePartRenderer;
 import love.distributedrebirth.demo4d.screen.BasicConsoleRenderer;
 import love.distributedrebirth.demo4d.screen.HebrewWalletRenderer;
 import love.distributedrebirth.demo4d.screen.ScreenCredits;
@@ -48,6 +49,7 @@ public class Demo4DMain extends Game {
 	private ImBoolean showImGuiDemo = new ImBoolean(false);
 	private ImBoolean showMusicPlayer = new ImBoolean(false);
 	private ImBoolean showHebrewWallet = new ImBoolean(false);
+	private ImBoolean showBasePart = new ImBoolean(false);
 	private ImBoolean showBasicConsole = new ImBoolean(false);
 	
 	public Demo4DMain(List<String> args, NativeFileChooser fileChooser) {
@@ -71,6 +73,7 @@ public class Demo4DMain extends Game {
 		widgets = new HashMap<>();
 		putWidget(new MusicPlayerRenderer(this));
 		putWidget(new HebrewWalletRenderer(this));
+		putWidget(new BasePartRenderer(this));
 		putWidget(new BasicConsoleRenderer(this));
 		
 		screens = new HashMap<>();
@@ -133,6 +136,9 @@ public class Demo4DMain extends Game {
 		if (showHebrewWallet.get()) {
 			widgets.get(HebrewWalletRenderer.class).render(showHebrewWallet);
 		}
+		if (showBasePart.get()) {
+			widgets.get(BasePartRenderer.class).render(showBasePart);
+		}
 		if (showBasicConsole.get()) {
 			widgets.get(BasicConsoleRenderer.class).render(showBasicConsole);
 		}
@@ -169,6 +175,9 @@ public class Demo4DMain extends Game {
 			ImGui.separator();
 			if (ImGui.menuItem("Hebrew Wallet")) {
 				showHebrewWallet.set(true);
+			}
+			if (ImGui.menuItem("Base Part")) {
+				showBasePart.set(true);
 			}
 			if (ImGui.menuItem("Basic Console")) {
 				showBasicConsole.set(true);

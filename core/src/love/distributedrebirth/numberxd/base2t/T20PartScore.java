@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
-import love.distributedrebirth.numberxd.base2t.facet.BaseFacet;
+import love.distributedrebirth.numberxd.base2t.facet.BasePart;
 import love.distributedrebirth.numberxd.base2t.facet.BaseFacetKey;
 import love.distributedrebirth.numberxd.base2t.facet.BasePartAlt1;
 
@@ -16,7 +16,7 @@ import love.distributedrebirth.numberxd.base2t.facet.BasePartAlt1;
  * @author willemtsade ©Δ∞ 仙上主天
  * 
  */
-public enum T20PartScore implements BaseFacet,BasePartAlt1 {
+public enum T20PartScore implements BasePart,BasePartAlt1 {
 
 	PART_1 ("˥","0","尧","yotta","2"),
 	PART_2 ("˦","1","泽","zetta","3"),

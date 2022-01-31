@@ -7,14 +7,14 @@ import java.util.Map;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
-import love.distributedrebirth.numberxd.base2t.facet.BaseFacet;
+import love.distributedrebirth.numberxd.base2t.facet.BasePart;
 import love.distributedrebirth.numberxd.base2t.facet.BaseFacetKey;
 
 /**
  * The distribution by 5 called Wuxing.
  * @author willemtsade ©Δ∞ 仙上主天
  */
-public enum T05PartPental implements BaseFacet {
+public enum T05PartPental implements BasePart {
 
 	PART_1("˥","0","火","fire"),
 	PART_2("˦","1","水","water"),
