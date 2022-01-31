@@ -46,8 +46,12 @@ public class MusicPlayerRenderer extends ImGuiRendererMain {
 			ImGui.text(currentSong.getName());
 		}
 		ImGui.separator();
-		if (ImGui.button("Play")) {
-			main.music.play(currentSong);
+		if (currentSong != null) {
+			if (ImGui.button("Play")) {
+				main.music.play(currentSong);
+			}
+		} else {
+			ImGui.text("Play");
 		}
 		ImGui.sameLine();
 		if (ImGui.button("<")) {

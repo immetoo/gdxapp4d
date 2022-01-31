@@ -43,9 +43,9 @@ public class ImGuiSetup {
 	}
 	
 	private static void initFonts(final ImGuiIO io) {
-		io.getFonts().addFontDefault(); // Add default font for latin glyphs
+		io.getFonts().addFontDefault();
 
-		final ImFontGlyphRangesBuilder rangesBuilder = new ImFontGlyphRangesBuilder(); // Glyphs ranges provide
+		ImFontGlyphRangesBuilder rangesBuilder = new ImFontGlyphRangesBuilder();
 		rangesBuilder.addRanges(io.getFonts().getGlyphRangesDefault());
 		rangesBuilder.addRanges(io.getFonts().getGlyphRangesCyrillic());
 		rangesBuilder.addRanges(io.getFonts().getGlyphRangesJapanese());
@@ -68,8 +68,8 @@ public class ImGuiSetup {
 			}
 		}
 
-		final ImFontConfig fontConfig = new ImFontConfig();
-		fontConfig.setMergeMode(true);  // Enable merge mode to merge cyrillic, japanese and icons with default font
+		ImFontConfig fontConfig = new ImFontConfig();
+		fontConfig.setMergeMode(true);
 
 		final short[] glyphRanges = rangesBuilder.buildRanges();
 		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/NotoSansCJKjp-Medium.otf").readBytes(), 14, fontConfig, glyphRanges);
