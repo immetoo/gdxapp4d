@@ -16,18 +16,18 @@ import love.distributedrebirth.numberxd.base2t.VCA8Tath;
  * 
  * @author willemtsade ©Δ∞ 仙上主天
  */
-public class ŌṁKlompGetậl4ˢᴰ implements BaseNumberTyte<ŌṁKlompGetậl4ˢᴰ> {
+public class KlompGetậl4ˢᴰ implements BaseNumberTyte<KlompGetậl4ˢᴰ> {
 
 	public static int BIT_COUNT = V654Triz.BIT_COUNT * T08PartOctal.LENGTH;
 	private final VCA8Tath[] values = new VCA8Tath[T08PartOctal.LENGTH];
 	
-	public ŌṁKlompGetậl4ˢᴰ() {
+	public KlompGetậl4ˢᴰ() {
 		for (int i=0;i<T08PartOctal.LENGTH;i++) {
 			this.values[i] = new VCA8Tath();
 		}
 	}
 	
-	public ŌṁKlompGetậl4ˢᴰ(T08PartOctalBaseIterator values) {
+	public KlompGetậl4ˢᴰ(T08PartOctalBaseIterator values) {
 		for (int i=0;i<T08PartOctal.LENGTH;i++) {
 			this.values[i] = new VCA8Tath(values);
 		}
@@ -47,8 +47,8 @@ public class ŌṁKlompGetậl4ˢᴰ implements BaseNumberTyte<ŌṁKlompGetậl
 	}
 	
 	@Override
-	public ŌṁKlompGetậl4ˢᴰ toClone() {
-		return new ŌṁKlompGetậl4ˢᴰ(iteratorOctalsByClone());
+	public KlompGetậl4ˢᴰ toClone() {
+		return new KlompGetậl4ˢᴰ(iteratorOctalsByClone());
 	}
 	
 	@Override

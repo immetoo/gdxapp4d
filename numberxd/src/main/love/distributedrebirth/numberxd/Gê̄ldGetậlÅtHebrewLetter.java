@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
  * 
  * @author willemtsade ©Δ∞ 仙上主天
  */
-public enum Gê̄ldGetậlAtHebrewLetter {
+public enum Gê̄ldGetậlÅtHebrewLetter {
 	// Unicode is horror in any language else than ascii;
 	// VS Alphabet order
 	// VS Unicode order
@@ -80,10 +80,10 @@ public enum Gê̄ldGetậlAtHebrewLetter {
 	private final int decimal;
 	private final char character;
 	
-	private static final Map<Character, Gê̄ldGetậlAtHebrewLetter> CHAR_MAP = Collections.unmodifiableMap(
+	private static final Map<Character, Gê̄ldGetậlÅtHebrewLetter> CHAR_MAP = Collections.unmodifiableMap(
 			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getCharacter(), v -> v)));
 	
-	private Gê̄ldGetậlAtHebrewLetter(int decimal, char character) {
+	private Gê̄ldGetậlÅtHebrewLetter(int decimal, char character) {
 		this.decimal = decimal;
 		this.character = character;
 	}
@@ -96,11 +96,11 @@ public enum Gê̄ldGetậlAtHebrewLetter {
 		return character;
 	}
 	
-	public static Gê̄ldGetậlAtHebrewLetter indexOf(int index) {
+	public static Gê̄ldGetậlÅtHebrewLetter indexOf(int index) {
 		return values()[index & BITMASK];
 	}
 	
-	public static Gê̄ldGetậlAtHebrewLetter valueOfCharacter(char codePoint) {
-		return CHAR_MAP.getOrDefault(codePoint, Gê̄ldGetậlAtHebrewLetter.NONE);
+	public static Gê̄ldGetậlÅtHebrewLetter valueOfCharacter(char codePoint) {
+		return CHAR_MAP.getOrDefault(codePoint, Gê̄ldGetậlÅtHebrewLetter.NONE);
 	}
 }

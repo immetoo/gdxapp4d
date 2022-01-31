@@ -3,7 +3,6 @@ package love.distributedrebirth.numberxd;
 import java.util.ArrayList;
 import java.util.List;
 
-import love.distributedrebirth.numberxd.base2t.BaseNumberTyte;
 import love.distributedrebirth.numberxd.base2t.T08PartOctalBaseAppender;
 import love.distributedrebirth.numberxd.base2t.T08PartOctalBaseIterator;
 import love.distributedrebirth.numberxd.base2t.V009Tyte;
@@ -16,7 +15,7 @@ import love.distributedrebirth.numberxd.base2t.V090Tocta;
  * 
  * @author willemtsade ©Δ∞ 仙上主天
  */
-public class GroßGetậl1ⁿᴰ implements BaseNumberTyte<GroßGetậl1ⁿᴰ> {
+public class GroßGetậl1ⁿᴰ implements BaseGetậl<GroßGetậl1ⁿᴰ> {
 	
 	public static int NUMERATOR_SIZE = 7;
 	public static int DENOMINATOR_SIZE = 9;

@@ -10,14 +10,14 @@ import love.distributedrebirth.numberxd.base2t.V009TyteBaseAppender;
  *  
  * @author willemtsade ©Δ∞ 仙上主天
  */
-public class ŌṁKaassGetậl4ˢᴰ implements BaseNumberTyte<ŌṁKaassGetậl4ˢᴰ> {
+public class KlompÅtŌṁKaassGetậl4ˢᴰ implements BaseNumberTyte<KlompÅtŌṁKaassGetậl4ˢᴰ> {
 	
-	private ŌṁKlompGetậl4ˢᴰ[] kaas;
+	private KlompGetậl4ˢᴰ[] kaas;
 	private final int kaasCuts;
 	
-	public ŌṁKaassGetậl4ˢᴰ(int kaasCuts) {
+	public KlompÅtŌṁKaassGetậl4ˢᴰ(int kaasCuts) {
 		this.kaasCuts = kaasCuts;
-		this.kaas = new ŌṁKlompGetậl4ˢᴰ[kaasCuts];
+		this.kaas = new KlompGetậl4ˢᴰ[kaasCuts];
 	}
 	
 	public final int getKaasCuts() {
@@ -34,39 +34,39 @@ public class ŌṁKaassGetậl4ˢᴰ implements BaseNumberTyte<ŌṁKaassGetậl
 		return part;
 	}
 	
-	public final ŌṁKlompGetậl4ˢᴰ getValue(int part) {
+	public final KlompGetậl4ˢᴰ getValue(int part) {
 		return kaas[validatePartRequest(part)];
 	}
 	
-	public final void setValue(int part, ŌṁKlompGetậl4ˢᴰ value) {
+	public final void setValue(int part, KlompGetậl4ˢᴰ value) {
 		kaas[validatePartRequest(part)] = value;
 	}
 	
 	@Override
-	public final ŌṁKaassGetậl4ˢᴰ toClone() {
-		ŌṁKaassGetậl4ˢᴰ result = new ŌṁKaassGetậl4ˢᴰ(getKaasCuts());
+	public final KlompÅtŌṁKaassGetậl4ˢᴰ toClone() {
+		KlompÅtŌṁKaassGetậl4ˢᴰ result = new KlompÅtŌṁKaassGetậl4ˢᴰ(getKaasCuts());
 		T08PartOctalBaseIterator clonedOctals = iteratorOctalsByClone();
 		for (int i=0;i<getKaasCuts();i++) {
-			result.setValue(i, new ŌṁKlompGetậl4ˢᴰ(clonedOctals));
+			result.setValue(i, new KlompGetậl4ˢᴰ(clonedOctals));
 		}
 		return result;
 	}
 	
 	@Override
 	public final int getBitCount() {
-		return ŌṁKlompGetậl4ˢᴰ.BIT_COUNT * kaasCuts;
+		return KlompGetậl4ˢᴰ.BIT_COUNT * kaasCuts;
 	}
 	
 	@Override
 	public final void fillOctalsByClone(T08PartOctalBaseAppender appender) {
-		for (ŌṁKlompGetậl4ˢᴰ value:kaas) {
+		for (KlompGetậl4ˢᴰ value:kaas) {
 			value.fillOctalsByClone(appender);
 		}
 	}
 	
 	@Override
 	public void fillTytesByReference(V009TyteBaseAppender appender) {
-		for (ŌṁKlompGetậl4ˢᴰ value:kaas) {
+		for (KlompGetậl4ˢᴰ value:kaas) {
 			value.fillTytesByReference(appender);
 		}
 	}
