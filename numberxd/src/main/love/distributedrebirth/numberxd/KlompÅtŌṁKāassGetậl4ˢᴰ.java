@@ -10,12 +10,12 @@ import love.distributedrebirth.numberxd.base2t.V009TyteBaseAppender;
  *  
  * @author willemtsade ©Δ∞ 仙上主天
  */
-public class KlompÅtŌṁKaassGetậl4ˢᴰ implements BaseNumberTyte<KlompÅtŌṁKaassGetậl4ˢᴰ> {
+public class KlompÅtŌṁKāassGetậl4ˢᴰ implements BaseNumberTyte<KlompÅtŌṁKāassGetậl4ˢᴰ> {
 	
 	private KlompGetậl4ˢᴰ[] kaas;
 	private final int kaasCuts;
 	
-	public KlompÅtŌṁKaassGetậl4ˢᴰ(int kaasCuts) {
+	public KlompÅtŌṁKāassGetậl4ˢᴰ(int kaasCuts) {
 		this.kaasCuts = kaasCuts;
 		this.kaas = new KlompGetậl4ˢᴰ[kaasCuts];
 	}
@@ -43,8 +43,8 @@ public class KlompÅtŌṁKaassGetậl4ˢᴰ implements BaseNumberTyte<KlompÅt�
 	}
 	
 	@Override
-	public final KlompÅtŌṁKaassGetậl4ˢᴰ toClone() {
-		KlompÅtŌṁKaassGetậl4ˢᴰ result = new KlompÅtŌṁKaassGetậl4ˢᴰ(getKaasCuts());
+	public final KlompÅtŌṁKāassGetậl4ˢᴰ toClone() {
+		KlompÅtŌṁKāassGetậl4ˢᴰ result = new KlompÅtŌṁKāassGetậl4ˢᴰ(getKaasCuts());
 		T08PartOctalBaseIterator clonedOctals = iteratorOctalsByClone();
 		for (int i=0;i<getKaasCuts();i++) {
 			result.setValue(i, new KlompGetậl4ˢᴰ(clonedOctals));
