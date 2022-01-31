@@ -10,18 +10,18 @@ public interface BasePart extends BaseFacetStore {
 	int ordinal();
 	
 	default String getIdentifierTone() {
-		return (String)getFacetStore().get(BaseFacetKey.ID_TONE);
+		return getBFM().getString(BaseFacetKey.ID_TONE);
 	}
 	
 	default String getIdentifierLetter() {
-		return (String)getFacetStore().get(BaseFacetKey.ID_LETTER);
+		return getBFM().getString(BaseFacetKey.ID_LETTER);
 	}
 	
 	default String getChinaKey() {
-		return (String)getFacetStore().get(BaseFacetKey.CHINA_KEY);
+		return getBFM().getString(BaseFacetKey.CHINA_KEY);
 	}
 	
 	default String getChinaValue() {
-		return (String)getFacetStore().get(BaseFacetKey.CHINA_VALUE);
+		return getBFM().getString(BaseFacetKey.CHINA_VALUE);
 	}
 }

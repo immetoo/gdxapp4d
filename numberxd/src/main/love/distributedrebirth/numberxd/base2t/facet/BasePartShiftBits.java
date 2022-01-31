@@ -8,6 +8,6 @@ package love.distributedrebirth.numberxd.base2t.facet;
 public interface BasePartShiftBits extends BasePart {
 
 	default Integer getShiftBits() {
-		return (Integer)getFacetStore().get(BaseFacetKey.SHIFT_BITS);
+		return getBFM().getInteger(BaseFacetKey.SHIFT_BITS);
 	}
 }

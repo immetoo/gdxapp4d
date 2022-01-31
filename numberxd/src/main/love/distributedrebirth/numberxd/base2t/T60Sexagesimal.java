@@ -2,13 +2,13 @@ package love.distributedrebirth.numberxd.base2t;
 
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 import love.distributedrebirth.numberxd.base2t.facet.BasePart;
 import love.distributedrebirth.numberxd.base2t.facet.BaseFacetKey;
+import love.distributedrebirth.numberxd.base2t.facet.BaseFacetMap;
 
 /**
  * The distribution by 60.
@@ -83,22 +83,22 @@ public enum T60Sexagesimal implements BasePart {
 	;
 	
 	public static int LENGTH() { return values().length; };
-	private final Map<BaseFacetKey, Object> facetStore = new HashMap<>();
+	private final BaseFacetMap bfm = BaseFacetMap.newInstance();
 	private static final Map<String, T60Sexagesimal> TONE_MAP = Collections.unmodifiableMap(
 			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getIdentifierTone(), v -> v)));
 	private static final Map<String, T60Sexagesimal> CHINA_MAP = Collections.unmodifiableMap(
 			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getChinaKey(), v -> v)));
 	
 	private T60Sexagesimal(String idTone, String idLetter, String chinaKey, String chinaValue) {
-		this.getFacetStore().put(BaseFacetKey.ID_TONE, idTone);
-		this.getFacetStore().put(BaseFacetKey.ID_LETTER, idLetter);
-		this.getFacetStore().put(BaseFacetKey.CHINA_KEY, chinaKey);
-		this.getFacetStore().put(BaseFacetKey.CHINA_VALUE, chinaValue);
+		this.getBFM().putInit(BaseFacetKey.ID_TONE, idTone);
+		this.getBFM().putInit(BaseFacetKey.ID_LETTER, idLetter);
+		this.getBFM().putInit(BaseFacetKey.CHINA_KEY, chinaKey);
+		this.getBFM().putInit(BaseFacetKey.CHINA_VALUE, chinaValue);
 	}
 	
 	@Override
-	public Map<BaseFacetKey, Object> getFacetStore() {
-		return facetStore;
+	public BaseFacetMap getBFM() {
+		return bfm;
 	}
 	
 	public static void forEach(Consumer<T60Sexagesimal> consumer) {

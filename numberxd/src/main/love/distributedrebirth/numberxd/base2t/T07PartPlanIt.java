@@ -2,13 +2,13 @@ package love.distributedrebirth.numberxd.base2t;
 
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 import love.distributedrebirth.numberxd.base2t.facet.BasePart;
 import love.distributedrebirth.numberxd.base2t.facet.BaseFacetKey;
+import love.distributedrebirth.numberxd.base2t.facet.BaseFacetMap;
 import love.distributedrebirth.numberxd.base2t.facet.BasePartAlt1;
 
 /**
@@ -28,7 +28,7 @@ public enum T07PartPlanIt implements BasePart,BasePartAlt1 {
 	;
 	
 	public static int LENGTH() { return values().length; };
-	private final Map<BaseFacetKey, Object> facetStore = new HashMap<>();
+	private final BaseFacetMap bfm = BaseFacetMap.newInstance();
 	private static final String ALT_1_NAME = "Fallen sign";
 	private static final String ALT_1_WIKI = "https://en.wikipedia.org/wiki/Classical_planet#Western_astrology";
 	private static final Map<String, T07PartPlanIt> TONE_MAP = Collections.unmodifiableMap(
@@ -37,18 +37,18 @@ public enum T07PartPlanIt implements BasePart,BasePartAlt1 {
 			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getChinaKey(), v -> v)));
 	
 	private T07PartPlanIt(String idTone, String idLetter, String chinaKey, String chinaValue, String alt1Value) {
-		this.getFacetStore().put(BaseFacetKey.ID_TONE, idTone);
-		this.getFacetStore().put(BaseFacetKey.ID_LETTER, idLetter);
-		this.getFacetStore().put(BaseFacetKey.CHINA_KEY, chinaKey);
-		this.getFacetStore().put(BaseFacetKey.CHINA_VALUE, chinaValue);
-		this.getFacetStore().put(BaseFacetKey.ALT_1_VALUE, alt1Value);
-		this.getFacetStore().put(BaseFacetKey.ALT_1_NAME, ALT_1_NAME);
-		this.getFacetStore().put(BaseFacetKey.ALT_1_WIKI, ALT_1_WIKI);
+		this.getBFM().putInit(BaseFacetKey.ID_TONE, idTone);
+		this.getBFM().putInit(BaseFacetKey.ID_LETTER, idLetter);
+		this.getBFM().putInit(BaseFacetKey.CHINA_KEY, chinaKey);
+		this.getBFM().putInit(BaseFacetKey.CHINA_VALUE, chinaValue);
+		this.getBFM().putInit(BaseFacetKey.ALT_1_VALUE, alt1Value);
+		this.getBFM().putInit(BaseFacetKey.ALT_1_NAME, ALT_1_NAME);
+		this.getBFM().putInit(BaseFacetKey.ALT_1_WIKI, ALT_1_WIKI);
 	}
 	
 	@Override
-	public Map<BaseFacetKey, Object> getFacetStore() {
-		return facetStore;
+	public BaseFacetMap getBFM() {
+		return bfm;
 	}
 	
 	public static void forEach(Consumer<T07PartPlanIt> consumer) {

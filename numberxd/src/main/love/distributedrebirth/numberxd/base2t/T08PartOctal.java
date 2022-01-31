@@ -2,13 +2,13 @@ package love.distributedrebirth.numberxd.base2t;
 
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 import love.distributedrebirth.numberxd.base2t.facet.BasePart;
 import love.distributedrebirth.numberxd.base2t.facet.BaseFacetKey;
+import love.distributedrebirth.numberxd.base2t.facet.BaseFacetMap;
 import love.distributedrebirth.numberxd.base2t.facet.BasePartAlt2;
 import love.distributedrebirth.numberxd.base2t.facet.BasePartSplit8;
 
@@ -32,7 +32,7 @@ public enum T08PartOctal implements BasePart,BasePartAlt2,BasePartSplit8 {
 	public static int LENGTH() { return values().length; };
 	public static int BIT_COUNT = 3;
 	private static final byte BITMASK = 0x07;
-	private final Map<BaseFacetKey, Object> facetStore = new HashMap<>();
+	private final BaseFacetMap bfm = BaseFacetMap.newInstance();
 	private static final String ALT_1_NAME = "Absolute Tone Sequence"; 
 	private static final String ALT_1_WIKI = "https://en.wikipedia.org/wiki/Tone_letter";
 	private static final String ALT_2_NAME = "Relative Tone Sequence";
@@ -44,22 +44,22 @@ public enum T08PartOctal implements BasePart,BasePartAlt2,BasePartSplit8 {
 			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getChinaKey(), v -> v)));
 	
 	private T08PartOctal(String identifierTone, String identifierLetter, String chinaKey, String chinaValue, String alt1Value, String alt2Value, int shiftBits) {
-		this.getFacetStore().put(BaseFacetKey.ID_TONE, identifierTone);
-		this.getFacetStore().put(BaseFacetKey.ID_LETTER, identifierLetter);
-		this.getFacetStore().put(BaseFacetKey.CHINA_KEY, chinaKey);
-		this.getFacetStore().put(BaseFacetKey.CHINA_VALUE, chinaValue);
-		this.getFacetStore().put(BaseFacetKey.SHIFT_BITS, Integer.valueOf(shiftBits));
-		this.getFacetStore().put(BaseFacetKey.ALT_1_VALUE, alt1Value);
-		this.getFacetStore().put(BaseFacetKey.ALT_1_NAME, ALT_1_NAME);
-		this.getFacetStore().put(BaseFacetKey.ALT_1_WIKI, ALT_1_WIKI);
-		this.getFacetStore().put(BaseFacetKey.ALT_2_VALUE, alt2Value);
-		this.getFacetStore().put(BaseFacetKey.ALT_2_NAME, ALT_2_NAME);
-		this.getFacetStore().put(BaseFacetKey.ALT_2_WIKI, ALT_2_WIKI);
+		this.getBFM().putInit(BaseFacetKey.ID_TONE, identifierTone);
+		this.getBFM().putInit(BaseFacetKey.ID_LETTER, identifierLetter);
+		this.getBFM().putInit(BaseFacetKey.CHINA_KEY, chinaKey);
+		this.getBFM().putInit(BaseFacetKey.CHINA_VALUE, chinaValue);
+		this.getBFM().putInit(BaseFacetKey.SHIFT_BITS, Integer.valueOf(shiftBits));
+		this.getBFM().putInit(BaseFacetKey.ALT_1_VALUE, alt1Value);
+		this.getBFM().putInit(BaseFacetKey.ALT_1_NAME, ALT_1_NAME);
+		this.getBFM().putInit(BaseFacetKey.ALT_1_WIKI, ALT_1_WIKI);
+		this.getBFM().putInit(BaseFacetKey.ALT_2_VALUE, alt2Value);
+		this.getBFM().putInit(BaseFacetKey.ALT_2_NAME, ALT_2_NAME);
+		this.getBFM().putInit(BaseFacetKey.ALT_2_WIKI, ALT_2_WIKI);
 	}
 	
 	@Override
-	public Map<BaseFacetKey, Object> getFacetStore() {
-		return facetStore;
+	public BaseFacetMap getBFM() {
+		return bfm;
 	}
 	
 	public static T08PartOctal indexOf(T08PartOctal group, int value) {

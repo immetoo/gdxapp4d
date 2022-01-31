@@ -2,13 +2,13 @@ package love.distributedrebirth.numberxd.base2t;
 
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 import love.distributedrebirth.numberxd.base2t.facet.BasePart;
 import love.distributedrebirth.numberxd.base2t.facet.BaseFacetKey;
+import love.distributedrebirth.numberxd.base2t.facet.BaseFacetMap;
 import love.distributedrebirth.numberxd.base2t.facet.BasePartAlt3;
 
 /**
@@ -41,7 +41,7 @@ public enum T20PartScore implements BasePart,BasePartAlt3 {
 	;
 	
 	public static int LENGTH() { return values().length; };
-	private final Map<BaseFacetKey, Object> facetStore = new HashMap<>();
+	private final BaseFacetMap bfm = BaseFacetMap.newInstance();
 	private static final String ALT_1_NAME = "Vigesimal";
 	private static final String ALT_1_WIKI = "https://en.wikipedia.org/wiki/Vigesimal#Places";
 	private static final String ALT_2_NAME = "Vigesimal Alternative";
@@ -57,24 +57,24 @@ public enum T20PartScore implements BasePart,BasePartAlt3 {
 	
 	private T20PartScore(String idTone, String idLetter, String chinaKey, String chinaValue,
 			String alt1Value, String alt2Value, String alt3Value) {
-		this.getFacetStore().put(BaseFacetKey.ID_TONE, idTone);
-		this.getFacetStore().put(BaseFacetKey.ID_LETTER, idLetter);
-		this.getFacetStore().put(BaseFacetKey.CHINA_KEY, chinaKey);
-		this.getFacetStore().put(BaseFacetKey.CHINA_VALUE, chinaValue);
-		this.getFacetStore().put(BaseFacetKey.ALT_1_VALUE, alt1Value);
-		this.getFacetStore().put(BaseFacetKey.ALT_1_NAME, ALT_1_NAME);
-		this.getFacetStore().put(BaseFacetKey.ALT_1_WIKI, ALT_1_WIKI);
-		this.getFacetStore().put(BaseFacetKey.ALT_2_VALUE, alt2Value);
-		this.getFacetStore().put(BaseFacetKey.ALT_2_NAME, ALT_2_NAME);
-		this.getFacetStore().put(BaseFacetKey.ALT_2_WIKI, ALT_2_WIKI);
-		this.getFacetStore().put(BaseFacetKey.ALT_3_VALUE, alt3Value);
-		this.getFacetStore().put(BaseFacetKey.ALT_3_NAME, ALT_3_NAME);
-		this.getFacetStore().put(BaseFacetKey.ALT_3_WIKI, ALT_3_WIKI);
+		this.getBFM().putInit(BaseFacetKey.ID_TONE, idTone);
+		this.getBFM().putInit(BaseFacetKey.ID_LETTER, idLetter);
+		this.getBFM().putInit(BaseFacetKey.CHINA_KEY, chinaKey);
+		this.getBFM().putInit(BaseFacetKey.CHINA_VALUE, chinaValue);
+		this.getBFM().putInit(BaseFacetKey.ALT_1_VALUE, alt1Value);
+		this.getBFM().putInit(BaseFacetKey.ALT_1_NAME, ALT_1_NAME);
+		this.getBFM().putInit(BaseFacetKey.ALT_1_WIKI, ALT_1_WIKI);
+		this.getBFM().putInit(BaseFacetKey.ALT_2_VALUE, alt2Value);
+		this.getBFM().putInit(BaseFacetKey.ALT_2_NAME, ALT_2_NAME);
+		this.getBFM().putInit(BaseFacetKey.ALT_2_WIKI, ALT_2_WIKI);
+		this.getBFM().putInit(BaseFacetKey.ALT_3_VALUE, alt3Value);
+		this.getBFM().putInit(BaseFacetKey.ALT_3_NAME, ALT_3_NAME);
+		this.getBFM().putInit(BaseFacetKey.ALT_3_WIKI, ALT_3_WIKI);
 	}
 	
 	@Override
-	public Map<BaseFacetKey, Object> getFacetStore() {
-		return facetStore;
+	public BaseFacetMap getBFM() {
+		return bfm;
 	}
 	
 	public static void forEach(Consumer<T20PartScore> consumer) {
