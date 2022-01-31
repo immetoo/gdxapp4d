@@ -8,7 +8,9 @@ import imgui.ImGui;
 import imgui.ImGuiIO;
 import imgui.gl3.ImGuiImplGl3;
 import imgui.glfw.ImGuiImplGlfw;
-import love.distributedrebirth.numberxd.base2t.T60Sexagesimal;
+import love.distributedrebirth.numberxd.base2t.BasePartFactory;
+import love.distributedrebirth.numberxd.base2t.facet.BasePart;
+import love.distributedrebirth.numberxd.base2t.facet.BasePartAlt1;
 
 /**
  * Create and shutdown of ImGui and font activations.
@@ -22,7 +24,6 @@ public class ImGuiSetup {
 	private static final short[] glyphRangesArabic = new short[]{0x0600, 0x06FF};
 	private static final short[] glyphRangesSubSuper0 = new short[]{0x00B2, 0x00B9};
 	private static final short[] glyphRangesSubSuper1 = new short[]{0x2070, 0x209F};
-	private static final short[] glyphRangesToneLetters0 = new short[]{0x02E5, 0x02E9};
 	
 	public static void init() {
 		long windowHandle = -1;
@@ -53,13 +54,18 @@ public class ImGuiSetup {
 		rangesBuilder.addRanges(glyphRangesArabic);
 		rangesBuilder.addRanges(glyphRangesSubSuper0);
 		rangesBuilder.addRanges(glyphRangesSubSuper1);
-		rangesBuilder.addRanges(glyphRangesToneLetters0);
 		rangesBuilder.addText("@Ω\u4ed9⁴ ˧꜏⋇꜊꜔ ⁴ﷲΩ@");
 		rangesBuilder.addText("©Δ∞ \u4ed9\u4e0a\u4e3b\u5929");
 		
-		for (T60Sexagesimal value:T60Sexagesimal.values()) {
-			rangesBuilder.addText(value.getIdentifierLetter());
-			rangesBuilder.addText(value.getChinaKey());
+		for (int base:BasePartFactory.getSupportedBases()) {
+			for (BasePart part:BasePartFactory.buildBasePartsByBase(base)) {
+				rangesBuilder.addText(part.getIdentifierTone());
+				rangesBuilder.addText(part.getIdentifierLetter());
+				rangesBuilder.addText(part.getChinaKey());
+				if (part instanceof BasePartAlt1) {
+					rangesBuilder.addText(BasePartAlt1.class.cast(part).getAlt1Value());
+				}
+			}
 		}
 
 		final ImFontConfig fontConfig = new ImFontConfig();
