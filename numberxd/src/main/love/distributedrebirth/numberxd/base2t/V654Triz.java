@@ -7,17 +7,17 @@ package love.distributedrebirth.numberxd.base2t;
  */
 public class V654Triz implements BaseNumberTyte<V654Triz> {
 
-	public static int BIT_COUNT = V01BTemvig.BIT_COUNT * T60Sexagesimal.LENGTH;
-	private V01BTemvig[] values = new V01BTemvig[T60Sexagesimal.LENGTH];
+	public static int BIT_COUNT = V01BTemvig.BIT_COUNT * T60Sexagesimal.LENGTH();
+	private V01BTemvig[] values = new V01BTemvig[T60Sexagesimal.LENGTH()];
 	
 	public V654Triz() {
-		for (int i=0;i<T60Sexagesimal.LENGTH;i++) {
+		for (int i=0;i<this.values.length;i++) {
 			this.values[i] = new V01BTemvig();
 		}
 	}
 	
 	public V654Triz(T08PartOctalBaseIterator values) {
-		for (int i=0;i<T60Sexagesimal.LENGTH;i++) {
+		for (int i=0;i<this.values.length;i++) {
 			this.values[i] = new V01BTemvig(values);
 		}
 	}

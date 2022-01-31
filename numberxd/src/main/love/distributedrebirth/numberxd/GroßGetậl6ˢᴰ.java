@@ -14,23 +14,23 @@ import love.distributedrebirth.numberxd.base2t.V009TyteBaseIterator;
  */
 public class GroßGetậl6ˢᴰ implements BaseNumberTyte<GroßGetậl6ˢᴰ> {
 	
-	public static int BIT_COUNT = GroßGetậl1ⁿᴰ.BIT_COUNT * T12PartUncial.LENGTH;
-	private GroßGetậl1ⁿᴰ[] values = new GroßGetậl1ⁿᴰ[T12PartUncial.LENGTH];
+	public static int BIT_COUNT = GroßGetậl1ⁿᴰ.BIT_COUNT * T12PartUncial.LENGTH();
+	private GroßGetậl1ⁿᴰ[] values = new GroßGetậl1ⁿᴰ[T12PartUncial.LENGTH()];
 	
 	public GroßGetậl6ˢᴰ() {
-		for (int i=0;i<T12PartUncial.LENGTH;i++) {
+		for (int i=0;i<this.values.length;i++) {
 			this.values[i] = new GroßGetậl1ⁿᴰ();
 		}
 	}
 	
 	public GroßGetậl6ˢᴰ(T08PartOctalBaseIterator values) {
-		for (int i=0;i<T12PartUncial.LENGTH;i++) {
+		for (int i=0;i<this.values.length;i++) {
 			this.values[i] = new GroßGetậl1ⁿᴰ(values);
 		}
 	}
 	
 	public GroßGetậl6ˢᴰ(V009TyteBaseIterator values) {
-		for (int i=0;i<T12PartUncial.LENGTH;i++) {
+		for (int i=0;i<this.values.length;i++) {
 			this.values[i] = new GroßGetậl1ⁿᴰ(values);
 		}
 	}

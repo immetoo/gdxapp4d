@@ -29,7 +29,7 @@ public enum T08PartOctal implements BasePart,BasePartAlt2,BasePartSplit8 {
 	PART_8("꜑","7","腳","feet", "˧˩˩","˩˩˧", 21),
 	;
 	
-	public static int LENGTH = 8;
+	public static int LENGTH() { return values().length; };
 	public static int BIT_COUNT = 3;
 	private static final byte BITMASK = 0x07;
 	private final Map<BaseFacetKey, Object> facetStore = new HashMap<>();

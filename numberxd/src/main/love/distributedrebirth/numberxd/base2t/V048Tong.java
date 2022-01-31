@@ -7,8 +7,8 @@ package love.distributedrebirth.numberxd.base2t;
  */
 public final class V048Tong implements BaseNumberTyte<V048Tong> {
 
-	public static int BIT_COUNT = V024Teger.BIT_COUNT * T02PartBinary.LENGTH;
-	private V024Teger[] values = new V024Teger[T02PartBinary.LENGTH];
+	public static int BIT_COUNT = V024Teger.BIT_COUNT * T02PartBinary.LENGTH();
+	private V024Teger[] values = new V024Teger[T02PartBinary.LENGTH()];
 	
 	public V048Tong() {
 		this(new V024Teger(), new V024Teger());

@@ -18,17 +18,17 @@ import love.distributedrebirth.numberxd.base2t.VCA8Tath;
  */
 public class KlompGetậl4ˢᴰ implements BaseNumberTyte<KlompGetậl4ˢᴰ> {
 
-	public static int BIT_COUNT = V654Triz.BIT_COUNT * T08PartOctal.LENGTH;
-	private final VCA8Tath[] values = new VCA8Tath[T08PartOctal.LENGTH];
+	public static int BIT_COUNT = V654Triz.BIT_COUNT * T08PartOctal.LENGTH();
+	private final VCA8Tath[] values = new VCA8Tath[T08PartOctal.LENGTH()];
 	
 	public KlompGetậl4ˢᴰ() {
-		for (int i=0;i<T08PartOctal.LENGTH;i++) {
+		for (int i=0;i<this.values.length;i++) {
 			this.values[i] = new VCA8Tath();
 		}
 	}
 	
 	public KlompGetậl4ˢᴰ(T08PartOctalBaseIterator values) {
-		for (int i=0;i<T08PartOctal.LENGTH;i++) {
+		for (int i=0;i<this.values.length;i++) {
 			this.values[i] = new VCA8Tath(values);
 		}
 	}

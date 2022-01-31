@@ -82,7 +82,7 @@ public enum T60Sexagesimal implements BasePart {
 	PART_60("꜑꜑꜏","οϚ","蘋","apple"),
 	;
 	
-	public static int LENGTH = 60;
+	public static int LENGTH() { return values().length; };
 	private final Map<BaseFacetKey, Object> facetStore = new HashMap<>();
 	private static final Map<String, T60Sexagesimal> TONE_MAP = Collections.unmodifiableMap(
 			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getIdentifierTone(), v -> v)));

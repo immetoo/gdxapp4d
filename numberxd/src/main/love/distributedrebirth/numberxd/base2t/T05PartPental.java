@@ -25,7 +25,7 @@ public enum T05PartPental implements BasePart,BasePartAlt2 {
 	PART_5("˩","4","土","earth","G", "gaia"),
 	;
 	
-	public static int LENGTH = 5;
+	public static int LENGTH() { return values().length; };
 	private static final String ALT_1_NAME = "Pentagram";
 	private static final String ALT_1_WIKI = "https://en.wikipedia.org/wiki/Pentagram";
 	private static final String ALT_2_NAME = "Pythagorean Interpretations";

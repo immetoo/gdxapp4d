@@ -25,7 +25,7 @@ public enum T04PartQuad implements BasePart,BasePartAlt1,BasePartSplit4 {
 	PART_4("˩","3","南","south","S"),
 	;
 	
-	public static int LENGTH = 4;
+	public static int LENGTH() { return values().length; };
 	private final Map<BaseFacetKey, Object> facetStore = new HashMap<>();
 	private static final String ALT_1_NAME = "Cardinal direction";
 	private static final String ALT_1_WIKI = "https://simple.wikipedia.org/wiki/Cardinal_direction";

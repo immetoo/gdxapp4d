@@ -29,7 +29,7 @@ public enum T06PartSeximal implements BasePart,BasePartAlt1,BasePartSplit6 {
 	PART_6("꜏","5","九","9","X"),
 	;
 	
-	public static int LENGTH = 6;
+	public static int LENGTH() { return values().length; };
 	private final Map<BaseFacetKey, Object> facetStore = new HashMap<>();
 	private static final String ALT_1_NAME = "ADFGVX cipher";
 	private static final String ALT_1_WIKI = "https://en.wikipedia.org/wiki/ADFGVX_cipher";

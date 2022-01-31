@@ -21,7 +21,7 @@ public enum T02PartBinary implements BasePart {
 	PART_2("꜔","1", "高", "high"),
 	;
 	
-	public static int LENGTH = 2;
+	public static int LENGTH() { return values().length; };
 	private final Map<BaseFacetKey, Object> facetStore = new HashMap<>();
 	private static final Map<String, T02PartBinary> TONE_MAP = Collections.unmodifiableMap(
 			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getIdentifierTone(), v -> v)));

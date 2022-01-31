@@ -32,7 +32,7 @@ public enum T12PartUncial implements BasePart,BasePartAlt1 {
 	PART_12("꜑","B","亞","nozero","\u218b"), // TURNED DIGIT THREE
 	;
 	
-	public static int LENGTH = 12;
+	public static int LENGTH() { return values().length; };
 	private final Map<BaseFacetKey, Object> facetStore = new HashMap<>();
 	private static final String ALT_1_NAME = "Transdecimal symbols";
 	private static final String ALT_1_WIKI = "https://en.wikipedia.org/wiki/Duodecimal#Transdecimal_symbols";

@@ -22,7 +22,7 @@ public enum T03PartTrit implements BasePart {
 	PART_3("˨","2","三","3"),
 	;
 	
-	public static int LENGTH = 3;
+	public static int LENGTH() { return values().length; };
 	private final Map<BaseFacetKey, Object> facetStore = new HashMap<>();
 	private static final Map<String, T03PartTrit> TONE_MAP = Collections.unmodifiableMap(
 			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getIdentifierTone(), v -> v)));

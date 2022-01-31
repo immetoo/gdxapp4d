@@ -40,7 +40,7 @@ public enum T20PartScore implements BasePart,BasePartAlt3 {
 	PART_20("꜑","y", "幺","yocto","J","K","X"),
 	;
 	
-	public static int LENGTH = 20;
+	public static int LENGTH() { return values().length; };
 	private final Map<BaseFacetKey, Object> facetStore = new HashMap<>();
 	private static final String ALT_1_NAME = "Vigesimal";
 	private static final String ALT_1_WIKI = "https://en.wikipedia.org/wiki/Vigesimal#Places";

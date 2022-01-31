@@ -37,7 +37,7 @@ public enum T16PartHex implements BasePart,BasePartAlt1,BasePartSplit16 {
 	PART_16("꜑","F","硫","sulfur","D"),
 	;
 	
-	public static int LENGTH = 16;
+	public static int LENGTH() { return values().length; };
 	private final Map<BaseFacetKey, Object> facetStore = new HashMap<>();
 	private static final String ALT_1_NAME = "Dual-tone multi-frequency signaling";
 	private static final String ALT_1_WIKI = "https://en.wikipedia.org/wiki/Dual-tone_multi-frequency_signaling";

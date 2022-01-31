@@ -7,8 +7,8 @@ package love.distributedrebirth.numberxd.base2t;
  */
 public class VCA8Tath implements BaseNumberTyte<VCA8Tath> {
 
-	public static int BIT_COUNT = V654Triz.BIT_COUNT * T02PartBinary.LENGTH;
-	private V654Triz[] values = new V654Triz[T02PartBinary.LENGTH];
+	public static int BIT_COUNT = V654Triz.BIT_COUNT * T02PartBinary.LENGTH();
+	private V654Triz[] values = new V654Triz[T02PartBinary.LENGTH()];
 	
 	public VCA8Tath() {
 		this(new V654Triz(), new V654Triz());

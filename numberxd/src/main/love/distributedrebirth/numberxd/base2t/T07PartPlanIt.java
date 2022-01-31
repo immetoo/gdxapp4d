@@ -27,7 +27,7 @@ public enum T07PartPlanIt implements BasePart,BasePartAlt1 {
 	PART_7("˩","7","♈︎","aries","白羊座"),
 	;
 	
-	public static int LENGTH = 6;
+	public static int LENGTH() { return values().length; };
 	private final Map<BaseFacetKey, Object> facetStore = new HashMap<>();
 	private static final String ALT_1_NAME = "Fallen sign";
 	private static final String ALT_1_WIKI = "https://en.wikipedia.org/wiki/Classical_planet#Western_astrology";

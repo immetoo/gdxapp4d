@@ -7,8 +7,8 @@ package love.distributedrebirth.numberxd.base2t;
  */
 public final class V01BTemvig implements BaseNumberTyte<V01BTemvig> {
 
-	public static int BIT_COUNT = V009Tyte.BIT_COUNT * T03PartTrit.LENGTH;
-	private V009Tyte[] values = new V009Tyte[T03PartTrit.LENGTH];
+	public static int BIT_COUNT = V009Tyte.BIT_COUNT * T03PartTrit.LENGTH();
+	private V009Tyte[] values = new V009Tyte[T03PartTrit.LENGTH()];
 	
 	public V01BTemvig() {
 		this(new V009Tyte(), new V009Tyte(), new V009Tyte());
