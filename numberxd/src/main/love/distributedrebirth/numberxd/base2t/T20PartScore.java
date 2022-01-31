@@ -52,6 +52,8 @@ public enum T20PartScore implements BasePart,BasePartAlt3 {
 			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getIdentifierTone(), v -> v)));
 	private static final Map<String, T20PartScore> CHINA_MAP = Collections.unmodifiableMap(
 			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getChinaKey(), v -> v)));
+	private static final Map<String, T20PartScore> OPENLC_MAP = Collections.unmodifiableMap(
+			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getAlt3Value(), v -> v)));
 	
 	private T20PartScore(String idTone, String idLetter, String chinaKey, String chinaValue,
 			String alt1Value, String alt2Value, String alt3Value) {
@@ -87,5 +89,9 @@ public enum T20PartScore implements BasePart,BasePartAlt3 {
 	
 	public static T20PartScore valueOfChina(String chinaKey) {
 		return CHINA_MAP.get(chinaKey);
+	}
+	
+	public static T20PartScore valueOfOpenLC(String chinaKey) {
+		return OPENLC_MAP.get(chinaKey);
 	}
 }
