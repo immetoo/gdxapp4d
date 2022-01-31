@@ -15,9 +15,8 @@ import love.distributedrebirth.numberxd.base2t.V090Tocta;
  * Holds an 144 bit fraction.
  * 
  * @author willemtsade ©Δ∞ 仙上主天
- * 
  */
-public class GroßGetậl1D implements BaseNumberTyte<GroßGetậl1D> {
+public class GroßGetậl1ⁿᴰ implements BaseNumberTyte<GroßGetậl1ⁿᴰ> {
 	
 	public static int NUMERATOR_SIZE = 7;
 	public static int DENOMINATOR_SIZE = 9;
@@ -25,7 +24,7 @@ public class GroßGetậl1D implements BaseNumberTyte<GroßGetậl1D> {
 	private final V009Tyte[] numerator = new V009Tyte[NUMERATOR_SIZE];
 	private final V009Tyte[] denominator = new V009Tyte[DENOMINATOR_SIZE];
 	
-	public GroßGetậl1D() {
+	public GroßGetậl1ⁿᴰ() {
 		for (int i=0;i<NUMERATOR_SIZE;i++) {
 			numerator[i] = new V009Tyte();
 		}
@@ -34,7 +33,7 @@ public class GroßGetậl1D implements BaseNumberTyte<GroßGetậl1D> {
 		}
 	}
 	
-	public GroßGetậl1D(T08PartOctalBaseIterator values) {
+	public GroßGetậl1ⁿᴰ(T08PartOctalBaseIterator values) {
 		for (int i=0;i<NUMERATOR_SIZE;i++) {
 			numerator[i] = new V009Tyte(values);
 		}
@@ -43,7 +42,7 @@ public class GroßGetậl1D implements BaseNumberTyte<GroßGetậl1D> {
 		}
 	}
 	
-	public GroßGetậl1D(V009TyteBaseIterator values) {
+	public GroßGetậl1ⁿᴰ(V009TyteBaseIterator values) {
 		for (int i=0;i<NUMERATOR_SIZE;i++) {
 			numerator[i] = values.next();
 		}
@@ -52,7 +51,7 @@ public class GroßGetậl1D implements BaseNumberTyte<GroßGetậl1D> {
 		}
 	}
 	
-	public GroßGetậl1D(V090Tocta tocta) {
+	public GroßGetậl1ⁿᴰ(V090Tocta tocta) {
 		List<V009Tyte> tytes = new ArrayList<>();
 		tocta.fillTytesByReference(new V009TyteBaseAppender(tytes));
 		for (int i=0;i<NUMERATOR_SIZE;i++) {
@@ -77,8 +76,8 @@ public class GroßGetậl1D implements BaseNumberTyte<GroßGetậl1D> {
 	}
 
 	@Override
-	public GroßGetậl1D toClone() {
-		return new GroßGetậl1D(iteratorOctalsByClone());
+	public GroßGetậl1ⁿᴰ toClone() {
+		return new GroßGetậl1ⁿᴰ(iteratorOctalsByClone());
 	}
 
 	@Override

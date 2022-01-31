@@ -9,7 +9,6 @@ import love.distributedrebirth.numberxd.base2t.V024Teger;
 /**
  * 
  * @author willemtsade ©Δ∞ 仙上主天
- * 
  */
 public class Gê̄ldGetậl {
 

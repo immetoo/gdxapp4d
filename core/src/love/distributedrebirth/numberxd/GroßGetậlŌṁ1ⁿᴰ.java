@@ -4,16 +4,21 @@ import love.distributedrebirth.numberxd.base2t.BaseNumber;
 import love.distributedrebirth.numberxd.base2t.T08PartOctalBaseAppender;
 import love.distributedrebirth.numberxd.base2t.T08PartOctalBaseIterator;
 
-abstract public class GroßGetậlŌṁ1D<V extends GroßGetậlŌṁ1D<V> & BaseNumber<V>> implements BaseNumber<V> {
+/**
+ * Divide GroßGetậl1ⁿᴰ into resolved fractal slices.
+ * 
+ * @author willemtsade ©Δ∞ 仙上主天
+ */
+abstract public class GroßGetậlŌṁ1ⁿᴰ<V extends GroßGetậlŌṁ1ⁿᴰ<V> & BaseNumber<V>> implements BaseNumber<V> {
 	
-	private GroßGetậl1D[] values;
+	private GroßGetậl1ⁿᴰ[] values;
 	private int valuesLength;
 	private byte fractalLevel;
 	
-	public GroßGetậlŌṁ1D(byte fractalLevel) {
+	public GroßGetậlŌṁ1ⁿᴰ(byte fractalLevel) {
 		this.fractalLevel = fractalLevel;
 		this.valuesLength = resolveFractalLevel(fractalLevel);
-		this.values = new GroßGetậl1D[valuesLength];
+		this.values = new GroßGetậl1ⁿᴰ[valuesLength];
 	}
 	
 	abstract protected int resolveFractalLevel(byte level);
@@ -36,11 +41,11 @@ abstract public class GroßGetậlŌṁ1D<V extends GroßGetậlŌṁ1D<V> & Bas
 		return part;
 	}
 	
-	public final GroßGetậl1D getValue(int part) {
+	public final GroßGetậl1ⁿᴰ getValue(int part) {
 		return values[validatePartRequest(part)];
 	}
 	
-	public final void setValue(int part, GroßGetậl1D value) {
+	public final void setValue(int part, GroßGetậl1ⁿᴰ value) {
 		values[validatePartRequest(part)] = value;
 	}
 	
@@ -51,19 +56,19 @@ abstract public class GroßGetậlŌṁ1D<V extends GroßGetậlŌṁ1D<V> & Bas
 		V result = toCloneFractal(getFractalLevel());
 		T08PartOctalBaseIterator clonedOctals = iteratorOctalsByClone();
 		for (int i=0;i<getValuesLength();i++) {
-			result.setValue(i, new GroßGetậl1D(clonedOctals));
+			result.setValue(i, new GroßGetậl1ⁿᴰ(clonedOctals));
 		}
 		return result;
 	}
 	
 	@Override
 	public final int getBitCount() {
-		return GroßGetậl1D.BIT_COUNT * valuesLength;
+		return GroßGetậl1ⁿᴰ.BIT_COUNT * valuesLength;
 	}
 	
 	@Override
 	public final void fillOctalsByClone(T08PartOctalBaseAppender appender) {
-		for (GroßGetậl1D value:values) {
+		for (GroßGetậl1ⁿᴰ value:values) {
 			value.fillOctalsByClone(appender);
 		}
 	}

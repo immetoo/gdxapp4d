@@ -7,8 +7,8 @@ import java.util.stream.Collectors;
 
 /**
  * 
- * @author willemtsade ©Δ∞ 仙上主天
  * 
+ * @author willemtsade ©Δ∞ 仙上主天
  */
 public enum Gê̄ldGetậlAtHebrewLetter {
 	// Unicode is horror in any language else than ascii;

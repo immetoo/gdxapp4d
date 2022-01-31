@@ -8,39 +8,38 @@ import love.distributedrebirth.numberxd.base2t.V009TyteBaseAppender;
 import love.distributedrebirth.numberxd.base2t.V009TyteBaseIterator;
 
 /**
- * Holds an 864 bit fraction in stereo 6D.
+ * Holds an 864 bit fraction.
  * 
  * @author willemtsade ©Δ∞ 仙上主天
- * 
  */
-public class GroßGetậl6D implements BaseNumberTyte<GroßGetậl6D> {
+public class GroßGetậl6ˢᴰ implements BaseNumberTyte<GroßGetậl6ˢᴰ> {
 	
-	public static int BIT_COUNT = GroßGetậl1D.BIT_COUNT * T12PartUncial.LENGTH;
-	private GroßGetậl1D[] values = new GroßGetậl1D[T12PartUncial.LENGTH];
+	public static int BIT_COUNT = GroßGetậl1ⁿᴰ.BIT_COUNT * T12PartUncial.LENGTH;
+	private GroßGetậl1ⁿᴰ[] values = new GroßGetậl1ⁿᴰ[T12PartUncial.LENGTH];
 	
-	public GroßGetậl6D() {
+	public GroßGetậl6ˢᴰ() {
 		for (int i=0;i<T12PartUncial.LENGTH;i++) {
-			this.values[i] = new GroßGetậl1D();
+			this.values[i] = new GroßGetậl1ⁿᴰ();
 		}
 	}
 	
-	public GroßGetậl6D(T08PartOctalBaseIterator values) {
+	public GroßGetậl6ˢᴰ(T08PartOctalBaseIterator values) {
 		for (int i=0;i<T12PartUncial.LENGTH;i++) {
-			this.values[i] = new GroßGetậl1D(values);
+			this.values[i] = new GroßGetậl1ⁿᴰ(values);
 		}
 	}
 	
-	public GroßGetậl6D(V009TyteBaseIterator values) {
+	public GroßGetậl6ˢᴰ(V009TyteBaseIterator values) {
 		for (int i=0;i<T12PartUncial.LENGTH;i++) {
-			this.values[i] = new GroßGetậl1D(values);
+			this.values[i] = new GroßGetậl1ⁿᴰ(values);
 		}
 	}
 	
-	public GroßGetậl1D getValue(T12PartUncial part) {
+	public GroßGetậl1ⁿᴰ getValue(T12PartUncial part) {
 		return values[part.ordinal()];
 	}
 	
-	public void setValue(T12PartUncial part, GroßGetậl1D value) {
+	public void setValue(T12PartUncial part, GroßGetậl1ⁿᴰ value) {
 		values[part.ordinal()] = value;
 	}
 
@@ -50,8 +49,8 @@ public class GroßGetậl6D implements BaseNumberTyte<GroßGetậl6D> {
 	}
 
 	@Override
-	public GroßGetậl6D toClone() {
-		return new GroßGetậl6D(iteratorOctalsByClone());
+	public GroßGetậl6ˢᴰ toClone() {
+		return new GroßGetậl6ˢᴰ(iteratorOctalsByClone());
 	}
 
 	@Override

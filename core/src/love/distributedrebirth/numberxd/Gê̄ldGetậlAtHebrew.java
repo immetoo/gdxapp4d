@@ -6,8 +6,8 @@ import love.distributedrebirth.numberxd.base2t.V009Tyte;
 
 /**
  * 
- * @author willemtsade ©Δ∞ 仙上主天
  * 
+ * @author willemtsade ©Δ∞ 仙上主天
  */
 public class Gê̄ldGetậlAtHebrew {
 
