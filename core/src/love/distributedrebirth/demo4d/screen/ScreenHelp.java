@@ -3,6 +3,7 @@ package love.distributedrebirth.demo4d.screen;
 import com.badlogic.gdx.Screen;
 
 import love.distributedrebirth.demo4d.Demo4DMain;
+import love.distributedrebirth.demo4d.music.MusicSongType;
 
 /**
  * 
@@ -60,5 +61,15 @@ public class ScreenHelp extends ScrollScreenAdapter {
 	@Override
 	protected Class<? extends Screen> getNextScreen(Demo4DMain main) {
 		return ScreenDefault.class;
+	}
+	
+	@Override
+	public void show () {
+		main.music.play(MusicSongType.INTRO);
+	}
+	
+	@Override
+	public void hide () {
+		main.music.play(MusicSongType.BACKGROUND);
 	}
 }

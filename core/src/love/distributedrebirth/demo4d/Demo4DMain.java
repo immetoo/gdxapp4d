@@ -18,6 +18,7 @@ import imgui.type.ImBoolean;
 import love.distributedrebirth.demo4d.matrix4d.ScreenMatrix4D;
 import love.distributedrebirth.demo4d.music.MusicManager;
 import love.distributedrebirth.demo4d.music.MusicPlayerRenderer;
+import love.distributedrebirth.demo4d.music.MusicSongType;
 import love.distributedrebirth.demo4d.screen.BasePartRenderer;
 import love.distributedrebirth.demo4d.screen.BasicConsoleRenderer;
 import love.distributedrebirth.demo4d.screen.HebrewWalletRenderer;
@@ -40,8 +41,8 @@ public class Demo4DMain extends Game {
 	public SpriteBatch batch;
 	public BitmapFont font;
 	public OrthographicCamera camera;
-	public final int viewWidth = 800;
-	public final int viewHeight = 600;
+	public final int viewWidth;
+	public final int viewHeight;
 	public MusicManager music;
 	
 	private Map<Class<? extends Screen>,Screen> screens;
@@ -52,8 +53,10 @@ public class Demo4DMain extends Game {
 	private ImBoolean showBasePart = new ImBoolean(false);
 	private ImBoolean showBasicConsole = new ImBoolean(false);
 	
-	public Demo4DMain(List<String> args, NativeFileChooser fileChooser) {
+	public Demo4DMain(List<String> args, int viewWidth, int viewHeight, NativeFileChooser fileChooser) {
 		this.args = args;
+		this.viewWidth = viewWidth;
+		this.viewHeight = viewHeight;
 		this.fileChooser = fileChooser;
 	}
 	
@@ -67,7 +70,7 @@ public class Demo4DMain extends Game {
 		batch.setProjectionMatrix(camera.combined);
 		
 		music = new MusicManager();
-		music.init();
+		music.init(args.contains("no-music"));
 		
 		ImGuiSetup.init();
 		widgets = new HashMap<>();
@@ -85,10 +88,14 @@ public class Demo4DMain extends Game {
 		putScreen(new ScreenMatrix4D(this));
 		putScreen(new ScreenUnicode4D(this));
 		
-		if (args.contains("default")) {
+		if (args.contains("no-intro")) {
 			selectScreen(ScreenDefault.class);
+			music.play(MusicSongType.BACKGROUND);
 		} else {
 			selectScreen(ScreenIntro.class);
+		}
+		if (args.contains("full-screen")) {
+			Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());
 		}
 	}
 	
@@ -155,6 +162,16 @@ public class Demo4DMain extends Game {
 	private void renderMenu() {
 		ImGui.beginMainMenuBar();
 		if (ImGui.beginMenu("Demo")) {
+			if (Gdx.graphics.isFullscreen()) {
+				if (ImGui.menuItem("Window Mode")) {
+					Gdx.graphics.setWindowedMode(viewWidth, viewHeight);
+				}
+			} else {
+				if (ImGui.menuItem("Full Screen")) {
+					Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());
+				}
+			}
+			ImGui.separator();
 			if (ImGui.menuItem("Matrix4D")) {
 				selectScreen(ScreenMatrix4D.class);
 			}
@@ -186,9 +203,6 @@ public class Demo4DMain extends Game {
 			if (ImGui.menuItem("Music Player")) {
 				showMusicPlayer.set(true);
 			}
-			if (ImGui.menuItem("Stop Music")) {
-				music.stop();
-			}
 			ImGui.endMenu();
 		}
 		if (ImGui.beginMenu("Help")) {
@@ -216,6 +230,9 @@ public class Demo4DMain extends Game {
 			return false;
 		}
 		if (ScreenCredits.class.equals(screen.getClass())) {
+			return false;
+		}
+		if (ScreenHelp.class.equals(screen.getClass())) {
 			return false;
 		}
 		return true;

@@ -1,5 +1,7 @@
 package love.distributedrebirth.demo4d.music;
 
+import java.util.function.Consumer;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 
@@ -21,8 +23,14 @@ import net.spookygames.gdx.nativefilechooser.NativeFileChooserConfiguration;
  */
 public class MusicPlayerRenderer extends ImGuiRendererMain {
 
+	private final NativeFileChooserConfiguration fileChooserConfig;
+	
 	public MusicPlayerRenderer(Demo4DMain main) {
 		super(main);
+		fileChooserConfig = new NativeFileChooserConfiguration();
+		fileChooserConfig.directory = Gdx.files.absolute(System.getProperty("user.home"));
+		fileChooserConfig.mimeFilter = "audio/*";
+		fileChooserConfig.title = "Choose audio file";
 	}
 	
 	@Override
@@ -32,11 +40,14 @@ public class MusicPlayerRenderer extends ImGuiRendererMain {
 		ImGui.begin("Music Player", widgetOpen);
 		
 		ImGui.text("Current Song:");
-		ImGui.sameLine();
-		ImGui.text(main.music.getCurrentSongName());
+		MusicSong currentSong = main.music.getCurrentSong();
+		if (currentSong != null) {
+			ImGui.sameLine();
+			ImGui.text(currentSong.getName());
+		}
 		ImGui.separator();
 		if (ImGui.button("Play")) {
-			main.music.play(MusicSongType.BACKGROUND);
+			main.music.play(currentSong);
 		}
 		ImGui.sameLine();
 		if (ImGui.button("<")) {
@@ -52,26 +63,7 @@ public class MusicPlayerRenderer extends ImGuiRendererMain {
 		}
 		ImGui.sameLine();
 		if (ImGui.button("Add")) {
-			NativeFileChooserConfiguration conf = new NativeFileChooserConfiguration();
-			conf.directory = Gdx.files.absolute(System.getProperty("user.home"));
-			conf.mimeFilter = "audio/*";
-			conf.title = "Choose audio file";
-			main.fileChooser.chooseFile(conf, new NativeFileChooserCallback() {
-				
-				@Override
-				public void onFileChosen(FileHandle file) {
-					main.music.addBackgroundMusic(file);
-				}
-				
-				@Override
-				public void onCancellation() {
-				}
-				
-				@Override
-				public void onError(Exception exception) {
-				}
-			});
-
+			main.fileChooser.chooseFile(fileChooserConfig, NativeFileChooserCallbackAdapter.onFileChosen(v -> main.music.addBackgroundMusic(v)));
 		}
 		int flags = ImGuiTableFlags.ScrollX | ImGuiTableFlags.RowBg | ImGuiTableFlags.BordersOuter | ImGuiTableFlags.BordersV;
 		ImGui.beginTable("playlist", 3, flags);
@@ -97,5 +89,29 @@ public class MusicPlayerRenderer extends ImGuiRendererMain {
 		ImGui.endTable();
 		
 		ImGui.end();
+	}
+	
+	static class NativeFileChooserCallbackAdapter implements NativeFileChooserCallback {
+
+		@Override
+		public void onFileChosen(FileHandle file) {
+		}
+		
+		@Override
+		public void onCancellation() {
+		}
+		
+		@Override
+		public void onError(Exception exception) {
+		}
+		
+		static NativeFileChooserCallbackAdapter onFileChosen(Consumer<FileHandle> eater) {
+			return new NativeFileChooserCallbackAdapter() {
+				@Override
+				public void onFileChosen(FileHandle file) {
+					eater.accept(file);
+				}
+			};
+		}
 	}
 }

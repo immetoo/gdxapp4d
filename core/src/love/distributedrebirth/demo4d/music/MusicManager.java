@@ -20,6 +20,7 @@ public class MusicManager {
 	private final List<MusicSong> backgroundSongs;
 	private final NextSongListener nextSongListener;
 	private MusicSong currentSong = null;
+	private boolean noMusic = false;
 	
 	public MusicManager() {
 		backgroundSongs = new ArrayList<>();
@@ -34,7 +35,8 @@ public class MusicManager {
 		backgroundSongs.add(new MusicSong(music, file.name()));
 	}
 	
-	public void init() {
+	public void init(boolean noMusic) {
+		this.noMusic = noMusic;
 		addBackgroundMusic(Gdx.files.internal("music/sanctumwave-risen.mp3"));
 		addBackgroundMusic(Gdx.files.internal("music/sanctumwave-devine-intellect.mp3"));
 		addBackgroundMusic(Gdx.files.internal("music/theselfhelpgroup-temple-os.mp3"));
@@ -53,12 +55,8 @@ public class MusicManager {
 		return backgroundSongs;
 	}
 	
-	public String getCurrentSongName() {
-		if (currentSong != null) {
-			return currentSong.getName();
-		} else {
-			return "None";
-		}
+	public MusicSong getCurrentSong() {
+		return currentSong;
 	}
 	
 	public void stop() {
@@ -71,8 +69,10 @@ public class MusicManager {
 		MusicSong nextSong = null;
 		if (MusicSongType.INTRO.equals(type)) {
 			nextSong = introSong;
+			play(nextSong);
 		} else if (MusicSongType.CREDITS.equals(type)) {
 			nextSong = creditsSong;
+			play(nextSong);
 		} else {
 			int currentBackground = backgroundSongs.indexOf(currentSong);
 			if (currentBackground == -1) {
@@ -80,8 +80,10 @@ public class MusicManager {
 			} else {
 				nextSong = currentSong;
 			}
+			if (!noMusic) {
+				play(nextSong);
+			}
 		}
-		play(nextSong);
 	}
 	
 	public void play(MusicSong song) {
