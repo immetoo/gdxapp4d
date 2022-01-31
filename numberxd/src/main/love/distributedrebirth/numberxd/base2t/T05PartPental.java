@@ -28,6 +28,8 @@ public enum T05PartPental implements BasePart {
 	private final Map<BaseFacetKey, Object> facetStore = new HashMap<>();
 	private static final Map<String, T05PartPental> TONE_MAP = Collections.unmodifiableMap(
 			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getIdentifierTone(), v -> v)));
+	private static final Map<String, T05PartPental> CHINA_MAP = Collections.unmodifiableMap(
+			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getChinaKey(), v -> v)));
 	
 	private T05PartPental(String idTone, String idLetter, String chinaKey, String chinaValue) {
 		this.getFacetStore().put(BaseFacetKey.ID_TONE, idTone);
@@ -49,5 +51,9 @@ public enum T05PartPental implements BasePart {
 	
 	public static T05PartPental valueOfTone(String identifierTone) {
 		return TONE_MAP.get(identifierTone);
+	}
+	
+	public static T05PartPental valueOfChina(String chinaKey) {
+		return CHINA_MAP.get(chinaKey);
 	}
 }

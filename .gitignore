@@ -2,11 +2,10 @@
 # Ignore files in the demo4D project.
 #
 
-# Ignore project resources
-core/bin
-desktop/bin
-
-# Ignore gradle work folder
+# Ignore gradle resources
+bin
+build
+.gitignore
 .gradle
 
 # Ignore binary files and formats
