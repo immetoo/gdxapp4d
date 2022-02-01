@@ -6,17 +6,25 @@ import java.util.Map;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
-import love.distributedrebirth.numberxd.base2t.facet.BasePart;
-import love.distributedrebirth.numberxd.base2t.facet.BaseFacetKey;
-import love.distributedrebirth.numberxd.base2t.facet.BaseFacetMap;
-import love.distributedrebirth.numberxd.base2t.facet.BasePartAlt3;
+import love.distributedrebirth.numberxd.base2t.bone.BassBone;
+import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt1Info;
+import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt2Info;
+import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt3;
+import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt3Info;
+import love.distributedrebirth.numberxd.base2t.bone.BassBoneCoffin;
+import love.distributedrebirth.numberxd.base2t.bone.BassBoneName;
+import love.distributedrebirth.numberxd.base2t.bone.BassBoneStoreKey;
 
 /**
  * The distribution by 20.
  * 
  * @author willemtsade ©Δ∞ 仙上主天
  */
-public enum T20PartScore implements BasePart,BasePartAlt3 {
+@BassBoneName("T20PartScore")
+@BassBoneAlt1Info(name="Vigesimal", website="https://en.wikipedia.org/wiki/Vigesimal#Places")
+@BassBoneAlt2Info(name="Vigesimal Alternative", website="https://en.wikipedia.org/wiki/Vigesimal#Places")
+@BassBoneAlt3Info(name="Open Location Code", website="https://en.wikipedia.org/wiki/Open_Location_Code")
+public enum T20PartScore implements BassBone,BassBoneAlt3 {
 
 	PART_1 ("˥","Y", "尧","yotta","0","0","2"),
 	PART_2 ("˦","Z", "泽","zetta","1","1","3"),
@@ -41,13 +49,7 @@ public enum T20PartScore implements BasePart,BasePartAlt3 {
 	;
 	
 	public static int LENGTH() { return values().length; };
-	private final BaseFacetMap bfm = BaseFacetMap.newInstance();
-	private static final String ALT_1_NAME = "Vigesimal";
-	private static final String ALT_1_WIKI = "https://en.wikipedia.org/wiki/Vigesimal#Places";
-	private static final String ALT_2_NAME = "Vigesimal Alternative";
-	private static final String ALT_2_WIKI = "https://en.wikipedia.org/wiki/Vigesimal#Places";
-	private static final String ALT_3_NAME = "Open Location Code";
-	private static final String ALT_3_WIKI = "https://en.wikipedia.org/wiki/Open_Location_Code";
+	private final BassBoneCoffin bbc = BassBoneCoffin.newInstance();
 	private static final Map<String, T20PartScore> TONE_MAP = Collections.unmodifiableMap(
 			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getIdentifierTone(), v -> v)));
 	private static final Map<String, T20PartScore> CHINA_MAP = Collections.unmodifiableMap(
@@ -57,24 +59,18 @@ public enum T20PartScore implements BasePart,BasePartAlt3 {
 	
 	private T20PartScore(String idTone, String idLetter, String chinaKey, String chinaValue,
 			String alt1Value, String alt2Value, String alt3Value) {
-		this.getBFM().putInit(BaseFacetKey.ID_TONE, idTone);
-		this.getBFM().putInit(BaseFacetKey.ID_LETTER, idLetter);
-		this.getBFM().putInit(BaseFacetKey.CHINA_KEY, chinaKey);
-		this.getBFM().putInit(BaseFacetKey.CHINA_VALUE, chinaValue);
-		this.getBFM().putInit(BaseFacetKey.ALT_1_VALUE, alt1Value);
-		this.getBFM().putInit(BaseFacetKey.ALT_1_NAME, ALT_1_NAME);
-		this.getBFM().putInit(BaseFacetKey.ALT_1_WIKI, ALT_1_WIKI);
-		this.getBFM().putInit(BaseFacetKey.ALT_2_VALUE, alt2Value);
-		this.getBFM().putInit(BaseFacetKey.ALT_2_NAME, ALT_2_NAME);
-		this.getBFM().putInit(BaseFacetKey.ALT_2_WIKI, ALT_2_WIKI);
-		this.getBFM().putInit(BaseFacetKey.ALT_3_VALUE, alt3Value);
-		this.getBFM().putInit(BaseFacetKey.ALT_3_NAME, ALT_3_NAME);
-		this.getBFM().putInit(BaseFacetKey.ALT_3_WIKI, ALT_3_WIKI);
+		this.getBBC().putInit(BassBoneStoreKey.ID_TONE, idTone);
+		this.getBBC().putInit(BassBoneStoreKey.ID_LETTER, idLetter);
+		this.getBBC().putInit(BassBoneStoreKey.CHINA_KEY, chinaKey);
+		this.getBBC().putInit(BassBoneStoreKey.CHINA_VALUE, chinaValue);
+		this.getBBC().putInit(BassBoneStoreKey.ALT_1_VALUE, alt1Value);
+		this.getBBC().putInit(BassBoneStoreKey.ALT_2_VALUE, alt2Value);
+		this.getBBC().putInit(BassBoneStoreKey.ALT_3_VALUE, alt3Value);
 	}
 	
 	@Override
-	public BaseFacetMap getBFM() {
-		return bfm;
+	public BassBoneCoffin getBBC() {
+		return bbc;
 	}
 	
 	public static void forEach(Consumer<T20PartScore> consumer) {

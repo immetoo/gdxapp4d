@@ -18,8 +18,8 @@ public class T16PartHexTest {
 			Assertions.assertNotNull(value.getChinaKey());
 			Assertions.assertNotNull(value.getChinaValue());
 			Assertions.assertNotNull(value.getAlt1Value());
-			Assertions.assertNotNull(value.getAlt1Name());
-			Assertions.assertNotNull(value.getAlt1Wiki());
+			Assertions.assertNotNull(value.staticAlt1Name());
+			Assertions.assertNotNull(value.staticAlt1Website());
 		}
 	}
 	

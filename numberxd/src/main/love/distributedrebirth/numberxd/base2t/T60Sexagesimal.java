@@ -6,16 +6,18 @@ import java.util.Map;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
-import love.distributedrebirth.numberxd.base2t.facet.BasePart;
-import love.distributedrebirth.numberxd.base2t.facet.BaseFacetKey;
-import love.distributedrebirth.numberxd.base2t.facet.BaseFacetMap;
+import love.distributedrebirth.numberxd.base2t.bone.BassBone;
+import love.distributedrebirth.numberxd.base2t.bone.BassBoneCoffin;
+import love.distributedrebirth.numberxd.base2t.bone.BassBoneName;
+import love.distributedrebirth.numberxd.base2t.bone.BassBoneStoreKey;
 
 /**
  * The distribution by 60.
  * 
  * @author willemtsade ©Δ∞ 仙上主天
  */
-public enum T60Sexagesimal implements BasePart {
+@BassBoneName("T60Sexagesimal")
+public enum T60Sexagesimal implements BassBone {
 
 	PART_1 ("˧˩˥","ια","牛","cow"),
 	PART_2 ("˧˥˦","ιβ","鸡","chicken"),
@@ -83,21 +85,21 @@ public enum T60Sexagesimal implements BasePart {
 	;
 	
 	public static int LENGTH() { return values().length; };
-	private final BaseFacetMap bfm = BaseFacetMap.newInstance();
+	private final BassBoneCoffin bfm = BassBoneCoffin.newInstance();
 	private static final Map<String, T60Sexagesimal> TONE_MAP = Collections.unmodifiableMap(
 			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getIdentifierTone(), v -> v)));
 	private static final Map<String, T60Sexagesimal> CHINA_MAP = Collections.unmodifiableMap(
 			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getChinaKey(), v -> v)));
 	
 	private T60Sexagesimal(String idTone, String idLetter, String chinaKey, String chinaValue) {
-		this.getBFM().putInit(BaseFacetKey.ID_TONE, idTone);
-		this.getBFM().putInit(BaseFacetKey.ID_LETTER, idLetter);
-		this.getBFM().putInit(BaseFacetKey.CHINA_KEY, chinaKey);
-		this.getBFM().putInit(BaseFacetKey.CHINA_VALUE, chinaValue);
+		this.getBBC().putInit(BassBoneStoreKey.ID_TONE, idTone);
+		this.getBBC().putInit(BassBoneStoreKey.ID_LETTER, idLetter);
+		this.getBBC().putInit(BassBoneStoreKey.CHINA_KEY, chinaKey);
+		this.getBBC().putInit(BassBoneStoreKey.CHINA_VALUE, chinaValue);
 	}
 	
 	@Override
-	public BaseFacetMap getBFM() {
+	public BassBoneCoffin getBBC() {
 		return bfm;
 	}
 	

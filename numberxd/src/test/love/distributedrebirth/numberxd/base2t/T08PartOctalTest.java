@@ -18,11 +18,11 @@ public class T08PartOctalTest {
 			Assertions.assertNotNull(value.getChinaKey());
 			Assertions.assertNotNull(value.getChinaValue());
 			Assertions.assertNotNull(value.getAlt1Value());
-			Assertions.assertNotNull(value.getAlt1Name());
-			Assertions.assertNotNull(value.getAlt1Wiki());
+			Assertions.assertNotNull(value.staticAlt1Name());
+			Assertions.assertNotNull(value.staticAlt1Website());
 			Assertions.assertNotNull(value.getAlt2Value());
-			Assertions.assertNotNull(value.getAlt2Name());
-			Assertions.assertNotNull(value.getAlt2Wiki());
+			Assertions.assertNotNull(value.staticAlt2Name());
+			Assertions.assertNotNull(value.staticAlt2Website());
 		}
 	}
 	

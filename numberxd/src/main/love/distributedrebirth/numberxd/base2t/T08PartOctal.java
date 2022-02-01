@@ -6,18 +6,24 @@ import java.util.Map;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
-import love.distributedrebirth.numberxd.base2t.facet.BasePart;
-import love.distributedrebirth.numberxd.base2t.facet.BaseFacetKey;
-import love.distributedrebirth.numberxd.base2t.facet.BaseFacetMap;
-import love.distributedrebirth.numberxd.base2t.facet.BasePartAlt2;
-import love.distributedrebirth.numberxd.base2t.facet.BasePartSplit8;
+import love.distributedrebirth.numberxd.base2t.bone.BasePartSplit8;
+import love.distributedrebirth.numberxd.base2t.bone.BassBone;
+import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt1Info;
+import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt2;
+import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt2Info;
+import love.distributedrebirth.numberxd.base2t.bone.BassBoneCoffin;
+import love.distributedrebirth.numberxd.base2t.bone.BassBoneName;
+import love.distributedrebirth.numberxd.base2t.bone.BassBoneStoreKey;
 
 /**
  * The distribution by 8.
  * 
  * @author willemtsade ©Δ∞ 仙上主天
  */
-public enum T08PartOctal implements BasePart,BasePartAlt2,BasePartSplit8 {
+@BassBoneName("T08PartOctal")
+@BassBoneAlt1Info(name="Absolute Tone Sequence", website="https://en.wikipedia.org/wiki/Tone_letter")
+@BassBoneAlt2Info(name="Relative Tone Sequence", website="https://en.wikipedia.org/wiki/Tone_letter")
+public enum T08PartOctal implements BassBone,BassBoneAlt2,BasePartSplit8 {
 
 	PART_1("˥","0","心","heart","˧˥˩","˥˩˧", 0),
 	PART_2("˩","1","頭","head", "˧˩˥","˩˥˧", 3),
@@ -32,34 +38,25 @@ public enum T08PartOctal implements BasePart,BasePartAlt2,BasePartSplit8 {
 	public static int LENGTH() { return values().length; };
 	public static int BIT_COUNT = 3;
 	private static final byte BITMASK = 0x07;
-	private final BaseFacetMap bfm = BaseFacetMap.newInstance();
-	private static final String ALT_1_NAME = "Absolute Tone Sequence"; 
-	private static final String ALT_1_WIKI = "https://en.wikipedia.org/wiki/Tone_letter";
-	private static final String ALT_2_NAME = "Relative Tone Sequence";
-	private static final String ALT_2_WIKI = "https://en.wikipedia.org/wiki/Tone_letter";
-	
+	private final BassBoneCoffin bbc = BassBoneCoffin.newInstance();
 	private static final Map<String, T08PartOctal> TONE_MAP = Collections.unmodifiableMap(
 			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getIdentifierTone(), v -> v)));
 	private static final Map<String, T08PartOctal> CHINA_MAP = Collections.unmodifiableMap(
 			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getChinaKey(), v -> v)));
 	
 	private T08PartOctal(String identifierTone, String identifierLetter, String chinaKey, String chinaValue, String alt1Value, String alt2Value, int shiftBits) {
-		this.getBFM().putInit(BaseFacetKey.ID_TONE, identifierTone);
-		this.getBFM().putInit(BaseFacetKey.ID_LETTER, identifierLetter);
-		this.getBFM().putInit(BaseFacetKey.CHINA_KEY, chinaKey);
-		this.getBFM().putInit(BaseFacetKey.CHINA_VALUE, chinaValue);
-		this.getBFM().putInit(BaseFacetKey.SHIFT_BITS, Integer.valueOf(shiftBits));
-		this.getBFM().putInit(BaseFacetKey.ALT_1_VALUE, alt1Value);
-		this.getBFM().putInit(BaseFacetKey.ALT_1_NAME, ALT_1_NAME);
-		this.getBFM().putInit(BaseFacetKey.ALT_1_WIKI, ALT_1_WIKI);
-		this.getBFM().putInit(BaseFacetKey.ALT_2_VALUE, alt2Value);
-		this.getBFM().putInit(BaseFacetKey.ALT_2_NAME, ALT_2_NAME);
-		this.getBFM().putInit(BaseFacetKey.ALT_2_WIKI, ALT_2_WIKI);
+		this.getBBC().putInit(BassBoneStoreKey.ID_TONE, identifierTone);
+		this.getBBC().putInit(BassBoneStoreKey.ID_LETTER, identifierLetter);
+		this.getBBC().putInit(BassBoneStoreKey.CHINA_KEY, chinaKey);
+		this.getBBC().putInit(BassBoneStoreKey.CHINA_VALUE, chinaValue);
+		this.getBBC().putInit(BassBoneStoreKey.SHIFT_BITS, Integer.valueOf(shiftBits));
+		this.getBBC().putInit(BassBoneStoreKey.ALT_1_VALUE, alt1Value);
+		this.getBBC().putInit(BassBoneStoreKey.ALT_2_VALUE, alt2Value);
 	}
 	
 	@Override
-	public BaseFacetMap getBFM() {
-		return bfm;
+	public BassBoneCoffin getBBC() {
+		return bbc;
 	}
 	
 	public static T08PartOctal indexOf(T08PartOctal group, int value) {

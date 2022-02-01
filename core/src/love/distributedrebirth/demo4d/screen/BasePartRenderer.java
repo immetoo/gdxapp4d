@@ -11,11 +11,11 @@ import imgui.type.ImInt;
 import love.distributedrebirth.demo4d.Demo4DMain;
 import love.distributedrebirth.demo4d.ImGuiRendererMain;
 import love.distributedrebirth.numberxd.base2t.BasePartFactory;
-import love.distributedrebirth.numberxd.base2t.facet.BasePart;
-import love.distributedrebirth.numberxd.base2t.facet.BasePartAlt1;
-import love.distributedrebirth.numberxd.base2t.facet.BasePartAlt2;
-import love.distributedrebirth.numberxd.base2t.facet.BasePartAlt3;
-import love.distributedrebirth.numberxd.base2t.facet.BasePartAlt4;
+import love.distributedrebirth.numberxd.base2t.bone.BassBone;
+import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt1;
+import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt2;
+import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt3;
+import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt4;
 
 /**
  * 
@@ -48,7 +48,7 @@ public class BasePartRenderer extends ImGuiRendererMain {
 		ImGui.combo("Type", selectedBasePart, bases.toArray(items));
 		String selectedItem = items[selectedBasePart.get()];
 		Integer baseNumber = Integer.valueOf(selectedItem);
-		BasePart[] baseParts = BasePartFactory.buildBasePartsByBase(baseNumber);
+		BassBone[] baseParts = BasePartFactory.buildBassBonesByBase(baseNumber);
 		
 		int flags = ImGuiTableFlags.ScrollX | ImGuiTableFlags.RowBg | ImGuiTableFlags.BordersOuter | ImGuiTableFlags.BordersV;
 		ImGui.beginTable("base-part", 10, flags);
@@ -64,7 +64,7 @@ public class BasePartRenderer extends ImGuiRendererMain {
 		ImGui.tableSetupColumn("Alt4");
 		ImGui.tableHeadersRow();
 		
-		for (BasePart part:baseParts) {
+		for (BassBone part:baseParts) {
 			ImGui.tableNextRow();
 			ImGui.tableNextColumn();
 			ImGui.text(part.name());
@@ -80,26 +80,26 @@ public class BasePartRenderer extends ImGuiRendererMain {
 			ImGui.text(part.getChinaValue());
 			
 			ImGui.tableNextColumn();
-			if (part instanceof BasePartAlt1) {
-				ImGui.text(BasePartAlt1.class.cast(part).getAlt1Value());
+			if (part instanceof BassBoneAlt1) {
+				ImGui.text(BassBoneAlt1.class.cast(part).getAlt1Value());
 			} else {
 				ImGui.text("");
 			}
 			ImGui.tableNextColumn();
-			if (part instanceof BasePartAlt2) {
-				ImGui.text(BasePartAlt2.class.cast(part).getAlt2Value());
+			if (part instanceof BassBoneAlt2) {
+				ImGui.text(BassBoneAlt2.class.cast(part).getAlt2Value());
 			} else {
 				ImGui.text("");
 			}
 			ImGui.tableNextColumn();
-			if (part instanceof BasePartAlt3) {
-				ImGui.text(BasePartAlt3.class.cast(part).getAlt3Value());
+			if (part instanceof BassBoneAlt3) {
+				ImGui.text(BassBoneAlt3.class.cast(part).getAlt3Value());
 			} else {
 				ImGui.text("");
 			}
 			ImGui.tableNextColumn();
-			if (part instanceof BasePartAlt4) {
-				ImGui.text(BasePartAlt4.class.cast(part).getAlt4Value());
+			if (part instanceof BassBoneAlt4) {
+				ImGui.text(BassBoneAlt4.class.cast(part).getAlt4Value());
 			} else {
 				ImGui.text("");
 			}

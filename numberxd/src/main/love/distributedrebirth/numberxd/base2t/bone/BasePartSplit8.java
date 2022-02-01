@@ -1,4 +1,4 @@
-package love.distributedrebirth.numberxd.base2t.facet;
+package love.distributedrebirth.numberxd.base2t.bone;
 
 import love.distributedrebirth.numberxd.base2t.T02PartBinary;
 import love.distributedrebirth.numberxd.base2t.T03PartTrit;

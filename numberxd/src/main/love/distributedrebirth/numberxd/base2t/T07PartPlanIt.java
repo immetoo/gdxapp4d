@@ -6,17 +6,21 @@ import java.util.Map;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
-import love.distributedrebirth.numberxd.base2t.facet.BasePart;
-import love.distributedrebirth.numberxd.base2t.facet.BaseFacetKey;
-import love.distributedrebirth.numberxd.base2t.facet.BaseFacetMap;
-import love.distributedrebirth.numberxd.base2t.facet.BasePartAlt1;
+import love.distributedrebirth.numberxd.base2t.bone.BassBone;
+import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt1;
+import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt1Info;
+import love.distributedrebirth.numberxd.base2t.bone.BassBoneCoffin;
+import love.distributedrebirth.numberxd.base2t.bone.BassBoneName;
+import love.distributedrebirth.numberxd.base2t.bone.BassBoneStoreKey;
 
 /**
  * The distribution by 7.
  * 
  * @author willemtsade ©Δ∞ 仙上主天
  */
-public enum T07PartPlanIt implements BasePart,BasePartAlt1 {
+@BassBoneName("T07PartPlanIt")
+@BassBoneAlt1Info(name="Fallen sign", website="https://en.wikipedia.org/wiki/Classical_planet#Western_astrology")
+public enum T07PartPlanIt implements BassBone,BassBoneAlt1 {
 
 	PART_1("˥","0","♎︎","libra","天秤座"),
 	PART_2("꜉","1","♏︎","scorpio","天蠍座"),
@@ -28,27 +32,23 @@ public enum T07PartPlanIt implements BasePart,BasePartAlt1 {
 	;
 	
 	public static int LENGTH() { return values().length; };
-	private final BaseFacetMap bfm = BaseFacetMap.newInstance();
-	private static final String ALT_1_NAME = "Fallen sign";
-	private static final String ALT_1_WIKI = "https://en.wikipedia.org/wiki/Classical_planet#Western_astrology";
+	private final BassBoneCoffin bbc = BassBoneCoffin.newInstance();
 	private static final Map<String, T07PartPlanIt> TONE_MAP = Collections.unmodifiableMap(
 			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getIdentifierTone(), v -> v)));
 	private static final Map<String, T07PartPlanIt> CHINA_MAP = Collections.unmodifiableMap(
 			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getChinaKey(), v -> v)));
 	
 	private T07PartPlanIt(String idTone, String idLetter, String chinaKey, String chinaValue, String alt1Value) {
-		this.getBFM().putInit(BaseFacetKey.ID_TONE, idTone);
-		this.getBFM().putInit(BaseFacetKey.ID_LETTER, idLetter);
-		this.getBFM().putInit(BaseFacetKey.CHINA_KEY, chinaKey);
-		this.getBFM().putInit(BaseFacetKey.CHINA_VALUE, chinaValue);
-		this.getBFM().putInit(BaseFacetKey.ALT_1_VALUE, alt1Value);
-		this.getBFM().putInit(BaseFacetKey.ALT_1_NAME, ALT_1_NAME);
-		this.getBFM().putInit(BaseFacetKey.ALT_1_WIKI, ALT_1_WIKI);
+		this.getBBC().putInit(BassBoneStoreKey.ID_TONE, idTone);
+		this.getBBC().putInit(BassBoneStoreKey.ID_LETTER, idLetter);
+		this.getBBC().putInit(BassBoneStoreKey.CHINA_KEY, chinaKey);
+		this.getBBC().putInit(BassBoneStoreKey.CHINA_VALUE, chinaValue);
+		this.getBBC().putInit(BassBoneStoreKey.ALT_1_VALUE, alt1Value);
 	}
 	
 	@Override
-	public BaseFacetMap getBFM() {
-		return bfm;
+	public BassBoneCoffin getBBC() {
+		return bbc;
 	}
 	
 	public static void forEach(Consumer<T07PartPlanIt> consumer) {

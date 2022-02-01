@@ -6,17 +6,27 @@ import java.util.Map;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
-import love.distributedrebirth.numberxd.base2t.facet.BasePart;
-import love.distributedrebirth.numberxd.base2t.facet.BasePartAlt4;
-import love.distributedrebirth.numberxd.base2t.facet.BaseFacetKey;
-import love.distributedrebirth.numberxd.base2t.facet.BaseFacetMap;
+import love.distributedrebirth.numberxd.base2t.bone.BassBone;
+import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt1Info;
+import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt2Info;
+import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt3Info;
+import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt4;
+import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt4Info;
+import love.distributedrebirth.numberxd.base2t.bone.BassBoneCoffin;
+import love.distributedrebirth.numberxd.base2t.bone.BassBoneName;
+import love.distributedrebirth.numberxd.base2t.bone.BassBoneStoreKey;
 
 /**
  * The distribution by 10.
  * 
  * @author willemtsade ©Δ∞ 仙上主天
  */
-public enum T10PartDecimal implements BasePart,BasePartAlt4 {
+@BassBoneName("T10PartDecimal")
+@BassBoneAlt1Info(name="Korean numerals", website="https://en.wikipedia.org/wiki/Korean_numerals")
+@BassBoneAlt2Info(name="Burmese numerals", website="https://en.wikipedia.org/wiki/Burmese_numerals")
+@BassBoneAlt3Info(name="Bengali numerals", website="https://en.wikipedia.org/wiki/Bengali_numerals")
+@BassBoneAlt4Info(name="Sinhala Lith Illakkam", website="https://en.wikipedia.org/wiki/Sinhala_numerals#Numerals")
+public enum T10PartDecimal implements BassBone,BassBoneAlt4 {
  
 	PART_1 ("˥","ō","零","zero", "영","\u1040","০", "෦"),
 	PART_2 ("˦","α","壹","one",  "일","\u1041","১", "෧"),
@@ -31,15 +41,7 @@ public enum T10PartDecimal implements BasePart,BasePartAlt4 {
 	;
 	
 	public static int LENGTH() { return values().length; };
-	private final BaseFacetMap bfm = BaseFacetMap.newInstance();
-	private static final String ALT_1_NAME = "Korean numerals";
-	private static final String ALT_1_WIKI = "https://en.wikipedia.org/wiki/Korean_numerals";
-	private static final String ALT_2_NAME = "Burmese numerals"; // Escaped to keep stable line height
-	private static final String ALT_2_WIKI = "https://en.wikipedia.org/wiki/Burmese_numerals";
-	private static final String ALT_3_NAME = "Bengali numerals";
-	private static final String ALT_3_WIKI = "https://en.wikipedia.org/wiki/Bengali_numerals";
-	private static final String ALT_4_NAME = "Sinhala Lith Illakkam";
-	private static final String ALT_4_WIKI = "https://en.wikipedia.org/wiki/Sinhala_numerals#Numerals";
+	private final BassBoneCoffin bbc = BassBoneCoffin.newInstance();
 	private static final Map<String, T10PartDecimal> TONE_MAP = Collections.unmodifiableMap(
 			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getIdentifierTone(), v -> v)));
 	private static final Map<String, T10PartDecimal> CHINA_MAP = Collections.unmodifiableMap(
@@ -47,27 +49,19 @@ public enum T10PartDecimal implements BasePart,BasePartAlt4 {
 	
 	private T10PartDecimal(String idTone, String idLetter, String chinaKey, String chinaValue,
 			String alt1Value, String alt2Value, String alt3Value, String alt4Value) {
-		this.getBFM().putInit(BaseFacetKey.ID_TONE, idTone);
-		this.getBFM().putInit(BaseFacetKey.ID_LETTER, idLetter);
-		this.getBFM().putInit(BaseFacetKey.CHINA_KEY, chinaKey);
-		this.getBFM().putInit(BaseFacetKey.CHINA_VALUE, chinaValue);
-		this.getBFM().putInit(BaseFacetKey.ALT_1_VALUE, alt1Value);
-		this.getBFM().putInit(BaseFacetKey.ALT_1_NAME, ALT_1_NAME);
-		this.getBFM().putInit(BaseFacetKey.ALT_1_WIKI, ALT_1_WIKI);
-		this.getBFM().putInit(BaseFacetKey.ALT_2_VALUE, alt2Value);
-		this.getBFM().putInit(BaseFacetKey.ALT_2_NAME, ALT_2_NAME);
-		this.getBFM().putInit(BaseFacetKey.ALT_2_WIKI, ALT_2_WIKI);
-		this.getBFM().putInit(BaseFacetKey.ALT_3_VALUE, alt3Value);
-		this.getBFM().putInit(BaseFacetKey.ALT_3_NAME, ALT_3_NAME);
-		this.getBFM().putInit(BaseFacetKey.ALT_3_WIKI, ALT_3_WIKI);
-		this.getBFM().putInit(BaseFacetKey.ALT_4_VALUE, alt4Value);
-		this.getBFM().putInit(BaseFacetKey.ALT_4_NAME, ALT_4_NAME);
-		this.getBFM().putInit(BaseFacetKey.ALT_4_WIKI, ALT_4_WIKI);
+		this.getBBC().putInit(BassBoneStoreKey.ID_TONE, idTone);
+		this.getBBC().putInit(BassBoneStoreKey.ID_LETTER, idLetter);
+		this.getBBC().putInit(BassBoneStoreKey.CHINA_KEY, chinaKey);
+		this.getBBC().putInit(BassBoneStoreKey.CHINA_VALUE, chinaValue);
+		this.getBBC().putInit(BassBoneStoreKey.ALT_1_VALUE, alt1Value);
+		this.getBBC().putInit(BassBoneStoreKey.ALT_2_VALUE, alt2Value);
+		this.getBBC().putInit(BassBoneStoreKey.ALT_3_VALUE, alt3Value);
+		this.getBBC().putInit(BassBoneStoreKey.ALT_4_VALUE, alt4Value);
 	}
 	
 	@Override
-	public BaseFacetMap getBFM() {
-		return bfm;
+	public BassBoneCoffin getBBC() {
+		return bbc;
 	}
 	
 	public static void forEach(Consumer<T10PartDecimal> consumer) {

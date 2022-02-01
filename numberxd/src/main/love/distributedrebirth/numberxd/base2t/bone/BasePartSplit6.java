@@ -1,4 +1,4 @@
-package love.distributedrebirth.numberxd.base2t.facet;
+package love.distributedrebirth.numberxd.base2t.bone;
 
 import love.distributedrebirth.numberxd.base2t.T02PartBinary;
 import love.distributedrebirth.numberxd.base2t.T03PartTrit;
@@ -8,7 +8,7 @@ import love.distributedrebirth.numberxd.base2t.T03PartTrit;
  * 
  * @author willemtsade ©Δ∞ 仙上主天
  */
-public interface BasePartSplit6 extends BasePart {
+public interface BasePartSplit6 extends BassBone {
 
 	default T02PartBinary splitPartBinary() {
 		return T02PartBinary.values()[ordinal() & 1];
