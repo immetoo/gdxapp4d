@@ -28,6 +28,7 @@ public enum T08PartOctal implements BassBoneAlt2<T08PartOctal>,BassBoneShiftBits
 	PART_8("꜑","7","腳","feet", "˧˩˩","˩˩˧", 21),
 	;
 	
+	public BassBoneCoffin GET_BBC() { return bbc; }
 	public static int LENGTH() { return values().length; };
 	public static int BIT_COUNT = 3;
 	private static final byte BITMASK = 0x07;
@@ -43,11 +44,6 @@ public enum T08PartOctal implements BassBoneAlt2<T08PartOctal>,BassBoneShiftBits
 		GET_BBC().PUT_INIT(BassBoneStoreKey.ALT_2_VALUE, alt2Value);
 		GET_BBC().GET_MAP_OBJ(BassBoneStoreKey.MAP_TONE);
 		GET_BBC().GET_MAP_OBJ(BassBoneStoreKey.MAP_CHINA);
-	}
-	
-	@Override
-	public BassBoneCoffin GET_BBC() {
-		return bbc;
 	}
 	
 	public static T08PartOctal indexOf(T08PartOctal group, int value) {

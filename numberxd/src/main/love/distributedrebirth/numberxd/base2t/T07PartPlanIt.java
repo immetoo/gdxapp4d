@@ -24,6 +24,7 @@ public enum T07PartPlanIt implements BassBoneAlt1<T07PartPlanIt> {
 	PART_7("˩","7","♈︎","aries","白羊座"),
 	;
 	
+	public BassBoneCoffin GET_BBC() { return bbc; }
 	public static int LENGTH() { return values().length; };
 	private final BassBoneCoffin bbc = BassBoneCoffin.newInstance();
 	
@@ -35,10 +36,5 @@ public enum T07PartPlanIt implements BassBoneAlt1<T07PartPlanIt> {
 		GET_BBC().PUT_INIT(BassBoneStoreKey.ALT_1_VALUE, alt1Value);
 		GET_BBC().GET_MAP_OBJ(BassBoneStoreKey.MAP_TONE);
 		GET_BBC().GET_MAP_OBJ(BassBoneStoreKey.MAP_CHINA);
-	}
-	
-	@Override
-	public BassBoneCoffin GET_BBC() {
-		return bbc;
 	}
 }

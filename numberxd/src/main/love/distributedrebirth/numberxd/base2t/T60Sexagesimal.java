@@ -78,6 +78,7 @@ public enum T60Sexagesimal implements BassBone<T60Sexagesimal> {
 	PART_60("꜑꜑꜏","οϚ","蘋","apple"),
 	;
 	
+	public BassBoneCoffin GET_BBC() { return bbc; }
 	public static int LENGTH() { return values().length; };
 	private final BassBoneCoffin bbc = BassBoneCoffin.newInstance();
 	
@@ -88,10 +89,5 @@ public enum T60Sexagesimal implements BassBone<T60Sexagesimal> {
 		GET_BBC().PUT_INIT(BassBoneStoreKey.CHINA_VALUE, chinaValue);
 		GET_BBC().GET_MAP_OBJ(BassBoneStoreKey.MAP_TONE);
 		GET_BBC().GET_MAP_OBJ(BassBoneStoreKey.MAP_CHINA);
-	}
-	
-	@Override
-	public BassBoneCoffin GET_BBC() {
-		return bbc;
 	}
 }

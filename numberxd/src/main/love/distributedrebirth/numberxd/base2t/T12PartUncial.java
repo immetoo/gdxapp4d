@@ -29,6 +29,7 @@ public enum T12PartUncial implements BassBoneAlt1<T12PartUncial> {
 	PART_12("꜑","B","亞","nozero",  "\u218b"), // TURNED DIGIT THREE
 	;
 	
+	public BassBoneCoffin GET_BBC() { return bbc; }
 	public static int LENGTH() { return values().length; };
 	private final BassBoneCoffin bbc = BassBoneCoffin.newInstance();
 	
@@ -40,10 +41,5 @@ public enum T12PartUncial implements BassBoneAlt1<T12PartUncial> {
 		GET_BBC().PUT_INIT(BassBoneStoreKey.ALT_1_VALUE, alt1Value);
 		GET_BBC().GET_MAP_OBJ(BassBoneStoreKey.MAP_TONE);
 		GET_BBC().GET_MAP_OBJ(BassBoneStoreKey.MAP_CHINA);
-	}
-	
-	@Override
-	public BassBoneCoffin GET_BBC() {
-		return bbc;
 	}
 }

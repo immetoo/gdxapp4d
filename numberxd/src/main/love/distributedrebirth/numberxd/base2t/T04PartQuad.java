@@ -21,6 +21,7 @@ public enum T04PartQuad implements BassBoneAlt1<T04PartQuad> {
 	PART_4("˩","3","南","south","S"),
 	;
 	
+	public BassBoneCoffin GET_BBC() { return bbc; }
 	public static int LENGTH() { return values().length; };
 	private final BassBoneCoffin bbc = BassBoneCoffin.newInstance();
 	
@@ -32,11 +33,6 @@ public enum T04PartQuad implements BassBoneAlt1<T04PartQuad> {
 		GET_BBC().PUT_INIT(BassBoneStoreKey.ALT_1_VALUE, alt1Value);
 		GET_BBC().GET_MAP_OBJ(BassBoneStoreKey.MAP_TONE);
 		GET_BBC().GET_MAP_OBJ(BassBoneStoreKey.MAP_CHINA);
-	}
-	
-	@Override
-	public BassBoneCoffin GET_BBC() {
-		return bbc;
 	}
 	
 	public T02PartBinary splitPartBinary(T02PartBinary part) {

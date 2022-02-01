@@ -46,6 +46,7 @@ public enum T20PartScore implements BassBoneAlt3<T20PartScore> {
 	PART_20("꜑","y", "幺","yocto","J","K","X"),
 	;
 	
+	public BassBoneCoffin GET_BBC() { return bbc; }
 	public static int LENGTH() { return values().length; };
 	private final BassBoneCoffin bbc = BassBoneCoffin.newInstance();
 	private static final Map<String, T20PartScore> OPENLC_MAP = Collections.unmodifiableMap(
@@ -62,11 +63,6 @@ public enum T20PartScore implements BassBoneAlt3<T20PartScore> {
 		GET_BBC().PUT_INIT(BassBoneStoreKey.ALT_3_VALUE, alt3Value);
 		GET_BBC().GET_MAP_OBJ(BassBoneStoreKey.MAP_TONE);
 		GET_BBC().GET_MAP_OBJ(BassBoneStoreKey.MAP_CHINA);
-	}
-	
-	@Override
-	public BassBoneCoffin GET_BBC() {
-		return bbc;
 	}
 	
 	public T20PartScore staticValueOfOpenLC(String openLCKey) {

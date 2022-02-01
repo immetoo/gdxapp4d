@@ -33,6 +33,7 @@ public enum T10PartDecimal implements BassBoneAlt4<T10PartDecimal> {
 	PART_10("꜖","θ","玖","nine", "구","\u1049","৯","෯"),
 	;
 	
+	public BassBoneCoffin GET_BBC() { return bbc; }
 	public static int LENGTH() { return values().length; };
 	private final BassBoneCoffin bbc = BassBoneCoffin.newInstance();
 	
@@ -48,10 +49,5 @@ public enum T10PartDecimal implements BassBoneAlt4<T10PartDecimal> {
 		GET_BBC().PUT_INIT(BassBoneStoreKey.ALT_4_VALUE, alt4Value);
 		GET_BBC().GET_MAP_OBJ(BassBoneStoreKey.MAP_TONE);
 		GET_BBC().GET_MAP_OBJ(BassBoneStoreKey.MAP_CHINA);
-	}
-	
-	@Override
-	public BassBoneCoffin GET_BBC() {
-		return bbc;
 	}
 }
