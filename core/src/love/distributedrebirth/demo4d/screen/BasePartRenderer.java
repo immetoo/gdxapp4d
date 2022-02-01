@@ -48,7 +48,7 @@ public class BasePartRenderer extends ImGuiRendererMain {
 		ImGui.combo("Type", selectedBasePart, bases.toArray(items));
 		String selectedItem = items[selectedBasePart.get()];
 		Integer baseNumber = Integer.valueOf(selectedItem);
-		BassBone[] baseParts = BasePartFactory.buildBassBonesByBase(baseNumber);
+		BassBone<?>[] baseParts = BasePartFactory.buildBassBonesByBase(baseNumber);
 		
 		int flags = ImGuiTableFlags.ScrollX | ImGuiTableFlags.RowBg | ImGuiTableFlags.BordersOuter | ImGuiTableFlags.BordersV;
 		ImGui.beginTable("base-part", 10, flags);
@@ -64,7 +64,7 @@ public class BasePartRenderer extends ImGuiRendererMain {
 		ImGui.tableSetupColumn("Alt4");
 		ImGui.tableHeadersRow();
 		
-		for (BassBone part:baseParts) {
+		for (BassBone<?> part:baseParts) {
 			ImGui.tableNextRow();
 			ImGui.tableNextColumn();
 			ImGui.text(part.name());
