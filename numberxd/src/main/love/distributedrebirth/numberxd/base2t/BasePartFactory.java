@@ -39,7 +39,7 @@ public final class BasePartFactory {
 		case 20:
 			return T20PartScore.values();
 		case 60:
-			return T60Sexagesimal.values();
+			return T60PartSexagesimal.values();
 		default:
 			throw new IllegalArgumentException("Unsupported base: "+base);
 		}

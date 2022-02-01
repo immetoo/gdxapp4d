@@ -7,8 +7,8 @@ package love.distributedrebirth.numberxd.base2t;
  */
 public class V9D8Traz implements BaseNumber<V9D8Traz> {
 
-	public static int BIT_COUNT = V02ATraw.BIT_COUNT * T60Sexagesimal.LENGTH();
-	private V02ATraw[] values = new V02ATraw[T60Sexagesimal.LENGTH()];
+	public static int BIT_COUNT = V02ATraw.BIT_COUNT * T60PartSexagesimal.LENGTH();
+	private V02ATraw[] values = new V02ATraw[T60PartSexagesimal.LENGTH()];
 	
 	public V9D8Traz() {
 		for (int i=0;i<values.length;i++) {
@@ -22,11 +22,11 @@ public class V9D8Traz implements BaseNumber<V9D8Traz> {
 		}
 	}
 	
-	public V02ATraw getValue(T60Sexagesimal part) {
+	public V02ATraw getValue(T60PartSexagesimal part) {
 		return values[part.ordinal()];
 	}
 	
-	public void setValue(T60Sexagesimal part, V02ATraw value) {
+	public void setValue(T60PartSexagesimal part, V02ATraw value) {
 		values[part.ordinal()] = value;
 	}
 	
@@ -42,6 +42,6 @@ public class V9D8Traz implements BaseNumber<V9D8Traz> {
 	
 	@Override
 	public void fillOctalsByClone(T08PartOctalBaseAppender appender) {
-		T60Sexagesimal.PART_1.staticVoorElk(v -> getValue(v).fillOctalsByClone(appender));
+		T60PartSexagesimal.PART_1.staticVoorElk(v -> getValue(v).fillOctalsByClone(appender));
 	}
 }

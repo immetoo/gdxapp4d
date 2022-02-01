@@ -11,7 +11,7 @@ import love.distributedrebirth.numberxd.base2t.bone.BassBoneStoreKey;
  * @author willemtsade ©Δ∞ 仙上主天
  */
 @BassBoneName("T60Sexagesimal")
-public enum T60Sexagesimal implements BassBone<T60Sexagesimal> {
+public enum T60PartSexagesimal implements BassBone<T60PartSexagesimal> {
 
 	PART_1 ("˧˩˥","ια","牛","cow"),
 	PART_2 ("˧˥˦","ιβ","鸡","chicken"),
@@ -82,7 +82,7 @@ public enum T60Sexagesimal implements BassBone<T60Sexagesimal> {
 	public static int LENGTH() { return values().length; };
 	private final BassBoneCoffin bbc = BassBoneCoffin.newInstance();
 	
-	private T60Sexagesimal(String idTone, String idLetter, String chinaKey, String chinaValue) {
+	private T60PartSexagesimal(String idTone, String idLetter, String chinaKey, String chinaValue) {
 		GET_BBC().PUT_INIT(BassBoneStoreKey.ID_TONE, idTone);
 		GET_BBC().PUT_INIT(BassBoneStoreKey.ID_LETTER, idLetter);
 		GET_BBC().PUT_INIT(BassBoneStoreKey.CHINA_KEY, chinaKey);
