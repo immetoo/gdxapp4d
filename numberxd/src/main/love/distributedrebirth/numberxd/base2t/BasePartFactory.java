@@ -4,7 +4,7 @@ import love.distributedrebirth.numberxd.base2t.facet.BasePart;
 
 public final class BasePartFactory {
 
-	private static final int[] SUPPORTED_BASES = {2,3,4,5,6,7,8,12,16,20,60};
+	private static final int[] SUPPORTED_BASES = {2,3,4,5,6,7,8,10,11,12,16,20,60};
 	
 	public static int[] getSupportedBases() {
 		return SUPPORTED_BASES;
@@ -29,9 +29,9 @@ public final class BasePartFactory {
 		case 9:
 			throw new IllegalArgumentException("Unsupported base: "+base);
 		case 10:
-			throw new IllegalArgumentException("Unsupported base: "+base);
+			return T10PartDecimal.values();
 		case 11:
-			throw new IllegalArgumentException("Unsupported base: "+base);
+			return T11PartUndecimal.values();
 		case 12:
 			return T12PartUncial.values();
 		case 16:

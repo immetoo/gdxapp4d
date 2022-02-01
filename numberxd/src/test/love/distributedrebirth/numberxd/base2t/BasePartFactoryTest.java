@@ -21,9 +21,6 @@ public class BasePartFactoryTest {
 		Assertions.assertNotNull(bases);
 		Assertions.assertTrue(bases.length > 1);
 		Assertions.assertTrue(bases.length < 100);
-		for (int base:bases) {
-			Assertions.assertNotNull(base);
-		}
 	}
 	
 	@Test

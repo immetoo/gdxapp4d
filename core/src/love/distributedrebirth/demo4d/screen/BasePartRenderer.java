@@ -51,7 +51,8 @@ public class BasePartRenderer extends ImGuiRendererMain {
 		BasePart[] baseParts = BasePartFactory.buildBasePartsByBase(baseNumber);
 		
 		int flags = ImGuiTableFlags.ScrollX | ImGuiTableFlags.RowBg | ImGuiTableFlags.BordersOuter | ImGuiTableFlags.BordersV;
-		ImGui.beginTable("base-part", 9, flags);
+		ImGui.beginTable("base-part", 10, flags);
+		ImGui.tableSetupColumn("Name");
 		ImGui.tableSetupColumn("Ordinal");
 		ImGui.tableSetupColumn("Tone");
 		ImGui.tableSetupColumn("Letter");
@@ -65,6 +66,8 @@ public class BasePartRenderer extends ImGuiRendererMain {
 		
 		for (BasePart part:baseParts) {
 			ImGui.tableNextRow();
+			ImGui.tableNextColumn();
+			ImGui.text(part.name());
 			ImGui.tableNextColumn();
 			ImGui.text(Integer.toString(part.ordinal()));
 			ImGui.tableNextColumn();

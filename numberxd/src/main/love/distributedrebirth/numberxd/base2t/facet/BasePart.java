@@ -7,6 +7,8 @@ package love.distributedrebirth.numberxd.base2t.facet;
  */
 public interface BasePart extends BaseFacetStore {
 
+	String name();
+	
 	int ordinal();
 	
 	default String getIdentifierTone() {
