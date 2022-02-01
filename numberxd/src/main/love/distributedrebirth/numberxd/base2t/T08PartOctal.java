@@ -34,19 +34,19 @@ public enum T08PartOctal implements BassBoneAlt2<T08PartOctal>,BassBoneShiftBits
 	private final BassBoneCoffin bbc = BassBoneCoffin.newInstance();
 	
 	private T08PartOctal(String identifierTone, String identifierLetter, String chinaKey, String chinaValue, String alt1Value, String alt2Value, int shiftBits) {
-		getBBC().putInit(BassBoneStoreKey.ID_TONE, identifierTone);
-		getBBC().putInit(BassBoneStoreKey.ID_LETTER, identifierLetter);
-		getBBC().putInit(BassBoneStoreKey.CHINA_KEY, chinaKey);
-		getBBC().putInit(BassBoneStoreKey.CHINA_VALUE, chinaValue);
-		getBBC().putInit(BassBoneStoreKey.SHIFT_BITS, Integer.valueOf(shiftBits));
-		getBBC().putInit(BassBoneStoreKey.ALT_1_VALUE, alt1Value);
-		getBBC().putInit(BassBoneStoreKey.ALT_2_VALUE, alt2Value);
-		getBBC().getMapObject(BassBoneStoreKey.MAP_TONE);
-		getBBC().getMapObject(BassBoneStoreKey.MAP_CHINA);
+		GET_BBC().PUT_INIT(BassBoneStoreKey.ID_TONE, identifierTone);
+		GET_BBC().PUT_INIT(BassBoneStoreKey.ID_LETTER, identifierLetter);
+		GET_BBC().PUT_INIT(BassBoneStoreKey.CHINA_KEY, chinaKey);
+		GET_BBC().PUT_INIT(BassBoneStoreKey.CHINA_VALUE, chinaValue);
+		GET_BBC().PUT_INIT(BassBoneStoreKey.SHIFT_BITS, Integer.valueOf(shiftBits));
+		GET_BBC().PUT_INIT(BassBoneStoreKey.ALT_1_VALUE, alt1Value);
+		GET_BBC().PUT_INIT(BassBoneStoreKey.ALT_2_VALUE, alt2Value);
+		GET_BBC().GET_MAP_OBJ(BassBoneStoreKey.MAP_TONE);
+		GET_BBC().GET_MAP_OBJ(BassBoneStoreKey.MAP_CHINA);
 	}
 	
 	@Override
-	public BassBoneCoffin getBBC() {
+	public BassBoneCoffin GET_BBC() {
 		return bbc;
 	}
 	

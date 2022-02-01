@@ -24,22 +24,18 @@ public enum T05PartPental implements BassBoneAlt2<T05PartPental> {
 	PART_5("˩","4","土","earth","G", "gaia"),
 	;
 	
+	public BassBoneCoffin GET_BBC() { return bbc; }
 	public static int LENGTH() { return values().length; };
 	private final BassBoneCoffin bbc = BassBoneCoffin.newInstance();
 	
 	private T05PartPental(String idTone, String idLetter, String chinaKey, String chinaValue, String alt1Value, String alt2Value) {
-		getBBC().putInit(BassBoneStoreKey.ID_TONE, idTone);
-		getBBC().putInit(BassBoneStoreKey.ID_LETTER, idLetter);
-		getBBC().putInit(BassBoneStoreKey.CHINA_KEY, chinaKey);
-		getBBC().putInit(BassBoneStoreKey.CHINA_VALUE, chinaValue);
-		getBBC().putInit(BassBoneStoreKey.ALT_1_VALUE, alt1Value);
-		getBBC().putInit(BassBoneStoreKey.ALT_2_VALUE, alt2Value);
-		getBBC().getMapObject(BassBoneStoreKey.MAP_TONE);
-		getBBC().getMapObject(BassBoneStoreKey.MAP_CHINA);
-	}
-	
-	@Override
-	public BassBoneCoffin getBBC() {
-		return bbc;
+		GET_BBC().PUT_INIT(BassBoneStoreKey.ID_TONE, idTone);
+		GET_BBC().PUT_INIT(BassBoneStoreKey.ID_LETTER, idLetter);
+		GET_BBC().PUT_INIT(BassBoneStoreKey.CHINA_KEY, chinaKey);
+		GET_BBC().PUT_INIT(BassBoneStoreKey.CHINA_VALUE, chinaValue);
+		GET_BBC().PUT_INIT(BassBoneStoreKey.ALT_1_VALUE, alt1Value);
+		GET_BBC().PUT_INIT(BassBoneStoreKey.ALT_2_VALUE, alt2Value);
+		GET_BBC().GET_MAP_OBJ(BassBoneStoreKey.MAP_TONE);
+		GET_BBC().GET_MAP_OBJ(BassBoneStoreKey.MAP_CHINA);
 	}
 }

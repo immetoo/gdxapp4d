@@ -7,5 +7,5 @@ package love.distributedrebirth.numberxd.base2t.bone;
  */
 public interface BassBoneStore {
 
-	BassBoneCoffin getBBC();
+	BassBoneCoffin GET_BBC();
 }

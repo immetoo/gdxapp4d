@@ -8,7 +8,7 @@ package love.distributedrebirth.numberxd.base2t.bone;
 public interface BassBoneAlt4<T extends BassBone<T>> extends BassBoneAlt3<T> {
 
 	default String getAlt4Value() {
-		return getBBC().getString(BassBoneStoreKey.ALT_4_VALUE);
+		return GET_BBC().GET_STR(BassBoneStoreKey.ALT_4_VALUE);
 	}
 	
 	default String staticAlt4Name() {

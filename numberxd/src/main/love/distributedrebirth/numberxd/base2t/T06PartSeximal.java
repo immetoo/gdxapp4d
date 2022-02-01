@@ -29,17 +29,17 @@ public enum T06PartSeximal implements BassBoneAlt1<T06PartSeximal> {
 	private final BassBoneCoffin bbc = BassBoneCoffin.newInstance();
 	
 	private T06PartSeximal(String idTone, String idLetter, String chinaKey, String chinaValue, String alt1Value) {
-		getBBC().putInit(BassBoneStoreKey.ID_TONE, idTone);
-		getBBC().putInit(BassBoneStoreKey.ID_LETTER, idLetter);
-		getBBC().putInit(BassBoneStoreKey.CHINA_KEY, chinaKey);
-		getBBC().putInit(BassBoneStoreKey.CHINA_VALUE, chinaValue);
-		getBBC().putInit(BassBoneStoreKey.ALT_1_VALUE, alt1Value);
-		getBBC().getMapObject(BassBoneStoreKey.MAP_TONE);
-		getBBC().getMapObject(BassBoneStoreKey.MAP_CHINA);
+		GET_BBC().PUT_INIT(BassBoneStoreKey.ID_TONE, idTone);
+		GET_BBC().PUT_INIT(BassBoneStoreKey.ID_LETTER, idLetter);
+		GET_BBC().PUT_INIT(BassBoneStoreKey.CHINA_KEY, chinaKey);
+		GET_BBC().PUT_INIT(BassBoneStoreKey.CHINA_VALUE, chinaValue);
+		GET_BBC().PUT_INIT(BassBoneStoreKey.ALT_1_VALUE, alt1Value);
+		GET_BBC().GET_MAP_OBJ(BassBoneStoreKey.MAP_TONE);
+		GET_BBC().GET_MAP_OBJ(BassBoneStoreKey.MAP_CHINA);
 	}
 	
 	@Override
-	public BassBoneCoffin getBBC() {
+	public BassBoneCoffin GET_BBC() {
 		return bbc;
 	}
 	

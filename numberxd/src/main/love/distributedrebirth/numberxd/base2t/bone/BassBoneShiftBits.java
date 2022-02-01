@@ -8,6 +8,6 @@ package love.distributedrebirth.numberxd.base2t.bone;
 public interface BassBoneShiftBits<T extends BassBone<T>> extends BassBone<T> {
 
 	default Integer getShiftBits() {
-		return getBBC().getInteger(BassBoneStoreKey.SHIFT_BITS);
+		return GET_BBC().GET_INT(BassBoneStoreKey.SHIFT_BITS);
 	}
 }

@@ -5,40 +5,40 @@ import java.util.Map;
 
 public interface BassBoneCoffin {
 
-	Object putInit(BassBoneStoreKey key, Object value);
+	Object PUT_INIT(BassBoneStoreKey key, Object value);
 	
-	Object get(BassBoneStoreKey key);
+	Object GET(BassBoneStoreKey key);
 	
-	default String getString(BassBoneStoreKey key) {
-		return String.class.cast(get(key));
+	default String GET_STR(BassBoneStoreKey key) {
+		return String.class.cast(GET(key));
 	}
 	
-	default Integer getInteger(BassBoneStoreKey key) {
-		return Integer.class.cast(get(key));
+	default Integer GET_INT(BassBoneStoreKey key) {
+		return Integer.class.cast(GET(key));
 	}
 	
-	default Long getLong(BassBoneStoreKey key) {
-		return Long.class.cast(get(key));
+	default Long GET_LONG(BassBoneStoreKey key) {
+		return Long.class.cast(GET(key));
 	}
 	
-	default Boolean getBoolean(BassBoneStoreKey key) {
-		return Boolean.class.cast(get(key));
+	default Boolean GET_BOOL(BassBoneStoreKey key) {
+		return Boolean.class.cast(GET(key));
 	}
 
 	@SuppressWarnings("unchecked")
-	default Map<String,Object> getMapObject(BassBoneStoreKey key) {
-		if (get(key) == null) {
-			putInit(key, new HashMap<>());
+	default Map<String,Object> GET_MAP_OBJ(BassBoneStoreKey key) {
+		if (GET(key) == null) {
+			PUT_INIT(key, new HashMap<>());
 		}
-		return Map.class.cast(get(key));
+		return Map.class.cast(GET(key));
 	}
 	
 	@SuppressWarnings("unchecked")
-	default Map<String,String> getMapString(BassBoneStoreKey key) {
-		if (get(key) == null) {
-			putInit(key, new HashMap<>());
+	default Map<String,String> GET_MAP_STR(BassBoneStoreKey key) {
+		if (GET(key) == null) {
+			PUT_INIT(key, new HashMap<>());
 		}
-		return Map.class.cast(get(key));
+		return Map.class.cast(GET(key));
 	}
 	
 	static BassBoneCoffin newInstance() {
@@ -46,12 +46,12 @@ public interface BassBoneCoffin {
 			final Map<BassBoneStoreKey,Object> initMap = new HashMap<>();
 		
 			@Override
-			public Object get(BassBoneStoreKey key) {
+			public Object GET(BassBoneStoreKey key) {
 				return initMap.get(key);
 			}
 	
 			@Override
-			public Object putInit(BassBoneStoreKey key, Object value) {
+			public Object PUT_INIT(BassBoneStoreKey key, Object value) {
 				return initMap.put(key, value);
 			}
 		};
