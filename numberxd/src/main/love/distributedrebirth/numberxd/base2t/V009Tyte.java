@@ -44,7 +44,7 @@ public final class V009Tyte implements BaseNumberTyte<V009Tyte> {
 	
 	@Override
 	public void fillOctalsByClone(T08PartOctalBaseAppender appender) {
-		T03PartTrit.forEach(v -> getValue(v).fillOctalsByClone(appender));
+		T03PartTrit.PART_1.staticVoorElk(v -> getValue(v).fillOctalsByClone(appender));
 	}
 
 	@Override

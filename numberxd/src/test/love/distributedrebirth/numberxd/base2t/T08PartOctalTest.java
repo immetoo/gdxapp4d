@@ -28,17 +28,17 @@ public class T08PartOctalTest {
 	
 	@Test
 	public void testToneMap() {
-		Assertions.assertEquals(T08PartOctal.PART_1, T08PartOctal.valueOfTone("˥"));
-		Assertions.assertEquals(T08PartOctal.PART_2, T08PartOctal.valueOfTone("˩"));
-		Assertions.assertEquals(T08PartOctal.PART_7, T08PartOctal.valueOfTone("꜍"));
-		Assertions.assertEquals(T08PartOctal.PART_8, T08PartOctal.valueOfTone("꜑"));
+		Assertions.assertEquals(T08PartOctal.PART_1, T08PartOctal.PART_1.staticValueOfTone("˥"));
+		Assertions.assertEquals(T08PartOctal.PART_2, T08PartOctal.PART_1.staticValueOfTone("˩"));
+		Assertions.assertEquals(T08PartOctal.PART_7, T08PartOctal.PART_1.staticValueOfTone("꜍"));
+		Assertions.assertEquals(T08PartOctal.PART_8, T08PartOctal.PART_1.staticValueOfTone("꜑"));
 	}
 	
 	@Test
 	public void testChinaMap() {
-		Assertions.assertEquals(T08PartOctal.PART_1, T08PartOctal.valueOfChina("心"));
-		Assertions.assertEquals(T08PartOctal.PART_2, T08PartOctal.valueOfChina("頭"));
-		Assertions.assertEquals(T08PartOctal.PART_7, T08PartOctal.valueOfChina("肢"));
-		Assertions.assertEquals(T08PartOctal.PART_8, T08PartOctal.valueOfChina("腳"));
+		Assertions.assertEquals(T08PartOctal.PART_1, T08PartOctal.PART_1.staticValueOfChina("心"));
+		Assertions.assertEquals(T08PartOctal.PART_2, T08PartOctal.PART_1.staticValueOfChina("頭"));
+		Assertions.assertEquals(T08PartOctal.PART_7, T08PartOctal.PART_1.staticValueOfChina("肢"));
+		Assertions.assertEquals(T08PartOctal.PART_8, T08PartOctal.PART_1.staticValueOfChina("腳"));
 	}
 }

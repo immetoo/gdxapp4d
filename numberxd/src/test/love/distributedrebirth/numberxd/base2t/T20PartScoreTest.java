@@ -25,25 +25,25 @@ public class T20PartScoreTest {
 	
 	@Test
 	public void testToneMap() {
-		Assertions.assertEquals(T20PartScore.PART_1, T20PartScore.valueOfTone("˥"));
-		Assertions.assertEquals(T20PartScore.PART_2, T20PartScore.valueOfTone("˦"));
-		Assertions.assertEquals(T20PartScore.PART_19, T20PartScore.valueOfTone("꜐"));
-		Assertions.assertEquals(T20PartScore.PART_20, T20PartScore.valueOfTone("꜑"));
+		Assertions.assertEquals(T20PartScore.PART_1, T20PartScore.PART_1.staticValueOfTone("˥"));
+		Assertions.assertEquals(T20PartScore.PART_2, T20PartScore.PART_1.staticValueOfTone("˦"));
+		Assertions.assertEquals(T20PartScore.PART_19, T20PartScore.PART_1.staticValueOfTone("꜐"));
+		Assertions.assertEquals(T20PartScore.PART_20, T20PartScore.PART_1.staticValueOfTone("꜑"));
 	}
 	
 	@Test
 	public void testChinaMap() {
-		Assertions.assertEquals(T20PartScore.PART_1, T20PartScore.valueOfChina("尧"));
-		Assertions.assertEquals(T20PartScore.PART_2, T20PartScore.valueOfChina("泽"));
-		Assertions.assertEquals(T20PartScore.PART_19, T20PartScore.valueOfChina("仄"));
-		Assertions.assertEquals(T20PartScore.PART_20, T20PartScore.valueOfChina("幺"));
+		Assertions.assertEquals(T20PartScore.PART_1, T20PartScore.PART_1.staticValueOfChina("尧"));
+		Assertions.assertEquals(T20PartScore.PART_2, T20PartScore.PART_1.staticValueOfChina("泽"));
+		Assertions.assertEquals(T20PartScore.PART_19, T20PartScore.PART_1.staticValueOfChina("仄"));
+		Assertions.assertEquals(T20PartScore.PART_20, T20PartScore.PART_1.staticValueOfChina("幺"));
 	}
 	
 	@Test
 	public void testOpenLCMap() {
-		Assertions.assertEquals(T20PartScore.PART_1, T20PartScore.valueOfOpenLC("2"));
-		Assertions.assertEquals(T20PartScore.PART_2, T20PartScore.valueOfOpenLC("3"));
-		Assertions.assertEquals(T20PartScore.PART_19, T20PartScore.valueOfOpenLC("W"));
-		Assertions.assertEquals(T20PartScore.PART_20, T20PartScore.valueOfOpenLC("X"));
+		Assertions.assertEquals(T20PartScore.PART_1, T20PartScore.PART_1.staticValueOfOpenLC("2"));
+		Assertions.assertEquals(T20PartScore.PART_2, T20PartScore.PART_1.staticValueOfOpenLC("3"));
+		Assertions.assertEquals(T20PartScore.PART_19, T20PartScore.PART_1.staticValueOfOpenLC("W"));
+		Assertions.assertEquals(T20PartScore.PART_20, T20PartScore.PART_1.staticValueOfOpenLC("X"));
 	}
 }

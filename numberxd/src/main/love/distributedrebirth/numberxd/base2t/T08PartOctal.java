@@ -1,13 +1,6 @@
 package love.distributedrebirth.numberxd.base2t;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Map;
-import java.util.function.Consumer;
-import java.util.stream.Collectors;
-
-import love.distributedrebirth.numberxd.base2t.bone.BasePartSplit8;
-import love.distributedrebirth.numberxd.base2t.bone.BassBone;
+import love.distributedrebirth.numberxd.base2t.bone.BassBoneShiftBits;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt1Info;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt2;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt2Info;
@@ -23,7 +16,7 @@ import love.distributedrebirth.numberxd.base2t.bone.BassBoneStoreKey;
 @BassBoneName("T08PartOctal")
 @BassBoneAlt1Info(name="Absolute Tone Sequence", website="https://en.wikipedia.org/wiki/Tone_letter")
 @BassBoneAlt2Info(name="Relative Tone Sequence", website="https://en.wikipedia.org/wiki/Tone_letter")
-public enum T08PartOctal implements BassBone,BassBoneAlt2,BasePartSplit8 {
+public enum T08PartOctal implements BassBoneAlt2<T08PartOctal>,BassBoneShiftBits<T08PartOctal> {
 
 	PART_1("˥","0","心","heart","˧˥˩","˥˩˧", 0),
 	PART_2("˩","1","頭","head", "˧˩˥","˩˥˧", 3),
@@ -39,19 +32,17 @@ public enum T08PartOctal implements BassBone,BassBoneAlt2,BasePartSplit8 {
 	public static int BIT_COUNT = 3;
 	private static final byte BITMASK = 0x07;
 	private final BassBoneCoffin bbc = BassBoneCoffin.newInstance();
-	private static final Map<String, T08PartOctal> TONE_MAP = Collections.unmodifiableMap(
-			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getIdentifierTone(), v -> v)));
-	private static final Map<String, T08PartOctal> CHINA_MAP = Collections.unmodifiableMap(
-			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getChinaKey(), v -> v)));
 	
 	private T08PartOctal(String identifierTone, String identifierLetter, String chinaKey, String chinaValue, String alt1Value, String alt2Value, int shiftBits) {
-		this.getBBC().putInit(BassBoneStoreKey.ID_TONE, identifierTone);
-		this.getBBC().putInit(BassBoneStoreKey.ID_LETTER, identifierLetter);
-		this.getBBC().putInit(BassBoneStoreKey.CHINA_KEY, chinaKey);
-		this.getBBC().putInit(BassBoneStoreKey.CHINA_VALUE, chinaValue);
-		this.getBBC().putInit(BassBoneStoreKey.SHIFT_BITS, Integer.valueOf(shiftBits));
-		this.getBBC().putInit(BassBoneStoreKey.ALT_1_VALUE, alt1Value);
-		this.getBBC().putInit(BassBoneStoreKey.ALT_2_VALUE, alt2Value);
+		getBBC().putInit(BassBoneStoreKey.ID_TONE, identifierTone);
+		getBBC().putInit(BassBoneStoreKey.ID_LETTER, identifierLetter);
+		getBBC().putInit(BassBoneStoreKey.CHINA_KEY, chinaKey);
+		getBBC().putInit(BassBoneStoreKey.CHINA_VALUE, chinaValue);
+		getBBC().putInit(BassBoneStoreKey.SHIFT_BITS, Integer.valueOf(shiftBits));
+		getBBC().putInit(BassBoneStoreKey.ALT_1_VALUE, alt1Value);
+		getBBC().putInit(BassBoneStoreKey.ALT_2_VALUE, alt2Value);
+		getBBC().getMapObject(BassBoneStoreKey.MAP_TONE);
+		getBBC().getMapObject(BassBoneStoreKey.MAP_CHINA);
 	}
 	
 	@Override
@@ -63,17 +54,11 @@ public enum T08PartOctal implements BassBone,BassBoneAlt2,BasePartSplit8 {
 		return T08PartOctal.values()[(value >> group.getShiftBits()) & BITMASK];
 	}
 	
-	public static void forEach(Consumer<T08PartOctal> consumer) {
-		for (T08PartOctal value:values()) {
-			consumer.accept(value);
-		}
+	public T02PartBinary splitPartBinary(T03PartTrit part) {
+		return T02PartBinary.values()[(ordinal() >> part.ordinal()) & 1];
 	}
 	
-	public static T08PartOctal valueOfTone(String identifierTone) {
-		return TONE_MAP.get(identifierTone);
-	}
-	
-	public static T08PartOctal valueOfChina(String chinaKey) {
-		return CHINA_MAP.get(chinaKey);
+	public int ordinalOf(T08PartOctal group) {
+		return ordinal() << group.getShiftBits();
 	}
 }

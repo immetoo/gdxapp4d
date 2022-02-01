@@ -5,7 +5,7 @@ package love.distributedrebirth.numberxd.base2t.bone;
  * 
  * @author willemtsade ©Δ∞ 仙上主天
  */
-public interface BassBoneAlt2 extends BassBoneAlt1 {
+public interface BassBoneAlt2<T extends BassBone<T>> extends BassBoneAlt1<T> {
 
 	default String getAlt2Value() {
 		return getBBC().getString(BassBoneStoreKey.ALT_2_VALUE);

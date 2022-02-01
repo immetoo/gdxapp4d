@@ -22,19 +22,19 @@ public class T05PartPentalTest {
 	
 	@Test
 	public void testToneMap() {
-		Assertions.assertEquals(T05PartPental.PART_1, T05PartPental.valueOfTone("˥"));
-		Assertions.assertEquals(T05PartPental.PART_2, T05PartPental.valueOfTone("˦"));
-		Assertions.assertEquals(T05PartPental.PART_3, T05PartPental.valueOfTone("˧"));
-		Assertions.assertEquals(T05PartPental.PART_4, T05PartPental.valueOfTone("˨"));
-		Assertions.assertEquals(T05PartPental.PART_5, T05PartPental.valueOfTone("˩"));
+		Assertions.assertEquals(T05PartPental.PART_1, T05PartPental.PART_1.staticValueOfTone("˥"));
+		Assertions.assertEquals(T05PartPental.PART_2, T05PartPental.PART_1.staticValueOfTone("˦"));
+		Assertions.assertEquals(T05PartPental.PART_3, T05PartPental.PART_1.staticValueOfTone("˧"));
+		Assertions.assertEquals(T05PartPental.PART_4, T05PartPental.PART_1.staticValueOfTone("˨"));
+		Assertions.assertEquals(T05PartPental.PART_5, T05PartPental.PART_1.staticValueOfTone("˩"));
 	}
 	
 	@Test
 	public void testChinaMap() {
-		Assertions.assertEquals(T05PartPental.PART_1, T05PartPental.valueOfChina("火"));
-		Assertions.assertEquals(T05PartPental.PART_2, T05PartPental.valueOfChina("水"));
-		Assertions.assertEquals(T05PartPental.PART_3, T05PartPental.valueOfChina("木"));
-		Assertions.assertEquals(T05PartPental.PART_4, T05PartPental.valueOfChina("金"));
-		Assertions.assertEquals(T05PartPental.PART_5, T05PartPental.valueOfChina("土"));
+		Assertions.assertEquals(T05PartPental.PART_1, T05PartPental.PART_1.staticValueOfChina("火"));
+		Assertions.assertEquals(T05PartPental.PART_2, T05PartPental.PART_1.staticValueOfChina("水"));
+		Assertions.assertEquals(T05PartPental.PART_3, T05PartPental.PART_1.staticValueOfChina("木"));
+		Assertions.assertEquals(T05PartPental.PART_4, T05PartPental.PART_1.staticValueOfChina("金"));
+		Assertions.assertEquals(T05PartPental.PART_5, T05PartPental.PART_1.staticValueOfChina("土"));
 	}
 }

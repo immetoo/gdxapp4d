@@ -22,17 +22,17 @@ public class T10PartDecimalTest {
 	
 	@Test
 	public void testToneMap() {
-		Assertions.assertEquals(T10PartDecimal.PART_1, T10PartDecimal.valueOfTone("˥"));
-		Assertions.assertEquals(T10PartDecimal.PART_2, T10PartDecimal.valueOfTone("˦"));
-		Assertions.assertEquals(T10PartDecimal.PART_9, T10PartDecimal.valueOfTone("꜕"));
-		Assertions.assertEquals(T10PartDecimal.PART_10, T10PartDecimal.valueOfTone("꜖"));
+		Assertions.assertEquals(T10PartDecimal.PART_1, T10PartDecimal.PART_1.staticValueOfTone("˥"));
+		Assertions.assertEquals(T10PartDecimal.PART_2, T10PartDecimal.PART_1.staticValueOfTone("˦"));
+		Assertions.assertEquals(T10PartDecimal.PART_9, T10PartDecimal.PART_1.staticValueOfTone("꜕"));
+		Assertions.assertEquals(T10PartDecimal.PART_10, T10PartDecimal.PART_1.staticValueOfTone("꜖"));
 	}
 	
 	@Test
 	public void testChinaMap() {
-		Assertions.assertEquals(T10PartDecimal.PART_1, T10PartDecimal.valueOfChina("零"));
-		Assertions.assertEquals(T10PartDecimal.PART_2, T10PartDecimal.valueOfChina("壹"));
-		Assertions.assertEquals(T10PartDecimal.PART_9, T10PartDecimal.valueOfChina("捌"));
-		Assertions.assertEquals(T10PartDecimal.PART_10, T10PartDecimal.valueOfChina("玖"));
+		Assertions.assertEquals(T10PartDecimal.PART_1, T10PartDecimal.PART_1.staticValueOfChina("零"));
+		Assertions.assertEquals(T10PartDecimal.PART_2, T10PartDecimal.PART_1.staticValueOfChina("壹"));
+		Assertions.assertEquals(T10PartDecimal.PART_9, T10PartDecimal.PART_1.staticValueOfChina("捌"));
+		Assertions.assertEquals(T10PartDecimal.PART_10, T10PartDecimal.PART_1.staticValueOfChina("玖"));
 	}
 }

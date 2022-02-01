@@ -25,17 +25,17 @@ public class T07PartPlanItTest {
 	
 	@Test
 	public void testToneMap() {
-		Assertions.assertEquals(T07PartPlanIt.PART_1, T07PartPlanIt.valueOfTone("˥"));
-		Assertions.assertEquals(T07PartPlanIt.PART_2, T07PartPlanIt.valueOfTone("꜉"));
-		Assertions.assertEquals(T07PartPlanIt.PART_6, T07PartPlanIt.valueOfTone("꜐"));
-		Assertions.assertEquals(T07PartPlanIt.PART_7, T07PartPlanIt.valueOfTone("˩"));
+		Assertions.assertEquals(T07PartPlanIt.PART_1, T07PartPlanIt.PART_1.staticValueOfTone("˥"));
+		Assertions.assertEquals(T07PartPlanIt.PART_2, T07PartPlanIt.PART_1.staticValueOfTone("꜉"));
+		Assertions.assertEquals(T07PartPlanIt.PART_6, T07PartPlanIt.PART_1.staticValueOfTone("꜐"));
+		Assertions.assertEquals(T07PartPlanIt.PART_7, T07PartPlanIt.PART_1.staticValueOfTone("˩"));
 	}
 	
 	@Test
 	public void testChinaMap() {
-		Assertions.assertEquals(T07PartPlanIt.PART_1, T07PartPlanIt.valueOfChina("♎︎"));
-		Assertions.assertEquals(T07PartPlanIt.PART_2, T07PartPlanIt.valueOfChina("♏︎"));
-		Assertions.assertEquals(T07PartPlanIt.PART_6, T07PartPlanIt.valueOfChina("♑︎"));
-		Assertions.assertEquals(T07PartPlanIt.PART_7, T07PartPlanIt.valueOfChina("♈︎"));
+		Assertions.assertEquals(T07PartPlanIt.PART_1, T07PartPlanIt.PART_1.staticValueOfChina("♎︎"));
+		Assertions.assertEquals(T07PartPlanIt.PART_2, T07PartPlanIt.PART_1.staticValueOfChina("♏︎"));
+		Assertions.assertEquals(T07PartPlanIt.PART_6, T07PartPlanIt.PART_1.staticValueOfChina("♑︎"));
+		Assertions.assertEquals(T07PartPlanIt.PART_7, T07PartPlanIt.PART_1.staticValueOfChina("♈︎"));
 	}
 }

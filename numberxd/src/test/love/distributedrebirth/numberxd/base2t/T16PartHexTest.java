@@ -25,17 +25,17 @@ public class T16PartHexTest {
 	
 	@Test
 	public void testToneMap() {
-		Assertions.assertEquals(T16PartHex.PART_1, T16PartHex.valueOfTone("˥"));
-		Assertions.assertEquals(T16PartHex.PART_2, T16PartHex.valueOfTone("˦"));
-		Assertions.assertEquals(T16PartHex.PART_15, T16PartHex.valueOfTone("꜐"));
-		Assertions.assertEquals(T16PartHex.PART_16, T16PartHex.valueOfTone("꜑"));
+		Assertions.assertEquals(T16PartHex.PART_1, T16PartHex.PART_1.staticValueOfTone("˥"));
+		Assertions.assertEquals(T16PartHex.PART_2, T16PartHex.PART_1.staticValueOfTone("˦"));
+		Assertions.assertEquals(T16PartHex.PART_15, T16PartHex.PART_1.staticValueOfTone("꜐"));
+		Assertions.assertEquals(T16PartHex.PART_16, T16PartHex.PART_1.staticValueOfTone("꜑"));
 	}
 	
 	@Test
 	public void testChinaMap() {
-		Assertions.assertEquals(T16PartHex.PART_1, T16PartHex.valueOfChina("氫"));
-		Assertions.assertEquals(T16PartHex.PART_2, T16PartHex.valueOfChina("氦"));
-		Assertions.assertEquals(T16PartHex.PART_15, T16PartHex.valueOfChina("磷"));
-		Assertions.assertEquals(T16PartHex.PART_16, T16PartHex.valueOfChina("硫"));
+		Assertions.assertEquals(T16PartHex.PART_1, T16PartHex.PART_1.staticValueOfChina("氫"));
+		Assertions.assertEquals(T16PartHex.PART_2, T16PartHex.PART_1.staticValueOfChina("氦"));
+		Assertions.assertEquals(T16PartHex.PART_15, T16PartHex.PART_1.staticValueOfChina("磷"));
+		Assertions.assertEquals(T16PartHex.PART_16, T16PartHex.PART_1.staticValueOfChina("硫"));
 	}
 }

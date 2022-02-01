@@ -55,11 +55,11 @@ public class GroßGetậl6ˢᴰ implements BaseNumberTyte<GroßGetậl6ˢᴰ> {
 
 	@Override
 	public void fillOctalsByClone(T08PartOctalBaseAppender appender) {
-		T12PartUncial.forEach(v -> getValue(v).fillOctalsByClone(appender));
+		T12PartUncial.PART_1.staticVoorElk(v -> getValue(v).fillOctalsByClone(appender));
 	}
 
 	@Override
 	public void fillTytesByReference(V009TyteBaseAppender appender) {
-		T12PartUncial.forEach(v -> getValue(v).fillTytesByReference(appender));
+		T12PartUncial.PART_1.staticVoorElk(v -> getValue(v).fillTytesByReference(appender));
 	}
 }

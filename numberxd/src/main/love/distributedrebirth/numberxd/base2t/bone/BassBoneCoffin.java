@@ -24,6 +24,22 @@ public interface BassBoneCoffin {
 	default Boolean getBoolean(BassBoneStoreKey key) {
 		return Boolean.class.cast(get(key));
 	}
+
+	@SuppressWarnings("unchecked")
+	default Map<String,Object> getMapObject(BassBoneStoreKey key) {
+		if (get(key) == null) {
+			putInit(key, new HashMap<>());
+		}
+		return Map.class.cast(get(key));
+	}
+	
+	@SuppressWarnings("unchecked")
+	default Map<String,String> getMapString(BassBoneStoreKey key) {
+		if (get(key) == null) {
+			putInit(key, new HashMap<>());
+		}
+		return Map.class.cast(get(key));
+	}
 	
 	static BassBoneCoffin newInstance() {
 		return new BassBoneCoffin() {		

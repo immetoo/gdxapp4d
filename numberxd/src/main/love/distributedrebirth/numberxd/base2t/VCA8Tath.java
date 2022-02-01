@@ -43,11 +43,11 @@ public class VCA8Tath implements BaseNumberTyte<VCA8Tath> {
 	
 	@Override
 	public void fillOctalsByClone(T08PartOctalBaseAppender appender) {
-		T02PartBinary.forEach(v -> getValue(v).fillOctalsByClone(appender));
+		T02PartBinary.PART_1.staticVoorElk(v -> getValue(v).fillOctalsByClone(appender));
 	}
 
 	@Override
 	public void fillTytesByReference(V009TyteBaseAppender appender) {
-		T02PartBinary.forEach(v -> getValue(v).fillTytesByReference(appender));
+		T02PartBinary.PART_1.staticVoorElk(v -> getValue(v).fillTytesByReference(appender));
 	}
 }

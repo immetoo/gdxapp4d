@@ -22,17 +22,17 @@ public class T11PartUndecimalTest {
 	
 	@Test
 	public void testToneMap() {
-		Assertions.assertEquals(T11PartUndecimal.PART_1, T11PartUndecimal.valueOfTone("˥"));
-		Assertions.assertEquals(T11PartUndecimal.PART_2, T11PartUndecimal.valueOfTone("꜈"));
-		Assertions.assertEquals(T11PartUndecimal.PART_10, T11PartUndecimal.valueOfTone("꜐"));
-		Assertions.assertEquals(T11PartUndecimal.PART_11, T11PartUndecimal.valueOfTone("˩"));
+		Assertions.assertEquals(T11PartUndecimal.PART_1, T11PartUndecimal.PART_1.staticValueOfTone("˥"));
+		Assertions.assertEquals(T11PartUndecimal.PART_2, T11PartUndecimal.PART_1.staticValueOfTone("꜈"));
+		Assertions.assertEquals(T11PartUndecimal.PART_10, T11PartUndecimal.PART_1.staticValueOfTone("꜐"));
+		Assertions.assertEquals(T11PartUndecimal.PART_11, T11PartUndecimal.PART_1.staticValueOfTone("˩"));
 	}
 	
 	@Test
 	public void testChinaMap() {
-		Assertions.assertEquals(T11PartUndecimal.PART_1, T11PartUndecimal.valueOfChina("走"));
-		Assertions.assertEquals(T11PartUndecimal.PART_2, T11PartUndecimal.valueOfChina("跑"));
-		Assertions.assertEquals(T11PartUndecimal.PART_10, T11PartUndecimal.valueOfChina("春"));
-		Assertions.assertEquals(T11PartUndecimal.PART_11, T11PartUndecimal.valueOfChina("耦"));
+		Assertions.assertEquals(T11PartUndecimal.PART_1, T11PartUndecimal.PART_1.staticValueOfChina("走"));
+		Assertions.assertEquals(T11PartUndecimal.PART_2, T11PartUndecimal.PART_1.staticValueOfChina("跑"));
+		Assertions.assertEquals(T11PartUndecimal.PART_10, T11PartUndecimal.PART_1.staticValueOfChina("春"));
+		Assertions.assertEquals(T11PartUndecimal.PART_11, T11PartUndecimal.PART_1.staticValueOfChina("耦"));
 	}
 }

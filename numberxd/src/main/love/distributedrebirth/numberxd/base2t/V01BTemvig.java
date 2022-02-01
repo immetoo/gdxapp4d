@@ -48,11 +48,11 @@ public final class V01BTemvig implements BaseNumberTyte<V01BTemvig> {
 	
 	@Override
 	public void fillOctalsByClone(T08PartOctalBaseAppender appender) {
-		T03PartTrit.forEach(v -> getValue(v).fillOctalsByClone(appender));
+		T03PartTrit.PART_1.staticVoorElk(v -> getValue(v).fillOctalsByClone(appender));
 	}
 
 	@Override
 	public void fillTytesByReference(V009TyteBaseAppender appender) {
-		T03PartTrit.forEach(v -> getValue(v).fillTytesByReference(appender));
+		T03PartTrit.PART_1.staticVoorElk(v -> getValue(v).fillTytesByReference(appender));
 	}
 }

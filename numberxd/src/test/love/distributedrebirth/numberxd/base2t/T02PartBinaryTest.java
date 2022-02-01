@@ -22,13 +22,13 @@ public class T02PartBinaryTest {
 	
 	@Test
 	public void testToneMap() {
-		Assertions.assertEquals(T02PartBinary.PART_1, T02PartBinary.valueOfTone("˧"));
-		Assertions.assertEquals(T02PartBinary.PART_2, T02PartBinary.valueOfTone("꜔"));
+		Assertions.assertEquals(T02PartBinary.PART_1, T02PartBinary.PART_1.staticValueOfTone("˧"));
+		Assertions.assertEquals(T02PartBinary.PART_2, T02PartBinary.PART_1.staticValueOfTone("꜔"));
 	}
 	
 	@Test
 	public void testChinaMap() {
-		Assertions.assertEquals(T02PartBinary.PART_1, T02PartBinary.valueOfChina("低"));
-		Assertions.assertEquals(T02PartBinary.PART_2, T02PartBinary.valueOfChina("高"));
+		Assertions.assertEquals(T02PartBinary.PART_1, T02PartBinary.PART_1.staticValueOfChina("低"));
+		Assertions.assertEquals(T02PartBinary.PART_2, T02PartBinary.PART_1.staticValueOfChina("高"));
 	}
 }

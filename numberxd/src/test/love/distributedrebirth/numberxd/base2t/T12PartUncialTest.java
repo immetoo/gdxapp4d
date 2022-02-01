@@ -25,17 +25,17 @@ public class T12PartUncialTest {
 	
 	@Test
 	public void testToneMap() {
-		Assertions.assertEquals(T12PartUncial.PART_1, T12PartUncial.valueOfTone("˥"));
-		Assertions.assertEquals(T12PartUncial.PART_2, T12PartUncial.valueOfTone("˧"));
-		Assertions.assertEquals(T12PartUncial.PART_11, T12PartUncial.valueOfTone("꜏"));
-		Assertions.assertEquals(T12PartUncial.PART_12, T12PartUncial.valueOfTone("꜑"));
+		Assertions.assertEquals(T12PartUncial.PART_1, T12PartUncial.PART_1.staticValueOfTone("˥"));
+		Assertions.assertEquals(T12PartUncial.PART_2, T12PartUncial.PART_1.staticValueOfTone("˧"));
+		Assertions.assertEquals(T12PartUncial.PART_11, T12PartUncial.PART_1.staticValueOfTone("꜏"));
+		Assertions.assertEquals(T12PartUncial.PART_12, T12PartUncial.PART_1.staticValueOfTone("꜑"));
 	}
 	
 	@Test
 	public void testChinaMap() {
-		Assertions.assertEquals(T12PartUncial.PART_1, T12PartUncial.valueOfChina("日"));
-		Assertions.assertEquals(T12PartUncial.PART_2, T12PartUncial.valueOfChina("月"));
-		Assertions.assertEquals(T12PartUncial.PART_11, T12PartUncial.valueOfChina("黼"));
-		Assertions.assertEquals(T12PartUncial.PART_12, T12PartUncial.valueOfChina("亞"));
+		Assertions.assertEquals(T12PartUncial.PART_1, T12PartUncial.PART_1.staticValueOfChina("日"));
+		Assertions.assertEquals(T12PartUncial.PART_2, T12PartUncial.PART_1.staticValueOfChina("月"));
+		Assertions.assertEquals(T12PartUncial.PART_11, T12PartUncial.PART_1.staticValueOfChina("黼"));
+		Assertions.assertEquals(T12PartUncial.PART_12, T12PartUncial.PART_1.staticValueOfChina("亞"));
 	}
 }

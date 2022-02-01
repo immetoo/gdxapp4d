@@ -22,15 +22,15 @@ public class T03PartTritTest {
 	
 	@Test
 	public void testToneMap() {
-		Assertions.assertEquals(T03PartTrit.PART_1, T03PartTrit.valueOfTone("˦"));
-		Assertions.assertEquals(T03PartTrit.PART_2, T03PartTrit.valueOfTone("˧"));
-		Assertions.assertEquals(T03PartTrit.PART_3, T03PartTrit.valueOfTone("˨"));
+		Assertions.assertEquals(T03PartTrit.PART_1, T03PartTrit.PART_1.staticValueOfTone("˦"));
+		Assertions.assertEquals(T03PartTrit.PART_2, T03PartTrit.PART_1.staticValueOfTone("˧"));
+		Assertions.assertEquals(T03PartTrit.PART_3, T03PartTrit.PART_1.staticValueOfTone("˨"));
 	}
 	
 	@Test
 	public void testChinaMap() {
-		Assertions.assertEquals(T03PartTrit.PART_1, T03PartTrit.valueOfChina("一"));
-		Assertions.assertEquals(T03PartTrit.PART_2, T03PartTrit.valueOfChina("二"));
-		Assertions.assertEquals(T03PartTrit.PART_3, T03PartTrit.valueOfChina("三"));
+		Assertions.assertEquals(T03PartTrit.PART_1, T03PartTrit.PART_1.staticValueOfChina("一"));
+		Assertions.assertEquals(T03PartTrit.PART_2, T03PartTrit.PART_1.staticValueOfChina("二"));
+		Assertions.assertEquals(T03PartTrit.PART_3, T03PartTrit.PART_1.staticValueOfChina("三"));
 	}
 }

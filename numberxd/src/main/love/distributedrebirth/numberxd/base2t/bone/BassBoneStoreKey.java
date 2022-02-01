@@ -13,6 +13,9 @@ public enum BassBoneStoreKey {
 	CHINA_VALUE,
 	SHIFT_BITS,
 	
+	MAP_TONE,
+	MAP_CHINA,
+	
 	ALT_1_VALUE,
 	ALT_2_VALUE,
 	ALT_3_VALUE,
