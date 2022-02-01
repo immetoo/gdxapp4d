@@ -22,17 +22,17 @@ public class T60SexagesimalTest {
 	
 	@Test
 	public void testToneMap() {
-		Assertions.assertEquals(T60Sexagesimal.PART_1, T60Sexagesimal.valueOfTone("˧˩˥"));
-		Assertions.assertEquals(T60Sexagesimal.PART_2, T60Sexagesimal.valueOfTone("˧˥˦"));
-		Assertions.assertEquals(T60Sexagesimal.PART_59, T60Sexagesimal.valueOfTone("꜍꜍꜏"));
-		Assertions.assertEquals(T60Sexagesimal.PART_60, T60Sexagesimal.valueOfTone("꜑꜑꜏"));
+		Assertions.assertEquals(T60Sexagesimal.PART_1, T60Sexagesimal.PART_1.staticValueOfTone("˧˩˥"));
+		Assertions.assertEquals(T60Sexagesimal.PART_2, T60Sexagesimal.PART_1.staticValueOfTone("˧˥˦"));
+		Assertions.assertEquals(T60Sexagesimal.PART_59, T60Sexagesimal.PART_1.staticValueOfTone("꜍꜍꜏"));
+		Assertions.assertEquals(T60Sexagesimal.PART_60, T60Sexagesimal.PART_1.staticValueOfTone("꜑꜑꜏"));
 	}
 	
 	@Test
 	public void testChinaMap() {
-		Assertions.assertEquals(T60Sexagesimal.PART_1, T60Sexagesimal.valueOfChina("牛"));
-		Assertions.assertEquals(T60Sexagesimal.PART_2, T60Sexagesimal.valueOfChina("鸡"));
-		Assertions.assertEquals(T60Sexagesimal.PART_59, T60Sexagesimal.valueOfChina("薯"));
-		Assertions.assertEquals(T60Sexagesimal.PART_60, T60Sexagesimal.valueOfChina("蘋"));
+		Assertions.assertEquals(T60Sexagesimal.PART_1, T60Sexagesimal.PART_1.staticValueOfChina("牛"));
+		Assertions.assertEquals(T60Sexagesimal.PART_2, T60Sexagesimal.PART_1.staticValueOfChina("鸡"));
+		Assertions.assertEquals(T60Sexagesimal.PART_59, T60Sexagesimal.PART_1.staticValueOfChina("薯"));
+		Assertions.assertEquals(T60Sexagesimal.PART_60, T60Sexagesimal.PART_1.staticValueOfChina("蘋"));
 	}
 }

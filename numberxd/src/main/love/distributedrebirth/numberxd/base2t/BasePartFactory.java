@@ -10,7 +10,7 @@ public final class BasePartFactory {
 		return SUPPORTED_BASES;
 	}
 	
-	public static BassBone[] buildBassBonesByBase(int base) {
+	public static BassBone<?>[] buildBassBonesByBase(int base) {
 		switch (base) {
 		case 2:
 			return T02PartBinary.values();
