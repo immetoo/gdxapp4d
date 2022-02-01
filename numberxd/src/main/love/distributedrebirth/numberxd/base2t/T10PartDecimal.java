@@ -18,7 +18,7 @@ import love.distributedrebirth.numberxd.base2t.facet.BaseFacetMap;
  */
 public enum T10PartDecimal implements BasePart,BasePartAlt4 {
  
-	PART_1 ("˥","ō","零","zero", "영", "\u1040","০", "෦"),
+	PART_1 ("˥","ō","零","zero", "영","\u1040","০", "෦"),
 	PART_2 ("˦","α","壹","one",  "일","\u1041","১", "෧"),
 	PART_3 ("˧","β","貳","two",  "이","\u1042","২","෨"),
 	PART_4 ("˨","γ","參","three","삼","\u1043","৩","෩"),
