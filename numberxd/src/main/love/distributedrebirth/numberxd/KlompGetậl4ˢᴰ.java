@@ -53,11 +53,11 @@ public class KlompGetậl4ˢᴰ implements BaseNumberTyte<KlompGetậl4ˢᴰ> {
 	
 	@Override
 	public void fillOctalsByClone(BaseAppenderOctal appender) {
-		T08PartOctal.PART_1.staticVoorElk(v -> getValue(v).fillOctalsByClone(appender));
+		T08PartOctal.PART_1.BãßVoorElk(v -> getValue(v).fillOctalsByClone(appender));
 	}
 	
 	@Override
 	public void fillTytesByReference(BaseAppenderTyte appender) {
-		T08PartOctal.PART_1.staticVoorElk(v -> getValue(v).fillTytesByReference(appender));
+		T08PartOctal.PART_1.BãßVoorElk(v -> getValue(v).fillTytesByReference(appender));
 	}
 }

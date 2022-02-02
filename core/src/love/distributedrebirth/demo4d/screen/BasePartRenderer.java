@@ -37,14 +37,14 @@ public class BasePartRenderer extends ImGuiRendererMain {
 		ImGui.begin("Base part", widgetOpen);
 		
 		List<String> bases = new ArrayList<>();
-		for (int base:BasePartFactory.getSupportedBases()) {
+		for (int base:BasePartFactory.INSTANCE.BãßBases()) {
 			bases.add(Integer.toString(base));
 		}
 		String[] items = new String[bases.size()];
 		items = bases.toArray(items);
 		String selectedItem = items[selectedBasePart.get()];
 		Integer baseNumber = Integer.valueOf(selectedItem);
-		BãßBȍőnPartʸᴰ<?>[] baseParts = BasePartFactory.buildBassBonesByBase(baseNumber);
+		BãßBȍőnPartʸᴰ<?>[] baseParts = BasePartFactory.INSTANCE.BãßBuildPartsByBase(baseNumber);
 		
 		ImGui.text("Base:");
 		ImGui.sameLine();

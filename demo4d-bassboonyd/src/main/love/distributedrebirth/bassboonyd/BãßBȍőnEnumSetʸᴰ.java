@@ -61,7 +61,7 @@ public interface BãßBȍőnEnumSetʸᴰ<T> extends BãßBȍőnEnumʸᴰ<T> {
 		return values[resultIndex];
 	}
 	
-	default void staticVoorElk(Consumer<T> consumer) {
+	default void BãßVoorElk(Consumer<T> consumer) {
 		for (T value:BãßInstances()) {
 			consumer.accept(value);
 		}

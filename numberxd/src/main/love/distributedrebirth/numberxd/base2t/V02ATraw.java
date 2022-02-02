@@ -43,6 +43,6 @@ public final class V02ATraw implements BaseNumber<V02ATraw> {
 	
 	@Override
 	public void fillOctalsByClone(BaseAppenderOctal appender) {
-		T07PartPlanIt.PART_1.staticVoorElk(v -> getValue(v).fillOctalsByClone(appender));
+		T07PartPlanIt.PART_1.BãßVoorElk(v -> getValue(v).fillOctalsByClone(appender));
 	}
 }

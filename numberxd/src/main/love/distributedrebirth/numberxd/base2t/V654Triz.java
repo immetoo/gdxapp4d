@@ -43,11 +43,11 @@ public class V654Triz implements BaseNumberTyte<V654Triz> {
 	
 	@Override
 	public void fillOctalsByClone(BaseAppenderOctal appender) {
-		T60PartSexagesimal.PART_1.staticVoorElk(v -> getValue(v).fillOctalsByClone(appender));
+		T60PartSexagesimal.PART_1.BãßVoorElk(v -> getValue(v).fillOctalsByClone(appender));
 	}
 
 	@Override
 	public void fillTytesByReference(BaseAppenderTyte appender) {
-		T60PartSexagesimal.PART_1.staticVoorElk(v -> getValue(v).fillTytesByReference(appender));
+		T60PartSexagesimal.PART_1.BãßVoorElk(v -> getValue(v).fillTytesByReference(appender));
 	}
 }

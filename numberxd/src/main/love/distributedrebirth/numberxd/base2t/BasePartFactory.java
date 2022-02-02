@@ -1,18 +1,23 @@
 package love.distributedrebirth.numberxd.base2t;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnEnumInstanceʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public final class BasePartFactory {
+@BãßBȍőnInfoʸᴰ(name = "BasePartFactory", purpose = "Factory to access the bases.")
+public enum BasePartFactory implements BãßBȍőnEnumInstanceʸᴰ<BasePartFactory> {
 
+	INSTANCE;
+	
 	private static final int[] SUPPORTED_BASES = {2,3,4,5,6,7,8,10,11,12,16,20,60};
 	
-	public static int[] getSupportedBases() {
+	public int[] BãßBases() {
 		return SUPPORTED_BASES;
 	}
 	
-	public static BãßBȍőnPartʸᴰ<?>[] buildBassBonesByBase(int base) {
+	public BãßBȍőnPartʸᴰ<?>[] BãßBuildPartsByBase(int base) {
 		switch (base) {
 		case 2:
 			return T02PartBinary.values();

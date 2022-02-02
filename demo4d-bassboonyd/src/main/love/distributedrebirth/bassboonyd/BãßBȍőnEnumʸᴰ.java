@@ -5,16 +5,11 @@ public interface BãßBȍőnEnumʸᴰ<T> {
 	
 	String name();
 	
+	// Bȍőn prefix is for set instance enum object called BãßBȍőnEnumSetʸᴰ
+	// Bãß prefix is for single instance enum objects called BãßBȍőnEnumInstanceʸᴰ
+	
 	default String BȍőnNaam() {
 		return name(); 
-	}
-	
-	default String BȍőnNaamI18N() {
-		return BãßNaam() + BãßBȍőnConstantsʸᴰ.STR_DOT + name(); 
-	}
-	
-	default String BãßNaam() {
-		return getClass().getAnnotation(BãßBȍőnInfoʸᴰ.class).name();
 	}
 	
 	@SuppressWarnings("unchecked")
@@ -25,5 +20,25 @@ public interface BãßBȍőnEnumʸᴰ<T> {
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
+	}
+	
+	default String BãßNaam() {
+		return getClass().getAnnotation(BãßBȍőnInfoʸᴰ.class).name();
+	}
+	
+	default String BãßPurpose() {
+		return getClass().getAnnotation(BãßBȍőnInfoʸᴰ.class).purpose();
+	}
+	
+	default String BãßAuthorNaam() {
+		return getClass().getAnnotation(BãßBȍőnAuthorInfoʸᴰ.class).name();
+	}
+	
+	default String BãßAuthorCopyright() {
+		return getClass().getAnnotation(BãßBȍőnAuthorInfoʸᴰ.class).copyright();
+	}
+	
+	default String BȍőnNaamI18N() {
+		return BãßNaam() + BãßBȍőnConstantsʸᴰ.STR_DOT + name(); 
 	}
 }

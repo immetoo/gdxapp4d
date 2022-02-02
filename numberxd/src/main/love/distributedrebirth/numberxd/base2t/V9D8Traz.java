@@ -43,6 +43,6 @@ public class V9D8Traz implements BaseNumber<V9D8Traz> {
 	
 	@Override
 	public void fillOctalsByClone(BaseAppenderOctal appender) {
-		T60PartSexagesimal.PART_1.staticVoorElk(v -> getValue(v).fillOctalsByClone(appender));
+		T60PartSexagesimal.PART_1.BãßVoorElk(v -> getValue(v).fillOctalsByClone(appender));
 	}
 }

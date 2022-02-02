@@ -64,7 +64,7 @@ public class Base2Terminator {
 	private List<T08PartOctal> base2ReadOctals(int...values) {
 		List<T08PartOctal> octals = new ArrayList<>();
 		for (int value:values) {
-			T08PartOctal.PART_1.staticVoorElk(v -> octals.add(T08PartOctal.indexOf(v, value)));
+			T08PartOctal.PART_1.BãßVoorElk(v -> octals.add(T08PartOctal.indexOf(v, value)));
 		}
 		return octals;
 	}

@@ -44,6 +44,6 @@ public final class V006Tixte implements BaseNumber<V006Tixte> {
 	
 	@Override
 	public void fillOctalsByClone(BaseAppenderOctal appender) {
-		T02PartBinary.PART_1.staticVoorElk(v -> getValue(v).fillOctalsByClone(appender));
+		T02PartBinary.PART_1.BãßVoorElk(v -> getValue(v).fillOctalsByClone(appender));
 	}
 }

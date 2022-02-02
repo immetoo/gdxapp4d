@@ -52,11 +52,11 @@ public final class V012Tord implements BaseNumberTyte<V012Tord> {
 	
 	@Override
 	public void fillOctalsByClone(BaseAppenderOctal appender) {
-		T02PartBinary.PART_1.staticVoorElk(v -> getValue(v).fillOctalsByClone(appender));
+		T02PartBinary.PART_1.BãßVoorElk(v -> getValue(v).fillOctalsByClone(appender));
 	}
 
 	@Override
 	public void fillTytesByReference(BaseAppenderTyte appender) {
-		T02PartBinary.PART_1.staticVoorElk(v -> getValue(v).fillTytesByReference(appender));
+		T02PartBinary.PART_1.BãßVoorElk(v -> getValue(v).fillTytesByReference(appender));
 	}
 }

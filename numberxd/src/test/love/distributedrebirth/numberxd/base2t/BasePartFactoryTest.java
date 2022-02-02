@@ -14,7 +14,7 @@ public class BasePartFactoryTest {
 
 	@Test
 	public void testSupportedBases() {
-		int[] bases = BasePartFactory.getSupportedBases();
+		int[] bases = BasePartFactory.INSTANCE.BãßBases();
 		Assertions.assertNotNull(bases);
 		Assertions.assertTrue(bases.length > 1);
 		Assertions.assertTrue(bases.length < 100);
@@ -23,8 +23,8 @@ public class BasePartFactoryTest {
 	@Test
 	public void testGlobalChinaKeyMap() {
 		Map<String,String> global = new HashMap<>();
-		for (int base:BasePartFactory.getSupportedBases()) {
-			for (BãßBȍőnPartʸᴰ<?> part:BasePartFactory.buildBassBonesByBase(base)) {
+		for (int base:BasePartFactory.INSTANCE.BãßBases()) {
+			for (BãßBȍőnPartʸᴰ<?> part:BasePartFactory.INSTANCE.BãßBuildPartsByBase(base)) {
 				Assertions.assertFalse(global.containsKey(part.getChinaKey()));
 				global.put(part.getChinaKey(), part.getChinaValue());
 			}
@@ -35,8 +35,8 @@ public class BasePartFactoryTest {
 	@Test
 	public void testGlobalChinaValueMap() {
 		Map<String,String> global = new HashMap<>();
-		for (int base:BasePartFactory.getSupportedBases()) {
-			for (BãßBȍőnPartʸᴰ<?> part:BasePartFactory.buildBassBonesByBase(base)) {
+		for (int base:BasePartFactory.INSTANCE.BãßBases()) {
+			for (BãßBȍőnPartʸᴰ<?> part:BasePartFactory.INSTANCE.BãßBuildPartsByBase(base)) {
 				Assertions.assertFalse(global.containsKey(part.getChinaValue()));
 				global.put(part.getChinaValue(), part.getChinaValue());
 			}
@@ -48,8 +48,8 @@ public class BasePartFactoryTest {
 	public void testGlobalToneMap() {
 		boolean duplicate = false;
 		Map<String,String> global = new HashMap<>();
-		for (int base:BasePartFactory.getSupportedBases()) {
-			for (BãßBȍőnPartʸᴰ<?> part:BasePartFactory.buildBassBonesByBase(base)) {
+		for (int base:BasePartFactory.INSTANCE.BãßBases()) {
+			for (BãßBȍőnPartʸᴰ<?> part:BasePartFactory.INSTANCE.BãßBuildPartsByBase(base)) {
 				if (global.containsKey(part.getIdentifierTone())) {
 					duplicate = true;
 					break;
@@ -65,8 +65,8 @@ public class BasePartFactoryTest {
 	public void testGlobalLetterMap() {
 		boolean duplicate = false;
 		Map<String,String> global = new HashMap<>();
-		for (int base:BasePartFactory.getSupportedBases()) {
-			for (BãßBȍőnPartʸᴰ<?> part:BasePartFactory.buildBassBonesByBase(base)) {
+		for (int base:BasePartFactory.INSTANCE.BãßBases()) {
+			for (BãßBȍőnPartʸᴰ<?> part:BasePartFactory.INSTANCE.BãßBuildPartsByBase(base)) {
 				if (global.containsKey(part.getIdentifierLetter())) {
 					duplicate = true;
 					break;
