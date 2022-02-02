@@ -3,11 +3,9 @@ package love.distributedrebirth.numberxd.base2t;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-/**
- * 
- * 
- * @author willemtsade ©Δ∞ 仙上主天
- */
+import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
+
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class T10PartDecimalTest {
 
 	@Test
