@@ -1,8 +1,9 @@
 package love.distributedrebirth.numberxd.base2t;
 
-import love.distributedrebirth.bassboonyd.BaßBȍőnNaamʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnCoffin;
+import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpen;
+import love.distributedrebirth.bassboonyd.BãßBȍőnNaamʸᴰ;
 import love.distributedrebirth.numberxd.base2t.bone.BassBone;
-import love.distributedrebirth.numberxd.base2t.bone.BassBoneCoffin;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneStoreKey;
 
 /**
@@ -10,7 +11,7 @@ import love.distributedrebirth.numberxd.base2t.bone.BassBoneStoreKey;
  * 
  * @author willemtsade ©Δ∞ 仙上主天
  */
-@BaßBȍőnNaamʸᴰ("T60Sexagesimal")
+@BãßBȍőnNaamʸᴰ("T60Sexagesimal")
 public enum T60PartSexagesimal implements BassBone<T60PartSexagesimal> {
 
 	PART_1 ("˧˩˥","ια","牛","cow"),
@@ -78,16 +79,16 @@ public enum T60PartSexagesimal implements BassBone<T60PartSexagesimal> {
 	PART_60("꜑꜑꜏","οϚ","蘋","apple"),
 	;
 	
-	public BassBoneCoffin GET_BBC() { return bbc; }
+	private final BãßBȍőnCoffinOpen<BassBoneStoreKey> BBCO = BãßBȍőnCoffinOpen.newInstance();
+	public BãßBȍőnCoffin<BassBoneStoreKey> GET_BBC() { return BBCO; }
 	public static int LENGTH() { return values().length; };
-	private final BassBoneCoffin bbc = BassBoneCoffin.newInstance();
 	
 	private T60PartSexagesimal(String idTone, String idLetter, String chinaKey, String chinaValue) {
-		GET_BBC().PUT_INIT(BassBoneStoreKey.ID_TONE, idTone);
-		GET_BBC().PUT_INIT(BassBoneStoreKey.ID_LETTER, idLetter);
-		GET_BBC().PUT_INIT(BassBoneStoreKey.CHINA_KEY, chinaKey);
-		GET_BBC().PUT_INIT(BassBoneStoreKey.CHINA_VALUE, chinaValue);
-		GET_BBC().GET_MAP_OBJ(BassBoneStoreKey.MAP_TONE);
-		GET_BBC().GET_MAP_OBJ(BassBoneStoreKey.MAP_CHINA);
+		BBCO.PUT_OBJ(BassBoneStoreKey.ID_TONE, idTone);
+		BBCO.PUT_OBJ(BassBoneStoreKey.ID_LETTER, idLetter);
+		BBCO.PUT_OBJ(BassBoneStoreKey.CHINA_KEY, chinaKey);
+		BBCO.PUT_OBJ(BassBoneStoreKey.CHINA_VALUE, chinaValue);
+		BBCO.PUT_MAP(BassBoneStoreKey.MAP_TONE);
+		BBCO.PUT_MAP(BassBoneStoreKey.MAP_CHINA);
 	}
 }

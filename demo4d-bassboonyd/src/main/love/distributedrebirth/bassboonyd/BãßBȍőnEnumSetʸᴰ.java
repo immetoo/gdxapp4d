@@ -11,12 +11,22 @@ import java.util.stream.Stream;
  * 
  * @author willemtsade ©Δ∞ 仙上主天
  */
-public interface BaßBȍőnEnumSetʸᴰ<T> extends BaßBȍőnEnumʸᴰ<T> {
+public interface BãßBȍőnEnumSetʸᴰ<T> extends BãßBȍőnEnumʸᴰ<T> {
 
+	int ordinal();
+	
+	default int dingRangTelNul() {
+		return ordinal();
+	}
+	
+	default int dingRangTelEen() {
+		return ordinal() + 1;
+	}
+	
 	@SuppressWarnings("unchecked")
 	default T[] staticInstances() {
 		try {
-			Object result = getClass().getMethod("values").invoke(null);
+			Object result = getClass().getMethod(BãßBȍőnConstants.STR_VALUES).invoke(null);
 			return (T[]) result;
 		} catch (Exception e) {
 			throw new RuntimeException(e);

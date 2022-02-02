@@ -3,19 +3,15 @@ package love.distributedrebirth.numberxd.base2t.bone;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import love.distributedrebirth.bassboonyd.BaßBȍőnNaamʸᴰ;
-import love.distributedrebirth.bassboonyd.BaßBȍőnEnumSetʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnStore;
+import love.distributedrebirth.bassboonyd.BãßBȍőnEnumSetʸᴰ;
 
 /**
  * 
  * 
  * @author willemtsade ©Δ∞ 仙上主天
  */
-public interface BassBone<T extends BassBone<T>> extends BaßBȍőnEnumSetʸᴰ<T>, BassBoneStore {
-	
-	default String staticBoneNaam() {
-		return getClass().getAnnotation(BaßBȍőnNaamʸᴰ.class).value();
-	}
+public interface BassBone<T extends BassBone<T>> extends BãßBȍőnEnumSetʸᴰ<T>, BãßBȍőnStore<BassBoneStoreKey> {
 	
 	default String getIdentifierTone() {
 		return GET_BBC().GET_STR(BassBoneStoreKey.ID_TONE);

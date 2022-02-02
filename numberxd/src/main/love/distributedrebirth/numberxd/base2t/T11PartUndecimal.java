@@ -1,9 +1,10 @@
 package love.distributedrebirth.numberxd.base2t;
 
-import love.distributedrebirth.bassboonyd.BaßBȍőnNaamʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnCoffin;
+import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpen;
+import love.distributedrebirth.bassboonyd.BãßBȍőnNaamʸᴰ;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt1;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt1Info;
-import love.distributedrebirth.numberxd.base2t.bone.BassBoneCoffin;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneStoreKey;
 
 /**
@@ -11,7 +12,7 @@ import love.distributedrebirth.numberxd.base2t.bone.BassBoneStoreKey;
  * 
  * @author willemtsade ©Δ∞ 仙上主天
  */
-@BaßBȍőnNaamʸᴰ("T11PartUndecimal")
+@BãßBȍőnNaamʸᴰ("T11PartUndecimal")
 @BassBoneAlt1Info(name="Tamil numerals", website="https://en.wikipedia.org/wiki/Tamil_numerals")
 public enum T11PartUndecimal implements BassBoneAlt1<T11PartUndecimal> {
 
@@ -28,17 +29,17 @@ public enum T11PartUndecimal implements BassBoneAlt1<T11PartUndecimal> {
 	PART_11("˩","=","耦","mate",  "௰"),
 	;
 	
-	public BassBoneCoffin GET_BBC() { return bbc; }
+	private final BãßBȍőnCoffinOpen<BassBoneStoreKey> BBCO = BãßBȍőnCoffinOpen.newInstance();
+	public BãßBȍőnCoffin<BassBoneStoreKey> GET_BBC() { return BBCO; }
 	public static int LENGTH() { return values().length; };
-	private final BassBoneCoffin bbc = BassBoneCoffin.newInstance();
 	
 	private T11PartUndecimal(String idTone, String idLetter, String chinaKey, String chinaValue, String alt1Value) {
-		GET_BBC().PUT_INIT(BassBoneStoreKey.ID_TONE, idTone);
-		GET_BBC().PUT_INIT(BassBoneStoreKey.ID_LETTER, idLetter);
-		GET_BBC().PUT_INIT(BassBoneStoreKey.CHINA_KEY, chinaKey);
-		GET_BBC().PUT_INIT(BassBoneStoreKey.CHINA_VALUE, chinaValue);
-		GET_BBC().PUT_INIT(BassBoneStoreKey.ALT_1_VALUE, alt1Value);
-		GET_BBC().GET_MAP_OBJ(BassBoneStoreKey.MAP_TONE);
-		GET_BBC().GET_MAP_OBJ(BassBoneStoreKey.MAP_CHINA);
+		BBCO.PUT_OBJ(BassBoneStoreKey.ID_TONE, idTone);
+		BBCO.PUT_OBJ(BassBoneStoreKey.ID_LETTER, idLetter);
+		BBCO.PUT_OBJ(BassBoneStoreKey.CHINA_KEY, chinaKey);
+		BBCO.PUT_OBJ(BassBoneStoreKey.CHINA_VALUE, chinaValue);
+		BBCO.PUT_OBJ(BassBoneStoreKey.ALT_1_VALUE, alt1Value);
+		BBCO.PUT_MAP(BassBoneStoreKey.MAP_TONE);
+		BBCO.PUT_MAP(BassBoneStoreKey.MAP_CHINA);
 	}
 }
