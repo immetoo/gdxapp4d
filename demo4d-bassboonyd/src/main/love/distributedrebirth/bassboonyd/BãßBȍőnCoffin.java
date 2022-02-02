@@ -3,6 +3,7 @@ package love.distributedrebirth.bassboonyd;
 import java.util.List;
 import java.util.Map;
 
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public interface BãßBȍőnCoffin<T extends BãßBȍőnStoreKeyʸᴰ> {
 	
 	Object GET_OBJ(T key);

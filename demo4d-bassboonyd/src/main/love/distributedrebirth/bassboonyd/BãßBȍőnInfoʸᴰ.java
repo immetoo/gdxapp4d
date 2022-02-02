@@ -5,14 +5,12 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-/**
- * Defines the BaßBȍőn name.
- * 
- * @author willemtsade ©Δ∞ 仙上主天
- */
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE})
-public @interface BãßBȍőnNaamʸᴰ {
+public @interface BãßBȍőnInfoʸᴰ {
 
-	String value();
+	String name();
+	
+	String purpose();
 }

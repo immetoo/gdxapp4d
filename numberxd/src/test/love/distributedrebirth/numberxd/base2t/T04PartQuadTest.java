@@ -25,18 +25,18 @@ public class T04PartQuadTest {
 	
 	@Test
 	public void testVolgende() {
-		Assertions.assertEquals(T04PartQuad.PART_1, T04PartQuad.PART_4.volgende());
-		Assertions.assertEquals(T04PartQuad.PART_2, T04PartQuad.PART_1.volgende());
-		Assertions.assertEquals(T04PartQuad.PART_3, T04PartQuad.PART_2.volgende());
-		Assertions.assertEquals(T04PartQuad.PART_4, T04PartQuad.PART_3.volgende());
+		Assertions.assertEquals(T04PartQuad.PART_1, T04PartQuad.PART_4.BȍőnVolgende());
+		Assertions.assertEquals(T04PartQuad.PART_2, T04PartQuad.PART_1.BȍőnVolgende());
+		Assertions.assertEquals(T04PartQuad.PART_3, T04PartQuad.PART_2.BȍőnVolgende());
+		Assertions.assertEquals(T04PartQuad.PART_4, T04PartQuad.PART_3.BȍőnVolgende());
 	}
 	
 	@Test
 	public void testVorige() {
-		Assertions.assertEquals(T04PartQuad.PART_1, T04PartQuad.PART_2.vorige());
-		Assertions.assertEquals(T04PartQuad.PART_2, T04PartQuad.PART_3.vorige());
-		Assertions.assertEquals(T04PartQuad.PART_3, T04PartQuad.PART_4.vorige());
-		Assertions.assertEquals(T04PartQuad.PART_4, T04PartQuad.PART_1.vorige());
+		Assertions.assertEquals(T04PartQuad.PART_1, T04PartQuad.PART_2.BȍőnVorige());
+		Assertions.assertEquals(T04PartQuad.PART_2, T04PartQuad.PART_3.BȍőnVorige());
+		Assertions.assertEquals(T04PartQuad.PART_3, T04PartQuad.PART_4.BȍőnVorige());
+		Assertions.assertEquals(T04PartQuad.PART_4, T04PartQuad.PART_1.BȍőnVorige());
 	}
 	
 	@Test

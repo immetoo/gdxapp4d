@@ -1,10 +1,6 @@
 package love.distributedrebirth.bassboonyd;
 
-/**
- * Inject Enum methods.
- * 
- * @author willemtsade ©Δ∞ 仙上主天
- */
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public interface BãßBȍőnEnumʸᴰ<T> {
 	
 	String name();
@@ -18,6 +14,16 @@ public interface BãßBȍőnEnumʸᴰ<T> {
 	}
 	
 	default String BãßNaam() {
-		return getClass().getAnnotation(BãßBȍőnNaamʸᴰ.class).value();
+		return getClass().getAnnotation(BãßBȍőnInfoʸᴰ.class).name();
+	}
+	
+	@SuppressWarnings("unchecked")
+	default T[] BãßInstances() {
+		try {
+			Object result = getClass().getMethod(BãßBȍőnConstants.STR_VALUES).invoke(null);
+			return (T[]) result;
+		} catch (Exception e) {
+			throw new RuntimeException(e);
+		}
 	}
 }

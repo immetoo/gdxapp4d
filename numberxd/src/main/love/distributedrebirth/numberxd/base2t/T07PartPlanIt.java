@@ -2,7 +2,7 @@ package love.distributedrebirth.numberxd.base2t;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffin;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpen;
-import love.distributedrebirth.bassboonyd.BãßBȍőnNaamʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt1;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt1Info;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneStoreKey;
@@ -12,7 +12,7 @@ import love.distributedrebirth.numberxd.base2t.bone.BassBoneStoreKey;
  * 
  * @author willemtsade ©Δ∞ 仙上主天
  */
-@BãßBȍőnNaamʸᴰ("T07PartPlanIt")
+@BãßBȍőnInfoʸᴰ(name = "T07PartPlanIt", purpose = "The distribution by 7.")
 @BassBoneAlt1Info(name="Fallen sign", website="https://en.wikipedia.org/wiki/Classical_planet#Western_astrology")
 public enum T07PartPlanIt implements BassBoneAlt1<T07PartPlanIt> {
 
@@ -25,17 +25,17 @@ public enum T07PartPlanIt implements BassBoneAlt1<T07PartPlanIt> {
 	PART_7("˩","7","♈︎","aries",    "白羊座"),
 	;
 	
-	private final BãßBȍőnCoffinOpen<BassBoneStoreKey> BBCO = BãßBȍőnCoffinOpen.newInstance();
-	public BãßBȍőnCoffin<BassBoneStoreKey> GET_BBC() { return BBCO; }
+	private final BãßBȍőnCoffinOpen<BassBoneStoreKey> BBC = BãßBȍőnCoffinOpen.newInstance();
+	public BãßBȍőnCoffin<BassBoneStoreKey> GET_BBC() { return BBC; }
 	public static int LENGTH() { return values().length; };
 	
 	private T07PartPlanIt(String idTone, String idLetter, String chinaKey, String chinaValue, String alt1Value) {
-		BBCO.PUT_OBJ(BassBoneStoreKey.ID_TONE, idTone);
-		BBCO.PUT_OBJ(BassBoneStoreKey.ID_LETTER, idLetter);
-		BBCO.PUT_OBJ(BassBoneStoreKey.CHINA_KEY, chinaKey);
-		BBCO.PUT_OBJ(BassBoneStoreKey.CHINA_VALUE, chinaValue);
-		BBCO.PUT_OBJ(BassBoneStoreKey.ALT_1_VALUE, alt1Value);
-		BBCO.PUT_MAP(BassBoneStoreKey.MAP_TONE);
-		BBCO.PUT_MAP(BassBoneStoreKey.MAP_CHINA);
+		BBC.PUT_OBJ(BassBoneStoreKey.ID_TONE, idTone);
+		BBC.PUT_OBJ(BassBoneStoreKey.ID_LETTER, idLetter);
+		BBC.PUT_OBJ(BassBoneStoreKey.CHINA_KEY, chinaKey);
+		BBC.PUT_OBJ(BassBoneStoreKey.CHINA_VALUE, chinaValue);
+		BBC.PUT_OBJ(BassBoneStoreKey.ALT_1_VALUE, alt1Value);
+		BBC.PUT_MAP(BassBoneStoreKey.MAP_TONE);
+		BBC.PUT_MAP(BassBoneStoreKey.MAP_CHINA);
 	}
 }

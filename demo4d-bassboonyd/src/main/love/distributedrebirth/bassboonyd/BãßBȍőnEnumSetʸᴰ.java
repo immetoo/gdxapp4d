@@ -6,47 +6,33 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 
-/**
- * Inject EnumSet methods.
- * 
- * @author willemtsade ©Δ∞ 仙上主天
- */
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public interface BãßBȍőnEnumSetʸᴰ<T> extends BãßBȍőnEnumʸᴰ<T> {
 
 	int ordinal();
 	
-	default int dingRangTelNul() {
+	default int BȍőnRangTelNul() {
 		return ordinal();
 	}
 	
-	default int dingRangTelEen() {
+	default int BȍőnRangTelEen() {
 		return ordinal() + 1;
 	}
 	
-	@SuppressWarnings("unchecked")
-	default T[] staticInstances() {
-		try {
-			Object result = getClass().getMethod(BãßBȍőnConstants.STR_VALUES).invoke(null);
-			return (T[]) result;
-		} catch (Exception e) {
-			throw new RuntimeException(e);
-		}
+	default List<T> BãßInstancesList() {
+		return Arrays.asList(BãßInstances());
 	}
 	
-	default List<T> staticInstancesList() {
-		return Arrays.asList(staticInstances());
+	default Iterator<T> BãßInstancesIterator() {
+		return BãßInstancesList().iterator();
 	}
 	
-	default Iterator<T> staticInstancesIterator() {
-		return staticInstancesList().iterator();
+	default Stream<T> BãßInstancesStream() {
+		return BãßInstancesList().stream();
 	}
 	
-	default Stream<T> staticInstancesStream() {
-		return staticInstancesList().stream();
-	}
-	
-	default T volgende() {
-		T[] values = staticInstances();
+	default T BȍőnVolgende() {
+		T[] values = BãßInstances();
 		int resultIndex = 0;
 		for (int i=0;i<values.length;i++) {
 			if (this == values[i]) {
@@ -60,8 +46,8 @@ public interface BãßBȍőnEnumSetʸᴰ<T> extends BãßBȍőnEnumʸᴰ<T> {
 		return values[resultIndex];
 	}
 	
-	default T vorige() {
-		T[] values = staticInstances();
+	default T BȍőnVorige() {
+		T[] values = BãßInstances();
 		int resultIndex = 0;
 		for (int i=0;i<values.length;i++) {
 			if (this == values[i]) {
@@ -76,7 +62,7 @@ public interface BãßBȍőnEnumSetʸᴰ<T> extends BãßBȍőnEnumʸᴰ<T> {
 	}
 	
 	default void staticVoorElk(Consumer<T> consumer) {
-		for (T value:staticInstances()) {
+		for (T value:BãßInstances()) {
 			consumer.accept(value);
 		}
 	}

@@ -2,7 +2,7 @@ package love.distributedrebirth.numberxd.base2t;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffin;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpen;
-import love.distributedrebirth.bassboonyd.BãßBȍőnNaamʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt1Info;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt2;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt2Info;
@@ -13,7 +13,7 @@ import love.distributedrebirth.numberxd.base2t.bone.BassBoneStoreKey;
  * 
  * @author willemtsade ©Δ∞ 仙上主天
  */
-@BãßBȍőnNaamʸᴰ("T05PartPental")
+@BãßBȍőnInfoʸᴰ(name = "T05PartPental", purpose = "The distribution by 5 called Wuxing.")
 @BassBoneAlt1Info(name="Pentagram", website="https://en.wikipedia.org/wiki/Pentagram")
 @BassBoneAlt2Info(name="Pythagorean Interpretations", website="http://wisdomofhypatia.com/OM/BA/PP.html")
 public enum T05PartPental implements BassBoneAlt2<T05PartPental> {
@@ -25,18 +25,18 @@ public enum T05PartPental implements BassBoneAlt2<T05PartPental> {
 	PART_5("˩","4","土","earth","G", "gaia"),
 	;
 	
-	private final BãßBȍőnCoffinOpen<BassBoneStoreKey> BBCO = BãßBȍőnCoffinOpen.newInstance();
-	public BãßBȍőnCoffin<BassBoneStoreKey> GET_BBC() { return BBCO; }
+	private final BãßBȍőnCoffinOpen<BassBoneStoreKey> BBC = BãßBȍőnCoffinOpen.newInstance();
+	public BãßBȍőnCoffin<BassBoneStoreKey> GET_BBC() { return BBC; }
 	public static int LENGTH() { return values().length; };
 	
 	private T05PartPental(String idTone, String idLetter, String chinaKey, String chinaValue, String alt1Value, String alt2Value) {
-		BBCO.PUT_OBJ(BassBoneStoreKey.ID_TONE, idTone);
-		BBCO.PUT_OBJ(BassBoneStoreKey.ID_LETTER, idLetter);
-		BBCO.PUT_OBJ(BassBoneStoreKey.CHINA_KEY, chinaKey);
-		BBCO.PUT_OBJ(BassBoneStoreKey.CHINA_VALUE, chinaValue);
-		BBCO.PUT_OBJ(BassBoneStoreKey.ALT_1_VALUE, alt1Value);
-		BBCO.PUT_OBJ(BassBoneStoreKey.ALT_2_VALUE, alt2Value);
-		BBCO.PUT_MAP(BassBoneStoreKey.MAP_TONE);
-		BBCO.PUT_MAP(BassBoneStoreKey.MAP_CHINA);
+		BBC.PUT_OBJ(BassBoneStoreKey.ID_TONE, idTone);
+		BBC.PUT_OBJ(BassBoneStoreKey.ID_LETTER, idLetter);
+		BBC.PUT_OBJ(BassBoneStoreKey.CHINA_KEY, chinaKey);
+		BBC.PUT_OBJ(BassBoneStoreKey.CHINA_VALUE, chinaValue);
+		BBC.PUT_OBJ(BassBoneStoreKey.ALT_1_VALUE, alt1Value);
+		BBC.PUT_OBJ(BassBoneStoreKey.ALT_2_VALUE, alt2Value);
+		BBC.PUT_MAP(BassBoneStoreKey.MAP_TONE);
+		BBC.PUT_MAP(BassBoneStoreKey.MAP_CHINA);
 	}
 }

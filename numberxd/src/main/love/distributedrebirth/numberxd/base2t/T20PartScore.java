@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffin;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpen;
-import love.distributedrebirth.bassboonyd.BãßBȍőnNaamʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt1Info;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt2Info;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt3;
@@ -19,7 +19,7 @@ import love.distributedrebirth.numberxd.base2t.bone.BassBoneStoreKey;
  * 
  * @author willemtsade ©Δ∞ 仙上主天
  */
-@BãßBȍőnNaamʸᴰ("T20PartScore")
+@BãßBȍőnInfoʸᴰ(name = "T20PartScore", purpose = "The distribution by 20.")
 @BassBoneAlt1Info(name="Vigesimal", website="https://en.wikipedia.org/wiki/Vigesimal#Places")
 @BassBoneAlt2Info(name="Vigesimal Alternative", website="https://en.wikipedia.org/wiki/Vigesimal#Places")
 @BassBoneAlt3Info(name="Open Location Code", website="https://en.wikipedia.org/wiki/Open_Location_Code")
@@ -49,21 +49,21 @@ public enum T20PartScore implements BassBoneAlt3<T20PartScore> {
 	
 	private static final Map<String, T20PartScore> OPENLC_MAP = Collections.unmodifiableMap(
 			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getAlt3Value(), v -> v)));
-	private final BãßBȍőnCoffinOpen<BassBoneStoreKey> BBCO = BãßBȍőnCoffinOpen.newInstance();
-	public BãßBȍőnCoffin<BassBoneStoreKey> GET_BBC() { return BBCO; }
+	private final BãßBȍőnCoffinOpen<BassBoneStoreKey> BBC = BãßBȍőnCoffinOpen.newInstance();
+	public BãßBȍőnCoffin<BassBoneStoreKey> GET_BBC() { return BBC; }
 	public static int LENGTH() { return values().length; };
 	
 	private T20PartScore(String idTone, String idLetter, String chinaKey, String chinaValue,
 			String alt1Value, String alt2Value, String alt3Value) {
-		BBCO.PUT_OBJ(BassBoneStoreKey.ID_TONE, idTone);
-		BBCO.PUT_OBJ(BassBoneStoreKey.ID_LETTER, idLetter);
-		BBCO.PUT_OBJ(BassBoneStoreKey.CHINA_KEY, chinaKey);
-		BBCO.PUT_OBJ(BassBoneStoreKey.CHINA_VALUE, chinaValue);
-		BBCO.PUT_OBJ(BassBoneStoreKey.ALT_1_VALUE, alt1Value);
-		BBCO.PUT_OBJ(BassBoneStoreKey.ALT_2_VALUE, alt2Value);
-		BBCO.PUT_OBJ(BassBoneStoreKey.ALT_3_VALUE, alt3Value);
-		BBCO.PUT_MAP(BassBoneStoreKey.MAP_TONE);
-		BBCO.PUT_MAP(BassBoneStoreKey.MAP_CHINA);
+		BBC.PUT_OBJ(BassBoneStoreKey.ID_TONE, idTone);
+		BBC.PUT_OBJ(BassBoneStoreKey.ID_LETTER, idLetter);
+		BBC.PUT_OBJ(BassBoneStoreKey.CHINA_KEY, chinaKey);
+		BBC.PUT_OBJ(BassBoneStoreKey.CHINA_VALUE, chinaValue);
+		BBC.PUT_OBJ(BassBoneStoreKey.ALT_1_VALUE, alt1Value);
+		BBC.PUT_OBJ(BassBoneStoreKey.ALT_2_VALUE, alt2Value);
+		BBC.PUT_OBJ(BassBoneStoreKey.ALT_3_VALUE, alt3Value);
+		BBC.PUT_MAP(BassBoneStoreKey.MAP_TONE);
+		BBC.PUT_MAP(BassBoneStoreKey.MAP_CHINA);
 	}
 	
 	public T20PartScore staticValueOfOpenLC(String openLCKey) {

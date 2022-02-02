@@ -33,7 +33,7 @@ public interface BassBone<T extends BassBone<T>> extends BãßBȍőnEnumSetʸᴰ
 	default T staticValueOfTone(String identifierTone) {
 		Map<String,Object> mapTone = GET_BBC().GET_MAP_OBJ(BassBoneStoreKey.MAP_TONE);
 		if (mapTone.isEmpty()) {
-			mapTone.putAll(staticInstancesStream().collect(Collectors.toMap(v -> v.getIdentifierTone(), v -> v)));
+			mapTone.putAll(BãßInstancesStream().collect(Collectors.toMap(v -> v.getIdentifierTone(), v -> v)));
 		}
 		return (T) mapTone.get(identifierTone);
 	}
@@ -42,7 +42,7 @@ public interface BassBone<T extends BassBone<T>> extends BãßBȍőnEnumSetʸᴰ
 	default T staticValueOfChina(String chinaKey) {
 		Map<String,Object> mapChina = GET_BBC().GET_MAP_OBJ(BassBoneStoreKey.MAP_CHINA);
 		if (mapChina.isEmpty()) {
-			mapChina.putAll(staticInstancesStream().collect(Collectors.toMap(v -> v.getChinaKey(), v -> v)));
+			mapChina.putAll(BãßInstancesStream().collect(Collectors.toMap(v -> v.getChinaKey(), v -> v)));
 		}
 		return (T) mapChina.get(chinaKey);
 	}
