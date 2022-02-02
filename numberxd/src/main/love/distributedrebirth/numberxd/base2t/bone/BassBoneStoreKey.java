@@ -1,13 +1,13 @@
 package love.distributedrebirth.numberxd.base2t.bone;
 
-import love.distributedrebirth.bassboonyd.BãßBȍőnStoreKeyʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinStoreKeyʸᴰ;
 
 /**
  * 
  * 
  * @author willemtsade ©Δ∞ 仙上主天
  */
-public enum BassBoneStoreKey implements BãßBȍőnStoreKeyʸᴰ {
+public enum BassBoneStoreKey implements BãßBȍőnCoffinStoreKeyʸᴰ {
 
 	ID_TONE,
 	ID_LETTER,
