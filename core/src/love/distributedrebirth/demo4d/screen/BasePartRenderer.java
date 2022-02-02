@@ -36,19 +36,21 @@ public class BasePartRenderer extends ImGuiRendererMain {
 		ImGui.setNextWindowSize(640, 480, ImGuiCond.FirstUseEver);
 		ImGui.begin("Base part", widgetOpen);
 		
-		ImGui.text("Current Part");
-		ImGui.sameLine();
-		
 		List<String> bases = new ArrayList<>();
 		for (int base:BasePartFactory.getSupportedBases()) {
 			bases.add(Integer.toString(base));
 		}
 		String[] items = new String[bases.size()];
-		
-		ImGui.combo("Type", selectedBasePart, bases.toArray(items));
+		items = bases.toArray(items);
 		String selectedItem = items[selectedBasePart.get()];
 		Integer baseNumber = Integer.valueOf(selectedItem);
 		BassBone<?>[] baseParts = BasePartFactory.buildBassBonesByBase(baseNumber);
+		
+		ImGui.text("Base:");
+		ImGui.sameLine();
+		ImGui.text(baseParts[0].staticBoneNaam());
+		ImGui.sameLine();
+		ImGui.combo("Type", selectedBasePart, items);
 		
 		int flags = ImGuiTableFlags.ScrollX | ImGuiTableFlags.RowBg | ImGuiTableFlags.BordersOuter | ImGuiTableFlags.BordersV;
 		ImGui.beginTable("base-part", 10, flags);
