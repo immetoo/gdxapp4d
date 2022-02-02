@@ -3,14 +3,11 @@ package love.distributedrebirth.numberxd.base2t.part;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinStoreʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnEnumSetʸᴰ;
 
-/**
- * 
- * 
- * @author willemtsade ©Δ∞ 仙上主天
- */
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public interface BãßBȍőnPart<T extends BãßBȍőnPart<T>> extends BãßBȍőnEnumSetʸᴰ<T>, BãßBȍőnCoffinStoreʸᴰ<BãßBȍőnPartKey> {
 	
 	default String getIdentifierTone() {

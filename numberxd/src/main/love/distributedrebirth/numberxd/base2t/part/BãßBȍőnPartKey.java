@@ -1,12 +1,9 @@
 package love.distributedrebirth.numberxd.base2t.part;
 
+import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinStoreKeyʸᴰ;
 
-/**
- * 
- * 
- * @author willemtsade ©Δ∞ 仙上主天
- */
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public enum BãßBȍőnPartKey implements BãßBȍőnCoffinStoreKeyʸᴰ {
 
 	ID_TONE,

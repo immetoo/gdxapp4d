@@ -1,10 +1,8 @@
 package love.distributedrebirth.numberxd.base2t.part;
 
-/**
- * 
- * 
- * @author willemtsade ©Δ∞ 仙上主天
- */
+import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
+
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public interface BãßBȍőnPartAlt2<T extends BãßBȍőnPart<T>> extends BãßBȍőnPartAlt1<T> {
 
 	default String getAlt2Value() {
