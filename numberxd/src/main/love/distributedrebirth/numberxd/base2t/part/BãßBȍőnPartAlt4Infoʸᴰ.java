@@ -10,7 +10,7 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE})
-public @interface BãßBȍőnPartAlt1Info {
+public @interface BãßBȍőnPartAlt4Infoʸᴰ {
 
 	String name();
 	

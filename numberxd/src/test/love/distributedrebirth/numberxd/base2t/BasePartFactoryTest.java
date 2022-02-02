@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
-import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPart;
+import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class BasePartFactoryTest {
@@ -24,7 +24,7 @@ public class BasePartFactoryTest {
 	public void testGlobalChinaKeyMap() {
 		Map<String,String> global = new HashMap<>();
 		for (int base:BasePartFactory.getSupportedBases()) {
-			for (BãßBȍőnPart<?> part:BasePartFactory.buildBassBonesByBase(base)) {
+			for (BãßBȍőnPartʸᴰ<?> part:BasePartFactory.buildBassBonesByBase(base)) {
 				Assertions.assertFalse(global.containsKey(part.getChinaKey()));
 				global.put(part.getChinaKey(), part.getChinaValue());
 			}
@@ -36,7 +36,7 @@ public class BasePartFactoryTest {
 	public void testGlobalChinaValueMap() {
 		Map<String,String> global = new HashMap<>();
 		for (int base:BasePartFactory.getSupportedBases()) {
-			for (BãßBȍőnPart<?> part:BasePartFactory.buildBassBonesByBase(base)) {
+			for (BãßBȍőnPartʸᴰ<?> part:BasePartFactory.buildBassBonesByBase(base)) {
 				Assertions.assertFalse(global.containsKey(part.getChinaValue()));
 				global.put(part.getChinaValue(), part.getChinaValue());
 			}
@@ -49,7 +49,7 @@ public class BasePartFactoryTest {
 		boolean duplicate = false;
 		Map<String,String> global = new HashMap<>();
 		for (int base:BasePartFactory.getSupportedBases()) {
-			for (BãßBȍőnPart<?> part:BasePartFactory.buildBassBonesByBase(base)) {
+			for (BãßBȍőnPartʸᴰ<?> part:BasePartFactory.buildBassBonesByBase(base)) {
 				if (global.containsKey(part.getIdentifierTone())) {
 					duplicate = true;
 					break;
@@ -66,7 +66,7 @@ public class BasePartFactoryTest {
 		boolean duplicate = false;
 		Map<String,String> global = new HashMap<>();
 		for (int base:BasePartFactory.getSupportedBases()) {
-			for (BãßBȍőnPart<?> part:BasePartFactory.buildBassBonesByBase(base)) {
+			for (BãßBȍőnPartʸᴰ<?> part:BasePartFactory.buildBassBonesByBase(base)) {
 				if (global.containsKey(part.getIdentifierLetter())) {
 					duplicate = true;
 					break;

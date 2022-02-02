@@ -1,7 +1,7 @@
 package love.distributedrebirth.numberxd.base2t;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
-import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPart;
+import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public final class BasePartFactory {
@@ -12,7 +12,7 @@ public final class BasePartFactory {
 		return SUPPORTED_BASES;
 	}
 	
-	public static BãßBȍőnPart<?>[] buildBassBonesByBase(int base) {
+	public static BãßBȍőnPartʸᴰ<?>[] buildBassBonesByBase(int base) {
 		switch (base) {
 		case 2:
 			return T02PartBinary.values();

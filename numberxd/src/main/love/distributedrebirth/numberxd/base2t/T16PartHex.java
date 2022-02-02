@@ -4,14 +4,14 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnInfoʸᴰ;
-import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt1;
-import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt1Info;
-import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartKey;
+import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt1ʸᴰ;
+import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt1Infoʸᴰ;
+import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartKeyʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 @BãßBȍőnInfoʸᴰ(name = "T16PartHex", purpose = "The distribution by 16.")
-@BãßBȍőnPartAlt1Info(name="Dual-tone multi-frequency signaling", website="https://en.wikipedia.org/wiki/Dual-tone_multi-frequency_signaling")
-public enum T16PartHex implements BãßBȍőnPartAlt1<T16PartHex> {
+@BãßBȍőnPartAlt1Infoʸᴰ(name="Dual-tone multi-frequency signaling", website="https://en.wikipedia.org/wiki/Dual-tone_multi-frequency_signaling")
+public enum T16PartHex implements BãßBȍőnPartAlt1ʸᴰ<T16PartHex> {
 
 	PART_1 ("˥","0","氫","hydrogen",  "1"),
 	PART_2 ("˦","1","氦","helium",    "2"),
@@ -31,18 +31,18 @@ public enum T16PartHex implements BãßBȍőnPartAlt1<T16PartHex> {
 	PART_16("꜑","F","硫","sulfur",    "D"),
 	;
 	
-	private final BãßBȍőnCoffinOpenʸᴰ<BãßBȍőnPartKey> BBC = BãßBȍőnCoffinOpenʸᴰ.newInstance();
-	public BãßBȍőnCoffinʸᴰ<BãßBȍőnPartKey> GET_BBC() { return BBC; }
+	private final BãßBȍőnCoffinOpenʸᴰ<BãßBȍőnPartKeyʸᴰ> BBC = BãßBȍőnCoffinOpenʸᴰ.newInstance();
+	public BãßBȍőnCoffinʸᴰ<BãßBȍőnPartKeyʸᴰ> GET_BBC() { return BBC; }
 	public static int LENGTH() { return values().length; };
 	
 	private T16PartHex(String idTone, String idLetter, String chinaKey, String chinaValue, String alt1Value) {
-		BBC.PUT_OBJ(BãßBȍőnPartKey.ID_TONE, idTone);
-		BBC.PUT_OBJ(BãßBȍőnPartKey.ID_LETTER, idLetter);
-		BBC.PUT_OBJ(BãßBȍőnPartKey.CHINA_KEY, chinaKey);
-		BBC.PUT_OBJ(BãßBȍőnPartKey.CHINA_VALUE, chinaValue);
-		BBC.PUT_OBJ(BãßBȍőnPartKey.ALT_1_VALUE, alt1Value);
-		BBC.PUT_MAP(BãßBȍőnPartKey.MAP_TONE);
-		BBC.PUT_MAP(BãßBȍőnPartKey.MAP_CHINA);
+		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.ID_TONE, idTone);
+		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.ID_LETTER, idLetter);
+		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.CHINA_KEY, chinaKey);
+		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.CHINA_VALUE, chinaValue);
+		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.ALT_1_VALUE, alt1Value);
+		BBC.PUT_MAP(BãßBȍőnPartKeyʸᴰ.MAP_TONE);
+		BBC.PUT_MAP(BãßBȍőnPartKeyʸᴰ.MAP_CHINA);
 	}
 	
 	public T02PartBinary splitPartBinary(T04PartQuad part) {

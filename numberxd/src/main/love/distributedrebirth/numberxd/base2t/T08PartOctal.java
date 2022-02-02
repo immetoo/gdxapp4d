@@ -4,17 +4,17 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnInfoʸᴰ;
-import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt1Info;
-import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt2;
-import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt2Info;
-import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartKey;
-import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartShiftBits;
+import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt1Infoʸᴰ;
+import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt2ʸᴰ;
+import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt2Infoʸᴰ;
+import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartKeyʸᴰ;
+import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartShiftBitsʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 @BãßBȍőnInfoʸᴰ(name = "T08PartOctal", purpose = "The distribution by 8.")
-@BãßBȍőnPartAlt1Info(name="Absolute Tone Sequence", website="https://en.wikipedia.org/wiki/Tone_letter")
-@BãßBȍőnPartAlt2Info(name="Relative Tone Sequence", website="https://en.wikipedia.org/wiki/Tone_letter")
-public enum T08PartOctal implements BãßBȍőnPartAlt2<T08PartOctal>,BãßBȍőnPartShiftBits<T08PartOctal> {
+@BãßBȍőnPartAlt1Infoʸᴰ(name="Absolute Tone Sequence", website="https://en.wikipedia.org/wiki/Tone_letter")
+@BãßBȍőnPartAlt2Infoʸᴰ(name="Relative Tone Sequence", website="https://en.wikipedia.org/wiki/Tone_letter")
+public enum T08PartOctal implements BãßBȍőnPartAlt2ʸᴰ<T08PartOctal>,BãßBȍőnPartShiftBitsʸᴰ<T08PartOctal> {
 
 	PART_1("˥","0","心","heart","˧˥˩","˥˩˧", 0),
 	PART_2("˩","1","頭","head", "˧˩˥","˩˥˧", 3),
@@ -28,20 +28,20 @@ public enum T08PartOctal implements BãßBȍőnPartAlt2<T08PartOctal>,BãßBȍő
 	
 	public static int BIT_COUNT = 3;
 	private static final byte BITMASK = 0x07;
-	private final BãßBȍőnCoffinOpenʸᴰ<BãßBȍőnPartKey> BBC = BãßBȍőnCoffinOpenʸᴰ.newInstance();
-	public BãßBȍőnCoffinʸᴰ<BãßBȍőnPartKey> GET_BBC() { return BBC; }
+	private final BãßBȍőnCoffinOpenʸᴰ<BãßBȍőnPartKeyʸᴰ> BBC = BãßBȍőnCoffinOpenʸᴰ.newInstance();
+	public BãßBȍőnCoffinʸᴰ<BãßBȍőnPartKeyʸᴰ> GET_BBC() { return BBC; }
 	public static int LENGTH() { return values().length; };
 	
 	private T08PartOctal(String identifierTone, String identifierLetter, String chinaKey, String chinaValue, String alt1Value, String alt2Value, int shiftBits) {
-		BBC.PUT_OBJ(BãßBȍőnPartKey.ID_TONE, identifierTone);
-		BBC.PUT_OBJ(BãßBȍőnPartKey.ID_LETTER, identifierLetter);
-		BBC.PUT_OBJ(BãßBȍőnPartKey.CHINA_KEY, chinaKey);
-		BBC.PUT_OBJ(BãßBȍőnPartKey.CHINA_VALUE, chinaValue);
-		BBC.PUT_OBJ(BãßBȍőnPartKey.SHIFT_BITS, Integer.valueOf(shiftBits));
-		BBC.PUT_OBJ(BãßBȍőnPartKey.ALT_1_VALUE, alt1Value);
-		BBC.PUT_OBJ(BãßBȍőnPartKey.ALT_2_VALUE, alt2Value);
-		BBC.PUT_MAP(BãßBȍőnPartKey.MAP_TONE);
-		BBC.PUT_MAP(BãßBȍőnPartKey.MAP_CHINA);
+		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.ID_TONE, identifierTone);
+		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.ID_LETTER, identifierLetter);
+		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.CHINA_KEY, chinaKey);
+		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.CHINA_VALUE, chinaValue);
+		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.SHIFT_BITS, Integer.valueOf(shiftBits));
+		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.ALT_1_VALUE, alt1Value);
+		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.ALT_2_VALUE, alt2Value);
+		BBC.PUT_MAP(BãßBȍőnPartKeyʸᴰ.MAP_TONE);
+		BBC.PUT_MAP(BãßBȍőnPartKeyʸᴰ.MAP_CHINA);
 	}
 	
 	public static T08PartOctal indexOf(T08PartOctal group, int value) {

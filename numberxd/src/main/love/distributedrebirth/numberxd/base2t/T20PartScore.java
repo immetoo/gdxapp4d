@@ -9,18 +9,18 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnInfoʸᴰ;
-import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt1Info;
-import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt2Info;
-import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt3;
-import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt3Info;
-import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartKey;
+import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt1Infoʸᴰ;
+import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt2Infoʸᴰ;
+import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt3ʸᴰ;
+import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt3Infoʸᴰ;
+import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartKeyʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 @BãßBȍőnInfoʸᴰ(name = "T20PartScore", purpose = "The distribution by 20.")
-@BãßBȍőnPartAlt1Info(name="Vigesimal", website="https://en.wikipedia.org/wiki/Vigesimal#Places")
-@BãßBȍőnPartAlt2Info(name="Vigesimal Alternative", website="https://en.wikipedia.org/wiki/Vigesimal#Places")
-@BãßBȍőnPartAlt3Info(name="Open Location Code", website="https://en.wikipedia.org/wiki/Open_Location_Code")
-public enum T20PartScore implements BãßBȍőnPartAlt3<T20PartScore> {
+@BãßBȍőnPartAlt1Infoʸᴰ(name="Vigesimal", website="https://en.wikipedia.org/wiki/Vigesimal#Places")
+@BãßBȍőnPartAlt2Infoʸᴰ(name="Vigesimal Alternative", website="https://en.wikipedia.org/wiki/Vigesimal#Places")
+@BãßBȍőnPartAlt3Infoʸᴰ(name="Open Location Code", website="https://en.wikipedia.org/wiki/Open_Location_Code")
+public enum T20PartScore implements BãßBȍőnPartAlt3ʸᴰ<T20PartScore> {
 
 	PART_1 ("˥","Y", "尧","yotta","0","0","2"),
 	PART_2 ("˦","Z", "泽","zetta","1","1","3"),
@@ -46,21 +46,21 @@ public enum T20PartScore implements BãßBȍőnPartAlt3<T20PartScore> {
 	
 	private static final Map<String, T20PartScore> OPENLC_MAP = Collections.unmodifiableMap(
 			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getAlt3Value(), v -> v)));
-	private final BãßBȍőnCoffinOpenʸᴰ<BãßBȍőnPartKey> BBC = BãßBȍőnCoffinOpenʸᴰ.newInstance();
-	public BãßBȍőnCoffinʸᴰ<BãßBȍőnPartKey> GET_BBC() { return BBC; }
+	private final BãßBȍőnCoffinOpenʸᴰ<BãßBȍőnPartKeyʸᴰ> BBC = BãßBȍőnCoffinOpenʸᴰ.newInstance();
+	public BãßBȍőnCoffinʸᴰ<BãßBȍőnPartKeyʸᴰ> GET_BBC() { return BBC; }
 	public static int LENGTH() { return values().length; };
 	
 	private T20PartScore(String idTone, String idLetter, String chinaKey, String chinaValue,
 			String alt1Value, String alt2Value, String alt3Value) {
-		BBC.PUT_OBJ(BãßBȍőnPartKey.ID_TONE, idTone);
-		BBC.PUT_OBJ(BãßBȍőnPartKey.ID_LETTER, idLetter);
-		BBC.PUT_OBJ(BãßBȍőnPartKey.CHINA_KEY, chinaKey);
-		BBC.PUT_OBJ(BãßBȍőnPartKey.CHINA_VALUE, chinaValue);
-		BBC.PUT_OBJ(BãßBȍőnPartKey.ALT_1_VALUE, alt1Value);
-		BBC.PUT_OBJ(BãßBȍőnPartKey.ALT_2_VALUE, alt2Value);
-		BBC.PUT_OBJ(BãßBȍőnPartKey.ALT_3_VALUE, alt3Value);
-		BBC.PUT_MAP(BãßBȍőnPartKey.MAP_TONE);
-		BBC.PUT_MAP(BãßBȍőnPartKey.MAP_CHINA);
+		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.ID_TONE, idTone);
+		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.ID_LETTER, idLetter);
+		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.CHINA_KEY, chinaKey);
+		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.CHINA_VALUE, chinaValue);
+		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.ALT_1_VALUE, alt1Value);
+		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.ALT_2_VALUE, alt2Value);
+		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.ALT_3_VALUE, alt3Value);
+		BBC.PUT_MAP(BãßBȍőnPartKeyʸᴰ.MAP_TONE);
+		BBC.PUT_MAP(BãßBȍőnPartKeyʸᴰ.MAP_CHINA);
 	}
 	
 	public T20PartScore staticValueOfOpenLC(String openLCKey) {
