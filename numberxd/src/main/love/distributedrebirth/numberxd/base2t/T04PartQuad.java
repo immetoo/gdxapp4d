@@ -1,17 +1,14 @@
 package love.distributedrebirth.numberxd.base2t;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt1;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt1Info;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartKey;
 
-/**
- * The distribution by 4.
- * 
- * @author willemtsade ©Δ∞ 仙上主天
- */
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 @BãßBȍőnInfoʸᴰ(name = "T04PartQuad", purpose = "The distribution by 4.")
 @BãßBȍőnPartAlt1Info(name="Cardinal direction", website="https://simple.wikipedia.org/wiki/Cardinal_direction")
 public enum T04PartQuad implements BãßBȍőnPartAlt1<T04PartQuad> {

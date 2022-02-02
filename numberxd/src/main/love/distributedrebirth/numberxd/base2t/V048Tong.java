@@ -1,10 +1,11 @@
 package love.distributedrebirth.numberxd.base2t;
 
+import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
+
 /**
  * Holds an 72 bit value.
- * 
- * @author willemtsade ©Δ∞ 仙上主天
  */
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public final class V048Tong implements BaseNumberTyte<V048Tong> {
 
 	public static int BIT_COUNT = V024Teger.BIT_COUNT * T02PartBinary.LENGTH();

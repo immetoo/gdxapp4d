@@ -1,6 +1,7 @@
 package love.distributedrebirth.numberxd.base2t;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt1Info;
@@ -10,11 +11,7 @@ import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt4;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt4Info;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartKey;
 
-/**
- * The distribution by 10.
- * 
- * @author willemtsade ©Δ∞ 仙上主天
- */
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 @BãßBȍőnInfoʸᴰ(name = "T10PartDecimal", purpose = "The distribution by 10.")
 @BãßBȍőnPartAlt1Info(name="Korean numerals", website="https://en.wikipedia.org/wiki/Korean_numerals")
 @BãßBȍőnPartAlt2Info(name="Burmese numerals", website="https://en.wikipedia.org/wiki/Burmese_numerals")

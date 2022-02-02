@@ -1,10 +1,11 @@
 package love.distributedrebirth.numberxd.base2t;
 
+import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
+
 /**
  * Holds an 144 bit value.
- * 
- * @author willemtsade ©Δ∞ 仙上主天
  */
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public final class V090Tocta implements BaseNumberTyte<V090Tocta> {
 
 	public static int BIT_COUNT = V048Tong.BIT_COUNT * T02PartBinary.LENGTH();

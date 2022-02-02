@@ -1,10 +1,11 @@
 package love.distributedrebirth.numberxd.base2t;
 
+import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
+
 /**
  * Holds an 18 bit value.
- * 
- * @author willemtsade ©Δ∞ 仙上主天
  */
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public final class V012Tord implements BaseNumberTyte<V012Tord> {
 
 	public static int BIT_COUNT = V009Tyte.BIT_COUNT * T02PartBinary.LENGTH();

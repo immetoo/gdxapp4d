@@ -1,17 +1,14 @@
 package love.distributedrebirth.numberxd.base2t;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt1;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt1Info;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartKey;
 
-/**
- * The distribution by 16.
- * 
- * @author willemtsade ©Δ∞ 仙上主天
- */
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 @BãßBȍőnInfoʸᴰ(name = "T16PartHex", purpose = "The distribution by 16.")
 @BãßBȍőnPartAlt1Info(name="Dual-tone multi-frequency signaling", website="https://en.wikipedia.org/wiki/Dual-tone_multi-frequency_signaling")
 public enum T16PartHex implements BãßBȍőnPartAlt1<T16PartHex> {

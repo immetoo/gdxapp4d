@@ -1,17 +1,14 @@
 package love.distributedrebirth.numberxd.base2t;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt1;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt1Info;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartKey;
 
-/**
- * The distribution by 7.
- * 
- * @author willemtsade ©Δ∞ 仙上主天
- */
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 @BãßBȍőnInfoʸᴰ(name = "T07PartPlanIt", purpose = "The distribution by 7.")
 @BãßBȍőnPartAlt1Info(name="Fallen sign", website="https://en.wikipedia.org/wiki/Classical_planet#Western_astrology")
 public enum T07PartPlanIt implements BãßBȍőnPartAlt1<T07PartPlanIt> {

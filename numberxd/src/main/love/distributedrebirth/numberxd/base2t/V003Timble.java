@@ -1,10 +1,11 @@
 package love.distributedrebirth.numberxd.base2t;
 
+import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
+
 /**
  * Holds an 3 bit value.
- * 
- * @author willemtsade ©Δ∞ 仙上主天
  */
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public final class V003Timble implements BaseNumber<V003Timble> {
 
 	public static int BIT_COUNT = T08PartOctal.BIT_COUNT;

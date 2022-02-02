@@ -7,11 +7,6 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPart;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartKey;
 
-/**
- * The distribution by 2.
- * 
- * @author willemtsade ©Δ∞ 仙上主天
- */
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 @BãßBȍőnInfoʸᴰ(name = "T02PartBinary", purpose = "The distribution by 2.")
 public enum T02PartBinary implements BãßBȍőnPart<T02PartBinary> {

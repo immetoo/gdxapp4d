@@ -1,6 +1,7 @@
 package love.distributedrebirth.numberxd.base2t;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt1Info;
@@ -9,11 +10,7 @@ import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt2Info;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartKey;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartShiftBits;
 
-/**
- * The distribution by 8.
- * 
- * @author willemtsade ©Δ∞ 仙上主天
- */
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 @BãßBȍőnInfoʸᴰ(name = "T08PartOctal", purpose = "The distribution by 8.")
 @BãßBȍőnPartAlt1Info(name="Absolute Tone Sequence", website="https://en.wikipedia.org/wiki/Tone_letter")
 @BãßBȍőnPartAlt2Info(name="Relative Tone Sequence", website="https://en.wikipedia.org/wiki/Tone_letter")
