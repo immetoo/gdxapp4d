@@ -5,15 +5,15 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public interface BãßBȍőnPartAlt2ʸᴰ<T extends BãßBȍőnPartʸᴰ<T>> extends BãßBȍőnPartAlt1ʸᴰ<T> {
 
-	default String getAlt2Value() {
+	default String BȍőnAlt2Value() {
 		return GET_BBC().GET_STR(BãßBȍőnPartKeyʸᴰ.ALT_2_VALUE);
 	}
 	
-	default String staticAlt2Name() {
+	default String BãßAlt2Name() {
 		return getClass().getAnnotation(BãßBȍőnPartAlt2Infoʸᴰ.class).name();
 	}
 	
-	default String staticAlt2Website() {
+	default String BãßAlt2Website() {
 		return getClass().getAnnotation(BãßBȍőnPartAlt2Infoʸᴰ.class).website();
 	}
 }

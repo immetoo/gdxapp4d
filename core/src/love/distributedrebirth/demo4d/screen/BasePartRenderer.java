@@ -48,7 +48,7 @@ public class BasePartRenderer extends ImGuiRendererMain {
 		
 		ImGui.text("Base:");
 		ImGui.sameLine();
-		ImGui.text(baseParts[0].BãßNaam());
+		ImGui.text(baseParts[0].BãßClassNaam());
 		ImGui.sameLine();
 		ImGui.combo("Type", selectedBasePart, items);
 		
@@ -73,35 +73,35 @@ public class BasePartRenderer extends ImGuiRendererMain {
 			ImGui.tableNextColumn();
 			ImGui.text(Integer.toString(part.ordinal()));
 			ImGui.tableNextColumn();
-			ImGui.text(part.getIdentifierTone());
+			ImGui.text(part.BȍőnIdentifierTone());
 			ImGui.tableNextColumn();
-			ImGui.text(part.getIdentifierLetter());
+			ImGui.text(part.BȍőnIdentifierLetter());
 			ImGui.tableNextColumn();
-			ImGui.text(part.getChinaKey());
+			ImGui.text(part.BȍőnChinaKey());
 			ImGui.tableNextColumn();
-			ImGui.text(part.getChinaValue());
+			ImGui.text(part.BȍőnChinaValue());
 			
 			ImGui.tableNextColumn();
 			if (part instanceof BãßBȍőnPartAlt1ʸᴰ) {
-				ImGui.text(BãßBȍőnPartAlt1ʸᴰ.class.cast(part).getAlt1Value());
+				ImGui.text(BãßBȍőnPartAlt1ʸᴰ.class.cast(part).BȍőnAlt1Value());
 			} else {
 				ImGui.text("");
 			}
 			ImGui.tableNextColumn();
 			if (part instanceof BãßBȍőnPartAlt2ʸᴰ) {
-				ImGui.text(BãßBȍőnPartAlt2ʸᴰ.class.cast(part).getAlt2Value());
+				ImGui.text(BãßBȍőnPartAlt2ʸᴰ.class.cast(part).BȍőnAlt2Value());
 			} else {
 				ImGui.text("");
 			}
 			ImGui.tableNextColumn();
 			if (part instanceof BãßBȍőnPartAlt3ʸᴰ) {
-				ImGui.text(BãßBȍőnPartAlt3ʸᴰ.class.cast(part).getAlt3Value());
+				ImGui.text(BãßBȍőnPartAlt3ʸᴰ.class.cast(part).BȍőnAlt3Value());
 			} else {
 				ImGui.text("");
 			}
 			ImGui.tableNextColumn();
 			if (part instanceof BãßBȍőnPartAlt4ʸᴰ) {
-				ImGui.text(BãßBȍőnPartAlt4ʸᴰ.class.cast(part).getAlt4Value());
+				ImGui.text(BãßBȍőnPartAlt4ʸᴰ.class.cast(part).BȍőnAlt4Value());
 			} else {
 				ImGui.text("");
 			}

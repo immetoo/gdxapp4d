@@ -25,8 +25,8 @@ public class BasePartFactoryTest {
 		Map<String,String> global = new HashMap<>();
 		for (int base:BasePartFactory.INSTANCE.BãßBases()) {
 			for (BãßBȍőnPartʸᴰ<?> part:BasePartFactory.INSTANCE.BãßBuildPartsByBase(base)) {
-				Assertions.assertFalse(global.containsKey(part.getChinaKey()));
-				global.put(part.getChinaKey(), part.getChinaValue());
+				Assertions.assertFalse(global.containsKey(part.BȍőnChinaKey()));
+				global.put(part.BȍőnChinaKey(), part.BȍőnChinaValue());
 			}
 		}
 		Assertions.assertTrue(global.size() > 1);
@@ -37,8 +37,8 @@ public class BasePartFactoryTest {
 		Map<String,String> global = new HashMap<>();
 		for (int base:BasePartFactory.INSTANCE.BãßBases()) {
 			for (BãßBȍőnPartʸᴰ<?> part:BasePartFactory.INSTANCE.BãßBuildPartsByBase(base)) {
-				Assertions.assertFalse(global.containsKey(part.getChinaValue()));
-				global.put(part.getChinaValue(), part.getChinaValue());
+				Assertions.assertFalse(global.containsKey(part.BȍőnChinaValue()));
+				global.put(part.BȍőnChinaValue(), part.BȍőnChinaValue());
 			}
 		}
 		Assertions.assertTrue(global.size() > 1);
@@ -50,11 +50,11 @@ public class BasePartFactoryTest {
 		Map<String,String> global = new HashMap<>();
 		for (int base:BasePartFactory.INSTANCE.BãßBases()) {
 			for (BãßBȍőnPartʸᴰ<?> part:BasePartFactory.INSTANCE.BãßBuildPartsByBase(base)) {
-				if (global.containsKey(part.getIdentifierTone())) {
+				if (global.containsKey(part.BȍőnIdentifierTone())) {
 					duplicate = true;
 					break;
 				}
-				global.put(part.getIdentifierTone(), part.getChinaValue());
+				global.put(part.BȍőnIdentifierTone(), part.BȍőnChinaValue());
 			}
 		}
 		Assertions.assertTrue(global.size() > 1);
@@ -67,11 +67,11 @@ public class BasePartFactoryTest {
 		Map<String,String> global = new HashMap<>();
 		for (int base:BasePartFactory.INSTANCE.BãßBases()) {
 			for (BãßBȍőnPartʸᴰ<?> part:BasePartFactory.INSTANCE.BãßBuildPartsByBase(base)) {
-				if (global.containsKey(part.getIdentifierLetter())) {
+				if (global.containsKey(part.BȍőnIdentifierLetter())) {
 					duplicate = true;
 					break;
 				}
-				global.put(part.getIdentifierLetter(), part.getChinaValue());
+				global.put(part.BȍőnIdentifierLetter(), part.BȍőnChinaValue());
 			}
 		}
 		Assertions.assertTrue(global.size() > 1);

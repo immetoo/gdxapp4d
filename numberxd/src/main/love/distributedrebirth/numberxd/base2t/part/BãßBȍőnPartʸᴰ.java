@@ -10,36 +10,36 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnEnumSetʸᴰ;
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public interface BãßBȍőnPartʸᴰ<T extends BãßBȍőnPartʸᴰ<T>> extends BãßBȍőnEnumSetʸᴰ<T>, BãßBȍőnCoffinStoreʸᴰ<BãßBȍőnPartKeyʸᴰ> {
 	
-	default String getIdentifierTone() {
+	default String BȍőnIdentifierTone() {
 		return GET_BBC().GET_STR(BãßBȍőnPartKeyʸᴰ.ID_TONE);
 	}
 	
-	default String getIdentifierLetter() {
+	default String BȍőnIdentifierLetter() {
 		return GET_BBC().GET_STR(BãßBȍőnPartKeyʸᴰ.ID_LETTER);
 	}
 	
-	default String getChinaKey() {
+	default String BȍőnChinaKey() {
 		return GET_BBC().GET_STR(BãßBȍőnPartKeyʸᴰ.CHINA_KEY);
 	}
 	
-	default String getChinaValue() {
+	default String BȍőnChinaValue() {
 		return GET_BBC().GET_STR(BãßBȍőnPartKeyʸᴰ.CHINA_VALUE);
 	}
 	
 	@SuppressWarnings("unchecked")
-	default T staticValueOfTone(String identifierTone) {
+	default T BãßValueOfTone(String identifierTone) {
 		Map<String,Object> mapTone = GET_BBC().GET_MAP_OBJ(BãßBȍőnPartKeyʸᴰ.MAP_TONE);
 		if (mapTone.isEmpty()) {
-			mapTone.putAll(BãßInstancesStream().collect(Collectors.toMap(v -> v.getIdentifierTone(), v -> v)));
+			mapTone.putAll(BãßInstancesStream().collect(Collectors.toMap(v -> v.BȍőnIdentifierTone(), v -> v)));
 		}
 		return (T) mapTone.get(identifierTone);
 	}
 	
 	@SuppressWarnings("unchecked")
-	default T staticValueOfChina(String chinaKey) {
+	default T BãßValueOfChina(String chinaKey) {
 		Map<String,Object> mapChina = GET_BBC().GET_MAP_OBJ(BãßBȍőnPartKeyʸᴰ.MAP_CHINA);
 		if (mapChina.isEmpty()) {
-			mapChina.putAll(BãßInstancesStream().collect(Collectors.toMap(v -> v.getChinaKey(), v -> v)));
+			mapChina.putAll(BãßInstancesStream().collect(Collectors.toMap(v -> v.BȍőnChinaKey(), v -> v)));
 		}
 		return (T) mapChina.get(chinaKey);
 	}
