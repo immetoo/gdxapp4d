@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
-import love.distributedrebirth.bassboonyd.BãßBȍőnInfoʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnClassInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt1Infoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt2Infoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt3ʸᴰ;
@@ -16,10 +16,10 @@ import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt3Infoʸᴰ
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartKeyʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-@BãßBȍőnInfoʸᴰ(name = "T20PartScore", purpose = "The distribution by 20.")
-@BãßBȍőnPartAlt1Infoʸᴰ(name="Vigesimal", website="https://en.wikipedia.org/wiki/Vigesimal#Places")
-@BãßBȍőnPartAlt2Infoʸᴰ(name="Vigesimal Alternative", website="https://en.wikipedia.org/wiki/Vigesimal#Places")
-@BãßBȍőnPartAlt3Infoʸᴰ(name="Open Location Code", website="https://en.wikipedia.org/wiki/Open_Location_Code")
+@BãßBȍőnClassInfoʸᴰ(name = "T20PartScore", purpose = "The distribution by 20.")
+@BãßBȍőnPartAlt1Infoʸᴰ(name = "Vigesimal", website = "https://en.wikipedia.org/wiki/Vigesimal#Places")
+@BãßBȍőnPartAlt2Infoʸᴰ(name = "Vigesimal Alternative", website = "https://en.wikipedia.org/wiki/Vigesimal#Places")
+@BãßBȍőnPartAlt3Infoʸᴰ(name = "Open Location Code", website = "https://en.wikipedia.org/wiki/Open_Location_Code")
 public enum T20PartScore implements BãßBȍőnPartAlt3ʸᴰ<T20PartScore> {
 
 	PART_1 ("˥","Y", "尧","yotta","0","0","2"),

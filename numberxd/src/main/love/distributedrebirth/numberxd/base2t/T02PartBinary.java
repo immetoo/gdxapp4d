@@ -3,12 +3,12 @@ package love.distributedrebirth.numberxd.base2t;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
-import love.distributedrebirth.bassboonyd.BãßBȍőnInfoʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnClassInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartKeyʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-@BãßBȍőnInfoʸᴰ(name = "T02PartBinary", purpose = "The distribution by 2.")
+@BãßBȍőnClassInfoʸᴰ(name = "T02PartBinary", purpose = "The distribution by 2.")
 public enum T02PartBinary implements BãßBȍőnPartʸᴰ<T02PartBinary> {
 
 	PART_1("˧","0", "低", "low"),

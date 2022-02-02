@@ -3,12 +3,12 @@ package love.distributedrebirth.numberxd.base2t;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
-import love.distributedrebirth.bassboonyd.BãßBȍőnInfoʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnClassInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartKeyʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-@BãßBȍőnInfoʸᴰ(name = "T60Sexagesimal", purpose = "The distribution by 60.")
+@BãßBȍőnClassInfoʸᴰ(name = "T60Sexagesimal", purpose = "The distribution by 60.")
 public enum T60PartSexagesimal implements BãßBȍőnPartʸᴰ<T60PartSexagesimal> {
 
 	PART_1 ("˧˩˥","ια","牛","cow"),

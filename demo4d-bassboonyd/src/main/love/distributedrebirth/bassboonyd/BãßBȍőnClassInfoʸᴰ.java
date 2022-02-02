@@ -8,7 +8,7 @@ import java.lang.annotation.Target;
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE})
-public @interface BãßBȍőnInfoʸᴰ {
+public @interface BãßBȍőnClassInfoʸᴰ {
 
 	String name();
 	

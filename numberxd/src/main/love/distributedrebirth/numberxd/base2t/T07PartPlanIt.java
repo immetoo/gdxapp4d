@@ -3,14 +3,14 @@ package love.distributedrebirth.numberxd.base2t;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
-import love.distributedrebirth.bassboonyd.BãßBȍőnInfoʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnClassInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt1ʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt1Infoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartKeyʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-@BãßBȍőnInfoʸᴰ(name = "T07PartPlanIt", purpose = "The distribution by 7.")
-@BãßBȍőnPartAlt1Infoʸᴰ(name="Fallen sign", website="https://en.wikipedia.org/wiki/Classical_planet#Western_astrology")
+@BãßBȍőnClassInfoʸᴰ(name = "T07PartPlanIt", purpose = "The distribution by 7.")
+@BãßBȍőnPartAlt1Infoʸᴰ(name = "Fallen sign", website = "https://en.wikipedia.org/wiki/Classical_planet#Western_astrology")
 public enum T07PartPlanIt implements BãßBȍőnPartAlt1ʸᴰ<T07PartPlanIt> {
 
 	PART_1("˥","0","♎︎","libra",    "天秤座"),

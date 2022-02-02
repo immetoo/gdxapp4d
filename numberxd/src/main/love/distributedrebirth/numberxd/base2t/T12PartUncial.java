@@ -3,14 +3,14 @@ package love.distributedrebirth.numberxd.base2t;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
-import love.distributedrebirth.bassboonyd.BãßBȍőnInfoʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnClassInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt1ʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt1Infoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartKeyʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-@BãßBȍőnInfoʸᴰ(name = "T12PartUncial", purpose = "The distribution by 12.")
-@BãßBȍőnPartAlt1Infoʸᴰ(name="Transdecimal symbols", website="https://en.wikipedia.org/wiki/Duodecimal#Transdecimal_symbols")
+@BãßBȍőnClassInfoʸᴰ(name = "T12PartUncial", purpose = "The distribution by 12.")
+@BãßBȍőnPartAlt1Infoʸᴰ(name = "Transdecimal symbols", website = "https://en.wikipedia.org/wiki/Duodecimal#Transdecimal_symbols")
 public enum T12PartUncial implements BãßBȍőnPartAlt1ʸᴰ<T12PartUncial> {
 
 	PART_1 ("˥","0","日","sun",     "0"),

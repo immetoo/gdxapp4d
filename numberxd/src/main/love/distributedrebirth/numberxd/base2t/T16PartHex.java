@@ -3,14 +3,14 @@ package love.distributedrebirth.numberxd.base2t;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
-import love.distributedrebirth.bassboonyd.BãßBȍőnInfoʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnClassInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt1ʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt1Infoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartKeyʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-@BãßBȍőnInfoʸᴰ(name = "T16PartHex", purpose = "The distribution by 16.")
-@BãßBȍőnPartAlt1Infoʸᴰ(name="Dual-tone multi-frequency signaling", website="https://en.wikipedia.org/wiki/Dual-tone_multi-frequency_signaling")
+@BãßBȍőnClassInfoʸᴰ(name = "T16PartHex", purpose = "The distribution by 16.")
+@BãßBȍőnPartAlt1Infoʸᴰ(name = "Dual-tone multi-frequency signaling", website = "https://en.wikipedia.org/wiki/Dual-tone_multi-frequency_signaling")
 public enum T16PartHex implements BãßBȍőnPartAlt1ʸᴰ<T16PartHex> {
 
 	PART_1 ("˥","0","氫","hydrogen",  "1"),

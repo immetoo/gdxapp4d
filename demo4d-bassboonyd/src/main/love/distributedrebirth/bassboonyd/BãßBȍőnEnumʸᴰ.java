@@ -22,12 +22,12 @@ public interface BãßBȍőnEnumʸᴰ<T> {
 		}
 	}
 	
-	default String BãßNaam() {
-		return getClass().getAnnotation(BãßBȍőnInfoʸᴰ.class).name();
+	default String BãßClassNaam() {
+		return getClass().getAnnotation(BãßBȍőnClassInfoʸᴰ.class).name();
 	}
 	
-	default String BãßPurpose() {
-		return getClass().getAnnotation(BãßBȍőnInfoʸᴰ.class).purpose();
+	default String BãßClassPurpose() {
+		return getClass().getAnnotation(BãßBȍőnClassInfoʸᴰ.class).purpose();
 	}
 	
 	default String BãßAuthorNaam() {
@@ -39,6 +39,6 @@ public interface BãßBȍőnEnumʸᴰ<T> {
 	}
 	
 	default String BȍőnNaamI18N() {
-		return BãßNaam() + BãßBȍőnConstantsʸᴰ.STR_DOT + name(); 
+		return BãßClassNaam() + BãßBȍőnConstantsʸᴰ.STR_DOT + name(); 
 	}
 }

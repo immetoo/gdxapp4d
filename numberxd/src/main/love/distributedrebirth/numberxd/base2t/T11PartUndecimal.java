@@ -3,14 +3,14 @@ package love.distributedrebirth.numberxd.base2t;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
-import love.distributedrebirth.bassboonyd.BãßBȍőnInfoʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnClassInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt1ʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt1Infoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartKeyʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-@BãßBȍőnInfoʸᴰ(name = "T11PartUndecimal", purpose = "The distribution by 11.")
-@BãßBȍőnPartAlt1Infoʸᴰ(name="Tamil numerals", website="https://en.wikipedia.org/wiki/Tamil_numerals")
+@BãßBȍőnClassInfoʸᴰ(name = "T11PartUndecimal", purpose = "The distribution by 11.")
+@BãßBȍőnPartAlt1Infoʸᴰ(name = "Tamil numerals", website = "https://en.wikipedia.org/wiki/Tamil_numerals")
 public enum T11PartUndecimal implements BãßBȍőnPartAlt1ʸᴰ<T11PartUndecimal> {
 
 	PART_1 ("˥","0","走","walk",  "௦"),

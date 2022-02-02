@@ -3,14 +3,14 @@ package love.distributedrebirth.numberxd.base2t;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
-import love.distributedrebirth.bassboonyd.BãßBȍőnInfoʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnClassInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt1ʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt1Infoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartKeyʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-@BãßBȍőnInfoʸᴰ(name = "T06PartSeximal", purpose = "The distribution by 6.")
-@BãßBȍőnPartAlt1Infoʸᴰ(name="ADFGVX cipher", website="https://en.wikipedia.org/wiki/ADFGVX_cipher")
+@BãßBȍőnClassInfoʸᴰ(name = "T06PartSeximal", purpose = "The distribution by 6.")
+@BãßBȍőnPartAlt1Infoʸᴰ(name = "ADFGVX cipher", website = "https://en.wikipedia.org/wiki/ADFGVX_cipher")
 public enum T06PartSeximal implements BãßBȍőnPartAlt1ʸᴰ<T06PartSeximal> {
 
 	PART_1("˦","0","四","4","A"),

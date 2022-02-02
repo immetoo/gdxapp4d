@@ -3,16 +3,16 @@ package love.distributedrebirth.numberxd.base2t;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
-import love.distributedrebirth.bassboonyd.BãßBȍőnInfoʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnClassInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt1Infoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt2ʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt2Infoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartKeyʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-@BãßBȍőnInfoʸᴰ(name = "T05PartPental", purpose = "The distribution by 5 called Wuxing.")
-@BãßBȍőnPartAlt1Infoʸᴰ(name="Pentagram", website="https://en.wikipedia.org/wiki/Pentagram")
-@BãßBȍőnPartAlt2Infoʸᴰ(name="Pythagorean Interpretations", website="http://wisdomofhypatia.com/OM/BA/PP.html")
+@BãßBȍőnClassInfoʸᴰ(name = "T05PartPental", purpose = "The distribution by 5 called Wuxing.")
+@BãßBȍőnPartAlt1Infoʸᴰ(name = "Pentagram", website = "https://en.wikipedia.org/wiki/Pentagram")
+@BãßBȍőnPartAlt2Infoʸᴰ(name = "Pythagorean Interpretations", website = "http://wisdomofhypatia.com/OM/BA/PP.html")
 public enum T05PartPental implements BãßBȍőnPartAlt2ʸᴰ<T05PartPental> {
 
 	PART_1("˥","0","火","fire", "EI","heile"),

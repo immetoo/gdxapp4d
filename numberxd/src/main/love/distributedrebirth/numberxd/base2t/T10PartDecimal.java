@@ -3,7 +3,7 @@ package love.distributedrebirth.numberxd.base2t;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
-import love.distributedrebirth.bassboonyd.BãßBȍőnInfoʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnClassInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt1Infoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt2Infoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt3Infoʸᴰ;
@@ -12,11 +12,11 @@ import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt4Infoʸᴰ
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartKeyʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-@BãßBȍőnInfoʸᴰ(name = "T10PartDecimal", purpose = "The distribution by 10.")
-@BãßBȍőnPartAlt1Infoʸᴰ(name="Korean numerals", website="https://en.wikipedia.org/wiki/Korean_numerals")
-@BãßBȍőnPartAlt2Infoʸᴰ(name="Burmese numerals", website="https://en.wikipedia.org/wiki/Burmese_numerals")
-@BãßBȍőnPartAlt3Infoʸᴰ(name="Bengali numerals", website="https://en.wikipedia.org/wiki/Bengali_numerals")
-@BãßBȍőnPartAlt4Infoʸᴰ(name="Sinhala Lith Illakkam", website="https://en.wikipedia.org/wiki/Sinhala_numerals#Numerals")
+@BãßBȍőnClassInfoʸᴰ(name = "T10PartDecimal", purpose = "The distribution by 10.")
+@BãßBȍőnPartAlt1Infoʸᴰ(name = "Korean numerals", website = "https://en.wikipedia.org/wiki/Korean_numerals")
+@BãßBȍőnPartAlt2Infoʸᴰ(name = "Burmese numerals", website = "https://en.wikipedia.org/wiki/Burmese_numerals")
+@BãßBȍőnPartAlt3Infoʸᴰ(name = "Bengali numerals", website = "https://en.wikipedia.org/wiki/Bengali_numerals")
+@BãßBȍőnPartAlt4Infoʸᴰ(name = "Sinhala Lith Illakkam", website = "https://en.wikipedia.org/wiki/Sinhala_numerals#Numerals")
 public enum T10PartDecimal implements BãßBȍőnPartAlt4ʸᴰ<T10PartDecimal> {
  
 	PART_1 ("˥","ō","零","zero", "영","\u1040","০", "෦"),

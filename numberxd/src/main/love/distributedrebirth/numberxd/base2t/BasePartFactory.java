@@ -2,11 +2,11 @@ package love.distributedrebirth.numberxd.base2t;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnEnumInstanceʸᴰ;
-import love.distributedrebirth.bassboonyd.BãßBȍőnInfoʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnClassInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-@BãßBȍőnInfoʸᴰ(name = "BasePartFactory", purpose = "Factory to access the bases.")
+@BãßBȍőnClassInfoʸᴰ(name = "BasePartFactory", purpose = "Factory to access the bases.")
 public enum BasePartFactory implements BãßBȍőnEnumInstanceʸᴰ<BasePartFactory> {
 
 	INSTANCE;

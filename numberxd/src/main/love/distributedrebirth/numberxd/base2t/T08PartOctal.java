@@ -3,7 +3,7 @@ package love.distributedrebirth.numberxd.base2t;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
-import love.distributedrebirth.bassboonyd.BãßBȍőnInfoʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnClassInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt1Infoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt2ʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt2Infoʸᴰ;
@@ -11,9 +11,9 @@ import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartKeyʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartShiftBitsʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-@BãßBȍőnInfoʸᴰ(name = "T08PartOctal", purpose = "The distribution by 8.")
-@BãßBȍőnPartAlt1Infoʸᴰ(name="Absolute Tone Sequence", website="https://en.wikipedia.org/wiki/Tone_letter")
-@BãßBȍőnPartAlt2Infoʸᴰ(name="Relative Tone Sequence", website="https://en.wikipedia.org/wiki/Tone_letter")
+@BãßBȍőnClassInfoʸᴰ(name = "T08PartOctal", purpose = "The distribution by 8.")
+@BãßBȍőnPartAlt1Infoʸᴰ(name = "Absolute Tone Sequence", website = "https://en.wikipedia.org/wiki/Tone_letter")
+@BãßBȍőnPartAlt2Infoʸᴰ(name = "Relative Tone Sequence", website = "https://en.wikipedia.org/wiki/Tone_letter")
 public enum T08PartOctal implements BãßBȍőnPartAlt2ʸᴰ<T08PartOctal>,BãßBȍőnPartShiftBitsʸᴰ<T08PartOctal> {
 
 	PART_1("˥","0","心","heart","˧˥˩","˥˩˧", 0),
