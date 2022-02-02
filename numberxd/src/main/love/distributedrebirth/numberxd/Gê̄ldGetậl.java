@@ -3,8 +3,8 @@ package love.distributedrebirth.numberxd;
 import java.util.ArrayList;
 import java.util.List;
 
-import love.distributedrebirth.numberxd.base2t.T04PartQuad;
-import love.distributedrebirth.numberxd.base2t.V024Teger;
+import love.distributedrebirth.numberxd.base2t.part.T04PartQuad;
+import love.distributedrebirth.numberxd.base2t.type.V024Teger;
 
 /**
  * 

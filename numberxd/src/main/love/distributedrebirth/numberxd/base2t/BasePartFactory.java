@@ -2,8 +2,21 @@ package love.distributedrebirth.numberxd.base2t;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnEnumInstanceʸᴰ;
-import love.distributedrebirth.bassboonyd.BãßBȍőnClassInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartʸᴰ;
+import love.distributedrebirth.numberxd.base2t.part.T02PartBinary;
+import love.distributedrebirth.numberxd.base2t.part.T03PartTrit;
+import love.distributedrebirth.numberxd.base2t.part.T04PartQuad;
+import love.distributedrebirth.numberxd.base2t.part.T05PartPental;
+import love.distributedrebirth.numberxd.base2t.part.T06PartSeximal;
+import love.distributedrebirth.numberxd.base2t.part.T07PartPlanIt;
+import love.distributedrebirth.numberxd.base2t.part.T08PartOctal;
+import love.distributedrebirth.numberxd.base2t.part.T10PartDecimal;
+import love.distributedrebirth.numberxd.base2t.part.T11PartUndecimal;
+import love.distributedrebirth.numberxd.base2t.part.T12PartUncial;
+import love.distributedrebirth.numberxd.base2t.part.T16PartHex;
+import love.distributedrebirth.numberxd.base2t.part.T20PartScore;
+import love.distributedrebirth.numberxd.base2t.part.T60PartSexagesimal;
+import love.distributedrebirth.bassboonyd.BãßBȍőnClassInfoʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 @BãßBȍőnClassInfoʸᴰ(name = "BasePartFactory", purpose = "Factory to access the bases.")

@@ -1,8 +1,8 @@
 package love.distributedrebirth.numberxd;
 
-import love.distributedrebirth.numberxd.base2t.T03PartTrit;
-import love.distributedrebirth.numberxd.base2t.T08PartOctal;
-import love.distributedrebirth.numberxd.base2t.V009Tyte;
+import love.distributedrebirth.numberxd.base2t.part.T03PartTrit;
+import love.distributedrebirth.numberxd.base2t.part.T08PartOctal;
+import love.distributedrebirth.numberxd.base2t.type.V009Tyte;
 
 /**
  * 

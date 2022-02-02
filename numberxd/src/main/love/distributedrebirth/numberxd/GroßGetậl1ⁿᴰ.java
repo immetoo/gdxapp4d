@@ -5,10 +5,10 @@ import java.util.List;
 
 import love.distributedrebirth.numberxd.base2t.BaseAppenderOctal;
 import love.distributedrebirth.numberxd.base2t.BaseIteratorOctal;
-import love.distributedrebirth.numberxd.base2t.V009Tyte;
 import love.distributedrebirth.numberxd.base2t.BaseAppenderTyte;
 import love.distributedrebirth.numberxd.base2t.BaseIteratorTyte;
-import love.distributedrebirth.numberxd.base2t.V090Tocta;
+import love.distributedrebirth.numberxd.base2t.type.V009Tyte;
+import love.distributedrebirth.numberxd.base2t.type.V090Tocta;
 
 /**
  * Holds an 144 bit fraction.

@@ -26,6 +26,15 @@ public interface BãßBȍőnPartʸᴰ<T extends BãßBȍőnPartʸᴰ<T>> extends
 		return GET_BBC().GET_STR(BãßBȍőnPartKeyʸᴰ.CHINA_VALUE);
 	}
 	
+	default String BȍőnIdentifierLetterSupper() {
+		return GET_BBC().GET_STR(BãßBȍőnPartKeyʸᴰ.CHINA_KEY);
+	}
+	
+	default String BȍőnIdentifierLetterGreek() {
+		int ordinalOne = BȍőnRangTelEen();
+		return GET_BBC().GET_STR(BãßBȍőnPartKeyʸᴰ.CHINA_KEY);
+	}
+	
 	@SuppressWarnings("unchecked")
 	default T BãßValueOfTone(String identifierTone) {
 		Map<String,Object> mapTone = GET_BBC().GET_MAP_OBJ(BãßBȍőnPartKeyʸᴰ.MAP_TONE);

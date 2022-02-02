@@ -1,9 +1,9 @@
 package love.distributedrebirth.numberxd;
 
 import love.distributedrebirth.numberxd.base2t.BaseNumberTyte;
+import love.distributedrebirth.numberxd.base2t.part.T12PartUncial;
 import love.distributedrebirth.numberxd.base2t.BaseAppenderOctal;
 import love.distributedrebirth.numberxd.base2t.BaseIteratorOctal;
-import love.distributedrebirth.numberxd.base2t.T12PartUncial;
 import love.distributedrebirth.numberxd.base2t.BaseAppenderTyte;
 import love.distributedrebirth.numberxd.base2t.BaseIteratorTyte;
 

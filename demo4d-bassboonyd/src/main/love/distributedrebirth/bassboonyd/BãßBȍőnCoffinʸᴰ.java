@@ -7,6 +7,11 @@ import java.util.Map;
 public interface BãßBȍőnCoffinʸᴰ<T extends BãßBȍőnCoffinStoreKeyʸᴰ> {
 	
 	Object GET_OBJ(T key);
+
+	@SuppressWarnings("unchecked")
+	default <Y> Y GET_OBJ(T key, Class<Y> type) {
+		return (Y) GET_OBJ(key);
+	}
 	
 	default String GET_STR(T key) {
 		return String.class.cast(GET_OBJ(key));

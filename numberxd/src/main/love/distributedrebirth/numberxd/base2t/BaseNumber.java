@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
+import love.distributedrebirth.numberxd.base2t.part.T08PartOctal;
 
 /**
  * Octal base based number interface.

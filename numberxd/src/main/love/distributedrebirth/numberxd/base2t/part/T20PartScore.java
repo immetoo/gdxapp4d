@@ -1,4 +1,4 @@
-package love.distributedrebirth.numberxd.base2t;
+package love.distributedrebirth.numberxd.base2t.part;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -9,11 +9,6 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnClassInfoʸᴰ;
-import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt1Infoʸᴰ;
-import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt2Infoʸᴰ;
-import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt3ʸᴰ;
-import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt3Infoʸᴰ;
-import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartKeyʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 @BãßBȍőnClassInfoʸᴰ(name = "T20PartScore", purpose = "The distribution by 20.")
@@ -63,7 +58,7 @@ public enum T20PartScore implements BãßBȍőnPartAlt3ʸᴰ<T20PartScore> {
 		BBC.PUT_MAP(BãßBȍőnPartKeyʸᴰ.MAP_CHINA);
 	}
 	
-	public T20PartScore staticValueOfOpenLC(String openLCKey) {
+	public T20PartScore BãßValueOfOpenLC(String openLCKey) {
 		return OPENLC_MAP.get(openLCKey);
 	}
 }

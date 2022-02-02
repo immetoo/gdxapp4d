@@ -1,12 +1,12 @@
 package love.distributedrebirth.numberxd;
 
 import love.distributedrebirth.numberxd.base2t.BaseNumberTyte;
-import love.distributedrebirth.numberxd.base2t.T08PartOctal;
+import love.distributedrebirth.numberxd.base2t.part.T08PartOctal;
+import love.distributedrebirth.numberxd.base2t.type.V654Triz;
+import love.distributedrebirth.numberxd.base2t.type.VCA8Tath;
 import love.distributedrebirth.numberxd.base2t.BaseAppenderOctal;
 import love.distributedrebirth.numberxd.base2t.BaseIteratorOctal;
 import love.distributedrebirth.numberxd.base2t.BaseAppenderTyte;
-import love.distributedrebirth.numberxd.base2t.V654Triz;
-import love.distributedrebirth.numberxd.base2t.VCA8Tath;
 
 /**
  * Holds an 25920 bit value. (3240 bytes)

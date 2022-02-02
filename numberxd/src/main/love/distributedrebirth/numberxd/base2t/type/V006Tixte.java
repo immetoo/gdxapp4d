@@ -1,6 +1,10 @@
-package love.distributedrebirth.numberxd.base2t;
+package love.distributedrebirth.numberxd.base2t.type;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
+import love.distributedrebirth.numberxd.base2t.BaseAppenderOctal;
+import love.distributedrebirth.numberxd.base2t.BaseIteratorOctal;
+import love.distributedrebirth.numberxd.base2t.BaseNumber;
+import love.distributedrebirth.numberxd.base2t.part.T02PartBinary;
 
 /**
  * Holds an 6 bit value.

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
+import love.distributedrebirth.numberxd.base2t.type.V009Tyte;
 
 /**
  * Adds Tyte fill and reference support.
