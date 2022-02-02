@@ -2,16 +2,17 @@ package love.distributedrebirth.numberxd.base2t;
 
 import java.util.Iterator;
 
+import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
+
 /**
  * Iterator model for Octals.
- * 
- * @author willemtsade ©Δ∞ 仙上主天
  */
-public final class T08PartOctalBaseIterator implements Iterator<T08PartOctal> {
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
+public final class BaseIteratorOctal implements Iterator<T08PartOctal> {
 
 	private final Iterator<T08PartOctal> iterator;
 	
-	public T08PartOctalBaseIterator(Iterator<T08PartOctal> iterator) {
+	public BaseIteratorOctal(Iterator<T08PartOctal> iterator) {
 		this.iterator = iterator;
 	}
 	

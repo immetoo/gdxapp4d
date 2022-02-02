@@ -14,11 +14,11 @@ public final class V01BTemvig implements BaseNumberTyte<V01BTemvig> {
 		this(new V009Tyte(), new V009Tyte(), new V009Tyte());
 	}
 	
-	public V01BTemvig(T08PartOctalBaseIterator values) {
+	public V01BTemvig(BaseIteratorOctal values) {
 		this(new V009Tyte(values), new V009Tyte(values), new V009Tyte(values));
 	}
 	
-	public V01BTemvig(V009TyteBaseIterator values) {
+	public V01BTemvig(BaseIteratorTyte values) {
 		this(values.next(), values.next(), values.next());
 	}
 	
@@ -47,12 +47,12 @@ public final class V01BTemvig implements BaseNumberTyte<V01BTemvig> {
 	}
 	
 	@Override
-	public void fillOctalsByClone(T08PartOctalBaseAppender appender) {
+	public void fillOctalsByClone(BaseAppenderOctal appender) {
 		T03PartTrit.PART_1.staticVoorElk(v -> getValue(v).fillOctalsByClone(appender));
 	}
 
 	@Override
-	public void fillTytesByReference(V009TyteBaseAppender appender) {
+	public void fillTytesByReference(BaseAppenderTyte appender) {
 		T03PartTrit.PART_1.staticVoorElk(v -> getValue(v).fillTytesByReference(appender));
 	}
 }

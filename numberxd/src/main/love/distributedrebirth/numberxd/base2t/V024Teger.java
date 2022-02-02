@@ -14,11 +14,11 @@ public final class V024Teger implements BaseNumberTyte<V024Teger> {
 		this(new V012Tord(), new V012Tord());
 	}
 	
-	public V024Teger(T08PartOctalBaseIterator values) {
+	public V024Teger(BaseIteratorOctal values) {
 		this(new V012Tord(values), new V012Tord(values));
 	}
 	
-	public V024Teger(V009TyteBaseIterator values) {
+	public V024Teger(BaseIteratorTyte values) {
 		this(new V012Tord(values), new V012Tord(values));
 	}
 	
@@ -56,12 +56,12 @@ public final class V024Teger implements BaseNumberTyte<V024Teger> {
 	}
 	
 	@Override
-	public void fillOctalsByClone(T08PartOctalBaseAppender appender) {
+	public void fillOctalsByClone(BaseAppenderOctal appender) {
 		T02PartBinary.PART_1.staticVoorElk(v -> getValue(v).fillOctalsByClone(appender));
 	}
 
 	@Override
-	public void fillTytesByReference(V009TyteBaseAppender appender) {
+	public void fillTytesByReference(BaseAppenderTyte appender) {
 		T02PartBinary.PART_1.staticVoorElk(v -> getValue(v).fillTytesByReference(appender));
 	}
 }

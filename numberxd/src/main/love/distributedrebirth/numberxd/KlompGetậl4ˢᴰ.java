@@ -2,9 +2,9 @@ package love.distributedrebirth.numberxd;
 
 import love.distributedrebirth.numberxd.base2t.BaseNumberTyte;
 import love.distributedrebirth.numberxd.base2t.T08PartOctal;
-import love.distributedrebirth.numberxd.base2t.T08PartOctalBaseAppender;
-import love.distributedrebirth.numberxd.base2t.T08PartOctalBaseIterator;
-import love.distributedrebirth.numberxd.base2t.V009TyteBaseAppender;
+import love.distributedrebirth.numberxd.base2t.BaseAppenderOctal;
+import love.distributedrebirth.numberxd.base2t.BaseIteratorOctal;
+import love.distributedrebirth.numberxd.base2t.BaseAppenderTyte;
 import love.distributedrebirth.numberxd.base2t.V654Triz;
 import love.distributedrebirth.numberxd.base2t.VCA8Tath;
 
@@ -27,7 +27,7 @@ public class KlompGetậl4ˢᴰ implements BaseNumberTyte<KlompGetậl4ˢᴰ> {
 		}
 	}
 	
-	public KlompGetậl4ˢᴰ(T08PartOctalBaseIterator values) {
+	public KlompGetậl4ˢᴰ(BaseIteratorOctal values) {
 		for (int i=0;i<this.values.length;i++) {
 			this.values[i] = new VCA8Tath(values);
 		}
@@ -52,12 +52,12 @@ public class KlompGetậl4ˢᴰ implements BaseNumberTyte<KlompGetậl4ˢᴰ> {
 	}
 	
 	@Override
-	public void fillOctalsByClone(T08PartOctalBaseAppender appender) {
+	public void fillOctalsByClone(BaseAppenderOctal appender) {
 		T08PartOctal.PART_1.staticVoorElk(v -> getValue(v).fillOctalsByClone(appender));
 	}
 	
 	@Override
-	public void fillTytesByReference(V009TyteBaseAppender appender) {
+	public void fillTytesByReference(BaseAppenderTyte appender) {
 		T08PartOctal.PART_1.staticVoorElk(v -> getValue(v).fillTytesByReference(appender));
 	}
 }

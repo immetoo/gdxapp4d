@@ -16,7 +16,7 @@ public class V9D8Traz implements BaseNumber<V9D8Traz> {
 		}
 	}
 	
-	public V9D8Traz(T08PartOctalBaseIterator values) {
+	public V9D8Traz(BaseIteratorOctal values) {
 		for (int i=0;i<this.values.length;i++) {
 			this.values[i] = new V02ATraw(values);
 		}
@@ -41,7 +41,7 @@ public class V9D8Traz implements BaseNumber<V9D8Traz> {
 	}
 	
 	@Override
-	public void fillOctalsByClone(T08PartOctalBaseAppender appender) {
+	public void fillOctalsByClone(BaseAppenderOctal appender) {
 		T60PartSexagesimal.PART_1.staticVoorElk(v -> getValue(v).fillOctalsByClone(appender));
 	}
 }

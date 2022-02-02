@@ -14,7 +14,7 @@ public class VCA8Tath implements BaseNumberTyte<VCA8Tath> {
 		this(new V654Triz(), new V654Triz());
 	}
 	
-	public VCA8Tath(T08PartOctalBaseIterator values) {
+	public VCA8Tath(BaseIteratorOctal values) {
 		this(new V654Triz(values), new V654Triz(values));
 	}
 	
@@ -42,12 +42,12 @@ public class VCA8Tath implements BaseNumberTyte<VCA8Tath> {
 	}
 	
 	@Override
-	public void fillOctalsByClone(T08PartOctalBaseAppender appender) {
+	public void fillOctalsByClone(BaseAppenderOctal appender) {
 		T02PartBinary.PART_1.staticVoorElk(v -> getValue(v).fillOctalsByClone(appender));
 	}
 
 	@Override
-	public void fillTytesByReference(V009TyteBaseAppender appender) {
+	public void fillTytesByReference(BaseAppenderTyte appender) {
 		T02PartBinary.PART_1.staticVoorElk(v -> getValue(v).fillTytesByReference(appender));
 	}
 }

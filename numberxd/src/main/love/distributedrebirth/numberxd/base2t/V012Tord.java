@@ -14,11 +14,11 @@ public final class V012Tord implements BaseNumberTyte<V012Tord> {
 		this(new V009Tyte(), new V009Tyte());
 	}
 	
-	public V012Tord(T08PartOctalBaseIterator values) {
+	public V012Tord(BaseIteratorOctal values) {
 		this(new V009Tyte(values), new V009Tyte(values));
 	}
 	
-	public V012Tord(V009TyteBaseIterator values) {
+	public V012Tord(BaseIteratorTyte values) {
 		this(values.next(), values.next());
 	}
 	
@@ -50,12 +50,12 @@ public final class V012Tord implements BaseNumberTyte<V012Tord> {
 	}
 	
 	@Override
-	public void fillOctalsByClone(T08PartOctalBaseAppender appender) {
+	public void fillOctalsByClone(BaseAppenderOctal appender) {
 		T02PartBinary.PART_1.staticVoorElk(v -> getValue(v).fillOctalsByClone(appender));
 	}
 
 	@Override
-	public void fillTytesByReference(V009TyteBaseAppender appender) {
+	public void fillTytesByReference(BaseAppenderTyte appender) {
 		T02PartBinary.PART_1.staticVoorElk(v -> getValue(v).fillTytesByReference(appender));
 	}
 }

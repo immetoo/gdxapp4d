@@ -7,11 +7,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
+
 /**
  * Terminate from and to classical bytes.
- * 
- * @author willemtsade ©Δ∞ 仙上主天
  */
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class Base2Terminator {
 	private static final int STREAM_EOF = -1;
 	private static final int BLOCK_TONG_SIZE = 9;
@@ -29,7 +30,7 @@ public class Base2Terminator {
 			int v1 =  data[3] +  (data[4] << SHIFT_8) +  (data[5] << SHIFT_16);
 			int v2 =  data[6] +  (data[7] << SHIFT_8) +  (data[8] << SHIFT_16);
 			List<T08PartOctal> octals = base2ReadOctals(v0, v1, v2);
-			output.add(new V048Tong(new T08PartOctalBaseIterator(octals.iterator())));
+			output.add(new V048Tong(new BaseIteratorOctal(octals.iterator())));
 			totalBytes += BLOCK_TONG_SIZE;
 		}
 		return totalBytes;
@@ -48,7 +49,7 @@ public class Base2Terminator {
 			int v4 = data[12] + (data[13] << SHIFT_8) + (data[14] << SHIFT_16);
 			int v5 = data[15] + (data[16] << SHIFT_8) + (data[17] << SHIFT_16);
 			List<T08PartOctal> octals = base2ReadOctals(v0, v1, v2, v3, v4, v5);
-			output.add(new V090Tocta(new T08PartOctalBaseIterator(octals.iterator())));
+			output.add(new V090Tocta(new BaseIteratorOctal(octals.iterator())));
 			totalBytes += BLOCK_TOCTA_SIZE;
 		}
 		return totalBytes;
@@ -79,7 +80,7 @@ public class Base2Terminator {
 	private <T extends BaseNumber<T>> int base2Write(List<T> data, OutputStream output) throws IOException {
 		int totalBytes = 0; // per 8 octa's is 3 bytes
 		List<T08PartOctal> octals = new ArrayList<>();
-		T08PartOctalBaseAppender appender = new T08PartOctalBaseAppender(octals);
+		BaseAppenderOctal appender = new BaseAppenderOctal(octals);
 		data.forEach(v -> v.fillOctalsByClone(appender));
 		Iterator<T08PartOctal> read = octals.iterator();
 		while (read.hasNext()) {

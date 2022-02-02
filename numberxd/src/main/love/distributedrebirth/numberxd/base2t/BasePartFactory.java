@@ -1,7 +1,9 @@
 package love.distributedrebirth.numberxd.base2t;
 
+import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPart;
 
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public final class BasePartFactory {
 
 	private static final int[] SUPPORTED_BASES = {2,3,4,5,6,7,8,10,11,12,16,20,60};

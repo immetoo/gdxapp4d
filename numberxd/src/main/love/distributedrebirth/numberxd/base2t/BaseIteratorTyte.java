@@ -2,16 +2,17 @@ package love.distributedrebirth.numberxd.base2t;
 
 import java.util.Iterator;
 
+import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
+
 /**
  * Iterator model for Tytes.
- * 
- * @author willemtsade ©Δ∞ 仙上主天
  */
-public final class V009TyteBaseIterator implements Iterator<V009Tyte> {
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
+public final class BaseIteratorTyte implements Iterator<V009Tyte> {
 
 	private final Iterator<V009Tyte> iterator;
 	
-	public V009TyteBaseIterator(Iterator<V009Tyte> iterator) {
+	public BaseIteratorTyte(Iterator<V009Tyte> iterator) {
 		this.iterator = iterator;
 	}
 	

@@ -14,7 +14,7 @@ public final class V009Tyte implements BaseNumberTyte<V009Tyte> {
 		this(new V003Timble(), new V003Timble(), new V003Timble());
 	}
 	
-	public V009Tyte(T08PartOctalBaseIterator values) {
+	public V009Tyte(BaseIteratorOctal values) {
 		this(new V003Timble(values), new V003Timble(values), new V003Timble(values));
 	}
 	
@@ -43,12 +43,12 @@ public final class V009Tyte implements BaseNumberTyte<V009Tyte> {
 	}
 	
 	@Override
-	public void fillOctalsByClone(T08PartOctalBaseAppender appender) {
+	public void fillOctalsByClone(BaseAppenderOctal appender) {
 		T03PartTrit.PART_1.staticVoorElk(v -> getValue(v).fillOctalsByClone(appender));
 	}
 
 	@Override
-	public void fillTytesByReference(V009TyteBaseAppender appender) {
+	public void fillTytesByReference(BaseAppenderTyte appender) {
 		appender.add(this);
 	}
 }

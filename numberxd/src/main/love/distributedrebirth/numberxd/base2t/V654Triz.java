@@ -16,7 +16,7 @@ public class V654Triz implements BaseNumberTyte<V654Triz> {
 		}
 	}
 	
-	public V654Triz(T08PartOctalBaseIterator values) {
+	public V654Triz(BaseIteratorOctal values) {
 		for (int i=0;i<this.values.length;i++) {
 			this.values[i] = new V01BTemvig(values);
 		}
@@ -41,12 +41,12 @@ public class V654Triz implements BaseNumberTyte<V654Triz> {
 	}
 	
 	@Override
-	public void fillOctalsByClone(T08PartOctalBaseAppender appender) {
+	public void fillOctalsByClone(BaseAppenderOctal appender) {
 		T60PartSexagesimal.PART_1.staticVoorElk(v -> getValue(v).fillOctalsByClone(appender));
 	}
 
 	@Override
-	public void fillTytesByReference(V009TyteBaseAppender appender) {
+	public void fillTytesByReference(BaseAppenderTyte appender) {
 		T60PartSexagesimal.PART_1.staticVoorElk(v -> getValue(v).fillTytesByReference(appender));
 	}
 }

@@ -1,8 +1,8 @@
 package love.distributedrebirth.numberxd;
 
 import love.distributedrebirth.numberxd.base2t.BaseNumber;
-import love.distributedrebirth.numberxd.base2t.T08PartOctalBaseAppender;
-import love.distributedrebirth.numberxd.base2t.T08PartOctalBaseIterator;
+import love.distributedrebirth.numberxd.base2t.BaseAppenderOctal;
+import love.distributedrebirth.numberxd.base2t.BaseIteratorOctal;
 
 /**
  * Divide GroßGetậl1ⁿᴰ into resolved fractal slices.
@@ -54,7 +54,7 @@ abstract public class GroßGetậlŌṁ1ⁿᴰ<V extends GroßGetậlŌṁ1ⁿ�
 	@Override
 	public final V toClone() {
 		V result = toCloneFractal(getFractalLevel());
-		T08PartOctalBaseIterator clonedOctals = iteratorOctalsByClone();
+		BaseIteratorOctal clonedOctals = iteratorOctalsByClone();
 		for (int i=0;i<getValuesLength();i++) {
 			result.setValue(i, new GroßGetậl1ⁿᴰ(clonedOctals));
 		}
@@ -67,7 +67,7 @@ abstract public class GroßGetậlŌṁ1ⁿᴰ<V extends GroßGetậlŌṁ1ⁿ�
 	}
 	
 	@Override
-	public final void fillOctalsByClone(T08PartOctalBaseAppender appender) {
+	public final void fillOctalsByClone(BaseAppenderOctal appender) {
 		for (GroßGetậl1ⁿᴰ value:values) {
 			value.fillOctalsByClone(appender);
 		}

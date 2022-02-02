@@ -16,7 +16,7 @@ public final class V02ATraw implements BaseNumber<V02ATraw> {
 		}
 	}
 	
-	public V02ATraw(T08PartOctalBaseIterator values) {
+	public V02ATraw(BaseIteratorOctal values) {
 		for (int i=0;i<this.values.length;i++) {
 			this.values[i] = new V006Tixte(values);
 		}
@@ -41,7 +41,7 @@ public final class V02ATraw implements BaseNumber<V02ATraw> {
 	}
 	
 	@Override
-	public void fillOctalsByClone(T08PartOctalBaseAppender appender) {
+	public void fillOctalsByClone(BaseAppenderOctal appender) {
 		T07PartPlanIt.PART_1.staticVoorElk(v -> getValue(v).fillOctalsByClone(appender));
 	}
 }

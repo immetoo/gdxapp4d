@@ -14,7 +14,7 @@ public final class V003Timble implements BaseNumber<V003Timble> {
 		this(T08PartOctal.PART_1);
 	}
 	
-	public V003Timble(T08PartOctalBaseIterator values) {
+	public V003Timble(BaseIteratorOctal values) {
 		this(values.next());
 	}
 	
@@ -37,7 +37,7 @@ public final class V003Timble implements BaseNumber<V003Timble> {
 	}
 	
 	@Override
-	public void fillOctalsByClone(T08PartOctalBaseAppender appender) {
+	public void fillOctalsByClone(BaseAppenderOctal appender) {
 		appender.add(getValue());
 	}
 }

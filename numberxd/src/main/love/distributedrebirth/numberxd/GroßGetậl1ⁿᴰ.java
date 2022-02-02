@@ -3,11 +3,11 @@ package love.distributedrebirth.numberxd;
 import java.util.ArrayList;
 import java.util.List;
 
-import love.distributedrebirth.numberxd.base2t.T08PartOctalBaseAppender;
-import love.distributedrebirth.numberxd.base2t.T08PartOctalBaseIterator;
+import love.distributedrebirth.numberxd.base2t.BaseAppenderOctal;
+import love.distributedrebirth.numberxd.base2t.BaseIteratorOctal;
 import love.distributedrebirth.numberxd.base2t.V009Tyte;
-import love.distributedrebirth.numberxd.base2t.V009TyteBaseAppender;
-import love.distributedrebirth.numberxd.base2t.V009TyteBaseIterator;
+import love.distributedrebirth.numberxd.base2t.BaseAppenderTyte;
+import love.distributedrebirth.numberxd.base2t.BaseIteratorTyte;
 import love.distributedrebirth.numberxd.base2t.V090Tocta;
 
 /**
@@ -32,7 +32,7 @@ public class GroßGetậl1ⁿᴰ implements BaseGetậl<GroßGetậl1ⁿᴰ> {
 		}
 	}
 	
-	public GroßGetậl1ⁿᴰ(T08PartOctalBaseIterator values) {
+	public GroßGetậl1ⁿᴰ(BaseIteratorOctal values) {
 		for (int i=0;i<NUMERATOR_SIZE;i++) {
 			numerator[i] = new V009Tyte(values);
 		}
@@ -41,7 +41,7 @@ public class GroßGetậl1ⁿᴰ implements BaseGetậl<GroßGetậl1ⁿᴰ> {
 		}
 	}
 	
-	public GroßGetậl1ⁿᴰ(V009TyteBaseIterator values) {
+	public GroßGetậl1ⁿᴰ(BaseIteratorTyte values) {
 		for (int i=0;i<NUMERATOR_SIZE;i++) {
 			numerator[i] = values.next();
 		}
@@ -52,7 +52,7 @@ public class GroßGetậl1ⁿᴰ implements BaseGetậl<GroßGetậl1ⁿᴰ> {
 	
 	public GroßGetậl1ⁿᴰ(V090Tocta tocta) {
 		List<V009Tyte> tytes = new ArrayList<>();
-		tocta.fillTytesByReference(new V009TyteBaseAppender(tytes));
+		tocta.fillTytesByReference(new BaseAppenderTyte(tytes));
 		for (int i=0;i<NUMERATOR_SIZE;i++) {
 			numerator[i] = tytes.get(i);
 		}
@@ -80,7 +80,7 @@ public class GroßGetậl1ⁿᴰ implements BaseGetậl<GroßGetậl1ⁿᴰ> {
 	}
 
 	@Override
-	public void fillOctalsByClone(T08PartOctalBaseAppender appender) {
+	public void fillOctalsByClone(BaseAppenderOctal appender) {
 		for (int i=0;i<NUMERATOR_SIZE;i++) {
 			numerator[i].fillOctalsByClone(appender);
 		}
@@ -90,7 +90,7 @@ public class GroßGetậl1ⁿᴰ implements BaseGetậl<GroßGetậl1ⁿᴰ> {
 	}
 
 	@Override
-	public void fillTytesByReference(V009TyteBaseAppender appender) {
+	public void fillTytesByReference(BaseAppenderTyte appender) {
 		for (int i=0;i<NUMERATOR_SIZE;i++) {
 			appender.add(numerator[i]);
 		}

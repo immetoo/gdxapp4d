@@ -14,7 +14,7 @@ public final class V006Tixte implements BaseNumber<V006Tixte> {
 		this(new V003Timble(), new V003Timble());
 	}
 	
-	public V006Tixte(T08PartOctalBaseIterator values) {
+	public V006Tixte(BaseIteratorOctal values) {
 		this(new V003Timble(values), new V003Timble(values));
 	}
 	
@@ -42,7 +42,7 @@ public final class V006Tixte implements BaseNumber<V006Tixte> {
 	}
 	
 	@Override
-	public void fillOctalsByClone(T08PartOctalBaseAppender appender) {
+	public void fillOctalsByClone(BaseAppenderOctal appender) {
 		T02PartBinary.PART_1.staticVoorElk(v -> getValue(v).fillOctalsByClone(appender));
 	}
 }

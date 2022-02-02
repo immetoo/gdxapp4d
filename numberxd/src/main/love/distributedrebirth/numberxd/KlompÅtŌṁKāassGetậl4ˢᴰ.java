@@ -1,9 +1,9 @@
 package love.distributedrebirth.numberxd;
 
 import love.distributedrebirth.numberxd.base2t.BaseNumberTyte;
-import love.distributedrebirth.numberxd.base2t.T08PartOctalBaseAppender;
-import love.distributedrebirth.numberxd.base2t.T08PartOctalBaseIterator;
-import love.distributedrebirth.numberxd.base2t.V009TyteBaseAppender;
+import love.distributedrebirth.numberxd.base2t.BaseAppenderOctal;
+import love.distributedrebirth.numberxd.base2t.BaseIteratorOctal;
+import love.distributedrebirth.numberxd.base2t.BaseAppenderTyte;
 
 /**
  *  Array of ŌṁKlompGetậl4ˢᴰ sliced as cheese.
@@ -45,7 +45,7 @@ public class KlompÅtŌṁKāassGetậl4ˢᴰ implements BaseNumberTyte<KlompÅt
 	@Override
 	public final KlompÅtŌṁKāassGetậl4ˢᴰ toClone() {
 		KlompÅtŌṁKāassGetậl4ˢᴰ result = new KlompÅtŌṁKāassGetậl4ˢᴰ(getKaasCuts());
-		T08PartOctalBaseIterator clonedOctals = iteratorOctalsByClone();
+		BaseIteratorOctal clonedOctals = iteratorOctalsByClone();
 		for (int i=0;i<getKaasCuts();i++) {
 			result.setValue(i, new KlompGetậl4ˢᴰ(clonedOctals));
 		}
@@ -58,14 +58,14 @@ public class KlompÅtŌṁKāassGetậl4ˢᴰ implements BaseNumberTyte<KlompÅt
 	}
 	
 	@Override
-	public final void fillOctalsByClone(T08PartOctalBaseAppender appender) {
+	public final void fillOctalsByClone(BaseAppenderOctal appender) {
 		for (KlompGetậl4ˢᴰ value:kaas) {
 			value.fillOctalsByClone(appender);
 		}
 	}
 	
 	@Override
-	public void fillTytesByReference(V009TyteBaseAppender appender) {
+	public void fillTytesByReference(BaseAppenderTyte appender) {
 		for (KlompGetậl4ˢᴰ value:kaas) {
 			value.fillTytesByReference(appender);
 		}

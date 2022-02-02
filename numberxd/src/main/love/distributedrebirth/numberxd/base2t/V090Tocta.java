@@ -14,11 +14,11 @@ public final class V090Tocta implements BaseNumberTyte<V090Tocta> {
 		this(new V048Tong(), new V048Tong());
 	}
 	
-	public V090Tocta(T08PartOctalBaseIterator values) {
+	public V090Tocta(BaseIteratorOctal values) {
 		this(new V048Tong(values), new V048Tong(values));
 	}
 	
-	public V090Tocta(V009TyteBaseIterator values) {
+	public V090Tocta(BaseIteratorTyte values) {
 		this(new V048Tong(values), new V048Tong(values));
 	}
 	
@@ -72,12 +72,12 @@ public final class V090Tocta implements BaseNumberTyte<V090Tocta> {
 	}
 	
 	@Override
-	public void fillOctalsByClone(T08PartOctalBaseAppender appender) {
+	public void fillOctalsByClone(BaseAppenderOctal appender) {
 		T02PartBinary.PART_1.staticVoorElk(v -> getValue(v).fillOctalsByClone(appender));
 	}
 
 	@Override
-	public void fillTytesByReference(V009TyteBaseAppender appender) {
+	public void fillTytesByReference(BaseAppenderTyte appender) {
 		T02PartBinary.PART_1.staticVoorElk(v -> getValue(v).fillTytesByReference(appender));
 	}
 }
