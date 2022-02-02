@@ -16,9 +16,6 @@ public class T16PartHexTest {
 			Assertions.assertNotNull(value.BȍőnIdentifierLetter());
 			Assertions.assertNotNull(value.BȍőnChinaKey());
 			Assertions.assertNotNull(value.BȍőnChinaValue());
-			Assertions.assertNotNull(value.BȍőnAlt1Value());
-			Assertions.assertNotNull(value.BãßAlt1Name());
-			Assertions.assertNotNull(value.BãßAlt1Website());
 		}
 	}
 	

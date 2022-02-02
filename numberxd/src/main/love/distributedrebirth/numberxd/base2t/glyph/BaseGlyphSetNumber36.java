@@ -3,8 +3,9 @@ package love.distributedrebirth.numberxd.base2t.glyph;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public class BaseGlyphSetGematria {
-
+@BãßBȍőnGlyphSetNumberInfoʸᴰ(base = BaseGlyphSetNumberType.BASE_36)
+public final class BaseGlyphSetNumber36 implements BaseGlyphSetNumber {
+	
 	private final String char1;
 	private final String char2;
 	private final String char3;
@@ -33,7 +34,7 @@ public class BaseGlyphSetGematria {
 	private final String char800;
 	private final String char900;
 	
-	public BaseGlyphSetGematria(String char1, String char2, String char3, String char4, String char5, String char6,
+	public BaseGlyphSetNumber36(String char1, String char2, String char3, String char4, String char5, String char6,
 			String char7, String char8, String char9, String char10, String char20, String char30, String char40,
 			String char50, String char60, String char70, String char80, String char90, String char100, String char200,
 			String char300, String char400, String char500, String char600, String char700, String char800,
@@ -68,7 +69,7 @@ public class BaseGlyphSetGematria {
 		this.char900 = char900;
 	}
 	
-	public String getCharFor(int number) {
+	public String BȍőnCharFor(int number) {
 		switch (number) {
 		case 1:
 			return char1;
@@ -128,4 +129,113 @@ public class BaseGlyphSetGematria {
 			throw new IllegalArgumentException("Can't handle higher numbers: "+number);
 		}
 	}
+	
+	public String getChar1() {
+		return char1;
+	}
+	
+	public String getChar2() {
+		return char2;
+	}
+	
+	public String getChar3() {
+		return char3;
+	}
+	
+	public String getChar4() {
+		return char4;
+	}
+	
+	public String getChar5() {
+		return char5;
+	}
+	
+	public String getChar6() {
+		return char6;
+	}
+	
+	public String getChar7() {
+		return char7;
+	}
+	
+	public String getChar8() {
+		return char8;
+	}
+	
+	public String getChar9() {
+		return char9;
+	}
+	
+	public String getChar10() {
+		return char10;
+	}
+	
+	public String getChar20() {
+		return char20;
+	}
+	
+	public String getChar30() {
+		return char30;
+	}
+	
+	public String getChar40() {
+		return char40;
+	}
+	
+	public String getChar50() {
+		return char50;
+	}
+	
+	public String getChar60() {
+		return char60;
+	}
+	
+	public String getChar70() {
+		return char70;
+	}
+	
+	public String getChar80() {
+		return char80;
+	}
+	
+	public String getChar90() {
+		return char90;
+	}
+	
+	public String getChar100() {
+		return char100;
+	}
+	
+	public String getChar200() {
+		return char200;
+	}
+	
+	public String getChar300() {
+		return char300;
+	}
+	
+	public String getChar400() {
+		return char400;
+	}
+	
+	public String getChar500() {
+		return char500;
+	}
+	
+	public String getChar600() {
+		return char600;
+	}
+	
+	public String getChar700() {
+		return char700;
+	}
+	
+	public String getChar800() {
+		return char800;
+	}
+	
+	public String getChar900() {
+		return char900;
+	}
+	
 }

@@ -3,8 +3,9 @@ package love.distributedrebirth.numberxd.base2t.glyph;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public class BaseGlyphSetDecimals {
-
+@BãßBȍőnGlyphSetNumberInfoʸᴰ(base = BaseGlyphSetNumberType.BASE_16)
+public final class BaseGlyphSetNumber16 implements BaseGlyphSetNumber {
+	
 	private final String char0;
 	private final String char1;
 	private final String char2;
@@ -15,9 +16,16 @@ public class BaseGlyphSetDecimals {
 	private final String char7;
 	private final String char8;
 	private final String char9;
+	private final String charA;
+	private final String charB;
+	private final String charC;
+	private final String charD;
+	private final String charE;
+	private final String charF;
 	
-	public BaseGlyphSetDecimals(String char0, String char1, String char2, String char3, String char4, String char5,
-			String char6, String char7, String char8, String char9) {
+	public BaseGlyphSetNumber16(String char0, String char1, String char2, String char3, String char4, String char5,
+			String char6, String char7, String char8, String char9, String charA, String charB, String charC,
+			String charD, String charE, String charF) {
 		super();
 		this.char0 = char0;
 		this.char1 = char1;
@@ -29,9 +37,15 @@ public class BaseGlyphSetDecimals {
 		this.char7 = char7;
 		this.char8 = char8;
 		this.char9 = char9;
+		this.charA = charA;
+		this.charB = charB;
+		this.charC = charC;
+		this.charD = charD;
+		this.charE = charE;
+		this.charF = charF;
 	}
 	
-	public String getCharFor(int number) {
+	public String BȍőnCharFor(int number) {
 		switch (number) {
 		case 0:
 			return char0;
@@ -53,6 +67,18 @@ public class BaseGlyphSetDecimals {
 			return char8;
 		case 9:
 			return char9;
+		case 10:
+			return charA;
+		case 11:
+			return charB;
+		case 12:
+			return charC;
+		case 13:
+			return charD;
+		case 14:
+			return charE;
+		case 15:
+			return charF;
 		default:
 			throw new IllegalArgumentException("Can't handle higher numbers: "+number);
 		}
@@ -96,5 +122,29 @@ public class BaseGlyphSetDecimals {
 	
 	public String getChar9() {
 		return char9;
+	}
+	
+	public String getCharA() {
+		return charA;
+	}
+	
+	public String getCharB() {
+		return charB;
+	}
+	
+	public String getCharC() {
+		return charC;
+	}
+	
+	public String getCharD() {
+		return charD;
+	}
+	
+	public String getCharE() {
+		return charE;
+	}
+	
+	public String getCharF() {
+		return charF;
 	}
 }
