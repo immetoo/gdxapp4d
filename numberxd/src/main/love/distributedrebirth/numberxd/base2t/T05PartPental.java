@@ -1,7 +1,7 @@
 package love.distributedrebirth.numberxd.base2t;
 
-import love.distributedrebirth.bassboonyd.BãßBȍőnCoffin;
-import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpen;
+import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt1Info;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt2;
@@ -25,8 +25,8 @@ public enum T05PartPental implements BassBoneAlt2<T05PartPental> {
 	PART_5("˩","4","土","earth","G", "gaia"),
 	;
 	
-	private final BãßBȍőnCoffinOpen<BassBoneStoreKey> BBC = BãßBȍőnCoffinOpen.newInstance();
-	public BãßBȍőnCoffin<BassBoneStoreKey> GET_BBC() { return BBC; }
+	private final BãßBȍőnCoffinOpenʸᴰ<BassBoneStoreKey> BBC = BãßBȍőnCoffinOpenʸᴰ.newInstance();
+	public BãßBȍőnCoffinʸᴰ<BassBoneStoreKey> GET_BBC() { return BBC; }
 	public static int LENGTH() { return values().length; };
 	
 	private T05PartPental(String idTone, String idLetter, String chinaKey, String chinaValue, String alt1Value, String alt2Value) {

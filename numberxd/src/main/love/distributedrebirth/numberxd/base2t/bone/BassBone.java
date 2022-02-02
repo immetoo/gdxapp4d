@@ -3,7 +3,7 @@ package love.distributedrebirth.numberxd.base2t.bone;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinStore;
+import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinStoreʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnEnumSetʸᴰ;
 
 /**
@@ -11,7 +11,7 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnEnumSetʸᴰ;
  * 
  * @author willemtsade ©Δ∞ 仙上主天
  */
-public interface BassBone<T extends BassBone<T>> extends BãßBȍőnEnumSetʸᴰ<T>, BãßBȍőnCoffinStore<BassBoneStoreKey> {
+public interface BassBone<T extends BassBone<T>> extends BãßBȍőnEnumSetʸᴰ<T>, BãßBȍőnCoffinStoreʸᴰ<BassBoneStoreKey> {
 	
 	default String getIdentifierTone() {
 		return GET_BBC().GET_STR(BassBoneStoreKey.ID_TONE);

@@ -5,8 +5,8 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import love.distributedrebirth.bassboonyd.BãßBȍőnCoffin;
-import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpen;
+import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt1Info;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt2Info;
@@ -49,8 +49,8 @@ public enum T20PartScore implements BassBoneAlt3<T20PartScore> {
 	
 	private static final Map<String, T20PartScore> OPENLC_MAP = Collections.unmodifiableMap(
 			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.getAlt3Value(), v -> v)));
-	private final BãßBȍőnCoffinOpen<BassBoneStoreKey> BBC = BãßBȍőnCoffinOpen.newInstance();
-	public BãßBȍőnCoffin<BassBoneStoreKey> GET_BBC() { return BBC; }
+	private final BãßBȍőnCoffinOpenʸᴰ<BassBoneStoreKey> BBC = BãßBȍőnCoffinOpenʸᴰ.newInstance();
+	public BãßBȍőnCoffinʸᴰ<BassBoneStoreKey> GET_BBC() { return BBC; }
 	public static int LENGTH() { return values().length; };
 	
 	private T20PartScore(String idTone, String idLetter, String chinaKey, String chinaValue,

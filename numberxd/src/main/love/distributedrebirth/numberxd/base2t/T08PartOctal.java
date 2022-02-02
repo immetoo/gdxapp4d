@@ -1,8 +1,8 @@
 package love.distributedrebirth.numberxd.base2t;
 
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneShiftBits;
-import love.distributedrebirth.bassboonyd.BãßBȍőnCoffin;
-import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpen;
+import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt1Info;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt2;
@@ -31,8 +31,8 @@ public enum T08PartOctal implements BassBoneAlt2<T08PartOctal>,BassBoneShiftBits
 	
 	public static int BIT_COUNT = 3;
 	private static final byte BITMASK = 0x07;
-	private final BãßBȍőnCoffinOpen<BassBoneStoreKey> BBC = BãßBȍőnCoffinOpen.newInstance();
-	public BãßBȍőnCoffin<BassBoneStoreKey> GET_BBC() { return BBC; }
+	private final BãßBȍőnCoffinOpenʸᴰ<BassBoneStoreKey> BBC = BãßBȍőnCoffinOpenʸᴰ.newInstance();
+	public BãßBȍőnCoffinʸᴰ<BassBoneStoreKey> GET_BBC() { return BBC; }
 	public static int LENGTH() { return values().length; };
 	
 	private T08PartOctal(String identifierTone, String identifierLetter, String chinaKey, String chinaValue, String alt1Value, String alt2Value, int shiftBits) {

@@ -10,6 +10,6 @@ public interface BãßBȍőnEnumInstanceʸᴰ<T> extends BãßBȍőnEnumʸᴰ<T>
 	}
 	
 	default T BãßInstance() {
-		return BãßInstances()[BãßBȍőnConstants.INT_ZERO];
+		return BãßInstances()[BãßBȍőnConstantsʸᴰ.INT_ZERO];
 	}
 }

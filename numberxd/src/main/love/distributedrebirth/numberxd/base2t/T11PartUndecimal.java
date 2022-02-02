@@ -1,7 +1,7 @@
 package love.distributedrebirth.numberxd.base2t;
 
-import love.distributedrebirth.bassboonyd.BãßBȍőnCoffin;
-import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpen;
+import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt1;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt1Info;
@@ -29,8 +29,8 @@ public enum T11PartUndecimal implements BassBoneAlt1<T11PartUndecimal> {
 	PART_11("˩","=","耦","mate",  "௰"),
 	;
 	
-	private final BãßBȍőnCoffinOpen<BassBoneStoreKey> BBC = BãßBȍőnCoffinOpen.newInstance();
-	public BãßBȍőnCoffin<BassBoneStoreKey> GET_BBC() { return BBC; }
+	private final BãßBȍőnCoffinOpenʸᴰ<BassBoneStoreKey> BBC = BãßBȍőnCoffinOpenʸᴰ.newInstance();
+	public BãßBȍőnCoffinʸᴰ<BassBoneStoreKey> GET_BBC() { return BBC; }
 	public static int LENGTH() { return values().length; };
 	
 	private T11PartUndecimal(String idTone, String idLetter, String chinaKey, String chinaValue, String alt1Value) {

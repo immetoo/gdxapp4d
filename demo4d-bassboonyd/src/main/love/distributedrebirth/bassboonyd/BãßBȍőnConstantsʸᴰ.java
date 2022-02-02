@@ -1,7 +1,7 @@
 package love.distributedrebirth.bassboonyd;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public class BãßBȍőnConstants {
+public class BãßBȍőnConstantsʸᴰ {
 
 	public static final String STR_VALUES = "values";
 	

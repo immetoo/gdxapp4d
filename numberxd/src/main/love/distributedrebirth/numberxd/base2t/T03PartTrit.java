@@ -1,7 +1,7 @@
 package love.distributedrebirth.numberxd.base2t;
 
-import love.distributedrebirth.bassboonyd.BãßBȍőnCoffin;
-import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpen;
+import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.bone.BassBone;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneStoreKey;
@@ -19,8 +19,8 @@ public enum T03PartTrit implements BassBone<T03PartTrit> {
 	PART_3("˨","2","三","3"),
 	;
 	
-	private final BãßBȍőnCoffinOpen<BassBoneStoreKey> BBC = BãßBȍőnCoffinOpen.newInstance();
-	public BãßBȍőnCoffin<BassBoneStoreKey> GET_BBC() { return BBC; }
+	private final BãßBȍőnCoffinOpenʸᴰ<BassBoneStoreKey> BBC = BãßBȍőnCoffinOpenʸᴰ.newInstance();
+	public BãßBȍőnCoffinʸᴰ<BassBoneStoreKey> GET_BBC() { return BBC; }
 	public static int LENGTH() { return values().length; };
 	
 	private T03PartTrit(String idTone, String idLetter, String chinaKey, String chinaValue) {

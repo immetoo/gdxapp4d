@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public interface BãßBȍőnCoffin<T extends BãßBȍőnCoffinStoreKeyʸᴰ> {
+public interface BãßBȍőnCoffinʸᴰ<T extends BãßBȍőnCoffinStoreKeyʸᴰ> {
 	
 	Object GET_OBJ(T key);
 	

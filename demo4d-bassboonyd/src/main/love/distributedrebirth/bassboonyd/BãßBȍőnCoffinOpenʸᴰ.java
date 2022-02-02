@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public interface BãßBȍőnCoffinOpen<T extends BãßBȍőnCoffinStoreKeyʸᴰ> extends BãßBȍőnCoffin<T> {
+public interface BãßBȍőnCoffinOpenʸᴰ<T extends BãßBȍőnCoffinStoreKeyʸᴰ> extends BãßBȍőnCoffinʸᴰ<T> {
 
 	Object PUT_OBJ(T key, Object value);
 	
@@ -16,8 +16,8 @@ public interface BãßBȍőnCoffinOpen<T extends BãßBȍőnCoffinStoreKeyʸᴰ>
 		PUT_OBJ(key, new HashMap<>());
 	}
 	
-	static <Y extends BãßBȍőnCoffinStoreKeyʸᴰ> BãßBȍőnCoffinOpen<Y> newInstance() {
-		return new BãßBȍőnCoffinOpen<Y>() {
+	static <Y extends BãßBȍőnCoffinStoreKeyʸᴰ> BãßBȍőnCoffinOpenʸᴰ<Y> newInstance() {
+		return new BãßBȍőnCoffinOpenʸᴰ<Y>() {
 			final Map<Y,Object> initMap = new HashMap<>();
 		
 			@Override

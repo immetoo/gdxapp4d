@@ -10,7 +10,7 @@ public interface BãßBȍőnEnumʸᴰ<T> {
 	}
 	
 	default String BȍőnNaamI18N() {
-		return BãßNaam() + BãßBȍőnConstants.STR_DOT + name(); 
+		return BãßNaam() + BãßBȍőnConstantsʸᴰ.STR_DOT + name(); 
 	}
 	
 	default String BãßNaam() {
@@ -20,7 +20,7 @@ public interface BãßBȍőnEnumʸᴰ<T> {
 	@SuppressWarnings("unchecked")
 	default T[] BãßInstances() {
 		try {
-			Object result = getClass().getMethod(BãßBȍőnConstants.STR_VALUES).invoke(null);
+			Object result = getClass().getMethod(BãßBȍőnConstantsʸᴰ.STR_VALUES).invoke(null);
 			return (T[]) result;
 		} catch (Exception e) {
 			throw new RuntimeException(e);
