@@ -1,11 +1,11 @@
-package love.distributedrebirth.numberxd.base2t.bone;
+package love.distributedrebirth.bassboonyd;
 
 /**
- * 
+ * Inject Enum methods.
  * 
  * @author willemtsade ©Δ∞ 仙上主天
  */
-public interface BassBoneEnum<T> {
+public interface BaßBȍőnEnumʸᴰ<T> {
 
 	int ordinal();
 	

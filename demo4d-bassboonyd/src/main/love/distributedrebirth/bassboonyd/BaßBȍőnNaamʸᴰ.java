@@ -1,4 +1,4 @@
-package love.distributedrebirth.numberxd.base2t.bone;
+package love.distributedrebirth.bassboonyd;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -6,13 +6,13 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Defines the bean name.
+ * Defines the BaßBȍőn name.
  * 
  * @author willemtsade ©Δ∞ 仙上主天
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE})
-public @interface BassBoneName {
+public @interface BaßBȍőnNaamʸᴰ {
 
 	String value();
 }

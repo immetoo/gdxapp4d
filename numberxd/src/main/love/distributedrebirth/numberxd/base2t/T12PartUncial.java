@@ -1,9 +1,9 @@
 package love.distributedrebirth.numberxd.base2t;
 
+import love.distributedrebirth.bassboonyd.BaßBȍőnNaamʸᴰ;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt1;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt1Info;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneCoffin;
-import love.distributedrebirth.numberxd.base2t.bone.BassBoneName;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneStoreKey;
 
 /**
@@ -11,7 +11,7 @@ import love.distributedrebirth.numberxd.base2t.bone.BassBoneStoreKey;
  * 
  * @author willemtsade ©Δ∞ 仙上主天
  */
-@BassBoneName("T12PartUncial")
+@BaßBȍőnNaamʸᴰ("T12PartUncial")
 @BassBoneAlt1Info(name="Transdecimal symbols", website="https://en.wikipedia.org/wiki/Duodecimal#Transdecimal_symbols")
 public enum T12PartUncial implements BassBoneAlt1<T12PartUncial> {
 

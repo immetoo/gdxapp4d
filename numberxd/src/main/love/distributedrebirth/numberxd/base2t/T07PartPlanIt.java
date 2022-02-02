@@ -1,9 +1,9 @@
 package love.distributedrebirth.numberxd.base2t;
 
+import love.distributedrebirth.bassboonyd.BaßBȍőnNaamʸᴰ;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt1;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt1Info;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneCoffin;
-import love.distributedrebirth.numberxd.base2t.bone.BassBoneName;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneStoreKey;
 
 /**
@@ -11,7 +11,7 @@ import love.distributedrebirth.numberxd.base2t.bone.BassBoneStoreKey;
  * 
  * @author willemtsade ©Δ∞ 仙上主天
  */
-@BassBoneName("T07PartPlanIt")
+@BaßBȍőnNaamʸᴰ("T07PartPlanIt")
 @BassBoneAlt1Info(name="Fallen sign", website="https://en.wikipedia.org/wiki/Classical_planet#Western_astrology")
 public enum T07PartPlanIt implements BassBoneAlt1<T07PartPlanIt> {
 

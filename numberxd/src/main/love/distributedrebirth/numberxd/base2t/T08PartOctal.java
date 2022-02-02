@@ -1,11 +1,11 @@
 package love.distributedrebirth.numberxd.base2t;
 
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneShiftBits;
+import love.distributedrebirth.bassboonyd.BaßBȍőnNaamʸᴰ;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt1Info;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt2;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt2Info;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneCoffin;
-import love.distributedrebirth.numberxd.base2t.bone.BassBoneName;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneStoreKey;
 
 /**
@@ -13,7 +13,7 @@ import love.distributedrebirth.numberxd.base2t.bone.BassBoneStoreKey;
  * 
  * @author willemtsade ©Δ∞ 仙上主天
  */
-@BassBoneName("T08PartOctal")
+@BaßBȍőnNaamʸᴰ("T08PartOctal")
 @BassBoneAlt1Info(name="Absolute Tone Sequence", website="https://en.wikipedia.org/wiki/Tone_letter")
 @BassBoneAlt2Info(name="Relative Tone Sequence", website="https://en.wikipedia.org/wiki/Tone_letter")
 public enum T08PartOctal implements BassBoneAlt2<T08PartOctal>,BassBoneShiftBits<T08PartOctal> {

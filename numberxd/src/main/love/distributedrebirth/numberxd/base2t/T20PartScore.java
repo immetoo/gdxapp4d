@@ -5,12 +5,12 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import love.distributedrebirth.bassboonyd.BaßBȍőnNaamʸᴰ;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt1Info;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt2Info;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt3;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt3Info;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneCoffin;
-import love.distributedrebirth.numberxd.base2t.bone.BassBoneName;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneStoreKey;
 
 /**
@@ -18,7 +18,7 @@ import love.distributedrebirth.numberxd.base2t.bone.BassBoneStoreKey;
  * 
  * @author willemtsade ©Δ∞ 仙上主天
  */
-@BassBoneName("T20PartScore")
+@BaßBȍőnNaamʸᴰ("T20PartScore")
 @BassBoneAlt1Info(name="Vigesimal", website="https://en.wikipedia.org/wiki/Vigesimal#Places")
 @BassBoneAlt2Info(name="Vigesimal Alternative", website="https://en.wikipedia.org/wiki/Vigesimal#Places")
 @BassBoneAlt3Info(name="Open Location Code", website="https://en.wikipedia.org/wiki/Open_Location_Code")

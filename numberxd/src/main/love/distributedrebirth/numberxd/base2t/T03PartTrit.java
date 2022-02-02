@@ -1,8 +1,8 @@
 package love.distributedrebirth.numberxd.base2t;
 
+import love.distributedrebirth.bassboonyd.BaßBȍőnNaamʸᴰ;
 import love.distributedrebirth.numberxd.base2t.bone.BassBone;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneCoffin;
-import love.distributedrebirth.numberxd.base2t.bone.BassBoneName;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneStoreKey;
 
 /**
@@ -10,7 +10,7 @@ import love.distributedrebirth.numberxd.base2t.bone.BassBoneStoreKey;
  * 
  * @author willemtsade ©Δ∞ 仙上主天
  */
-@BassBoneName("T03PartTrit")
+@BaßBȍőnNaamʸᴰ("T03PartTrit")
 public enum T03PartTrit implements BassBone<T03PartTrit> {
 
 	PART_1("˦","0","一","1"),

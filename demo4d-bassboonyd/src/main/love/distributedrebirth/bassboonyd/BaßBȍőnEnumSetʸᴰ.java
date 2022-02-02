@@ -1,4 +1,4 @@
-package love.distributedrebirth.numberxd.base2t.bone;
+package love.distributedrebirth.bassboonyd;
 
 import java.util.Arrays;
 import java.util.Iterator;
@@ -7,11 +7,11 @@ import java.util.function.Consumer;
 import java.util.stream.Stream;
 
 /**
- * 
+ * Inject EnumSet methods.
  * 
  * @author willemtsade ©Δ∞ 仙上主天
  */
-public interface BassBoneEnumSet<T> extends BassBoneEnum<T> {
+public interface BaßBȍőnEnumSetʸᴰ<T> extends BaßBȍőnEnumʸᴰ<T> {
 
 	@SuppressWarnings("unchecked")
 	default T[] staticInstances() {

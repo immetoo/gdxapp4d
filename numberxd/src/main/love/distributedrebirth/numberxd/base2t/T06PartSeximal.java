@@ -1,9 +1,9 @@
 package love.distributedrebirth.numberxd.base2t;
 
+import love.distributedrebirth.bassboonyd.BaßBȍőnNaamʸᴰ;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt1;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt1Info;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneCoffin;
-import love.distributedrebirth.numberxd.base2t.bone.BassBoneName;
 import love.distributedrebirth.numberxd.base2t.bone.BassBoneStoreKey;
 
 /**
@@ -13,7 +13,7 @@ import love.distributedrebirth.numberxd.base2t.bone.BassBoneStoreKey;
  * 
  * @author willemtsade ©Δ∞ 仙上主天
  */
-@BassBoneName("T06PartSeximal")
+@BaßBȍőnNaamʸᴰ("T06PartSeximal")
 @BassBoneAlt1Info(name="ADFGVX cipher", website="https://en.wikipedia.org/wiki/ADFGVX_cipher")
 public enum T06PartSeximal implements BassBoneAlt1<T06PartSeximal> {
 

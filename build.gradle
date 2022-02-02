@@ -33,10 +33,21 @@ allprojects {
 	}
 }
 
+project(":demo4d-bassboonyd") {
+	apply plugin: "java-library"
+	dependencies {
+		testImplementation "org.junit.jupiter:junit-jupiter:$junitVersion" 
+	}
+	tasks.named('test') {
+		useJUnitPlatform() 
+	}
+}
+
 project(":numberxd") {
 	apply plugin: "java-library"
 	dependencies {
 		testImplementation "org.junit.jupiter:junit-jupiter:$junitVersion"
+		api project(":demo4d-bassboonyd")
 		//api "org.x4o:x4o-driver:$x4oVersion" 
 	}
 	tasks.named('test') {
