@@ -1,6 +1,6 @@
 package love.distributedrebirth.numberxd.base2t;
 
-import love.distributedrebirth.numberxd.base2t.bone.BassBone;
+import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPart;
 
 public final class BasePartFactory {
 
@@ -10,7 +10,7 @@ public final class BasePartFactory {
 		return SUPPORTED_BASES;
 	}
 	
-	public static BassBone<?>[] buildBassBonesByBase(int base) {
+	public static BãßBȍőnPart<?>[] buildBassBonesByBase(int base) {
 		switch (base) {
 		case 2:
 			return T02PartBinary.values();

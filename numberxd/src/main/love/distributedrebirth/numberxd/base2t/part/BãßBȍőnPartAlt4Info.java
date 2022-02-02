@@ -1,4 +1,4 @@
-package love.distributedrebirth.numberxd.base2t.bone;
+package love.distributedrebirth.numberxd.base2t.part;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -12,7 +12,7 @@ import java.lang.annotation.Target;
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target({ElementType.TYPE})
-public @interface BassBoneAlt4Info {
+public @interface BãßBȍőnPartAlt4Info {
 
 	String name();
 	

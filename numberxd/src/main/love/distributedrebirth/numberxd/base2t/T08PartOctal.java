@@ -1,13 +1,13 @@
 package love.distributedrebirth.numberxd.base2t;
 
-import love.distributedrebirth.numberxd.base2t.bone.BassBoneShiftBits;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnInfoʸᴰ;
-import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt1Info;
-import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt2;
-import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt2Info;
-import love.distributedrebirth.numberxd.base2t.bone.BassBoneStoreKey;
+import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt1Info;
+import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt2;
+import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt2Info;
+import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartKey;
+import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartShiftBits;
 
 /**
  * The distribution by 8.
@@ -15,9 +15,9 @@ import love.distributedrebirth.numberxd.base2t.bone.BassBoneStoreKey;
  * @author willemtsade ©Δ∞ 仙上主天
  */
 @BãßBȍőnInfoʸᴰ(name = "T08PartOctal", purpose = "The distribution by 8.")
-@BassBoneAlt1Info(name="Absolute Tone Sequence", website="https://en.wikipedia.org/wiki/Tone_letter")
-@BassBoneAlt2Info(name="Relative Tone Sequence", website="https://en.wikipedia.org/wiki/Tone_letter")
-public enum T08PartOctal implements BassBoneAlt2<T08PartOctal>,BassBoneShiftBits<T08PartOctal> {
+@BãßBȍőnPartAlt1Info(name="Absolute Tone Sequence", website="https://en.wikipedia.org/wiki/Tone_letter")
+@BãßBȍőnPartAlt2Info(name="Relative Tone Sequence", website="https://en.wikipedia.org/wiki/Tone_letter")
+public enum T08PartOctal implements BãßBȍőnPartAlt2<T08PartOctal>,BãßBȍőnPartShiftBits<T08PartOctal> {
 
 	PART_1("˥","0","心","heart","˧˥˩","˥˩˧", 0),
 	PART_2("˩","1","頭","head", "˧˩˥","˩˥˧", 3),
@@ -31,20 +31,20 @@ public enum T08PartOctal implements BassBoneAlt2<T08PartOctal>,BassBoneShiftBits
 	
 	public static int BIT_COUNT = 3;
 	private static final byte BITMASK = 0x07;
-	private final BãßBȍőnCoffinOpenʸᴰ<BassBoneStoreKey> BBC = BãßBȍőnCoffinOpenʸᴰ.newInstance();
-	public BãßBȍőnCoffinʸᴰ<BassBoneStoreKey> GET_BBC() { return BBC; }
+	private final BãßBȍőnCoffinOpenʸᴰ<BãßBȍőnPartKey> BBC = BãßBȍőnCoffinOpenʸᴰ.newInstance();
+	public BãßBȍőnCoffinʸᴰ<BãßBȍőnPartKey> GET_BBC() { return BBC; }
 	public static int LENGTH() { return values().length; };
 	
 	private T08PartOctal(String identifierTone, String identifierLetter, String chinaKey, String chinaValue, String alt1Value, String alt2Value, int shiftBits) {
-		BBC.PUT_OBJ(BassBoneStoreKey.ID_TONE, identifierTone);
-		BBC.PUT_OBJ(BassBoneStoreKey.ID_LETTER, identifierLetter);
-		BBC.PUT_OBJ(BassBoneStoreKey.CHINA_KEY, chinaKey);
-		BBC.PUT_OBJ(BassBoneStoreKey.CHINA_VALUE, chinaValue);
-		BBC.PUT_OBJ(BassBoneStoreKey.SHIFT_BITS, Integer.valueOf(shiftBits));
-		BBC.PUT_OBJ(BassBoneStoreKey.ALT_1_VALUE, alt1Value);
-		BBC.PUT_OBJ(BassBoneStoreKey.ALT_2_VALUE, alt2Value);
-		BBC.PUT_MAP(BassBoneStoreKey.MAP_TONE);
-		BBC.PUT_MAP(BassBoneStoreKey.MAP_CHINA);
+		BBC.PUT_OBJ(BãßBȍőnPartKey.ID_TONE, identifierTone);
+		BBC.PUT_OBJ(BãßBȍőnPartKey.ID_LETTER, identifierLetter);
+		BBC.PUT_OBJ(BãßBȍőnPartKey.CHINA_KEY, chinaKey);
+		BBC.PUT_OBJ(BãßBȍőnPartKey.CHINA_VALUE, chinaValue);
+		BBC.PUT_OBJ(BãßBȍőnPartKey.SHIFT_BITS, Integer.valueOf(shiftBits));
+		BBC.PUT_OBJ(BãßBȍőnPartKey.ALT_1_VALUE, alt1Value);
+		BBC.PUT_OBJ(BãßBȍőnPartKey.ALT_2_VALUE, alt2Value);
+		BBC.PUT_MAP(BãßBȍőnPartKey.MAP_TONE);
+		BBC.PUT_MAP(BãßBȍőnPartKey.MAP_CHINA);
 	}
 	
 	public static T08PartOctal indexOf(T08PartOctal group, int value) {

@@ -11,11 +11,11 @@ import imgui.type.ImInt;
 import love.distributedrebirth.demo4d.Demo4DMain;
 import love.distributedrebirth.demo4d.ImGuiRendererMain;
 import love.distributedrebirth.numberxd.base2t.BasePartFactory;
-import love.distributedrebirth.numberxd.base2t.bone.BassBone;
-import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt1;
-import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt2;
-import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt3;
-import love.distributedrebirth.numberxd.base2t.bone.BassBoneAlt4;
+import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPart;
+import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt1;
+import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt2;
+import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt3;
+import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt4;
 
 /**
  * 
@@ -44,11 +44,11 @@ public class BasePartRenderer extends ImGuiRendererMain {
 		items = bases.toArray(items);
 		String selectedItem = items[selectedBasePart.get()];
 		Integer baseNumber = Integer.valueOf(selectedItem);
-		BassBone<?>[] baseParts = BasePartFactory.buildBassBonesByBase(baseNumber);
+		BãßBȍőnPart<?>[] baseParts = BasePartFactory.buildBassBonesByBase(baseNumber);
 		
 		ImGui.text("Base:");
 		ImGui.sameLine();
-		ImGui.text(baseParts[0].staticBoneNaam());
+		ImGui.text(baseParts[0].BãßNaam());
 		ImGui.sameLine();
 		ImGui.combo("Type", selectedBasePart, items);
 		
@@ -66,7 +66,7 @@ public class BasePartRenderer extends ImGuiRendererMain {
 		ImGui.tableSetupColumn("Alt4");
 		ImGui.tableHeadersRow();
 		
-		for (BassBone<?> part:baseParts) {
+		for (BãßBȍőnPart<?> part:baseParts) {
 			ImGui.tableNextRow();
 			ImGui.tableNextColumn();
 			ImGui.text(part.name());
@@ -82,26 +82,26 @@ public class BasePartRenderer extends ImGuiRendererMain {
 			ImGui.text(part.getChinaValue());
 			
 			ImGui.tableNextColumn();
-			if (part instanceof BassBoneAlt1) {
-				ImGui.text(BassBoneAlt1.class.cast(part).getAlt1Value());
+			if (part instanceof BãßBȍőnPartAlt1) {
+				ImGui.text(BãßBȍőnPartAlt1.class.cast(part).getAlt1Value());
 			} else {
 				ImGui.text("");
 			}
 			ImGui.tableNextColumn();
-			if (part instanceof BassBoneAlt2) {
-				ImGui.text(BassBoneAlt2.class.cast(part).getAlt2Value());
+			if (part instanceof BãßBȍőnPartAlt2) {
+				ImGui.text(BãßBȍőnPartAlt2.class.cast(part).getAlt2Value());
 			} else {
 				ImGui.text("");
 			}
 			ImGui.tableNextColumn();
-			if (part instanceof BassBoneAlt3) {
-				ImGui.text(BassBoneAlt3.class.cast(part).getAlt3Value());
+			if (part instanceof BãßBȍőnPartAlt3) {
+				ImGui.text(BãßBȍőnPartAlt3.class.cast(part).getAlt3Value());
 			} else {
 				ImGui.text("");
 			}
 			ImGui.tableNextColumn();
-			if (part instanceof BassBoneAlt4) {
-				ImGui.text(BassBoneAlt4.class.cast(part).getAlt4Value());
+			if (part instanceof BãßBȍőnPartAlt4) {
+				ImGui.text(BãßBȍőnPartAlt4.class.cast(part).getAlt4Value());
 			} else {
 				ImGui.text("");
 			}
