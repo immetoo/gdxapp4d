@@ -13,7 +13,6 @@ public class T11PartUndecimalTest {
 	public void testBasePart() {
 		for (T11PartUndecimal value:T11PartUndecimal.values()) {
 			Assertions.assertNotNull(value.BȍőnIdentifierTone());
-			Assertions.assertNotNull(value.BȍőnIdentifierLetter());
 			Assertions.assertNotNull(value.BȍőnChinaKey());
 			Assertions.assertNotNull(value.BȍőnChinaValue());
 		}

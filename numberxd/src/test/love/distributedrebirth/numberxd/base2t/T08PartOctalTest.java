@@ -13,7 +13,6 @@ public class T08PartOctalTest {
 	public void testBasePart() {
 		for (T08PartOctal value:T08PartOctal.values()) {
 			Assertions.assertNotNull(value.BȍőnIdentifierTone());
-			Assertions.assertNotNull(value.BȍőnIdentifierLetter());
 			Assertions.assertNotNull(value.BȍőnChinaKey());
 			Assertions.assertNotNull(value.BȍőnChinaValue());
 			Assertions.assertNotNull(value.BȍőnAlt1Value());

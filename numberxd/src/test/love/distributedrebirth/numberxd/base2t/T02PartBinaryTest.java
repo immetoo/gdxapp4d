@@ -13,7 +13,6 @@ public class T02PartBinaryTest {
 	public void testBasePart() {
 		for (T02PartBinary value:T02PartBinary.values()) {
 			Assertions.assertNotNull(value.BȍőnIdentifierTone());
-			Assertions.assertNotNull(value.BȍőnIdentifierLetter());
 			Assertions.assertNotNull(value.BȍőnChinaKey());
 			Assertions.assertNotNull(value.BȍőnChinaValue());
 		}

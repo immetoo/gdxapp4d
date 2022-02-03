@@ -13,7 +13,6 @@ public class T05PartPentalTest {
 	public void testBasePart() {
 		for (T05PartPental value:T05PartPental.values()) {
 			Assertions.assertNotNull(value.BȍőnIdentifierTone());
-			Assertions.assertNotNull(value.BȍőnIdentifierLetter());
 			Assertions.assertNotNull(value.BȍőnChinaKey());
 			Assertions.assertNotNull(value.BȍőnChinaValue());
 		}

@@ -10,21 +10,20 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnClassInfoʸᴰ;
 @BãßBȍőnPartAlt1Infoʸᴰ(name = "ADFGVX cipher", website = "https://en.wikipedia.org/wiki/ADFGVX_cipher")
 public enum T06PartSeximal implements BãßBȍőnPartAlt1ʸᴰ<T06PartSeximal> {
 
-	PART_1("˦","0","四","4","A"),
-	PART_2("˨","1","五","5","D"),
-	PART_3("꜓","2","六","6","F"),
-	PART_4("꜕","3","七","7","G"),
-	PART_5("꜊","4","八","8","V"),
-	PART_6("꜏","5","九","9","X"),
+	PART_1("˦","四","4","A"),
+	PART_2("˨","五","5","D"),
+	PART_3("꜓","六","6","F"),
+	PART_4("꜕","七","7","G"),
+	PART_5("꜊","八","8","V"),
+	PART_6("꜏","九","9","X"),
 	;
 	
 	private final BãßBȍőnCoffinOpenʸᴰ<BãßBȍőnPartKeyʸᴰ> BBC = BãßBȍőnCoffinOpenʸᴰ.newInstance();
 	public BãßBȍőnCoffinʸᴰ<BãßBȍőnPartKeyʸᴰ> GET_BBC() { return BBC; }
 	public static int LENGTH() { return values().length; };
 	
-	private T06PartSeximal(String idTone, String idLetter, String chinaKey, String chinaValue, String alt1Value) {
+	private T06PartSeximal(String idTone, String chinaKey, String chinaValue, String alt1Value) {
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.ID_TONE, idTone);
-		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.ID_LETTER, idLetter);
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.CHINA_KEY, chinaKey);
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.CHINA_VALUE, chinaValue);
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.ALT_1_VALUE, alt1Value);

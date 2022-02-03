@@ -13,7 +13,6 @@ public class T60SexagesimalTest {
 	public void testBasePart() {
 		for (T60PartSexagesimal value:T60PartSexagesimal.values()) {
 			Assertions.assertNotNull(value.BȍőnIdentifierTone());
-			Assertions.assertNotNull(value.BȍőnIdentifierLetter());
 			Assertions.assertNotNull(value.BȍőnChinaKey());
 			Assertions.assertNotNull(value.BȍőnChinaValue());
 		}

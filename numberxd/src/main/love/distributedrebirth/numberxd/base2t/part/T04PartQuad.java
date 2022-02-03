@@ -10,19 +10,18 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnClassInfoʸᴰ;
 @BãßBȍőnPartAlt1Infoʸᴰ(name = "Cardinal direction", website = "https://simple.wikipedia.org/wiki/Cardinal_direction")
 public enum T04PartQuad implements BãßBȍőnPartAlt1ʸᴰ<T04PartQuad> {
 
-	PART_1("˥","0","北","north","N"),
-	PART_2("꜒","1","東","east", "E"),
-	PART_3("꜖","2","西","west", "W"),
-	PART_4("˩","3","南","south","S"),
+	PART_1("˥","北","north","N"),
+	PART_2("꜒","東","east", "E"),
+	PART_3("꜖","西","west", "W"),
+	PART_4("˩","南","south","S"),
 	;
 	
 	private final BãßBȍőnCoffinOpenʸᴰ<BãßBȍőnPartKeyʸᴰ> BBC = BãßBȍőnCoffinOpenʸᴰ.newInstance();
 	public BãßBȍőnCoffinʸᴰ<BãßBȍőnPartKeyʸᴰ> GET_BBC() { return BBC; }
 	public static int LENGTH() { return values().length; };
 	
-	private T04PartQuad(String idTone, String idLetter, String chinaKey, String chinaValue, String alt1Value) {
+	private T04PartQuad(String idTone, String chinaKey, String chinaValue, String alt1Value) {
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.ID_TONE, idTone);
-		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.ID_LETTER, idLetter);
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.CHINA_KEY, chinaKey);
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.CHINA_VALUE, chinaValue);
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.ALT_1_VALUE, alt1Value);

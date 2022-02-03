@@ -13,7 +13,6 @@ public class T04PartQuadTest {
 	public void testBasePart() {
 		for (T04PartQuad value:T04PartQuad.values()) {
 			Assertions.assertNotNull(value.BȍőnIdentifierTone());
-			Assertions.assertNotNull(value.BȍőnIdentifierLetter());
 			Assertions.assertNotNull(value.BȍőnChinaKey());
 			Assertions.assertNotNull(value.BȍőnChinaValue());
 			Assertions.assertNotNull(value.BȍőnAlt1Value());

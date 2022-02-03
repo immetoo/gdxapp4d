@@ -63,7 +63,7 @@ public class BasePartRenderer extends ImGuiRendererMain {
 		ImGui.tableSetupColumn("16Korean");
 		ImGui.tableSetupColumn("36LBasic");
 		ImGui.tableSetupColumn("36Greek");
-		ImGui.tableSetupColumn("36Arabic");
+		ImGui.tableSetupColumn("36Hebrew");
 		ImGui.tableSetupColumn("ChinaK");
 		ImGui.tableSetupColumn("ChinaV");
 		ImGui.tableSetupColumn("Alt1");
@@ -93,7 +93,7 @@ public class BasePartRenderer extends ImGuiRendererMain {
 			ImGui.tableNextColumn();
 			ImGui.text(part.BȍőnGlyphSetNumber36Greek());
 			ImGui.tableNextColumn();
-			ImGui.text(part.BȍőnGlyphSetNumber36Arabic());
+			ImGui.text(part.BȍőnGlyphSetNumber36Hebrew());
 			ImGui.tableNextColumn();
 			ImGui.text(part.BȍőnChinaKey());
 			ImGui.tableNextColumn();

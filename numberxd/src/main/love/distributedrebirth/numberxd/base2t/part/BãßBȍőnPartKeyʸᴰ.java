@@ -7,7 +7,6 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinStoreKeyʸᴰ;
 public enum BãßBȍőnPartKeyʸᴰ implements BãßBȍőnCoffinStoreKeyʸᴰ {
 
 	ID_TONE,
-	ID_LETTER,
 	CHINA_KEY,
 	CHINA_VALUE,
 	SHIFT_BITS,

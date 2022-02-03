@@ -13,7 +13,6 @@ public class T16PartHexTest {
 	public void testBasePart() {
 		for (T16PartHex value:T16PartHex.values()) {
 			Assertions.assertNotNull(value.BȍőnIdentifierTone());
-			Assertions.assertNotNull(value.BȍőnIdentifierLetter());
 			Assertions.assertNotNull(value.BȍőnChinaKey());
 			Assertions.assertNotNull(value.BȍőnChinaValue());
 		}

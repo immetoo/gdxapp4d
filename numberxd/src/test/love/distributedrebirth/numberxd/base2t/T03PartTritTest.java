@@ -13,7 +13,6 @@ public class T03PartTritTest {
 	public void testBasePart() {
 		for (T03PartTrit value:T03PartTrit.values()) {
 			Assertions.assertNotNull(value.BȍőnIdentifierTone());
-			Assertions.assertNotNull(value.BȍőnIdentifierLetter());
 			Assertions.assertNotNull(value.BȍőnChinaKey());
 			Assertions.assertNotNull(value.BȍőnChinaValue());
 		}

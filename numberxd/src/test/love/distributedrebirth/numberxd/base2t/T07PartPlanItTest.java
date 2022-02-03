@@ -13,7 +13,6 @@ public class T07PartPlanItTest {
 	public void testBasePart() {
 		for (T07PartPlanIt value:T07PartPlanIt.values()) {
 			Assertions.assertNotNull(value.BȍőnIdentifierTone());
-			Assertions.assertNotNull(value.BȍőnIdentifierLetter());
 			Assertions.assertNotNull(value.BȍőnChinaKey());
 			Assertions.assertNotNull(value.BȍőnChinaValue());
 			Assertions.assertNotNull(value.BȍőnAlt1Value());

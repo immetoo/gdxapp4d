@@ -60,21 +60,4 @@ public class BasePartFactoryTest {
 		Assertions.assertTrue(global.size() > 1);
 		Assertions.assertTrue(duplicate);
 	}
-	
-	@Test
-	public void testGlobalLetterMap() {
-		boolean duplicate = false;
-		Map<String,String> global = new HashMap<>();
-		for (int base:BasePartFactory.INSTANCE.BãßBases()) {
-			for (BãßBȍőnPartʸᴰ<?> part:BasePartFactory.INSTANCE.BãßBuildPartsByBase(base)) {
-				if (global.containsKey(part.BȍőnIdentifierLetter())) {
-					duplicate = true;
-					break;
-				}
-				global.put(part.BȍőnIdentifierLetter(), part.BȍőnChinaValue());
-			}
-		}
-		Assertions.assertTrue(global.size() > 1);
-		Assertions.assertTrue(duplicate);
-	}
 }

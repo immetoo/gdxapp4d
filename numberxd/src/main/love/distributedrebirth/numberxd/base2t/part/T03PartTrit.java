@@ -9,18 +9,17 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnClassInfoʸᴰ;
 @BãßBȍőnClassInfoʸᴰ(name = "T03PartTrit", purpose = "The distribution by 3.")
 public enum T03PartTrit implements BãßBȍőnPartʸᴰ<T03PartTrit> {
 
-	PART_1("˦","0","一","1"),
-	PART_2("˧","1","二","2"),
-	PART_3("˨","2","三","3"),
+	PART_1("˦","一","1"),
+	PART_2("˧","二","2"),
+	PART_3("˨","三","3"),
 	;
 	
 	private final BãßBȍőnCoffinOpenʸᴰ<BãßBȍőnPartKeyʸᴰ> BBC = BãßBȍőnCoffinOpenʸᴰ.newInstance();
 	public BãßBȍőnCoffinʸᴰ<BãßBȍőnPartKeyʸᴰ> GET_BBC() { return BBC; }
 	public static int LENGTH() { return values().length; };
 	
-	private T03PartTrit(String idTone, String idLetter, String chinaKey, String chinaValue) {
+	private T03PartTrit(String idTone, String chinaKey, String chinaValue) {
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.ID_TONE, idTone);
-		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.ID_LETTER, idLetter);
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.CHINA_KEY, chinaKey);
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.CHINA_VALUE, chinaValue);
 		BBC.PUT_MAP(BãßBȍőnPartKeyʸᴰ.MAP_TONE);

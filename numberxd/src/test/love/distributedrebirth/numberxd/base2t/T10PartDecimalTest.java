@@ -13,7 +13,6 @@ public class T10PartDecimalTest {
 	public void testBasePart() {
 		for (T10PartDecimal value:T10PartDecimal.values()) {
 			Assertions.assertNotNull(value.BȍőnIdentifierTone());
-			Assertions.assertNotNull(value.BȍőnIdentifierLetter());
 			Assertions.assertNotNull(value.BȍőnChinaKey());
 			Assertions.assertNotNull(value.BȍőnChinaValue());
 		}

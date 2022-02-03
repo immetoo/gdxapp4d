@@ -15,10 +15,6 @@ public interface BãßBȍőnPartʸᴰ<T extends BãßBȍőnPartʸᴰ<T>> extends
 		return GET_BBC().GET_STR(BãßBȍőnPartKeyʸᴰ.ID_TONE);
 	}
 	
-	default String BȍőnIdentifierLetter() {
-		return GET_BBC().GET_STR(BãßBȍőnPartKeyʸᴰ.ID_LETTER);
-	}
-	
 	default String BȍőnChinaKey() {
 		return GET_BBC().GET_STR(BãßBȍőnPartKeyʸᴰ.CHINA_KEY);
 	}
@@ -41,21 +37,21 @@ public interface BãßBȍőnPartʸᴰ<T extends BãßBȍőnPartʸᴰ<T>> extends
 	
 	default String BȍőnGlyphSetNumber16(BaseGlyphSet glyphSet) {
 		T[] values = BãßInstances();
-		if (values.length < 10) {
+		if (values.length <= 16) {
 			return glyphSet.BȍőnGlyphSetNumber16().BȍőnCharFor(BȍőnRangTelNul());
-		} else if (values.length < 255) {
+		} else if (values.length <= 256) {
 			StringBuilder buf = new StringBuilder();
 			buf.append(glyphSet.BȍőnGlyphSetNumber16().BȍőnCharFor(BȍőnRangTelNul() >> 4));
 			buf.append(glyphSet.BȍőnGlyphSetNumber16().BȍőnCharFor(BȍőnRangTelNul() & 0x0F));
 			return buf.toString();
-		} else if (values.length < 10000) {
+		} else if (values.length <= 0xFFF+1) {
 			StringBuilder buf = new StringBuilder();
 			buf.append(glyphSet.BȍőnGlyphSetNumber16().BȍőnCharFor((BȍőnRangTelNul() >> 8) & 0x0F));
 			buf.append(glyphSet.BȍőnGlyphSetNumber16().BȍőnCharFor((BȍőnRangTelNul() >> 4) & 0x0F));
 			buf.append(glyphSet.BȍőnGlyphSetNumber16().BȍőnCharFor(BȍőnRangTelNul() & 0x0F));
 			return buf.toString();
 		} else {
-			throw new IllegalStateException("Can't handle more than 10000 values.");
+			throw new IllegalStateException("Can't handle more than 0xFFF values.");
 		}
 	}
 	
@@ -76,31 +72,31 @@ public interface BãßBȍőnPartʸᴰ<T extends BãßBȍőnPartʸᴰ<T>> extends
 	}
 	
 	default String BȍőnGlyphSetNumber36(BaseGlyphSet glyphSet) {
+		StringBuilder buf = new StringBuilder();
 		T[] values = BãßInstances();
-		if (values.length < 10) {
-			return glyphSet.BȍőnGlyphSetNumber36().BȍőnCharFor(BȍőnRangTelEen());
-		} else if (values.length < 100) {
+		if (values.length <= 9) {
+			buf.append(glyphSet.BȍőnGlyphSetNumber36().BȍőnCharFor(BȍőnRangTelEen()));
+		} else if (values.length <= 99) {
 			int count = BȍőnRangTelNul();
-			int mod10 = count % 10 + 1;
-			int div10 = count / 10 + 1;
-			//System.out.println("count="+count+" div10="+div10+" mod10="+mod10);
-			StringBuilder buf = new StringBuilder();
+			int mod10 = count % 9 + 1;
+			int div10 = count / 9 + 1;
 			buf.append(glyphSet.BȍőnGlyphSetNumber36().BȍőnCharFor(div10));
 			buf.append(glyphSet.BȍőnGlyphSetNumber36().BȍőnCharFor(mod10));
-			return buf.toString();
-		} else if (values.length < 1000) {
+		} else if (values.length <= 999) {
 			int count = BȍőnRangTelNul();
-			int mod10 = count % 10 + 1;
-			int div10 = count / 10 + 1;
-			int div100 = count / 100 + 1;
-			StringBuilder buf = new StringBuilder();
+			int mod10 = count % 9 + 1;
+			int div10 = count / 90 + 1;
+			int div100 = count / 900 + 1;
 			buf.append(glyphSet.BȍőnGlyphSetNumber16().BȍőnCharFor(div10));
 			buf.append(glyphSet.BȍőnGlyphSetNumber16().BȍőnCharFor(div100));
 			buf.append(glyphSet.BȍőnGlyphSetNumber16().BȍőnCharFor(mod10));
-			return buf.toString();
 		} else {
 			throw new IllegalStateException("Can't handle more than 1000 values.");
 		}
+		if (BaseGlyphSet.HEBREW.equals(glyphSet)) {
+			return buf.reverse().toString();
+		}
+		return buf.toString();
 	}
 	
 	@SuppressWarnings("unchecked")
