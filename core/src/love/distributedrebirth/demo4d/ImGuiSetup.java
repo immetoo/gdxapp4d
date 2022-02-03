@@ -29,7 +29,7 @@ public class ImGuiSetup {
 		ImGui.createContext();
 		initFonts(ImGui.getIO());
 		imGuiImp.init(windowHandle, true);
-		imGuiGlImp.init("#version 150");
+		imGuiGlImp.init("#version 140");
 		ImGui.init();
 		
 		ImGui.styleColorsLight();
