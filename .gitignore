@@ -12,6 +12,7 @@ build
 *.o
 *.class
 *.old
+*.log
 *.bak
 *.backup
 *.dat
