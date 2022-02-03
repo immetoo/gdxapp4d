@@ -1,8 +1,10 @@
 package love.distributedrebirth.numberxd.base2t.glyph;
 
+import love.distributedrebirth.bassboonyd.BãßBȍőnAnnotationInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
+@BãßBȍőnAnnotationInfoʸᴰ(required = {BãßBȍőnGlyphSetNumberInfoʸᴰ.class})
 public interface BaseGlyphSetNumber {
 
 	default BaseGlyphSetNumberType BãßNumberType() {

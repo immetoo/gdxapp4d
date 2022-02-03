@@ -1,8 +1,10 @@
 package love.distributedrebirth.numberxd.base2t.part;
 
+import love.distributedrebirth.bassboonyd.BãßBȍőnAnnotationInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
+@BãßBȍőnAnnotationInfoʸᴰ(required = {BãßBȍőnPartAlt4Infoʸᴰ.class})
 public interface BãßBȍőnPartAlt4ʸᴰ<T extends BãßBȍőnPartʸᴰ<T>> extends BãßBȍőnPartAlt3ʸᴰ<T> {
 
 	default String BȍőnAlt4Value() {
