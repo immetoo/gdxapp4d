@@ -4,34 +4,34 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.BaseAppenderOctal;
 import love.distributedrebirth.numberxd.base2t.BaseIteratorOctal;
 import love.distributedrebirth.numberxd.base2t.BaseNumber;
-import love.distributedrebirth.numberxd.base2t.part.T60PartSexagesimal;
+import love.distributedrebirth.numberxd.base2t.part.T20PartScore;
 
 /**
- * Holds an 2520 bit value.
+ * Holds an 840 bit value.
  */
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public class V9D8Traz implements BaseNumber<V9D8Traz> {
+public class V348Traz implements BaseNumber<V348Traz> {
 
-	public static int BIT_COUNT = V02ATraw.BIT_COUNT * T60PartSexagesimal.LENGTH();
-	private V02ATraw[] values = new V02ATraw[T60PartSexagesimal.LENGTH()];
+	public static int BIT_COUNT = V02ATraw.BIT_COUNT * T20PartScore.LENGTH();
+	private V02ATraw[] values = new V02ATraw[T20PartScore.LENGTH()];
 	
-	public V9D8Traz() {
+	public V348Traz() {
 		for (int i=0;i<values.length;i++) {
 			this.values[i] = new V02ATraw();
 		}
 	}
 	
-	public V9D8Traz(BaseIteratorOctal values) {
+	public V348Traz(BaseIteratorOctal values) {
 		for (int i=0;i<this.values.length;i++) {
 			this.values[i] = new V02ATraw(values);
 		}
 	}
 	
-	public V02ATraw getValue(T60PartSexagesimal part) {
+	public V02ATraw getValue(T20PartScore part) {
 		return values[part.ordinal()];
 	}
 	
-	public void setValue(T60PartSexagesimal part, V02ATraw value) {
+	public void setValue(T20PartScore part, V02ATraw value) {
 		values[part.ordinal()] = value;
 	}
 	
@@ -41,12 +41,12 @@ public class V9D8Traz implements BaseNumber<V9D8Traz> {
 	}
 	
 	@Override
-	public V9D8Traz toClone() {
-		return new V9D8Traz(iteratorOctalsByClone());
+	public V348Traz toClone() {
+		return new V348Traz(iteratorOctalsByClone());
 	}
 	
 	@Override
 	public void fillOctalsByClone(BaseAppenderOctal appender) {
-		T60PartSexagesimal.PART_1.BãßVoorElk(v -> getValue(v).fillOctalsByClone(appender));
+		T20PartScore.PART_1.BãßVoorElk(v -> getValue(v).fillOctalsByClone(appender));
 	}
 }
