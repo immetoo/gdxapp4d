@@ -62,13 +62,21 @@ public interface BãßBȍőnPartʸᴰ<T extends BãßBȍőnPartʸᴰ<T>> extends
 		} else if (values.length <= 256) {
 			buf.append(glyphSet.BȍőnGlyphSetNumber16().BȍőnCharFor(BȍőnRangTelNul() >> 4));
 			buf.append(glyphSet.BȍőnGlyphSetNumber16().BȍőnCharSeperator());
-			buf.append(glyphSet.BȍőnGlyphSetNumber16().BȍőnCharFor(BȍőnRangTelNul() & 0x0F));
+			BaseGlyphSet secondGlyphSet = glyphSet.BȍőnGlyphSetNumber16().BȍőnSecondCharGlyphSet();
+			if (secondGlyphSet == null) {
+				secondGlyphSet = glyphSet;
+			}
+			buf.append(secondGlyphSet.BȍőnGlyphSetNumber16().BȍőnCharFor(BȍőnRangTelNul() & 0x0F));
 		} else if (values.length <= 0xFFF+1) {
 			buf.append(glyphSet.BȍőnGlyphSetNumber16().BȍőnCharFor((BȍőnRangTelNul() >> 8) & 0x0F));
 			buf.append(glyphSet.BȍőnGlyphSetNumber16().BȍőnCharSeperator());
-			buf.append(glyphSet.BȍőnGlyphSetNumber16().BȍőnCharFor((BȍőnRangTelNul() >> 4) & 0x0F));
-			buf.append(glyphSet.BȍőnGlyphSetNumber16().BȍőnCharSeperator());
-			buf.append(glyphSet.BȍőnGlyphSetNumber16().BȍőnCharFor(BȍőnRangTelNul() & 0x0F));
+			BaseGlyphSet secondGlyphSet = glyphSet.BȍőnGlyphSetNumber16().BȍőnSecondCharGlyphSet();
+			if (secondGlyphSet == null) {
+				secondGlyphSet = glyphSet;
+			}
+			buf.append(secondGlyphSet.BȍőnGlyphSetNumber16().BȍőnCharFor((BȍőnRangTelNul() >> 4) & 0x0F));
+			buf.append(secondGlyphSet.BȍőnGlyphSetNumber16().BȍőnCharSeperator());
+			buf.append(secondGlyphSet.BȍőnGlyphSetNumber16().BȍőnCharFor(BȍőnRangTelNul() & 0x0F));
 		} else {
 			throw new IllegalStateException("Can't handle more than 0xFFF values.");
 		}

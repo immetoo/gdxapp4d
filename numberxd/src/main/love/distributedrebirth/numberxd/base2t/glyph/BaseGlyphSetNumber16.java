@@ -7,6 +7,7 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 public final class BaseGlyphSetNumber16 implements BaseGlyphSetNumber {
 	
 	private String charSeperator;
+	private BaseGlyphSet secondCharGlyphSet;
 	private final String char0;
 	private final String char1;
 	private final String char2;
@@ -51,6 +52,11 @@ public final class BaseGlyphSetNumber16 implements BaseGlyphSetNumber {
 		return this;
 	}
 	
+	public BaseGlyphSetNumber16 withSecondCharGlyphSet(BaseGlyphSet secondCharGlyphSet) {
+		this.secondCharGlyphSet = secondCharGlyphSet;
+		return this;
+	}
+	
 	@Override
 	public String BȍőnCharFor(int number) {
 		switch (number) {
@@ -89,6 +95,10 @@ public final class BaseGlyphSetNumber16 implements BaseGlyphSetNumber {
 		default:
 			throw new IllegalArgumentException("Can't handle higher numbers: "+number);
 		}
+	}
+	
+	public BaseGlyphSet BȍőnSecondCharGlyphSet() {
+		return secondCharGlyphSet;
 	}
 	
 	@Override
