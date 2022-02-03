@@ -23,52 +23,25 @@ public interface BãßBȍőnPartʸᴰ<T extends BãßBȍőnPartʸᴰ<T>> extends
 		return GET_BBC().GET_STR(BãßBȍőnPartKeyʸᴰ.CHINA_VALUE);
 	}
 	
-	default String BȍőnGlyphSetNumber16Greek() {
-		return BȍőnGlyphSetNumber16(BaseGlyphSet.GREEK);
-	}
-	
-	default String BȍőnGlyphSetNumber16LatinBasic() {
-		return BȍőnGlyphSetNumber16(BaseGlyphSet.LATIN_BASIC);
-	}
-	
-	default String BȍőnGlyphSetNumber16Korean() {
-		return BȍőnGlyphSetNumber16(BaseGlyphSet.KOREAN);
-	}
-	
 	default String BȍőnGlyphSetNumber16(BaseGlyphSet glyphSet) {
+		StringBuilder buf = new StringBuilder();
 		T[] values = BãßInstances();
 		if (values.length <= 16) {
-			return glyphSet.BȍőnGlyphSetNumber16().BȍőnCharFor(BȍőnRangTelNul());
+			buf.append(glyphSet.BȍőnGlyphSetNumber16().BȍőnCharFor(BȍőnRangTelNul()));
 		} else if (values.length <= 256) {
-			StringBuilder buf = new StringBuilder();
 			buf.append(glyphSet.BȍőnGlyphSetNumber16().BȍőnCharFor(BȍőnRangTelNul() >> 4));
 			buf.append(glyphSet.BȍőnGlyphSetNumber16().BȍőnCharFor(BȍőnRangTelNul() & 0x0F));
-			return buf.toString();
 		} else if (values.length <= 0xFFF+1) {
-			StringBuilder buf = new StringBuilder();
 			buf.append(glyphSet.BȍőnGlyphSetNumber16().BȍőnCharFor((BȍőnRangTelNul() >> 8) & 0x0F));
 			buf.append(glyphSet.BȍőnGlyphSetNumber16().BȍőnCharFor((BȍőnRangTelNul() >> 4) & 0x0F));
 			buf.append(glyphSet.BȍőnGlyphSetNumber16().BȍőnCharFor(BȍőnRangTelNul() & 0x0F));
-			return buf.toString();
 		} else {
 			throw new IllegalStateException("Can't handle more than 0xFFF values.");
 		}
-	}
-	
-	default String BȍőnGlyphSetNumber36Greek() {
-		return BȍőnGlyphSetNumber36(BaseGlyphSet.GREEK);
-	}
-	
-	default String BȍőnGlyphSetNumber36LatinBasic() {
-		return BȍőnGlyphSetNumber36(BaseGlyphSet.LATIN_BASIC);
-	}
-	
-	default String BȍőnGlyphSetNumber36Hebrew() {
-		return BȍőnGlyphSetNumber36(BaseGlyphSet.HEBREW);
-	}
-	
-	default String BȍőnGlyphSetNumber36Arabic() {
-		return BȍőnGlyphSetNumber36(BaseGlyphSet.ARABIC);
+		if (BaseGlyphSet.HEBREW.equals(glyphSet)) {
+			return buf.reverse().toString();
+		}
+		return buf.toString();
 	}
 	
 	default String BȍőnGlyphSetNumber36(BaseGlyphSet glyphSet) {
