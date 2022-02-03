@@ -28,6 +28,7 @@ import love.distributedrebirth.demo4d.screen.ScreenHelp;
 import love.distributedrebirth.demo4d.screen.ScreenIntro;
 import love.distributedrebirth.demo4d.screen.ScreenIntroMission;
 import love.distributedrebirth.demo4d.screen.ScreenUnicode4D;
+import love.distributedrebirth.numberxd.base2t.part.warp.TOSWarpCore;
 import net.spookygames.gdx.nativefilechooser.NativeFileChooser;
 
 /**
@@ -96,6 +97,13 @@ public class Demo4DMain extends Game {
 		}
 		if (args.contains("full-screen")) {
 			Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());
+		}
+		int fileArgu = args.indexOf("warpcore-load");
+		if (fileArgu != -1) {
+			// TODO: load warpcore
+		}
+		if (!args.contains("warpcore-nolock")) {
+			TOSWarpCore.INSTANCE.BãßLockWarpCipher();
 		}
 	}
 	

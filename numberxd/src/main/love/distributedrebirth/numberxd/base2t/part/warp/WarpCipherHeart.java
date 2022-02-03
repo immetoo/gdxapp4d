@@ -1,5 +1,6 @@
 package love.distributedrebirth.numberxd.base2t.part.warp;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
@@ -11,6 +12,7 @@ public class WarpCipherHeart {
 	private List<WarpCipherHeartCore> heartCores;
 	
 	public WarpCipherHeart() {
+		heartCores = new ArrayList<>();
 	}
 	
 	public String getPartKey() {

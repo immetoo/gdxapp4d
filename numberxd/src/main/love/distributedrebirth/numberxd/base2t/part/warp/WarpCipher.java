@@ -1,5 +1,6 @@
 package love.distributedrebirth.numberxd.base2t.part.warp;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
@@ -7,11 +8,12 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class WarpCipher {
 	
-	String cipherName;
-	String cipherDescription;
-	List<WarpCipherHeart> cipherHearts;
+	private String cipherName;
+	private String cipherDescription;
+	private List<WarpCipherHeart> cipherHearts;
 	
 	public WarpCipher() {
+		cipherHearts = new ArrayList<>();
 	}
 	
 	public String getCipherName() {
