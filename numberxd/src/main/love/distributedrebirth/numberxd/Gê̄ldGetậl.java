@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import love.distributedrebirth.numberxd.base2t.part.T04PartQuad;
-import love.distributedrebirth.numberxd.base2t.type.V024Teger;
+import love.distributedrebirth.numberxd.base2t.type.V036Teger;
 
 /**
  * 
@@ -20,7 +20,7 @@ public class Gê̄ldGetậl {
 	private static final Character LEFT_TO_RIGHT_MARK = 0x200E;
 	private static final Character RIGHT_TO_LEFT_MARK = 0x200F;
 	
-	public Gê̄ldGetậl(V024Teger teger) {
+	public Gê̄ldGetậl(V036Teger teger) {
 		this(
 				new Gê̄ldGetậlÅtHebrew(teger.getTytePart(T04PartQuad.PART_1)),
 				new Gê̄ldGetậlÅtHebrew(teger.getTytePart(T04PartQuad.PART_2)),
@@ -146,8 +146,8 @@ public class Gê̄ldGetậl {
 		return totalDecimalValue;
 	}
 	
-	public V024Teger toTeger() {
-		V024Teger result = new V024Teger();
+	public V036Teger toTeger() {
+		V036Teger result = new V036Teger();
 		result.setTytePart(T04PartQuad.PART_1, nummerAlphabet.toTyte());
 		result.setTytePart(T04PartQuad.PART_2, nummerDeelA.toTyte());
 		result.setTytePart(T04PartQuad.PART_3, nummerDeelB.toTyte());

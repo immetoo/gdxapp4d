@@ -13,24 +13,24 @@ import love.distributedrebirth.numberxd.base2t.part.T04PartQuad;
  * Holds an 36 bit value.
  */
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public final class V024Teger implements BaseNumberTyte<V024Teger> {
+public final class V036Teger implements BaseNumberTyte<V036Teger> {
 
 	public static int BIT_COUNT = V012Tord.BIT_COUNT * T02PartBinary.LENGTH();
 	private V012Tord[] values = new V012Tord[T02PartBinary.LENGTH()];
 	
-	public V024Teger() {
+	public V036Teger() {
 		this(new V012Tord(), new V012Tord());
 	}
 	
-	public V024Teger(BaseIteratorOctal values) {
+	public V036Teger(BaseIteratorOctal values) {
 		this(new V012Tord(values), new V012Tord(values));
 	}
 	
-	public V024Teger(BaseIteratorTyte values) {
+	public V036Teger(BaseIteratorTyte values) {
 		this(new V012Tord(values), new V012Tord(values));
 	}
 	
-	private V024Teger(V012Tord valueHigh, V012Tord valueLow) {
+	private V036Teger(V012Tord valueHigh, V012Tord valueLow) {
 		setValue(T02PartBinary.PART_1, valueHigh);
 		setValue(T02PartBinary.PART_2, valueLow);
 	}
@@ -59,8 +59,8 @@ public final class V024Teger implements BaseNumberTyte<V024Teger> {
 	}
 	
 	@Override
-	public V024Teger toClone() {
-		return new V024Teger(iteratorOctalsByClone());
+	public V036Teger toClone() {
+		return new V036Teger(iteratorOctalsByClone());
 	}
 	
 	@Override

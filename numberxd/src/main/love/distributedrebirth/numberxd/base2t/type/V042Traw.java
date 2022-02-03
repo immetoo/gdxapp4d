@@ -10,18 +10,18 @@ import love.distributedrebirth.numberxd.base2t.part.T07PartPlanIt;
  * Holds an 42 bit value.
  */
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public final class V02ATraw implements BaseNumber<V02ATraw> {
+public final class V042Traw implements BaseNumber<V042Traw> {
 
 	public static int BIT_COUNT = V006Tixte.BIT_COUNT * T07PartPlanIt.LENGTH();
 	private V006Tixte[] values = new V006Tixte[T07PartPlanIt.LENGTH()];
 	
-	public V02ATraw() {
+	public V042Traw() {
 		for (int i=0;i<values.length;i++) {
 			this.values[i] = new V006Tixte();
 		}
 	}
 	
-	public V02ATraw(BaseIteratorOctal values) {
+	public V042Traw(BaseIteratorOctal values) {
 		for (int i=0;i<this.values.length;i++) {
 			this.values[i] = new V006Tixte(values);
 		}
@@ -41,8 +41,8 @@ public final class V02ATraw implements BaseNumber<V02ATraw> {
 	}
 	
 	@Override
-	public V02ATraw toClone() {
-		return new V02ATraw(iteratorOctalsByClone());
+	public V042Traw toClone() {
+		return new V042Traw(iteratorOctalsByClone());
 	}
 	
 	@Override
