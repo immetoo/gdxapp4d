@@ -41,7 +41,7 @@ public enum T20PartScore implements BãßBȍőnPartAlt4ʸᴰ<T20PartScore> {
 	;
 	
 	private static final Map<String, T20PartScore> OPENLC_MAP = Collections.unmodifiableMap(
-			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.BȍőnAlt3Value(), v -> v)));
+			Arrays.asList(values()).stream().collect(Collectors.toMap(v -> v.BȍőnAlt4Value(), v -> v)));
 	private final BãßBȍőnCoffinOpenʸᴰ<BãßBȍőnPartKeyʸᴰ> BBC = BãßBȍőnCoffinOpenʸᴰ.newInstance();
 	public BãßBȍőnCoffinʸᴰ<BãßBȍőnPartKeyʸᴰ> GET_BBC() { return BBC; }
 	public static int LENGTH() { return values().length; };

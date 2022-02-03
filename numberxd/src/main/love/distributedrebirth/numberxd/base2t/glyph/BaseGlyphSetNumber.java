@@ -10,4 +10,6 @@ public interface BaseGlyphSetNumber {
 	}
 	
 	String BȍőnCharFor(int number);
+	
+	String BȍőnCharSeperator();
 }

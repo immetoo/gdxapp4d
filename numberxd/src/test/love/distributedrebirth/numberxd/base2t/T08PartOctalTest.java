@@ -15,12 +15,6 @@ public class T08PartOctalTest {
 			Assertions.assertNotNull(value.BȍőnIdentifierTone());
 			Assertions.assertNotNull(value.BȍőnChinaKey());
 			Assertions.assertNotNull(value.BȍőnChinaValue());
-			Assertions.assertNotNull(value.BȍőnAlt1Value());
-			Assertions.assertNotNull(value.BãßAlt1Name());
-			Assertions.assertNotNull(value.BãßAlt1Website());
-			Assertions.assertNotNull(value.BȍőnAlt2Value());
-			Assertions.assertNotNull(value.BãßAlt2Name());
-			Assertions.assertNotNull(value.BãßAlt2Website());
 		}
 	}
 	

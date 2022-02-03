@@ -20,10 +20,10 @@ public class T60SexagesimalTest {
 	
 	@Test
 	public void testToneMap() {
-		Assertions.assertEquals(T60PartSexagesimal.PART_1, T60PartSexagesimal.PART_1.BãßValueOfTone("˧˩˥"));
-		Assertions.assertEquals(T60PartSexagesimal.PART_2, T60PartSexagesimal.PART_1.BãßValueOfTone("˧˥˦"));
-		Assertions.assertEquals(T60PartSexagesimal.PART_59, T60PartSexagesimal.PART_1.BãßValueOfTone("꜍꜍꜏"));
-		Assertions.assertEquals(T60PartSexagesimal.PART_60, T60PartSexagesimal.PART_1.BãßValueOfTone("꜑꜑꜏"));
+		Assertions.assertEquals(T60PartSexagesimal.PART_1, T60PartSexagesimal.PART_1.BãßValueOfTone("˥˥"));
+		Assertions.assertEquals(T60PartSexagesimal.PART_2, T60PartSexagesimal.PART_1.BãßValueOfTone("˥˦"));
+		Assertions.assertEquals(T60PartSexagesimal.PART_59, T60PartSexagesimal.PART_1.BãßValueOfTone("꜒꜕"));
+		Assertions.assertEquals(T60PartSexagesimal.PART_60, T60PartSexagesimal.PART_1.BãßValueOfTone("꜒꜖"));
 	}
 	
 	@Test

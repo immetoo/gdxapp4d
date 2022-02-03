@@ -6,6 +6,7 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 @BãßBȍőnGlyphSetNumberInfoʸᴰ(base = BaseGlyphSetNumberType.BASE_10)
 public final class BaseGlyphSetNumber10 implements BaseGlyphSetNumber {
 	
+	private String charSeperator;
 	private final String char0;
 	private final String char1;
 	private final String char2;
@@ -20,6 +21,7 @@ public final class BaseGlyphSetNumber10 implements BaseGlyphSetNumber {
 	public BaseGlyphSetNumber10(String char0, String char1, String char2, String char3, String char4, String char5,
 			String char6, String char7, String char8, String char9) {
 		super();
+		this.charSeperator = "";
 		this.char0 = char0;
 		this.char1 = char1;
 		this.char2 = char2;
@@ -32,6 +34,12 @@ public final class BaseGlyphSetNumber10 implements BaseGlyphSetNumber {
 		this.char9 = char9;
 	}
 	
+	public BaseGlyphSetNumber10 withSeperator(String charSeperator) {
+		this.charSeperator = charSeperator;
+		return this;
+	}
+	
+	@Override
 	public String BȍőnCharFor(int number) {
 		switch (number) {
 		case 0:
@@ -57,6 +65,11 @@ public final class BaseGlyphSetNumber10 implements BaseGlyphSetNumber {
 		default:
 			throw new IllegalArgumentException("Can't handle higher numbers: "+number);
 		}
+	}
+	
+	@Override
+	public String BȍőnCharSeperator() {
+		return charSeperator;
 	}
 	
 	public String getChar0() {
