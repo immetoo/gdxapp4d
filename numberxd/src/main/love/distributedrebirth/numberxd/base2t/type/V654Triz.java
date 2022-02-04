@@ -1,39 +1,38 @@
-package love.distributedrebirth.numberxd.base2t.typexl;
+package love.distributedrebirth.numberxd.base2t.type;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.BaseAppenderOctal;
 import love.distributedrebirth.numberxd.base2t.BaseAppenderTyte;
 import love.distributedrebirth.numberxd.base2t.BaseIteratorOctal;
-import love.distributedrebirth.numberxd.base2t.BaseNumberTyteXL;
+import love.distributedrebirth.numberxd.base2t.BaseNumberTyte;
 import love.distributedrebirth.numberxd.base2t.part.T60PartSexagesimal;
-import love.distributedrebirth.numberxd.base2t.type.V027Temvig;
 
 /**
  * Holds an 1620 bit value.
  */
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public class V0x000654ˣᴸ implements BaseNumberTyteXL<V0x000654ˣᴸ> {
+public class V654Triz implements BaseNumberTyte<V654Triz> {
 
-	public static int BIT_COUNT = V027Temvig.BIT_COUNT * T60PartSexagesimal.LENGTH();
-	private V027Temvig[] values = new V027Temvig[T60PartSexagesimal.LENGTH()];
+	public static int BIT_COUNT = V01BTemvig.BIT_COUNT * T60PartSexagesimal.LENGTH();
+	private V01BTemvig[] values = new V01BTemvig[T60PartSexagesimal.LENGTH()];
 	
-	public V0x000654ˣᴸ() {
+	public V654Triz() {
 		for (int i=0;i<this.values.length;i++) {
-			this.values[i] = new V027Temvig();
+			this.values[i] = new V01BTemvig();
 		}
 	}
 	
-	public V0x000654ˣᴸ(BaseIteratorOctal values) {
+	public V654Triz(BaseIteratorOctal values) {
 		for (int i=0;i<this.values.length;i++) {
-			this.values[i] = new V027Temvig(values);
+			this.values[i] = new V01BTemvig(values);
 		}
 	}
 	
-	public V027Temvig getValue(T60PartSexagesimal part) {
+	public V01BTemvig getValue(T60PartSexagesimal part) {
 		return values[part.ordinal()];
 	}
 	
-	public void setValue(T60PartSexagesimal part, V027Temvig value) {
+	public void setValue(T60PartSexagesimal part, V01BTemvig value) {
 		values[part.ordinal()] = value;
 	}
 	
@@ -43,8 +42,8 @@ public class V0x000654ˣᴸ implements BaseNumberTyteXL<V0x000654ˣᴸ> {
 	}
 	
 	@Override
-	public V0x000654ˣᴸ toClone() {
-		return new V0x000654ˣᴸ(iteratorOctalsByClone());
+	public V654Triz toClone() {
+		return new V654Triz(iteratorOctalsByClone());
 	}
 	
 	@Override

@@ -8,7 +8,7 @@ import love.distributedrebirth.numberxd.base2t.BaseIteratorOctal;
 import love.distributedrebirth.numberxd.base2t.BaseAppenderTyte;
 import love.distributedrebirth.numberxd.base2t.BaseIteratorTyte;
 import love.distributedrebirth.numberxd.base2t.type.V009Tyte;
-import love.distributedrebirth.numberxd.base2t.type.V144Tocta;
+import love.distributedrebirth.numberxd.base2t.type.V090Tocta;
 
 /**
  * Holds an 144 bit fraction.
@@ -19,7 +19,7 @@ public class GroßGetậl1ⁿᴰ implements BaseGetậl<GroßGetậl1ⁿᴰ> {
 	
 	public static int NUMERATOR_SIZE = 7;
 	public static int DENOMINATOR_SIZE = 9;
-	public static int BIT_COUNT = V144Tocta.BIT_COUNT;
+	public static int BIT_COUNT = V090Tocta.BIT_COUNT;
 	private final V009Tyte[] numerator = new V009Tyte[NUMERATOR_SIZE];
 	private final V009Tyte[] denominator = new V009Tyte[DENOMINATOR_SIZE];
 	
@@ -50,7 +50,7 @@ public class GroßGetậl1ⁿᴰ implements BaseGetậl<GroßGetậl1ⁿᴰ> {
 		}
 	}
 	
-	public GroßGetậl1ⁿᴰ(V144Tocta tocta) {
+	public GroßGetậl1ⁿᴰ(V090Tocta tocta) {
 		List<V009Tyte> tytes = new ArrayList<>();
 		tocta.fillTytesByReference(new BaseAppenderTyte(tytes));
 		for (int i=0;i<NUMERATOR_SIZE;i++) {
@@ -61,17 +61,17 @@ public class GroßGetậl1ⁿᴰ implements BaseGetậl<GroßGetậl1ⁿᴰ> {
 		}
 	}
 	
-	public V144Tocta toToctaByReference() {
-		return new V144Tocta(iteratorTytesByReference());
+	public V090Tocta toToctaByReference() {
+		return new V090Tocta(iteratorTytesByReference());
 	}
 	
-	public V144Tocta toToctaByClone() {
-		return new V144Tocta(iteratorOctalsByClone());
+	public V090Tocta toToctaByClone() {
+		return new V090Tocta(iteratorOctalsByClone());
 	}
 
 	@Override
 	public int getBitCount() {
-		return V144Tocta.BIT_COUNT;
+		return V090Tocta.BIT_COUNT;
 	}
 
 	@Override
