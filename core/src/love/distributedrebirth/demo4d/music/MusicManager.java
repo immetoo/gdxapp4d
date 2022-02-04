@@ -8,11 +8,12 @@ import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Music.OnCompletionListener;
 import com.badlogic.gdx.files.FileHandle;
 
+import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
+
 /**
  * Manages the background and others songs.
- * 
- * @author willemtsade ©Δ∞ 仙上主天
  */
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class MusicManager {
 
 	private final MusicSong introSong;

@@ -2,11 +2,12 @@ package love.distributedrebirth.demo4d.music;
 
 import com.badlogic.gdx.audio.Music;
 
+import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
+
 /**
- * 
- * 
- * @author willemtsade ©Δ∞ 仙上主天
+ * The music with the (file) name.
  */
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class MusicSong {
 	protected final Music music;
 	private final String name;

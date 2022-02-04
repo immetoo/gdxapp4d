@@ -27,14 +27,11 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 import imgui.ImGui;
 import imgui.flag.ImGuiCond;
+import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.demo4d.Demo4DMain;
 import love.distributedrebirth.demo4d.Demo4DMainAdapter;
 
-/**
- * 
- * 
- * @author willemtsade ©Δ∞ 仙上主天
- */
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class ScreenMatrix4D extends Demo4DMainAdapter {
 	public Environment environment;
 	public PerspectiveCamera cam;

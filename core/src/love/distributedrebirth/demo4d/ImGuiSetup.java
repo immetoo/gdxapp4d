@@ -8,12 +8,12 @@ import imgui.ImGui;
 import imgui.ImGuiIO;
 import imgui.gl3.ImGuiImplGl3;
 import imgui.glfw.ImGuiImplGlfw;
+import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 
 /**
  * Create and shutdown of ImGui and font activations.
- * 
- * @author willemtsade ©Δ∞ 仙上主天
  */
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class ImGuiSetup {
 	public static final ImGuiImplGlfw imGuiImp = new ImGuiImplGlfw();
 	public static final ImGuiImplGl3 imGuiGlImp = new ImGuiImplGl3();
@@ -29,7 +29,7 @@ public class ImGuiSetup {
 		ImGui.createContext();
 		initFonts(ImGui.getIO());
 		imGuiImp.init(windowHandle, true);
-		imGuiGlImp.init("#version 150");
+		imGuiGlImp.init("#version 140");
 		ImGui.init();
 		
 		ImGui.styleColorsLight();
