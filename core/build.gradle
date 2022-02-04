@@ -1,6 +1,0 @@
-sourceCompatibility = appJvmCode
-[compileJava, compileTestJava]*.options*.encoding = appEncoding
-
-sourceSets.main.java.srcDirs = [ "src/", "resources/" ]
-
-eclipse.project.name = appName + "-core"

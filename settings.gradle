@@ -1,1 +1,1 @@
-include 'desktop', 'core', 'demo4d-bassboonyd', 'demo4d-numberxd'
+include 'demo4d-gdxapp-desktop', 'demo4d-gdxapp', 'demo4d-bassboonyd', 'demo4d-numberxd'

@@ -1,11 +1,11 @@
 sourceCompatibility = appJvmCode
 [compileJava, compileTestJava]*.options*.encoding = appEncoding
 
-sourceSets.main.java.srcDirs = [ "src/" ]
-sourceSets.main.resources.srcDirs = ["../core/assets"]
+sourceSets.main.java.srcDirs = [ "src/main/"]
+sourceSets.main.resources.srcDirs = ["../demo4d-gdxapp/assets"]
 
 project.ext.mainClassName = "love.distributedrebirth.demo4d.desktop.DesktopLauncher"
-project.ext.assetsDir = new File("../core/assets")
+project.ext.assetsDir = new File("../demo4d-gdxapp/assets")
 
 task run(dependsOn: classes, type: JavaExec) {
     main = project.mainClassName
@@ -35,7 +35,4 @@ task dist(type: Jar) {
     with jar
 }
 
-
 dist.dependsOn classes
-
-eclipse.project.name = appName + "-desktop"

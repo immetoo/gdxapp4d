@@ -55,17 +55,7 @@ project(":demo4d-numberxd") {
 	}
 }
 
-project(":desktop") {
-	apply plugin: "java-library"
-	dependencies {
-		implementation project(":core")
-		api "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
-		api "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
-		api "games.spooky.gdx:gdx-nativefilechooser-desktop:$nativefilechooserVersion"
-	}
-}
-
-project(":core") {
+project(":demo4d-gdxapp") {
 	apply plugin: "java-library"
 	dependencies {
 		//api "org.x4o:x4o-driver:$x4oVersion"
@@ -77,5 +67,15 @@ project(":core") {
 		api "io.github.spair:imgui-java-natives-macos:$spairVersion"
 		api "io.github.spair:imgui-java-natives-windows:$spairVersion"
 		api "games.spooky.gdx:gdx-nativefilechooser:$nativefilechooserVersion"
+	}
+}
+
+project(":demo4d-gdxapp-desktop") {
+	apply plugin: "java-library"
+	dependencies {
+		implementation project(":demo4d-gdxapp")
+		api "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
+		api "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+		api "games.spooky.gdx:gdx-nativefilechooser-desktop:$nativefilechooserVersion"
 	}
 }
