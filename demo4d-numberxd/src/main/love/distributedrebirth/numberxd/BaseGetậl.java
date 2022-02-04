@@ -9,6 +9,10 @@ public interface BaseGetậl<T extends BaseGetậl<T,V>,V extends BaseNumber<V>>
 	
 	V getValue();
 	
+	default T toClone() {
+		return toClone(iteratorOctalsByClone());
+	}
+	
 	T toClone(BaseIteratorOctal values);
 	
 	BaseIteratorOctal iteratorOctalsByClone();
