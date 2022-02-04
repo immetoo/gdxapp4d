@@ -1,4 +1,4 @@
-package love.distributedrebirth.demo4d.music;
+package love.distributedrebirth.gdxapp.music;
 
 import java.util.function.Consumer;
 
@@ -11,9 +11,9 @@ import imgui.flag.ImGuiSelectableFlags;
 import imgui.flag.ImGuiTableColumnFlags;
 import imgui.flag.ImGuiTableFlags;
 import imgui.type.ImBoolean;
-import love.distributedrebirth.demo4d.ImGuiRendererMain;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
-import love.distributedrebirth.demo4d.Demo4DMain;
+import love.distributedrebirth.gdxapp.Demo4DMain;
+import love.distributedrebirth.gdxapp.ImGuiRendererMain;
 import net.spookygames.gdx.nativefilechooser.NativeFileChooserCallback;
 import net.spookygames.gdx.nativefilechooser.NativeFileChooserConfiguration;
 

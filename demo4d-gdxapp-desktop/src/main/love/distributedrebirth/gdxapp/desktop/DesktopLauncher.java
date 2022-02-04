@@ -1,4 +1,4 @@
-package love.distributedrebirth.demo4d.desktop;
+package love.distributedrebirth.gdxapp.desktop;
 
 import java.util.Arrays;
 import java.util.List;
@@ -9,7 +9,7 @@ import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
-import love.distributedrebirth.demo4d.Demo4DMain;
+import love.distributedrebirth.gdxapp.Demo4DMain;
 import net.spookygames.gdx.nativefilechooser.desktop.DesktopFileChooser;
 
 /**

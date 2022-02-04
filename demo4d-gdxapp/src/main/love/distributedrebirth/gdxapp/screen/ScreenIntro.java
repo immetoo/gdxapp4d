@@ -1,4 +1,4 @@
-package love.distributedrebirth.demo4d.screen;
+package love.distributedrebirth.gdxapp.screen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.ScreenAdapter;
@@ -7,8 +7,8 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.ScreenUtils;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
-import love.distributedrebirth.demo4d.Demo4DMain;
-import love.distributedrebirth.demo4d.music.MusicSongType;
+import love.distributedrebirth.gdxapp.Demo4DMain;
+import love.distributedrebirth.gdxapp.music.MusicSongType;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class ScreenIntro extends ScreenAdapter {

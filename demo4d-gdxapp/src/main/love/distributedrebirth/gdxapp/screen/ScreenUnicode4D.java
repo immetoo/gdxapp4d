@@ -1,4 +1,4 @@
-package love.distributedrebirth.demo4d.screen;
+package love.distributedrebirth.gdxapp.screen;
 
 import imgui.ImColor;
 import imgui.ImDrawList;
@@ -6,8 +6,8 @@ import imgui.ImGui;
 import imgui.ImVec2;
 import imgui.flag.ImGuiCond;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
-import love.distributedrebirth.demo4d.Demo4DMain;
-import love.distributedrebirth.demo4d.Demo4DMainAdapter;
+import love.distributedrebirth.gdxapp.Demo4DMain;
+import love.distributedrebirth.gdxapp.Demo4DMainAdapter;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class ScreenUnicode4D extends Demo4DMainAdapter {

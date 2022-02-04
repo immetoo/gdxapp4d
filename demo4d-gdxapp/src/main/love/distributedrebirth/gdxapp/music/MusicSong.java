@@ -1,4 +1,4 @@
-package love.distributedrebirth.demo4d.music;
+package love.distributedrebirth.gdxapp.music;
 
 import com.badlogic.gdx.audio.Music;
 

@@ -1,13 +1,10 @@
-package love.distributedrebirth.demo4d.music;
+package love.distributedrebirth.gdxapp;
 
+import imgui.type.ImBoolean;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 
-/**
- * The song types.
- */
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public enum MusicSongType {
-	INTRO,
-	CREDITS,
-	BACKGROUND
+public interface ImGuiRenderer {
+
+	void render(ImBoolean widgetOpen);
 }

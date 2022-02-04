@@ -1,4 +1,4 @@
-package love.distributedrebirth.demo4d;
+package love.distributedrebirth.gdxapp;
 
 import java.util.HashMap;
 import java.util.List;
@@ -16,19 +16,19 @@ import com.badlogic.gdx.utils.ScreenUtils;
 import imgui.ImGui;
 import imgui.type.ImBoolean;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
-import love.distributedrebirth.demo4d.matrix4d.ScreenMatrix4D;
-import love.distributedrebirth.demo4d.music.MusicManager;
-import love.distributedrebirth.demo4d.music.MusicPlayerRenderer;
-import love.distributedrebirth.demo4d.music.MusicSongType;
-import love.distributedrebirth.demo4d.screen.BasePartRenderer;
-import love.distributedrebirth.demo4d.screen.BasicConsoleRenderer;
-import love.distributedrebirth.demo4d.screen.HebrewWalletRenderer;
-import love.distributedrebirth.demo4d.screen.ScreenCredits;
-import love.distributedrebirth.demo4d.screen.ScreenDefault;
-import love.distributedrebirth.demo4d.screen.ScreenHelp;
-import love.distributedrebirth.demo4d.screen.ScreenIntro;
-import love.distributedrebirth.demo4d.screen.ScreenIntroMission;
-import love.distributedrebirth.demo4d.screen.ScreenUnicode4D;
+import love.distributedrebirth.gdxapp.matrix4d.ScreenMatrix4D;
+import love.distributedrebirth.gdxapp.music.MusicManager;
+import love.distributedrebirth.gdxapp.music.MusicPlayerRenderer;
+import love.distributedrebirth.gdxapp.music.MusicSongType;
+import love.distributedrebirth.gdxapp.screen.BasePartRenderer;
+import love.distributedrebirth.gdxapp.screen.BasicConsoleRenderer;
+import love.distributedrebirth.gdxapp.screen.HebrewWalletRenderer;
+import love.distributedrebirth.gdxapp.screen.ScreenCredits;
+import love.distributedrebirth.gdxapp.screen.ScreenDefault;
+import love.distributedrebirth.gdxapp.screen.ScreenHelp;
+import love.distributedrebirth.gdxapp.screen.ScreenIntro;
+import love.distributedrebirth.gdxapp.screen.ScreenIntroMission;
+import love.distributedrebirth.gdxapp.screen.ScreenUnicode4D;
 import love.distributedrebirth.numberxd.base2t.part.warp.TOSWarpCore;
 import net.spookygames.gdx.nativefilechooser.NativeFileChooser;
 

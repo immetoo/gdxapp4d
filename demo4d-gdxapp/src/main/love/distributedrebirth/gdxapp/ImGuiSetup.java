@@ -1,4 +1,4 @@
-package love.distributedrebirth.demo4d;
+package love.distributedrebirth.gdxapp;
 
 import com.badlogic.gdx.Gdx;
 

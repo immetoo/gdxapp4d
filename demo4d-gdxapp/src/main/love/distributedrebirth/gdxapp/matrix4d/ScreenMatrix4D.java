@@ -1,4 +1,4 @@
-package love.distributedrebirth.demo4d.matrix4d;
+package love.distributedrebirth.gdxapp.matrix4d;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
@@ -28,8 +28,8 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import imgui.ImGui;
 import imgui.flag.ImGuiCond;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
-import love.distributedrebirth.demo4d.Demo4DMain;
-import love.distributedrebirth.demo4d.Demo4DMainAdapter;
+import love.distributedrebirth.gdxapp.Demo4DMain;
+import love.distributedrebirth.gdxapp.Demo4DMainAdapter;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class ScreenMatrix4D extends Demo4DMainAdapter {

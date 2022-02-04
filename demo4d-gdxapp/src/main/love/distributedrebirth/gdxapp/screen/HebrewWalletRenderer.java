@@ -1,12 +1,12 @@
-package love.distributedrebirth.demo4d.screen;
+package love.distributedrebirth.gdxapp.screen;
 
 import imgui.ImGui;
 import imgui.flag.ImGuiCond;
 import imgui.flag.ImGuiTableFlags;
 import imgui.type.ImBoolean;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
-import love.distributedrebirth.demo4d.Demo4DMain;
-import love.distributedrebirth.demo4d.ImGuiRendererMain;
+import love.distributedrebirth.gdxapp.Demo4DMain;
+import love.distributedrebirth.gdxapp.ImGuiRendererMain;
 import love.distributedrebirth.numberxd.Gê̄ldGetậl;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")

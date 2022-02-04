@@ -1,4 +1,4 @@
-package love.distributedrebirth.demo4d;
+package love.distributedrebirth.gdxapp;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 

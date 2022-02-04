@@ -1,4 +1,4 @@
-package love.distributedrebirth.demo4d.screen;
+package love.distributedrebirth.gdxapp.screen;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,8 +9,8 @@ import imgui.flag.ImGuiTableFlags;
 import imgui.type.ImBoolean;
 import imgui.type.ImInt;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
-import love.distributedrebirth.demo4d.Demo4DMain;
-import love.distributedrebirth.demo4d.ImGuiRendererMain;
+import love.distributedrebirth.gdxapp.Demo4DMain;
+import love.distributedrebirth.gdxapp.ImGuiRendererMain;
 import love.distributedrebirth.numberxd.base2t.BasePartFactory;
 import love.distributedrebirth.numberxd.base2t.glyph.BaseGlyphSet;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt1ʸᴰ;
