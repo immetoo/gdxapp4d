@@ -1,101 +1,53 @@
 package love.distributedrebirth.numberxd;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import love.distributedrebirth.numberxd.base2t.BaseAppenderOctal;
+import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.BaseIteratorOctal;
-import love.distributedrebirth.numberxd.base2t.BaseAppenderTyte;
 import love.distributedrebirth.numberxd.base2t.BaseIteratorTyte;
+import love.distributedrebirth.numberxd.base2t.part.T16PartHex;
 import love.distributedrebirth.numberxd.base2t.type.V009Tyte;
 import love.distributedrebirth.numberxd.base2t.type.V144Tocta;
 
 /**
  * Holds an 144 bit fraction.
- * 
- * @author willemtsade ©Δ∞ 仙上主天
  */
-public class GroßGetậl1ⁿᴰ implements BaseGetậl<GroßGetậl1ⁿᴰ> {
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
+public class GroßGetậl1ⁿᴰ extends AbstractBaseGetậlLevel0<GroßGetậl1ⁿᴰ,V009Tyte> {
 	
-	public static int NUMERATOR_SIZE = 7;
-	public static int DENOMINATOR_SIZE = 9;
-	public static int BIT_COUNT = V144Tocta.BIT_COUNT;
-	private final V009Tyte[] numerator = new V009Tyte[NUMERATOR_SIZE];
-	private final V009Tyte[] denominator = new V009Tyte[DENOMINATOR_SIZE];
+	//public static int NUMERATOR_SIZE = 7;
+	//public static int DENOMINATOR_SIZE = 9;
+	//public static int BIT_COUNT = V144Tocta.BIT_COUNT;
+	//private final V009Tyte[] numerator = new V009Tyte[NUMERATOR_SIZE];
+	//private final V009Tyte[] denominator = new V009Tyte[DENOMINATOR_SIZE];
+	private final V144Tocta value;
 	
 	public GroßGetậl1ⁿᴰ() {
-		for (int i=0;i<NUMERATOR_SIZE;i++) {
-			numerator[i] = new V009Tyte();
-		}
-		for (int i=0;i<DENOMINATOR_SIZE;i++) {
-			denominator[i] = new V009Tyte();
-		}
+		this(new V144Tocta());
 	}
 	
 	public GroßGetậl1ⁿᴰ(BaseIteratorOctal values) {
-		for (int i=0;i<NUMERATOR_SIZE;i++) {
-			numerator[i] = new V009Tyte(values);
-		}
-		for (int i=0;i<DENOMINATOR_SIZE;i++) {
-			denominator[i] = new V009Tyte(values);
-		}
+		this(new V144Tocta(values));
 	}
 	
 	public GroßGetậl1ⁿᴰ(BaseIteratorTyte values) {
-		for (int i=0;i<NUMERATOR_SIZE;i++) {
-			numerator[i] = values.next();
-		}
-		for (int i=0;i<DENOMINATOR_SIZE;i++) {
-			denominator[i] = values.next();
-		}
+		this(new V144Tocta(values));
 	}
 	
-	public GroßGetậl1ⁿᴰ(V144Tocta tocta) {
-		List<V009Tyte> tytes = new ArrayList<>();
-		tocta.fillTytesByReference(new BaseAppenderTyte(tytes));
-		for (int i=0;i<NUMERATOR_SIZE;i++) {
-			numerator[i] = tytes.get(i);
-		}
-		for (int i=0;i<DENOMINATOR_SIZE;i++) {
-			denominator[i] = tytes.get(i+NUMERATOR_SIZE);
-		}
+	public GroßGetậl1ⁿᴰ(V144Tocta value) {
+		this.value = value;
 	}
 	
-	public V144Tocta toToctaByReference() {
-		return new V144Tocta(iteratorTytesByReference());
-	}
-	
-	public V144Tocta toToctaByClone() {
-		return new V144Tocta(iteratorOctalsByClone());
-	}
-
 	@Override
-	public int getBitCount() {
-		return V144Tocta.BIT_COUNT;
+	public V009Tyte getValue() {
+		return value.getTytePart(T16PartHex.values()[valueIndex0]);
 	}
-
+	
+	@Override
+	public int getValueIndex0Length() {
+		return T16PartHex.LENGTH();
+	}
+	
 	@Override
 	public GroßGetậl1ⁿᴰ toClone() {
-		return new GroßGetậl1ⁿᴰ(iteratorOctalsByClone());
-	}
-
-	@Override
-	public void fillOctalsByClone(BaseAppenderOctal appender) {
-		for (int i=0;i<NUMERATOR_SIZE;i++) {
-			numerator[i].fillOctalsByClone(appender);
-		}
-		for (int i=0;i<DENOMINATOR_SIZE;i++) {
-			denominator[i].fillOctalsByClone(appender);
-		}
-	}
-
-	@Override
-	public void fillTytesByReference(BaseAppenderTyte appender) {
-		for (int i=0;i<NUMERATOR_SIZE;i++) {
-			appender.add(numerator[i]);
-		}
-		for (int i=0;i<DENOMINATOR_SIZE;i++) {
-			appender.add(denominator[i]);
-		}
+		return new GroßGetậl1ⁿᴰ(value.toClone());
 	}
 }

@@ -5,11 +5,9 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-/**
- * 
- * 
- * @author willemtsade ©Δ∞ 仙上主天
- */
+import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
+
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public enum Gê̄ldGetậlÅtHebrewVowel {
 	NONE     (0,  (char) 0x0000),
 	VOWEL_1  (1,  (char) 0x05B4),
