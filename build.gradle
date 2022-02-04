@@ -43,7 +43,7 @@ project(":demo4d-bassboonyd") {
 	}
 }
 
-project(":numberxd") {
+project(":demo4d-numberxd") {
 	apply plugin: "java-library"
 	dependencies {
 		testImplementation "org.junit.jupiter:junit-jupiter:$junitVersion"
@@ -69,7 +69,7 @@ project(":core") {
 	apply plugin: "java-library"
 	dependencies {
 		//api "org.x4o:x4o-driver:$x4oVersion"
-		api project(":numberxd")
+		api project(":demo4d-numberxd")
 		api "com.badlogicgames.gdx:gdx:$gdxVersion"
 		api "io.github.spair:imgui-java-binding:$spairVersion"
 		api "io.github.spair:imgui-java-lwjgl3:$spairVersion"
