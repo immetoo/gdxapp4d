@@ -8,7 +8,10 @@ import java.util.Iterator;
 import java.util.List;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnEnumInstanceʸᴰ;
+import love.distributedrebirth.numberxd.base2t.glyph.BãßBȍőnGlyphSetKeyʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.T08PartOctal;
 import love.distributedrebirth.numberxd.base2t.type.V072Tong;
 import love.distributedrebirth.numberxd.base2t.type.V144Tocta;
@@ -26,6 +29,12 @@ public enum Base2Terminator implements BãßBȍőnEnumInstanceʸᴰ<Base2Termina
 	private static final int BLOCK_TOCTA_SIZE = 18;
 	private static final int SHIFT_8 = 8;
 	private static final int SHIFT_16 = 16;
+	private final BãßBȍőnCoffinOpenʸᴰ<BãßBȍőnGlyphSetKeyʸᴰ> BBC = BãßBȍőnCoffinOpenʸᴰ.newInstance();
+	public BãßBȍőnCoffinʸᴰ<BãßBȍőnGlyphSetKeyʸᴰ> GET_BBC() { return BBC; }
+	
+	private Base2Terminator() {
+		BBC.INIT_BOON(this);
+	}
 	
 	public int Bãß2ReadTong(InputStream input, List<V072Tong> output) throws IOException {
 		int totalBytes = 0;

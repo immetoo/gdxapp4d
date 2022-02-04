@@ -21,7 +21,6 @@ public enum T02PartBinary implements BãßBȍőnPartʸᴰ<T02PartBinary> {
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.ID_TONE, idTone);
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.CHINA_KEY, chinaKey);
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.CHINA_VALUE, chinaValue);
-		BBC.PUT_MAP(BãßBȍőnPartKeyʸᴰ.MAP_TONE);
-		BBC.PUT_MAP(BãßBȍőnPartKeyʸᴰ.MAP_CHINA);
+		BBC.INIT_BOON(this);
 	}
 }

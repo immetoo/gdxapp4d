@@ -25,8 +25,7 @@ public enum T04PartQuad implements BãßBȍőnPartAlt1ʸᴰ<T04PartQuad> {
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.CHINA_KEY, chinaKey);
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.CHINA_VALUE, chinaValue);
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.ALT_1_VALUE, alt1Value);
-		BBC.PUT_MAP(BãßBȍőnPartKeyʸᴰ.MAP_TONE);
-		BBC.PUT_MAP(BãßBȍőnPartKeyʸᴰ.MAP_CHINA);
+		BBC.INIT_BOON(this);
 	}
 	
 	public T02PartBinary splitPartBinary(T02PartBinary part) {

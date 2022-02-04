@@ -55,8 +55,7 @@ public enum T20PartScore implements BãßBȍőnPartAlt4ʸᴰ<T20PartScore> {
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.ALT_2_VALUE, alt2Value);
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.ALT_3_VALUE, alt3Value);
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.ALT_4_VALUE, alt4Value);
-		BBC.PUT_MAP(BãßBȍőnPartKeyʸᴰ.MAP_TONE);
-		BBC.PUT_MAP(BãßBȍőnPartKeyʸᴰ.MAP_CHINA);
+		BBC.INIT_BOON(this);
 	}
 	
 	public T20PartScore BãßValueOfOpenLC(String openLCKey) {

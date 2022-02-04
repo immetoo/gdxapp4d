@@ -4,12 +4,24 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinStoreʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnEnumSetʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnInitMethodʸᴰ;
 import love.distributedrebirth.numberxd.base2t.glyph.BaseGlyphSet;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public interface BãßBȍőnPartʸᴰ<T extends BãßBȍőnPartʸᴰ<T>> extends BãßBȍőnEnumSetʸᴰ<T>, BãßBȍőnCoffinStoreʸᴰ<BãßBȍőnPartKeyʸᴰ> {
+	
+	@BãßBȍőnInitMethodʸᴰ
+	default void initMapTone(BãßBȍőnCoffinOpenʸᴰ<BãßBȍőnPartKeyʸᴰ> BBC) {
+		BBC.PUT_MAP(BãßBȍőnPartKeyʸᴰ.MAP_TONE);
+	}
+	
+	@BãßBȍőnInitMethodʸᴰ
+	default void initMapChina(BãßBȍőnCoffinOpenʸᴰ<BãßBȍőnPartKeyʸᴰ> BBC) {
+		BBC.PUT_MAP(BãßBȍőnPartKeyʸᴰ.MAP_CHINA);
+	}
 	
 	default String BȍőnIdentifierTone() {
 		return GET_BBC().GET_STR(BãßBȍőnPartKeyʸᴰ.ID_TONE);
