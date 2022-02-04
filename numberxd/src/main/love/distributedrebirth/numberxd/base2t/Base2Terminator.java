@@ -10,8 +10,8 @@ import java.util.List;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnEnumInstanceʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.T08PartOctal;
-import love.distributedrebirth.numberxd.base2t.type.V048Tong;
-import love.distributedrebirth.numberxd.base2t.type.V090Tocta;
+import love.distributedrebirth.numberxd.base2t.type.V072Tong;
+import love.distributedrebirth.numberxd.base2t.type.V144Tocta;
 
 /**
  * Terminate from and to classical bytes.
@@ -27,7 +27,7 @@ public enum Base2Terminator implements BãßBȍőnEnumInstanceʸᴰ<Base2Termina
 	private static final int SHIFT_8 = 8;
 	private static final int SHIFT_16 = 16;
 	
-	public int Bãß2ReadTong(InputStream input, List<V048Tong> output) throws IOException {
+	public int Bãß2ReadTong(InputStream input, List<V072Tong> output) throws IOException {
 		int totalBytes = 0;
 		byte[] data = new byte[BLOCK_TONG_SIZE];
 		int readDataSize = 0; // per 9 bytes we have 24 octals for one V072Tong number
@@ -37,13 +37,13 @@ public enum Base2Terminator implements BãßBȍőnEnumInstanceʸᴰ<Base2Termina
 			int v1 =  data[3] +  (data[4] << SHIFT_8) +  (data[5] << SHIFT_16);
 			int v2 =  data[6] +  (data[7] << SHIFT_8) +  (data[8] << SHIFT_16);
 			List<T08PartOctal> octals = Bãß2ReadOctals(v0, v1, v2);
-			output.add(new V048Tong(new BaseIteratorOctal(octals.iterator())));
+			output.add(new V072Tong(new BaseIteratorOctalAdapter(octals.iterator())));
 			totalBytes += BLOCK_TONG_SIZE;
 		}
 		return totalBytes;
 	}
 	
-	public int Bãß2ReadTocta(InputStream input, List<V090Tocta> output) throws IOException {
+	public int Bãß2ReadTocta(InputStream input, List<V144Tocta> output) throws IOException {
 		int totalBytes = 0;
 		byte[] data = new byte[BLOCK_TOCTA_SIZE];
 		int readDataSize = 0; // per 18 bytes we have 48 octals for one V144Tocta number
@@ -56,7 +56,7 @@ public enum Base2Terminator implements BãßBȍőnEnumInstanceʸᴰ<Base2Termina
 			int v4 = data[12] + (data[13] << SHIFT_8) + (data[14] << SHIFT_16);
 			int v5 = data[15] + (data[16] << SHIFT_8) + (data[17] << SHIFT_16);
 			List<T08PartOctal> octals = Bãß2ReadOctals(v0, v1, v2, v3, v4, v5);
-			output.add(new V090Tocta(new BaseIteratorOctal(octals.iterator())));
+			output.add(new V144Tocta(new BaseIteratorOctalAdapter(octals.iterator())));
 			totalBytes += BLOCK_TOCTA_SIZE;
 		}
 		return totalBytes;
@@ -76,11 +76,11 @@ public enum Base2Terminator implements BãßBȍőnEnumInstanceʸᴰ<Base2Termina
 		return octals;
 	}
 	
-	public int Bãß2WriteTong(List<V048Tong> data, OutputStream output) throws IOException {
+	public int Bãß2WriteTong(List<V072Tong> data, OutputStream output) throws IOException {
 		return Bãß2Write(data, output);
 	}
 	
-	public int Bãß2WriteTocta(List<V090Tocta> data, OutputStream output) throws IOException {
+	public int Bãß2WriteTocta(List<V144Tocta> data, OutputStream output) throws IOException {
 		return Bãß2Write(data, output);
 	}
 	

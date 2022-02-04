@@ -16,33 +16,33 @@ import love.distributedrebirth.numberxd.base2t.part.T16PartHex;
  * Holds an 144 bit value.
  */
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public final class V090Tocta implements BaseNumberTyte<V090Tocta> {
+public final class V144Tocta implements BaseNumberTyte<V144Tocta> {
 
-	public static int BIT_COUNT = V048Tong.BIT_COUNT * T02PartBinary.LENGTH();
-	private V048Tong[] values = new V048Tong[T02PartBinary.LENGTH()];
+	public static int BIT_COUNT = V072Tong.BIT_COUNT * T02PartBinary.LENGTH();
+	private V072Tong[] values = new V072Tong[T02PartBinary.LENGTH()];
 	
-	public V090Tocta() {
-		this(new V048Tong(), new V048Tong());
+	public V144Tocta() {
+		this(new V072Tong(), new V072Tong());
 	}
 	
-	public V090Tocta(BaseIteratorOctal values) {
-		this(new V048Tong(values), new V048Tong(values));
+	public V144Tocta(BaseIteratorOctal values) {
+		this(new V072Tong(values), new V072Tong(values));
 	}
 	
-	public V090Tocta(BaseIteratorTyte values) {
-		this(new V048Tong(values), new V048Tong(values));
+	public V144Tocta(BaseIteratorTyte values) {
+		this(new V072Tong(values), new V072Tong(values));
 	}
 	
-	private V090Tocta(V048Tong valueHigh, V048Tong valueLow) {
+	private V144Tocta(V072Tong valueHigh, V072Tong valueLow) {
 		setValue(T02PartBinary.PART_1, valueHigh);
 		setValue(T02PartBinary.PART_2, valueLow);
 	}
 	
-	public V048Tong getValue(T02PartBinary part) {
+	public V072Tong getValue(T02PartBinary part) {
 		return values[part.ordinal()];
 	}
 	
-	public void setValue(T02PartBinary part, V048Tong value) {
+	public void setValue(T02PartBinary part, V072Tong value) {
 		values[part.ordinal()] = value;
 	}
 	
@@ -78,8 +78,8 @@ public final class V090Tocta implements BaseNumberTyte<V090Tocta> {
 	}
 	
 	@Override
-	public V090Tocta toClone() {
-		return new V090Tocta(iteratorOctalsByClone());
+	public V144Tocta toClone() {
+		return new V144Tocta(iteratorOctalsByClone());
 	}
 	
 	@Override

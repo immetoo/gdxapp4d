@@ -1,44 +1,47 @@
 package love.distributedrebirth.numberxd;
 
-import love.distributedrebirth.numberxd.base2t.typexl.V0x000CA8ˣᴸ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.BaseIteratorOctal;
 import love.distributedrebirth.numberxd.base2t.BaseIteratorOctalStack;
-import love.distributedrebirth.numberxd.base2t.part.T08PartOctal;
+import love.distributedrebirth.numberxd.base2t.part.T04PartQuad;
+import love.distributedrebirth.numberxd.base2t.typexl.V0x049D40ˣᴸ;
 
+/**
+ * Wave quad channel.
+ */
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public class KlompGetậl4ˢᴰ extends AbstractBaseGetậlLevel0<KlompGetậl4ˢᴰ,V0x000CA8ˣᴸ> {
+public class WaveGetậl1ᑫᴰ extends AbstractBaseGetậlLevel0<WaveGetậl1ᑫᴰ, V0x049D40ˣᴸ> {
 
-	private final V0x000CA8ˣᴸ[] values = new V0x000CA8ˣᴸ[T08PartOctal.LENGTH()];
+	private final V0x049D40ˣᴸ[] values = new V0x049D40ˣᴸ[T04PartQuad.LENGTH()];
 	
-	public KlompGetậl4ˢᴰ() {
+	public WaveGetậl1ᑫᴰ() {
 		for (int i=0;i<this.values.length;i++) {
-			this.values[i] = new V0x000CA8ˣᴸ();
+			this.values[i] = new V0x049D40ˣᴸ();
 		}
 	}
 	
-	public KlompGetậl4ˢᴰ(BaseIteratorOctal values) {
+	public WaveGetậl1ᑫᴰ(BaseIteratorOctal values) {
 		for (int i=0;i<this.values.length;i++) {
-			this.values[i] = new V0x000CA8ˣᴸ(values);
+			this.values[i] = new V0x049D40ˣᴸ(values);
 		}
 	}
 	
 	@Override
-	public V0x000CA8ˣᴸ getValue() {
+	public V0x049D40ˣᴸ getValue() {
 		return values[valueIndex0];
 	}
 	
 	@Override
 	public int getValueIndex0Length() {
-		return T08PartOctal.LENGTH();
+		return T04PartQuad.LENGTH();
 	}
 	
 	@Override
-	public KlompGetậl4ˢᴰ toClone() {
+	public WaveGetậl1ᑫᴰ toClone() {
 		BaseIteratorOctalStack cloneStack = new BaseIteratorOctalStack();
 		for (int i=0;i<this.values.length;i++) {
 			cloneStack.addIterator(this.values[i].iteratorOctalsByClone());
 		}
-		return new KlompGetậl4ˢᴰ(cloneStack);
+		return new WaveGetậl1ᑫᴰ(cloneStack);
 	}
 }

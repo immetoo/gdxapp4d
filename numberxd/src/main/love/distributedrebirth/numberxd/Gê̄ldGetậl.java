@@ -3,37 +3,21 @@ package love.distributedrebirth.numberxd;
 import java.util.ArrayList;
 import java.util.List;
 
+import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.T04PartQuad;
-import love.distributedrebirth.numberxd.base2t.type.V024Teger;
+import love.distributedrebirth.numberxd.base2t.type.V009Tyte;
+import love.distributedrebirth.numberxd.base2t.type.V036Teger;
 
-/**
- * 
- * @author willemtsade ©Δ∞ 仙上主天
- */
-public class Gê̄ldGetậl {
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
+public class Gê̄ldGetậl extends AbstractBaseGetậlLevel0<Gê̄ldGetậl,V009Tyte> {
 
-	private final Gê̄ldGetậlÅtHebrew nummerAlphabet;
-	private final Gê̄ldGetậlÅtHebrew nummerDeelA;
-	private final Gê̄ldGetậlÅtHebrew nummerDeelB;
-	private final Gê̄ldGetậlÅtHebrew nummerDeelC;
+	private final V036Teger value;
 	private final double totalDecimalValue;
 	private static final Character LEFT_TO_RIGHT_MARK = 0x200E;
 	private static final Character RIGHT_TO_LEFT_MARK = 0x200F;
 	
-	public Gê̄ldGetậl(V024Teger teger) {
-		this(
-				new Gê̄ldGetậlÅtHebrew(teger.getTytePart(T04PartQuad.PART_1)),
-				new Gê̄ldGetậlÅtHebrew(teger.getTytePart(T04PartQuad.PART_2)),
-				new Gê̄ldGetậlÅtHebrew(teger.getTytePart(T04PartQuad.PART_3)),
-				new Gê̄ldGetậlÅtHebrew(teger.getTytePart(T04PartQuad.PART_4))
-			);
-	}
-	
-	public Gê̄ldGetậl(Gê̄ldGetậlÅtHebrew nummerAlphabet, Gê̄ldGetậlÅtHebrew nummerDeelA, Gê̄ldGetậlÅtHebrew nummerDeelB, Gê̄ldGetậlÅtHebrew nummerDeelC) {
-		this.nummerAlphabet = nummerAlphabet;
-		this.nummerDeelA = nummerDeelA;
-		this.nummerDeelB = nummerDeelB;
-		this.nummerDeelC = nummerDeelC;
+	public Gê̄ldGetậl(V036Teger value) {
+		this.value = value;
 		this.totalDecimalValue = calculateDecimalValue();
 	}
 	
@@ -101,14 +85,19 @@ public class Gê̄ldGetậl {
 		} else {
 			deelC = new Gê̄ldGetậlÅtHebrew();
 		}
-		this.nummerAlphabet = full;
-		this.nummerDeelA = deelA;
-		this.nummerDeelB = deelB;
-		this.nummerDeelC = deelC;
+		value = new V036Teger();
+		value.setTytePart(T04PartQuad.PART_1, full.toTyte());
+		value.setTytePart(T04PartQuad.PART_2, deelA.toTyte());
+		value.setTytePart(T04PartQuad.PART_3, deelB.toTyte());
+		value.setTytePart(T04PartQuad.PART_4, deelC.toTyte());
 		this.totalDecimalValue = calculateDecimalValue();
 	}
 	
 	private double calculateDecimalValue() {
+		Gê̄ldGetậlÅtHebrew nummerAlphabet = new Gê̄ldGetậlÅtHebrew(value.getTytePart(T04PartQuad.PART_1));
+		Gê̄ldGetậlÅtHebrew nummerDeelA = new Gê̄ldGetậlÅtHebrew(value.getTytePart(T04PartQuad.PART_2));
+		Gê̄ldGetậlÅtHebrew nummerDeelB = new Gê̄ldGetậlÅtHebrew(value.getTytePart(T04PartQuad.PART_3));
+		Gê̄ldGetậlÅtHebrew nummerDeelC = new Gê̄ldGetậlÅtHebrew(value.getTytePart(T04PartQuad.PART_4));
 		boolean hasFourDigits = 
 				!Gê̄ldGetậlÅtHebrewLetter.NONE.equals(nummerDeelA.getLetter()) && 
 				!Gê̄ldGetậlÅtHebrewLetter.NONE.equals(nummerDeelB.getLetter()) &&
@@ -126,33 +115,8 @@ public class Gê̄ldGetậl {
 		return totalDecimalValue;
 	}
 	
-	public Gê̄ldGetậlÅtHebrew getNummerAlphabet() {
-		return nummerAlphabet;
-	}
-	
-	public Gê̄ldGetậlÅtHebrew getNummerDeelA() {
-		return nummerDeelA;
-	}
-	
-	public Gê̄ldGetậlÅtHebrew getNummerDeelB() {
-		return nummerDeelB;
-	}
-	
-	public Gê̄ldGetậlÅtHebrew getNummerDeelC() {
-		return nummerDeelC;
-	}
-	
 	public double getTotalDecimalValue() {
 		return totalDecimalValue;
-	}
-	
-	public V024Teger toTeger() {
-		V024Teger result = new V024Teger();
-		result.setTytePart(T04PartQuad.PART_1, nummerAlphabet.toTyte());
-		result.setTytePart(T04PartQuad.PART_2, nummerDeelA.toTyte());
-		result.setTytePart(T04PartQuad.PART_3, nummerDeelB.toTyte());
-		result.setTytePart(T04PartQuad.PART_4, nummerDeelC.toTyte());
-		return result;
 	}
 	
 	public String toHebrewString() {
@@ -160,6 +124,10 @@ public class Gê̄ldGetậl {
 	}
 	
 	public String toHebrewString(boolean reverse) {
+		Gê̄ldGetậlÅtHebrew nummerAlphabet = new Gê̄ldGetậlÅtHebrew(value.getTytePart(T04PartQuad.PART_1));
+		Gê̄ldGetậlÅtHebrew nummerDeelA = new Gê̄ldGetậlÅtHebrew(value.getTytePart(T04PartQuad.PART_2));
+		Gê̄ldGetậlÅtHebrew nummerDeelB = new Gê̄ldGetậlÅtHebrew(value.getTytePart(T04PartQuad.PART_3));
+		Gê̄ldGetậlÅtHebrew nummerDeelC = new Gê̄ldGetậlÅtHebrew(value.getTytePart(T04PartQuad.PART_4));
 		StringBuilder buf = new StringBuilder();
 		buf.append(RIGHT_TO_LEFT_MARK);
 		buf.append(nummerAlphabet.getLetter().getCharacter());
@@ -188,5 +156,20 @@ public class Gê̄ldGetậl {
 			buf.reverse(); // ImGui skips RL marker so renders wrong....
 		}
 		return buf.toString();
+	}
+	
+	@Override
+	public int getValueIndex0Length() {
+		return T04PartQuad.LENGTH();
+	}
+	
+	@Override
+	public V009Tyte getValue() {
+		return value.getTytePart(T04PartQuad.values()[valueIndex0]);
+	}
+	
+	@Override
+	public Gê̄ldGetậl toClone() {
+		return new Gê̄ldGetậl(value.toClone());
 	}
 }

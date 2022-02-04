@@ -1,15 +1,11 @@
 package love.distributedrebirth.numberxd.base2t;
 
-import java.util.Iterator;
-
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
-import love.distributedrebirth.numberxd.base2t.part.T08PartOctal;
 
 /**
- * Iterator model for Octals.
+ * Marker for XL numbers which needs seperator renderer.
  */
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public interface BaseIteratorOctal extends Iterator<T08PartOctal> {
+public interface BaseNumberXL<V extends BaseNumber<V>> extends BaseNumber<V> {
 	
 }
-
