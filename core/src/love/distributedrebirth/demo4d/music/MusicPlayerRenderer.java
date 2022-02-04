@@ -12,15 +12,15 @@ import imgui.flag.ImGuiTableColumnFlags;
 import imgui.flag.ImGuiTableFlags;
 import imgui.type.ImBoolean;
 import love.distributedrebirth.demo4d.ImGuiRendererMain;
+import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.demo4d.Demo4DMain;
 import net.spookygames.gdx.nativefilechooser.NativeFileChooserCallback;
 import net.spookygames.gdx.nativefilechooser.NativeFileChooserConfiguration;
 
 /**
- * 
- * 
- * @author willemtsade ©Δ∞ 仙上主天
+ * The music player ui.
  */
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class MusicPlayerRenderer extends ImGuiRendererMain {
 
 	private final NativeFileChooserConfiguration fileChooserConfig;

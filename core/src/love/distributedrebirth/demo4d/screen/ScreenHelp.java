@@ -2,14 +2,11 @@ package love.distributedrebirth.demo4d.screen;
 
 import com.badlogic.gdx.Screen;
 
+import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.demo4d.Demo4DMain;
 import love.distributedrebirth.demo4d.music.MusicSongType;
 
-/**
- * 
- * 
- * @author willemtsade ©Δ∞ 仙上主天
- */
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class ScreenHelp extends ScrollScreenAdapter {
 	private final String creditsText = String.join("\n",
 			"Genesis 11",

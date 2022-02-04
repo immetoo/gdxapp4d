@@ -8,6 +8,7 @@ import imgui.flag.ImGuiCond;
 import imgui.flag.ImGuiTableFlags;
 import imgui.type.ImBoolean;
 import imgui.type.ImInt;
+import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.demo4d.Demo4DMain;
 import love.distributedrebirth.demo4d.ImGuiRendererMain;
 import love.distributedrebirth.numberxd.base2t.BasePartFactory;
@@ -18,11 +19,7 @@ import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt3ʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt4ʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartʸᴰ;
 
-/**
- * 
- * 
- * @author willemtsade ©Δ∞ 仙上主天
- */
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class BasePartRenderer extends ImGuiRendererMain {
 
 	private ImInt selectedBasePart = new ImInt();

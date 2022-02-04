@@ -15,6 +15,7 @@ import com.badlogic.gdx.utils.ScreenUtils;
 
 import imgui.ImGui;
 import imgui.type.ImBoolean;
+import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.demo4d.matrix4d.ScreenMatrix4D;
 import love.distributedrebirth.demo4d.music.MusicManager;
 import love.distributedrebirth.demo4d.music.MusicPlayerRenderer;
@@ -33,9 +34,8 @@ import net.spookygames.gdx.nativefilechooser.NativeFileChooser;
 
 /**
  * Main loop render dispatcher and event handling.
- * 
- * @author willemtsade ©Δ∞ 仙上主天
  */
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class Demo4DMain extends Game {
 	private List<String> args;
 	public NativeFileChooser fileChooser;

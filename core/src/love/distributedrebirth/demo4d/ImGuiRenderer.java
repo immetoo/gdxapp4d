@@ -1,12 +1,9 @@
 package love.distributedrebirth.demo4d;
 
 import imgui.type.ImBoolean;
+import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 
-/**
- * 
- * 
- * @author willemtsade ©Δ∞ 仙上主天
- */
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public interface ImGuiRenderer {
 
 	void render(ImBoolean widgetOpen);
