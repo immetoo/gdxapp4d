@@ -8,13 +8,13 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.gdxapp.Demo4DMain;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public class ScreenDefault extends ScreenAdapter {
+public class ScreenLoading extends ScreenAdapter {
 	private final Demo4DMain main;
 	private Texture backgroundImage;
 	
-	public ScreenDefault(final Demo4DMain main) {
+	public ScreenLoading(final Demo4DMain main) {
 		this.main = main;
-		backgroundImage = new Texture(Gdx.files.internal("background/terrydavis-front.png"));
+		backgroundImage = new Texture(Gdx.files.internal("background/gdxapp-loading.png"));
 	}
 	
 	@Override

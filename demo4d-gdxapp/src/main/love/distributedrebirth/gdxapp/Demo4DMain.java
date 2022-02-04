@@ -28,6 +28,7 @@ import love.distributedrebirth.gdxapp.screen.ScreenDefault;
 import love.distributedrebirth.gdxapp.screen.ScreenHelp;
 import love.distributedrebirth.gdxapp.screen.ScreenIntro;
 import love.distributedrebirth.gdxapp.screen.ScreenIntroMission;
+import love.distributedrebirth.gdxapp.screen.ScreenLoading;
 import love.distributedrebirth.gdxapp.screen.ScreenUnicode4D;
 import love.distributedrebirth.numberxd.base2t.part.warp.TOSWarpCore;
 import net.spookygames.gdx.nativefilechooser.NativeFileChooser;
@@ -37,6 +38,7 @@ import net.spookygames.gdx.nativefilechooser.NativeFileChooser;
  */
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class Demo4DMain extends Game {
+	private int lazyIntCnt = 33;
 	private List<String> args;
 	public NativeFileChooser fileChooser;
 	public SpriteBatch batch;
@@ -61,6 +63,32 @@ public class Demo4DMain extends Game {
 		this.fileChooser = fileChooser;
 	}
 	
+	private void lazyInit() {
+		if (lazyIntCnt > 0) {
+			lazyIntCnt--;
+			return;
+		}
+		ImGuiSetup.init();
+		
+		int fileArgu = args.indexOf("warpcore-load");
+		if (fileArgu != -1) {
+			// TODO: load warpcore
+		}
+		if (!args.contains("warpcore-nolock")) {
+			TOSWarpCore.INSTANCE.BãßLockWarpCipher();
+		}
+		
+		if (args.contains("full-screen")) {
+			Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());
+		}
+		if (args.contains("no-intro")) {
+			selectScreen(ScreenDefault.class);
+			music.play(MusicSongType.BACKGROUND);
+		} else {
+			selectScreen(ScreenIntro.class);
+		}
+	}
+	
 	public void create() {
 		batch = new SpriteBatch();
 		font = new BitmapFont();
@@ -73,14 +101,15 @@ public class Demo4DMain extends Game {
 		music = new MusicManager();
 		music.init(args.contains("no-music"));
 		
-		ImGuiSetup.init();
+		screens = new HashMap<>();
 		widgets = new HashMap<>();
+		
 		putWidget(new MusicPlayerRenderer(this));
 		putWidget(new HebrewWalletRenderer(this));
 		putWidget(new BasePartRenderer(this));
 		putWidget(new BasicConsoleRenderer(this));
 		
-		screens = new HashMap<>();
+		putScreen(new ScreenLoading(this));
 		putScreen(new ScreenIntro(this));
 		putScreen(new ScreenIntroMission(this));
 		putScreen(new ScreenDefault(this));
@@ -89,22 +118,7 @@ public class Demo4DMain extends Game {
 		putScreen(new ScreenMatrix4D(this));
 		putScreen(new ScreenUnicode4D(this));
 		
-		if (args.contains("no-intro")) {
-			selectScreen(ScreenDefault.class);
-			music.play(MusicSongType.BACKGROUND);
-		} else {
-			selectScreen(ScreenIntro.class);
-		}
-		if (args.contains("full-screen")) {
-			Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());
-		}
-		int fileArgu = args.indexOf("warpcore-load");
-		if (fileArgu != -1) {
-			// TODO: load warpcore
-		}
-		if (!args.contains("warpcore-nolock")) {
-			TOSWarpCore.INSTANCE.BãßLockWarpCipher();
-		}
+		selectScreen(ScreenLoading.class);
 	}
 	
 	@Override
@@ -137,6 +151,11 @@ public class Demo4DMain extends Game {
 	@Override
 	public void render() {
 		ScreenUtils.clear(0f, 0f, 0f, 1f, true);
+		if (screen instanceof ScreenLoading) {
+			screen.render(Gdx.graphics.getDeltaTime());
+			lazyInit();
+			return;
+		}
 		ImGuiSetup.imGuiImp.newFrame();
 		ImGui.newFrame();
 		if (hasMainMenu()) {
