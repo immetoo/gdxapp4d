@@ -7,7 +7,7 @@ import love.distributedrebirth.gdxapp.Demo4DMain;
 import love.distributedrebirth.gdxapp.music.MusicSongType;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public class ScreenHelp extends ScrollScreenAdapter {
+public class ScreenHelp extends AbstractScrollScreen {
 	private final String creditsText = String.join("\n",
 			"Genesis 11",
 			" ",
@@ -61,12 +61,12 @@ public class ScreenHelp extends ScrollScreenAdapter {
 	}
 	
 	@Override
-	public void show () {
+	public void showScroll() {
 		main.music.play(MusicSongType.INTRO);
 	}
 	
 	@Override
-	public void hide () {
+	public void hideScroll() {
 		main.music.play(MusicSongType.BACKGROUND);
 	}
 }

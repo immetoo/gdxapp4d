@@ -11,7 +11,7 @@ import love.distributedrebirth.gdxapp.Demo4DMain;
 import love.distributedrebirth.gdxapp.Demo4DMainAdapter;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-abstract public class ScrollScreenAdapter extends Demo4DMainAdapter {
+abstract public class AbstractScrollScreen extends Demo4DMainAdapter {
 	private static final int LINE_HEIGHT = 16;
 	private float scrollDeltaTime = 0f;
 	private String scrollText = "";
@@ -19,7 +19,7 @@ abstract public class ScrollScreenAdapter extends Demo4DMainAdapter {
 	private int scrollLine = LINE_HEIGHT;
 	private final Texture backgroundImage;
 	
-	public ScrollScreenAdapter(final Demo4DMain main, String background) {
+	public AbstractScrollScreen(final Demo4DMain main, String background) {
 		super(main);
 		backgroundImage = new Texture(Gdx.files.internal(background));
 	}
@@ -64,19 +64,30 @@ abstract public class ScrollScreenAdapter extends Demo4DMainAdapter {
 	}
 	
 	@Override
-	public void hide() {
+	public final void show() {
+		showScroll();
+	}
+	
+	protected void showScroll() {
+	}
+	
+	@Override
+	public final void hide() {
 		scrollText = "";
 		scrollIndex = 0;
 		scrollLine = LINE_HEIGHT;
+		hideScroll();
 	}
-
+	
+	protected void hideScroll() {
+	}
+	
 	@Override
 	public final void dispose() {
 		backgroundImage.dispose();
-		disposeScreen(main);
+		disposeScroll();
 	}
 	
-	protected void disposeScreen(Demo4DMain main) {
-		// override if needed
+	protected void disposeScroll() {
 	}
 }

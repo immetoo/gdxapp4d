@@ -7,7 +7,7 @@ import love.distributedrebirth.gdxapp.Demo4DMain;
 import love.distributedrebirth.gdxapp.music.MusicSongType;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public class ScreenCredits extends ScrollScreenAdapter {
+public class ScreenCredits extends AbstractScrollScreen {
 	private final String creditsText = String.join("\n",
 			"Credits;",
 			"At-Ohm-Allah-to-the-power-of-Four",
@@ -78,12 +78,12 @@ public class ScreenCredits extends ScrollScreenAdapter {
 	}
 	
 	@Override
-	public void show () {
+	public void showScroll() {
 		main.music.play(MusicSongType.CREDITS);
 	}
 	
 	@Override
-	public void hide () {
+	public void hideScroll() {
 		main.music.play(MusicSongType.BACKGROUND);
 	}
 }
