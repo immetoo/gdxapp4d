@@ -7,15 +7,15 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnEnumSetʸᴰ;
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public interface BãßBȍőnGlyphSetʸᴰ<T extends BãßBȍőnGlyphSetʸᴰ<T>> extends BãßBȍőnEnumSetʸᴰ<T>, BãßBȍőnCoffinStoreʸᴰ<BãßBȍőnGlyphSetKeyʸᴰ> {
 
-	default BaseGlyphSetNumber10 BȍőnGlyphSetNumber10() {
-		return GET_BBC().GET_OBJ(BãßBȍőnGlyphSetKeyʸᴰ.NUMBERS, BaseGlyphSetNumber10.class);
+	default BaseGlyphSetNumber BȍőnGlyphSetNumber10() {
+		return GET_BBC().GET_OBJ(BãßBȍőnGlyphSetKeyʸᴰ.NUMBERS, BaseGlyphSetNumber.class);
 	}
 	
-	default BaseGlyphSetNumber16 BȍőnGlyphSetNumber16() {
-		return GET_BBC().GET_OBJ(BãßBȍőnGlyphSetKeyʸᴰ.HEXIMALS, BaseGlyphSetNumber16.class);
+	default BaseGlyphSetNumber BȍőnGlyphSetNumber16() {
+		return GET_BBC().GET_OBJ(BãßBȍőnGlyphSetKeyʸᴰ.HEXIMALS, BaseGlyphSetNumber.class);
 	}
 	
-	default BaseGlyphSetNumber36 BȍőnGlyphSetNumber36() {
-		return GET_BBC().GET_OBJ(BãßBȍőnGlyphSetKeyʸᴰ.GEMATRIA, BaseGlyphSetNumber36.class);
+	default BaseGlyphSetNumber BȍőnGlyphSetNumber36() {
+		return GET_BBC().GET_OBJ(BãßBȍőnGlyphSetKeyʸᴰ.GEMATRIA, BaseGlyphSetNumber.class);
 	}
 }

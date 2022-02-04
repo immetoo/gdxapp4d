@@ -62,7 +62,7 @@ public interface BãßBȍőnPartʸᴰ<T extends BãßBȍőnPartʸᴰ<T>> extends
 		} else if (values.length <= 256) {
 			buf.append(glyphSet.BȍőnGlyphSetNumber16().BȍőnCharFor(BȍőnRangTelNul() >> 4));
 			buf.append(glyphSet.BȍőnGlyphSetNumber16().BȍőnCharSeperator());
-			BaseGlyphSet secondGlyphSet = glyphSet.BȍőnGlyphSetNumber16().BȍőnSecondCharGlyphSet();
+			BaseGlyphSet secondGlyphSet = glyphSet.BȍőnGlyphSetNumber16().BȍőnAltGlyphSet();
 			if (secondGlyphSet == null) {
 				secondGlyphSet = glyphSet;
 			}
@@ -70,7 +70,7 @@ public interface BãßBȍőnPartʸᴰ<T extends BãßBȍőnPartʸᴰ<T>> extends
 		} else if (values.length <= 0xFFF+1) {
 			buf.append(glyphSet.BȍőnGlyphSetNumber16().BȍőnCharFor((BȍőnRangTelNul() >> 8) & 0x0F));
 			buf.append(glyphSet.BȍőnGlyphSetNumber16().BȍőnCharSeperator());
-			BaseGlyphSet secondGlyphSet = glyphSet.BȍőnGlyphSetNumber16().BȍőnSecondCharGlyphSet();
+			BaseGlyphSet secondGlyphSet = glyphSet.BȍőnGlyphSetNumber16().BȍőnAltGlyphSet();
 			if (secondGlyphSet == null) {
 				secondGlyphSet = glyphSet;
 			}
@@ -90,24 +90,24 @@ public interface BãßBȍőnPartʸᴰ<T extends BãßBȍőnPartʸᴰ<T>> extends
 		StringBuilder buf = new StringBuilder();
 		T[] values = BãßInstances();
 		if (values.length <= 9) {
-			buf.append(glyphSet.BȍőnGlyphSetNumber36().BȍőnCharFor(BȍőnRangTelEen()));
+			buf.append(glyphSet.BȍőnGlyphSetNumber36().BȍőnCharFor36(BȍőnRangTelEen()));
 		} else if (values.length <= 99) {
 			int count = BȍőnRangTelNul();
 			int mod10 = count % 9 + 1;
 			int div10 = count / 9 + 1;
-			buf.append(glyphSet.BȍőnGlyphSetNumber36().BȍőnCharFor(div10));
+			buf.append(glyphSet.BȍőnGlyphSetNumber36().BȍőnCharFor36(div10));
 			buf.append(glyphSet.BȍőnGlyphSetNumber36().BȍőnCharSeperator());
-			buf.append(glyphSet.BȍőnGlyphSetNumber36().BȍőnCharFor(mod10));
+			buf.append(glyphSet.BȍőnGlyphSetNumber36().BȍőnCharFor36(mod10));
 		} else if (values.length <= 999) {
 			int count = BȍőnRangTelNul();
 			int mod10 = count % 9 + 1;
 			int div10 = count / 90 + 1;
 			int div100 = count / 900 + 1;
-			buf.append(glyphSet.BȍőnGlyphSetNumber36().BȍőnCharFor(div10));
+			buf.append(glyphSet.BȍőnGlyphSetNumber36().BȍőnCharFor36(div10));
 			buf.append(glyphSet.BȍőnGlyphSetNumber36().BȍőnCharSeperator());
-			buf.append(glyphSet.BȍőnGlyphSetNumber36().BȍőnCharFor(div100));
+			buf.append(glyphSet.BȍőnGlyphSetNumber36().BȍőnCharFor36(div100));
 			buf.append(glyphSet.BȍőnGlyphSetNumber36().BȍőnCharSeperator());
-			buf.append(glyphSet.BȍőnGlyphSetNumber36().BȍőnCharFor(mod10));
+			buf.append(glyphSet.BȍőnGlyphSetNumber36().BȍőnCharFor36(mod10));
 		} else {
 			throw new IllegalStateException("Can't handle more than 1000 values.");
 		}
