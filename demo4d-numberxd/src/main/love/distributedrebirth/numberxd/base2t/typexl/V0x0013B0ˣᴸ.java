@@ -3,14 +3,14 @@ package love.distributedrebirth.numberxd.base2t.typexl;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.BaseAppenderOctal;
 import love.distributedrebirth.numberxd.base2t.BaseIteratorOctal;
-import love.distributedrebirth.numberxd.base2t.BaseNumberXL;
+import love.distributedrebirth.numberxd.base2t.BaseNumberˣᴸ;
 import love.distributedrebirth.numberxd.base2t.part.T06PartSeximal;
 
 /**
  * Holds an 5040 bit value.
  */
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public class V0x0013B0ˣᴸ implements BaseNumberXL<V0x0013B0ˣᴸ> {
+public class V0x0013B0ˣᴸ implements BaseNumberˣᴸ<V0x0013B0ˣᴸ> {
 
 	public static int BIT_COUNT = V0x000348ˣᴸ.BIT_COUNT * T06PartSeximal.LENGTH();
 	private V0x000348ˣᴸ[] values = new V0x000348ˣᴸ[T06PartSeximal.LENGTH()];

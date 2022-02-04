@@ -4,7 +4,7 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.BaseAppenderOctal;
 import love.distributedrebirth.numberxd.base2t.BaseAppenderTyte;
 import love.distributedrebirth.numberxd.base2t.BaseIteratorOctal;
-import love.distributedrebirth.numberxd.base2t.BaseNumberTyteXL;
+import love.distributedrebirth.numberxd.base2t.BaseNumberTyteˣᴸ;
 import love.distributedrebirth.numberxd.base2t.part.T60PartSexagesimal;
 import love.distributedrebirth.numberxd.base2t.type.V027Temvig;
 
@@ -12,7 +12,7 @@ import love.distributedrebirth.numberxd.base2t.type.V027Temvig;
  * Holds an 1620 bit value.
  */
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public class V0x000654ˣᴸ implements BaseNumberTyteXL<V0x000654ˣᴸ> {
+public class V0x000654ˣᴸ implements BaseNumberTyteˣᴸ<V0x000654ˣᴸ> {
 
 	public static int BIT_COUNT = V027Temvig.BIT_COUNT * T60PartSexagesimal.LENGTH();
 	private V027Temvig[] values = new V027Temvig[T60PartSexagesimal.LENGTH()];

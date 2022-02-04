@@ -4,14 +4,14 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.BaseAppenderOctal;
 import love.distributedrebirth.numberxd.base2t.BaseAppenderTyte;
 import love.distributedrebirth.numberxd.base2t.BaseIteratorOctal;
-import love.distributedrebirth.numberxd.base2t.BaseNumberTyteXL;
+import love.distributedrebirth.numberxd.base2t.BaseNumberTyteˣᴸ;
 import love.distributedrebirth.numberxd.base2t.part.T02PartBinary;
 
 /**
  * Holds an 3240 bit value.
  */
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public class V0x000CA8ˣᴸ implements BaseNumberTyteXL<V0x000CA8ˣᴸ> {
+public class V0x000CA8ˣᴸ implements BaseNumberTyteˣᴸ<V0x000CA8ˣᴸ> {
 
 	public static int BIT_COUNT = V0x000654ˣᴸ.BIT_COUNT * T02PartBinary.LENGTH();
 	private V0x000654ˣᴸ[] values = new V0x000654ˣᴸ[T02PartBinary.LENGTH()];
