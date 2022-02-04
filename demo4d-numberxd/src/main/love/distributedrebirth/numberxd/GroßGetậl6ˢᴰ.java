@@ -43,11 +43,16 @@ public class GroßGetậl6ˢᴰ extends AbstractBaseGetậlMatrix2<GroßGetậl6
 	}
 	
 	@Override
-	public GroßGetậl6ˢᴰ toClone() {
+	public GroßGetậl6ˢᴰ toClone(BaseIteratorOctal values) {
+		return new GroßGetậl6ˢᴰ(values);
+	}
+	
+	@Override
+	public BaseIteratorOctal iteratorOctalsByClone() {
 		BaseIteratorOctalStack cloneStack = new BaseIteratorOctalStack();
 		for (int i=0;i<this.values.length;i++) {
 			cloneStack.addIterator(this.values[i].iteratorOctalsByClone());
 		}
-		return new GroßGetậl6ˢᴰ(cloneStack);
+		return cloneStack;
 	}
 }

@@ -24,9 +24,14 @@ public class GroßGetậlŌṁHyperStàr6ˢᴰ extends AbstractGroßGetậlŌṁ
 		// TODO
 		return level;
 	}
-
+	
 	@Override
-	public GroßGetậlŌṁHyperStàr6ˢᴰ toClone() {
+	public GroßGetậlŌṁHyperStàr6ˢᴰ toClone(BaseIteratorOctal values) {
+		return new GroßGetậlŌṁHyperStàr6ˢᴰ(getFractalLevel(), values);
+	}
+	
+	@Override
+	public BaseIteratorOctal iteratorOctalsByClone() {
 		BaseIteratorOctalStack cloneStack = new BaseIteratorOctalStack();
 		for (int x=0;x<getMatrix1Length();x++) {
 			setMatrix1(x);
@@ -38,6 +43,6 @@ public class GroßGetậlŌṁHyperStàr6ˢᴰ extends AbstractGroßGetậlŌṁ
 				}
 			}
 		}
-		return new GroßGetậlŌṁHyperStàr6ˢᴰ(getFractalLevel(), cloneStack);
+		return cloneStack;
 	}
 }

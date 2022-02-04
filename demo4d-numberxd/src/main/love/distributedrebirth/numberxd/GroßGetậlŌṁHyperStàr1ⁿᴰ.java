@@ -26,7 +26,12 @@ public class GroßGetậlŌṁHyperStàr1ⁿᴰ extends AbstractGroßGetậlŌ�
 	}
 	
 	@Override
-	public GroßGetậlŌṁHyperStàr1ⁿᴰ toClone() {
+	public GroßGetậlŌṁHyperStàr1ⁿᴰ toClone(BaseIteratorOctal values) {
+		return new GroßGetậlŌṁHyperStàr1ⁿᴰ(getFractalLevel(), values);
+	}
+	
+	@Override
+	public BaseIteratorOctal iteratorOctalsByClone() {
 		BaseIteratorOctalStack cloneStack = new BaseIteratorOctalStack();
 		for (int x=0;x<getMatrix1Length();x++) {
 			setMatrix1(x);
@@ -35,6 +40,6 @@ public class GroßGetậlŌṁHyperStàr1ⁿᴰ extends AbstractGroßGetậlŌ�
 				cloneStack.addIterator(getValue().iteratorOctalsByClone());
 			}
 		}
-		return new GroßGetậlŌṁHyperStàr1ⁿᴰ(getFractalLevel(), cloneStack);
+		return cloneStack;
 	}
 }

@@ -59,9 +59,14 @@ public class KlompÅtŌṁKāassGetậl4ˢᴰ extends AbstractBaseGetậlMatrix2
 	public int getMatrix2Length() {
 		return kaasCuts;
 	}
-
+	
 	@Override
-	public KlompÅtŌṁKāassGetậl4ˢᴰ toClone() {
+	public KlompÅtŌṁKāassGetậl4ˢᴰ toClone(BaseIteratorOctal values) {
+		return new KlompÅtŌṁKāassGetậl4ˢᴰ(getKaasCuts(), values);
+	}
+	
+	@Override
+	public BaseIteratorOctal iteratorOctalsByClone() {
 		BaseIteratorOctalStack cloneStack = new BaseIteratorOctalStack();
 		for (int x=0;x<getMatrix1Length();x++) {
 			setMatrix1(x);
@@ -70,6 +75,6 @@ public class KlompÅtŌṁKāassGetậl4ˢᴰ extends AbstractBaseGetậlMatrix2
 				cloneStack.addIterator(getValue().iteratorOctalsByClone());
 			}
 		}
-		return new KlompÅtŌṁKāassGetậl4ˢᴰ(getKaasCuts(), cloneStack);
+		return cloneStack;
 	}
 }

@@ -37,11 +37,16 @@ public class WaveGetậl1ᑫᴰ extends AbstractBaseGetậlMatrix1<WaveGetậl1�
 	}
 	
 	@Override
-	public WaveGetậl1ᑫᴰ toClone() {
+	public WaveGetậl1ᑫᴰ toClone(BaseIteratorOctal values) {
+		return new WaveGetậl1ᑫᴰ(values);
+	}
+	
+	@Override
+	public BaseIteratorOctal iteratorOctalsByClone() {
 		BaseIteratorOctalStack cloneStack = new BaseIteratorOctalStack();
 		for (int i=0;i<this.values.length;i++) {
 			cloneStack.addIterator(this.values[i].iteratorOctalsByClone());
 		}
-		return new WaveGetậl1ᑫᴰ(cloneStack);
+		return cloneStack;
 	}
 }

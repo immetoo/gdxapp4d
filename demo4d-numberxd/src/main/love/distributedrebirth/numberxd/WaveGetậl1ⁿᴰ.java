@@ -26,7 +26,12 @@ public class WaveGetậl1ⁿᴰ implements BaseGetậl<WaveGetậl1ⁿᴰ, V0x04
 	}
 	
 	@Override
-	public WaveGetậl1ⁿᴰ toClone() {
-		return new WaveGetậl1ⁿᴰ(getValue().iteratorOctalsByClone());
+	public WaveGetậl1ⁿᴰ toClone(BaseIteratorOctal values) {
+		return new WaveGetậl1ⁿᴰ(values);
+	}
+	
+	@Override
+	public BaseIteratorOctal iteratorOctalsByClone() {
+		return value.iteratorOctalsByClone();
 	}
 }

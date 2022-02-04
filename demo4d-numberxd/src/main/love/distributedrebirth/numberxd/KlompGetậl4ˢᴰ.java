@@ -34,11 +34,16 @@ public class KlompGetậl4ˢᴰ extends AbstractBaseGetậlMatrix1<KlompGetậl4
 	}
 	
 	@Override
-	public KlompGetậl4ˢᴰ toClone() {
+	public KlompGetậl4ˢᴰ toClone(BaseIteratorOctal values) {
+		return new KlompGetậl4ˢᴰ(values);
+	}
+	
+	@Override
+	public BaseIteratorOctal iteratorOctalsByClone() {
 		BaseIteratorOctalStack cloneStack = new BaseIteratorOctalStack();
 		for (int i=0;i<this.values.length;i++) {
 			cloneStack.addIterator(this.values[i].iteratorOctalsByClone());
 		}
-		return new KlompGetậl4ˢᴰ(cloneStack);
+		return cloneStack;
 	}
 }

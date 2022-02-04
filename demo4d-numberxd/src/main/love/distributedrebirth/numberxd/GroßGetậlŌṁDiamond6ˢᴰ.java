@@ -27,7 +27,12 @@ public class GroßGetậlŌṁDiamond6ˢᴰ extends AbstractGroßGetậlŌṁ6ˢ
 	}
 	
 	@Override
-	public GroßGetậlŌṁDiamond6ˢᴰ toClone() {
+	public GroßGetậlŌṁDiamond6ˢᴰ toClone(BaseIteratorOctal values) {
+		return new GroßGetậlŌṁDiamond6ˢᴰ(getFractalLevel(), values);
+	}
+	
+	@Override
+	public BaseIteratorOctal iteratorOctalsByClone() {
 		BaseIteratorOctalStack cloneStack = new BaseIteratorOctalStack();
 		for (int x=0;x<getMatrix1Length();x++) {
 			setMatrix1(x);
@@ -39,6 +44,6 @@ public class GroßGetậlŌṁDiamond6ˢᴰ extends AbstractGroßGetậlŌṁ6ˢ
 				}
 			}
 		}
-		return new GroßGetậlŌṁDiamond6ˢᴰ(getFractalLevel(), cloneStack);
+		return cloneStack;
 	}
 }

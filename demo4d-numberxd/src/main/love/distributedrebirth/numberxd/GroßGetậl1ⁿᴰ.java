@@ -47,7 +47,12 @@ public class GroßGetậl1ⁿᴰ extends AbstractBaseGetậlMatrix1<GroßGetậl
 	}
 	
 	@Override
-	public GroßGetậl1ⁿᴰ toClone() {
-		return new GroßGetậl1ⁿᴰ(value.toClone());
+	public GroßGetậl1ⁿᴰ toClone(BaseIteratorOctal values) {
+		return new GroßGetậl1ⁿᴰ(values);
+	}
+	
+	@Override
+	public BaseIteratorOctal iteratorOctalsByClone() {
+		return value.iteratorOctalsByClone();
 	}
 }

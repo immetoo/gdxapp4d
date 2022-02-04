@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
+import love.distributedrebirth.numberxd.base2t.BaseIteratorOctal;
 import love.distributedrebirth.numberxd.base2t.part.T04PartQuad;
 import love.distributedrebirth.numberxd.base2t.type.V009Tyte;
 import love.distributedrebirth.numberxd.base2t.type.V036Teger;
@@ -15,6 +16,10 @@ public class Gê̄ldGetậl extends AbstractBaseGetậlMatrix1<Gê̄ldGetậl,V0
 	private final double totalDecimalValue;
 	private static final Character LEFT_TO_RIGHT_MARK = 0x200E;
 	private static final Character RIGHT_TO_LEFT_MARK = 0x200F;
+	
+	public Gê̄ldGetậl(BaseIteratorOctal values) {
+		this (new V036Teger(values));
+	}
 	
 	public Gê̄ldGetậl(V036Teger value) {
 		this.value = value;
@@ -169,7 +174,12 @@ public class Gê̄ldGetậl extends AbstractBaseGetậlMatrix1<Gê̄ldGetậl,V0
 	}
 	
 	@Override
-	public Gê̄ldGetậl toClone() {
-		return new Gê̄ldGetậl(value.toClone());
+	public Gê̄ldGetậl toClone(BaseIteratorOctal values) {
+		return new Gê̄ldGetậl(values);
+	}
+	
+	@Override
+	public BaseIteratorOctal iteratorOctalsByClone() {
+		return value.iteratorOctalsByClone();
 	}
 }
