@@ -12,7 +12,6 @@ import love.distributedrebirth.numberxd.base2t.part.T16PartHex;
 public enum BaseGlyphSet implements BãßBȍőnGlyphSetʸᴰ<BaseGlyphSet> {
 
 	// TODO: ImGui add font for SINHALA
-	// TODO: ImGui add font for TONE_LETTER missing plane 1,2,3
 	// TODO: ImGui add font for BURMESE
 	// TODO: ImGui add font for ARABIC
 	

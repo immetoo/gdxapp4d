@@ -45,6 +45,7 @@ public class ImGuiSetup {
 		
 		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/NotoSansCJKjp-Medium.otf").readBytes(), 14, fontConfig, glyphRanges);
 		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/FreeSans.ttf").readBytes(), 14, fontConfig, glyphRanges);
+		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/roboto-bold.ttf").readBytes(), 14, fontConfig, glyphRanges);
 		
 		fontConfig.destroy();
 	}
