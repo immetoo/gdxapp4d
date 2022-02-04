@@ -4,7 +4,7 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.BaseNumber;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-abstract public class AbstractBaseGetậlLevel2<T extends BaseGetậl<T,V>,V extends BaseNumber<V>> extends AbstractBaseGetậlLevel1<T,V> implements BaseGetậlMatrix2<T,V> {
+abstract public class AbstractBaseGetậlMatrix2<T extends BaseGetậl<T,V>,V extends BaseNumber<V>> extends AbstractBaseGetậlMatrix1<T,V> implements BaseGetậlMatrix2<T,V> {
 	
 	protected int matrix2;
 	

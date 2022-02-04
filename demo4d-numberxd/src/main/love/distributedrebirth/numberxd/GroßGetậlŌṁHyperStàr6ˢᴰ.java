@@ -28,12 +28,12 @@ public class GroßGetậlŌṁHyperStàr6ˢᴰ extends AbstractGroßGetậlŌṁ
 	@Override
 	public GroßGetậlŌṁHyperStàr6ˢᴰ toClone() {
 		BaseIteratorOctalStack cloneStack = new BaseIteratorOctalStack();
-		for (int x=0;x<getMatrix0Length();x++) {
-			setMatrix0(x);
-			for (int y=0;y<getMatrix1Length();y++) {
-				setMatrix1(y);
-				for (int z=0;z<getMatrix1Length();z++) {
-					setMatrix1(z);
+		for (int x=0;x<getMatrix1Length();x++) {
+			setMatrix1(x);
+			for (int y=0;y<getMatrix2Length();y++) {
+				setMatrix2(y);
+				for (int z=0;z<getMatrix2Length();z++) {
+					setMatrix2(z);
 					cloneStack.addIterator(getValue().iteratorOctalsByClone());
 				}
 			}

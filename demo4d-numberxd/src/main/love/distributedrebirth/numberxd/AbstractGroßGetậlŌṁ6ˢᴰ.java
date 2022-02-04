@@ -8,7 +8,7 @@ import love.distributedrebirth.numberxd.base2t.type.V144Tocta;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-abstract public class AbstractGroßGetậlŌṁ6ˢᴰ<T extends BaseGetậl<T,V009Tyte>> extends AbstractBaseGetậlLevel2<T,V009Tyte> {
+abstract public class AbstractGroßGetậlŌṁ6ˢᴰ<T extends BaseGetậl<T,V009Tyte>> extends AbstractBaseGetậlMatrix3<T,V009Tyte> {
 	
 	private V144Tocta[][] values;
 	private int valuesLength;
@@ -39,7 +39,7 @@ abstract public class AbstractGroßGetậlŌṁ6ˢᴰ<T extends BaseGetậl<T,V0
 	abstract protected int resolveFractalLevel(int level);
 	
 	public V009Tyte getValue() {
-		return values[matrix1][matrix2].getTytePart(T16PartHex.values()[matrix0]);
+		return values[matrix2][matrix3].getTytePart(T16PartHex.values()[matrix1]);
 	}
 	
 	public int getFractalLevel() {
@@ -47,17 +47,17 @@ abstract public class AbstractGroßGetậlŌṁ6ˢᴰ<T extends BaseGetậl<T,V0
 	}
 	
 	@Override
-	public int getMatrix0Length() {
+	public int getMatrix1Length() {
 		return T16PartHex.LENGTH();
 	}
 	
 	@Override
-	public int getMatrix1Length() {
+	public int getMatrix2Length() {
 		return T12PartUncial.LENGTH();
 	}
 	
 	@Override
-	public int getMatrix2Length() {
+	public int getMatrix3Length() {
 		return valuesLength;
 	}
 }

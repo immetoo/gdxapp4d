@@ -18,8 +18,8 @@ public class GroßGetậlŌṁDiamond1Testⁿᴰ {
 		Assertions.assertNotNull(getalClone);
 		
 		System.out.println("getal: "+getal);
-		System.out.println("getal.m0L: "+getal.getMatrix0Length());
-		System.out.println("getal.m1L: "+getal.getMatrix1Length());
+		System.out.println("getal.m0L: "+getal.getMatrix1Length());
+		System.out.println("getal.m1L: "+getal.getMatrix2Length());
 		
 		GroßGetậlŌṁDiamond1ⁿᴰ getal2 = new GroßGetậlŌṁDiamond1ⁿᴰ(2);
 		GroßGetậlŌṁDiamond1ⁿᴰ getal3 = new GroßGetậlŌṁDiamond1ⁿᴰ(3);
@@ -27,7 +27,7 @@ public class GroßGetậlŌṁDiamond1Testⁿᴰ {
 		GroßGetậlŌṁDiamond1ⁿᴰ getal5 = new GroßGetậlŌṁDiamond1ⁿᴰ(5).toClone();
 		
 		System.out.println("getal5: "+getal5);
-		System.out.println("getal5.m0L: "+getal5.getMatrix0Length());
-		System.out.println("getal5.m1L: "+getal5.getMatrix1Length());
+		System.out.println("getal5.m0L: "+getal5.getMatrix1Length());
+		System.out.println("getal5.m1L: "+getal5.getMatrix2Length());
 	}
 }

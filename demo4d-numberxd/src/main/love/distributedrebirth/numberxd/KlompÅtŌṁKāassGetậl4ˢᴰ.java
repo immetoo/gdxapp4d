@@ -10,7 +10,7 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
  *  Array of ŌṁKlompGetậl4ˢᴰ sliced as cheese.
  */
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public class KlompÅtŌṁKāassGetậl4ˢᴰ extends AbstractBaseGetậlLevel1<KlompÅtŌṁKāassGetậl4ˢᴰ, V0x000CA8ˣᴸ> {
+public class KlompÅtŌṁKāassGetậl4ˢᴰ extends AbstractBaseGetậlMatrix2<KlompÅtŌṁKāassGetậl4ˢᴰ, V0x000CA8ˣᴸ> {
 	
 	private final V0x000CA8ˣᴸ[][] kaas;
 	private final int kaasCuts;
@@ -47,26 +47,26 @@ public class KlompÅtŌṁKāassGetậl4ˢᴰ extends AbstractBaseGetậlLevel1<
 	
 	@Override
 	public V0x000CA8ˣᴸ getValue() {
-		return kaas[matrix0][matrix1];
+		return kaas[matrix1][matrix2];
 	}
 	
 	@Override
-	public int getMatrix0Length() {
+	public int getMatrix1Length() {
 		return T08PartOctal.LENGTH();
 	}
 
 	@Override
-	public int getMatrix1Length() {
+	public int getMatrix2Length() {
 		return kaasCuts;
 	}
 
 	@Override
 	public KlompÅtŌṁKāassGetậl4ˢᴰ toClone() {
 		BaseIteratorOctalStack cloneStack = new BaseIteratorOctalStack();
-		for (int x=0;x<getMatrix0Length();x++) {
-			setMatrix0(x);
-			for (int y=0;y<getMatrix1Length();y++) {
-				setMatrix1(y);
+		for (int x=0;x<getMatrix1Length();x++) {
+			setMatrix1(x);
+			for (int y=0;y<getMatrix2Length();y++) {
+				setMatrix2(y);
 				cloneStack.addIterator(getValue().iteratorOctalsByClone());
 			}
 		}

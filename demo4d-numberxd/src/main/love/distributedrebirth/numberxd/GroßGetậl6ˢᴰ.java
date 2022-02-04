@@ -12,7 +12,7 @@ import love.distributedrebirth.numberxd.base2t.BaseIteratorOctalStack;
  * Holds an 864 bit fraction.
  */
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public class GroßGetậl6ˢᴰ extends AbstractBaseGetậlLevel1<GroßGetậl6ˢᴰ,V009Tyte> {
+public class GroßGetậl6ˢᴰ extends AbstractBaseGetậlMatrix2<GroßGetậl6ˢᴰ,V009Tyte> {
 	
 	private final V144Tocta[] values = new V144Tocta[T12PartUncial.LENGTH()];
 	
@@ -29,16 +29,16 @@ public class GroßGetậl6ˢᴰ extends AbstractBaseGetậlLevel1<GroßGetậl6�
 	}
 	
 	public V009Tyte getValue() {
-		return values[matrix1].getTytePart(T16PartHex.values()[matrix0]);
-	}
-	
-	@Override
-	public int getMatrix0Length() {
-		return T16PartHex.LENGTH();
+		return values[matrix2].getTytePart(T16PartHex.values()[matrix1]);
 	}
 	
 	@Override
 	public int getMatrix1Length() {
+		return T16PartHex.LENGTH();
+	}
+	
+	@Override
+	public int getMatrix2Length() {
 		return T12PartUncial.LENGTH();
 	}
 	

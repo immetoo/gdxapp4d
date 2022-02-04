@@ -33,10 +33,10 @@ public class GroßGetậlŌṁDiamond1ⁿᴰ extends AbstractGroßGetậlŌṁ1�
 	@Override
 	public GroßGetậlŌṁDiamond1ⁿᴰ toClone() {
 		BaseIteratorOctalStack cloneStack = new BaseIteratorOctalStack();
-		for (int x=0;x<getMatrix0Length();x++) {
-			setMatrix0(x);
-			for (int y=0;y<getMatrix1Length();y++) {
-				setMatrix1(y);
+		for (int x=0;x<getMatrix1Length();x++) {
+			setMatrix1(x);
+			for (int y=0;y<getMatrix2Length();y++) {
+				setMatrix2(y);
 				cloneStack.addIterator(getValue().iteratorOctalsByClone());
 			}
 		}

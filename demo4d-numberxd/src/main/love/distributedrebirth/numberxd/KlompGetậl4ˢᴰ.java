@@ -7,7 +7,7 @@ import love.distributedrebirth.numberxd.base2t.BaseIteratorOctalStack;
 import love.distributedrebirth.numberxd.base2t.part.T08PartOctal;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public class KlompGetậl4ˢᴰ extends AbstractBaseGetậlLevel0<KlompGetậl4ˢᴰ,V0x000CA8ˣᴸ> {
+public class KlompGetậl4ˢᴰ extends AbstractBaseGetậlMatrix1<KlompGetậl4ˢᴰ,V0x000CA8ˣᴸ> {
 
 	private final V0x000CA8ˣᴸ[] values = new V0x000CA8ˣᴸ[T08PartOctal.LENGTH()];
 	
@@ -25,11 +25,11 @@ public class KlompGetậl4ˢᴰ extends AbstractBaseGetậlLevel0<KlompGetậl4�
 	
 	@Override
 	public V0x000CA8ˣᴸ getValue() {
-		return values[matrix0];
+		return values[matrix1];
 	}
 	
 	@Override
-	public int getMatrix0Length() {
+	public int getMatrix1Length() {
 		return T08PartOctal.LENGTH();
 	}
 	

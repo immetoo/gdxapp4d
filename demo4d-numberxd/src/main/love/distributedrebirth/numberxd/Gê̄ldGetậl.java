@@ -9,7 +9,7 @@ import love.distributedrebirth.numberxd.base2t.type.V009Tyte;
 import love.distributedrebirth.numberxd.base2t.type.V036Teger;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public class Gê̄ldGetậl extends AbstractBaseGetậlLevel0<Gê̄ldGetậl,V009Tyte> {
+public class Gê̄ldGetậl extends AbstractBaseGetậlMatrix1<Gê̄ldGetậl,V009Tyte> {
 
 	private final V036Teger value;
 	private final double totalDecimalValue;
@@ -159,13 +159,13 @@ public class Gê̄ldGetậl extends AbstractBaseGetậlLevel0<Gê̄ldGetậl,V00
 	}
 	
 	@Override
-	public int getMatrix0Length() {
+	public int getMatrix1Length() {
 		return T04PartQuad.LENGTH();
 	}
 	
 	@Override
 	public V009Tyte getValue() {
-		return value.getTytePart(T04PartQuad.values()[matrix0]);
+		return value.getTytePart(T04PartQuad.values()[matrix1]);
 	}
 	
 	@Override

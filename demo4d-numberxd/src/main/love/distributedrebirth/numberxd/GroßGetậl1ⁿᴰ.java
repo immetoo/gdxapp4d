@@ -11,7 +11,7 @@ import love.distributedrebirth.numberxd.base2t.type.V144Tocta;
  * Holds an 144 bit fraction.
  */
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public class GroßGetậl1ⁿᴰ extends AbstractBaseGetậlLevel0<GroßGetậl1ⁿᴰ,V009Tyte> {
+public class GroßGetậl1ⁿᴰ extends AbstractBaseGetậlMatrix1<GroßGetậl1ⁿᴰ,V009Tyte> {
 	
 	//public static int NUMERATOR_SIZE = 7;
 	//public static int DENOMINATOR_SIZE = 9;
@@ -38,11 +38,11 @@ public class GroßGetậl1ⁿᴰ extends AbstractBaseGetậlLevel0<GroßGetậl1
 	
 	@Override
 	public V009Tyte getValue() {
-		return value.getTytePart(T16PartHex.values()[matrix0]);
+		return value.getTytePart(T16PartHex.values()[matrix1]);
 	}
 	
 	@Override
-	public int getMatrix0Length() {
+	public int getMatrix1Length() {
 		return T16PartHex.LENGTH();
 	}
 	

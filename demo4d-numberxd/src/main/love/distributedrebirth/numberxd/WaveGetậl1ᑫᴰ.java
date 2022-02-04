@@ -10,7 +10,7 @@ import love.distributedrebirth.numberxd.base2t.typexl.V0x049D40ˣᴸ;
  * Wave quad channel.
  */
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public class WaveGetậl1ᑫᴰ extends AbstractBaseGetậlLevel0<WaveGetậl1ᑫᴰ, V0x049D40ˣᴸ> {
+public class WaveGetậl1ᑫᴰ extends AbstractBaseGetậlMatrix1<WaveGetậl1ᑫᴰ, V0x049D40ˣᴸ> {
 
 	private final V0x049D40ˣᴸ[] values = new V0x049D40ˣᴸ[T04PartQuad.LENGTH()];
 	
@@ -28,11 +28,11 @@ public class WaveGetậl1ᑫᴰ extends AbstractBaseGetậlLevel0<WaveGetậl1�
 	
 	@Override
 	public V0x049D40ˣᴸ getValue() {
-		return values[matrix0];
+		return values[matrix1];
 	}
 	
 	@Override
-	public int getMatrix0Length() {
+	public int getMatrix1Length() {
 		return T04PartQuad.LENGTH();
 	}
 	
