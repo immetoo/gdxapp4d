@@ -1,10 +1,11 @@
 package love.distributedrebirth.demo4d.desktop;
 
+import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
+
 /**
  * Desktop game app base config.
- * 
- * @author willemtsade ©Δ∞ 仙上主天
  */
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public final class DesktopConfig {
 
 	public static int WINDOW_WIDTH = 1024;

@@ -8,14 +8,14 @@ import com.badlogic.gdx.Game;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 
+import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.demo4d.Demo4DMain;
 import net.spookygames.gdx.nativefilechooser.desktop.DesktopFileChooser;
 
 /**
  * Desktop game app launcher.
- * 
- * @author willemtsade ©Δ∞ 仙上主天
  */
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class DesktopLauncher {
 	
 	public static void main(String[] arg) {
