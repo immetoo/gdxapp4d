@@ -12,15 +12,15 @@ public class GroßGetậlŌṁHyperStàr6ˢᴰ extends AbstractGroßGetậlŌṁ
 	// 2th = 5 * 12 * V144Tocta
 	// etc
 	
-	public GroßGetậlŌṁHyperStàr6ˢᴰ(byte level) {
+	public GroßGetậlŌṁHyperStàr6ˢᴰ(int level) {
 		super(level);
 	}
 	
-	public GroßGetậlŌṁHyperStàr6ˢᴰ(byte level, BaseIteratorOctal values) {
+	public GroßGetậlŌṁHyperStàr6ˢᴰ(int level, BaseIteratorOctal values) {
 		super(level, values);
 	}
 	
-	protected int resolveFractalLevel(byte level) {
+	protected int resolveFractalLevel(int level) {
 		// TODO
 		return level;
 	}
@@ -28,12 +28,12 @@ public class GroßGetậlŌṁHyperStàr6ˢᴰ extends AbstractGroßGetậlŌṁ
 	@Override
 	public GroßGetậlŌṁHyperStàr6ˢᴰ toClone() {
 		BaseIteratorOctalStack cloneStack = new BaseIteratorOctalStack();
-		for (int x=0;x<getValueIndex0Length();x++) {
-			setValueIndex0(x);
-			for (int y=0;y<getValueIndex1Length();y++) {
-				setValueIndex1(y);
-				for (int z=0;z<getValueIndex1Length();z++) {
-					setValueIndex1(z);
+		for (int x=0;x<getMatrix0Length();x++) {
+			setMatrix0(x);
+			for (int y=0;y<getMatrix1Length();y++) {
+				setMatrix1(y);
+				for (int z=0;z<getMatrix1Length();z++) {
+					setMatrix1(z);
 					cloneStack.addIterator(getValue().iteratorOctalsByClone());
 				}
 			}

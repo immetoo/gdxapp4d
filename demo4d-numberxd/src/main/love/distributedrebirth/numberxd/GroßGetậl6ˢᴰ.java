@@ -29,16 +29,16 @@ public class GroßGetậl6ˢᴰ extends AbstractBaseGetậlLevel1<GroßGetậl6�
 	}
 	
 	public V009Tyte getValue() {
-		return values[valueIndex1].getTytePart(T16PartHex.values()[valueIndex0]);
+		return values[matrix1].getTytePart(T16PartHex.values()[matrix0]);
 	}
 	
 	@Override
-	public int getValueIndex0Length() {
+	public int getMatrix0Length() {
 		return T16PartHex.LENGTH();
 	}
 	
 	@Override
-	public int getValueIndex1Length() {
+	public int getMatrix1Length() {
 		return T12PartUncial.LENGTH();
 	}
 	

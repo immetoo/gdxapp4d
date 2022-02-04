@@ -40,6 +40,13 @@ public final class BaseIteratorOctalStack implements BaseIteratorOctal {
 		if (stack.isEmpty()) {
 			throw new IllegalStateException("Stack is empty.");
 		}
+		if (stack.peek().hasNext()) {
+			return stack.peek().next();
+		}
+		stack.pop();
+		if (stack.isEmpty()) {
+			throw new IllegalStateException("Stack is empty.");
+		}
 		return stack.peek().next();
 	}
 }

@@ -12,9 +12,9 @@ abstract public class AbstractGroßGetậlŌṁ6ˢᴰ<T extends BaseGetậl<T,V0
 	
 	private V144Tocta[][] values;
 	private int valuesLength;
-	private byte fractalLevel;
+	private int fractalLevel;
 	
-	public AbstractGroßGetậlŌṁ6ˢᴰ(byte fractalLevel) {
+	public AbstractGroßGetậlŌṁ6ˢᴰ(int fractalLevel) {
 		this.fractalLevel = fractalLevel;
 		this.valuesLength = resolveFractalLevel(fractalLevel);
 		this.values = new V144Tocta[T12PartUncial.LENGTH()][valuesLength];
@@ -25,7 +25,7 @@ abstract public class AbstractGroßGetậlŌṁ6ˢᴰ<T extends BaseGetậl<T,V0
 		}
 	}
 	
-	public AbstractGroßGetậlŌṁ6ˢᴰ(byte fractalLevel, BaseIteratorOctal values) {
+	public AbstractGroßGetậlŌṁ6ˢᴰ(int fractalLevel, BaseIteratorOctal values) {
 		this.fractalLevel = fractalLevel;
 		this.valuesLength = resolveFractalLevel(fractalLevel);
 		this.values = new V144Tocta[T12PartUncial.LENGTH()][valuesLength];
@@ -36,28 +36,28 @@ abstract public class AbstractGroßGetậlŌṁ6ˢᴰ<T extends BaseGetậl<T,V0
 		}
 	}
 	
-	abstract protected int resolveFractalLevel(byte level);
+	abstract protected int resolveFractalLevel(int level);
 	
 	public V009Tyte getValue() {
-		return values[valueIndex1][valueIndex2].getTytePart(T16PartHex.values()[valueIndex0]);
+		return values[matrix1][matrix2].getTytePart(T16PartHex.values()[matrix0]);
 	}
 	
-	public byte getFractalLevel() {
+	public int getFractalLevel() {
 		return fractalLevel;
 	}
 	
 	@Override
-	public int getValueIndex0Length() {
+	public int getMatrix0Length() {
 		return T16PartHex.LENGTH();
 	}
 	
 	@Override
-	public int getValueIndex1Length() {
+	public int getMatrix1Length() {
 		return T12PartUncial.LENGTH();
 	}
 	
 	@Override
-	public int getValueIndex2Length() {
+	public int getMatrix2Length() {
 		return valuesLength;
 	}
 }

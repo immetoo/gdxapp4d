@@ -4,11 +4,11 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.BaseNumber;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public interface BaseGetậlLevel0<T extends BaseGetậl<T,V>,V extends BaseNumber<V>> extends BaseGetậl<T,V> {
+public interface BaseGetậlMatrix3<T extends BaseGetậl<T,V>,V extends BaseNumber<V>> extends BaseGetậlMatrix2<T,V> {
 	
-	void setValueIndex0(int valueIndex0);
+	void setMatrix3(int valueIndex1);
 	
-	int getValueIndex0();
+	int getMatrix3();
 	
-	int getValueIndex0Length();
+	int getMatrix3Length();
 }

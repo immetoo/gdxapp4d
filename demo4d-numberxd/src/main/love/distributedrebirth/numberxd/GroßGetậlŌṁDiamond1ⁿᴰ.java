@@ -7,32 +7,36 @@ import love.distributedrebirth.numberxd.base2t.BaseIteratorOctalStack;
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class GroßGetậlŌṁDiamond1ⁿᴰ extends AbstractGroßGetậlŌṁ1ⁿᴰ<GroßGetậlŌṁDiamond1ⁿᴰ> {
 
-	// 0th = 1 * V144Tocta (1)
-	// 1th = 1+3 * V144Tocta (4)
-	// 2th = 1+3+6 * V144Tocta (10)
-	// 3th = 1+3+6+14 * V144Tocta (24)
+	// 1th = 1 * V144Tocta (1)
+	// 2th = 1+3 * V144Tocta (4)
+	// 3th = 1+3+6 * V144Tocta (10)
+	// 4th = 1+3+6+14 * V144Tocta (24)
 	// etc
 	
-	public GroßGetậlŌṁDiamond1ⁿᴰ(byte level) {
+	public GroßGetậlŌṁDiamond1ⁿᴰ(int level) {
 		super(level);
 	}
 	
-	public GroßGetậlŌṁDiamond1ⁿᴰ(byte level, BaseIteratorOctal values) {
+	public GroßGetậlŌṁDiamond1ⁿᴰ(int level, BaseIteratorOctal values) {
 		super(level, values);
 	}
 	
-	protected int resolveFractalLevel(byte level) {
-		// TODO
-		return level;
+	protected int resolveFractalLevel(int n) {
+		if (n == 1) {
+			return 1;
+		} else {
+			int result =  1 + n * resolveFractalLevel(n - 1);
+			return result;
+		}
 	}
 	
 	@Override
 	public GroßGetậlŌṁDiamond1ⁿᴰ toClone() {
 		BaseIteratorOctalStack cloneStack = new BaseIteratorOctalStack();
-		for (int x=0;x<getValueIndex0Length();x++) {
-			setValueIndex0(x);
-			for (int y=0;y<getValueIndex1Length();y++) {
-				setValueIndex1(y);
+		for (int x=0;x<getMatrix0Length();x++) {
+			setMatrix0(x);
+			for (int y=0;y<getMatrix1Length();y++) {
+				setMatrix1(y);
 				cloneStack.addIterator(getValue().iteratorOctalsByClone());
 			}
 		}

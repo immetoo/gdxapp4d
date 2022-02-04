@@ -159,13 +159,13 @@ public class Gê̄ldGetậl extends AbstractBaseGetậlLevel0<Gê̄ldGetậl,V00
 	}
 	
 	@Override
-	public int getValueIndex0Length() {
+	public int getMatrix0Length() {
 		return T04PartQuad.LENGTH();
 	}
 	
 	@Override
 	public V009Tyte getValue() {
-		return value.getTytePart(T04PartQuad.values()[valueIndex0]);
+		return value.getTytePart(T04PartQuad.values()[matrix0]);
 	}
 	
 	@Override

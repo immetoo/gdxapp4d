@@ -47,26 +47,26 @@ public class KlompÅtŌṁKāassGetậl4ˢᴰ extends AbstractBaseGetậlLevel1<
 	
 	@Override
 	public V0x000CA8ˣᴸ getValue() {
-		return kaas[valueIndex0][valueIndex1];
+		return kaas[matrix0][matrix1];
 	}
 	
 	@Override
-	public int getValueIndex0Length() {
+	public int getMatrix0Length() {
 		return T08PartOctal.LENGTH();
 	}
 
 	@Override
-	public int getValueIndex1Length() {
+	public int getMatrix1Length() {
 		return kaasCuts;
 	}
 
 	@Override
 	public KlompÅtŌṁKāassGetậl4ˢᴰ toClone() {
 		BaseIteratorOctalStack cloneStack = new BaseIteratorOctalStack();
-		for (int x=0;x<getValueIndex0Length();x++) {
-			setValueIndex0(x);
-			for (int y=0;y<getValueIndex1Length();y++) {
-				setValueIndex1(y);
+		for (int x=0;x<getMatrix0Length();x++) {
+			setMatrix0(x);
+			for (int y=0;y<getMatrix1Length();y++) {
+				setMatrix1(y);
 				cloneStack.addIterator(getValue().iteratorOctalsByClone());
 			}
 		}

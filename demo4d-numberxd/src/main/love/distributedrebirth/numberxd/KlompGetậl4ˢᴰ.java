@@ -25,11 +25,11 @@ public class KlompGetậl4ˢᴰ extends AbstractBaseGetậlLevel0<KlompGetậl4�
 	
 	@Override
 	public V0x000CA8ˣᴸ getValue() {
-		return values[valueIndex0];
+		return values[matrix0];
 	}
 	
 	@Override
-	public int getValueIndex0Length() {
+	public int getMatrix0Length() {
 		return T08PartOctal.LENGTH();
 	}
 	

@@ -28,11 +28,11 @@ public class WaveGetậl1ᑫᴰ extends AbstractBaseGetậlLevel0<WaveGetậl1�
 	
 	@Override
 	public V0x049D40ˣᴸ getValue() {
-		return values[valueIndex0];
+		return values[matrix0];
 	}
 	
 	@Override
-	public int getValueIndex0Length() {
+	public int getMatrix0Length() {
 		return T04PartQuad.LENGTH();
 	}
 	
