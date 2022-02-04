@@ -1,75 +1,73 @@
 package love.distributedrebirth.numberxd;
 
+import love.distributedrebirth.numberxd.base2t.BaseNumberTyte;
+import love.distributedrebirth.numberxd.base2t.BaseAppenderOctal;
 import love.distributedrebirth.numberxd.base2t.BaseIteratorOctal;
-import love.distributedrebirth.numberxd.base2t.BaseIteratorOctalStack;
-import love.distributedrebirth.numberxd.base2t.part.T08PartOctal;
-import love.distributedrebirth.numberxd.base2t.typexl.V0x000CA8ˣᴸ;
-import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
+import love.distributedrebirth.numberxd.base2t.BaseAppenderTyte;
 
 /**
  *  Array of ŌṁKlompGetậl4ˢᴰ sliced as cheese.
+ *  
+ * @author willemtsade ©Δ∞ 仙上主天
  */
-@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public class KlompÅtŌṁKāassGetậl4ˢᴰ extends AbstractBaseGetậlLevel1<KlompÅtŌṁKāassGetậl4ˢᴰ, V0x000CA8ˣᴸ> {
+public class KlompÅtŌṁKāassGetậl4ˢᴰ implements BaseNumberTyte<KlompÅtŌṁKāassGetậl4ˢᴰ> {
 	
-	private final V0x000CA8ˣᴸ[][] kaas;
+	private KlompGetậl4ˢᴰ[] kaas;
 	private final int kaasCuts;
 	
 	public KlompÅtŌṁKāassGetậl4ˢᴰ(int kaasCuts) {
-		if (kaasCuts < 2) {
-			throw new IllegalArgumentException("Can't slice cheese into less than one peace.");
-		}
 		this.kaasCuts = kaasCuts;
-		this.kaas = new V0x000CA8ˣᴸ[T08PartOctal.LENGTH()][kaasCuts];
-		for (int x=0;x<this.kaas.length;x++) {
-			for (int y=0;y<this.kaas[x].length;y++) {
-				this.kaas[x][y] = new V0x000CA8ˣᴸ();
-			}
-		}
+		this.kaas = new KlompGetậl4ˢᴰ[kaasCuts];
 	}
 	
-	public KlompÅtŌṁKāassGetậl4ˢᴰ(int kaasCuts, BaseIteratorOctal values) {
-		if (kaasCuts < 2) {
-			throw new IllegalArgumentException("Can't slice cheese into less than one peace.");
-		}
-		this.kaasCuts = kaasCuts;
-		this.kaas = new V0x000CA8ˣᴸ[T08PartOctal.LENGTH()][kaasCuts];
-		for (int x=0;x<this.kaas.length;x++) {
-			for (int y=0;y<this.kaas[x].length;y++) {
-				this.kaas[x][y] = new V0x000CA8ˣᴸ(values);
-			}
-		}
-	}
-	
-	public int getKaasCuts() {
+	public final int getKaasCuts() {
 		return kaasCuts;
 	}
 	
-	@Override
-	public V0x000CA8ˣᴸ getValue() {
-		return kaas[valueIndex0][valueIndex1];
+	private final int validatePartRequest(int part) {
+		if (part < 0) {
+			throw new IllegalArgumentException("Requested part is negative");
+		}
+		if (part > kaasCuts) {
+			throw new IllegalArgumentException("Requested part exceeds kaasCuts storage");
+		}
+		return part;
+	}
+	
+	public final KlompGetậl4ˢᴰ getValue(int part) {
+		return kaas[validatePartRequest(part)];
+	}
+	
+	public final void setValue(int part, KlompGetậl4ˢᴰ value) {
+		kaas[validatePartRequest(part)] = value;
 	}
 	
 	@Override
-	public int getValueIndex0Length() {
-		return T08PartOctal.LENGTH();
-	}
-
-	@Override
-	public int getValueIndex1Length() {
-		return kaasCuts;
-	}
-
-	@Override
-	public KlompÅtŌṁKāassGetậl4ˢᴰ toClone() {
-		BaseIteratorOctalStack cloneStack = new BaseIteratorOctalStack();
-		for (int x=0;x<getValueIndex0Length();x++) {
-			setValueIndex0(x);
-			for (int y=0;y<getValueIndex1Length();y++) {
-				setValueIndex1(y);
-				cloneStack.addIterator(getValue().iteratorOctalsByClone());
-			}
+	public final KlompÅtŌṁKāassGetậl4ˢᴰ toClone() {
+		KlompÅtŌṁKāassGetậl4ˢᴰ result = new KlompÅtŌṁKāassGetậl4ˢᴰ(getKaasCuts());
+		BaseIteratorOctal clonedOctals = iteratorOctalsByClone();
+		for (int i=0;i<getKaasCuts();i++) {
+			result.setValue(i, new KlompGetậl4ˢᴰ(clonedOctals));
 		}
-		return new KlompÅtŌṁKāassGetậl4ˢᴰ(getKaasCuts(), cloneStack);
+		return result;
+	}
+	
+	@Override
+	public final int getBitCount() {
+		return KlompGetậl4ˢᴰ.BIT_COUNT * kaasCuts;
+	}
+	
+	@Override
+	public final void fillOctalsByClone(BaseAppenderOctal appender) {
+		for (KlompGetậl4ˢᴰ value:kaas) {
+			value.fillOctalsByClone(appender);
+		}
+	}
+	
+	@Override
+	public void fillTytesByReference(BaseAppenderTyte appender) {
+		for (KlompGetậl4ˢᴰ value:kaas) {
+			value.fillTytesByReference(appender);
+		}
 	}
 }

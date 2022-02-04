@@ -1,14 +1,24 @@
 package love.distributedrebirth.numberxd;
 
-import love.distributedrebirth.numberxd.base2t.typexl.V0x000CA8ˣᴸ;
-import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
-import love.distributedrebirth.numberxd.base2t.BaseIteratorOctal;
-import love.distributedrebirth.numberxd.base2t.BaseIteratorOctalStack;
+import love.distributedrebirth.numberxd.base2t.BaseNumberTyte;
 import love.distributedrebirth.numberxd.base2t.part.T08PartOctal;
+import love.distributedrebirth.numberxd.base2t.typexl.V0x000654ˣᴸ;
+import love.distributedrebirth.numberxd.base2t.typexl.V0x000CA8ˣᴸ;
+import love.distributedrebirth.numberxd.base2t.BaseAppenderOctal;
+import love.distributedrebirth.numberxd.base2t.BaseIteratorOctal;
+import love.distributedrebirth.numberxd.base2t.BaseAppenderTyte;
 
-@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public class KlompGetậl4ˢᴰ extends AbstractBaseGetậlLevel0<KlompGetậl4ˢᴰ,V0x000CA8ˣᴸ> {
+/**
+ * Holds an 25920 bit value. (3240 bytes)
+ * 
+ * 4 * VCA8Tath red
+ * 4 * VCA8Tath blue
+ * 
+ * @author willemtsade ©Δ∞ 仙上主天
+ */
+public class KlompGetậl4ˢᴰ implements BaseNumberTyte<KlompGetậl4ˢᴰ> {
 
+	public static int BIT_COUNT = V0x000654ˣᴸ.BIT_COUNT * T08PartOctal.LENGTH();
 	private final V0x000CA8ˣᴸ[] values = new V0x000CA8ˣᴸ[T08PartOctal.LENGTH()];
 	
 	public KlompGetậl4ˢᴰ() {
@@ -23,22 +33,31 @@ public class KlompGetậl4ˢᴰ extends AbstractBaseGetậlLevel0<KlompGetậl4�
 		}
 	}
 	
-	@Override
-	public V0x000CA8ˣᴸ getValue() {
-		return values[valueIndex0];
+	public V0x000CA8ˣᴸ getValue(T08PartOctal part) {
+		return values[part.ordinal()];
+	}
+	
+	public void setValue(T08PartOctal part, V0x000CA8ˣᴸ value) {
+		values[part.ordinal()] = value;
 	}
 	
 	@Override
-	public int getValueIndex0Length() {
-		return T08PartOctal.LENGTH();
+	public int getBitCount() {
+		return BIT_COUNT;
 	}
 	
 	@Override
 	public KlompGetậl4ˢᴰ toClone() {
-		BaseIteratorOctalStack cloneStack = new BaseIteratorOctalStack();
-		for (int i=0;i<this.values.length;i++) {
-			cloneStack.addIterator(this.values[i].iteratorOctalsByClone());
-		}
-		return new KlompGetậl4ˢᴰ(cloneStack);
+		return new KlompGetậl4ˢᴰ(iteratorOctalsByClone());
+	}
+	
+	@Override
+	public void fillOctalsByClone(BaseAppenderOctal appender) {
+		T08PartOctal.PART_1.BãßVoorElk(v -> getValue(v).fillOctalsByClone(appender));
+	}
+	
+	@Override
+	public void fillTytesByReference(BaseAppenderTyte appender) {
+		T08PartOctal.PART_1.BãßVoorElk(v -> getValue(v).fillTytesByReference(appender));
 	}
 }

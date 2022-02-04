@@ -1,12 +1,13 @@
 package love.distributedrebirth.numberxd;
 
-import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
-import love.distributedrebirth.numberxd.base2t.BaseNumber;
+import love.distributedrebirth.numberxd.base2t.BaseNumberTyte;
 
-@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public interface BaseGetậl<T extends BaseGetậl<T,V>,V extends BaseNumber<V>> {
+/**
+ * 
+ * 
+ * @author willemtsade ©Δ∞ 仙上主天
+ */
+public interface BaseGetậl<V extends BaseNumberTyte<V>> extends BaseNumberTyte<V> {
+
 	
-	V getValue();
-	
-	T toClone();
 }

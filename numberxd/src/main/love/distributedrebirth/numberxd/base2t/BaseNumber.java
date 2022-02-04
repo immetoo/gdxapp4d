@@ -27,6 +27,6 @@ public interface BaseNumber<V extends BaseNumber<V>> {
 	default BaseIteratorOctal iteratorOctalsByClone() {
 		List<T08PartOctal> octals = new ArrayList<>();
 		fillOctalsByClone(new BaseAppenderOctal(octals));
-		return new BaseIteratorOctalAdapter(octals.iterator());
+		return new BaseIteratorOctal(octals.iterator());
 	}
 }

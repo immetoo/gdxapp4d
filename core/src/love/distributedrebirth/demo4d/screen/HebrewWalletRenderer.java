@@ -46,7 +46,7 @@ public class HebrewWalletRenderer extends ImGuiRendererMain {
 			};
 		for (String data:walletData) {
 			Gê̄ldGetậl geld = new Gê̄ldGetậl(data);
-			Gê̄ldGetậl geld2 = geld.toClone(); // unit test
+			Gê̄ldGetậl geld2 = new Gê̄ldGetậl(geld.toTeger().toClone().toClone()); // unit test
 			ImGui.tableNextRow();
 			ImGui.tableNextColumn();
 			ImGui.text(data.length()==2||data.length()==3?"OUT":"IN");

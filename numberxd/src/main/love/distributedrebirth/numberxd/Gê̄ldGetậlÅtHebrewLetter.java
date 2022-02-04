@@ -5,9 +5,11 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
-
-@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
+/**
+ * 
+ * 
+ * @author willemtsade ©Δ∞ 仙上主天
+ */
 public enum Gê̄ldGetậlÅtHebrewLetter {
 	// Unicode is horror in any language else than ascii;
 	// VS Alphabet order

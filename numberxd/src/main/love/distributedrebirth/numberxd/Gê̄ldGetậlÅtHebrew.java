@@ -1,11 +1,14 @@
 package love.distributedrebirth.numberxd;
 
-import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.T03PartTrit;
 import love.distributedrebirth.numberxd.base2t.part.T08PartOctal;
 import love.distributedrebirth.numberxd.base2t.type.V009Tyte;
 
-@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
+/**
+ * 
+ * 
+ * @author willemtsade ©Δ∞ 仙上主天
+ */
 public class Gê̄ldGetậlÅtHebrew {
 
 	private static final double NUMERATOR_ONE = 1d;

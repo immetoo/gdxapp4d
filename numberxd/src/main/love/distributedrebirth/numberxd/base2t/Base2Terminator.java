@@ -37,7 +37,7 @@ public enum Base2Terminator implements BãßBȍőnEnumInstanceʸᴰ<Base2Termina
 			int v1 =  data[3] +  (data[4] << SHIFT_8) +  (data[5] << SHIFT_16);
 			int v2 =  data[6] +  (data[7] << SHIFT_8) +  (data[8] << SHIFT_16);
 			List<T08PartOctal> octals = Bãß2ReadOctals(v0, v1, v2);
-			output.add(new V072Tong(new BaseIteratorOctalAdapter(octals.iterator())));
+			output.add(new V072Tong(new BaseIteratorOctal(octals.iterator())));
 			totalBytes += BLOCK_TONG_SIZE;
 		}
 		return totalBytes;
@@ -56,7 +56,7 @@ public enum Base2Terminator implements BãßBȍőnEnumInstanceʸᴰ<Base2Termina
 			int v4 = data[12] + (data[13] << SHIFT_8) + (data[14] << SHIFT_16);
 			int v5 = data[15] + (data[16] << SHIFT_8) + (data[17] << SHIFT_16);
 			List<T08PartOctal> octals = Bãß2ReadOctals(v0, v1, v2, v3, v4, v5);
-			output.add(new V144Tocta(new BaseIteratorOctalAdapter(octals.iterator())));
+			output.add(new V144Tocta(new BaseIteratorOctal(octals.iterator())));
 			totalBytes += BLOCK_TOCTA_SIZE;
 		}
 		return totalBytes;
