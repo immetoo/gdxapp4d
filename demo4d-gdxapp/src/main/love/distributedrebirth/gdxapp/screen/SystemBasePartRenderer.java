@@ -44,11 +44,15 @@ public class SystemBasePartRenderer extends ImGuiRendererMain {
 		Integer baseNumber = Integer.valueOf(selectedItem);
 		BãßBȍőnPartʸᴰ<?>[] baseParts = BasePartFactory.INSTANCE.BãßBuildPartsByBase(baseNumber);
 		
-		ImGui.text("Base:");
+		ImGui.combo("Base", selectedBasePart, items);
+		
+		ImGui.text("Name:");
 		ImGui.sameLine();
 		ImGui.text(baseParts[0].BãßClassNaam());
+		
+		ImGui.text("Purpose:");
 		ImGui.sameLine();
-		ImGui.combo("Type", selectedBasePart, items);
+		ImGui.text(baseParts[0].BãßClassPurpose());
 		
 		int flags = ImGuiTableFlags.ScrollX | ImGuiTableFlags.RowBg | ImGuiTableFlags.BordersOuter | ImGuiTableFlags.BordersV;
 		ImGui.beginTable("base-part", 21, flags);
