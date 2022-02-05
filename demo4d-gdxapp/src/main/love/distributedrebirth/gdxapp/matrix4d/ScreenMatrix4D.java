@@ -51,7 +51,7 @@ public class ScreenMatrix4D extends Demo4DMainAdapter {
 	public SpriteBatch spriteBatch;
 
 	/** World-space position of the text. (Corner of the cube.) */
-	public Vector3 textPosition = new Vector3(2.5f, 2.5f, 2.5f);
+	public Vector3 textPosition = new Vector3(6.5f, 10.5f, 5.5f);
 	//endregion
 	
 	private float colorDeltaTime = 0f;
