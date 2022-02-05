@@ -1,9 +1,13 @@
 package love.distributedrebirth.numberxd.base2t.part.warp;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnEnumInstanceʸᴰ;
 import love.distributedrebirth.numberxd.base2t.BasePartFactory;
+import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartKeyʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
@@ -22,37 +26,54 @@ public enum TOSWarpCore implements BãßBȍőnEnumInstanceʸᴰ<TOSWarpCore> {
 		}
 	}
 	
-	public WarpCipher BãßSaveWarpCipher() {
-		WarpCipher warpCore = new WarpCipher();
+	public WaterBucket BãßCurrentWarpCore() {
+		WaterCipher warpCipher = new WaterCipher();
 		if (armedWarpCipherName == null) {
-			warpCore.setCipherName("default");
+			warpCipher.setName("default");
 		} else {
-			warpCore.setCipherName(armedWarpCipherName);
+			warpCipher.setName(armedWarpCipherName);
 		}
 		if (armedWarpCipherDescription == null) {
-			warpCore.setCipherName("Current active cipher.");
+			warpCipher.setName("Current active cipher.");
 		} else {
-			warpCore.setCipherDescription(armedWarpCipherDescription);
+			warpCipher.setDescription(armedWarpCipherDescription);
 		}
 		for (int base:BasePartFactory.INSTANCE.BãßBases()) {
-			WarpCipherHeart heart = new WarpCipherHeart();
+			WaterCipherHeart heart = new WaterCipherHeart();
 			BãßBȍőnPartʸᴰ<?>[] bases = BasePartFactory.INSTANCE.BãßBuildPartsByBase(base);
-			heart.setPartKey(bases[0].BȍőnNaamI18N());
+			heart.setBass(bases[0].BãßInstances().length);
 			for (BãßBȍőnPartʸᴰ<?> part:bases) {
-				WarpCipherHeartCore core = new WarpCipherHeartCore();
-				core.setIdentifierTone(part.BȍőnIdentifierTone());
-				core.setChinaKey(part.BȍőnChinaKey());
-				core.setChinaValue(part.BȍőnChinaValue());
-				heart.getHeartCores().add(core);
+				WaterCipherHeartTone tone = new WaterCipherHeartTone();
+				tone.setPart(part.BȍőnNaam());
+				tone.setDialTone(part.BȍőnDialTone());
+				tone.setChinaKey(part.BȍőnChinaKey());
+				tone.setChinaValue(part.BȍőnChinaValue());
+				heart.addHeartTone(tone);
 			}
-			warpCore.getCipherHearts().add(heart);
+			warpCipher.getCipherHearts().add(heart);
 		}
-		return warpCore;
+		WaterBucket bucket = new WaterBucket();
+		bucket.fillWater(warpCipher);
+		return bucket;
 	}
 	
-	public void BãßLoadWarpCipher(WarpCipher warpCore) {
-		armedWarpCipherName = warpCore.getCipherName();
-		armedWarpCipherDescription = warpCore.getCipherDescription();
-		// TODO: load warpcore
+	public void BãßArmWarpCore(WaterBucket warpBucket) {
+		armedWarpCipherName = warpBucket.theWater().getName();
+		armedWarpCipherDescription = warpBucket.theWater().getDescription();
+		for (WaterCipherHeart heart:warpBucket.theWater().getCipherHearts()) {
+			BãßBȍőnPartʸᴰ<?>[] bases = BasePartFactory.INSTANCE.BãßBuildPartsByBase(heart.getBass());
+			Map<String, BãßBȍőnPartʸᴰ<?>> baseParts = new HashMap<>();
+			for (BãßBȍőnPartʸᴰ<?> base:bases) {
+				baseParts.put(base.BȍőnNaam(), base);
+			}
+			for (WaterCipherHeartTone tone:heart.getHeartTones()) {
+				BãßBȍőnPartʸᴰ<?> bassTone = baseParts.get(tone.getPart());
+				@SuppressWarnings("unchecked")
+				BãßBȍőnCoffinOpenʸᴰ<BãßBȍőnPartKeyʸᴰ> coffin = BãßBȍőnCoffinOpenʸᴰ.class.cast(bassTone.GET_BBC());
+				coffin.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.DIAL_TONE, tone.getDialTone());
+				coffin.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.CHINA_KEY, tone.getChinaKey());
+				coffin.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.CHINA_VALUE, tone.getChinaValue());
+			}
+		}
 	}
 }

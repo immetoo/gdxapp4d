@@ -3,21 +3,30 @@ package love.distributedrebirth.numberxd.base2t.part.warp;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public class WarpCipherHeartCore {
+public class WaterCipherHeartTone {
 	
-	private String identifierTone;
+	private String part;
+	private String dialTone;
 	private String chinaKey;
 	private String chinaValue;
 	
-	public WarpCipherHeartCore() {
+	public WaterCipherHeartTone() {
 	}
 	
-	public String getIdentifierTone() {
-		return identifierTone;
+	public String getPart() {
+		return part;
 	}
 	
-	public void setIdentifierTone(String identifierTone) {
-		this.identifierTone = identifierTone;
+	public void setPart(String part) {
+		this.part = part;
+	}
+	
+	public String getDialTone() {
+		return dialTone;
+	}
+	
+	public void setDialTone(String dialTone) {
+		this.dialTone = dialTone;
 	}
 	
 	public String getChinaKey() {

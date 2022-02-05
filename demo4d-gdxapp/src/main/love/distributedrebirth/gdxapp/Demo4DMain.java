@@ -32,6 +32,8 @@ import love.distributedrebirth.gdxapp.screen.ScreenLoading;
 import love.distributedrebirth.gdxapp.screen.ScreenUnicode4D;
 import love.distributedrebirth.gdxapp.screen.SystemBaseGlyphRenderer;
 import love.distributedrebirth.numberxd.base2t.part.warp.TOSWarpCore;
+import love.distributedrebirth.numberxd.base2t.part.warp.TOSWarpCoreDriver;
+import love.distributedrebirth.numberxd.base2t.part.warp.WaterBucket;
 import net.spookygames.gdx.nativefilechooser.NativeFileChooser;
 
 /**
@@ -72,23 +74,38 @@ public class Demo4DMain extends Game {
 		}
 		ImGuiSetup.init();
 		
-		int fileArgu = args.indexOf("warpcore-load");
-		if (fileArgu != -1) {
-			// TODO: load warpcore
+		try {
+			if (args.contains("warpcore-load")) {
+				System.out.println("warpcore-load: requested");
+				WaterBucket bucket = TOSWarpCoreDriver.getInstance().createReader().readFile("./warpcore.xml");
+				TOSWarpCore.INSTANCE.BãßArmWarpCore(bucket);
+			}
+			if (args.contains("warpcore-save")) {
+				System.out.println("warpcore-save: requested");
+				WaterBucket bucket = TOSWarpCore.INSTANCE.BãßCurrentWarpCore();
+				TOSWarpCoreDriver.getInstance().createWriter().writeFile(bucket, "./warpcore.xml");
+			}
+		} catch (Exception e) {
+			throw new RuntimeException(e);
 		}
 		if (!args.contains("warpcore-nolock")) {
 			TOSWarpCore.INSTANCE.BãßLockWarpCipher();
+		} else {
+			System.out.println("warpcore-nolock: requested");
 		}
 		
 		if (args.contains("full-screen")) {
+			System.out.println("full-screen: requested");
 			Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());
 		}
-		if (args.contains("no-intro")) {
+		if (args.contains("intro-skip")) {
+			System.out.println("intro-skip: requested");
 			selectScreen(ScreenDefault.class);
 			music.play(MusicSongType.BACKGROUND);
 		} else {
 			selectScreen(ScreenIntro.class);
 		}
+
 	}
 	
 	public void create() {
@@ -100,8 +117,12 @@ public class Demo4DMain extends Game {
 		camera.update();
 		batch.setProjectionMatrix(camera.combined);
 		
+		boolean musicStop = args.contains("music-stop");
+		if (musicStop) {
+			System.out.println("music-stop: requested");
+		}
 		music = new MusicManager();
-		music.init(args.contains("no-music"));
+		music.init(musicStop);
 		
 		screens = new HashMap<>();
 		widgets = new HashMap<>();

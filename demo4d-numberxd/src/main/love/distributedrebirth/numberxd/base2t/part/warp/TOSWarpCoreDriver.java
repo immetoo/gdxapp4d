@@ -1,5 +1,24 @@
 package love.distributedrebirth.numberxd.base2t.part.warp;
 
-public class TOSWarpCoreDriver {
+import org.x4o.xml.X4ODriver;
+import org.x4o.xml.X4ODriverManager;
 
+public class TOSWarpCoreDriver extends X4ODriver<WaterBucket> {
+
+	static final public String LANGUAGE_NAME = "warpcore";
+	static final public String[] LANGUAGE_VERSIONS = new String[]{X4ODriver.DEFAULT_LANGUAGE_VERSION};
+	
+	@Override
+	public String getLanguageName() {
+		return LANGUAGE_NAME;
+	}
+
+	@Override
+	public String[] getLanguageVersions() {
+		return LANGUAGE_VERSIONS;
+	}
+	
+	static public TOSWarpCoreDriver getInstance() {
+		return (TOSWarpCoreDriver)X4ODriverManager.getX4ODriver(LANGUAGE_NAME);
+	}
 }
