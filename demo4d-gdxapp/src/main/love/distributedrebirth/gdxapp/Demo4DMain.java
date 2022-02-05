@@ -77,13 +77,13 @@ public class Demo4DMain extends Game {
 		try {
 			if (args.contains("warpcore-load")) {
 				System.out.println("warpcore-load: requested");
-				WaterBucket bucket = TOSWarpCoreDriver.getInstance().createReader().readFile("./warpcore.xml");
+				WaterBucket bucket = TOSWarpCoreDriver.newInstance().createReader().readFile("./warpcore.xml");
 				TOSWarpCore.INSTANCE.BãßArmWarpCore(bucket);
 			}
 			if (args.contains("warpcore-save")) {
 				System.out.println("warpcore-save: requested");
 				WaterBucket bucket = TOSWarpCore.INSTANCE.BãßCurrentWarpCore();
-				TOSWarpCoreDriver.getInstance().createWriter().writeFile(bucket, "./warpcore.xml");
+				TOSWarpCoreDriver.newInstance().createWriter().writeFile(bucket, "./warpcore.xml");
 			}
 		} catch (Exception e) {
 			throw new RuntimeException(e);

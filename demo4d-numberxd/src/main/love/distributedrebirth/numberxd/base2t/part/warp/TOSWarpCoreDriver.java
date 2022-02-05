@@ -3,6 +3,9 @@ package love.distributedrebirth.numberxd.base2t.part.warp;
 import org.x4o.xml.X4ODriver;
 import org.x4o.xml.X4ODriverManager;
 
+import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
+
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class TOSWarpCoreDriver extends X4ODriver<WaterBucket> {
 
 	static final public String LANGUAGE_NAME = "warpcore";
@@ -18,7 +21,7 @@ public class TOSWarpCoreDriver extends X4ODriver<WaterBucket> {
 		return LANGUAGE_VERSIONS;
 	}
 	
-	static public TOSWarpCoreDriver getInstance() {
+	static public TOSWarpCoreDriver newInstance() {
 		return (TOSWarpCoreDriver)X4ODriverManager.getX4ODriver(LANGUAGE_NAME);
 	}
 }
