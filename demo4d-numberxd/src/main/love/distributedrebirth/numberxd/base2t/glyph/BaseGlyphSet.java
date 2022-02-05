@@ -12,7 +12,6 @@ import love.distributedrebirth.numberxd.base2t.part.T16PartHex;
 public enum BaseGlyphSet implements BãßBȍőnGlyphSetʸᴰ<BaseGlyphSet> {
 
 	// TODO: ImGui add font for SINHALA
-	// TODO: ImGui add font for BURMESE
 	// TODO: ImGui add font for ARABIC
 	
 	LATIN_DTMF(new BaseGlyphSetNumber(v -> T10PartDecimal.PART_1.BãßVoorElk(x -> v.add(x.BȍőnChinaValue()))).withSeperator(" "),
@@ -44,7 +43,10 @@ public enum BaseGlyphSet implements BãßBȍőnGlyphSetʸᴰ<BaseGlyphSet> {
 			new BaseGlyphSetNumber("꜔꜒꜖","꜔꜖꜒","꜔꜒꜓","꜔꜖꜕","꜔꜓꜓","꜔꜕꜕","꜔꜒꜒","꜔꜖꜖","꜒꜖꜔","꜖꜒꜔","꜒꜓꜔","꜖꜕꜔","꜓꜓꜔","꜕꜕꜔","꜒꜒꜔","꜖꜖꜔").withAltGlyphSet(BaseGlyphSet.LATIN_SUB16),
 			null),
 	
-	BURMESE(new BaseGlyphSetNumber("\u1040","\u1041","\u1042","\u1043","\u1044","\u1045","\u1046","\u1047","\u1048","\u1049")),
+	CYRILLIC(new BaseGlyphSetNumber("⃝","А","В","Г","Д","Є","Ѕ","З","И","Ѳ"),
+			new BaseGlyphSetNumber("⃝","А","В","Г","Д","Є","Ѕ","З","И","Ѳ","҂"," ҈"," ҉"," ꙰"," ꙱"," ꙲").withAltGlyphSet(BaseGlyphSet.LATIN_TOP16),
+			new BaseGlyphSetNumber("А","В","Г","Д","Є","Ѕ","З","И","Ѳ","І","К","Л","М","Н","Ѯ","Ѻ","П","Ч","Р","С","Т","Ѵ","Ф","Х","Ѱ","Ѿ","Ц")),
+	
 	BENGALI(new BaseGlyphSetNumber("০","১","২","৩","৪","৫","৬","৭","৮","৯")),
 	SINHALA(new BaseGlyphSetNumber("෦","෧","෨","෩","෪","෫","෬","෭","෮","෯")),
 	CHINA_FINANCIAL_T(new BaseGlyphSetNumber(v -> T10PartDecimal.PART_1.BãßVoorElk(x -> v.add(x.BȍőnChinaKey()))),
