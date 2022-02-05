@@ -6,7 +6,7 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnClassInfoʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-@BãßBȍőnClassInfoʸᴰ(name = "T06PartSeximal", purpose = "The distribution by 6.")
+@BãßBȍőnClassInfoʸᴰ(name = "T06PartSeximal", purpose = "The distribution by 6 (numbers4/9).")
 @BãßBȍőnPartAlt1Infoʸᴰ(name = "ADFGVX cipher", website = "https://en.wikipedia.org/wiki/ADFGVX_cipher")
 public enum T06PartSeximal implements BãßBȍőnPartAlt1ʸᴰ<T06PartSeximal> {
 

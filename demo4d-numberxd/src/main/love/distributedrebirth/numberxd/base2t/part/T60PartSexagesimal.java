@@ -6,7 +6,7 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnClassInfoʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-@BãßBȍőnClassInfoʸᴰ(name = "T60Sexagesimal", purpose = "The distribution by 60.")
+@BãßBȍőnClassInfoʸᴰ(name = "T60Sexagesimal", purpose = "The distribution by 60 (human food).")
 public enum T60PartSexagesimal implements BãßBȍőnPartʸᴰ<T60PartSexagesimal> {
 
 	PART_1 ("˥˥","牛","cow"),
@@ -63,7 +63,7 @@ public enum T60PartSexagesimal implements BãßBȍőnPartʸᴰ<T60PartSexagesima
 	PART_52("꜒˦","蕉","banana"),
 	PART_53("꜒˧","檸","lemon"),
 	PART_54("꜒˨","柿","persimmon"),
-	PART_55("꜒˩","橙","orange"),
+	PART_55("꜒˩","餅","cake"),
 	PART_56("꜒꜒","桃","peach"),
 	PART_57("꜒꜓","杏","apricot"),
 	PART_58("꜒꜔","莓","strawberry"),

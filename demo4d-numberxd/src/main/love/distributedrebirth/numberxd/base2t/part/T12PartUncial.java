@@ -6,7 +6,7 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnClassInfoʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-@BãßBȍőnClassInfoʸᴰ(name = "T12PartUncial", purpose = "The distribution by 12.")
+@BãßBȍőnClassInfoʸᴰ(name = "T12PartUncial", purpose = "The distribution by 12 (emperor).")
 @BãßBȍőnPartAlt1Infoʸᴰ(name = "Transdecimal symbols", website = "https://en.wikipedia.org/wiki/Duodecimal#Transdecimal_symbols")
 public enum T12PartUncial implements BãßBȍőnPartAlt1ʸᴰ<T12PartUncial> {
 

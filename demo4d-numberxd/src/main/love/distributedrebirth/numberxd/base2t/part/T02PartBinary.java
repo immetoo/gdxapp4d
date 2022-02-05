@@ -6,7 +6,7 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnClassInfoʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-@BãßBȍőnClassInfoʸᴰ(name = "T02PartBinary", purpose = "The distribution by 2.")
+@BãßBȍőnClassInfoʸᴰ(name = "T02PartBinary", purpose = "The distribution by 2 (low/high).")
 public enum T02PartBinary implements BãßBȍőnPartʸᴰ<T02PartBinary> {
 
 	PART_1("˧", "低", "low"),

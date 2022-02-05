@@ -6,7 +6,7 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnClassInfoʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-@BãßBȍőnClassInfoʸᴰ(name = "T07PartPlanIt", purpose = "The distribution by 7.")
+@BãßBȍőnClassInfoʸᴰ(name = "T07PartPlanIt", purpose = "The distribution by 7 (planets).")
 @BãßBȍőnPartAlt1Infoʸᴰ(name = "Fallen sign", website = "https://en.wikipedia.org/wiki/Classical_planet#Western_astrology")
 public enum T07PartPlanIt implements BãßBȍőnPartAlt1ʸᴰ<T07PartPlanIt> {
 

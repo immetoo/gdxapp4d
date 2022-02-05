@@ -10,6 +10,7 @@ import love.distributedrebirth.numberxd.base2t.part.T05PartPental;
 import love.distributedrebirth.numberxd.base2t.part.T06PartSeximal;
 import love.distributedrebirth.numberxd.base2t.part.T07PartPlanIt;
 import love.distributedrebirth.numberxd.base2t.part.T08PartOctal;
+import love.distributedrebirth.numberxd.base2t.part.T09PartNonary;
 import love.distributedrebirth.numberxd.base2t.part.T10PartDecimal;
 import love.distributedrebirth.numberxd.base2t.part.T11PartUndecimal;
 import love.distributedrebirth.numberxd.base2t.part.T12PartUncial;
@@ -24,7 +25,7 @@ public enum BasePartFactory implements BãßBȍőnEnumInstanceʸᴰ<BasePartFact
 
 	INSTANCE;
 	
-	private static final int[] SUPPORTED_BASES = {2,3,4,5,6,7,8,10,11,12,16,20,60};
+	private static final int[] SUPPORTED_BASES = {2,3,4,5,6,7,8,9,10,11,12,16,20,60};
 	
 	public int[] BãßBases() {
 		return SUPPORTED_BASES;
@@ -47,7 +48,7 @@ public enum BasePartFactory implements BãßBȍőnEnumInstanceʸᴰ<BasePartFact
 		case 8:
 			return T08PartOctal.values();
 		case 9:
-			throw new IllegalArgumentException("Unsupported base: "+base);
+			return T09PartNonary.values();
 		case 10:
 			return T10PartDecimal.values();
 		case 11:

@@ -6,7 +6,7 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnClassInfoʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-@BãßBȍőnClassInfoʸᴰ(name = "T11PartUndecimal", purpose = "The distribution by 11.")
+@BãßBȍőnClassInfoʸᴰ(name = "T11PartUndecimal", purpose = "The distribution by 11 (human activity).")
 @BãßBȍőnPartAlt1Infoʸᴰ(name = "Tamil numerals", website = "https://en.wikipedia.org/wiki/Tamil_numerals")
 public enum T11PartUndecimal implements BãßBȍőnPartAlt1ʸᴰ<T11PartUndecimal> {
 

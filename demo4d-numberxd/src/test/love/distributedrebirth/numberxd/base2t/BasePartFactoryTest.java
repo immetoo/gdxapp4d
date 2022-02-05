@@ -25,7 +25,7 @@ public class BasePartFactoryTest {
 		Map<String,String> global = new HashMap<>();
 		for (int base:BasePartFactory.INSTANCE.BãßBases()) {
 			for (BãßBȍőnPartʸᴰ<?> part:BasePartFactory.INSTANCE.BãßBuildPartsByBase(base)) {
-				Assertions.assertFalse(global.containsKey(part.BȍőnChinaKey()));
+				Assertions.assertFalse(global.containsKey(part.BȍőnChinaKey()), "key: "+part.BȍőnChinaKey());
 				global.put(part.BȍőnChinaKey(), part.BȍőnChinaValue());
 			}
 		}

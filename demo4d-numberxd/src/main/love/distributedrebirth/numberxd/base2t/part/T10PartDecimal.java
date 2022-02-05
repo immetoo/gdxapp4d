@@ -6,7 +6,7 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnClassInfoʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-@BãßBȍőnClassInfoʸᴰ(name = "T10PartDecimal", purpose = "The distribution by 10.")
+@BãßBȍőnClassInfoʸᴰ(name = "T10PartDecimal", purpose = "The distribution by 10 (finance numbers).")
 @BãßBȍőnPartAlt1Infoʸᴰ(name = "Tone Letter LR", website = "https://en.wikipedia.org/wiki/Tone_letter")
 @BãßBȍőnPartAlt2Infoʸᴰ(name = "Tone Letter RL", website = "https://en.wikipedia.org/wiki/Tone_letter")
 public enum T10PartDecimal implements BãßBȍőnPartAlt2ʸᴰ<T10PartDecimal> {

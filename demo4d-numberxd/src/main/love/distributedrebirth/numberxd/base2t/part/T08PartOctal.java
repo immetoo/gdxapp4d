@@ -6,7 +6,7 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnClassInfoʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-@BãßBȍőnClassInfoʸᴰ(name = "T08PartOctal", purpose = "The distribution by 8.")
+@BãßBȍőnClassInfoʸᴰ(name = "T08PartOctal", purpose = "The distribution by 8 (human part).")
 public enum T08PartOctal implements BãßBȍőnPartʸᴰ<T08PartOctal>,BãßBȍőnPartShiftBitsʸᴰ<T08PartOctal> {
 
 	PART_1("˥","心","heart",0),

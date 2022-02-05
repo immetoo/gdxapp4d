@@ -6,7 +6,7 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnClassInfoʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-@BãßBȍőnClassInfoʸᴰ(name = "T05PartPental", purpose = "The distribution by 5 called Wuxing.")
+@BãßBȍőnClassInfoʸᴰ(name = "T05PartPental", purpose = "The distribution by 5 (wuxing).")
 @BãßBȍőnPartAlt1Infoʸᴰ(name = "Pentagram", website = "https://en.wikipedia.org/wiki/Pentagram")
 @BãßBȍőnPartAlt2Infoʸᴰ(name = "Pythagorean Interpretations", website = "http://wisdomofhypatia.com/OM/BA/PP.html")
 public enum T05PartPental implements BãßBȍőnPartAlt2ʸᴰ<T05PartPental> {

@@ -11,7 +11,7 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnClassInfoʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-@BãßBȍőnClassInfoʸᴰ(name = "T20PartScore", purpose = "The distribution by 20.")
+@BãßBȍőnClassInfoʸᴰ(name = "T20PartScore", purpose = "The distribution by 20 (SI prefixes).")
 @BãßBȍőnPartAlt1Infoʸᴰ(name = "SI-Unit Types", website = "https://en.wikipedia.org/wiki/Metric_prefix")
 @BãßBȍőnPartAlt2Infoʸᴰ(name = "Vigesimal", website = "https://en.wikipedia.org/wiki/Vigesimal#Places")
 @BãßBȍőnPartAlt3Infoʸᴰ(name = "Vigesimal Alternative", website = "https://en.wikipedia.org/wiki/Vigesimal#Places")

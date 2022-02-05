@@ -6,7 +6,7 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnClassInfoʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-@BãßBȍőnClassInfoʸᴰ(name = "T04PartQuad", purpose = "The distribution by 4.")
+@BãßBȍőnClassInfoʸᴰ(name = "T04PartQuad", purpose = "The distribution by 4 (directions).")
 @BãßBȍőnPartAlt1Infoʸᴰ(name = "Cardinal direction", website = "https://simple.wikipedia.org/wiki/Cardinal_direction")
 public enum T04PartQuad implements BãßBȍőnPartAlt1ʸᴰ<T04PartQuad> {
 

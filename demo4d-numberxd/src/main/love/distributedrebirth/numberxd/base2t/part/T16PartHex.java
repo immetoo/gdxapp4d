@@ -6,7 +6,7 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnClassInfoʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-@BãßBȍőnClassInfoʸᴰ(name = "T16PartHex", purpose = "The distribution by 16.")
+@BãßBȍőnClassInfoʸᴰ(name = "T16PartHex", purpose = "The distribution by 16 (elements).")
 @BãßBȍőnPartAlt1Infoʸᴰ(name = "Hexadecimal", website = "https://en.wikipedia.org/wiki/Hexadecimal")
 public enum T16PartHex implements BãßBȍőnPartAlt1ʸᴰ<T16PartHex> {
 
