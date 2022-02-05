@@ -2,6 +2,9 @@
 # Ignore files in the demo4D project.
 #
 
+# Ignore project resources
+demo4d-gdxapp-desktop/warpcore.xml
+
 # Ignore gradle resources
 bin
 build
