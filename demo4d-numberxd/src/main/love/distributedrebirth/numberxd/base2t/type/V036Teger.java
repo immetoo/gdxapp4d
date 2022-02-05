@@ -15,31 +15,31 @@ import love.distributedrebirth.numberxd.base2t.part.T04PartQuad;
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public final class V036Teger implements BaseNumberTyte<V036Teger> {
 
-	public static int BIT_COUNT = V012Tord.BIT_COUNT * T02PartBinary.LENGTH();
-	private V012Tord[] values = new V012Tord[T02PartBinary.LENGTH()];
+	public static int BIT_COUNT = V018Tord.BIT_COUNT * T02PartBinary.LENGTH();
+	private V018Tord[] values = new V018Tord[T02PartBinary.LENGTH()];
 	
 	public V036Teger() {
-		this(new V012Tord(), new V012Tord());
+		this(new V018Tord(), new V018Tord());
 	}
 	
 	public V036Teger(BaseIteratorOctal values) {
-		this(new V012Tord(values), new V012Tord(values));
+		this(new V018Tord(values), new V018Tord(values));
 	}
 	
 	public V036Teger(BaseIteratorTyte values) {
-		this(new V012Tord(values), new V012Tord(values));
+		this(new V018Tord(values), new V018Tord(values));
 	}
 	
-	private V036Teger(V012Tord valueHigh, V012Tord valueLow) {
+	private V036Teger(V018Tord valueHigh, V018Tord valueLow) {
 		setValue(T02PartBinary.PART_1, valueHigh);
 		setValue(T02PartBinary.PART_2, valueLow);
 	}
 	
-	public V012Tord getValue(T02PartBinary part) {
+	public V018Tord getValue(T02PartBinary part) {
 		return values[part.ordinal()];
 	}
 	
-	public void setValue(T02PartBinary part, V012Tord value) {
+	public void setValue(T02PartBinary part, V018Tord value) {
 		values[part.ordinal()] = value;
 	}
 	

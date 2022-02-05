@@ -13,24 +13,24 @@ import love.distributedrebirth.numberxd.base2t.part.T06PartSeximal;
  * Holds an 18 bit value.
  */
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public final class V012Tord implements BaseNumberTyte<V012Tord> {
+public final class V018Tord implements BaseNumberTyte<V018Tord> {
 
 	public static int BIT_COUNT = V009Tyte.BIT_COUNT * T02PartBinary.LENGTH();
 	private V009Tyte[] values = new V009Tyte[T02PartBinary.LENGTH()];
 	
-	public V012Tord() {
+	public V018Tord() {
 		this(new V009Tyte(), new V009Tyte());
 	}
 	
-	public V012Tord(BaseIteratorOctal values) {
+	public V018Tord(BaseIteratorOctal values) {
 		this(new V009Tyte(values), new V009Tyte(values));
 	}
 	
-	public V012Tord(BaseIteratorTyte values) {
+	public V018Tord(BaseIteratorTyte values) {
 		this(values.next(), values.next());
 	}
 	
-	private V012Tord(V009Tyte valueHigh, V009Tyte valueLow) {
+	private V018Tord(V009Tyte valueHigh, V009Tyte valueLow) {
 		setValue(T02PartBinary.PART_1, valueHigh);
 		setValue(T02PartBinary.PART_2, valueLow);
 	}
@@ -53,8 +53,8 @@ public final class V012Tord implements BaseNumberTyte<V012Tord> {
 	}
 	
 	@Override
-	public V012Tord toClone() {
-		return new V012Tord(iteratorOctalsByClone());
+	public V018Tord toClone() {
+		return new V018Tord(iteratorOctalsByClone());
 	}
 	
 	@Override

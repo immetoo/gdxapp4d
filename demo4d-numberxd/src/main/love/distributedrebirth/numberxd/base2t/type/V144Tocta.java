@@ -60,13 +60,13 @@ public final class V144Tocta implements BaseNumberTyte<V144Tocta> {
 		.setValue(part.splitPartBinary(T04PartQuad.PART_4), value);
 	}
 	
-	public V012Tord getTordPart(T08PartOctal part) {
+	public V018Tord getTordPart(T08PartOctal part) {
 		return getValue(part.splitPartBinary(T03PartTrit.PART_1))
 			.getValue(part.splitPartBinary(T03PartTrit.PART_2))
 			.getValue(part.splitPartBinary(T03PartTrit.PART_3));
 	}
 	
-	public void setTordPart(T08PartOctal part, V012Tord value) {
+	public void setTordPart(T08PartOctal part, V018Tord value) {
 		getValue(part.splitPartBinary(T03PartTrit.PART_1))
 		.getValue(part.splitPartBinary(T03PartTrit.PART_2))
 		.setValue(part.splitPartBinary(T03PartTrit.PART_3), value);
