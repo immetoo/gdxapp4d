@@ -46,9 +46,9 @@ public enum T20PartScore implements BãßBȍőnPartAlt4ʸᴰ<T20PartScore> {
 	public BãßBȍőnCoffinʸᴰ<BãßBȍőnPartKeyʸᴰ> GET_BBC() { return BBC; }
 	public static int LENGTH() { return values().length; };
 	
-	private T20PartScore(String idTone, String chinaKey, String chinaValue,
+	private T20PartScore(String dialTone, String chinaKey, String chinaValue,
 			String alt1Value, String alt2Value, String alt3Value, String alt4Value) {
-		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.ID_TONE, idTone);
+		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.DIAL_TONE, dialTone);
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.CHINA_KEY, chinaKey);
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.CHINA_VALUE, chinaValue);
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.ALT_1_VALUE, alt1Value);

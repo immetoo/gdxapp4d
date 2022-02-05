@@ -12,7 +12,7 @@ public class T04PartQuadTest {
 	@Test
 	public void testBasePart() {
 		for (T04PartQuad value:T04PartQuad.values()) {
-			Assertions.assertNotNull(value.BȍőnIdentifierTone());
+			Assertions.assertNotNull(value.BȍőnDialTone());
 			Assertions.assertNotNull(value.BȍőnChinaKey());
 			Assertions.assertNotNull(value.BȍőnChinaValue());
 			Assertions.assertNotNull(value.BȍőnAlt1Value());
@@ -39,17 +39,17 @@ public class T04PartQuadTest {
 	
 	@Test
 	public void testToneMap() {
-		Assertions.assertEquals(T04PartQuad.PART_1, T04PartQuad.PART_1.BãßValueOfTone("˥"));
-		Assertions.assertEquals(T04PartQuad.PART_2, T04PartQuad.PART_1.BãßValueOfTone("꜒"));
-		Assertions.assertEquals(T04PartQuad.PART_3, T04PartQuad.PART_1.BãßValueOfTone("꜖"));
-		Assertions.assertEquals(T04PartQuad.PART_4, T04PartQuad.PART_1.BãßValueOfTone("˩"));
+		Assertions.assertEquals(T04PartQuad.PART_1, T04PartQuad.PART_1.BãßValueOfDialTone("˥"));
+		Assertions.assertEquals(T04PartQuad.PART_2, T04PartQuad.PART_1.BãßValueOfDialTone("꜒"));
+		Assertions.assertEquals(T04PartQuad.PART_3, T04PartQuad.PART_1.BãßValueOfDialTone("꜖"));
+		Assertions.assertEquals(T04PartQuad.PART_4, T04PartQuad.PART_1.BãßValueOfDialTone("˩"));
 	}
 	
 	@Test
 	public void testChinaMap() {
-		Assertions.assertEquals(T04PartQuad.PART_1, T04PartQuad.PART_1.BãßValueOfChina("北"));
-		Assertions.assertEquals(T04PartQuad.PART_2, T04PartQuad.PART_1.BãßValueOfChina("東"));
-		Assertions.assertEquals(T04PartQuad.PART_3, T04PartQuad.PART_1.BãßValueOfChina("西"));
-		Assertions.assertEquals(T04PartQuad.PART_4, T04PartQuad.PART_1.BãßValueOfChina("南"));
+		Assertions.assertEquals(T04PartQuad.PART_1, T04PartQuad.PART_1.BãßValueOfChinaKey("北"));
+		Assertions.assertEquals(T04PartQuad.PART_2, T04PartQuad.PART_1.BãßValueOfChinaKey("東"));
+		Assertions.assertEquals(T04PartQuad.PART_3, T04PartQuad.PART_1.BãßValueOfChinaKey("西"));
+		Assertions.assertEquals(T04PartQuad.PART_4, T04PartQuad.PART_1.BãßValueOfChinaKey("南"));
 	}
 }

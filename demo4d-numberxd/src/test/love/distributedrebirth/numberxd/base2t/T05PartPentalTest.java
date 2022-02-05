@@ -12,7 +12,7 @@ public class T05PartPentalTest {
 	@Test
 	public void testBasePart() {
 		for (T05PartPental value:T05PartPental.values()) {
-			Assertions.assertNotNull(value.BȍőnIdentifierTone());
+			Assertions.assertNotNull(value.BȍőnDialTone());
 			Assertions.assertNotNull(value.BȍőnChinaKey());
 			Assertions.assertNotNull(value.BȍőnChinaValue());
 		}
@@ -20,19 +20,19 @@ public class T05PartPentalTest {
 	
 	@Test
 	public void testToneMap() {
-		Assertions.assertEquals(T05PartPental.PART_1, T05PartPental.PART_1.BãßValueOfTone("˥"));
-		Assertions.assertEquals(T05PartPental.PART_2, T05PartPental.PART_1.BãßValueOfTone("˦"));
-		Assertions.assertEquals(T05PartPental.PART_3, T05PartPental.PART_1.BãßValueOfTone("˧"));
-		Assertions.assertEquals(T05PartPental.PART_4, T05PartPental.PART_1.BãßValueOfTone("˨"));
-		Assertions.assertEquals(T05PartPental.PART_5, T05PartPental.PART_1.BãßValueOfTone("˩"));
+		Assertions.assertEquals(T05PartPental.PART_1, T05PartPental.PART_1.BãßValueOfDialTone("˥"));
+		Assertions.assertEquals(T05PartPental.PART_2, T05PartPental.PART_1.BãßValueOfDialTone("˦"));
+		Assertions.assertEquals(T05PartPental.PART_3, T05PartPental.PART_1.BãßValueOfDialTone("˧"));
+		Assertions.assertEquals(T05PartPental.PART_4, T05PartPental.PART_1.BãßValueOfDialTone("˨"));
+		Assertions.assertEquals(T05PartPental.PART_5, T05PartPental.PART_1.BãßValueOfDialTone("˩"));
 	}
 	
 	@Test
 	public void testChinaMap() {
-		Assertions.assertEquals(T05PartPental.PART_1, T05PartPental.PART_1.BãßValueOfChina("火"));
-		Assertions.assertEquals(T05PartPental.PART_2, T05PartPental.PART_1.BãßValueOfChina("水"));
-		Assertions.assertEquals(T05PartPental.PART_3, T05PartPental.PART_1.BãßValueOfChina("木"));
-		Assertions.assertEquals(T05PartPental.PART_4, T05PartPental.PART_1.BãßValueOfChina("金"));
-		Assertions.assertEquals(T05PartPental.PART_5, T05PartPental.PART_1.BãßValueOfChina("土"));
+		Assertions.assertEquals(T05PartPental.PART_1, T05PartPental.PART_1.BãßValueOfChinaKey("火"));
+		Assertions.assertEquals(T05PartPental.PART_2, T05PartPental.PART_1.BãßValueOfChinaKey("水"));
+		Assertions.assertEquals(T05PartPental.PART_3, T05PartPental.PART_1.BãßValueOfChinaKey("木"));
+		Assertions.assertEquals(T05PartPental.PART_4, T05PartPental.PART_1.BãßValueOfChinaKey("金"));
+		Assertions.assertEquals(T05PartPental.PART_5, T05PartPental.PART_1.BãßValueOfChinaKey("土"));
 	}
 }

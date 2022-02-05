@@ -25,8 +25,8 @@ public enum T08PartOctal implements BãßBȍőnPartʸᴰ<T08PartOctal>,BãßBȍ�
 	public BãßBȍőnCoffinʸᴰ<BãßBȍőnPartKeyʸᴰ> GET_BBC() { return BBC; }
 	public static int LENGTH() { return values().length; };
 	
-	private T08PartOctal(String idTone, String chinaKey, String chinaValue, int shiftBits) {
-		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.ID_TONE, idTone);
+	private T08PartOctal(String dialTone, String chinaKey, String chinaValue, int shiftBits) {
+		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.DIAL_TONE, dialTone);
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.CHINA_KEY, chinaKey);
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.CHINA_VALUE, chinaValue);
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.SHIFT_BITS, Integer.valueOf(shiftBits));

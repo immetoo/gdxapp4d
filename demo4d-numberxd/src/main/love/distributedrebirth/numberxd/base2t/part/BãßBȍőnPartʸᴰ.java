@@ -23,8 +23,8 @@ public interface BãßBȍőnPartʸᴰ<T extends BãßBȍőnPartʸᴰ<T>> extends
 		BBC.PUT_MAP(BãßBȍőnPartKeyʸᴰ.MAP_CHINA);
 	}
 	
-	default String BȍőnIdentifierTone() {
-		return GET_BBC().GET_STR(BãßBȍőnPartKeyʸᴰ.ID_TONE);
+	default String BȍőnDialTone() {
+		return GET_BBC().GET_STR(BãßBȍőnPartKeyʸᴰ.DIAL_TONE);
 	}
 	
 	default String BȍőnChinaKey() {
@@ -36,16 +36,16 @@ public interface BãßBȍőnPartʸᴰ<T extends BãßBȍőnPartʸᴰ<T>> extends
 	}
 	
 	@SuppressWarnings("unchecked")
-	default T BãßValueOfTone(String identifierTone) {
+	default T BãßValueOfDialTone(String identifierTone) {
 		Map<String,Object> mapTone = GET_BBC().GET_MAP_OBJ(BãßBȍőnPartKeyʸᴰ.MAP_TONE);
 		if (mapTone.isEmpty()) {
-			mapTone.putAll(BãßInstancesStream().collect(Collectors.toMap(v -> v.BȍőnIdentifierTone(), v -> v)));
+			mapTone.putAll(BãßInstancesStream().collect(Collectors.toMap(v -> v.BȍőnDialTone(), v -> v)));
 		}
 		return (T) mapTone.get(identifierTone);
 	}
 	
 	@SuppressWarnings("unchecked")
-	default T BãßValueOfChina(String chinaKey) {
+	default T BãßValueOfChinaKey(String chinaKey) {
 		Map<String,Object> mapChina = GET_BBC().GET_MAP_OBJ(BãßBȍőnPartKeyʸᴰ.MAP_CHINA);
 		if (mapChina.isEmpty()) {
 			mapChina.putAll(BãßInstancesStream().collect(Collectors.toMap(v -> v.BȍőnChinaKey(), v -> v)));

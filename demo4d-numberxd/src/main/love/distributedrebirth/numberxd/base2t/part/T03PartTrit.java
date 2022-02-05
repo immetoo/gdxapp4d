@@ -18,8 +18,8 @@ public enum T03PartTrit implements BãßBȍőnPartʸᴰ<T03PartTrit> {
 	public BãßBȍőnCoffinʸᴰ<BãßBȍőnPartKeyʸᴰ> GET_BBC() { return BBC; }
 	public static int LENGTH() { return values().length; };
 	
-	private T03PartTrit(String idTone, String chinaKey, String chinaValue) {
-		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.ID_TONE, idTone);
+	private T03PartTrit(String dialTone, String chinaKey, String chinaValue) {
+		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.DIAL_TONE, dialTone);
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.CHINA_KEY, chinaKey);
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.CHINA_VALUE, chinaValue);
 		BBC.INIT_BOON(this);

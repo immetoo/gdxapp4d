@@ -12,7 +12,7 @@ public class T20PartScoreTest {
 	@Test
 	public void testBasePart() {
 		for (T20PartScore value:T20PartScore.values()) {
-			Assertions.assertNotNull(value.BȍőnIdentifierTone());
+			Assertions.assertNotNull(value.BȍőnDialTone());
 			Assertions.assertNotNull(value.BȍőnChinaKey());
 			Assertions.assertNotNull(value.BȍőnChinaValue());
 			Assertions.assertNotNull(value.BȍőnAlt1Value());
@@ -23,18 +23,18 @@ public class T20PartScoreTest {
 	
 	@Test
 	public void testToneMap() {
-		Assertions.assertEquals(T20PartScore.PART_1, T20PartScore.PART_1.BãßValueOfTone("˥"));
-		Assertions.assertEquals(T20PartScore.PART_2, T20PartScore.PART_1.BãßValueOfTone("˦"));
-		Assertions.assertEquals(T20PartScore.PART_19, T20PartScore.PART_1.BãßValueOfTone("꜐"));
-		Assertions.assertEquals(T20PartScore.PART_20, T20PartScore.PART_1.BãßValueOfTone("꜑"));
+		Assertions.assertEquals(T20PartScore.PART_1, T20PartScore.PART_1.BãßValueOfDialTone("˥"));
+		Assertions.assertEquals(T20PartScore.PART_2, T20PartScore.PART_1.BãßValueOfDialTone("˦"));
+		Assertions.assertEquals(T20PartScore.PART_19, T20PartScore.PART_1.BãßValueOfDialTone("꜐"));
+		Assertions.assertEquals(T20PartScore.PART_20, T20PartScore.PART_1.BãßValueOfDialTone("꜑"));
 	}
 	
 	@Test
 	public void testChinaMap() {
-		Assertions.assertEquals(T20PartScore.PART_1, T20PartScore.PART_1.BãßValueOfChina("尧"));
-		Assertions.assertEquals(T20PartScore.PART_2, T20PartScore.PART_1.BãßValueOfChina("泽"));
-		Assertions.assertEquals(T20PartScore.PART_19, T20PartScore.PART_1.BãßValueOfChina("仄"));
-		Assertions.assertEquals(T20PartScore.PART_20, T20PartScore.PART_1.BãßValueOfChina("幺"));
+		Assertions.assertEquals(T20PartScore.PART_1, T20PartScore.PART_1.BãßValueOfChinaKey("尧"));
+		Assertions.assertEquals(T20PartScore.PART_2, T20PartScore.PART_1.BãßValueOfChinaKey("泽"));
+		Assertions.assertEquals(T20PartScore.PART_19, T20PartScore.PART_1.BãßValueOfChinaKey("仄"));
+		Assertions.assertEquals(T20PartScore.PART_20, T20PartScore.PART_1.BãßValueOfChinaKey("幺"));
 	}
 	
 	@Test

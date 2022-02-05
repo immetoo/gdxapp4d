@@ -22,8 +22,8 @@ public enum T05PartPental implements BãßBȍőnPartAlt2ʸᴰ<T05PartPental> {
 	public BãßBȍőnCoffinʸᴰ<BãßBȍőnPartKeyʸᴰ> GET_BBC() { return BBC; }
 	public static int LENGTH() { return values().length; };
 	
-	private T05PartPental(String idTone, String chinaKey, String chinaValue, String alt1Value, String alt2Value) {
-		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.ID_TONE, idTone);
+	private T05PartPental(String dialTone, String chinaKey, String chinaValue, String alt1Value, String alt2Value) {
+		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.DIAL_TONE, dialTone);
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.CHINA_KEY, chinaKey);
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.CHINA_VALUE, chinaValue);
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.ALT_1_VALUE, alt1Value);

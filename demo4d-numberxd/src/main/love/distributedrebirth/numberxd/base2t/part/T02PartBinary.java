@@ -17,8 +17,8 @@ public enum T02PartBinary implements BãßBȍőnPartʸᴰ<T02PartBinary> {
 	public BãßBȍőnCoffinʸᴰ<BãßBȍőnPartKeyʸᴰ> GET_BBC() { return BBC; }
 	public static int LENGTH() { return values().length; };
 	
-	private T02PartBinary(String idTone, String chinaKey, String chinaValue) {
-		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.ID_TONE, idTone);
+	private T02PartBinary(String dialTone, String chinaKey, String chinaValue) {
+		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.DIAL_TONE, dialTone);
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.CHINA_KEY, chinaKey);
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.CHINA_VALUE, chinaValue);
 		BBC.INIT_BOON(this);

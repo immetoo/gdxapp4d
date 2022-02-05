@@ -84,7 +84,7 @@ public class SystemBasePartRenderer extends ImGuiRendererMain {
 			ImGui.tableNextColumn();
 			ImGui.text(Integer.toString(part.BȍőnRangTelEen()));
 			ImGui.tableNextColumn();
-			ImGui.text(part.BȍőnIdentifierTone());
+			ImGui.text(part.BȍőnDialTone());
 			ImGui.tableNextColumn();
 			ImGui.text(part.BȍőnPrintGlyphSetNumber10(BaseGlyphSet.TONE_LETTER));
 			ImGui.tableNextColumn();

@@ -50,11 +50,11 @@ public class BasePartFactoryTest {
 		Map<String,String> global = new HashMap<>();
 		for (int base:BasePartFactory.INSTANCE.BãßBases()) {
 			for (BãßBȍőnPartʸᴰ<?> part:BasePartFactory.INSTANCE.BãßBuildPartsByBase(base)) {
-				if (global.containsKey(part.BȍőnIdentifierTone())) {
+				if (global.containsKey(part.BȍőnDialTone())) {
 					duplicate = true;
 					break;
 				}
-				global.put(part.BȍőnIdentifierTone(), part.BȍőnChinaValue());
+				global.put(part.BȍőnDialTone(), part.BȍőnChinaValue());
 			}
 		}
 		Assertions.assertTrue(global.size() > 1);

@@ -12,7 +12,7 @@ public class T60SexagesimalTest {
 	@Test
 	public void testBasePart() {
 		for (T60PartSexagesimal value:T60PartSexagesimal.values()) {
-			Assertions.assertNotNull(value.BȍőnIdentifierTone());
+			Assertions.assertNotNull(value.BȍőnDialTone());
 			Assertions.assertNotNull(value.BȍőnChinaKey());
 			Assertions.assertNotNull(value.BȍőnChinaValue());
 		}
@@ -20,17 +20,17 @@ public class T60SexagesimalTest {
 	
 	@Test
 	public void testToneMap() {
-		Assertions.assertEquals(T60PartSexagesimal.PART_1, T60PartSexagesimal.PART_1.BãßValueOfTone("˥˥"));
-		Assertions.assertEquals(T60PartSexagesimal.PART_2, T60PartSexagesimal.PART_1.BãßValueOfTone("˥˦"));
-		Assertions.assertEquals(T60PartSexagesimal.PART_59, T60PartSexagesimal.PART_1.BãßValueOfTone("꜒꜕"));
-		Assertions.assertEquals(T60PartSexagesimal.PART_60, T60PartSexagesimal.PART_1.BãßValueOfTone("꜒꜖"));
+		Assertions.assertEquals(T60PartSexagesimal.PART_1, T60PartSexagesimal.PART_1.BãßValueOfDialTone("˥˥"));
+		Assertions.assertEquals(T60PartSexagesimal.PART_2, T60PartSexagesimal.PART_1.BãßValueOfDialTone("˥˦"));
+		Assertions.assertEquals(T60PartSexagesimal.PART_59, T60PartSexagesimal.PART_1.BãßValueOfDialTone("꜒꜕"));
+		Assertions.assertEquals(T60PartSexagesimal.PART_60, T60PartSexagesimal.PART_1.BãßValueOfDialTone("꜒꜖"));
 	}
 	
 	@Test
 	public void testChinaMap() {
-		Assertions.assertEquals(T60PartSexagesimal.PART_1, T60PartSexagesimal.PART_1.BãßValueOfChina("牛"));
-		Assertions.assertEquals(T60PartSexagesimal.PART_2, T60PartSexagesimal.PART_1.BãßValueOfChina("鸡"));
-		Assertions.assertEquals(T60PartSexagesimal.PART_59, T60PartSexagesimal.PART_1.BãßValueOfChina("薯"));
-		Assertions.assertEquals(T60PartSexagesimal.PART_60, T60PartSexagesimal.PART_1.BãßValueOfChina("蘋"));
+		Assertions.assertEquals(T60PartSexagesimal.PART_1, T60PartSexagesimal.PART_1.BãßValueOfChinaKey("牛"));
+		Assertions.assertEquals(T60PartSexagesimal.PART_2, T60PartSexagesimal.PART_1.BãßValueOfChinaKey("鸡"));
+		Assertions.assertEquals(T60PartSexagesimal.PART_59, T60PartSexagesimal.PART_1.BãßValueOfChinaKey("薯"));
+		Assertions.assertEquals(T60PartSexagesimal.PART_60, T60PartSexagesimal.PART_1.BãßValueOfChinaKey("蘋"));
 	}
 }

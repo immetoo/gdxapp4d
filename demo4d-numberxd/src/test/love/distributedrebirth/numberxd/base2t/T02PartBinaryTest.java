@@ -12,7 +12,7 @@ public class T02PartBinaryTest {
 	@Test
 	public void testBasePart() {
 		for (T02PartBinary value:T02PartBinary.values()) {
-			Assertions.assertNotNull(value.BȍőnIdentifierTone());
+			Assertions.assertNotNull(value.BȍőnDialTone());
 			Assertions.assertNotNull(value.BȍőnChinaKey());
 			Assertions.assertNotNull(value.BȍőnChinaValue());
 		}
@@ -20,13 +20,13 @@ public class T02PartBinaryTest {
 	
 	@Test
 	public void testToneMap() {
-		Assertions.assertEquals(T02PartBinary.PART_1, T02PartBinary.PART_1.BãßValueOfTone("˧"));
-		Assertions.assertEquals(T02PartBinary.PART_2, T02PartBinary.PART_1.BãßValueOfTone("꜔"));
+		Assertions.assertEquals(T02PartBinary.PART_1, T02PartBinary.PART_1.BãßValueOfDialTone("˧"));
+		Assertions.assertEquals(T02PartBinary.PART_2, T02PartBinary.PART_1.BãßValueOfDialTone("꜔"));
 	}
 	
 	@Test
 	public void testChinaMap() {
-		Assertions.assertEquals(T02PartBinary.PART_1, T02PartBinary.PART_1.BãßValueOfChina("低"));
-		Assertions.assertEquals(T02PartBinary.PART_2, T02PartBinary.PART_1.BãßValueOfChina("高"));
+		Assertions.assertEquals(T02PartBinary.PART_1, T02PartBinary.PART_1.BãßValueOfChinaKey("低"));
+		Assertions.assertEquals(T02PartBinary.PART_2, T02PartBinary.PART_1.BãßValueOfChinaKey("高"));
 	}
 }

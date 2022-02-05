@@ -6,7 +6,7 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinStoreKeyʸᴰ;
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public enum BãßBȍőnPartKeyʸᴰ implements BãßBȍőnCoffinStoreKeyʸᴰ {
 
-	ID_TONE,
+	DIAL_TONE,
 	CHINA_KEY,
 	CHINA_VALUE,
 	SHIFT_BITS,

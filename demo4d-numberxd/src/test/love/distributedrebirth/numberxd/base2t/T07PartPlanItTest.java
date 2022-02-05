@@ -12,7 +12,7 @@ public class T07PartPlanItTest {
 	@Test
 	public void testBasePart() {
 		for (T07PartPlanIt value:T07PartPlanIt.values()) {
-			Assertions.assertNotNull(value.BȍőnIdentifierTone());
+			Assertions.assertNotNull(value.BȍőnDialTone());
 			Assertions.assertNotNull(value.BȍőnChinaKey());
 			Assertions.assertNotNull(value.BȍőnChinaValue());
 			Assertions.assertNotNull(value.BȍőnAlt1Value());
@@ -23,17 +23,17 @@ public class T07PartPlanItTest {
 	
 	@Test
 	public void testToneMap() {
-		Assertions.assertEquals(T07PartPlanIt.PART_1, T07PartPlanIt.PART_1.BãßValueOfTone("˥"));
-		Assertions.assertEquals(T07PartPlanIt.PART_2, T07PartPlanIt.PART_1.BãßValueOfTone("꜉"));
-		Assertions.assertEquals(T07PartPlanIt.PART_6, T07PartPlanIt.PART_1.BãßValueOfTone("꜐"));
-		Assertions.assertEquals(T07PartPlanIt.PART_7, T07PartPlanIt.PART_1.BãßValueOfTone("˩"));
+		Assertions.assertEquals(T07PartPlanIt.PART_1, T07PartPlanIt.PART_1.BãßValueOfDialTone("˥"));
+		Assertions.assertEquals(T07PartPlanIt.PART_2, T07PartPlanIt.PART_1.BãßValueOfDialTone("꜉"));
+		Assertions.assertEquals(T07PartPlanIt.PART_6, T07PartPlanIt.PART_1.BãßValueOfDialTone("꜐"));
+		Assertions.assertEquals(T07PartPlanIt.PART_7, T07PartPlanIt.PART_1.BãßValueOfDialTone("˩"));
 	}
 	
 	@Test
 	public void testChinaMap() {
-		Assertions.assertEquals(T07PartPlanIt.PART_1, T07PartPlanIt.PART_1.BãßValueOfChina("♎︎"));
-		Assertions.assertEquals(T07PartPlanIt.PART_2, T07PartPlanIt.PART_1.BãßValueOfChina("♏︎"));
-		Assertions.assertEquals(T07PartPlanIt.PART_6, T07PartPlanIt.PART_1.BãßValueOfChina("♑︎"));
-		Assertions.assertEquals(T07PartPlanIt.PART_7, T07PartPlanIt.PART_1.BãßValueOfChina("♈︎"));
+		Assertions.assertEquals(T07PartPlanIt.PART_1, T07PartPlanIt.PART_1.BãßValueOfChinaKey("♎︎"));
+		Assertions.assertEquals(T07PartPlanIt.PART_2, T07PartPlanIt.PART_1.BãßValueOfChinaKey("♏︎"));
+		Assertions.assertEquals(T07PartPlanIt.PART_6, T07PartPlanIt.PART_1.BãßValueOfChinaKey("♑︎"));
+		Assertions.assertEquals(T07PartPlanIt.PART_7, T07PartPlanIt.PART_1.BãßValueOfChinaKey("♈︎"));
 	}
 }
