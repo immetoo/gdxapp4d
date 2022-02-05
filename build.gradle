@@ -46,9 +46,11 @@ project(":demo4d-bassboonyd") {
 project(":demo4d-numberxd") {
 	apply plugin: "java-library"
 	dependencies {
-		testImplementation "org.junit.jupiter:junit-jupiter:$junitVersion"
 		api project(":demo4d-bassboonyd")
-		//api "org.x4o:x4o-driver:$x4oVersion" 
+		api files('../libs/x4o-driver-0.8.7-SNAPSHOT.jar')
+		api files('../libs/jasper-el-6.0.20.jar')
+		api files('../libs/el-api-6.0.20.jar')
+		testImplementation "org.junit.jupiter:junit-jupiter:$junitVersion"
 	}
 	tasks.named('test') {
 		useJUnitPlatform() 
@@ -60,6 +62,7 @@ project(":demo4d-gdxapp") {
 	dependencies {
 		//api "org.x4o:x4o-driver:$x4oVersion"
 		api project(":demo4d-numberxd")
+		api files('../libs/opentype4j-1.0.0-SNAPSHOT.jar')
 		api "com.badlogicgames.gdx:gdx:$gdxVersion"
 		api "io.github.spair:imgui-java-binding:$spairVersion"
 		api "io.github.spair:imgui-java-lwjgl3:$spairVersion"
