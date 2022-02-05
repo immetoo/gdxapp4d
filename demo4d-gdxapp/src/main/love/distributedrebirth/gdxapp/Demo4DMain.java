@@ -20,7 +20,7 @@ import love.distributedrebirth.gdxapp.matrix4d.ScreenMatrix4D;
 import love.distributedrebirth.gdxapp.music.MusicManager;
 import love.distributedrebirth.gdxapp.music.MusicPlayerRenderer;
 import love.distributedrebirth.gdxapp.music.MusicSongType;
-import love.distributedrebirth.gdxapp.screen.BasePartRenderer;
+import love.distributedrebirth.gdxapp.screen.SystemBasePartRenderer;
 import love.distributedrebirth.gdxapp.screen.BasicConsoleRenderer;
 import love.distributedrebirth.gdxapp.screen.HebrewWalletRenderer;
 import love.distributedrebirth.gdxapp.screen.ScreenCredits;
@@ -30,6 +30,7 @@ import love.distributedrebirth.gdxapp.screen.ScreenIntro;
 import love.distributedrebirth.gdxapp.screen.ScreenIntroMission;
 import love.distributedrebirth.gdxapp.screen.ScreenLoading;
 import love.distributedrebirth.gdxapp.screen.ScreenUnicode4D;
+import love.distributedrebirth.gdxapp.screen.SystemBaseGlyphRenderer;
 import love.distributedrebirth.numberxd.base2t.part.warp.TOSWarpCore;
 import net.spookygames.gdx.nativefilechooser.NativeFileChooser;
 
@@ -53,7 +54,8 @@ public class Demo4DMain extends Game {
 	private ImBoolean showImGuiDemo = new ImBoolean(false);
 	private ImBoolean showMusicPlayer = new ImBoolean(false);
 	private ImBoolean showHebrewWallet = new ImBoolean(false);
-	private ImBoolean showBasePart = new ImBoolean(false);
+	private ImBoolean showSystemBasePart = new ImBoolean(false);
+	private ImBoolean showSystemGlyphPart = new ImBoolean(false);
 	private ImBoolean showBasicConsole = new ImBoolean(false);
 	
 	public Demo4DMain(List<String> args, int viewWidth, int viewHeight, NativeFileChooser fileChooser) {
@@ -106,7 +108,8 @@ public class Demo4DMain extends Game {
 		
 		putWidget(new MusicPlayerRenderer(this));
 		putWidget(new HebrewWalletRenderer(this));
-		putWidget(new BasePartRenderer(this));
+		putWidget(new SystemBasePartRenderer(this));
+		putWidget(new SystemBaseGlyphRenderer(this));
 		putWidget(new BasicConsoleRenderer(this));
 		
 		putScreen(new ScreenLoading(this));
@@ -170,8 +173,11 @@ public class Demo4DMain extends Game {
 		if (showHebrewWallet.get()) {
 			widgets.get(HebrewWalletRenderer.class).render(showHebrewWallet);
 		}
-		if (showBasePart.get()) {
-			widgets.get(BasePartRenderer.class).render(showBasePart);
+		if (showSystemBasePart.get()) {
+			widgets.get(SystemBasePartRenderer.class).render(showSystemBasePart);
+		}
+		if (showSystemGlyphPart.get()) {
+			widgets.get(SystemBaseGlyphRenderer.class).render(showSystemGlyphPart);
 		}
 		if (showBasicConsole.get()) {
 			widgets.get(BasicConsoleRenderer.class).render(showBasicConsole);
@@ -220,13 +226,17 @@ public class Demo4DMain extends Game {
 			if (ImGui.menuItem("Hebrew Wallet")) {
 				showHebrewWallet.set(true);
 			}
+			ImGui.separator();
 			if (ImGui.menuItem("Base Part")) {
-				showBasePart.set(true);
+				showSystemBasePart.set(true);
 			}
+			if (ImGui.menuItem("Base Glyph")) {
+				showSystemGlyphPart.set(true);
+			}
+			ImGui.separator();
 			if (ImGui.menuItem("Basic Console")) {
 				showBasicConsole.set(true);
 			}
-			ImGui.separator();
 			if (ImGui.menuItem("Music Player")) {
 				showMusicPlayer.set(true);
 			}
