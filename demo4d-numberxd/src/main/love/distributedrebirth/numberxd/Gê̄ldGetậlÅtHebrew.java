@@ -24,9 +24,9 @@ public class Gê̄ldGetậlÅtHebrew {
 	}
 	
 	public Gê̄ldGetậlÅtHebrew(V009Tyte tyte) {
-		int value0 = tyte.getValue(T03PartTrit.PART_1).getValue().ordinalOf(T08PartOctal.PART_1);
-		int value1 = tyte.getValue(T03PartTrit.PART_2).getValue().ordinalOf(T08PartOctal.PART_2);
-		int value2 = tyte.getValue(T03PartTrit.PART_3).getValue().ordinalOf(T08PartOctal.PART_3);
+		int value0 = tyte.getValue(T03PartTrit.PART_1).ordinalOf(T08PartOctal.PART_1);
+		int value1 = tyte.getValue(T03PartTrit.PART_2).ordinalOf(T08PartOctal.PART_2);
+		int value2 = tyte.getValue(T03PartTrit.PART_3).ordinalOf(T08PartOctal.PART_3);
 		int combinedValue = value0 + value1 + value2;
 		letter = Gê̄ldGetậlÅtHebrewLetter.indexOf(combinedValue);
 		vowel = Gê̄ldGetậlÅtHebrewVowel.indexOf(combinedValue >> Gê̄ldGetậlÅtHebrewLetter.SHIFT_5);

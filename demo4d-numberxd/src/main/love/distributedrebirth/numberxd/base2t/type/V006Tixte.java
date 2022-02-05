@@ -5,6 +5,7 @@ import love.distributedrebirth.numberxd.base2t.BaseAppenderOctal;
 import love.distributedrebirth.numberxd.base2t.BaseIteratorOctal;
 import love.distributedrebirth.numberxd.base2t.BaseNumber;
 import love.distributedrebirth.numberxd.base2t.part.T02PartBinary;
+import love.distributedrebirth.numberxd.base2t.part.T08PartOctal;
 
 /**
  * Holds an 6 bit value.
@@ -12,27 +13,27 @@ import love.distributedrebirth.numberxd.base2t.part.T02PartBinary;
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public final class V006Tixte implements BaseNumber<V006Tixte> {
 
-	public static int BIT_COUNT = V003Timble.BIT_COUNT * T02PartBinary.LENGTH();
-	private V003Timble[] values = new V003Timble[T02PartBinary.LENGTH()];
+	public static int BIT_COUNT = T08PartOctal.BIT_COUNT * T02PartBinary.LENGTH();
+	private final T08PartOctal[] values = new T08PartOctal[T02PartBinary.LENGTH()];
 	
 	public V006Tixte() {
-		this(new V003Timble(), new V003Timble());
+		this(T08PartOctal.PART_1, T08PartOctal.PART_1);
 	}
 	
 	public V006Tixte(BaseIteratorOctal values) {
-		this(new V003Timble(values), new V003Timble(values));
+		this(values.next(), values.next());
 	}
 	
-	private V006Tixte(V003Timble valueHigh, V003Timble valueLow) {
-		setValue(T02PartBinary.PART_1, valueHigh);
-		setValue(T02PartBinary.PART_2, valueLow);
+	private V006Tixte(T08PartOctal valueHigh, T08PartOctal valueLow) {
+		values[0] = valueHigh;
+		values[1] = valueLow;
 	}
 	
-	public V003Timble getValue(T02PartBinary part) {
+	public T08PartOctal getValue(T02PartBinary part) {
 		return values[part.ordinal()];
 	}
 	
-	public void setValue(T02PartBinary part, V003Timble value) {
+	public void setValue(T02PartBinary part, T08PartOctal value) {
 		values[part.ordinal()] = value;
 	}
 	
@@ -48,6 +49,7 @@ public final class V006Tixte implements BaseNumber<V006Tixte> {
 	
 	@Override
 	public void fillOctalsByClone(BaseAppenderOctal appender) {
-		T02PartBinary.PART_1.BãßVoorElk(v -> getValue(v).fillOctalsByClone(appender));
+		appender.add(values[0]);
+		appender.add(values[1]);
 	}
 }

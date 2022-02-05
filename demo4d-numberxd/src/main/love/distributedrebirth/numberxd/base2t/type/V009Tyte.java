@@ -14,29 +14,29 @@ import love.distributedrebirth.numberxd.base2t.part.T08PartOctal;
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public final class V009Tyte implements BaseNumberTyte<V009Tyte> {
 
-	public static int BIT_COUNT = V003Timble.BIT_COUNT * T03PartTrit.LENGTH();
-	private final V003Timble[] values = new V003Timble[T03PartTrit.LENGTH()];
+	public static int BIT_COUNT = T08PartOctal.BIT_COUNT * T03PartTrit.LENGTH();
+	private final T08PartOctal[] values = new T08PartOctal[T03PartTrit.LENGTH()];
 	
 	public V009Tyte() {
-		this(new V003Timble(), new V003Timble(), new V003Timble());
+		this(T08PartOctal.PART_1, T08PartOctal.PART_1, T08PartOctal.PART_1);
 	}
 	
 	public V009Tyte(BaseIteratorOctal values) {
-		this(new V003Timble(values), new V003Timble(values), new V003Timble(values));
+		this(values.next(), values.next(), values.next());
 	}
 	
 	public V009Tyte(T08PartOctal valueHigh, T08PartOctal valueMedium, T08PartOctal valueLow) {
-		this(new V003Timble(valueHigh), new V003Timble(valueMedium), new V003Timble(valueLow));
+		values[0] = valueHigh;
+		values[1] = valueMedium;
+		values[2] = valueLow;
 	}
 	
-	private V009Tyte(V003Timble valueHigh, V003Timble valueMedium, V003Timble valueLow) {
-		values[T03PartTrit.PART_1.ordinal()] = valueHigh;
-		values[T03PartTrit.PART_2.ordinal()] = valueMedium;
-		values[T03PartTrit.PART_3.ordinal()] = valueLow;
-	}
-	
-	public V003Timble getValue(T03PartTrit part) {
+	public T08PartOctal getValue(T03PartTrit part) {
 		return values[part.ordinal()];
+	}
+	
+	public void setValue(T03PartTrit part, T08PartOctal value) {
+		values[part.ordinal()] = value;
 	}
 	
 	@Override
@@ -51,7 +51,9 @@ public final class V009Tyte implements BaseNumberTyte<V009Tyte> {
 	
 	@Override
 	public void fillOctalsByClone(BaseAppenderOctal appender) {
-		T03PartTrit.PART_1.BãßVoorElk(v -> getValue(v).fillOctalsByClone(appender));
+		appender.add(values[0]);
+		appender.add(values[1]);
+		appender.add(values[2]);
 	}
 
 	@Override

@@ -8,6 +8,7 @@ import love.distributedrebirth.numberxd.base2t.BaseIteratorTyte;
 import love.distributedrebirth.numberxd.base2t.BaseNumberTyte;
 import love.distributedrebirth.numberxd.base2t.part.T02PartBinary;
 import love.distributedrebirth.numberxd.base2t.part.T06PartSeximal;
+import love.distributedrebirth.numberxd.base2t.part.T08PartOctal;
 
 /**
  * Holds an 18 bit value.
@@ -43,7 +44,7 @@ public final class V018Tord implements BaseNumberTyte<V018Tord> {
 		values[part.ordinal()] = value;
 	}
 	
-	public V003Timble getTimblePart(T06PartSeximal part) {
+	public T08PartOctal getTimblePart(T06PartSeximal part) {
 		return getValue(part.splitPartBinary()).getValue(part.splitPartTrit());
 	}
 	
