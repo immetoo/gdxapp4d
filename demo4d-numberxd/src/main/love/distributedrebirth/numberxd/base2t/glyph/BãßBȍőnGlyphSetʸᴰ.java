@@ -1,8 +1,6 @@
 package love.distributedrebirth.numberxd.base2t.glyph;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
-import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinStoreʸᴰ;
-import love.distributedrebirth.bassboonyd.DefaultEnumSetʸᴰ;
 import love.distributedrebirth.bassboonyd.jmx.DefaultEnumSetᴶᴹˣ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
