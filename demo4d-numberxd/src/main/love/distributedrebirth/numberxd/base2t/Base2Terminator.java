@@ -31,12 +31,16 @@ public enum Base2Terminator implements DefaultEnumInstanceᴶᴹˣ<Base2Terminat
 	private static final int BLOCK_TOCTA_SIZE = 18;
 	private static final int SHIFT_8 = 8;
 	private static final int SHIFT_16 = 16;
+	private final GuageCounterᴶᴹˣ readV072TongInvokes;
 	private final GuageCounterᴶᴹˣ readV072TongTypeReads;
 	private final GuageCounterᴶᴹˣ readV072TongByteWrites;
+	private final GuageCounterᴶᴹˣ readV144ToctaInvokes;
 	private final GuageCounterᴶᴹˣ readV144ToctaTypeReads;
 	private final GuageCounterᴶᴹˣ readV144ToctaByteWrites;
+	private final GuageCounterᴶᴹˣ writeV072TongInvokes;
 	private final GuageCounterᴶᴹˣ writeV072TongByteReads;
 	private final GuageCounterᴶᴹˣ writeV072TongTypeWrites;
+	private final GuageCounterᴶᴹˣ writeV144ToctaInvokes;
 	private final GuageCounterᴶᴹˣ writeV144ToctaBytesReads;
 	private final GuageCounterᴶᴹˣ writeV144ToctaTypeWrites;
 	private final BãßBȍőnCoffinOpenʸᴰ<MBeanStoreKeyᴶᴹˣ> BBC = BãßBȍőnCoffinOpenʸᴰ.newInstance();
@@ -45,12 +49,16 @@ public enum Base2Terminator implements DefaultEnumInstanceᴶᴹˣ<Base2Terminat
 	private Base2Terminator() {
 		BBC.BOON_INIT(this);
 		BȍőnJmxInit(MBeanStoreKeyᴶᴹˣ.JMX);
+		readV072TongInvokes = BȍőnJmxInitGuageCounter(MBeanStoreKeyᴶᴹˣ.JMX, "readV072TongInvokes");
 		readV072TongTypeReads = BȍőnJmxInitGuageCounter(MBeanStoreKeyᴶᴹˣ.JMX, "readV072TongTypeReads");
+		readV144ToctaInvokes = BȍőnJmxInitGuageCounter(MBeanStoreKeyᴶᴹˣ.JMX, "readV144ToctaInvokes");
 		readV072TongByteWrites = BȍőnJmxInitGuageCounter(MBeanStoreKeyᴶᴹˣ.JMX, "readV072TongByteWrites");
 		readV144ToctaTypeReads = BȍőnJmxInitGuageCounter(MBeanStoreKeyᴶᴹˣ.JMX, "readV144ToctaTypeReads");
 		readV144ToctaByteWrites = BȍőnJmxInitGuageCounter(MBeanStoreKeyᴶᴹˣ.JMX, "readV144ToctaByteWrites");
+		writeV072TongInvokes = BȍőnJmxInitGuageCounter(MBeanStoreKeyᴶᴹˣ.JMX, "writeV072TongInvokes");
 		writeV072TongByteReads = BȍőnJmxInitGuageCounter(MBeanStoreKeyᴶᴹˣ.JMX, "writeV072TongByteReads");
 		writeV072TongTypeWrites = BȍőnJmxInitGuageCounter(MBeanStoreKeyᴶᴹˣ.JMX, "writeV072TongTypeWrites");
+		writeV144ToctaInvokes = BȍőnJmxInitGuageCounter(MBeanStoreKeyᴶᴹˣ.JMX, "writeV144ToctaInvokes");
 		writeV144ToctaBytesReads = BȍőnJmxInitGuageCounter(MBeanStoreKeyᴶᴹˣ.JMX, "writeV144ToctaBytesReads");
 		writeV144ToctaTypeWrites = BȍőnJmxInitGuageCounter(MBeanStoreKeyᴶᴹˣ.JMX, "writeV144ToctaTypeWrites");
 	}
@@ -68,6 +76,7 @@ public enum Base2Terminator implements DefaultEnumInstanceᴶᴹˣ<Base2Terminat
 			output.add(new V072Tong(new BaseIteratorOctalAdapter(octals.iterator())));
 			totalBytes += BLOCK_TONG_SIZE;
 		}
+		readV072TongInvokes.increment();
 		readV072TongTypeReads.increment(output.size());
 		readV072TongByteWrites.increment(totalBytes);
 		return totalBytes;
@@ -89,6 +98,7 @@ public enum Base2Terminator implements DefaultEnumInstanceᴶᴹˣ<Base2Terminat
 			output.add(new V144Tocta(new BaseIteratorOctalAdapter(octals.iterator())));
 			totalBytes += BLOCK_TOCTA_SIZE;
 		}
+		readV144ToctaInvokes.increment();
 		readV144ToctaTypeReads.increment(output.size());
 		readV144ToctaByteWrites.increment(totalBytes);
 		return totalBytes;
@@ -110,6 +120,7 @@ public enum Base2Terminator implements DefaultEnumInstanceᴶᴹˣ<Base2Terminat
 	
 	public int Bãß2WriteTong(List<V072Tong> data, OutputStream output) throws IOException {
 		int totalBytes = Bãß2Write(data, output);
+		writeV072TongInvokes.increment();
 		writeV072TongByteReads.increment(totalBytes);
 		writeV072TongTypeWrites.increment(data.size());
 		return totalBytes;
@@ -118,6 +129,7 @@ public enum Base2Terminator implements DefaultEnumInstanceᴶᴹˣ<Base2Terminat
 	
 	public int Bãß2WriteTocta(List<V144Tocta> data, OutputStream output) throws IOException {
 		int totalBytes = Bãß2Write(data, output);
+		writeV144ToctaInvokes.increment();
 		writeV144ToctaBytesReads.increment(totalBytes);
 		writeV144ToctaTypeWrites.increment(data.size());
 		return totalBytes;
