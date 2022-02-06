@@ -1,4 +1,4 @@
-package love.distributedrebirth.numberxd.base2t.glyph;
+package love.distributedrebirth.numberxd.glyph;
 
 import java.util.ArrayList;
 import java.util.List;

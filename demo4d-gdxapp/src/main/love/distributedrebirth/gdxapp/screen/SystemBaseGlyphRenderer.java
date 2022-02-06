@@ -11,8 +11,8 @@ import imgui.type.ImInt;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.gdxapp.Demo4DMain;
 import love.distributedrebirth.gdxapp.ImGuiRendererMain;
-import love.distributedrebirth.numberxd.base2t.glyph.BaseGlyphSet;
-import love.distributedrebirth.numberxd.base2t.glyph.BaseGlyphSetNumber;
+import love.distributedrebirth.numberxd.glyph.BaseGlyphSet;
+import love.distributedrebirth.numberxd.glyph.BaseGlyphSetNumber;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class SystemBaseGlyphRenderer extends ImGuiRendererMain {

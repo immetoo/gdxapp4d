@@ -7,8 +7,8 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinStoreʸᴰ;
 import love.distributedrebirth.bassboonyd.DefaultEnumSetʸᴰ;
+import love.distributedrebirth.numberxd.glyph.BaseGlyphSet;
 import love.distributedrebirth.bassboonyd.BãßBȍőnInitMethodʸᴰ;
-import love.distributedrebirth.numberxd.base2t.glyph.BaseGlyphSet;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public interface BãßBȍőnPartʸᴰ<T extends BãßBȍőnPartʸᴰ<T>> extends DefaultEnumSetʸᴰ<T>, BãßBȍőnCoffinStoreʸᴰ<BãßBȍőnPartKeyʸᴰ> {

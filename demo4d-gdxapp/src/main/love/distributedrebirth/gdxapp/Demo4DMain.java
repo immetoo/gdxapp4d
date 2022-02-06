@@ -32,10 +32,10 @@ import love.distributedrebirth.gdxapp.screen.ScreenLoading;
 import love.distributedrebirth.gdxapp.screen.ScreenUnicode4D;
 import love.distributedrebirth.gdxapp.screen.SystemBaseGlyphRenderer;
 import love.distributedrebirth.numberxd.base2t.Base2Terminator;
-import love.distributedrebirth.numberxd.base2t.glyph.BaseGlyphSet;
 import love.distributedrebirth.numberxd.base2t.part.warp.TOSWarpCore;
 import love.distributedrebirth.numberxd.base2t.part.warp.TOSWarpCoreDriver;
 import love.distributedrebirth.numberxd.base2t.part.warp.WaterBucket;
+import love.distributedrebirth.numberxd.glyph.BaseGlyphSet;
 import net.spookygames.gdx.nativefilechooser.NativeFileChooser;
 
 /**

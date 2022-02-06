@@ -12,12 +12,12 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.gdxapp.Demo4DMain;
 import love.distributedrebirth.gdxapp.ImGuiRendererMain;
 import love.distributedrebirth.numberxd.base2t.BasePartFactory;
-import love.distributedrebirth.numberxd.base2t.glyph.BaseGlyphSet;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt1ʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt2ʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt3ʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt4ʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartʸᴰ;
+import love.distributedrebirth.numberxd.glyph.BaseGlyphSet;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class SystemBasePartRenderer extends ImGuiRendererMain {

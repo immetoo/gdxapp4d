@@ -1,4 +1,4 @@
-package love.distributedrebirth.numberxd.base2t.glyph;
+package love.distributedrebirth.numberxd.glyph;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinStoreKeyʸᴰ;
