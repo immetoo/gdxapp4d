@@ -20,9 +20,11 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class MBeanDynamicᴶᴹˣ implements DynamicMBean {
 	
+	private final String description;
 	private final Map<String, Object> guages;
 	
-	public MBeanDynamicᴶᴹˣ(Map<String, Object> guages) {
+	public MBeanDynamicᴶᴹˣ(String description, Map<String, Object> guages) {
+		this.description = description;
 		this.guages = guages;
 	}
 	
@@ -36,7 +38,7 @@ public class MBeanDynamicᴶᴹˣ implements DynamicMBean {
 			dAttributes[i] = new MBeanAttributeInfo(gc.getName(), gc.BãßValueType().getSimpleName(),
 					gc.getDescription(), true, false, false);
 		}
-		return new MBeanInfo(this.getClass().getName(), null, dAttributes, null, null,
+		return new MBeanInfo(this.getClass().getName(), description, dAttributes, null, null,
 				new MBeanNotificationInfo[0]);
 	}
 	

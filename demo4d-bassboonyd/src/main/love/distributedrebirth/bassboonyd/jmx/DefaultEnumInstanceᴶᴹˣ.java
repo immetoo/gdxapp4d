@@ -31,7 +31,7 @@ public interface DefaultEnumInstanceᴶᴹˣ<T,K extends BãßBȍőnCoffinStoreK
 			
 			MBeanServer server = ManagementFactory.getPlatformMBeanServer();
 			ObjectName objectName1 = new ObjectName(name.toString());
-			server.registerMBean(new MBeanDynamicᴶᴹˣ(GET_BBC().GET_MAP_OBJ(key)), objectName1);
+			server.registerMBean(new MBeanDynamicᴶᴹˣ(BãßClassPurpose(), GET_BBC().GET_MAP_OBJ(key)), objectName1);
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
