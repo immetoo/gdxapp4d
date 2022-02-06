@@ -12,7 +12,6 @@ allprojects {
 	apply plugin: "eclipse"
 	version = '1.0'
 	ext {
-		appName = "demo4d"
 		appJvmCode = 11
 		appEncoding = "UTF-8"
 		x4oVersion = "0.8.6"
@@ -33,7 +32,7 @@ allprojects {
 	}
 }
 
-project(":demo4d-bassboonyd") {
+project(":lib-bassboonyd") {
 	apply plugin: "java-library"
 	dependencies {
 		testImplementation "org.junit.jupiter:junit-jupiter:$junitVersion" 
@@ -43,13 +42,13 @@ project(":demo4d-bassboonyd") {
 	}
 }
 
-project(":demo4d-numberxd") {
+project(":lib-numberxd") {
 	apply plugin: "java-library"
 	dependencies {
-		api project(":demo4d-bassboonyd")
-		api files('../libs/x4o-driver-0.8.7-SNAPSHOT.jar')
-		api files('../libs/jasper-el-6.0.20.jar')
-		api files('../libs/el-api-6.0.20.jar')
+		api project(":lib-bassboonyd")
+		api files('../gradle-libs/x4o-driver-0.8.7-SNAPSHOT.jar')
+		api files('../gradle-libs/jasper-el-6.0.20.jar')
+		api files('../gradle-libs/el-api-6.0.20.jar')
 		testImplementation "org.junit.jupiter:junit-jupiter:$junitVersion"
 	}
 	tasks.named('test') {
@@ -57,12 +56,11 @@ project(":demo4d-numberxd") {
 	}
 }
 
-project(":demo4d-gdxapp") {
+project(":main-gdxapp") {
 	apply plugin: "java-library"
 	dependencies {
-		//api "org.x4o:x4o-driver:$x4oVersion"
-		api project(":demo4d-numberxd")
-		api files('../libs/opentype4j-1.0.0-SNAPSHOT.jar')
+		api project(":lib-numberxd")
+		api files('../gradle-libs/opentype4j-1.0.0-SNAPSHOT.jar')
 		api "com.badlogicgames.gdx:gdx:$gdxVersion"
 		api "io.github.spair:imgui-java-binding:$spairVersion"
 		api "io.github.spair:imgui-java-lwjgl3:$spairVersion"
@@ -73,10 +71,10 @@ project(":demo4d-gdxapp") {
 	}
 }
 
-project(":demo4d-gdxapp-desktop") {
+project(":main-gdxapp-desktop") {
 	apply plugin: "java-library"
 	dependencies {
-		implementation project(":demo4d-gdxapp")
+		implementation project(":main-gdxapp")
 		api "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
 		api "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
 		api "games.spooky.gdx:gdx-nativefilechooser-desktop:$nativefilechooserVersion"

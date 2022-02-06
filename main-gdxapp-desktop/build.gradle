@@ -2,10 +2,10 @@ sourceCompatibility = appJvmCode
 [compileJava, compileTestJava]*.options*.encoding = appEncoding
 
 sourceSets.main.java.srcDirs = [ "src/main/"]
-sourceSets.main.resources.srcDirs = ["../demo4d-gdxapp/assets"]
+sourceSets.main.resources.srcDirs = ["../main-gdxapp/assets"]
 
 project.ext.mainClassName = "love.distributedrebirth.gdxapp.desktop.DesktopLauncher"
-project.ext.assetsDir = new File("../demo4d-gdxapp/assets")
+project.ext.assetsDir = new File("../main-gdxapp/assets")
 
 task run(dependsOn: classes, type: JavaExec) {
     main = project.mainClassName

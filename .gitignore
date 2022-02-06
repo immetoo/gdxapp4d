@@ -3,7 +3,7 @@
 #
 
 # Ignore project resources
-demo4d-gdxapp-desktop/warpcore.xml
+main-gdxapp-desktop/warpcore.xml
 
 # Ignore gradle resources
 bin
