@@ -8,19 +8,21 @@ import java.util.Iterator;
 import java.util.List;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnClassInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinʸᴰ;
-import love.distributedrebirth.bassboonyd.BãßBȍőnEnumInstanceʸᴰ;
-import love.distributedrebirth.numberxd.base2t.glyph.BãßBȍőnGlyphSetKeyʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnPackageInfoʸᴰ;
+import love.distributedrebirth.bassboonyd.jmx.DefaultEnumInstanceᴶᴹˣ;
+import love.distributedrebirth.bassboonyd.jmx.GuageCounterᴶᴹˣ;
+import love.distributedrebirth.bassboonyd.jmx.MBeanStoreKeyᴶᴹˣ;
 import love.distributedrebirth.numberxd.base2t.part.T08PartOctal;
 import love.distributedrebirth.numberxd.base2t.type.V072Tong;
 import love.distributedrebirth.numberxd.base2t.type.V144Tocta;
 
-/**
- * Terminate from and to classical bytes.
- */
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public enum Base2Terminator implements BãßBȍőnEnumInstanceʸᴰ<Base2Terminator> {
+@BãßBȍőnClassInfoʸᴰ(name = "Base2Terminator", purpose = "Terminate from and to classical bytes.")
+@BãßBȍőnPackageInfoʸᴰ(name = "love.distributedrebirth.numberxd")
+public enum Base2Terminator implements DefaultEnumInstanceᴶᴹˣ<Base2Terminator,MBeanStoreKeyᴶᴹˣ> {
 	
 	INSTANCE;
 	
@@ -29,11 +31,28 @@ public enum Base2Terminator implements BãßBȍőnEnumInstanceʸᴰ<Base2Termina
 	private static final int BLOCK_TOCTA_SIZE = 18;
 	private static final int SHIFT_8 = 8;
 	private static final int SHIFT_16 = 16;
-	private final BãßBȍőnCoffinOpenʸᴰ<BãßBȍőnGlyphSetKeyʸᴰ> BBC = BãßBȍőnCoffinOpenʸᴰ.newInstance();
-	public BãßBȍőnCoffinʸᴰ<BãßBȍőnGlyphSetKeyʸᴰ> GET_BBC() { return BBC; }
+	private final GuageCounterᴶᴹˣ readV072TongTypeReads;
+	private final GuageCounterᴶᴹˣ readV072TongByteWrites;
+	private final GuageCounterᴶᴹˣ readV144ToctaTypeReads;
+	private final GuageCounterᴶᴹˣ readV144ToctaByteWrites;
+	private final GuageCounterᴶᴹˣ writeV072TongByteReads;
+	private final GuageCounterᴶᴹˣ writeV072TongTypeWrites;
+	private final GuageCounterᴶᴹˣ writeV144ToctaBytesReads;
+	private final GuageCounterᴶᴹˣ writeV144ToctaTypeWrites;
+	private final BãßBȍőnCoffinOpenʸᴰ<MBeanStoreKeyᴶᴹˣ> BBC = BãßBȍőnCoffinOpenʸᴰ.newInstance();
+	public BãßBȍőnCoffinʸᴰ<MBeanStoreKeyᴶᴹˣ> GET_BBC() { return BBC; }
 	
 	private Base2Terminator() {
 		BBC.BOON_INIT(this);
+		BȍőnJmxInit(MBeanStoreKeyᴶᴹˣ.JMX);
+		readV072TongTypeReads = BȍőnJmxInitGuageCounter(MBeanStoreKeyᴶᴹˣ.JMX, "readV072TongTypeReads");
+		readV072TongByteWrites = BȍőnJmxInitGuageCounter(MBeanStoreKeyᴶᴹˣ.JMX, "readV072TongByteWrites");
+		readV144ToctaTypeReads = BȍőnJmxInitGuageCounter(MBeanStoreKeyᴶᴹˣ.JMX, "readV144ToctaTypeReads");
+		readV144ToctaByteWrites = BȍőnJmxInitGuageCounter(MBeanStoreKeyᴶᴹˣ.JMX, "readV144ToctaByteWrites");
+		writeV072TongByteReads = BȍőnJmxInitGuageCounter(MBeanStoreKeyᴶᴹˣ.JMX, "writeV072TongByteReads");
+		writeV072TongTypeWrites = BȍőnJmxInitGuageCounter(MBeanStoreKeyᴶᴹˣ.JMX, "writeV072TongTypeWrites");
+		writeV144ToctaBytesReads = BȍőnJmxInitGuageCounter(MBeanStoreKeyᴶᴹˣ.JMX, "writeV144ToctaBytesReads");
+		writeV144ToctaTypeWrites = BȍőnJmxInitGuageCounter(MBeanStoreKeyᴶᴹˣ.JMX, "writeV144ToctaTypeWrites");
 	}
 	
 	public int Bãß2ReadTong(InputStream input, List<V072Tong> output) throws IOException {
@@ -49,6 +68,8 @@ public enum Base2Terminator implements BãßBȍőnEnumInstanceʸᴰ<Base2Termina
 			output.add(new V072Tong(new BaseIteratorOctalAdapter(octals.iterator())));
 			totalBytes += BLOCK_TONG_SIZE;
 		}
+		readV072TongTypeReads.increment(output.size());
+		readV072TongByteWrites.increment(totalBytes);
 		return totalBytes;
 	}
 	
@@ -68,6 +89,8 @@ public enum Base2Terminator implements BãßBȍőnEnumInstanceʸᴰ<Base2Termina
 			output.add(new V144Tocta(new BaseIteratorOctalAdapter(octals.iterator())));
 			totalBytes += BLOCK_TOCTA_SIZE;
 		}
+		readV144ToctaTypeReads.increment(output.size());
+		readV144ToctaByteWrites.increment(totalBytes);
 		return totalBytes;
 	}
 	
@@ -86,11 +109,18 @@ public enum Base2Terminator implements BãßBȍőnEnumInstanceʸᴰ<Base2Termina
 	}
 	
 	public int Bãß2WriteTong(List<V072Tong> data, OutputStream output) throws IOException {
-		return Bãß2Write(data, output);
+		int totalBytes = Bãß2Write(data, output);
+		writeV072TongByteReads.increment(totalBytes);
+		writeV072TongTypeWrites.increment(data.size());
+		return totalBytes;
+		
 	}
 	
 	public int Bãß2WriteTocta(List<V144Tocta> data, OutputStream output) throws IOException {
-		return Bãß2Write(data, output);
+		int totalBytes = Bãß2Write(data, output);
+		writeV144ToctaBytesReads.increment(totalBytes);
+		writeV144ToctaTypeWrites.increment(data.size());
+		return totalBytes;
 	}
 	
 	private <T extends BaseNumber<T>> int Bãß2Write(List<T> data, OutputStream output) throws IOException {

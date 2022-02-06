@@ -7,11 +7,10 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnClassInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinʸᴰ;
-import love.distributedrebirth.bassboonyd.BãßBȍőnEnumInstanceʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnPackageInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.jmx.BooleanAttributeᴶᴹˣ;
 import love.distributedrebirth.bassboonyd.jmx.MBeanStoreKeyᴶᴹˣ;
-import love.distributedrebirth.bassboonyd.jmx.BãßBȍőnEnumJmxʸᴰ;
+import love.distributedrebirth.bassboonyd.jmx.DefaultEnumInstanceᴶᴹˣ;
 import love.distributedrebirth.bassboonyd.jmx.GuageCounterᴶᴹˣ;
 import love.distributedrebirth.bassboonyd.jmx.StringAttributeᴶᴹˣ;
 import love.distributedrebirth.numberxd.base2t.BasePartFactory;
@@ -21,18 +20,17 @@ import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartʸᴰ;
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 @BãßBȍőnClassInfoʸᴰ(name = "TOSWarpCore", purpose = "The warpcore writer and armor manager.")
 @BãßBȍőnPackageInfoʸᴰ(name = "love.distributedrebirth.numberxd")
-public enum TOSWarpCore implements BãßBȍőnEnumInstanceʸᴰ<TOSWarpCore>,BãßBȍőnEnumJmxʸᴰ<TOSWarpCore,MBeanStoreKeyᴶᴹˣ> {
+public enum TOSWarpCore implements DefaultEnumInstanceᴶᴹˣ<TOSWarpCore,MBeanStoreKeyᴶᴹˣ> {
 	
 	INSTANCE;
-	
-	private final BãßBȍőnCoffinOpenʸᴰ<MBeanStoreKeyᴶᴹˣ> BBC = BãßBȍőnCoffinOpenʸᴰ.newInstance();
-	public BãßBȍőnCoffinʸᴰ<MBeanStoreKeyᴶᴹˣ> GET_BBC() { return BBC; }
 	
 	private final BooleanAttributeᴶᴹˣ armedWarpCipherLock;
 	private final StringAttributeᴶᴹˣ armedWarpWaterName;
 	private final StringAttributeᴶᴹˣ armedWarpWaterDesc;
 	private final GuageCounterᴶᴹˣ warpCoreReads;
 	private final GuageCounterᴶᴹˣ warpCoreWrites;
+	private final BãßBȍőnCoffinOpenʸᴰ<MBeanStoreKeyᴶᴹˣ> BBC = BãßBȍőnCoffinOpenʸᴰ.newInstance();
+	public BãßBȍőnCoffinʸᴰ<MBeanStoreKeyᴶᴹˣ> GET_BBC() { return BBC; }
 	
 	private TOSWarpCore() {
 		BBC.BOON_INIT(this);

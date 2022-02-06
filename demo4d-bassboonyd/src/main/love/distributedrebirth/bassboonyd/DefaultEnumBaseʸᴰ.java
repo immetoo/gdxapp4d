@@ -2,7 +2,9 @@ package love.distributedrebirth.bassboonyd;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 @BãßBȍőnAnnotationInfoʸᴰ(required = {BãßBȍőnClassInfoʸᴰ.class, BãßBȍőnAuthorInfoʸᴰ.class})
-public interface BãßBȍőnEnumʸᴰ<T> extends DefaultAuthorInfoʸᴰ,DefaultClassInfoʸᴰ,DefaultPackageInfoʸᴰ {
+public interface DefaultEnumBaseʸᴰ<T> extends DefaultAuthorInfoʸᴰ,DefaultClassInfoʸᴰ,DefaultPackageInfoʸᴰ {
+	
+	int ordinal();
 	
 	String name();
 	
@@ -23,8 +25,9 @@ public interface BãßBȍőnEnumʸᴰ<T> extends DefaultAuthorInfoʸᴰ,DefaultC
 		}
 	}
 	
-	
+	/*
 	default String BȍőnNaamI18N() {
 		return BãßClassNaam() + BãßBȍőnConstantsʸᴰ.STR_DOT + name(); 
 	}
+	*/
 }

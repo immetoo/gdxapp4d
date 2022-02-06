@@ -15,6 +15,10 @@ public class GuageCounterᴶᴹˣ extends AbstractMBeanAttributeᴶᴹˣ {
 		counter++;
 	}
 	
+	public void increment(long value) {
+		counter = counter + value;
+	}
+	
 	public Object getValue() {
 		return Long.valueOf(counter);
 	}

@@ -1,11 +1,10 @@
 package love.distributedrebirth.bassboonyd;
 
-import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public interface BãßBȍőnCoffinOpenʸᴰ<T extends BãßBȍőnCoffinStoreKeyʸᴰ> extends BãßBȍőnCoffinʸᴰ<T> {
+public interface BãßBȍőnCoffinOpenʸᴰ<T extends BãßBȍőnCoffinStoreKeyʸᴰ> extends BãßBȍőnCoffinʸᴰ<T>, DefaultInitMethodʸᴰ {
 
 	void LOCK_COFFIN();
 	
@@ -17,18 +16,6 @@ public interface BãßBȍőnCoffinOpenʸᴰ<T extends BãßBȍőnCoffinStoreKey�
 	
 	default void PUT_LIST(T key) {
 		PUT_OBJ(key, new HashMap<>());
-	}
-	
-	default void BOON_INIT(Object boon) {
-		try {
-			for (Method m:boon.getClass().getMethods()) {
-				if (m.isAnnotationPresent(BãßBȍőnInitMethodʸᴰ.class)) {
-					m.invoke(boon, this);
-				}
-			}
-		} catch (Exception e) {
-			throw new RuntimeException(e);
-		}	
 	}
 	
 	static <Y extends BãßBȍőnCoffinStoreKeyʸᴰ> BãßBȍőnCoffinOpenʸᴰ<Y> newInstance() {

@@ -2,10 +2,11 @@ package love.distributedrebirth.numberxd.base2t.glyph;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinStoreʸᴰ;
-import love.distributedrebirth.bassboonyd.BãßBȍőnEnumSetʸᴰ;
+import love.distributedrebirth.bassboonyd.DefaultEnumSetʸᴰ;
+import love.distributedrebirth.bassboonyd.jmx.DefaultEnumSetᴶᴹˣ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public interface BãßBȍőnGlyphSetʸᴰ<T extends BãßBȍőnGlyphSetʸᴰ<T>> extends BãßBȍőnEnumSetʸᴰ<T>, BãßBȍőnCoffinStoreʸᴰ<BãßBȍőnGlyphSetKeyʸᴰ> {
+public interface BãßBȍőnGlyphSetʸᴰ<T extends BãßBȍőnGlyphSetʸᴰ<T>> extends DefaultEnumSetᴶᴹˣ<T,BãßBȍőnGlyphSetKeyʸᴰ> {
 
 	default BaseGlyphSetNumber BȍőnGlyphSetNumber10() {
 		return GET_BBC().GET_OBJ(BãßBȍőnGlyphSetKeyʸᴰ.NUMBERS, BaseGlyphSetNumber.class);

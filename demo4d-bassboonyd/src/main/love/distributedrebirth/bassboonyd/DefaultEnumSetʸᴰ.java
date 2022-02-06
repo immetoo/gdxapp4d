@@ -7,9 +7,7 @@ import java.util.function.Consumer;
 import java.util.stream.Stream;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public interface BãßBȍőnEnumSetʸᴰ<T> extends BãßBȍőnEnumʸᴰ<T> {
-
-	int ordinal();
+public interface DefaultEnumSetʸᴰ<T> extends DefaultEnumBaseʸᴰ<T> {
 	
 	default int BȍőnRangTelNul() {
 		return ordinal();

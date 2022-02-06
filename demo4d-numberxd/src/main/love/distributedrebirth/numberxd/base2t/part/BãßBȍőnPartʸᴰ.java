@@ -6,12 +6,12 @@ import java.util.stream.Collectors;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinStoreʸᴰ;
-import love.distributedrebirth.bassboonyd.BãßBȍőnEnumSetʸᴰ;
+import love.distributedrebirth.bassboonyd.DefaultEnumSetʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnInitMethodʸᴰ;
 import love.distributedrebirth.numberxd.base2t.glyph.BaseGlyphSet;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public interface BãßBȍőnPartʸᴰ<T extends BãßBȍőnPartʸᴰ<T>> extends BãßBȍőnEnumSetʸᴰ<T>, BãßBȍőnCoffinStoreʸᴰ<BãßBȍőnPartKeyʸᴰ> {
+public interface BãßBȍőnPartʸᴰ<T extends BãßBȍőnPartʸᴰ<T>> extends DefaultEnumSetʸᴰ<T>, BãßBȍőnCoffinStoreʸᴰ<BãßBȍőnPartKeyʸᴰ> {
 	
 	@BãßBȍőnInitMethodʸᴰ
 	default void initMapTone(BãßBȍőnCoffinOpenʸᴰ<BãßBȍőnPartKeyʸᴰ> BBC) {
