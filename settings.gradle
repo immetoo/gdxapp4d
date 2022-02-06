@@ -1,1 +1,1 @@
-include 'demo4d-gdxapp-desktop', 'demo4d-gdxapp', 'demo4d-bassboonyd', 'demo4d-numberxd'
+include 'main-gdxapp-desktop', 'main-gdxapp', 'lib-bassboonyd', 'lib-numberxd'
