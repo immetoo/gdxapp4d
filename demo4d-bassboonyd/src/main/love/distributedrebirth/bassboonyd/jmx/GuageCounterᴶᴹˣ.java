@@ -3,7 +3,7 @@ package love.distributedrebirth.bassboonyd.jmx;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-@BãßBȍőnMBeanAttributeTypeʸᴰ(Long.class)
+@BãßBȍőnMBeanAttributeTypeᴶᴹˣ(Long.class)
 public class GuageCounterᴶᴹˣ extends AbstractMBeanAttributeᴶᴹˣ {
 	private volatile long counter;
 	

@@ -6,7 +6,7 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 public interface MBeanAttributeᴶᴹˣ {
 	
 	default Class<?> BãßValueType() {
-		return getClass().getAnnotation(BãßBȍőnMBeanAttributeTypeʸᴰ.class).value();
+		return getClass().getAnnotation(BãßBȍőnMBeanAttributeTypeᴶᴹˣ.class).value();
 	}
 	
 	Object getValue();
