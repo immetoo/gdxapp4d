@@ -3,7 +3,7 @@ package love.distributedrebirth.bassboonyd.jmx;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-@BãßBȍőnMBeanAttributeTypeᴶᴹˣ(String.class)
+@MBeanAttributeTypeᴶᴹˣ(String.class)
 public class StringAttributeᴶᴹˣ extends AbstractMBeanAttributeᴶᴹˣ {
 	private String value;
 	
