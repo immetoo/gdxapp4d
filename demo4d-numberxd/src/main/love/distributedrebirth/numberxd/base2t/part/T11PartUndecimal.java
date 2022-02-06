@@ -32,6 +32,6 @@ public enum T11PartUndecimal implements BãßBȍőnPartAlt1ʸᴰ<T11PartUndecima
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.CHINA_KEY, chinaKey);
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.CHINA_VALUE, chinaValue);
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.ALT_1_VALUE, alt1Value);
-		BBC.INIT_BOON(this);
+		BBC.BOON_INIT(this);
 	}
 }

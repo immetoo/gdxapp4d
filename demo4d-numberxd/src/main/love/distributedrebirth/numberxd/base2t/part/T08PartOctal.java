@@ -30,7 +30,7 @@ public enum T08PartOctal implements BãßBȍőnPartʸᴰ<T08PartOctal>,BãßBȍ�
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.CHINA_KEY, chinaKey);
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.CHINA_VALUE, chinaValue);
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.SHIFT_BITS, Integer.valueOf(shiftBits));
-		BBC.INIT_BOON(this);
+		BBC.BOON_INIT(this);
 	}
 	
 	public static T08PartOctal indexOf(T08PartOctal group, int value) {

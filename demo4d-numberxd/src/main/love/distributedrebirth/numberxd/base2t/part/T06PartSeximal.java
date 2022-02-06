@@ -27,7 +27,7 @@ public enum T06PartSeximal implements BãßBȍőnPartAlt1ʸᴰ<T06PartSeximal> {
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.CHINA_KEY, chinaKey);
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.CHINA_VALUE, chinaValue);
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.ALT_1_VALUE, alt1Value);
-		BBC.INIT_BOON(this);
+		BBC.BOON_INIT(this);
 	}
 	
 	public T02PartBinary splitPartBinary() {

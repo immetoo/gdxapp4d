@@ -33,7 +33,7 @@ public enum Base2Terminator implements BãßBȍőnEnumInstanceʸᴰ<Base2Termina
 	public BãßBȍőnCoffinʸᴰ<BãßBȍőnGlyphSetKeyʸᴰ> GET_BBC() { return BBC; }
 	
 	private Base2Terminator() {
-		BBC.INIT_BOON(this);
+		BBC.BOON_INIT(this);
 	}
 	
 	public int Bãß2ReadTong(InputStream input, List<V072Tong> output) throws IOException {

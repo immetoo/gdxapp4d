@@ -1,4 +1,4 @@
-package love.distributedrebirth.bassboonyd;
+package love.distributedrebirth.bassboonyd.jmx;
 
 import java.lang.management.ManagementFactory;
 import java.util.List;
@@ -18,58 +18,51 @@ import javax.management.MBeanServer;
 import javax.management.ObjectName;
 import javax.management.ReflectionException;
 
+import love.distributedrebirth.bassboonyd.BãßBȍőnAnnotationInfoʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnClassInfoʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinStoreKeyʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinStoreʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnEnumʸᴰ;
+
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 @BãßBȍőnAnnotationInfoʸᴰ(required = {BãßBȍőnClassInfoʸᴰ.class, BãßBȍőnAuthorInfoʸᴰ.class})
 public interface BãßBȍőnEnumJmxʸᴰ<T,K extends BãßBȍőnCoffinStoreKeyʸᴰ> extends BãßBȍőnEnumʸᴰ<T>,BãßBȍőnCoffinStoreʸᴰ<K> {
 	
 	@SuppressWarnings("unchecked")
-	default void initJmx(K key) {
+	default void BȍőnJmxInit(K key) {
 		BãßBȍőnCoffinOpenʸᴰ<K> coffin = BãßBȍőnCoffinOpenʸᴰ.class.cast(GET_BBC());
 		coffin.PUT_MAP(key);
 		try {
 			MBeanServer server = ManagementFactory.getPlatformMBeanServer();
-			ObjectName objectName1 = new ObjectName(BȍőnNaamI18N() + ":name=counters");
+			ObjectName objectName1 = new ObjectName(BãßPackageNaam() + ":name=" + BãßClassNaam());
 			server.registerMBean(new GuageDynamicMBean(GET_BBC().GET_MAP_OBJ(key)), objectName1);
 		} catch (Exception e) {
 			throw new RuntimeException(e);
 		}
 	}
 	
-	default GuageCounter BȍőnInitGuage(K key, String name) {
-		return BȍőnInitGuage(key,name,"");
+	default GuageCounterᴶᴹˣ BȍőnJmxInitGuageCounter(K key, String name) {
+		return BȍőnJmxInitGuageCounter(key,name,"");
 	}
 	
-	default GuageCounter BȍőnInitGuage(K key, String name, String description) {
-		GuageCounter result = new GuageCounter(name, description);
+	default GuageCounterᴶᴹˣ BȍőnJmxInitGuageCounter(K key, String name, String description) {
+		GuageCounterᴶᴹˣ result = new GuageCounterᴶᴹˣ(name, description);
 		GET_BBC().GET_MAP_OBJ(key).put(name, result);
 		return result; 
 	}
 	
-	public class GuageCounter {
-		private volatile long counter;
-		private final String name;
-		private final String description;
-		
-		public GuageCounter(String name, String description) {
-			this.name = name;
-			this.description = description;
-		}
-		
-		public void increment() {
-			counter++;
-		}
-		
-		public long getCounter() {
-			return counter;
-		}
-		
-		public String getName() {
-			return name;
-		}
-		
-		public String getDescription() {
-			return description;
-		}
+	default StringAttributeᴶᴹˣ BȍőnJmxInitStringAttribute(K key, String name, String description) {
+		StringAttributeᴶᴹˣ result = new StringAttributeᴶᴹˣ(name, description);
+		GET_BBC().GET_MAP_OBJ(key).put(name, result);
+		return result; 
+	}
+	
+	default BooleanAttributeᴶᴹˣ BȍőnJmxInitBooleanAttribute(K key, String name, String description) {
+		BooleanAttributeᴶᴹˣ result = new BooleanAttributeᴶᴹˣ(name, description);
+		GET_BBC().GET_MAP_OBJ(key).put(name, result);
+		return result; 
 	}
 	
 	class GuageDynamicMBean implements DynamicMBean {
@@ -86,8 +79,8 @@ public interface BãßBȍőnEnumJmxʸᴰ<T,K extends BãßBȍőnCoffinStoreKeyʸ
 			List<String> keySet = guages.keySet().stream().collect(Collectors.toList());
 			for (int i = 0; i < dAttributes.length; i++) {
 				String name = keySet.get(i);
-				GuageCounter gc = GuageCounter.class.cast(guages.get(name));
-				dAttributes[i] = new MBeanAttributeInfo(gc.getName(), Long.class.getSimpleName(),
+				MBeanAttributeᴶᴹˣ gc = MBeanAttributeᴶᴹˣ.class.cast(guages.get(name));
+				dAttributes[i] = new MBeanAttributeInfo(gc.getName(), gc.BãßValueType().getSimpleName(),
 						gc.getDescription(), true, false, false);
 			}
 			return new MBeanInfo(this.getClass().getName(), null, dAttributes, null, null,
@@ -96,8 +89,8 @@ public interface BãßBȍőnEnumJmxʸᴰ<T,K extends BãßBȍőnCoffinStoreKeyʸ
 		
 		@Override
 		public Object getAttribute(String name) throws AttributeNotFoundException, MBeanException, ReflectionException {
-			GuageCounter gc = GuageCounter.class.cast(guages.get(name));
-			return gc.getCounter();
+			MBeanAttributeᴶᴹˣ gc = MBeanAttributeᴶᴹˣ.class.cast(guages.get(name));
+			return gc.getValue();
 		}
 		
 		@Override

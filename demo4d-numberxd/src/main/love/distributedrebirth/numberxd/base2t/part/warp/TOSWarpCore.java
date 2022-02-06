@@ -8,35 +8,47 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnClassInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnEnumInstanceʸᴰ;
-import love.distributedrebirth.bassboonyd.BãßBȍőnEnumJmxKeyʸᴰ;
-import love.distributedrebirth.bassboonyd.BãßBȍőnEnumJmxʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnPackageInfoʸᴰ;
+import love.distributedrebirth.bassboonyd.jmx.BooleanAttributeᴶᴹˣ;
+import love.distributedrebirth.bassboonyd.jmx.MBeanStoreKeyᴶᴹˣ;
+import love.distributedrebirth.bassboonyd.jmx.BãßBȍőnEnumJmxʸᴰ;
+import love.distributedrebirth.bassboonyd.jmx.GuageCounterᴶᴹˣ;
+import love.distributedrebirth.bassboonyd.jmx.StringAttributeᴶᴹˣ;
 import love.distributedrebirth.numberxd.base2t.BasePartFactory;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartKeyʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 @BãßBȍőnClassInfoʸᴰ(name = "TOSWarpCore", purpose = "The warpcore writer and armor manager.")
-public enum TOSWarpCore implements BãßBȍőnEnumInstanceʸᴰ<TOSWarpCore>,BãßBȍőnEnumJmxʸᴰ<TOSWarpCore,BãßBȍőnEnumJmxKeyʸᴰ> {
+@BãßBȍőnPackageInfoʸᴰ(name = "love.distributedrebirth.numberxd")
+public enum TOSWarpCore implements BãßBȍőnEnumInstanceʸᴰ<TOSWarpCore>,BãßBȍőnEnumJmxʸᴰ<TOSWarpCore,MBeanStoreKeyᴶᴹˣ> {
 	
 	INSTANCE;
 	
-	private final BãßBȍőnCoffinOpenʸᴰ<BãßBȍőnEnumJmxKeyʸᴰ> BBC = BãßBȍőnCoffinOpenʸᴰ.newInstance();
-	public BãßBȍőnCoffinʸᴰ<BãßBȍőnEnumJmxKeyʸᴰ> GET_BBC() { return BBC; }
+	private final BãßBȍőnCoffinOpenʸᴰ<MBeanStoreKeyᴶᴹˣ> BBC = BãßBȍőnCoffinOpenʸᴰ.newInstance();
+	public BãßBȍőnCoffinʸᴰ<MBeanStoreKeyᴶᴹˣ> GET_BBC() { return BBC; }
 	
-	private String armedWarpCipherName;
-	private String armedWarpCipherDescription;
-	
-	private final GuageCounter readCounter;
-	private final GuageCounter writeCounter;
+	private final BooleanAttributeᴶᴹˣ armedWarpCipherLock;
+	private final StringAttributeᴶᴹˣ armedWarpWaterName;
+	private final StringAttributeᴶᴹˣ armedWarpWaterDesc;
+	private final GuageCounterᴶᴹˣ warpCoreReads;
+	private final GuageCounterᴶᴹˣ warpCoreWrites;
 	
 	private TOSWarpCore() {
-		BBC.INIT_BOON(this);
-		initJmx(BãßBȍőnEnumJmxKeyʸᴰ.JMX);
-		readCounter = BȍőnInitGuage(BãßBȍőnEnumJmxKeyʸᴰ.JMX, "reads", "The amount of warpcore reads.");
-		writeCounter = BȍőnInitGuage(BãßBȍőnEnumJmxKeyʸᴰ.JMX, "writes", "The amount of warpcore writes.");
+		BBC.BOON_INIT(this);
+		BȍőnJmxInit(MBeanStoreKeyᴶᴹˣ.JMX);
+		warpCoreReads = BȍőnJmxInitGuageCounter(MBeanStoreKeyᴶᴹˣ.JMX, "warpCoreReads", "The amount of warpcore reads.");
+		warpCoreWrites = BȍőnJmxInitGuageCounter(MBeanStoreKeyᴶᴹˣ.JMX, "warpCoreWrites", "The amount of warpcore writes.");
+		armedWarpWaterName = BȍőnJmxInitStringAttribute(MBeanStoreKeyᴶᴹˣ.JMX, "armedWarpWaterName", "The armed water cipher name.");
+		armedWarpWaterName.setValueString("default");
+		armedWarpWaterDesc = BȍőnJmxInitStringAttribute(MBeanStoreKeyᴶᴹˣ.JMX, "armedWarpWaterDesc", "The armed water cipher description.");
+		armedWarpWaterDesc.setValueString("Current active cipher.");
+		armedWarpCipherLock = BȍőnJmxInitBooleanAttribute(MBeanStoreKeyᴶᴹˣ.JMX, "armedWarpCipherLock", "Is the water cipher locked.");
+		armedWarpCipherLock.setValueBoolean(false);
 	}
 	
 	public void BãßLockWarpCipher() {
+		armedWarpCipherLock.setValueBoolean(true);
 		for (int base:BasePartFactory.INSTANCE.BãßBases()) {
 			for (BãßBȍőnPartʸᴰ<?> part:BasePartFactory.INSTANCE.BãßBuildPartsByBase(base)) {
 				BãßBȍőnCoffinOpenʸᴰ.class.cast(part.GET_BBC()).LOCK_COFFIN();
@@ -45,18 +57,10 @@ public enum TOSWarpCore implements BãßBȍőnEnumInstanceʸᴰ<TOSWarpCore>,Bã
 	}
 	
 	public WaterBucket BãßCurrentWarpCore() {
-		readCounter.increment();
+		warpCoreReads.increment();
 		WaterCipher warpCipher = new WaterCipher();
-		if (armedWarpCipherName == null) {
-			warpCipher.setName("default");
-		} else {
-			warpCipher.setName(armedWarpCipherName);
-		}
-		if (armedWarpCipherDescription == null) {
-			warpCipher.setName("Current active cipher.");
-		} else {
-			warpCipher.setDescription(armedWarpCipherDescription);
-		}
+		warpCipher.setName(armedWarpWaterName.getValueString());
+		warpCipher.setDescription(armedWarpWaterDesc.getValueString());
 		for (int base:BasePartFactory.INSTANCE.BãßBases()) {
 			WaterCipherHeart heart = new WaterCipherHeart();
 			BãßBȍőnPartʸᴰ<?>[] bases = BasePartFactory.INSTANCE.BãßBuildPartsByBase(base);
@@ -77,9 +81,9 @@ public enum TOSWarpCore implements BãßBȍőnEnumInstanceʸᴰ<TOSWarpCore>,Bã
 	}
 	
 	public void BãßArmWarpCore(WaterBucket warpBucket) {
-		writeCounter.increment();
-		armedWarpCipherName = warpBucket.theWater().getName();
-		armedWarpCipherDescription = warpBucket.theWater().getDescription();
+		warpCoreWrites.increment();
+		armedWarpWaterName.setValueString(warpBucket.theWater().getName());
+		armedWarpWaterDesc.setValueString(warpBucket.theWater().getDescription());
 		for (WaterCipherHeart heart:warpBucket.theWater().getCipherHearts()) {
 			BãßBȍőnPartʸᴰ<?>[] bases = BasePartFactory.INSTANCE.BãßBuildPartsByBase(heart.getBass());
 			Map<String, BãßBȍőnPartʸᴰ<?>> baseParts = new HashMap<>();

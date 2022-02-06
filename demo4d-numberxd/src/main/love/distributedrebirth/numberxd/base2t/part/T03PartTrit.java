@@ -22,6 +22,6 @@ public enum T03PartTrit implements BãßBȍőnPartʸᴰ<T03PartTrit> {
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.DIAL_TONE, dialTone);
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.CHINA_KEY, chinaKey);
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.CHINA_VALUE, chinaValue);
-		BBC.INIT_BOON(this);
+		BBC.BOON_INIT(this);
 	}
 }

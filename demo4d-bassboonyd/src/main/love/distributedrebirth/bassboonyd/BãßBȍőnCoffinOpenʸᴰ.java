@@ -19,7 +19,7 @@ public interface BãßBȍőnCoffinOpenʸᴰ<T extends BãßBȍőnCoffinStoreKey�
 		PUT_OBJ(key, new HashMap<>());
 	}
 	
-	default void INIT_BOON(Object boon) {
+	default void BOON_INIT(Object boon) {
 		try {
 			for (Method m:boon.getClass().getMethods()) {
 				if (m.isAnnotationPresent(BãßBȍőnInitMethodʸᴰ.class)) {

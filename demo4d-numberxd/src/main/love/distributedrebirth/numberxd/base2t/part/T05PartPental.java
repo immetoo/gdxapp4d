@@ -28,6 +28,6 @@ public enum T05PartPental implements BãßBȍőnPartAlt2ʸᴰ<T05PartPental> {
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.CHINA_VALUE, chinaValue);
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.ALT_1_VALUE, alt1Value);
 		BBC.PUT_OBJ(BãßBȍőnPartKeyʸᴰ.ALT_2_VALUE, alt2Value);
-		BBC.INIT_BOON(this);
+		BBC.BOON_INIT(this);
 	}
 }
