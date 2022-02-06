@@ -15,6 +15,9 @@ import javax.management.MBeanInfo;
 import javax.management.MBeanNotificationInfo;
 import javax.management.ReflectionException;
 
+import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
+
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class MBeanDynamicᴶᴹˣ implements DynamicMBean {
 	
 	private final Map<String, Object> guages;
