@@ -28,11 +28,11 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import imgui.ImGui;
 import imgui.flag.ImGuiCond;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
-import love.distributedrebirth.gdxapp.Demo4DMain;
-import love.distributedrebirth.gdxapp.Demo4DMainAdapter;
+import love.distributedrebirth.gdxapp.GDXAppMain;
+import love.distributedrebirth.gdxapp.GDXAppMainAdapter;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public class ScreenMatrix4D extends Demo4DMainAdapter {
+public class ScreenMatrix4D extends GDXAppMainAdapter {
 	public Environment environment;
 	public PerspectiveCamera cam;
 	public CameraInputController camController;
@@ -58,7 +58,7 @@ public class ScreenMatrix4D extends Demo4DMainAdapter {
 	private float colorFade = 0f;
 	private boolean colorPositive = true;
 	
-	public ScreenMatrix4D(final Demo4DMain main) {
+	public ScreenMatrix4D(final GDXAppMain main) {
 		super(main);
 		this.create();
 	}

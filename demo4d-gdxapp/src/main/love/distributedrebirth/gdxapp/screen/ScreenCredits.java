@@ -3,7 +3,7 @@ package love.distributedrebirth.gdxapp.screen;
 import com.badlogic.gdx.Screen;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
-import love.distributedrebirth.gdxapp.Demo4DMain;
+import love.distributedrebirth.gdxapp.GDXAppMain;
 import love.distributedrebirth.gdxapp.music.MusicSongType;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
@@ -63,7 +63,7 @@ public class ScreenCredits extends AbstractScrollScreen {
 			" "
 			);
 	
-	public ScreenCredits(final Demo4DMain main) {
+	public ScreenCredits(final GDXAppMain main) {
 		super(main, "background/doom-credits.png");
 	}
 
@@ -73,7 +73,7 @@ public class ScreenCredits extends AbstractScrollScreen {
 	}
 
 	@Override
-	protected Class<? extends Screen> getNextScreen(Demo4DMain main) {
+	protected Class<? extends Screen> getNextScreen(GDXAppMain main) {
 		return ScreenDefault.class;
 	}
 	

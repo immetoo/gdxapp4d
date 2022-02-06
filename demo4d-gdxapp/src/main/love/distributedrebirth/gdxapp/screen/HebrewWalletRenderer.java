@@ -5,14 +5,14 @@ import imgui.flag.ImGuiCond;
 import imgui.flag.ImGuiTableFlags;
 import imgui.type.ImBoolean;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
-import love.distributedrebirth.gdxapp.Demo4DMain;
+import love.distributedrebirth.gdxapp.GDXAppMain;
 import love.distributedrebirth.gdxapp.ImGuiRendererMain;
 import love.distributedrebirth.numberxd.Gê̄ldGetậl;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class HebrewWalletRenderer extends ImGuiRendererMain {
 
-	public HebrewWalletRenderer(Demo4DMain main) {
+	public HebrewWalletRenderer(GDXAppMain main) {
 		super(main);
 	}
 

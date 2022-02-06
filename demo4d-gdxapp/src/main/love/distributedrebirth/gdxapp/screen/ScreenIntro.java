@@ -7,17 +7,17 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.ScreenUtils;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
-import love.distributedrebirth.gdxapp.Demo4DMain;
+import love.distributedrebirth.gdxapp.GDXAppMain;
 import love.distributedrebirth.gdxapp.music.MusicSongType;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class ScreenIntro extends ScreenAdapter {
-	private final Demo4DMain main;
+	private final GDXAppMain main;
 	private Texture backgroundImage;
 	private float colorDeltaTime = 0f;
 	private boolean colorPositive = true;
 
-	public ScreenIntro(final Demo4DMain main) {
+	public ScreenIntro(final GDXAppMain main) {
 		this.main = main;
 		backgroundImage = new Texture(Gdx.files.internal("background/temple-os.png"));
 	}

@@ -12,7 +12,7 @@ import imgui.flag.ImGuiTableColumnFlags;
 import imgui.flag.ImGuiTableFlags;
 import imgui.type.ImBoolean;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
-import love.distributedrebirth.gdxapp.Demo4DMain;
+import love.distributedrebirth.gdxapp.GDXAppMain;
 import love.distributedrebirth.gdxapp.ImGuiRendererMain;
 import net.spookygames.gdx.nativefilechooser.NativeFileChooserCallback;
 import net.spookygames.gdx.nativefilechooser.NativeFileChooserConfiguration;
@@ -25,7 +25,7 @@ public class MusicPlayerRenderer extends ImGuiRendererMain {
 
 	private final NativeFileChooserConfiguration fileChooserConfig;
 	
-	public MusicPlayerRenderer(Demo4DMain main) {
+	public MusicPlayerRenderer(GDXAppMain main) {
 		super(main);
 		fileChooserConfig = new NativeFileChooserConfiguration();
 		fileChooserConfig.directory = Gdx.files.absolute(System.getProperty("user.home"));

@@ -42,7 +42,7 @@ import net.spookygames.gdx.nativefilechooser.NativeFileChooser;
  * Main loop render dispatcher and event handling.
  */
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public class Demo4DMain extends Game {
+public class GDXAppMain extends Game {
 	private int lazyIntCnt = 33;
 	private List<String> args;
 	public NativeFileChooser fileChooser;
@@ -62,7 +62,7 @@ public class Demo4DMain extends Game {
 	private ImBoolean showSystemGlyphPart = new ImBoolean(false);
 	private ImBoolean showBasicConsole = new ImBoolean(false);
 	
-	public Demo4DMain(List<String> args, int viewWidth, int viewHeight, NativeFileChooser fileChooser) {
+	public GDXAppMain(List<String> args, int viewWidth, int viewHeight, NativeFileChooser fileChooser) {
 		this.args = args;
 		this.viewWidth = viewWidth;
 		this.viewHeight = viewHeight;

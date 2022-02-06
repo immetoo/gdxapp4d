@@ -9,7 +9,7 @@ import imgui.flag.ImGuiTableFlags;
 import imgui.type.ImBoolean;
 import imgui.type.ImInt;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
-import love.distributedrebirth.gdxapp.Demo4DMain;
+import love.distributedrebirth.gdxapp.GDXAppMain;
 import love.distributedrebirth.gdxapp.ImGuiRendererMain;
 import love.distributedrebirth.numberxd.base2t.BasePartFactory;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt1ʸᴰ;
@@ -24,7 +24,7 @@ public class SystemBasePartRenderer extends ImGuiRendererMain {
 
 	private ImInt selectedBasePart = new ImInt();
 	
-	public SystemBasePartRenderer(Demo4DMain main) {
+	public SystemBasePartRenderer(GDXAppMain main) {
 		super(main);
 	}
 

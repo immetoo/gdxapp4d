@@ -5,14 +5,14 @@ import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.graphics.Texture;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
-import love.distributedrebirth.gdxapp.Demo4DMain;
+import love.distributedrebirth.gdxapp.GDXAppMain;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class ScreenDefault extends ScreenAdapter {
-	private final Demo4DMain main;
+	private final GDXAppMain main;
 	private Texture backgroundImage;
 	
-	public ScreenDefault(final Demo4DMain main) {
+	public ScreenDefault(final GDXAppMain main) {
 		this.main = main;
 		backgroundImage = new Texture(Gdx.files.internal("background/terrydavis-front.png"));
 	}

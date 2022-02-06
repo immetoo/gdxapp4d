@@ -5,10 +5,10 @@ import com.badlogic.gdx.ScreenAdapter;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public class Demo4DMainAdapter extends ScreenAdapter {
-	protected final Demo4DMain main;
+public class GDXAppMainAdapter extends ScreenAdapter {
+	protected final GDXAppMain main;
 	
-	public Demo4DMainAdapter(Demo4DMain main) {
+	public GDXAppMainAdapter(GDXAppMain main) {
 		this.main = main;
 	}
 }

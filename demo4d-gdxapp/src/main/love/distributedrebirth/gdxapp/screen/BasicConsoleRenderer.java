@@ -4,13 +4,13 @@ import imgui.ImGui;
 import imgui.flag.ImGuiCond;
 import imgui.type.ImBoolean;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
-import love.distributedrebirth.gdxapp.Demo4DMain;
+import love.distributedrebirth.gdxapp.GDXAppMain;
 import love.distributedrebirth.gdxapp.ImGuiRendererMain;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class BasicConsoleRenderer extends ImGuiRendererMain {
 
-	public BasicConsoleRenderer(Demo4DMain main) {
+	public BasicConsoleRenderer(GDXAppMain main) {
 		super(main);
 	}
 

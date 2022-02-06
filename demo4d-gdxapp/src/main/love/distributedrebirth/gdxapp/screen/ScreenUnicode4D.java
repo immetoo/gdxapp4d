@@ -6,13 +6,13 @@ import imgui.ImGui;
 import imgui.ImVec2;
 import imgui.flag.ImGuiCond;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
-import love.distributedrebirth.gdxapp.Demo4DMain;
-import love.distributedrebirth.gdxapp.Demo4DMainAdapter;
+import love.distributedrebirth.gdxapp.GDXAppMain;
+import love.distributedrebirth.gdxapp.GDXAppMainAdapter;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public class ScreenUnicode4D extends Demo4DMainAdapter {
+public class ScreenUnicode4D extends GDXAppMainAdapter {
 	
-	public ScreenUnicode4D(final Demo4DMain main) {
+	public ScreenUnicode4D(final GDXAppMain main) {
 		super(main);
 	}
 	

@@ -7,11 +7,11 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.ScreenUtils;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
-import love.distributedrebirth.gdxapp.Demo4DMain;
-import love.distributedrebirth.gdxapp.Demo4DMainAdapter;
+import love.distributedrebirth.gdxapp.GDXAppMain;
+import love.distributedrebirth.gdxapp.GDXAppMainAdapter;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-abstract public class AbstractScrollScreen extends Demo4DMainAdapter {
+abstract public class AbstractScrollScreen extends GDXAppMainAdapter {
 	private static final int LINE_HEIGHT = 16;
 	private float scrollDeltaTime = 0f;
 	private String scrollText = "";
@@ -19,14 +19,14 @@ abstract public class AbstractScrollScreen extends Demo4DMainAdapter {
 	private int scrollLine = LINE_HEIGHT;
 	private final Texture backgroundImage;
 	
-	public AbstractScrollScreen(final Demo4DMain main, String background) {
+	public AbstractScrollScreen(final GDXAppMain main, String background) {
 		super(main);
 		backgroundImage = new Texture(Gdx.files.internal(background));
 	}
 	
 	abstract protected String getScrollText();
 	
-	abstract protected Class<? extends Screen> getNextScreen(Demo4DMain main);
+	abstract protected Class<? extends Screen> getNextScreen(GDXAppMain main);
 	
 	@Override
 	public final void render(float delta) {

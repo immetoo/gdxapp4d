@@ -9,7 +9,7 @@ import imgui.flag.ImGuiTableFlags;
 import imgui.type.ImBoolean;
 import imgui.type.ImInt;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
-import love.distributedrebirth.gdxapp.Demo4DMain;
+import love.distributedrebirth.gdxapp.GDXAppMain;
 import love.distributedrebirth.gdxapp.ImGuiRendererMain;
 import love.distributedrebirth.numberxd.glyph.BaseGlyphSet;
 import love.distributedrebirth.numberxd.glyph.BaseGlyphSetNumber;
@@ -19,7 +19,7 @@ public class SystemBaseGlyphRenderer extends ImGuiRendererMain {
 
 	private ImInt selectedGlyphPart = new ImInt();
 	
-	public SystemBaseGlyphRenderer(Demo4DMain main) {
+	public SystemBaseGlyphRenderer(GDXAppMain main) {
 		super(main);
 	}
 
