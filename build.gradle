@@ -79,10 +79,21 @@ project(":lib-basicwd") {
 	}
 }
 
-project(":main-gdxapp") {
+project(":lib-imxmi") {
 	apply plugin: "java-library"
 	dependencies {
 		api project(":lib-basicwd")
+		testImplementation "org.junit.jupiter:junit-jupiter:$junitVersion"
+	}
+	tasks.named('test') {
+		useJUnitPlatform() 
+	}
+}
+
+project(":main-gdxapp") {
+	apply plugin: "java-library"
+	dependencies {
+		api project(":lib-imxmi")
 		api "com.badlogicgames.gdx:gdx:$gdxVersion"
 		api "io.github.spair:imgui-java-binding:$spairVersion"
 		api "io.github.spair:imgui-java-lwjgl3:$spairVersion"
