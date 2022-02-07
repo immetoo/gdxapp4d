@@ -56,11 +56,33 @@ project(":lib-numberxd") {
 	}
 }
 
-project(":main-gdxapp") {
+project(":lib-unicode4d") {
 	apply plugin: "java-library"
 	dependencies {
 		api project(":lib-numberxd")
 		api files('../gradle-libs/opentype4j-1.0.0-SNAPSHOT.jar')
+		testImplementation "org.junit.jupiter:junit-jupiter:$junitVersion"
+	}
+	tasks.named('test') {
+		useJUnitPlatform() 
+	}
+}
+
+project(":lib-stepcode") {
+	apply plugin: "java-library"
+	dependencies {
+		api project(":lib-unicode4d")
+		testImplementation "org.junit.jupiter:junit-jupiter:$junitVersion"
+	}
+	tasks.named('test') {
+		useJUnitPlatform() 
+	}
+}
+
+project(":main-gdxapp") {
+	apply plugin: "java-library"
+	dependencies {
+		api project(":lib-stepcode")
 		api "com.badlogicgames.gdx:gdx:$gdxVersion"
 		api "io.github.spair:imgui-java-binding:$spairVersion"
 		api "io.github.spair:imgui-java-lwjgl3:$spairVersion"

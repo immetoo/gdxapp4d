@@ -1,1 +1,1 @@
-include 'main-gdxapp-desktop', 'main-gdxapp', 'lib-bassboonyd', 'lib-numberxd'
+include 'main-gdxapp-desktop', 'main-gdxapp', 'lib-bassboonyd', 'lib-numberxd', 'lib-unicode4d', 'lib-stepcode'
