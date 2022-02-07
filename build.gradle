@@ -56,7 +56,7 @@ project(":lib-numberxd") {
 	}
 }
 
-project(":lib-unicode4d") {
+project(":lib-unicodezd") {
 	apply plugin: "java-library"
 	dependencies {
 		api project(":lib-numberxd")
@@ -68,10 +68,10 @@ project(":lib-unicode4d") {
 	}
 }
 
-project(":lib-basic4d") {
+project(":lib-basicwd") {
 	apply plugin: "java-library"
 	dependencies {
-		api project(":lib-unicode4d")
+		api project(":lib-unicodezd")
 		testImplementation "org.junit.jupiter:junit-jupiter:$junitVersion"
 	}
 	tasks.named('test') {
@@ -82,7 +82,7 @@ project(":lib-basic4d") {
 project(":main-gdxapp") {
 	apply plugin: "java-library"
 	dependencies {
-		api project(":lib-basic4d")
+		api project(":lib-basicwd")
 		api "com.badlogicgames.gdx:gdx:$gdxVersion"
 		api "io.github.spair:imgui-java-binding:$spairVersion"
 		api "io.github.spair:imgui-java-lwjgl3:$spairVersion"
