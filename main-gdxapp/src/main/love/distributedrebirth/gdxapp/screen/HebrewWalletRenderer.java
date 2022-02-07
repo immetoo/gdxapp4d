@@ -29,7 +29,7 @@ public class HebrewWalletRenderer extends ImGuiRendererMain {
 		if (ImGui.button("Pay")) {
 		}
 		int flags = ImGuiTableFlags.ScrollX | ImGuiTableFlags.RowBg | ImGuiTableFlags.BordersOuter | ImGuiTableFlags.BordersV;
-		ImGui.beginTable("wallet", 5, flags);
+		ImGui.beginTable("wallet", 4, flags);
 		ImGui.tableSetupColumn("In/Out");
 		ImGui.tableSetupColumn("AmountRaw");
 		ImGui.tableSetupColumn("AmountFix");
