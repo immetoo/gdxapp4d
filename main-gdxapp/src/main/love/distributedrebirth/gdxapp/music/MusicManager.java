@@ -42,6 +42,8 @@ public class MusicManager {
 		addBackgroundMusic(Gdx.files.internal("music/sanctumwave-devine-intellect.mp3"));
 		addBackgroundMusic(Gdx.files.internal("music/theselfhelpgroup-temple-os.mp3"));
 		addBackgroundMusic(Gdx.files.internal("music/sanctumwave-nightwalk.mp3"));
+		addBackgroundMusic(Gdx.files.internal("music/beeble-i-used-temple-os-to-write.mp3"));
+		addBackgroundMusic(Gdx.files.internal("music/ryanfarran-risen-temple-os.mp3"));
 	}
 	
 	public void dispose() {
