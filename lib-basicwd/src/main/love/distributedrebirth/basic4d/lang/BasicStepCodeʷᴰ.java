@@ -1,5 +1,5 @@
 package love.distributedrebirth.basic4d.lang;
 
-public class BasicStepCode {
+public class BasicStepCodeʷᴰ {
 
 }

@@ -1,5 +1,5 @@
 package love.distributedrebirth.basic4d.lang;
 
-public class BasicAnnotation {
+public class BasicMethodArgumentʷᴰ {
 
 }
