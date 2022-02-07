@@ -1,4 +1,4 @@
-# demo4d
+# GDXApp⁴ᴰ
 
 Demo of 4D coding in java with libGDX and ImGui.
 
