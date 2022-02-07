@@ -1,24 +1,27 @@
 package love.distributedrebirth.imxmi.lang;
 
 import imgui.ImGui;
+import imgui.type.ImInt;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public class ImButtonˣᴹᴵ extends AbstractImComponentˣᴹᴵ  {
+public class ImComboˣᴹᴵ extends AbstractImComponentˣᴹᴵ  {
 	
 	private String label;
+	private final ImInt currentItem = new ImInt();
+	private String[] items;
 	private Runnable callback;
 	
-	public ImButtonˣᴹᴵ() {
+	public ImComboˣᴹᴵ() {
 	}
 	
-	public ImButtonˣᴹᴵ(String label) {
+	public ImComboˣᴹᴵ(String label) {
 		setLabel(label);
 	}
 	
 	@Override
 	public void renderComponent() {
-		if (ImGui.button(label) && callback != null) {
+		if (ImGui.combo(label, currentItem, items) && callback != null) {
 			callback.run();
 		}
 	}
@@ -37,5 +40,17 @@ public class ImButtonˣᴹᴵ extends AbstractImComponentˣᴹᴵ  {
 	
 	public void setCallback(Runnable callback) {
 		this.callback = callback;
+	}
+	
+	public ImInt getCurrentItem() {
+		return currentItem;
+	}
+	
+	public String[] getItems() {
+		return items;
+	}
+	
+	public void setItems(String[] items) {
+		this.items = items;
 	}
 }
