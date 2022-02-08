@@ -36,12 +36,13 @@ public class ImFrameˣᴹᴵ extends AbstractImComponentSetˣᴹᴵ {
 	public void renderBegin() {
 		ImGui.setNextWindowPos(nextWindowPosX, nextWindowPosY, nextWindowPosCond);
 		ImGui.setNextWindowSize(nextWindowSizeWidth, nextWindowSizeHeight, nextWindowSizeCond);
-		ImGui.begin(title, frameOpen);
 	}
 	
 	@Override
 	public void renderComponent() {
-		renderComponents();
+		if (ImGui.begin(title, frameOpen)) {
+			renderComponents();
+		}
 	}
 	
 	@Override

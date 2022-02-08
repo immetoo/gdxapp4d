@@ -37,61 +37,60 @@ public class MusicPlayerRenderer extends ImGuiRendererMain {
 	public void render(ImBoolean widgetOpen) {
 		ImGui.setNextWindowPos(100, 100, ImGuiCond.FirstUseEver);
 		ImGui.setNextWindowSize(320, 240, ImGuiCond.FirstUseEver);
-		ImGui.begin("Music Player", widgetOpen);
-		
-		ImGui.text("Current Song:");
-		MusicSong currentSong = main.music.getCurrentSong();
-		if (currentSong != null) {
+		if (ImGui.begin("Music Player", widgetOpen)) {
+			ImGui.text("Current Song:");
+			MusicSong currentSong = main.music.getCurrentSong();
+			if (currentSong != null) {
+				ImGui.sameLine();
+				ImGui.text(currentSong.getName());
+			}
+			ImGui.separator();
+			if (currentSong != null) {
+				if (ImGui.button("Play")) {
+					main.music.play(currentSong);
+				}
+			} else {
+				ImGui.text("Play");
+			}
 			ImGui.sameLine();
-			ImGui.text(currentSong.getName());
-		}
-		ImGui.separator();
-		if (currentSong != null) {
-			if (ImGui.button("Play")) {
-				main.music.play(currentSong);
+			if (ImGui.button("<")) {
+				main.music.prev();
 			}
-		} else {
-			ImGui.text("Play");
-		}
-		ImGui.sameLine();
-		if (ImGui.button("<")) {
-			main.music.prev();
-		}
-		ImGui.sameLine();
-		if (ImGui.button(">")) {
-			main.music.next();
-		}
-		ImGui.sameLine();
-		if (ImGui.button("Stop")) {
-			main.music.stop();
-		}
-		ImGui.sameLine();
-		if (ImGui.button("Add")) {
-			main.fileChooser.chooseFile(fileChooserConfig, NativeFileChooserCallbackAdapter.onFileChosen(v -> main.music.addBackgroundMusic(v)));
-		}
-		int flags = ImGuiTableFlags.ScrollX | ImGuiTableFlags.RowBg | ImGuiTableFlags.BordersOuter | ImGuiTableFlags.BordersV;
-		ImGui.beginTable("playlist", 3, flags);
-		ImGui.tableSetupColumn("#", ImGuiTableColumnFlags.NoHide);
-		ImGui.tableSetupColumn("Play");
-		ImGui.tableSetupColumn("Name");
-		ImGui.tableHeadersRow();
-		int i=1;
-		for (MusicSong song:main.music.getBackgroundSongs()) {
-			ImGui.pushID(i);
-			ImGui.tableNextRow();
-			ImGui.tableNextColumn();
-			ImGui.selectable(""+i, song.isPlaying(), ImGuiSelectableFlags.None);
-			ImGui.tableNextColumn();
-			if (ImGui.smallButton(">")) {
-				main.music.play(song);
+			ImGui.sameLine();
+			if (ImGui.button(">")) {
+				main.music.next();
 			}
-			ImGui.tableNextColumn();
-			ImGui.selectable(song.getName(), song.isPlaying(), ImGuiSelectableFlags.None);
-			ImGui.popID();
-			i++;
+			ImGui.sameLine();
+			if (ImGui.button("Stop")) {
+				main.music.stop();
+			}
+			ImGui.sameLine();
+			if (ImGui.button("Add")) {
+				main.fileChooser.chooseFile(fileChooserConfig, NativeFileChooserCallbackAdapter.onFileChosen(v -> main.music.addBackgroundMusic(v)));
+			}
+			int flags = ImGuiTableFlags.ScrollX | ImGuiTableFlags.RowBg | ImGuiTableFlags.BordersOuter | ImGuiTableFlags.BordersV;
+			ImGui.beginTable("playlist", 3, flags);
+			ImGui.tableSetupColumn("#", ImGuiTableColumnFlags.NoHide);
+			ImGui.tableSetupColumn("Play");
+			ImGui.tableSetupColumn("Name");
+			ImGui.tableHeadersRow();
+			int i=1;
+			for (MusicSong song:main.music.getBackgroundSongs()) {
+				ImGui.pushID(i);
+				ImGui.tableNextRow();
+				ImGui.tableNextColumn();
+				ImGui.selectable(""+i, song.isPlaying(), ImGuiSelectableFlags.None);
+				ImGui.tableNextColumn();
+				if (ImGui.smallButton(">")) {
+					main.music.play(song);
+				}
+				ImGui.tableNextColumn();
+				ImGui.selectable(song.getName(), song.isPlaying(), ImGuiSelectableFlags.None);
+				ImGui.popID();
+				i++;
+			}
+			ImGui.endTable();
 		}
-		ImGui.endTable();
-		
 		ImGui.end();
 	}
 	
