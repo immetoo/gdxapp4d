@@ -27,6 +27,7 @@ public enum TOSWarpCore implements DefaultEnumInstanceᴶᴹˣ<TOSWarpCore,MBean
 	private final BooleanAttributeᴶᴹˣ armedWarpCipherLock;
 	private final StringAttributeᴶᴹˣ armedWarpWaterName;
 	private final StringAttributeᴶᴹˣ armedWarpWaterDesc;
+	private final GuageCounterᴶᴹˣ warpCoreValidates;
 	private final GuageCounterᴶᴹˣ warpCoreReads;
 	private final GuageCounterᴶᴹˣ warpCoreWrites;
 	private final BãßBȍőnCoffinOpenʸᴰ<MBeanStoreKeyᴶᴹˣ> BBC = BãßBȍőnCoffinOpenʸᴰ.newInstance();
@@ -37,6 +38,7 @@ public enum TOSWarpCore implements DefaultEnumInstanceᴶᴹˣ<TOSWarpCore,MBean
 		BȍőnJmxInit(MBeanStoreKeyᴶᴹˣ.JMX);
 		warpCoreReads = BȍőnJmxInitGuageCounter(MBeanStoreKeyᴶᴹˣ.JMX, "warpCoreReads", "The amount of warpcore reads.");
 		warpCoreWrites = BȍőnJmxInitGuageCounter(MBeanStoreKeyᴶᴹˣ.JMX, "warpCoreWrites", "The amount of warpcore writes.");
+		warpCoreValidates = BȍőnJmxInitGuageCounter(MBeanStoreKeyᴶᴹˣ.JMX, "warpCoreValidates", "The amount of warpcore validates.");
 		armedWarpWaterName = BȍőnJmxInitStringAttribute(MBeanStoreKeyᴶᴹˣ.JMX, "armedWarpWaterName", "The armed water cipher name.");
 		armedWarpWaterName.setValueString("default");
 		armedWarpWaterDesc = BȍőnJmxInitStringAttribute(MBeanStoreKeyᴶᴹˣ.JMX, "armedWarpWaterDesc", "The armed water cipher description.");
@@ -78,7 +80,31 @@ public enum TOSWarpCore implements DefaultEnumInstanceᴶᴹˣ<TOSWarpCore,MBean
 		return bucket;
 	}
 	
+	public void BãßValidateWarpCore(WaterBucket warpBucket) {
+		warpCoreValidates.increment();
+		Map<String,String> chinaKey = new HashMap<>();
+		Map<String,String> chinaValue = new HashMap<>();
+		for (WaterCipherHeart heart:warpBucket.theWater().getCipherHearts()) {
+			BãßBȍőnPartʸᴰ<?>[] bases = BasePartFactory.INSTANCE.BãßBuildPartsByBase(heart.getBass());
+			Map<String, BãßBȍőnPartʸᴰ<?>> baseParts = new HashMap<>();
+			for (BãßBȍőnPartʸᴰ<?> base:bases) {
+				baseParts.put(base.BȍőnNaam(), base);
+			}
+			for (WaterCipherHeartTone tone:heart.getHeartTones()) {
+				if(chinaKey.containsKey(tone.getChinaKey())) {
+					throw new IllegalArgumentException("Duplicate chinaKey: "+tone.getChinaKey());
+				}
+				if(chinaValue.containsKey(tone.getChinaValue())) {
+					throw new IllegalArgumentException("Duplicate chinaValue: "+tone.getChinaValue());
+				}
+				chinaKey.put(tone.getChinaKey(), tone.getDialTone());
+				chinaValue.put(tone.getChinaValue(), tone.getDialTone());
+			}
+		}
+	}
+	
 	public void BãßArmWarpCore(WaterBucket warpBucket) {
+		BãßValidateWarpCore(warpBucket);
 		warpCoreWrites.increment();
 		armedWarpWaterName.setValueString(warpBucket.theWater().getName());
 		armedWarpWaterDesc.setValueString(warpBucket.theWater().getDescription());
