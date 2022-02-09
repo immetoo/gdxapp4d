@@ -11,6 +11,9 @@ build
 .gitignore
 .gradle
 
+# Ignore npm resources
+node_modules
+
 # Ignore binary files and formats
 *.o
 *.class

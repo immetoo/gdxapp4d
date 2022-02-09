@@ -1,0 +1,17 @@
+{
+  "name": "conv-font",
+  "version": "0.0.1",
+  "description": "Convert font data to XML intermediate.",
+  "private": true,
+  "scripts": {
+	"start": "npm run-script conv0 && npm run-script conv1 && npm run-script conv2 && npm run-script conv3",
+    "conv0": "node conv-font.js ../main-gdxapp/assets/font/FreeSans.ttf > bin/FreeSans.ttf",
+    "conv1": "node conv-font.js ../main-gdxapp/assets/font/NotoSansCJKjp-Medium.otf > bin/NotoSansCJKjp-Medium.otf.xml",
+    "conv2": "node conv-font.js ../main-gdxapp/assets/font/roboto-bold.ttf > bin/roboto-bold.xml",
+    "conv3": "node conv-font.js ../main-gdxapp/assets/font/arslan-wessam.ttf > bin/arslan-wessam.xml",
+    "debug": "node conv-font.js ../main-gdxapp/assets/font/roboto-bold.ttf"
+  },
+  "dependencies": {
+    "opentype.js": "1.3.4"
+  }
+}
