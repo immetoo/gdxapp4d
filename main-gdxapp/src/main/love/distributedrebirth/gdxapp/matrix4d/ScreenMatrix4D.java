@@ -7,14 +7,12 @@ import com.badlogic.gdx.graphics.VertexAttributes.Usage;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.BitmapFontCache;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g3d.Attribute;
 import com.badlogic.gdx.graphics.g3d.Environment;
 import com.badlogic.gdx.graphics.g3d.Material;
 import com.badlogic.gdx.graphics.g3d.Model;
 import com.badlogic.gdx.graphics.g3d.ModelBatch;
 import com.badlogic.gdx.graphics.g3d.ModelInstance;
 import com.badlogic.gdx.graphics.g3d.Shader;
-import com.badlogic.gdx.graphics.g3d.attributes.BlendingAttribute;
 import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
 import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
 import com.badlogic.gdx.graphics.g3d.utils.CameraInputController;
@@ -80,31 +78,19 @@ public class ScreenMatrix4D extends GDXAppMainAdapter {
 
 		ModelBuilder modelBuilder = new ModelBuilder();
 		
-		Material mat = new Material(ColorAttribute.createDiffuse(1f,1f,1f,.1f));
-		grid = modelBuilder.createLineGrid(33, 33, 1f, 1f, mat, Usage.Position | Usage.Normal);
+		grid = modelBuilder.createLineGrid(33, 33, 1f, 1f, new Material(ColorAttribute.createDiffuse(1f,1f,1f,.1f)), Usage.Position | Usage.Normal);
+		model = modelBuilder.createBox(.3f, .3f, .3f,new Material(ColorAttribute.createDiffuse(.1f,.1f,.1f,0f)), Usage.Position | Usage.Normal);
 		
-		model = modelBuilder.createBox(.3f, .3f, .3f,
-				new Material(ColorAttribute.createDiffuse(.1f,.1f,.1f,.1f),
-						new BlendingAttribute(.1f)
-				//new BlendingAttribute(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA)
-						),
-				Usage.Position | Usage.Normal);
-		
-		//Matrix4 model1Offset = new Matrix4(new Vector3(5f,0f,0f), new Quaternion(0f,0f,0f,0f),new Vector3(1f,1f,1f));
-		
-		Attribute bend = new BlendingAttribute(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
 		for (int x = -4; x < 6; x++) {
 			for (int y = 1; y < 11; y++) {
 				for (int z = -4; z < 7; z++) {
 					ModelInstance instance = new ModelInstance(model, x, y, z);
-					instance.materials.get(0).set(bend);
 					modelInstances.add(instance);
 				}
 			}
 		}
 		
 		ModelInstance instance = new ModelInstance(grid, 0, 0, 0);
-		//instance.materials.get(0).set(bend);
 		modelInstances.add(instance);
 		
 		shader = new UserColorShader();
@@ -170,7 +156,7 @@ public class ScreenMatrix4D extends GDXAppMainAdapter {
 					}
 					
 					ModelInstance instance = modelInstances.get(i++);
-					ColorAttribute attr = ColorAttribute.createDiffuse(red, green, blue, .2f);
+					ColorAttribute attr = ColorAttribute.createDiffuse(red, green, blue, 1f);
 					instance.materials.get(0).set(attr);
 				}
 			}
