@@ -22,6 +22,9 @@ for(let glyphIndex = 0; glyphIndex < num; glyphIndex++) {
 	if (path.commands.length === 0) {
 		continue;
 	}
+	if (glyph.unicodes.length === 0) {
+		continue; // with cmds, these are compound glyphs
+	}
 	let uni = glyph.unicodes.map(formatUnicode).join(', ');
 	console.log("\t<glyph unicode=\""+uni+"\" name=\""+glyph.name+"\">"); /*"advanceWidth=\""+glyph.advanceWidth+"\" "+
 		"xMin=\""+glyph.xMin+"\" xMax=\""+glyph.xMax+"\" yMin=\""+glyph.yMin+"\" yMax=\""+glyph.yMax+"\" "+
