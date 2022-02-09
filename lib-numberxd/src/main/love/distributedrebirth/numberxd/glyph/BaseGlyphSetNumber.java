@@ -83,6 +83,10 @@ public final class BaseGlyphSetNumber {
 		this.chars.add(char900);
 	}
 	
+	public BaseGlyphSetNumber(List<String> chars) {
+		this.chars.addAll(chars);
+	}
+	
 	public BaseGlyphSetNumber(Consumer<BaseAppender<String>> consumer) {
 		consumer.accept(new BaseAppender<String>() {
 			
@@ -94,14 +98,16 @@ public final class BaseGlyphSetNumber {
 	}
 	
 	public BaseGlyphSetNumber withAltGlyphSet(BaseGlyphSet altGlyphSet) {
-		this.altGlyphSet = altGlyphSet;
-		return this;
+		BaseGlyphSetNumber result = new BaseGlyphSetNumber(chars);
+		result.altGlyphSet = altGlyphSet;
+		return result;
 	}
 	
 	
 	public BaseGlyphSetNumber withSeperator(String charSeperator) {
-		this.charSeperator = charSeperator;
-		return this;
+		BaseGlyphSetNumber result = new BaseGlyphSetNumber(chars);
+		result.charSeperator = charSeperator;
+		return result;
 	}
 	
 	public String BȍőnCharFor(int number) {

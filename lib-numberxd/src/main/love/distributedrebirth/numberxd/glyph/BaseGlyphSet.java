@@ -15,7 +15,6 @@ import love.distributedrebirth.numberxd.base2t.part.T16PartHex;
 public enum BaseGlyphSet implements BãßBȍőnGlyphSetʸᴰ<BaseGlyphSet> {
 
 	// TODO: ImGui add font for SINHALA
-	// TODO: ImGui add font for ARABIC
 	
 	LATIN_DTMF(new BaseGlyphSetNumber(v -> T10PartDecimal.PART_1.BãßVoorElk(x -> v.add(x.BȍőnChinaValue()))).withSeperator(BãßBȍőnConstantsʸᴰ.STR_SPACE),
 			new BaseGlyphSetNumber("1","2","3","A","4","5","6","B","7","8","9","C","*","0","#","D"),
@@ -35,20 +34,28 @@ public enum BaseGlyphSet implements BãßBȍőnGlyphSetʸᴰ<BaseGlyphSet> {
 	
 	DIPAVALI_TONE_LR_TOP16(new BaseGlyphSetNumber(v -> T10PartDecimal.PART_1.BãßVoorElk(x -> v.add(x.BȍőnAlt1Value()))),
 			new BaseGlyphSetNumber("˧˥˩","˧˩˥","˧˥˦","˧˩˨","˧˦˦","˧˨˨","˧˥˥","˧˩˩","˥˩˧","˩˥˧","˥˦˧","˩˨˧","˦˦˧","˨˨˧","˥˥˧","˩˩˧").withAltGlyphSet(BaseGlyphSet.LATIN_TOP16),
-			null),
+			TONE_LETTER.BȍőnGlyphSetNumber36()),
 	DIPAVALI_TONE_LR_SUB16(new BaseGlyphSetNumber(v -> T10PartDecimal.PART_1.BãßVoorElk(x -> v.add(x.BȍőnAlt1Value()))),
 			new BaseGlyphSetNumber("˧˥˩","˧˩˥","˧˥˦","˧˩˨","˧˦˦","˧˨˨","˧˥˥","˧˩˩","˥˩˧","˩˥˧","˥˦˧","˩˨˧","˦˦˧","˨˨˧","˥˥˧","˩˩˧").withAltGlyphSet(BaseGlyphSet.LATIN_SUB16),
-			null),
+			TONE_LETTER.BȍőnGlyphSetNumber36()),
 	DIPAVALI_TONE_RL_TOP16(new BaseGlyphSetNumber(v -> T10PartDecimal.PART_1.BãßVoorElk(x -> v.add(x.BȍőnAlt2Value()))),
 			new BaseGlyphSetNumber("꜔꜒꜖","꜔꜖꜒","꜔꜒꜓","꜔꜖꜕","꜔꜓꜓","꜔꜕꜕","꜔꜒꜒","꜔꜖꜖","꜒꜖꜔","꜖꜒꜔","꜒꜓꜔","꜖꜕꜔","꜓꜓꜔","꜕꜕꜔","꜒꜒꜔","꜖꜖꜔").withAltGlyphSet(BaseGlyphSet.LATIN_TOP16),
-			null),
+			TONE_LETTER.BȍőnGlyphSetNumber36()),
 	DIPAVALI_TONE_RL_SUB16(new BaseGlyphSetNumber(v -> T10PartDecimal.PART_1.BãßVoorElk(x -> v.add(x.BȍőnAlt2Value()))),
 			new BaseGlyphSetNumber("꜔꜒꜖","꜔꜖꜒","꜔꜒꜓","꜔꜖꜕","꜔꜓꜓","꜔꜕꜕","꜔꜒꜒","꜔꜖꜖","꜒꜖꜔","꜖꜒꜔","꜒꜓꜔","꜖꜕꜔","꜓꜓꜔","꜕꜕꜔","꜒꜒꜔","꜖꜖꜔").withAltGlyphSet(BaseGlyphSet.LATIN_SUB16),
-			null),
+			TONE_LETTER.BȍőnGlyphSetNumber36()),
 	
 	CYRILLIC(new BaseGlyphSetNumber("⃝","А","В","Г","Д","Є","Ѕ","З","И","Ѳ"),
-			new BaseGlyphSetNumber("⃝","А","В","Г","Д","Є","Ѕ","З","И","Ѳ","҂"," ҈"," ҉"," ꙰"," ꙱"," ꙲"),
+			LATIN_BASIC.BȍőnGlyphSetNumber16(),
 			new BaseGlyphSetNumber("А","В","Г","Д","Є","Ѕ","З","И","Ѳ","І","К","Л","М","Н","Ѯ","Ѻ","П","Ч","Р","С","Т","Ѵ","Ф","Х","Ѱ","Ѿ","Ц")),
+	
+	CYRILLIC_HEX(CYRILLIC.BȍőnGlyphSetNumber10(),
+			new BaseGlyphSetNumber("⃝","А","В","Г","Д","Є","Ѕ","З","И","Ѳ","҂"," ҈"," ҉"," ꙰"," ꙱"," ꙲"),
+			CYRILLIC.BȍőnGlyphSetNumber36()),
+	
+	RUNIC(new BaseGlyphSetNumber("ᛰ","ᚠ","ᚠ","ᚦ","ᚦ","ᚱ","ᚴ","ᚼ","ᚾ","ᛁ"),
+			new BaseGlyphSetNumber("ᛰ","ᚠ","ᚠ","ᚦ","ᚦ","ᚱ","ᚴ","ᚼ","ᚾ","ᛁ","ᛅ","ᛋ","ᛏ","ᛒ","ᛚ","ᛘ"),
+			null),
 	
 	BENGALI(new BaseGlyphSetNumber("০","১","২","৩","৪","৫","৬","৭","৮","৯")),
 	SINHALA(new BaseGlyphSetNumber("෦","෧","෨","෩","෪","෫","෬","෭","෮","෯")),
@@ -63,16 +70,28 @@ public enum BaseGlyphSet implements BãßBȍőnGlyphSetʸᴰ<BaseGlyphSet> {
 			new BaseGlyphSetNumber("ō","α","β","γ","δ","ε","ϝ","ζ","η","θ","ι","κ","λ","μ","ν","ξ"),
 			new BaseGlyphSetNumber("α","β","γ","δ","ε","ϝ","ζ","η","θ","ι","κ","λ","μ","ν","ξ","ο","π","ϟ","ρ","σ","τ","υ","φ","χ","ψ","ω","ϡ")),
 	
+	GREEK_HEX_TOP16(GREEK.BȍőnGlyphSetNumber10(),
+			GREEK.BȍőnGlyphSetNumber16().withAltGlyphSet(LATIN_TOP16),
+			GREEK.BȍőnGlyphSetNumber36()),
+	
 	KOREAN(new BaseGlyphSetNumber("영","일","이","삼","사","오","육","칠","팔","구"),
+			LATIN_BASIC.BȍőnGlyphSetNumber16(),
+			null),
+	
+	KOREAN_TONE(KOREAN.BȍőnGlyphSetNumber10(),
 			new BaseGlyphSetNumber("ㅏ","ㅐ","ㅑ","ㅒ","ㅓ","ㅔ","ㅕ","ㅖ","ㅗ","ㅘ","ㅙ","ㅚ","ㅛ","ㅜ","ㅝ","ㅞ"),
 			new BaseGlyphSetNumber("ㄱ","ㄲ","ㄴ","ㄷ","ㄸ","ㄹ","ㅁ","ㅂ","ㅃ","ㅅ","ㅆ","ㅈ","ㅉ","ㅊ","ㅋ","ㅌ","ㅍ","ㅎ","ㄵ","ㄶ","ㄺ","ㄻ","ㄼ","ㄽ","ㄾ","ㄿ","ㅀ")),
+
+	KOREAN_TONE_TOP16(KOREAN_TONE.BȍőnGlyphSetNumber10(),
+			KOREAN_TONE.BȍőnGlyphSetNumber16().withAltGlyphSet(LATIN_TOP16),
+			KOREAN_TONE.BȍőnGlyphSetNumber36()),
 	
 	ARABIC(new BaseGlyphSetNumber("٠","١","٢","٣","٤","٥","٦","٧","٨","٩"),
-			new BaseGlyphSetNumber("٠","١","٢","٣","٤","٥","٦","٧","٨","٩","ا","ب","ج","د","ه","و"),
+			LATIN_BASIC.BȍőnGlyphSetNumber16(),
 			new BaseGlyphSetNumber("ا","ب","ج","د","ه","و","ز","ح","ط","ي","ك","ل","م","ن","س","ع","ف","ص","ق","ر","ش","ت","ث","خ","ذ","ض","ظ")),
 	
 	HEBREW(new BaseGlyphSetNumber("אֶפֶס","אֶחָד","שְׁתַּיִם","שְׁלֹשָׁה","אַרְבַּע‎","חֲמִשָּׁה‎","שֵׁשׁ‎","שִׁבְעָה","שְׁמוֹנֶה","תִּשְׁעָה‎").withSeperator(BãßBȍőnConstantsʸᴰ.STR_SPACE),
-			new BaseGlyphSetNumber("אֶפֶס","אֶחָד","שְׁתַּיִם","שְׁלֹשָׁה","אַרְבַּע‎","חֲמִשָּׁה‎","שֵׁשׁ‎","שִׁבְעָה","שְׁמוֹנֶה","תִּשְׁעָה‎","א","ב","ג","ד","ה","ו"),
+			LATIN_BASIC.BȍőnGlyphSetNumber16(),
 			new BaseGlyphSetNumber("א","ב","ג","ד","ה","ו","ז","ח","ט","י","כ","ל","מ","נ","ס ","ע","פ","צ","ק","ר","ש","ת","ך","ם","ן","ף","ץ")),
 	;
 	
