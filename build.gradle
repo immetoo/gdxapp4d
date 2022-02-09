@@ -60,7 +60,6 @@ project(":lib-unicodezd") {
 	apply plugin: "java-library"
 	dependencies {
 		api project(":lib-numberxd")
-		api files('../gradle-libs/opentype4j-1.0.0-SNAPSHOT.jar')
 		testImplementation "org.junit.jupiter:junit-jupiter:$junitVersion"
 	}
 	tasks.named('test') {
