@@ -43,10 +43,11 @@ public class ImGuiSetup {
 		addRangeUnicodePlane0(fontBuilder);
 		final short[] glyphRanges = fontBuilder.buildRanges();
 		
-		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/NotoSansCJKjp-Medium.otf").readBytes(), 14, fontConfig, glyphRanges);
-		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/FreeSans.ttf").readBytes(), 14, fontConfig, glyphRanges);
+		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/noto-sans-cjkjp-medium.otf").readBytes(), 14, fontConfig, glyphRanges);
+		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/free-sans.ttf").readBytes(), 14, fontConfig, glyphRanges);
 		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/roboto-bold.ttf").readBytes(), 14, fontConfig, glyphRanges);
 		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/arslan-wessam.ttf").readBytes(), 14, fontConfig, glyphRanges);
+		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/norse-kawl.otf").readBytes(), 14, fontConfig, glyphRanges);
 		
 		fontConfig.destroy();
 	}
