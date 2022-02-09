@@ -33,15 +33,22 @@ public class ŌctopǔsALU {
 		OCTAL_1080,    // V0x000CA8ˣᴸ (V0x000654ˣᴸ * 2)
 		OCTAL_1680,    // V0x0013B0ˣᴸ (V0x000348ˣᴸ * 6)
 		
-		OCTAL_8640_MATRIX,    // KlompGetậl4ˢᴰ (V0x000CA8ˣᴸ * 8)
+		FRACTION_8640_MATRIX,    // KlompGetậl4ˢᴰ (V0x000CA8ˣᴸ * 8)
 		
 		FRACTION_3,           // V009Tyte = digit aka digital hebrew BCD
 		FRACTION_12_MATRIX,   // Gê̄ldGetậl    (V036Teger * 1_ or quad digit
 		FRACTION_48_MATRIX,   // GroßGetậl1ⁿᴰ (V144Tocta * 1) or 7/9
-		FRACTION_576_MATRIX,  // GroßGetậl6ˢᴰ (GroßGetậl1ⁿᴰ * 6)
 		
-		FRACTION_1680_MATRIX_X,  // WavẽWorstGetậl1ⁿᴰ (V0x0013B0ˣᴸ * x)
-		FRACTION_1680_MATRIX_XY, // WavẽWorstGetậl2ⁿᴰ (V0x0013B0ˣᴸ * x * y)
+		FRACTION_576_MATRIX,  // GroßGetậl6ˢᴰ (GroßGetậl1ⁿᴰ * 6)
+
+		OCTAL_48_MATRIX_X,   // WavẽWorstGetậl1ⁿᴰ (V0x0013B0ˣᴸ * x)
+		OCTAL_48_MATRIX_XY,  // WavẽWorstGetậl2ⁿᴰ (V0x0013B0ˣᴸ * x * y)
+		
+		OCTAL_280_MATRIX_X,   // WavẽWorstGetậl1ⁿᴰ (V0x000348ˣᴸ * x)
+		OCTAL_280_MATRIX_XY,  // WavẽWorstGetậl2ⁿᴰ (V0x000348ˣᴸ * x * y)
+		
+		OCTAL_1680_MATRIX_X,  // WavẽWorstGetậl1ⁿᴰ (V0x0013B0ˣᴸ * x)
+		OCTAL_1680_MATRIX_XY, // WavẽWorstGetậl2ⁿᴰ (V0x0013B0ˣᴸ * x * y)
 		
 	}
 	
