@@ -112,4 +112,17 @@ public enum BaseGlyphSet implements BãßBȍőnGlyphSetʸᴰ<BaseGlyphSet> {
 		BBC.BOON_INIT(this);
 		this.BȍőnJmxInit(BãßBȍőnGlyphSetKeyʸᴰ.JMX);
 	}
+	
+	public String BȍőnConvertTo(String numbers) {
+		StringBuilder buf = new StringBuilder();
+		for (char c:numbers.toCharArray()) {
+			for (BaseGlyphSet set:values()) {
+				int loc = set.BȍőnGlyphSetNumber10().BȍőnIndexOf(""+c);
+				if (loc != -1) {
+					buf.append(set.BȍőnGlyphSetNumber10().BȍőnCharFor(loc));
+				}
+			}
+		}
+		return buf.toString();
+	}
 }

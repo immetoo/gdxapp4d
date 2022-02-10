@@ -114,6 +114,10 @@ public final class BaseGlyphSetNumber {
 		return chars.get(number);
 	}
 	
+	public int BȍőnIndexOf(String str) {
+		return chars.indexOf(str);
+	}
+	
 	public String BȍőnCharSeperator() {
 		return charSeperator;
 	}
