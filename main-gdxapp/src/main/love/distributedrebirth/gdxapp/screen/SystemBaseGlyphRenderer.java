@@ -24,7 +24,7 @@ public class SystemBaseGlyphRenderer extends ImGuiRendererMain {
 						
 			int flags = ImGuiTableFlags.ScrollX | ImGuiTableFlags.RowBg | ImGuiTableFlags.BordersOuter | ImGuiTableFlags.BordersV;
 			ImGui.beginTable("base-part", 3, flags);
-			ImGui.tableSetupColumn("Language");
+			ImGui.tableSetupColumn("Script");
 			ImGui.tableSetupColumn("10Numbers");
 			ImGui.tableSetupColumn("16Numbers");
 			ImGui.tableHeadersRow();

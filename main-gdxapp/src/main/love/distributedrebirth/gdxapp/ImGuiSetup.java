@@ -6,6 +6,7 @@ import imgui.ImFontConfig;
 import imgui.ImFontGlyphRangesBuilder;
 import imgui.ImGui;
 import imgui.ImGuiIO;
+import imgui.ImGuiStyle;
 import imgui.gl3.ImGuiImplGl3;
 import imgui.glfw.ImGuiImplGlfw;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
@@ -31,8 +32,14 @@ public class ImGuiSetup {
 		imGuiImp.init(windowHandle, true);
 		imGuiGlImp.init("#version 140");
 		ImGui.init();
-		
-		ImGui.styleColorsLight();
+		initStyle();
+	}
+	
+	private static void initStyle() {
+		ImGui.styleColorsDark();
+		ImGuiStyle style = ImGui.getStyle();
+		style.setWindowRounding(6f);
+		style.setScrollbarSize(22f);
 	}
 	
 	private static void initFonts(final ImGuiIO io) {
@@ -40,10 +47,10 @@ public class ImGuiSetup {
 		ImFontGlyphRangesBuilder fontBuilder = new ImFontGlyphRangesBuilder();
 		addRangeUnicodePlane0(fontBuilder);
 		final short[] glyphRanges = fontBuilder.buildRanges();
-		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/code2000.ttf").readBytes(), 24, fontConfig, glyphRanges);
+		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/code2000.ttf").readBytes(), 22, fontConfig, glyphRanges);
 		fontConfig.setMergeMode(true);
 		// note: merges 148 chars, just for 3 sub chars for SUBHEX, but still missing 2 chars from T12 alt1 clock
-		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/free-sans.ttf").readBytes(), 24, fontConfig, glyphRanges);
+		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/free-sans.ttf").readBytes(), 22, fontConfig, glyphRanges);
 		fontConfig.destroy();
 	}
 	
