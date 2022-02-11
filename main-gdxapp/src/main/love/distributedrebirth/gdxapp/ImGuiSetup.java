@@ -42,7 +42,7 @@ public class ImGuiSetup {
 		final short[] glyphRanges = fontBuilder.buildRanges();
 		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/code2000.ttf").readBytes(), 24, fontConfig, glyphRanges);
 		fontConfig.setMergeMode(true);
-		// note: just for 3 sub chars for SUBHEX, but still missing 2 chars from T12 alt1 clock
+		// note: merges 148 chars, just for 3 sub chars for SUBHEX, but still missing 2 chars from T12 alt1 clock
 		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/free-sans.ttf").readBytes(), 24, fontConfig, glyphRanges);
 		fontConfig.destroy();
 	}
