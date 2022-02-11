@@ -3,7 +3,10 @@ package love.distributedrebirth.bassboonyd;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.function.Consumer;
+import java.util.function.Function;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
@@ -21,12 +24,8 @@ public interface DefaultEnumSetʸᴰ<T> extends DefaultEnumBaseʸᴰ<T> {
 		return Arrays.asList(BãßInstances());
 	}
 	
-	default Iterator<T> BãßInstancesIterator() {
-		return BãßInstancesList().iterator();
-	}
-	
-	default Stream<T> BãßInstancesStream() {
-		return BãßInstancesList().stream();
+	default <K> Map<K,T> BãßInstancesToMap(Function<T,K> keyMapper) {
+		return BãßInstancesList().stream().collect(Collectors.toMap(keyMapper, v -> v));
 	}
 	
 	default T BȍőnVolgende() {

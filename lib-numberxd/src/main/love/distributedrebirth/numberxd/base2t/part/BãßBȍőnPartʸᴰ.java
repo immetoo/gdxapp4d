@@ -1,7 +1,6 @@
 package love.distributedrebirth.numberxd.base2t.part;
 
 import java.util.Map;
-import java.util.stream.Collectors;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
@@ -39,7 +38,7 @@ public interface BãßBȍőnPartʸᴰ<T extends BãßBȍőnPartʸᴰ<T>> extends
 	default T BãßValueOfDialTone(String identifierTone) {
 		Map<String,Object> mapTone = GET_BBC().GET_MAP_OBJ(BãßBȍőnPartKeyʸᴰ.MAP_TONE);
 		if (mapTone.isEmpty()) {
-			mapTone.putAll(BãßInstancesStream().collect(Collectors.toMap(v -> v.BȍőnDialTone(), v -> v)));
+			mapTone.putAll(BãßInstancesToMap(v -> v.BȍőnDialTone()));
 		}
 		return (T) mapTone.get(identifierTone);
 	}
@@ -48,7 +47,7 @@ public interface BãßBȍőnPartʸᴰ<T extends BãßBȍőnPartʸᴰ<T>> extends
 	default T BãßValueOfChinaKey(String chinaKey) {
 		Map<String,Object> mapChina = GET_BBC().GET_MAP_OBJ(BãßBȍőnPartKeyʸᴰ.MAP_CHINA);
 		if (mapChina.isEmpty()) {
-			mapChina.putAll(BãßInstancesStream().collect(Collectors.toMap(v -> v.BȍőnChinaKey(), v -> v)));
+			mapChina.putAll(BãßInstancesToMap(v -> v.BȍőnChinaKey()));
 		}
 		return (T) mapChina.get(chinaKey);
 	}

@@ -1,15 +1,14 @@
 package love.distributedrebirth.bassboonyd;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-@BãßBȍőnAnnotationInfoʸᴰ(required = {BãßBȍőnClassInfoʸᴰ.class, BãßBȍőnAuthorInfoʸᴰ.class})
 public interface DefaultEnumBaseʸᴰ<T> extends DefaultAuthorInfoʸᴰ,DefaultClassInfoʸᴰ,DefaultPackageInfoʸᴰ {
 	
 	int ordinal();
 	
 	String name();
 	
-	// Bȍőn prefix is for set instance enum object called BãßBȍőnEnumSetʸᴰ
-	// Bãß prefix is for single instance enum objects called BãßBȍőnEnumInstanceʸᴰ
+	// Bȍőn prefix is for set instance enum object (called DefaultEnumSetʸᴰ)
+	// Bãß prefix is for single instance enum objects (called DefaultEnumInstanceʸᴰ)
 	
 	default String BȍőnNaam() {
 		return name(); 
