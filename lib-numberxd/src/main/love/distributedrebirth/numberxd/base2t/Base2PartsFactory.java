@@ -25,9 +25,9 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnPackageInfoʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-@BãßBȍőnClassInfoʸᴰ(name = "BasePartFactory", purpose = "Factory to access the bases.")
+@BãßBȍőnClassInfoʸᴰ(name = "Base2PartsFactory", purpose = "Factory to access the bases.")
 @BãßBȍőnPackageInfoʸᴰ(name = "love.distributedrebirth.numberxd")
-public enum BasePartFactory implements DefaultEnumInstanceᴶᴹˣ<BasePartFactory, MBeanStoreKeyᴶᴹˣ> {
+public enum Base2PartsFactory implements DefaultEnumInstanceᴶᴹˣ<Base2PartsFactory, MBeanStoreKeyᴶᴹˣ> {
 
 	INSTANCE;
 	
@@ -49,7 +49,7 @@ public enum BasePartFactory implements DefaultEnumInstanceᴶᴹˣ<BasePartFacto
 	private final BãßBȍőnCoffinOpenʸᴰ<MBeanStoreKeyᴶᴹˣ> BBC = BãßBȍőnCoffinOpenʸᴰ.newInstance();
 	public BãßBȍőnCoffinʸᴰ<MBeanStoreKeyᴶᴹˣ> GET_BBC() { return BBC; }
 	
-	private BasePartFactory() {
+	private Base2PartsFactory() {
 		BBC.BOON_INIT(this);
 		BȍőnJmxInit(MBeanStoreKeyᴶᴹˣ.JMX);
 		baseT02Reads = BȍőnJmxInitGuageCounter(MBeanStoreKeyᴶᴹˣ.JMX, "baseT02Reads");

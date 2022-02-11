@@ -14,7 +14,7 @@ public class BasePartFactoryTest {
 
 	@Test
 	public void testSupportedBases() {
-		int[] bases = BasePartFactory.INSTANCE.BãßBases();
+		int[] bases = Base2PartsFactory.INSTANCE.BãßBases();
 		Assertions.assertNotNull(bases);
 		Assertions.assertTrue(bases.length > 1);
 		Assertions.assertTrue(bases.length < 100);
@@ -23,8 +23,8 @@ public class BasePartFactoryTest {
 	@Test
 	public void testGlobalChinaKeyMap() {
 		Map<String,String> global = new HashMap<>();
-		for (int base:BasePartFactory.INSTANCE.BãßBases()) {
-			for (BãßBȍőnPartʸᴰ<?> part:BasePartFactory.INSTANCE.BãßBuildPartsByBase(base)) {
+		for (int base:Base2PartsFactory.INSTANCE.BãßBases()) {
+			for (BãßBȍőnPartʸᴰ<?> part:Base2PartsFactory.INSTANCE.BãßBuildPartsByBase(base)) {
 				Assertions.assertFalse(global.containsKey(part.BȍőnChinaKey()), "key: "+part.BȍőnChinaKey());
 				global.put(part.BȍőnChinaKey(), part.BȍőnChinaValue());
 			}
@@ -35,8 +35,8 @@ public class BasePartFactoryTest {
 	@Test
 	public void testGlobalChinaValueMap() {
 		Map<String,String> global = new HashMap<>();
-		for (int base:BasePartFactory.INSTANCE.BãßBases()) {
-			for (BãßBȍőnPartʸᴰ<?> part:BasePartFactory.INSTANCE.BãßBuildPartsByBase(base)) {
+		for (int base:Base2PartsFactory.INSTANCE.BãßBases()) {
+			for (BãßBȍőnPartʸᴰ<?> part:Base2PartsFactory.INSTANCE.BãßBuildPartsByBase(base)) {
 				Assertions.assertFalse(global.containsKey(part.BȍőnChinaValue()));
 				global.put(part.BȍőnChinaValue(), part.BȍőnChinaValue());
 			}
@@ -48,8 +48,8 @@ public class BasePartFactoryTest {
 	public void testGlobalToneMap() {
 		boolean duplicate = false;
 		Map<String,String> global = new HashMap<>();
-		for (int base:BasePartFactory.INSTANCE.BãßBases()) {
-			for (BãßBȍőnPartʸᴰ<?> part:BasePartFactory.INSTANCE.BãßBuildPartsByBase(base)) {
+		for (int base:Base2PartsFactory.INSTANCE.BãßBases()) {
+			for (BãßBȍőnPartʸᴰ<?> part:Base2PartsFactory.INSTANCE.BãßBuildPartsByBase(base)) {
 				if (global.containsKey(part.BȍőnDialTone())) {
 					duplicate = true;
 					break;

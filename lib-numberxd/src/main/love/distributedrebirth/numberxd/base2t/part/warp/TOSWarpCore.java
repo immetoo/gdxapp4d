@@ -13,7 +13,7 @@ import love.distributedrebirth.bassboonyd.jmx.MBeanStoreKeyᴶᴹˣ;
 import love.distributedrebirth.bassboonyd.jmx.DefaultEnumInstanceᴶᴹˣ;
 import love.distributedrebirth.bassboonyd.jmx.GuageCounterᴶᴹˣ;
 import love.distributedrebirth.bassboonyd.jmx.StringAttributeᴶᴹˣ;
-import love.distributedrebirth.numberxd.base2t.BasePartFactory;
+import love.distributedrebirth.numberxd.base2t.Base2PartsFactory;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartKeyʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartʸᴰ;
 
@@ -49,8 +49,8 @@ public enum TOSWarpCore implements DefaultEnumInstanceᴶᴹˣ<TOSWarpCore,MBean
 	
 	public void BãßLockWarpCipher() {
 		armedWarpCipherLock.setValueBoolean(true);
-		for (int base:BasePartFactory.INSTANCE.BãßBases()) {
-			for (BãßBȍőnPartʸᴰ<?> part:BasePartFactory.INSTANCE.BãßBuildPartsByBase(base)) {
+		for (int base:Base2PartsFactory.INSTANCE.BãßBases()) {
+			for (BãßBȍőnPartʸᴰ<?> part:Base2PartsFactory.INSTANCE.BãßBuildPartsByBase(base)) {
 				BãßBȍőnCoffinOpenʸᴰ.class.cast(part.GET_BBC()).LOCK_COFFIN();
 			}
 		}
@@ -61,9 +61,9 @@ public enum TOSWarpCore implements DefaultEnumInstanceᴶᴹˣ<TOSWarpCore,MBean
 		WaterCipher warpCipher = new WaterCipher();
 		warpCipher.setName(armedWarpWaterName.getValueString());
 		warpCipher.setDescription(armedWarpWaterDesc.getValueString());
-		for (int base:BasePartFactory.INSTANCE.BãßBases()) {
+		for (int base:Base2PartsFactory.INSTANCE.BãßBases()) {
 			WaterCipherHeart heart = new WaterCipherHeart();
-			BãßBȍőnPartʸᴰ<?>[] bases = BasePartFactory.INSTANCE.BãßBuildPartsByBase(base);
+			BãßBȍőnPartʸᴰ<?>[] bases = Base2PartsFactory.INSTANCE.BãßBuildPartsByBase(base);
 			heart.setBass(bases[0].BãßInstances().length);
 			for (BãßBȍőnPartʸᴰ<?> part:bases) {
 				WaterCipherHeartTone tone = new WaterCipherHeartTone();
@@ -85,7 +85,7 @@ public enum TOSWarpCore implements DefaultEnumInstanceᴶᴹˣ<TOSWarpCore,MBean
 		Map<String,String> chinaKey = new HashMap<>();
 		Map<String,String> chinaValue = new HashMap<>();
 		for (WaterCipherHeart heart:warpBucket.theWater().getCipherHearts()) {
-			BãßBȍőnPartʸᴰ<?>[] bases = BasePartFactory.INSTANCE.BãßBuildPartsByBase(heart.getBass());
+			BãßBȍőnPartʸᴰ<?>[] bases = Base2PartsFactory.INSTANCE.BãßBuildPartsByBase(heart.getBass());
 			Map<String, BãßBȍőnPartʸᴰ<?>> baseParts = new HashMap<>();
 			for (BãßBȍőnPartʸᴰ<?> base:bases) {
 				baseParts.put(base.BȍőnNaam(), base);
@@ -109,7 +109,7 @@ public enum TOSWarpCore implements DefaultEnumInstanceᴶᴹˣ<TOSWarpCore,MBean
 		armedWarpWaterName.setValueString(warpBucket.theWater().getName());
 		armedWarpWaterDesc.setValueString(warpBucket.theWater().getDescription());
 		for (WaterCipherHeart heart:warpBucket.theWater().getCipherHearts()) {
-			BãßBȍőnPartʸᴰ<?>[] bases = BasePartFactory.INSTANCE.BãßBuildPartsByBase(heart.getBass());
+			BãßBȍőnPartʸᴰ<?>[] bases = Base2PartsFactory.INSTANCE.BãßBuildPartsByBase(heart.getBass());
 			Map<String, BãßBȍőnPartʸᴰ<?>> baseParts = new HashMap<>();
 			for (BãßBȍőnPartʸᴰ<?> base:bases) {
 				baseParts.put(base.BȍőnNaam(), base);

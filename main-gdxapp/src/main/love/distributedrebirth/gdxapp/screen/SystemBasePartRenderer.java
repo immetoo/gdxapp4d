@@ -11,7 +11,7 @@ import imgui.type.ImInt;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.gdxapp.GDXAppMain;
 import love.distributedrebirth.gdxapp.ImGuiRendererMain;
-import love.distributedrebirth.numberxd.base2t.BasePartFactory;
+import love.distributedrebirth.numberxd.base2t.Base2PartsFactory;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt1ʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt2ʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt3ʸᴰ;
@@ -35,14 +35,14 @@ public class SystemBasePartRenderer extends ImGuiRendererMain {
 		if (ImGui.begin("Base part", widgetOpen)) {
 		
 			List<String> bases = new ArrayList<>();
-			for (int base:BasePartFactory.INSTANCE.BãßBases()) {
+			for (int base:Base2PartsFactory.INSTANCE.BãßBases()) {
 				bases.add(Integer.toString(base));
 			}
 			String[] items = new String[bases.size()];
 			items = bases.toArray(items);
 			String selectedItem = items[selectedBasePart.get()];
 			Integer baseNumber = Integer.valueOf(selectedItem);
-			BãßBȍőnPartʸᴰ<?>[] baseParts = BasePartFactory.INSTANCE.BãßBuildPartsByBase(baseNumber);
+			BãßBȍőnPartʸᴰ<?>[] baseParts = Base2PartsFactory.INSTANCE.BãßBuildPartsByBase(baseNumber);
 			
 			ImGui.combo("Base", selectedBasePart, items);
 			
