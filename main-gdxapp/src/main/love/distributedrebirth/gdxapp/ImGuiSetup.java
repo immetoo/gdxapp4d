@@ -36,24 +36,19 @@ public class ImGuiSetup {
 	}
 	
 	private static void initFonts(final ImGuiIO io) {
-		io.getFonts().addFontDefault();
 		ImFontConfig fontConfig = new ImFontConfig();
-		fontConfig.setMergeMode(true);
 		ImFontGlyphRangesBuilder fontBuilder = new ImFontGlyphRangesBuilder();
 		addRangeUnicodePlane0(fontBuilder);
 		final short[] glyphRanges = fontBuilder.buildRanges();
-		
-		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/noto-sans-cjkjp-medium.otf").readBytes(), 14, fontConfig, glyphRanges);
-		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/free-sans.ttf").readBytes(), 14, fontConfig, glyphRanges);
-		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/roboto-bold.ttf").readBytes(), 14, fontConfig, glyphRanges);
-		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/arslan-wessam.ttf").readBytes(), 14, fontConfig, glyphRanges);
-		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/norse-kawl.otf").readBytes(), 14, fontConfig, glyphRanges);
-		
+		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/code2000.ttf").readBytes(), 24, fontConfig, glyphRanges);
+		fontConfig.setMergeMode(true);
+		// note: just for 3 sub chars for SUBHEX, but still missing 2 chars from T12 alt1 clock
+		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/free-sans.ttf").readBytes(), 24, fontConfig, glyphRanges);
 		fontConfig.destroy();
 	}
 	
 	private static void addRangeUnicodePlane0(ImFontGlyphRangesBuilder fontBuilder) {
-		for (int c=0x0100;c<=0xFFEF;c++) {
+		for (int c=0x0001;c<=0xFFEF;c++) {
 			StringBuilder buf = new StringBuilder();
 			buf.append(""+(char)c);
 			fontBuilder.addText(buf.toString());

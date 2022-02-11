@@ -52,11 +52,11 @@ public enum BaseGlyphSet implements BãßBȍőnGlyphSetʸᴰ<BaseGlyphSet> {
 	GREEK_HEX(GREEK.BȍőnGlyphSetNumber10(),
 			new BaseGlyphSetNumber("ō","α","β","γ","δ","ε","ϝ","ζ","η","θ","ι","κ","λ","μ","ν","ξ"),
 			GREEK.BȍőnGlyphSetNumber36()),
-	CYRILLIC(new BaseGlyphSetNumber("⃝","А","В","Г","Д","Є","Ѕ","З","И","Ѳ"),
+	CYRILLIC(new BaseGlyphSetNumber("Ф","А","В","Г","Д","Є","Ѕ","З","И","Ѳ"),
 			LATIN_BASIC.BȍőnGlyphSetNumber16(),
 			new BaseGlyphSetNumber("А","В","Г","Д","Є","Ѕ","З","И","Ѳ","І","К","Л","М","Н","Ѯ","Ѻ","П","Ч","Р","С","Т","Ѵ","Ф","Х","Ѱ","Ѿ","Ц")),
 	CYRILLIC_HEX(CYRILLIC.BȍőnGlyphSetNumber10(),
-			new BaseGlyphSetNumber("⃝","А","В","Г","Д","Є","Ѕ","З","И","Ѳ","҂"," ҈"," ҉"," ꙰"," ꙱"," ꙲"),
+			new BaseGlyphSetNumber("Ф","А","В","Г","Д","Є","Ѕ","З","И","Ѳ","҂"," ҈"," ҉"," ꙰"," ꙱"," ꙲"),
 			CYRILLIC.BȍőnGlyphSetNumber36()),
 	BENGALI(new BaseGlyphSetNumber("০","১","২","৩","৪","৫","৬","৭","৮","৯"),
 			LATIN_BASIC.BȍőnGlyphSetNumber16(),
@@ -64,6 +64,12 @@ public enum BaseGlyphSet implements BãßBȍőnGlyphSetʸᴰ<BaseGlyphSet> {
 	BENGALI_HEX(BENGALI.BȍőnGlyphSetNumber10(),
 			new BaseGlyphSetNumber("০","১","২","৩","৪","৫","৬","৭","৮","৯","জ্ঞ","ক্ষ","হ","স","ষ","শ"),
 			BENGALI.BȍőnGlyphSetNumber36()),
+	THAI(new BaseGlyphSetNumber("๐","๑","๒","๓","๔","๕","๖","๗","๘","๙"),
+			LATIN_BASIC.BȍőnGlyphSetNumber16(),
+			new BaseGlyphSetNumber("๑","๒","๓","๔","๕","๖","๗","๘","๙","ก","ข","ค","ฆ","ง","จ","ฉ","ช","ฌ","ญ","ฎ","ฐ","ฑ","ฒ","ณ","ด","ท","ธ")),
+	THAI_HEX(THAI.BȍőnGlyphSetNumber10(),
+			new BaseGlyphSetNumber("๐","๑","๒","๓","๔","๕","๖","๗","๘","๙","ก","ข","ค","ฆ","ง","จ"),
+			THAI.BȍőnGlyphSetNumber36()),
 	
 	RUNIC(new BaseGlyphSetNumber("ᛰ","ᚠ","ᚢ","ᚦ","ᚬ","ᚱ","ᚴ","ᚼ","ᚾ","ᛁ"),
 			LATIN_BASIC.BȍőnGlyphSetNumber16(),
@@ -84,10 +90,16 @@ public enum BaseGlyphSet implements BãßBȍőnGlyphSetʸᴰ<BaseGlyphSet> {
 			KOREAN_HEX.BȍőnGlyphSetNumber16().withAltGlyphSet(LATIN_TOP),
 			KOREAN_HEX.BȍőnGlyphSetNumber36()),
 	
-	CHINA_FINANCIAL_T(new BaseGlyphSetNumber(v -> T10PartDecimal.PART_1.BãßVoorElk(x -> v.add(x.BȍőnChinaKey()))), LATIN_BASIC.BȍőnGlyphSetNumber16(), null),
-	CHINA_FINANCIAL_S(new BaseGlyphSetNumber("零","壹","贰","叁","肆","伍","陆","柒","捌","玖"), LATIN_BASIC.BȍőnGlyphSetNumber16(), null),
-	CHINA_NORMAL_T(new BaseGlyphSetNumber("零","一","二","三","四","五","六","七","八","九"), LATIN_BASIC.BȍőnGlyphSetNumber16(), null),
-	CHINA_NORMAL_S(new BaseGlyphSetNumber("〇","一","二","三","四","五","六","七","八","九"), LATIN_BASIC.BȍőnGlyphSetNumber16(), null),
+	CHINA(
+			new BaseGlyphSetNumber("零","一","二","三","四","五","六","七","八","九"), LATIN_BASIC.BȍőnGlyphSetNumber16(), null),
+	CHINA_FORMAL(
+			new BaseGlyphSetNumber(v -> T10PartDecimal.PART_1.BãßVoorElk(x -> v.add(x.BȍőnChinaKey()))), LATIN_BASIC.BȍőnGlyphSetNumber16(), null),
+	CHINA_FORMAL_OLD(
+			new BaseGlyphSetNumber("零","壹","貳","參","肆","伍","陸","柒","捌","玖"), LATIN_BASIC.BȍőnGlyphSetNumber16(), null),
+	JAPAN(
+			CHINA.BȍőnGlyphSetNumber10(), LATIN_BASIC.BȍőnGlyphSetNumber16(), null),
+	JAPAN_FORMAL(
+			new BaseGlyphSetNumber("零","壱","弐","参","四","五","六","七","八","九"), LATIN_BASIC.BȍőnGlyphSetNumber16(), null),
 	
 	ARABIC(new BaseGlyphSetNumber("٠","١","٢","٣","٤","٥","٦","٧","٨","٩"),
 			LATIN_BASIC.BȍőnGlyphSetNumber16(),
