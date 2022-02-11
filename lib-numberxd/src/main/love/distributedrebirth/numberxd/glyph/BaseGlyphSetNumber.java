@@ -126,7 +126,7 @@ public final class BaseGlyphSetNumber {
 		return altGlyphSet;
 	}
 	
-	public String BȍőnCharFor36(int number) {
+	public String BȍőnCharFor27(int number) {
 		switch (number) {
 		case 1:
 			return chars.get(0);

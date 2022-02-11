@@ -55,9 +55,11 @@ public class SystemBaseGlyphRenderer extends ImGuiRendererMain {
 	
 	private String print16Numbers(BaseGlyphSet set) {
 		StringBuilder buf = new StringBuilder();
+		int x=240;
 		for (int i=0;i<16;i++) {
-			buf.append(set.BȍőnPrintGlyphSetNumber16(i, 99));
+			buf.append(set.BȍőnPrintGlyphSetNumber16(i + x, 99));
 			buf.append(" ");
+			x = x - 16;
 		}
 		return buf.toString();
 	}

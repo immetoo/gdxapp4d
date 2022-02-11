@@ -11,5 +11,6 @@ public enum BãßBȍőnGlyphSetKeyʸᴰ implements BãßBȍőnCoffinStoreKeyʸ�
 	NUMBERS,
 	GEMATRIA,
 	HEXIMALS,
+	REVERSE_SCRIPT
 	;
 }
