@@ -25,7 +25,7 @@ public enum BaseGlyphSet implements DefaultEnumSetᴶᴹˣ<BaseGlyphSet,BãßBȍ
 	LATIN_DTMF(
 			new BaseGlyphSetNumber(v -> T10PartDecimal.PART_1.BãßVoorElk(x -> v.add(x.BȍőnChinaValue()))).withSeperator(BãßBȍőnConstantsʸᴰ.STR_SPACE),
 			new BaseGlyphSetNumber("1","2","3","A","4","5","6","B","7","8","9","C","*","0","#","D"),
-			LATIN_BASIC.BȍőnGlyphSetNumber27()),
+			LATIN_BASIC.BȍőnNumber27()),
 	LATIN_TOP(
 			new BaseGlyphSetNumber("⁰","¹","²","³","⁴","⁵","⁶","⁷","⁸","⁹"),
 			new BaseGlyphSetNumber("⁰","¹","²","³","⁴","⁵","⁶","⁷","⁸","⁹","ᵃ","ᵇ","ᶜ","ᵈ","ᵉ","ᶠ"),
@@ -35,9 +35,9 @@ public enum BaseGlyphSet implements DefaultEnumSetᴶᴹˣ<BaseGlyphSet,BãßBȍ
 			new BaseGlyphSetNumber("₀","₁","₂","₃","₄","₅","₆","₇","₈","₉","ₐ","₆","꜀","ₔ","ₑ","բ"),
 			new BaseGlyphSetNumber("₁","₂","₃","₄","₅","₆","₇","₈","₉","ₐ","₆","꜀","ₔ","ₑ","բ","G","ₕ","ᵢ","ⱼ","ₖ","ₗ","ₘ","ₙ","ₒ","ₚ","Q","ᵣ")),
 	LATIN_TOPHEX(
-			LATIN_BASIC.BȍőnGlyphSetNumber10(),
-			LATIN_BASIC.BȍőnGlyphSetNumber16().withAltGlyphSet(LATIN_TOP),
-			LATIN_BASIC.BȍőnGlyphSetNumber27()),
+			LATIN_BASIC.BȍőnNumber10(),
+			LATIN_BASIC.BȍőnNumber16().withAltGlyphSet(LATIN_TOP),
+			LATIN_BASIC.BȍőnNumber27()),
 	
 	TONE_SCRIPT(
 			new BaseGlyphSetNumber(v -> T10PartDecimal.PART_1.BãßVoorElk(x -> v.add(x.BȍőnDialTone()))),
@@ -46,19 +46,19 @@ public enum BaseGlyphSet implements DefaultEnumSetᴶᴹˣ<BaseGlyphSet,BãßBȍ
 	DIPAVALI_LRPATH_TOPHEX(
 			new BaseGlyphSetNumber(v -> T10PartDecimal.PART_1.BãßVoorElk(x -> v.add(x.BȍőnAlt1Value()))),
 			new BaseGlyphSetNumber("˧˥˩","˧˩˥","˧˥˦","˧˩˨","˧˦˦","˧˨˨","˧˥˥","˧˩˩","˥˩˧","˩˥˧","˥˦˧","˩˨˧","˦˦˧","˨˨˧","˥˥˧","˩˩˧").withAltGlyphSet(BaseGlyphSet.LATIN_TOP),
-			TONE_SCRIPT.BȍőnGlyphSetNumber27()),
+			TONE_SCRIPT.BȍőnNumber27()),
 	DIPAVALI_LRPATH_SUBHEX(
 			new BaseGlyphSetNumber(v -> T10PartDecimal.PART_1.BãßVoorElk(x -> v.add(x.BȍőnAlt1Value()))),
 			new BaseGlyphSetNumber("˧˥˩","˧˩˥","˧˥˦","˧˩˨","˧˦˦","˧˨˨","˧˥˥","˧˩˩","˥˩˧","˩˥˧","˥˦˧","˩˨˧","˦˦˧","˨˨˧","˥˥˧","˩˩˧").withAltGlyphSet(BaseGlyphSet.LATIN_SUB),
-			TONE_SCRIPT.BȍőnGlyphSetNumber27()),
+			TONE_SCRIPT.BȍőnNumber27()),
 	DIPAVALI_RLPATH_TOPHEX(
 			new BaseGlyphSetNumber(v -> T10PartDecimal.PART_1.BãßVoorElk(x -> v.add(x.BȍőnAlt2Value()))),
 			new BaseGlyphSetNumber("꜔꜒꜖","꜔꜖꜒","꜔꜒꜓","꜔꜖꜕","꜔꜓꜓","꜔꜕꜕","꜔꜒꜒","꜔꜖꜖","꜒꜖꜔","꜖꜒꜔","꜒꜓꜔","꜖꜕꜔","꜓꜓꜔","꜕꜕꜔","꜒꜒꜔","꜖꜖꜔").withAltGlyphSet(BaseGlyphSet.LATIN_TOP),
-			TONE_SCRIPT.BȍőnGlyphSetNumber27()),
+			TONE_SCRIPT.BȍőnNumber27()),
 	DIPAVALI_RLPATH_SUBHEX(
 			new BaseGlyphSetNumber(v -> T10PartDecimal.PART_1.BãßVoorElk(x -> v.add(x.BȍőnAlt2Value()))),
 			new BaseGlyphSetNumber("꜔꜒꜖","꜔꜖꜒","꜔꜒꜓","꜔꜖꜕","꜔꜓꜓","꜔꜕꜕","꜔꜒꜒","꜔꜖꜖","꜒꜖꜔","꜖꜒꜔","꜒꜓꜔","꜖꜕꜔","꜓꜓꜔","꜕꜕꜔","꜒꜒꜔","꜖꜖꜔").withAltGlyphSet(BaseGlyphSet.LATIN_SUB),
-			TONE_SCRIPT.BȍőnGlyphSetNumber27()),
+			TONE_SCRIPT.BȍőnNumber27()),
 	
 	GREEK(
 			new BaseGlyphSetNumber("ō","α","β","γ","δ","ε","ϝ","ζ","η","θ"),
@@ -68,79 +68,82 @@ public enum BaseGlyphSet implements DefaultEnumSetᴶᴹˣ<BaseGlyphSet,BãßBȍ
 			new BaseGlyphSetNumber("০","১","২","৩","৪","৫","৬","৭","৮","৯"),
 			new BaseGlyphSetNumber("০","১","২","৩","৪","৫","৬","৭","৮","৯","জ্ঞ","ক্ষ","হ","স","ষ","শ"),
 			new BaseGlyphSetNumber("ক","খ","গ","ঘ","ঙ","চ","ছ","জ","ঝ","ঞ","ট","ঠ","ড","ঢ","ণ","ত","থ","দ","ধ","ন","প","ফ","ব","ভ","ম","য","র")),
+	KANNADA(
+			new BaseGlyphSetNumber("೦","೧","೨","೩","೪","೫","೬","೭","೮","೯"),
+			new BaseGlyphSetNumber("೦","೧","೨","೩","೪","೫","೬","೭","೮","೯","ಕ","ಖ","ಗ","ಘ","ಙ","ಚ"),
+			new BaseGlyphSetNumber("ಕ","ಖ","ಗ","ಘ","ಙ","ಚ","ಛ","ಜ","ಝ","ಞ","ಟ","ಠ","ಡ","ಢ","ಣ","ತ","ಥ","ದ","ಧ","ನ","ಪ","ಫ","ಬ","ಭ","ಮ","ಯ","ರ")),
+	MALAYALAM(
+			new BaseGlyphSetNumber("൦","൧","൨","൩","൪","൫","൬","൭","൮","൯"),
+			new BaseGlyphSetNumber("൦","൧","൨","൩","൪","൫","൬","൭","൮","൯","൰","൱","൲","൳","൴","൵"),
+			new BaseGlyphSetNumber("ക","ഖ","ഗ","ഘ","ങ","ച","ഛ","ജ","ഝ","ഞ","ട","ഠ","ഡ","ഢ","ണ","ത","ഥ","ദ","ധ","ന","പ","ഫ","ബ","ഭ","മ","ർ","ൿ")),
 	THAI(
 			new BaseGlyphSetNumber("๐","๑","๒","๓","๔","๕","๖","๗","๘","๙"),
 			new BaseGlyphSetNumber("๐","๑","๒","๓","๔","๕","๖","๗","๘","๙","ก","ข","ค","ฆ","ง","จ"),
 			new BaseGlyphSetNumber("๑","๒","๓","๔","๕","๖","๗","๘","๙","ก","ข","ค","ฆ","ง","จ","ฉ","ช","ฌ","ญ","ฎ","ฐ","ฑ","ฒ","ณ","ด","ท","ธ")),
+	/* Brahmi is U+11000–U+1107F and thus unsupported by ImGui 
+	BRAHMI(
+			new BaseGlyphSetNumber("𑁦","𑁧","𑁨","𑁩","𑁪","𑁫","𑁬","𑁭","𑁮","𑁯"), 
+			new BaseGlyphSetNumber("𑀮","𑀯","𑀰","𑀱","𑀮𑀺","𑀯𑀺","𑀰𑀺","𑀱𑀺","𑀮𑀽","𑀯𑀽","𑀰𑀽","𑀱𑀽","𑀮𑁄","𑀯𑁄","𑀰𑁄","𑀱𑁄"),
+			new BaseGlyphSetNumber("𑀓𑁆","𑀔𑁆","𑀕𑁆","𑀖𑁆","𑀗𑁆","𑀘𑁆","𑀙𑁆","𑀚𑁆","𑀛𑁆","𑀜𑁆","𑀝𑁆","𑀞𑁆","𑀟𑁆","𑀠𑁆","𑀡𑁆","𑀢𑁆","𑀣𑁆","𑀤𑁆","𑀥𑁆","𑀦𑁆","𑀧𑁆","𑀨𑁆","𑀩𑁆","𑀪𑁆","𑀫𑁆","𑀬𑁆","𑀭𑁆")),
+	*/
 	
 	RUNIC(
 			new BaseGlyphSetNumber("ᛰ","ᚠ","ᚢ","ᚦ","ᚬ","ᚱ","ᚴ","ᚼ","ᚾ","ᛁ"),
 			new BaseGlyphSetNumber("ᛰ","ᚠ","ᚢ","ᚦ","ᚬ","ᚱ","ᚴ","ᚼ","ᚾ","ᛁ","ᛅ","ᛋ","ᛏ","ᛒ","ᛚ","ᛘ"),
 			new BaseGlyphSetNumber("ᚠ","ᚢ","ᚦ","ᚨ","ᚱ","ᚲ","ᚷ","ᚹ","ᚺ","ᚾ","ᛁ","ᛃ","ᛇ","ᛈ","ᛉ","ᛊ","ᛏ","ᛒ","ᛖ","ᛗ","ᛚ","ᛜ","ᛟ","ᛞ","ᚡ","ᚤ","ᚧ")),
 	RUNIC_TOPHEX(
-			RUNIC.BȍőnGlyphSetNumber10(),
-			RUNIC.BȍőnGlyphSetNumber16().withAltGlyphSet(LATIN_TOP),
-			RUNIC.BȍőnGlyphSetNumber27()),
+			RUNIC.BȍőnNumber10(),
+			RUNIC.BȍőnNumber16().withAltGlyphSet(LATIN_TOP),
+			RUNIC.BȍőnNumber27()),
 	KOREAN(
 			new BaseGlyphSetNumber("영","일","이","삼","사","오","육","칠","팔","구"),
 			new BaseGlyphSetNumber("ㅏ","ㅐ","ㅑ","ㅒ","ㅓ","ㅔ","ㅕ","ㅖ","ㅗ","ㅘ","ㅙ","ㅚ","ㅛ","ㅜ","ㅝ","ㅞ"),
 			new BaseGlyphSetNumber("ㄱ","ㄲ","ㄴ","ㄷ","ㄸ","ㄹ","ㅁ","ㅂ","ㅃ","ㅅ","ㅆ","ㅈ","ㅉ","ㅊ","ㅋ","ㅌ","ㅍ","ㅎ","ㄵ","ㄶ","ㄺ","ㄻ","ㄼ","ㄽ","ㄾ","ㄿ","ㅀ")),
 	KOREAN_TOPHEX(
-			KOREAN.BȍőnGlyphSetNumber10(),
-			KOREAN.BȍőnGlyphSetNumber16().withAltGlyphSet(LATIN_TOP),
-			KOREAN.BȍőnGlyphSetNumber27()),
-	
-	/* Brahmi is U+11000–U+1107F and thus unsupported by ImGui 
-	BRAHMI(
-			new BaseGlyphSetNumber("𑁦","𑁧","𑁨","𑁩","𑁪","𑁫","𑁬","𑁭","𑁮","𑁯"), 
-			new BaseGlyphSetNumber("𑀮","𑀯","𑀰","𑀱","𑀮𑀺","𑀯𑀺","𑀰𑀺","𑀱𑀺","𑀮𑀽","𑀯𑀽","𑀰𑀽","𑀱𑀽","𑀮𑁄","𑀯𑁄","𑀰𑁄","𑀱𑁄"),
-			new BaseGlyphSetNumber("𑀓𑁆","𑀔𑁆","𑀕𑁆","𑀖𑁆","𑀗𑁆","𑀘𑁆","𑀙𑁆","𑀚𑁆","𑀛𑁆","𑀜𑁆","𑀝𑁆","𑀞𑁆","𑀟𑁆","𑀠𑁆","𑀡𑁆","𑀢𑁆","𑀣𑁆","𑀤𑁆","𑀥𑁆","𑀦𑁆","𑀧𑁆","𑀨𑁆","𑀩𑁆","𑀪𑁆","𑀫𑁆","𑀬𑁆","𑀭𑁆")),
-	BRAHMI_TOPHEX(
-			BRAHMI.BȍőnGlyphSetNumber10(),
-			BRAHMI.BȍőnGlyphSetNumber16().withAltGlyphSet(LATIN_TOP),
-			BRAHMI.BȍőnGlyphSetNumber27()),
-	*/
+			KOREAN.BȍőnNumber10(),
+			KOREAN.BȍőnNumber16().withAltGlyphSet(LATIN_TOP),
+			KOREAN.BȍőnNumber27()),
 	
 	CHINA(
 			new BaseGlyphSetNumber("零","一","二","三","四","五","六","七","八","九"),
-			LATIN_BASIC.BȍőnGlyphSetNumber16(),
+			LATIN_BASIC.BȍőnNumber16(),
 			null),
 	CHINA_FORMAL(
 			new BaseGlyphSetNumber(v -> T10PartDecimal.PART_1.BãßVoorElk(x -> v.add(x.BȍőnChinaKey()))),
-			LATIN_BASIC.BȍőnGlyphSetNumber16(),
+			LATIN_BASIC.BȍőnNumber16(),
 			null),
 	CHINA_FORMAL_OLD(
 			new BaseGlyphSetNumber("零","壹","貳","參","肆","伍","陸","柒","捌","玖"),
-			LATIN_BASIC.BȍőnGlyphSetNumber16(),
+			LATIN_BASIC.BȍőnNumber16(),
 			null),
 	JAPAN(
-			CHINA.BȍőnGlyphSetNumber10(),
-			LATIN_BASIC.BȍőnGlyphSetNumber16(),
+			CHINA.BȍőnNumber10(),
+			LATIN_BASIC.BȍőnNumber16(),
 			null),
 	JAPAN_FORMAL(
 			new BaseGlyphSetNumber("零","壱","弐","参","四","五","六","七","八","九"),
-			LATIN_BASIC.BȍőnGlyphSetNumber16(),
+			LATIN_BASIC.BȍőnNumber16(),
 			null),
 	
 	CYRILLIC(
 			new BaseGlyphSetNumber("Ф","А","В","Г","Д","Є","Ѕ","З","И","Ѳ"),
-			LATIN_BASIC.BȍőnGlyphSetNumber16(),
+			LATIN_BASIC.BȍőnNumber16(),
 			new BaseGlyphSetNumber("А","В","Г","Д","Є","Ѕ","З","И","Ѳ","І","К","Л","М","Н","Ѯ","Ѻ","П","Ч","Р","С","Т","Ѵ","Ф","Х","Ѱ","Ѿ","Ц")),
 	ARABIC(
 			new BaseGlyphSetNumber("٠","١","٢","٣","٤","٥","٦","٧","٨","٩"),
-			LATIN_BASIC.BȍőnGlyphSetNumber16(),
+			LATIN_BASIC.BȍőnNumber16(),
 			new BaseGlyphSetNumber("ا","ب","ج","د","ه","و","ز","ح","ط","ي","ك","ل","م","ن","س","ع","ف","ص","ق","ر","ش","ت","ث","خ","ذ","ض","ظ"),
 			true),
 	HEBREW(
 			new BaseGlyphSetNumber("אֶפֶס","אֶחָד","שְׁתַּיִם","שְׁלֹשָׁה","אַרְבַּע‎","חֲמִשָּׁה‎","שֵׁשׁ‎","שִׁבְעָה","שְׁמוֹנֶה","תִּשְׁעָה‎").withSeperator(BãßBȍőnConstantsʸᴰ.STR_SPACE),
-			LATIN_BASIC.BȍőnGlyphSetNumber16(),
-			new BaseGlyphSetNumber("א","ב","ג","ד","ה","ו","ז","ח","ט","י","כ","ל","מ","נ","ס ","ע","פ","צ","ק","ר","ש","ת","ך","ם","ן","ף","ץ"),
+			LATIN_BASIC.BȍőnNumber16(),
+			new BaseGlyphSetNumber("א","ב","ג","ד","ה","ו","ז","ח","ט","י","כ","ל","מ","נ","ס","ע","פ","צ","ק","ר","ש","ת","ך","ם","ן","ף","ץ"),
 			true),
 	;
 	
-	private final GuageCounterᴶᴹˣ printsGlyphSetNumber10;
-	private final GuageCounterᴶᴹˣ printsGlyphSetNumber16;
-	private final GuageCounterᴶᴹˣ printsGlyphSetNumber27;
+	private final GuageCounterᴶᴹˣ printNumber10Count;
+	private final GuageCounterᴶᴹˣ printNumber16Count;
+	private final GuageCounterᴶᴹˣ printNumber27Count;
 	private final BãßBȍőnCoffinOpenʸᴰ<BãßBȍőnGlyphSetKeyʸᴰ> BBC = BãßBȍőnCoffinOpenʸᴰ.newInstance();
 	public BãßBȍőnCoffinʸᴰ<BãßBȍőnGlyphSetKeyʸᴰ> GET_BBC() { return BBC; }
 	public static int LENGTH() { return values().length; };
@@ -160,24 +163,24 @@ public enum BaseGlyphSet implements DefaultEnumSetᴶᴹˣ<BaseGlyphSet,BãßBȍ
 		BBC.PUT_OBJ(BãßBȍőnGlyphSetKeyʸᴰ.REVERSE_SCRIPT, reverseScript); // TODO: ImGui workaround
 		BBC.BOON_INIT(this);
 		this.BȍőnJmxInit(BãßBȍőnGlyphSetKeyʸᴰ.JMX);
-		printsGlyphSetNumber10 = BȍőnJmxInitGuageCounter(BãßBȍőnGlyphSetKeyʸᴰ.JMX, "printsGlyphSetNumber10");
-		printsGlyphSetNumber16 = BȍőnJmxInitGuageCounter(BãßBȍőnGlyphSetKeyʸᴰ.JMX, "printsGlyphSetNumber16");
-		printsGlyphSetNumber27 = BȍőnJmxInitGuageCounter(BãßBȍőnGlyphSetKeyʸᴰ.JMX, "printsGlyphSetNumber27");
+		printNumber10Count = BȍőnJmxInitGuageCounter(BãßBȍőnGlyphSetKeyʸᴰ.JMX, "printNumber10Count");
+		printNumber16Count = BȍőnJmxInitGuageCounter(BãßBȍőnGlyphSetKeyʸᴰ.JMX, "printNumber16Count");
+		printNumber27Count = BȍőnJmxInitGuageCounter(BãßBȍőnGlyphSetKeyʸᴰ.JMX, "printNumber27Count");
 	}
 	
-	public BaseGlyphSetNumber BȍőnGlyphSetNumber10() {
+	public BaseGlyphSetNumber BȍőnNumber10() {
 		return GET_BBC().GET_OBJ(BãßBȍőnGlyphSetKeyʸᴰ.NUMBERS, BaseGlyphSetNumber.class);
 	}
 	
-	public BaseGlyphSetNumber BȍőnGlyphSetNumber16() {
+	public BaseGlyphSetNumber BȍőnNumber16() {
 		return GET_BBC().GET_OBJ(BãßBȍőnGlyphSetKeyʸᴰ.HEXIMALS, BaseGlyphSetNumber.class);
 	}
 	
-	public BaseGlyphSetNumber BȍőnGlyphSetNumber27() {
+	public BaseGlyphSetNumber BȍőnNumber27() {
 		return GET_BBC().GET_OBJ(BãßBȍőnGlyphSetKeyʸᴰ.GEMATRIA, BaseGlyphSetNumber.class);
 	}
 	
-	public Boolean BȍőnGlyphSetReverseScript() {
+	public Boolean BȍőnReverseScript() {
 		return GET_BBC().GET_BOOL(BãßBȍőnGlyphSetKeyʸᴰ.REVERSE_SCRIPT);
 	}
 	
@@ -185,17 +188,17 @@ public enum BaseGlyphSet implements DefaultEnumSetᴶᴹˣ<BaseGlyphSet,BãßBȍ
 		StringBuilder buf = new StringBuilder();
 		for (char c:numbers.toCharArray()) {
 			for (BaseGlyphSet set:values()) {
-				int loc = set.BȍőnGlyphSetNumber10().BȍőnIndexOf(""+c);
+				int loc = set.BȍőnNumber10().BȍőnIndexOf(""+c);
 				if (loc != -1) {
-					buf.append(set.BȍőnGlyphSetNumber10().BȍőnCharFor(loc));
+					buf.append(set.BȍőnNumber10().BȍőnCharFor(loc));
 				}
 			}
 		}
 		return buf.toString();
 	}
 	
-	public String BȍőnPrintGlyphSetNumber10(int number, int numberMax) {
-		printsGlyphSetNumber10.increment();
+	public String BȍőnPrintNumber10(int number, int numberMax) {
+		printNumber10Count.increment();
 		String maxDigitNumber = Integer.toString(numberMax);
 		StringBuilder maxDigitFormat = new StringBuilder();
 		for (int i=0;i<maxDigitNumber.length();i++) {
@@ -206,27 +209,27 @@ public enum BaseGlyphSet implements DefaultEnumSetᴶᴹˣ<BaseGlyphSet,BãßBȍ
 		for (int i=0;i<numberStr.length();i++) {
 			char c = numberStr.charAt(i);
 			int numberDigit = c - '0';
-			buf.append(BȍőnGlyphSetNumber10().BȍőnCharFor(numberDigit));
+			buf.append(BȍőnNumber10().BȍőnCharFor(numberDigit));
 			if (i<numberStr.length() - 1) {
-				buf.append(BȍőnGlyphSetNumber10().BȍőnCharSeperator());
+				buf.append(BȍőnNumber10().BȍőnCharSeperator());
 			}
 		}
-		if (BȍőnGlyphSetReverseScript()) {
+		if (BȍőnReverseScript()) {
 			return buf.reverse().toString();
 		}
 		return buf.toString();
 	}
 	
-	public String BȍőnPrintGlyphSetNumber16(int number, int numberMax) {
-		printsGlyphSetNumber16.increment();
+	public String BȍőnPrintNumber16(int number, int numberMax) {
+		printNumber16Count.increment();
 		String maxDigitNumber = Integer.toHexString(numberMax);
 		String numberStr = Integer.toHexString(number);
 		StringBuilder buf = new StringBuilder();
 		BaseGlyphSet printSet = this;
 		for (int i=numberStr.length();i<maxDigitNumber.length();i++) {
-			buf.append(printSet.BȍőnGlyphSetNumber16().BȍőnCharFor(0));
-			if (i==numberStr.length() && BȍőnGlyphSetNumber16().BȍőnAltGlyphSet() != null) {
-				printSet = BȍőnGlyphSetNumber16().BȍőnAltGlyphSet();
+			buf.append(printSet.BȍőnNumber16().BȍőnCharFor(0));
+			if (i==numberStr.length() && BȍőnNumber16().BȍőnAltGlyphSet() != null) {
+				printSet = BȍőnNumber16().BȍőnAltGlyphSet();
 			}
 		}
 		for (int i=0;i<numberStr.length();i++) {
@@ -237,30 +240,30 @@ public enum BaseGlyphSet implements DefaultEnumSetᴶᴹˣ<BaseGlyphSet,BãßBȍ
 			} else {
 				numberDigit = c - '0';
 			}
-			buf.append(printSet.BȍőnGlyphSetNumber16().BȍőnCharFor(numberDigit));
+			buf.append(printSet.BȍőnNumber16().BȍőnCharFor(numberDigit));
 			if (i<numberStr.length() - 1) {
-				buf.append(printSet.BȍőnGlyphSetNumber16().BȍőnCharSeperator());
+				buf.append(printSet.BȍőnNumber16().BȍőnCharSeperator());
 			}
-			if (i==0 && BȍőnGlyphSetNumber16().BȍőnAltGlyphSet() != null) {
-				printSet = BȍőnGlyphSetNumber16().BȍőnAltGlyphSet();
+			if (i==0 && BȍőnNumber16().BȍőnAltGlyphSet() != null) {
+				printSet = BȍőnNumber16().BȍőnAltGlyphSet();
 			}
 		}
-		if (BȍőnGlyphSetReverseScript()) {
+		if (BȍőnReverseScript()) {
 			return buf.reverse().toString();
 		}
 		return buf.toString();
 	}
 	
-	public String BȍőnPrintGlyphSetNumber27(int number, int numberMax) {
-		printsGlyphSetNumber27.increment();
+	public String BȍőnPrintNumber27(int number, int numberMax) {
+		printNumber27Count.increment();
 		String maxDigitNumber = Integer.toString(numberMax, 27);
 		String numberStr = Integer.toString(number, 27);
 		StringBuilder buf = new StringBuilder();
 		BaseGlyphSet printSet = this;
 		for (int i=numberStr.length();i<maxDigitNumber.length();i++) {
-			buf.append(printSet.BȍőnGlyphSetNumber27().BȍőnCharFor(0));
-			if (i==numberStr.length() && BȍőnGlyphSetNumber27().BȍőnAltGlyphSet() != null) {
-				printSet = BȍőnGlyphSetNumber27().BȍőnAltGlyphSet();
+			buf.append(printSet.BȍőnNumber27().BȍőnCharFor(0));
+			if (i==numberStr.length() && BȍőnNumber27().BȍőnAltGlyphSet() != null) {
+				printSet = BȍőnNumber27().BȍőnAltGlyphSet();
 			}
 		}
 		for (int i=0;i<numberStr.length();i++) {
@@ -271,16 +274,16 @@ public enum BaseGlyphSet implements DefaultEnumSetᴶᴹˣ<BaseGlyphSet,BãßBȍ
 			} else {
 				numberDigit = c - '0';
 			}
-			buf.append(printSet.BȍőnGlyphSetNumber27().BȍőnCharFor(numberDigit));
+			buf.append(printSet.BȍőnNumber27().BȍőnCharFor(numberDigit));
 			if (i<numberStr.length() - 1) {
-				buf.append(printSet.BȍőnGlyphSetNumber27().BȍőnCharSeperator());
+				buf.append(printSet.BȍőnNumber27().BȍőnCharSeperator());
 			}
-			if (i==0 && BȍőnGlyphSetNumber27().BȍőnAltGlyphSet() != null) {
-				printSet = BȍőnGlyphSetNumber27().BȍőnAltGlyphSet();
+			if (i==0 && BȍőnNumber27().BȍőnAltGlyphSet() != null) {
+				printSet = BȍőnNumber27().BȍőnAltGlyphSet();
 			}
 		}
-		if (BȍőnGlyphSetReverseScript()) {
-			return buf.reverse().toString(); // TODO: ImGui workaround
+		if (BȍőnReverseScript()) {
+			return buf.reverse().toString();
 		}
 		return buf.toString();
 	}

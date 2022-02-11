@@ -53,14 +53,14 @@ public interface BãßBȍőnPartʸᴰ<T extends BãßBȍőnPartʸᴰ<T>> extends
 	}
 	
 	default String BȍőnPrintGlyphSetNumber10(BaseGlyphSet glyphSet) {
-		return glyphSet.BȍőnPrintGlyphSetNumber10(BȍőnRangTelNul(), BãßInstances().length - 1);
+		return glyphSet.BȍőnPrintNumber10(BȍőnRangTelNul(), BãßInstances().length - 1);
 	}
 	
 	default String BȍőnPrintGlyphSetNumber16(BaseGlyphSet glyphSet) {
-		return glyphSet.BȍőnPrintGlyphSetNumber16(BȍőnRangTelNul(), BãßInstances().length - 1);
+		return glyphSet.BȍőnPrintNumber16(BȍőnRangTelNul(), BãßInstances().length - 1);
 	}
 	
 	default String BȍőnPrintGlyphSetNumber27(BaseGlyphSet glyphSet) {
-		return glyphSet.BȍőnPrintGlyphSetNumber27(BȍőnRangTelNul(), BãßInstances().length - 1);
+		return glyphSet.BȍőnPrintNumber27(BȍőnRangTelNul(), BãßInstances().length - 1);
 	}
 }
