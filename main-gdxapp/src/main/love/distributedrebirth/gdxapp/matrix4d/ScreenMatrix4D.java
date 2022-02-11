@@ -15,7 +15,7 @@ import com.badlogic.gdx.graphics.g3d.ModelInstance;
 import com.badlogic.gdx.graphics.g3d.Shader;
 import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
 import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
-import com.badlogic.gdx.graphics.g3d.utils.CameraInputController;
+import com.badlogic.gdx.graphics.g3d.utils.FirstPersonCameraController;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector3;
@@ -33,7 +33,7 @@ import love.distributedrebirth.gdxapp.GDXAppMainAdapter;
 public class ScreenMatrix4D extends GDXAppMainAdapter {
 	public Environment environment;
 	public PerspectiveCamera cam;
-	public CameraInputController camController;
+	public FirstPersonCameraController camController;
 	public Shader shader;
 	public ModelBatch modelBatch;
 	private Model grid;
@@ -95,8 +95,8 @@ public class ScreenMatrix4D extends GDXAppMainAdapter {
 		
 		shader = new UserColorShader();
 		shader.init();
-
-		camController = new CameraInputController(cam);
+		camController = new FirstPersonCameraController(cam);
+		//camController = new CameraInputController(cam);
 		Gdx.input.setInputProcessor(camController);
 		//endregion
 
