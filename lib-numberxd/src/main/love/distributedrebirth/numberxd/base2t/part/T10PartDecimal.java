@@ -11,16 +11,16 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnClassInfoʸᴰ;
 @BãßBȍőnPartAlt2Infoʸᴰ(name = "Tone Letter RL", website = "https://en.wikipedia.org/wiki/Tone_letter")
 public enum T10PartDecimal implements BãßBȍőnPartAlt2ʸᴰ<T10PartDecimal> {
  
-	PART_1 ("˥","零","zero", "˥","꜒"),
-	PART_2 ("˦","壹","one",  "˦","꜓"),
-	PART_3 ("˧","贰","two",  "˧","꜔"),
-	PART_4 ("˨","叁","three","˨","꜕"),
-	PART_5 ("˩","肆","four", "˩","꜖"),
-	PART_6 ("꜖","伍","five", "꜌","꜑"),
-	PART_7 ("꜕","陆","six",  "꜋","꜐"),
-	PART_8 ("꜔","柒","seven","꜊","꜏"),
-	PART_9 ("꜓","捌","eight","꜉","꜎"),
-	PART_10("꜒","玖","nine", "꜈","꜍"),
+	PART_1 ("˥","零","zero", "꜌","꜒"),
+	PART_2 ("˦","壹","one",  "꜋","꜓"),
+	PART_3 ("˧","贰","two",  "꜊","꜔"),
+	PART_4 ("˨","叁","three","꜉","꜕"),
+	PART_5 ("˩","肆","four", "꜈","꜖"),
+	PART_6 ("꜖","伍","five", "˥","꜑"),
+	PART_7 ("꜕","陆","six",  "˦","꜐"),
+	PART_8 ("꜔","柒","seven","˧","꜏"),
+	PART_9 ("꜓","捌","eight","˨","꜎"),
+	PART_10("꜒","玖","nine", "˩","꜍"),
 	;
 	
 	private final BãßBȍőnCoffinOpenʸᴰ<BãßBȍőnPartKeyʸᴰ> BBC = BãßBȍőnCoffinOpenʸᴰ.newInstance();
