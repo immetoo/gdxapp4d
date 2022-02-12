@@ -66,6 +66,11 @@ public class ImFrameˣᴹᴵ extends AbstractImComponentSetˣᴹᴵ {
 		this.frameOpen = frameOpen;
 	}
 	
+	public void setNextWindowPos(float nextWindowPosX, float nextWindowPosY) {
+		setNextWindowPosX(nextWindowPosX);
+		setNextWindowPosY(nextWindowPosY);
+	}
+	
 	public float getNextWindowPosX() {
 		return nextWindowPosX;
 	}
@@ -88,6 +93,11 @@ public class ImFrameˣᴹᴵ extends AbstractImComponentSetˣᴹᴵ {
 	
 	public void setNextWindowPosCond(int nextWindowPosCond) {
 		this.nextWindowPosCond = nextWindowPosCond;
+	}
+	
+	public void setNextWindowSize(float nextWindowSizeWidth, float nextWindowSizeHeight) {
+		setNextWindowSizeWidth(nextWindowSizeWidth);
+		setNextWindowSizeHeight(nextWindowSizeHeight);
 	}
 	
 	public float getNextWindowSizeWidth() {
