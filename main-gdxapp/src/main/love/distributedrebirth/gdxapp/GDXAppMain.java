@@ -16,6 +16,9 @@ import com.badlogic.gdx.utils.ScreenUtils;
 import imgui.ImGui;
 import imgui.type.ImBoolean;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinStoreʸᴰ;
+import love.distributedrebirth.bassboonyd.jmx.DefaultEnumBaseᴶᴹˣ;
 import love.distributedrebirth.gdxapp.matrix4d.ScreenMatrix4D;
 import love.distributedrebirth.gdxapp.music.MusicManager;
 import love.distributedrebirth.gdxapp.music.MusicPlayerRenderer;
@@ -31,6 +34,7 @@ import love.distributedrebirth.gdxapp.screen.ScreenIntroMission;
 import love.distributedrebirth.gdxapp.screen.ScreenLoading;
 import love.distributedrebirth.gdxapp.screen.ScreenUnicode4D;
 import love.distributedrebirth.gdxapp.screen.SystemBaseGlyphRenderer;
+import love.distributedrebirth.numberxd.base2t.Base2PartsFactory;
 import love.distributedrebirth.numberxd.base2t.Base2Terminator;
 import love.distributedrebirth.numberxd.base2t.part.warp.TOSWarpCore;
 import love.distributedrebirth.numberxd.base2t.part.warp.TOSWarpCoreDriver;
@@ -69,12 +73,39 @@ public class GDXAppMain extends Game {
 		this.fileChooser = fileChooser;
 	}
 	
+	//TODO: add layer or ?? private <T extends BãßBȍőnCoffinStoreʸᴰ<?>,DefaultAuthorInfoʸᴰ> T[] storeInstances() {
+	@SuppressWarnings("unchecked")
+	private <T extends DefaultEnumBaseᴶᴹˣ<?,?>> T[] coffinInstances() {
+		return (T[]) new DefaultEnumBaseᴶᴹˣ[] {
+				BaseGlyphSet.values()[0],
+				Base2Terminator.INSTANCE,
+				Base2PartsFactory.INSTANCE,
+				TOSWarpCore.INSTANCE
+		};
+	}
+	
+	private <T extends DefaultEnumBaseᴶᴹˣ<?,?>> void lockCoffin(T store) {
+		System.out.println(store.BãßClassNaam()+".authorCopyright: "+store.BãßAuthorCopyright());
+		for (Object o:store.BãßInstances()) {
+			BãßBȍőnCoffinStoreʸᴰ<?> coffin = BãßBȍőnCoffinStoreʸᴰ.class.cast(o);
+			BãßBȍőnCoffinOpenʸᴰ<?> coffinOpen = BãßBȍőnCoffinOpenʸᴰ.class.cast(coffin.GET_BBC());
+			coffinOpen.LOCK_COFFIN();
+		}
+	}
+	
 	private void lazyInit() {
 		if (lazyIntCnt > 0) {
 			lazyIntCnt--;
 			return;
 		}
 		ImGuiSetup.init();
+		
+		// ref to init
+		System.out.println("BãßBȍőnCoffinʸᴰ init......");
+		for (DefaultEnumBaseᴶᴹˣ<?,?> coffin:coffinInstances()) {
+			lockCoffin(coffin);
+		}
+		System.out.println("BãßBȍőnCoffinʸᴰ init done.");
 		
 		try {
 			if (args.contains("warpcore-load")) {
@@ -95,11 +126,6 @@ public class GDXAppMain extends Game {
 		} else {
 			System.out.println("warpcore-nolock: requested");
 		}
-		
-		// ref to init, remove later...
-		BaseGlyphSet.values()[0].BãßAuthorCopyright(); 
-		Base2Terminator.INSTANCE.BãßAuthorCopyright();
-		
 		if (args.contains("full-screen")) {
 			System.out.println("full-screen: requested");
 			Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());
