@@ -30,6 +30,16 @@ public class MusicPlayerApp extends DefaultDeskApp implements DeskAppRenderer {
 	public MusicPlayerApp(GDXAppMain main) {
 		super("Music Player", "");
 		getContours().registrateContour(DeskAppContourSection.MAIN, this);
+		getContours().registrateContour(DeskAppContourSection.FILE_NEW, new DeskAppRenderer() {
+
+			@Override
+			public void render() {
+				if (ImGui.menuItem("Add")) {
+					main.fileChooser.chooseFile(fileChooserConfig, NativeFileChooserCallbackAdapter.onFileChosen(v -> main.music.addBackgroundMusic(v)));
+				}
+			}
+			
+		});
 		this.main = main;
 		fileChooserConfig = new NativeFileChooserConfiguration();
 		fileChooserConfig.directory = Gdx.files.absolute(System.getProperty("user.home"));
@@ -64,10 +74,6 @@ public class MusicPlayerApp extends DefaultDeskApp implements DeskAppRenderer {
 		ImGui.sameLine();
 		if (ImGui.button("Stop")) {
 			main.music.stop();
-		}
-		ImGui.sameLine();
-		if (ImGui.button("Add")) {
-			main.fileChooser.chooseFile(fileChooserConfig, NativeFileChooserCallbackAdapter.onFileChosen(v -> main.music.addBackgroundMusic(v)));
 		}
 		int flags = ImGuiTableFlags.ScrollX | ImGuiTableFlags.RowBg | ImGuiTableFlags.BordersOuter | ImGuiTableFlags.BordersV;
 		ImGui.beginTable("playlist", 3, flags);

@@ -28,6 +28,7 @@ import love.distributedrebirth.gdxapp.desktop.apps.HebrewWalletApp;
 import love.distributedrebirth.gdxapp.desktop.apps.MusicPlayerApp;
 import love.distributedrebirth.gdxapp.desktop.apps.SystemBaseGlyphApp;
 import love.distributedrebirth.gdxapp.desktop.apps.SystemBasePartApp;
+import love.distributedrebirth.gdxapp.desktop.apps.Unicode4DApp;
 import love.distributedrebirth.gdxapp.music.MusicManager;
 import love.distributedrebirth.gdxapp.music.MusicSongType;
 import love.distributedrebirth.gdxapp.screen.ScreenCredits;
@@ -64,6 +65,10 @@ public class GDXAppMain extends Game {
 	
 	private Map<Class<? extends Screen>,Screen> screens;
 	private List<GDXAppLauncher> apps;
+	private GDXAppScreen desktop0;
+	private GDXAppScreen desktop1;
+	private GDXAppScreen desktop2;
+	private GDXAppScreen desktop3;
 	private ImBoolean openWindowFlag = new ImBoolean(true);
 	private ImBoolean showImGuiDemo = new ImBoolean(false);
 	
@@ -155,15 +160,21 @@ public class GDXAppMain extends Game {
 		apps.add(new GDXAppLauncher("Base Glyphs", () -> new SystemBaseGlyphApp()));
 		apps.add(new GDXAppLauncher("Base Parts", () -> new SystemBasePartApp()));
 		apps.add(new GDXAppLauncher("Hebrew Wallet", () -> new HebrewWalletApp()));
+		apps.add(new GDXAppLauncher("Unicode4D", () -> new Unicode4DApp()));
 		apps.add(new GDXAppLauncher("Music Player", () -> new MusicPlayerApp(this)));
+		
+		desktop0 = new ScreenDesktop0(this);
+		desktop1 = new ScreenDesktop1(this);
+		desktop2 = new ScreenDesktop2();
+		desktop3 = new ScreenDesktop3();
 		
 		putScreen(new ScreenLoading(this));
 		putScreen(new ScreenIntro(this));
 		putScreen(new ScreenIntroMission(this));
-		putScreen(new ScreenDesktop0(this));
-		putScreen(new ScreenDesktop1(this));
-		putScreen(new ScreenDesktop2());
-		putScreen(new ScreenDesktop3());
+		putScreen(desktop0);
+		putScreen(desktop1);
+		putScreen(desktop2);
+		putScreen(desktop3);
 		putScreen(new ScreenCredits(this));
 		putScreen(new ScreenHelp(this));
 		
@@ -239,29 +250,50 @@ public class GDXAppMain extends Game {
 		ImGuiSetup.imGuiGlImp.renderDrawData(ImGui.getDrawData());
 	}
 	
+	private ImBoolean fileMinimizeSelected = new ImBoolean(false);
+	private ImBoolean fileCloseSelected = new ImBoolean(false);
+	
 	private void renderMenu(GDXAppScreen appScreen) {
 		DeskApp deskApp = appScreen.getDeskAppScreen().getCurrentDeskApp();
 		ImGui.beginMainMenuBar();
-		if (ImGui.beginMenu("Demo")) {
-			if (Gdx.graphics.isFullscreen()) {
-				if (ImGui.menuItem("Window Mode")) {
-					Gdx.graphics.setWindowedMode(viewWidth, viewHeight);
+		if (ImGui.beginMenu("File")) {
+			if (deskApp != null) {
+				DeskAppRenderer fileNew = deskApp.getContours().getContour(DeskAppContourSection.FILE_NEW);
+				DeskAppRenderer fileClose = deskApp.getContours().getContour(DeskAppContourSection.FILE_CLOSE);
+				DeskAppRenderer fileSave = deskApp.getContours().getContour(DeskAppContourSection.FILE_SAVE);
+				DeskAppRenderer fileOption = deskApp.getContours().getContour(DeskAppContourSection.FILE_OPTION);
+				DeskAppRenderer filePrint = deskApp.getContours().getContour(DeskAppContourSection.FILE_PRINT);
+				if (fileNew != null) {
+					fileNew.render();
+					ImGui.separator();
 				}
-			} else {
-				if (ImGui.menuItem("Full Screen")) {
-					Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());
+				if (fileClose != null) {
+					fileClose.render();
+					ImGui.separator();
+				}
+				if (fileSave != null) {
+					fileSave.render();
+					ImGui.separator();
+				}
+				if (fileOption != null) {
+					fileOption.render();
+					ImGui.separator();
+				}
+				if (filePrint != null) {
+					filePrint.render();
+					ImGui.separator();
 				}
 			}
-			if (ImGui.menuItem("Close")) {
+			if (ImGui.menuItem("Minimize", "", fileMinimizeSelected, deskApp != null )) {
+				if (deskApp != null) {
+					appScreen.getDeskAppScreen().setCurrentDeskApp(null);
+				}
+			}
+			if (ImGui.menuItem("Exit", "", fileCloseSelected, deskApp != null)) {
 				if (deskApp != null) {
 					appScreen.getDeskAppScreen().removeDeskApp(deskApp);
 					appScreen.getDeskAppScreen().setCurrentDeskApp(null);
 				}
-			}
-			ImGui.separator();
-			if (ImGui.menuItem("Exit")) {
-				dispose();
-				System.exit(0);
 			}
 			ImGui.endMenu();
 		}
@@ -269,7 +301,7 @@ public class GDXAppMain extends Game {
 		if (deskApp != null) {
 			renderEditMenu(deskApp);
 		}
-		if (ImGui.beginMenu("Desktop")) {
+		if (ImGui.beginMenu("vrGEM⁴")) {
 			if (ImGui.beginMenu("Start")) {
 				for (GDXAppLauncher launcher: apps) {
 					if (ImGui.menuItem(launcher.getName())) {
@@ -279,25 +311,84 @@ public class GDXAppMain extends Game {
 				ImGui.endMenu();
 			}
 			ImGui.separator();
-			for (DeskApp app: appScreen.getDeskAppScreen().getDeskApps()) {
-				if (ImGui.menuItem(app.getName())) {
-					appScreen.getDeskAppScreen().setCurrentDeskApp(app);
+			
+			String infix0 = "";
+			String infix1 = "";
+			String infix2 = "";
+			String infix3 = "";
+			if (appScreen instanceof ScreenDesktop0) {
+				infix0 = "=> ";
+			}
+			if (appScreen instanceof ScreenDesktop1) {
+				infix1 = "=> ";
+			}
+			if (appScreen instanceof ScreenDesktop2) {
+				infix2 = "=> ";
+			}
+			if (appScreen instanceof ScreenDesktop3) {
+				infix3 = "=> ";
+			}
+			if (ImGui.beginMenu(infix0+"Desktop0")) {
+				if (ImGui.menuItem("Main reality")) {
+					selectScreen(ScreenDesktop0.class);
+					desktop0.getDeskAppScreen().setCurrentDeskApp(null);
 				}
+				for (DeskApp app: desktop0.getDeskAppScreen().getDeskApps()) {
+					if (ImGui.menuItem(app.getName())) {
+						selectScreen(ScreenDesktop0.class);
+						desktop0.getDeskAppScreen().setCurrentDeskApp(app);
+					}
+				}
+				ImGui.endMenu();
 			}
-			ImGui.endMenu();
-		}
-		if (ImGui.beginMenu("System")) {
-			if (ImGui.menuItem("Desktop0")) {
-				selectScreen(ScreenDesktop0.class);
+			if (ImGui.beginMenu(infix1+"Desktop1")) {
+				if (ImGui.menuItem("Main reality")) {
+					selectScreen(ScreenDesktop1.class);
+					desktop1.getDeskAppScreen().setCurrentDeskApp(null);
+				}
+				for (DeskApp app: desktop1.getDeskAppScreen().getDeskApps()) {
+					if (ImGui.menuItem(app.getName())) {
+						selectScreen(ScreenDesktop1.class);
+						desktop1.getDeskAppScreen().setCurrentDeskApp(app);
+					}
+				}
+				ImGui.endMenu();
 			}
-			if (ImGui.menuItem("Desktop1")) {
-				selectScreen(ScreenDesktop1.class);
+			if (ImGui.beginMenu(infix2+"Desktop2")) {
+				if (ImGui.menuItem("Main reality")) {
+					selectScreen(ScreenDesktop2.class);
+					desktop2.getDeskAppScreen().setCurrentDeskApp(null);
+				}
+				for (DeskApp app: desktop2.getDeskAppScreen().getDeskApps()) {
+					if (ImGui.menuItem(app.getName())) {
+						selectScreen(ScreenDesktop2.class);
+						desktop2.getDeskAppScreen().setCurrentDeskApp(app);
+					}
+				}
+				ImGui.endMenu();
 			}
-			if (ImGui.menuItem("Desktop2")) {
-				selectScreen(ScreenDesktop2.class);
+			if (ImGui.beginMenu(infix3+"Desktop3")) {
+				if (ImGui.menuItem("Main reality")) {
+					selectScreen(ScreenDesktop3.class);
+					desktop3.getDeskAppScreen().setCurrentDeskApp(null);
+				}
+				for (DeskApp app: desktop3.getDeskAppScreen().getDeskApps()) {
+					if (ImGui.menuItem(app.getName())) {
+						selectScreen(ScreenDesktop3.class);
+						desktop3.getDeskAppScreen().setCurrentDeskApp(app);
+					}
+				}
+				ImGui.endMenu();
 			}
-			if (ImGui.menuItem("Desktop3")) {
-				selectScreen(ScreenDesktop3.class);
+			ImGui.separator();
+			if (Gdx.graphics.isFullscreen()) {
+				if (ImGui.menuItem("Window Mode")) {
+					Gdx.graphics.setWindowedMode(viewWidth, viewHeight);
+				}
+			} else {
+				if (ImGui.menuItem("Full Screen")) {
+					Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());
+				}
 			}
 			ImGui.separator();
 			if (ImGui.menuItem("Credits")) {
@@ -309,6 +400,10 @@ public class GDXAppMain extends Game {
 			ImGui.separator();
 			if (ImGui.menuItem("ImGui Demo")) {
 				showImGuiDemo.set(true);
+			}
+			if (ImGui.menuItem("Exit")) {
+				dispose();
+				System.exit(0);
 			}
 			ImGui.endMenu();
 		}
