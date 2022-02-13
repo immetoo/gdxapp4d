@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import imgui.ImGui;
+import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class DeskAppScreen {
 
 	private final String name;

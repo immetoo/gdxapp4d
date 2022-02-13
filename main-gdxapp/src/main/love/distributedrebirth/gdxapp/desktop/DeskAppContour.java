@@ -3,6 +3,9 @@ package love.distributedrebirth.gdxapp.desktop;
 import java.util.HashMap;
 import java.util.Map;
 
+import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
+
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class DeskAppContour {
 	
 	private final Map<DeskAppContourSection, DeskAppRenderer> renderers;

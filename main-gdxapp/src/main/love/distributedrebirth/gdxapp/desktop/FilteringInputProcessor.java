@@ -2,6 +2,9 @@ package love.distributedrebirth.gdxapp.desktop;
 
 import com.badlogic.gdx.InputProcessor;
 
+import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
+
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class FilteringInputProcessor implements InputProcessor {
 	
 	private final InputProcessor input;
