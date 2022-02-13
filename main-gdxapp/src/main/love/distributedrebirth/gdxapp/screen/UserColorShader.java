@@ -1,4 +1,4 @@
-package love.distributedrebirth.gdxapp.matrix4d;
+package love.distributedrebirth.gdxapp.screen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Camera;

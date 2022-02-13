@@ -2,6 +2,7 @@ package love.distributedrebirth.bassboonyd;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Consumer;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public interface BãßBȍőnCoffinOpenʸᴰ<T extends BãßBȍőnCoffinStoreKeyʸᴰ> extends BãßBȍőnCoffinʸᴰ<T>, DefaultInitMethodʸᴰ {
@@ -16,6 +17,19 @@ public interface BãßBȍőnCoffinOpenʸᴰ<T extends BãßBȍőnCoffinStoreKey�
 	
 	default void PUT_LIST(T key) {
 		PUT_OBJ(key, new HashMap<>());
+	}
+	
+	static <T extends DefaultEnumBaseʸᴰ<?> & BãßBȍőnCoffinStoreʸᴰ<?>> void lockCoffin(T store) {
+		lockCoffin(store, v -> System.out.println(v));
+	}
+	
+	static <T extends DefaultEnumBaseʸᴰ<?> & BãßBȍőnCoffinStoreʸᴰ<?>>  void lockCoffin(T store, Consumer<String> logHandler) {
+		logHandler.accept("Lock: "+store.BãßClassNaam()+" since: "+store.BãßAuthorCopyright());
+		for (Object o:store.BãßInstances()) {
+			BãßBȍőnCoffinStoreʸᴰ<?> coffin = BãßBȍőnCoffinStoreʸᴰ.class.cast(o);
+			BãßBȍőnCoffinOpenʸᴰ<?> coffinOpen = BãßBȍőnCoffinOpenʸᴰ.class.cast(coffin.GET_BBC());
+			coffinOpen.LOCK_COFFIN();
+		}
 	}
 	
 	static <Y extends BãßBȍőnCoffinStoreKeyʸᴰ> BãßBȍőnCoffinOpenʸᴰ<Y> newInstance() {

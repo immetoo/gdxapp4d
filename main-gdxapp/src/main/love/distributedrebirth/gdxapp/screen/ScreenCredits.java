@@ -74,7 +74,7 @@ public class ScreenCredits extends AbstractScrollScreen {
 
 	@Override
 	protected Class<? extends Screen> getNextScreen(GDXAppMain main) {
-		return ScreenDefault.class;
+		return ScreenDesktop0.class;
 	}
 	
 	@Override

@@ -1,5 +1,6 @@
 package love.distributedrebirth.gdxapp;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -7,33 +8,37 @@ import java.util.Map;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
 
 import imgui.ImGui;
+import imgui.flag.ImGuiCond;
+import imgui.flag.ImGuiWindowFlags;
 import imgui.type.ImBoolean;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
-import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinStoreʸᴰ;
 import love.distributedrebirth.bassboonyd.jmx.DefaultEnumBaseᴶᴹˣ;
-import love.distributedrebirth.gdxapp.matrix4d.ScreenMatrix4D;
+import love.distributedrebirth.gdxapp.desktop.DeskApp;
+import love.distributedrebirth.gdxapp.desktop.DeskAppContourSection;
+import love.distributedrebirth.gdxapp.desktop.DeskAppRenderer;
+import love.distributedrebirth.gdxapp.desktop.apps.BasicConsoleApp;
+import love.distributedrebirth.gdxapp.desktop.apps.HebrewWalletApp;
+import love.distributedrebirth.gdxapp.desktop.apps.MusicPlayerApp;
+import love.distributedrebirth.gdxapp.desktop.apps.SystemBaseGlyphApp;
+import love.distributedrebirth.gdxapp.desktop.apps.SystemBasePartApp;
 import love.distributedrebirth.gdxapp.music.MusicManager;
-import love.distributedrebirth.gdxapp.music.MusicPlayerRenderer;
 import love.distributedrebirth.gdxapp.music.MusicSongType;
-import love.distributedrebirth.gdxapp.screen.SystemBasePartRenderer;
-import love.distributedrebirth.gdxapp.screen.BasicConsoleRenderer;
-import love.distributedrebirth.gdxapp.screen.HebrewWalletRenderer;
 import love.distributedrebirth.gdxapp.screen.ScreenCredits;
-import love.distributedrebirth.gdxapp.screen.ScreenDefault;
+import love.distributedrebirth.gdxapp.screen.ScreenDesktop0;
+import love.distributedrebirth.gdxapp.screen.ScreenDesktop1;
+import love.distributedrebirth.gdxapp.screen.ScreenDesktop2;
+import love.distributedrebirth.gdxapp.screen.ScreenDesktop3;
 import love.distributedrebirth.gdxapp.screen.ScreenHelp;
 import love.distributedrebirth.gdxapp.screen.ScreenIntro;
 import love.distributedrebirth.gdxapp.screen.ScreenIntroMission;
 import love.distributedrebirth.gdxapp.screen.ScreenLoading;
-import love.distributedrebirth.gdxapp.screen.ScreenUnicode4D;
-import love.distributedrebirth.gdxapp.screen.SystemBaseGlyphRenderer;
 import love.distributedrebirth.numberxd.base2t.Base2PartsFactory;
 import love.distributedrebirth.numberxd.base2t.Base2Terminator;
 import love.distributedrebirth.numberxd.base2t.part.warp.TOSWarpCore;
@@ -58,13 +63,9 @@ public class GDXAppMain extends Game {
 	public MusicManager music;
 	
 	private Map<Class<? extends Screen>,Screen> screens;
-	private Map<Class<? extends ImGuiRenderer>,ImGuiRenderer> widgets;
+	private List<GDXAppLauncher> apps;
+	private ImBoolean openWindowFlag = new ImBoolean(true);
 	private ImBoolean showImGuiDemo = new ImBoolean(false);
-	private ImBoolean showMusicPlayer = new ImBoolean(false);
-	private ImBoolean showHebrewWallet = new ImBoolean(false);
-	private ImBoolean showSystemBasePart = new ImBoolean(false);
-	private ImBoolean showSystemGlyphPart = new ImBoolean(false);
-	private ImBoolean showBasicConsole = new ImBoolean(false);
 	
 	public GDXAppMain(List<String> args, int viewWidth, int viewHeight, NativeFileChooser fileChooser) {
 		this.args = args;
@@ -84,15 +85,6 @@ public class GDXAppMain extends Game {
 		};
 	}
 	
-	private <T extends DefaultEnumBaseᴶᴹˣ<?,?>> void lockCoffin(T store) {
-		System.out.println(store.BãßClassNaam()+".authorCopyright: "+store.BãßAuthorCopyright());
-		for (Object o:store.BãßInstances()) {
-			BãßBȍőnCoffinStoreʸᴰ<?> coffin = BãßBȍőnCoffinStoreʸᴰ.class.cast(o);
-			BãßBȍőnCoffinOpenʸᴰ<?> coffinOpen = BãßBȍőnCoffinOpenʸᴰ.class.cast(coffin.GET_BBC());
-			coffinOpen.LOCK_COFFIN();
-		}
-	}
-	
 	private void lazyInit() {
 		if (lazyIntCnt > 0) {
 			lazyIntCnt--;
@@ -103,7 +95,7 @@ public class GDXAppMain extends Game {
 		// ref to init
 		System.out.println("BãßBȍőnCoffinʸᴰ init......");
 		for (DefaultEnumBaseᴶᴹˣ<?,?> coffin:coffinInstances()) {
-			lockCoffin(coffin);
+			BãßBȍőnCoffinOpenʸᴰ.lockCoffin(coffin);
 		}
 		System.out.println("BãßBȍőnCoffinʸᴰ init done.");
 		
@@ -122,6 +114,7 @@ public class GDXAppMain extends Game {
 			throw new RuntimeException(e);
 		}
 		if (!args.contains("warpcore-nolock")) {
+			System.out.println("warpcore-lock: BãßLockWarpCipher");
 			TOSWarpCore.INSTANCE.BãßLockWarpCipher();
 		} else {
 			System.out.println("warpcore-nolock: requested");
@@ -132,7 +125,7 @@ public class GDXAppMain extends Game {
 		}
 		if (args.contains("intro-skip")) {
 			System.out.println("intro-skip: requested");
-			selectScreen(ScreenDefault.class);
+			selectScreen(ScreenDesktop0.class);
 			music.play(MusicSongType.BACKGROUND);
 		} else {
 			selectScreen(ScreenIntro.class);
@@ -157,22 +150,22 @@ public class GDXAppMain extends Game {
 		music.init(musicStop);
 		
 		screens = new HashMap<>();
-		widgets = new HashMap<>();
-		
-		putWidget(new MusicPlayerRenderer(this));
-		putWidget(new HebrewWalletRenderer(this));
-		putWidget(new SystemBasePartRenderer(this));
-		putWidget(new SystemBaseGlyphRenderer(this));
-		putWidget(new BasicConsoleRenderer(this));
+		apps = new ArrayList<>();
+		apps.add(new GDXAppLauncher("Basic Console", () -> new BasicConsoleApp()));
+		apps.add(new GDXAppLauncher("Base Glyphs", () -> new SystemBaseGlyphApp()));
+		apps.add(new GDXAppLauncher("Base Parts", () -> new SystemBasePartApp()));
+		apps.add(new GDXAppLauncher("Hebrew Wallet", () -> new HebrewWalletApp()));
+		apps.add(new GDXAppLauncher("Music Player", () -> new MusicPlayerApp(this)));
 		
 		putScreen(new ScreenLoading(this));
 		putScreen(new ScreenIntro(this));
 		putScreen(new ScreenIntroMission(this));
-		putScreen(new ScreenDefault(this));
+		putScreen(new ScreenDesktop0(this));
+		putScreen(new ScreenDesktop1(this));
+		putScreen(new ScreenDesktop2());
+		putScreen(new ScreenDesktop3());
 		putScreen(new ScreenCredits(this));
 		putScreen(new ScreenHelp(this));
-		putScreen(new ScreenMatrix4D(this));
-		putScreen(new ScreenUnicode4D(this));
 		
 		selectScreen(ScreenLoading.class);
 	}
@@ -192,10 +185,6 @@ public class GDXAppMain extends Game {
 		screens.put(screen.getClass(), screen);
 	}
 	
-	private void putWidget(ImGuiRenderer widget) {
-		widgets.put(widget.getClass(), widget);
-	}
-	
 	public void selectScreen(Class<? extends Screen> screenClass) {
 		Screen screen = screens.get(screenClass);
 		if (screen == null) {
@@ -207,6 +196,9 @@ public class GDXAppMain extends Game {
 	@Override
 	public void render() {
 		ScreenUtils.clear(0f, 0f, 0f, 1f, true);
+		if (screen == null) {
+			return;
+		}
 		if (screen instanceof ScreenLoading) {
 			screen.render(Gdx.graphics.getDeltaTime());
 			lazyInit();
@@ -214,38 +206,41 @@ public class GDXAppMain extends Game {
 		}
 		ImGuiSetup.imGuiImp.newFrame();
 		ImGui.newFrame();
-		if (hasMainMenu()) {
-			renderMenu();
+		
+		GDXAppScreen appScreen = null;
+		if (screen instanceof GDXAppScreen) {
+			appScreen = GDXAppScreen.class.cast(screen);
+			renderMenu(appScreen);
 		}
 		if (showImGuiDemo.get()) {
 			ImGui.showDemoWindow(showImGuiDemo);
 		}
-		if (showMusicPlayer.get()) {
-			widgets.get(MusicPlayerRenderer.class).render(showMusicPlayer);
-		}
-		if (showHebrewWallet.get()) {
-			widgets.get(HebrewWalletRenderer.class).render(showHebrewWallet);
-		}
-		if (showSystemBasePart.get()) {
-			widgets.get(SystemBasePartRenderer.class).render(showSystemBasePart);
-		}
-		if (showSystemGlyphPart.get()) {
-			widgets.get(SystemBaseGlyphRenderer.class).render(showSystemGlyphPart);
-		}
-		if (showBasicConsole.get()) {
-			widgets.get(BasicConsoleRenderer.class).render(showBasicConsole);
+		if (appScreen != null && appScreen.getDeskAppScreen().getCurrentDeskApp() != null) {
+			int sizeFlags = ImGuiCond.Always;
+			ImGui.setNextWindowPos(5, 30, sizeFlags);
+			ImGui.setNextWindowSize(Gdx.graphics.getWidth() - 10, Gdx.graphics.getHeight() - 35, sizeFlags);
+			int windowFlags = ImGuiWindowFlags.NoMove | ImGuiWindowFlags.NoResize;
+			if (ImGui.begin(appScreen.getDeskAppScreen().getCurrentDeskApp().getName(), openWindowFlag, windowFlags)) {
+				DeskAppRenderer renderer = appScreen.getDeskAppScreen().getCurrentDeskApp().getContours().getContour(DeskAppContourSection.MAIN);
+				if (renderer != null) {
+					renderer.render();
+				}
+			}
+			if (openWindowFlag.get() == false) {
+				appScreen.getDeskAppScreen().setCurrentDeskApp(null);
+				openWindowFlag.set(true);
+			}
+			ImGui.end();
 		}
 		if (screen != null) {
 			screen.render(Gdx.graphics.getDeltaTime());
-		}
-		if (Gdx.input.isKeyPressed(Keys.ESCAPE)) {
-			selectScreen(ScreenDefault.class);
 		}
 		ImGui.render();
 		ImGuiSetup.imGuiGlImp.renderDrawData(ImGui.getDrawData());
 	}
 	
-	private void renderMenu() {
+	private void renderMenu(GDXAppScreen appScreen) {
+		DeskApp deskApp = appScreen.getDeskAppScreen().getCurrentDeskApp();
 		ImGui.beginMainMenuBar();
 		if (ImGui.beginMenu("Demo")) {
 			if (Gdx.graphics.isFullscreen()) {
@@ -257,12 +252,11 @@ public class GDXAppMain extends Game {
 					Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());
 				}
 			}
-			ImGui.separator();
-			if (ImGui.menuItem("Matrix4D")) {
-				selectScreen(ScreenMatrix4D.class);
-			}
-			if (ImGui.menuItem("Unicode4D")) {
-				selectScreen(ScreenUnicode4D.class);
+			if (ImGui.menuItem("Close")) {
+				if (deskApp != null) {
+					appScreen.getDeskAppScreen().removeDeskApp(deskApp);
+					appScreen.getDeskAppScreen().setCurrentDeskApp(null);
+				}
 			}
 			ImGui.separator();
 			if (ImGui.menuItem("Exit")) {
@@ -271,60 +265,99 @@ public class GDXAppMain extends Game {
 			}
 			ImGui.endMenu();
 		}
-		if (ImGui.beginMenu("Widgets")) {
-			if (ImGui.menuItem("ImGui Demo")) {
-				showImGuiDemo.set(true);
+		
+		if (deskApp != null) {
+			renderEditMenu(deskApp);
+		}
+		if (ImGui.beginMenu("Desktop")) {
+			if (ImGui.beginMenu("Start")) {
+				for (GDXAppLauncher launcher: apps) {
+					if (ImGui.menuItem(launcher.getName())) {
+						appScreen.getDeskAppScreen().addDeskApp(launcher.getLauncher().get());
+					}
+				}
+				ImGui.endMenu();
 			}
 			ImGui.separator();
-			if (ImGui.menuItem("Hebrew Wallet")) {
-				showHebrewWallet.set(true);
-			}
-			ImGui.separator();
-			if (ImGui.menuItem("Base Part")) {
-				showSystemBasePart.set(true);
-			}
-			if (ImGui.menuItem("Base Glyph")) {
-				showSystemGlyphPart.set(true);
-			}
-			ImGui.separator();
-			if (ImGui.menuItem("Basic Console")) {
-				showBasicConsole.set(true);
-			}
-			if (ImGui.menuItem("Music Player")) {
-				showMusicPlayer.set(true);
+			for (DeskApp app: appScreen.getDeskAppScreen().getDeskApps()) {
+				if (ImGui.menuItem(app.getName())) {
+					appScreen.getDeskAppScreen().setCurrentDeskApp(app);
+				}
 			}
 			ImGui.endMenu();
 		}
-		if (ImGui.beginMenu("Help")) {
+		if (ImGui.beginMenu("System")) {
+			if (ImGui.menuItem("Desktop0")) {
+				selectScreen(ScreenDesktop0.class);
+			}
+			if (ImGui.menuItem("Desktop1")) {
+				selectScreen(ScreenDesktop1.class);
+			}
+			if (ImGui.menuItem("Desktop2")) {
+				selectScreen(ScreenDesktop2.class);
+			}
+			if (ImGui.menuItem("Desktop3")) {
+				selectScreen(ScreenDesktop3.class);
+			}
+			ImGui.separator();
 			if (ImGui.menuItem("Credits")) {
 				selectScreen(ScreenCredits.class);
 			}
-			ImGui.separator();
 			if (ImGui.menuItem("Help")) {
 				selectScreen(ScreenHelp.class);
+			}
+			ImGui.separator();
+			if (ImGui.menuItem("ImGui Demo")) {
+				showImGuiDemo.set(true);
 			}
 			ImGui.endMenu();
 		}
 		ImGui.endMainMenuBar();
 	}
 	
-	private boolean hasMainMenu() {
-		Screen screen = getScreen();
-		if (screen == null) {
-			return false;
+	private void renderEditMenu(DeskApp deskApp) {
+		DeskAppRenderer editUndo = deskApp.getContours().getContour(DeskAppContourSection.EDIT_UNDO);
+		DeskAppRenderer editCopy = deskApp.getContours().getContour(DeskAppContourSection.EDIT_COPY);
+		DeskAppRenderer editSelect = deskApp.getContours().getContour(DeskAppContourSection.EDIT_SELECT);
+		DeskAppRenderer editFind = deskApp.getContours().getContour(DeskAppContourSection.EDIT_FIND);
+		DeskAppRenderer editOption = deskApp.getContours().getContour(DeskAppContourSection.EDIT_OPTION);
+		if (editUndo != null || editCopy != null || editSelect != null || editFind != null || editOption != null) {
+			boolean first = false;
+			if (ImGui.beginMenu("Edit")) {
+				if (editUndo != null) {
+					editUndo.render();
+					first = true;
+				} 
+				if (editCopy != null) {
+					if (first) {
+						ImGui.separator();
+					}
+					editCopy.render();
+					first = true;
+				}
+				if (editSelect != null) {
+					if (first) {
+						ImGui.separator();
+					}
+					editSelect.render();
+					first = true;
+				}
+				if (editFind != null) {
+					if (first) {
+						ImGui.separator();
+					}
+					editFind.render();
+					first = true;
+				}
+				if (editOption != null) {
+					if (first) {
+						ImGui.separator();
+					}
+					editOption.render();
+					first = true;
+				}
+				ImGui.endMenu();
+			}
 		}
-		if (ScreenIntro.class.equals(screen.getClass())) {
-			return false;
-		}
-		if (ScreenIntroMission.class.equals(screen.getClass())) {
-			return false;
-		}
-		if (ScreenCredits.class.equals(screen.getClass())) {
-			return false;
-		}
-		if (ScreenHelp.class.equals(screen.getClass())) {
-			return false;
-		}
-		return true;
 	}
 }

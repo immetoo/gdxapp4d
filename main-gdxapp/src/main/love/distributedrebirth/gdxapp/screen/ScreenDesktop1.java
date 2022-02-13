@@ -6,15 +6,19 @@ import com.badlogic.gdx.graphics.Texture;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.gdxapp.GDXAppMain;
+import love.distributedrebirth.gdxapp.GDXAppScreen;
+import love.distributedrebirth.gdxapp.desktop.DeskAppScreen;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public class ScreenDefault extends ScreenAdapter {
+public class ScreenDesktop1 extends ScreenAdapter implements GDXAppScreen {
 	private final GDXAppMain main;
+	private DeskAppScreen deskAppScreen;
 	private Texture backgroundImage;
 	
-	public ScreenDefault(final GDXAppMain main) {
+	public ScreenDesktop1(final GDXAppMain main) {
 		this.main = main;
-		backgroundImage = new Texture(Gdx.files.internal("background/terrydavis-front.png"));
+		deskAppScreen = new DeskAppScreen("Desktop1");
+		backgroundImage = new Texture(Gdx.files.internal("background/terrydavis-nose.png"));
 	}
 	
 	@Override
@@ -27,5 +31,10 @@ public class ScreenDefault extends ScreenAdapter {
 	@Override
 	public void dispose() {
 		backgroundImage.dispose();
+	}
+
+	@Override
+	public DeskAppScreen getDeskAppScreen() {
+		return deskAppScreen;
 	}
 }

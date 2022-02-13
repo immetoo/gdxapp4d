@@ -2,5 +2,9 @@ package love.distributedrebirth.gdxapp.desktop;
 
 public interface DeskApp {
 
-	void create(DeskAppContour contour);
+	String getName();
+	
+	String getIcon();
+	
+	DeskAppContour getContours();
 }

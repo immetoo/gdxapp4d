@@ -50,9 +50,8 @@ public enum TOSWarpCore implements DefaultEnumInstanceᴶᴹˣ<TOSWarpCore,MBean
 	public void BãßLockWarpCipher() {
 		armedWarpCipherLock.setValueBoolean(true);
 		for (int base:Base2PartsFactory.INSTANCE.BãßBases()) {
-			for (BãßBȍőnPartʸᴰ<?> part:Base2PartsFactory.INSTANCE.BãßBuildPartsByBase(base)) {
-				BãßBȍőnCoffinOpenʸᴰ.class.cast(part.GET_BBC()).LOCK_COFFIN();
-			}
+			BãßBȍőnPartʸᴰ<?>[] parts = Base2PartsFactory.INSTANCE.BãßBuildPartsByBase(base);
+			BãßBȍőnCoffinOpenʸᴰ.lockCoffin(parts[0]);
 		}
 	}
 	
