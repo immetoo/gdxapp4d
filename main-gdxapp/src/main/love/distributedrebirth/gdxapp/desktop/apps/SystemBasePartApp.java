@@ -51,22 +51,20 @@ public class SystemBasePartApp extends DefaultDeskApp implements DeskAppRenderer
 		ImGui.text(baseParts[0].BãßClassPurpose());
 		
 		int flags = ImGuiTableFlags.ScrollX | ImGuiTableFlags.RowBg | ImGuiTableFlags.BordersOuter | ImGuiTableFlags.BordersV;
-		ImGui.beginTable("base-part", 21, flags);
+		ImGui.beginTable("base-part", 19, flags);
 		ImGui.tableSetupColumn("BȍőnNaam");
 		ImGui.tableSetupColumn("TelNul");
 		ImGui.tableSetupColumn("TelEen");
 		ImGui.tableSetupColumn("Tone");
 		ImGui.tableSetupColumn("10Tone");
-		ImGui.tableSetupColumn("10Kor");
-		ImGui.tableSetupColumn("10DTMF");
 		ImGui.tableSetupColumn("16Tone");
 		ImGui.tableSetupColumn("16Kor");
 		ImGui.tableSetupColumn("16LatB");
-		ImGui.tableSetupColumn("36Tone");
-		ImGui.tableSetupColumn("36Kor");
-		ImGui.tableSetupColumn("36LatB");
-		ImGui.tableSetupColumn("36Gre");
-		ImGui.tableSetupColumn("36Heb");
+		ImGui.tableSetupColumn("27Tone");
+		ImGui.tableSetupColumn("27Kor");
+		ImGui.tableSetupColumn("27LatB");
+		ImGui.tableSetupColumn("27Gre");
+		ImGui.tableSetupColumn("27Beng");
 		ImGui.tableSetupColumn("prcK");
 		ImGui.tableSetupColumn("prcV");
 		ImGui.tableSetupColumn("Alt1");
@@ -88,10 +86,6 @@ public class SystemBasePartApp extends DefaultDeskApp implements DeskAppRenderer
 			ImGui.tableNextColumn();
 			ImGui.text(part.BȍőnPrintGlyphSetNumber10(BaseGlyphSet.TONE_SCRIPT));
 			ImGui.tableNextColumn();
-			ImGui.text(part.BȍőnPrintGlyphSetNumber10(BaseGlyphSet.KOREAN));
-			ImGui.tableNextColumn();
-			ImGui.text(part.BȍőnPrintGlyphSetNumber10(BaseGlyphSet.LATIN_DTMF));
-			ImGui.tableNextColumn();
 			ImGui.text(part.BȍőnPrintGlyphSetNumber16(BaseGlyphSet.TONE_SCRIPT));
 			ImGui.tableNextColumn();
 			ImGui.text(part.BȍőnPrintGlyphSetNumber16(BaseGlyphSet.KOREAN));
@@ -106,7 +100,7 @@ public class SystemBasePartApp extends DefaultDeskApp implements DeskAppRenderer
 			ImGui.tableNextColumn();
 			ImGui.text(part.BȍőnPrintGlyphSetNumber27(BaseGlyphSet.GREEK));
 			ImGui.tableNextColumn();
-			ImGui.text(part.BȍőnPrintGlyphSetNumber27(BaseGlyphSet.HEBREW));
+			ImGui.text(part.BȍőnPrintGlyphSetNumber27(BaseGlyphSet.BENGALI));
 			ImGui.tableNextColumn();
 			ImGui.text(part.BȍőnChinaKey());
 			ImGui.tableNextColumn();
