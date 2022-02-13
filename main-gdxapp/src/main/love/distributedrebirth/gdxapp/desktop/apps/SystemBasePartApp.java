@@ -5,6 +5,7 @@ import java.util.List;
 
 import imgui.ImGui;
 import imgui.flag.ImGuiTableFlags;
+import imgui.type.ImBoolean;
 import imgui.type.ImInt;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.gdxapp.desktop.DefaultDeskApp;
@@ -22,6 +23,9 @@ import love.distributedrebirth.numberxd.glyph.BaseGlyphSet;
 public class SystemBasePartApp extends DefaultDeskApp implements DeskAppRenderer {
 
 	private ImInt selectedBasePart = new ImInt();
+	private final ImBoolean showBase10 = new ImBoolean(false);
+	private final ImBoolean showBase16 = new ImBoolean(false);
+	private final ImBoolean showBase27 = new ImBoolean(false);
 	
 	public SystemBasePartApp() {
 		super("Base Parts", "");
@@ -50,21 +54,46 @@ public class SystemBasePartApp extends DefaultDeskApp implements DeskAppRenderer
 		ImGui.sameLine();
 		ImGui.text(baseParts[0].BãßClassPurpose());
 		
+		ImGui.checkbox("Show base10", showBase10);
+		ImGui.checkbox("Show base16", showBase16);
+		ImGui.checkbox("Show base27", showBase27);
+		
+		int columns = 10;
+		if (showBase10.get()) {
+			columns += 4;
+		}
+		if (showBase16.get()) {
+			columns += 4;
+		}
+		if (showBase27.get()) {
+			columns += 5;
+		}
+		
 		int flags = ImGuiTableFlags.ScrollX | ImGuiTableFlags.RowBg | ImGuiTableFlags.BordersOuter | ImGuiTableFlags.BordersV;
-		ImGui.beginTable("base-part", 19, flags);
+		ImGui.beginTable("base-part", columns, flags);
 		ImGui.tableSetupColumn("BȍőnNaam");
 		ImGui.tableSetupColumn("TelNul");
 		ImGui.tableSetupColumn("TelEen");
 		ImGui.tableSetupColumn("Tone");
-		ImGui.tableSetupColumn("10Tone");
-		ImGui.tableSetupColumn("16Tone");
-		ImGui.tableSetupColumn("16Kor");
-		ImGui.tableSetupColumn("16LatB");
-		ImGui.tableSetupColumn("27Tone");
-		ImGui.tableSetupColumn("27Kor");
-		ImGui.tableSetupColumn("27LatB");
-		ImGui.tableSetupColumn("27Gre");
-		ImGui.tableSetupColumn("27Beng");
+		if (showBase10.get()) {
+			ImGui.tableSetupColumn("10Tone");
+			ImGui.tableSetupColumn("10Kor");
+			ImGui.tableSetupColumn("10Beng");
+			ImGui.tableSetupColumn("10Arab");
+		}
+		if (showBase16.get()) {
+			ImGui.tableSetupColumn("16Tone");
+			ImGui.tableSetupColumn("16Kor");
+			ImGui.tableSetupColumn("16Runi");
+			ImGui.tableSetupColumn("16LatB");
+		}
+		if (showBase27.get()) {
+			ImGui.tableSetupColumn("27Tone");
+			ImGui.tableSetupColumn("27Kor");
+			ImGui.tableSetupColumn("27LatB");
+			ImGui.tableSetupColumn("27Gre");
+			ImGui.tableSetupColumn("27Mala");
+		}
 		ImGui.tableSetupColumn("prcK");
 		ImGui.tableSetupColumn("prcV");
 		ImGui.tableSetupColumn("Alt1");
@@ -83,24 +112,38 @@ public class SystemBasePartApp extends DefaultDeskApp implements DeskAppRenderer
 			ImGui.text(Integer.toString(part.BȍőnRangTelEen()));
 			ImGui.tableNextColumn();
 			ImGui.text(part.BȍőnDialTone());
-			ImGui.tableNextColumn();
-			ImGui.text(part.BȍőnPrintGlyphSetNumber10(BaseGlyphSet.TONE_SCRIPT));
-			ImGui.tableNextColumn();
-			ImGui.text(part.BȍőnPrintGlyphSetNumber16(BaseGlyphSet.TONE_SCRIPT));
-			ImGui.tableNextColumn();
-			ImGui.text(part.BȍőnPrintGlyphSetNumber16(BaseGlyphSet.KOREAN));
-			ImGui.tableNextColumn();
-			ImGui.text(part.BȍőnPrintGlyphSetNumber16(BaseGlyphSet.LATIN_BASIC));
-			ImGui.tableNextColumn();
-			ImGui.text(part.BȍőnPrintGlyphSetNumber27(BaseGlyphSet.TONE_SCRIPT));
-			ImGui.tableNextColumn();
-			ImGui.text(part.BȍőnPrintGlyphSetNumber27(BaseGlyphSet.KOREAN));
-			ImGui.tableNextColumn();
-			ImGui.text(part.BȍőnPrintGlyphSetNumber27(BaseGlyphSet.LATIN_BASIC));
-			ImGui.tableNextColumn();
-			ImGui.text(part.BȍőnPrintGlyphSetNumber27(BaseGlyphSet.GREEK));
-			ImGui.tableNextColumn();
-			ImGui.text(part.BȍőnPrintGlyphSetNumber27(BaseGlyphSet.BENGALI));
+			if (showBase10.get()) {
+				ImGui.tableNextColumn();
+				ImGui.text(part.BȍőnPrintGlyphSetNumber10(BaseGlyphSet.TONE_SCRIPT));
+				ImGui.tableNextColumn();
+				ImGui.text(part.BȍőnPrintGlyphSetNumber10(BaseGlyphSet.KOREAN));
+				ImGui.tableNextColumn();
+				ImGui.text(part.BȍőnPrintGlyphSetNumber10(BaseGlyphSet.BENGALI));
+				ImGui.tableNextColumn();
+				ImGui.text(part.BȍőnPrintGlyphSetNumber10(BaseGlyphSet.ARABIC));
+			}
+			if (showBase16.get()) {
+				ImGui.tableNextColumn();
+				ImGui.text(part.BȍőnPrintGlyphSetNumber16(BaseGlyphSet.TONE_SCRIPT));
+				ImGui.tableNextColumn();
+				ImGui.text(part.BȍőnPrintGlyphSetNumber16(BaseGlyphSet.KOREAN));
+				ImGui.tableNextColumn();
+				ImGui.text(part.BȍőnPrintGlyphSetNumber16(BaseGlyphSet.RUNIC));
+				ImGui.tableNextColumn();
+				ImGui.text(part.BȍőnPrintGlyphSetNumber16(BaseGlyphSet.LATIN_BASIC));
+			}
+			if (showBase27.get()) {
+				ImGui.tableNextColumn();
+				ImGui.text(part.BȍőnPrintGlyphSetNumber27(BaseGlyphSet.TONE_SCRIPT));
+				ImGui.tableNextColumn();
+				ImGui.text(part.BȍőnPrintGlyphSetNumber27(BaseGlyphSet.KOREAN));
+				ImGui.tableNextColumn();
+				ImGui.text(part.BȍőnPrintGlyphSetNumber27(BaseGlyphSet.LATIN_BASIC));
+				ImGui.tableNextColumn();
+				ImGui.text(part.BȍőnPrintGlyphSetNumber27(BaseGlyphSet.GREEK));
+				ImGui.tableNextColumn();
+				ImGui.text(part.BȍőnPrintGlyphSetNumber27(BaseGlyphSet.MALAYALAM));
+			}
 			ImGui.tableNextColumn();
 			ImGui.text(part.BȍőnChinaKey());
 			ImGui.tableNextColumn();

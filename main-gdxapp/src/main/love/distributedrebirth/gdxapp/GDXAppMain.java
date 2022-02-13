@@ -401,7 +401,7 @@ public class GDXAppMain extends Game {
 			if (ImGui.menuItem("ImGui Demo")) {
 				showImGuiDemo.set(true);
 			}
-			if (ImGui.menuItem("Exit")) {
+			if (ImGui.menuItem("Shutdown")) {
 				dispose();
 				System.exit(0);
 			}
