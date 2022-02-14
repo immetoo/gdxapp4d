@@ -88,12 +88,12 @@ public enum BaseGlyphSet implements DefaultEnumSetᴶᴹˣ<BaseGlyphSet,BãßBȍ
 	*/
 	/* TODO: Egyptian hieroglyphs should be mapped 0x13000 to 0x1342E but for now on 0xE000 to 0xE42E (BMP) */
 	HIERO(
-			new BaseGlyphSetNumber("\ue429","\ue3fa","\ue3fb","\ue3fc","\ue3fd","\ue3fe","\ue3ff","\ue400","\ue401","\ue401"),
-			new BaseGlyphSetNumber("\ue254","\ue255","\ue256","\ue257","\ue258","\ue259","\ue25a","\ue25b","\ue25c","\ue25d","\ue25e","\ue25f","\ue260","\ue261","\ue262","\ue263"),
+			new BaseGlyphSetNumber("\ue429","\ue3fa","\ue3fb","\ue3fc","\ue3fd","\ue3fe","\ue3ff","\ue400","\ue401","\ue401").withSeperator(BãßBȍőnConstantsʸᴰ.STR_SPACE),
+			new BaseGlyphSetNumber("\ue254","\ue255","\ue256","\ue257","\ue258","\ue259","\ue25a","\ue25b","\ue25c","\ue25d","\ue25e","\ue25f","\ue260","\ue261","\ue262","\ue263").withSeperator(BãßBȍőnConstantsʸᴰ.STR_SPACE),
 			new BaseGlyphSetNumber(
 					"\ue3fa","\ue3fb","\ue3fc","\ue3fd","\ue3fe","\ue3ff","\ue400","\ue401","\ue401",
 					"\ue386","\ue387","\ue388","\ue389","\ue38a","\ue38b","\ue38c","\ue38d","\ue38e",
-					"\ue362","\ue363","\ue364","\ue365","\ue366","\ue367","\ue368","\ue369","\ue36a")
+					"\ue362","\ue363","\ue364","\ue365","\ue366","\ue367","\ue368","\ue369","\ue36a").withSeperator(BãßBȍőnConstantsʸᴰ.STR_SPACE)
 			),
 	RUNIC(
 			new BaseGlyphSetNumber("ᛰ","ᚠ","ᚢ","ᚦ","ᚬ","ᚱ","ᚴ","ᚼ","ᚾ","ᛁ"),

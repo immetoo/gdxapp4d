@@ -32,10 +32,10 @@ import love.distributedrebirth.gdxapp.desktop.apps.Unicode4DApp;
 import love.distributedrebirth.gdxapp.music.MusicManager;
 import love.distributedrebirth.gdxapp.music.MusicSongType;
 import love.distributedrebirth.gdxapp.screen.ScreenCredits;
-import love.distributedrebirth.gdxapp.screen.ScreenDesktop0;
 import love.distributedrebirth.gdxapp.screen.ScreenDesktop1;
 import love.distributedrebirth.gdxapp.screen.ScreenDesktop2;
 import love.distributedrebirth.gdxapp.screen.ScreenDesktop3;
+import love.distributedrebirth.gdxapp.screen.ScreenDesktop4;
 import love.distributedrebirth.gdxapp.screen.ScreenHelp;
 import love.distributedrebirth.gdxapp.screen.ScreenIntro;
 import love.distributedrebirth.gdxapp.screen.ScreenIntroMission;
@@ -65,10 +65,10 @@ public class GDXAppMain extends Game {
 	
 	private Map<Class<? extends Screen>,Screen> screens;
 	private List<GDXAppLauncher> apps;
-	private GDXAppScreen desktop0;
 	private GDXAppScreen desktop1;
 	private GDXAppScreen desktop2;
 	private GDXAppScreen desktop3;
+	private GDXAppScreen desktop4;
 	private ImBoolean openWindowFlag = new ImBoolean(true);
 	private ImBoolean showImGuiDemo = new ImBoolean(false);
 	
@@ -130,7 +130,7 @@ public class GDXAppMain extends Game {
 		}
 		if (args.contains("intro-skip")) {
 			System.out.println("intro-skip: requested");
-			selectScreen(ScreenDesktop0.class);
+			selectScreen(ScreenDesktop1.class);
 			music.play(MusicSongType.BACKGROUND);
 		} else {
 			selectScreen(ScreenIntro.class);
@@ -163,18 +163,18 @@ public class GDXAppMain extends Game {
 		apps.add(new GDXAppLauncher("Unicode4D", () -> new Unicode4DApp()));
 		apps.add(new GDXAppLauncher("Music Player", () -> new MusicPlayerApp(this)));
 		
-		desktop0 = new ScreenDesktop0(this);
 		desktop1 = new ScreenDesktop1(this);
-		desktop2 = new ScreenDesktop2();
+		desktop2 = new ScreenDesktop2(this);
 		desktop3 = new ScreenDesktop3();
+		desktop4 = new ScreenDesktop4();
 		
 		putScreen(new ScreenLoading(this));
 		putScreen(new ScreenIntro(this));
 		putScreen(new ScreenIntroMission(this));
-		putScreen(desktop0);
 		putScreen(desktop1);
 		putScreen(desktop2);
 		putScreen(desktop3);
+		putScreen(desktop4);
 		putScreen(new ScreenCredits(this));
 		putScreen(new ScreenHelp(this));
 		
@@ -312,13 +312,10 @@ public class GDXAppMain extends Game {
 			}
 			ImGui.separator();
 			
-			String infix0 = "";
 			String infix1 = "";
 			String infix2 = "";
 			String infix3 = "";
-			if (appScreen instanceof ScreenDesktop0) {
-				infix0 = "=> ";
-			}
+			String infix4 = "";
 			if (appScreen instanceof ScreenDesktop1) {
 				infix1 = "=> ";
 			}
@@ -328,18 +325,8 @@ public class GDXAppMain extends Game {
 			if (appScreen instanceof ScreenDesktop3) {
 				infix3 = "=> ";
 			}
-			if (ImGui.beginMenu(infix0+"Desktop0")) {
-				if (ImGui.menuItem("Main reality")) {
-					selectScreen(ScreenDesktop0.class);
-					desktop0.getDeskAppScreen().setCurrentDeskApp(null);
-				}
-				for (DeskApp app: desktop0.getDeskAppScreen().getDeskApps()) {
-					if (ImGui.menuItem(app.getName())) {
-						selectScreen(ScreenDesktop0.class);
-						desktop0.getDeskAppScreen().setCurrentDeskApp(app);
-					}
-				}
-				ImGui.endMenu();
+			if (appScreen instanceof ScreenDesktop4) {
+				infix4 = "=> ";
 			}
 			if (ImGui.beginMenu(infix1+"Desktop1")) {
 				if (ImGui.menuItem("Main reality")) {
@@ -376,6 +363,19 @@ public class GDXAppMain extends Game {
 					if (ImGui.menuItem(app.getName())) {
 						selectScreen(ScreenDesktop3.class);
 						desktop3.getDeskAppScreen().setCurrentDeskApp(app);
+					}
+				}
+				ImGui.endMenu();
+			}
+			if (ImGui.beginMenu(infix4+"Desktop4")) {
+				if (ImGui.menuItem("Main reality")) {
+					selectScreen(ScreenDesktop4.class);
+					desktop4.getDeskAppScreen().setCurrentDeskApp(null);
+				}
+				for (DeskApp app: desktop4.getDeskAppScreen().getDeskApps()) {
+					if (ImGui.menuItem(app.getName())) {
+						selectScreen(ScreenDesktop4.class);
+						desktop4.getDeskAppScreen().setCurrentDeskApp(app);
 					}
 				}
 				ImGui.endMenu();

@@ -57,7 +57,7 @@ public class ScreenHelp extends AbstractScrollScreen {
 
 	@Override
 	protected Class<? extends Screen> getNextScreen(GDXAppMain main) {
-		return ScreenDesktop0.class;
+		return ScreenDesktop1.class;
 	}
 	
 	@Override

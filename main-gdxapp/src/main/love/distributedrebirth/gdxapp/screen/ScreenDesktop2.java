@@ -1,30 +1,40 @@
 package love.distributedrebirth.gdxapp.screen;
 
-import com.badlogic.gdx.graphics.VertexAttributes.Usage;
-import com.badlogic.gdx.graphics.g3d.Material;
-import com.badlogic.gdx.graphics.g3d.Model;
-import com.badlogic.gdx.graphics.g3d.ModelInstance;
-import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
-import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
-import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.ScreenAdapter;
+import com.badlogic.gdx.graphics.Texture;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
+import love.distributedrebirth.gdxapp.GDXAppMain;
+import love.distributedrebirth.gdxapp.GDXAppScreen;
+import love.distributedrebirth.gdxapp.desktop.DeskAppScreen;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public class ScreenDesktop2 extends AbstractScreenDesktop {
-	private Model grid;
+public class ScreenDesktop2 extends ScreenAdapter implements GDXAppScreen {
+	private final GDXAppMain main;
+	private DeskAppScreen deskAppScreen;
+	private Texture backgroundImage;
 	
-	public ScreenDesktop2() {
-		super("Desktop2");
-	}
-	
-	protected void createModel(ModelBuilder modelBuilder, Array<ModelInstance> modelInstances) {
-		grid = modelBuilder.createLineGrid(33, 33, 1f, 1f, new Material(ColorAttribute.createDiffuse(1f,1f,1f,.1f)), Usage.Position | Usage.Normal);
-		modelInstances.add(new ModelInstance(grid, 0, 0, 0));
+	public ScreenDesktop2(final GDXAppMain main) {
+		this.main = main;
+		deskAppScreen = new DeskAppScreen("Desktop2");
+		backgroundImage = new Texture(Gdx.files.internal("background/terrydavis-nose.png"));
 	}
 	
 	@Override
-	protected void disposeDesktop() {
-		grid.dispose();
+	public void render(float delta) {
+		main.batch.begin();
+		main.batch.draw(backgroundImage, 0, 0, main.viewWidth, main.viewHeight);
+		main.batch.end();
+	}
+
+	@Override
+	public void dispose() {
+		backgroundImage.dispose();
+	}
+
+	@Override
+	public DeskAppScreen getDeskAppScreen() {
+		return deskAppScreen;
 	}
 }

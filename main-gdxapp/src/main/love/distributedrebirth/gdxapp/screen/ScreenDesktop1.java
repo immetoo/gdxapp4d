@@ -18,7 +18,7 @@ public class ScreenDesktop1 extends ScreenAdapter implements GDXAppScreen {
 	public ScreenDesktop1(final GDXAppMain main) {
 		this.main = main;
 		deskAppScreen = new DeskAppScreen("Desktop1");
-		backgroundImage = new Texture(Gdx.files.internal("background/terrydavis-nose.png"));
+		backgroundImage = new Texture(Gdx.files.internal("background/terrydavis-front.png"));
 	}
 	
 	@Override
