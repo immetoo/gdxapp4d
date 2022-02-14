@@ -8,7 +8,7 @@
     "conv0": "node conv-font.js ../main-gdxapp/assets/font/code2000.ttf > bin/code2000.xml",
     "conv1": "node conv-font.js ../main-gdxapp/assets/font/free-sans.ttf > bin/free-sans.xml",
     "conv2": "node conv-font.js ../main-gdxapp/assets/font/noto-sans-brahmi.ttf > bin/noto-sans-brahmi.xml",
-    "conv3": "node conv-font.js ../main-gdxapp/assets/font/new-gardiner.ttf > bin/new-gardiner.xml",
+    "conv3": "node conv-font.js ../main-gdxapp/assets/font/new-gardiner-bmp.ttf > bin/new-gardiner-bmp.xml",
     "debug": "node conv-font.js ../main-gdxapp/assets/font/free-sans.ttf"
   },
   "dependencies": {

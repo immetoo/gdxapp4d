@@ -76,7 +76,7 @@ public class SystemBaseGlyphApp extends DefaultDeskApp {
 		if (set.BȍőnNumber27() == null) {
 			return buf.toString();
 		}
-		for (int i=0;i<33;i++) {
+		for (int i=0;i<27;i++) {
 			buf.append(set.BȍőnPrintNumber27(i, 99));
 			buf.append(set.BȍőnNumber27().BȍőnCharSeperator());
 			buf.append(" ");

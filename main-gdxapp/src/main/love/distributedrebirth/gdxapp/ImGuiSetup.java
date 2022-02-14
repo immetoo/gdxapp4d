@@ -47,10 +47,13 @@ public class ImGuiSetup {
 		ImFontGlyphRangesBuilder fontBuilder = new ImFontGlyphRangesBuilder();
 		addRangeUnicodePlane0(fontBuilder);
 		final short[] glyphRanges = fontBuilder.buildRanges();
+		// Base font has almost everything
 		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/code2000.ttf").readBytes(), 22, fontConfig, glyphRanges);
 		fontConfig.setMergeMode(true);
-		// note: merges 148 chars, just for 3 sub chars for SUBHEX, but still missing 2 chars from T12 alt1 clock
+		// note: merges ~148 chars, just for 3 sub chars for SUBHEX, but still missing 2 chars from T12 alt1 clock
 		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/free-sans.ttf").readBytes(), 22, fontConfig, glyphRanges);
+		// Egyptian hieroglyphs
+		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/new-gardiner-bmp.ttf").readBytes(), 22, fontConfig, glyphRanges);
 		fontConfig.destroy();
 	}
 	
