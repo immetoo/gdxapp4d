@@ -5,19 +5,25 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class DefaultDeskApp implements DeskApp {
 	
-	private final String name;
-	private final String icon;
+	private String title;
+	private String icon;
 	private final DeskAppContour contours;
 
-	public DefaultDeskApp(String name, String icon) {
-		this.name = name;
-		this.icon = icon;
+	public DefaultDeskApp() {
 		this.contours = new DeskAppContour();
 	}
 	
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
 	@Override
-	public String getName() {
-		return name;
+	public String getTitle() {
+		return title;
+	}
+	
+	public void setIcon(String icon) {
+		this.icon = icon;
 	}
 	
 	@Override

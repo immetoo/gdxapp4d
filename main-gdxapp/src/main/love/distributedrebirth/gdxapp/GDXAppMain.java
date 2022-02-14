@@ -231,7 +231,7 @@ public class GDXAppMain extends Game {
 			ImGui.setNextWindowPos(5, 30, sizeFlags);
 			ImGui.setNextWindowSize(Gdx.graphics.getWidth() - 10, Gdx.graphics.getHeight() - 35, sizeFlags);
 			int windowFlags = ImGuiWindowFlags.NoMove | ImGuiWindowFlags.NoResize;
-			if (ImGui.begin(appScreen.getDeskAppScreen().getCurrentDeskApp().getName(), openWindowFlag, windowFlags)) {
+			if (ImGui.begin(appScreen.getDeskAppScreen().getCurrentDeskApp().getTitle(), openWindowFlag, windowFlags)) {
 				DeskAppRenderer renderer = appScreen.getDeskAppScreen().getCurrentDeskApp().getContours().getContour(DeskAppContourSection.MAIN);
 				if (renderer != null) {
 					renderer.render();
@@ -334,7 +334,7 @@ public class GDXAppMain extends Game {
 					desktop1.getDeskAppScreen().setCurrentDeskApp(null);
 				}
 				for (DeskApp app: desktop1.getDeskAppScreen().getDeskApps()) {
-					if (ImGui.menuItem(app.getName())) {
+					if (ImGui.menuItem(app.getTitle())) {
 						selectScreen(ScreenDesktop1.class);
 						desktop1.getDeskAppScreen().setCurrentDeskApp(app);
 					}
@@ -347,7 +347,7 @@ public class GDXAppMain extends Game {
 					desktop2.getDeskAppScreen().setCurrentDeskApp(null);
 				}
 				for (DeskApp app: desktop2.getDeskAppScreen().getDeskApps()) {
-					if (ImGui.menuItem(app.getName())) {
+					if (ImGui.menuItem(app.getTitle())) {
 						selectScreen(ScreenDesktop2.class);
 						desktop2.getDeskAppScreen().setCurrentDeskApp(app);
 					}
@@ -360,7 +360,7 @@ public class GDXAppMain extends Game {
 					desktop3.getDeskAppScreen().setCurrentDeskApp(null);
 				}
 				for (DeskApp app: desktop3.getDeskAppScreen().getDeskApps()) {
-					if (ImGui.menuItem(app.getName())) {
+					if (ImGui.menuItem(app.getTitle())) {
 						selectScreen(ScreenDesktop3.class);
 						desktop3.getDeskAppScreen().setCurrentDeskApp(app);
 					}
@@ -373,7 +373,7 @@ public class GDXAppMain extends Game {
 					desktop4.getDeskAppScreen().setCurrentDeskApp(null);
 				}
 				for (DeskApp app: desktop4.getDeskAppScreen().getDeskApps()) {
-					if (ImGui.menuItem(app.getName())) {
+					if (ImGui.menuItem(app.getTitle())) {
 						selectScreen(ScreenDesktop4.class);
 						desktop4.getDeskAppScreen().setCurrentDeskApp(app);
 					}

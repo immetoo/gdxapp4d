@@ -10,7 +10,7 @@ import love.distributedrebirth.gdxapp.desktop.DeskAppRenderer;
 public class BasicConsoleApp extends DefaultDeskApp {
 
 	public BasicConsoleApp() {
-		super("Basic Console", "");
+		setTitle("Basic Conssole");
 		getContours().registrateContour(DeskAppContourSection.MAIN, new DeskAppRenderer() {
 			
 			@Override

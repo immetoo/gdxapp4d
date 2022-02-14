@@ -1,5 +1,8 @@
 package love.distributedrebirth.gdxapp.desktop.apps;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
+
 import imgui.ImGui;
 import imgui.flag.ImGuiTableFlags;
 import imgui.type.ImBoolean;
@@ -14,21 +17,26 @@ public class SystemBaseGlyphApp extends DefaultDeskApp {
 	
 	private final ImBoolean showBase27 = new ImBoolean(false);
 	
+	private String getTxt(String key) {
+		ResourceBundle bundle = ResourceBundle.getBundle("love.distributedrebirth.gdxapp.Main", new Locale("en"));
+		return bundle.getString("SystemBaseGlyphApp."+key);
+	}
+	
 	public SystemBaseGlyphApp() {
-		super("Base Glyph Set", "");
+		setTitle(getTxt("title"));
 		getContours().registrateContour(DeskAppContourSection.MAIN, new DeskAppRenderer() {
 			
 			@Override
 			public void render() {
-				ImGui.checkbox("Show base27", showBase27);
+				ImGui.checkbox(getTxt("showBase27"), showBase27);
 				int flags = ImGuiTableFlags.ScrollX | ImGuiTableFlags.RowBg | ImGuiTableFlags.BordersOuter | ImGuiTableFlags.BordersV | ImGuiTableFlags.Resizable;
 				ImGui.beginTable("base-part", 3, flags);
-				ImGui.tableSetupColumn("Script");
-				ImGui.tableSetupColumn("10Numbers");
+				ImGui.tableSetupColumn(getTxt("colScript"));
+				ImGui.tableSetupColumn(getTxt("col10Num"));
 				if (showBase27.get()) {
-					ImGui.tableSetupColumn("27Numbers");
+					ImGui.tableSetupColumn(getTxt("col27Num"));
 				} else {
-					ImGui.tableSetupColumn("16Numbers");
+					ImGui.tableSetupColumn(getTxt("col16Num"));
 				}
 				ImGui.tableHeadersRow();
 				for (BaseGlyphSet set:BaseGlyphSet.values()) {

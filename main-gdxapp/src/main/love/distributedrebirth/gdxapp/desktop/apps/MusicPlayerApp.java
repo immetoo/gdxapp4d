@@ -28,7 +28,7 @@ public class MusicPlayerApp extends DefaultDeskApp implements DeskAppRenderer {
 	private final NativeFileChooserConfiguration fileChooserConfig;
 	
 	public MusicPlayerApp(GDXAppMain main) {
-		super("Music Player", "");
+		setTitle("Music Player");
 		getContours().registrateContour(DeskAppContourSection.MAIN, this);
 		getContours().registrateContour(DeskAppContourSection.FILE_NEW, new DeskAppRenderer() {
 

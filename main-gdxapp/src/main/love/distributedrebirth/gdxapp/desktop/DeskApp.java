@@ -5,7 +5,7 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public interface DeskApp {
 
-	String getName();
+	String getTitle();
 	
 	String getIcon();
 	

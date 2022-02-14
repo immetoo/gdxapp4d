@@ -54,7 +54,7 @@ public class DeskAppScreen {
 	
 	public final void renderMenu() {
 		for (DeskApp app: deskApps) {
-			if (ImGui.menuItem(app.getName())) {
+			if (ImGui.menuItem(app.getTitle())) {
 				//selectScreen(....class);
 			}
 		}

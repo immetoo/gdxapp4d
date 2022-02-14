@@ -2,6 +2,8 @@ package love.distributedrebirth.gdxapp.desktop.apps;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 import imgui.ImGui;
 import imgui.flag.ImGuiTableFlags;
@@ -27,8 +29,13 @@ public class SystemBasePartApp extends DefaultDeskApp implements DeskAppRenderer
 	private final ImBoolean showBase16 = new ImBoolean(false);
 	private final ImBoolean showBase27 = new ImBoolean(false);
 	
+	private String getTxt(String key) {
+		ResourceBundle bundle = ResourceBundle.getBundle("love.distributedrebirth.gdxapp.Main", new Locale("en"));
+		return bundle.getString("SystemBasePartApp."+key);
+	}
+	
 	public SystemBasePartApp() {
-		super("Base Parts", "");
+		setTitle(getTxt("title"));
 		getContours().registrateContour(DeskAppContourSection.MAIN, this);
 	}
 
@@ -44,19 +51,19 @@ public class SystemBasePartApp extends DefaultDeskApp implements DeskAppRenderer
 		Integer baseNumber = Integer.valueOf(selectedItem);
 		BãßBȍőnPartʸᴰ<?>[] baseParts = Base2PartsFactory.INSTANCE.BãßBuildPartsByBase(baseNumber);
 		
-		ImGui.combo("Base", selectedBasePart, items);
+		ImGui.combo(getTxt("selectBase"), selectedBasePart, items);
 		
-		ImGui.text("Name:");
+		ImGui.text(getTxt("selectName"));
 		ImGui.sameLine();
 		ImGui.text(baseParts[0].BãßClassNaam());
 		
-		ImGui.text("Purpose:");
+		ImGui.text(getTxt("selectPurpose"));
 		ImGui.sameLine();
 		ImGui.text(baseParts[0].BãßClassPurpose());
 		
-		ImGui.checkbox("Show base10", showBase10);
-		ImGui.checkbox("Show base16", showBase16);
-		ImGui.checkbox("Show base27", showBase27);
+		ImGui.checkbox(getTxt("showBase10"), showBase10);
+		ImGui.checkbox(getTxt("showBase16"), showBase16);
+		ImGui.checkbox(getTxt("showBase27"), showBase27);
 		
 		int columns = 10;
 		if (showBase10.get()) {

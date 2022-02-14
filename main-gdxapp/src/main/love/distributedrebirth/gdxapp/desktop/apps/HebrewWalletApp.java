@@ -12,7 +12,7 @@ import love.distributedrebirth.numberxd.Gê̄ldGetậl;
 public class HebrewWalletApp extends DefaultDeskApp implements DeskAppRenderer {
 
 	public HebrewWalletApp() {
-		super("Hebrew Wallet", "");
+		setTitle("Hebrew Wallet");
 		getContours().registrateContour(DeskAppContourSection.MAIN, this);
 	}
 

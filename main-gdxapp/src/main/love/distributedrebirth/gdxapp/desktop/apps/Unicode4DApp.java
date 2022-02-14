@@ -13,7 +13,7 @@ import love.distributedrebirth.gdxapp.desktop.DeskAppRenderer;
 public class Unicode4DApp extends DefaultDeskApp implements DeskAppRenderer {
 
 	public Unicode4DApp() {
-		super("Unicode4D", "");
+		setTitle("Unicode4D");
 		getContours().registrateContour(DeskAppContourSection.MAIN, this);
 	}
 
