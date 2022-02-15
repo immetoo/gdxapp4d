@@ -46,8 +46,8 @@ public class ScreenHelp extends AbstractScrollScreen {
 			" "
 			);
 	
-	public ScreenHelp(final GDXAppMain main) {
-		super(main, "background/terrydavis-nose.png");
+	public ScreenHelp() {
+		super("background/terrydavis-nose.png");
 	}
 
 	@Override
@@ -62,11 +62,11 @@ public class ScreenHelp extends AbstractScrollScreen {
 	
 	@Override
 	public void showScroll() {
-		main.music.play(MusicSongType.INTRO);
+		GDXAppMain.INSTANCE.music.play(MusicSongType.INTRO);
 	}
 	
 	@Override
 	public void hideScroll() {
-		main.music.play(MusicSongType.BACKGROUND);
+		GDXAppMain.INSTANCE.music.play(MusicSongType.BACKGROUND);
 	}
 }

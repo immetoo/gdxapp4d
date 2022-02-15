@@ -9,19 +9,17 @@ import love.distributedrebirth.gdxapp.GDXAppMain;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class ScreenLoading extends ScreenAdapter {
-	private final GDXAppMain main;
 	private Texture backgroundImage;
 	
-	public ScreenLoading(final GDXAppMain main) {
-		this.main = main;
+	public ScreenLoading() {
 		backgroundImage = new Texture(Gdx.files.internal("background/gdxapp-loading.png"));
 	}
 	
 	@Override
 	public void render(float delta) {
-		main.batch.begin();
-		main.batch.draw(backgroundImage, 0, 0, main.viewWidth, main.viewHeight);
-		main.batch.end();
+		GDXAppMain.INSTANCE.batch.begin();
+		GDXAppMain.INSTANCE.batch.draw(backgroundImage, 0, 0, GDXAppMain.INSTANCE.viewWidth, GDXAppMain.INSTANCE.viewHeight);
+		GDXAppMain.INSTANCE.batch.end();
 	}
 
 	@Override

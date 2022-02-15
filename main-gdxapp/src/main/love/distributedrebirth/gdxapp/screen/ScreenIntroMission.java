@@ -56,8 +56,8 @@ public class ScreenIntroMission extends AbstractScrollScreen {
 	
 
 	
-	public ScreenIntroMission(final GDXAppMain main) {
-		super(main, "background/terrydavis-nose.png");
+	public ScreenIntroMission() {
+		super("background/terrydavis-nose.png");
 	}
 	
 	@Override
@@ -72,6 +72,6 @@ public class ScreenIntroMission extends AbstractScrollScreen {
 	
 	@Override
 	public void hideScroll() {
-		main.music.play(MusicSongType.BACKGROUND);
+		GDXAppMain.INSTANCE.music.play(MusicSongType.BACKGROUND);
 	}
 }

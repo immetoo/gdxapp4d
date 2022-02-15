@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import com.badlogic.gdx.Files.FileType;
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 
@@ -27,8 +26,8 @@ public class GDXAppDesktopLauncher {
 		config.setWindowedMode(GDXAppDesktopConfig.WINDOW_WIDTH, GDXAppDesktopConfig.WINDOW_HEIGHT);
 		List<String> args = Arrays.asList(arg);
 		DesktopFileChooser aop0 = new DesktopFileChooser();
-		Game app = new GDXAppMain(args, GDXAppDesktopConfig.WINDOW_WIDTH, GDXAppDesktopConfig.WINDOW_HEIGHT, aop0);
-		Lwjgl3Application launcher = new Lwjgl3Application(app, config);
+		GDXAppMain.INSTANCE.BãßInit(args, GDXAppDesktopConfig.WINDOW_WIDTH, GDXAppDesktopConfig.WINDOW_HEIGHT, aop0);
+		Lwjgl3Application launcher = new Lwjgl3Application(GDXAppMain.INSTANCE, config);
 		launcher.exit();
 	}
 }

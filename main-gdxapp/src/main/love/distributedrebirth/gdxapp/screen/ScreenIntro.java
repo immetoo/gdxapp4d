@@ -12,13 +12,11 @@ import love.distributedrebirth.gdxapp.music.MusicSongType;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class ScreenIntro extends ScreenAdapter {
-	private final GDXAppMain main;
 	private Texture backgroundImage;
 	private float colorDeltaTime = 0f;
 	private boolean colorPositive = true;
 
-	public ScreenIntro(final GDXAppMain main) {
-		this.main = main;
+	public ScreenIntro() {
 		backgroundImage = new Texture(Gdx.files.internal("background/temple-os.png"));
 	}
 	
@@ -36,20 +34,20 @@ public class ScreenIntro extends ScreenAdapter {
 		}
 		ScreenUtils.clear(0.333f, colorDeltaTime, colorDeltaTime, 1);
 
-		main.batch.begin();
-		main.batch.draw(backgroundImage, 0, 0, main.viewWidth, main.viewHeight);
-		main.font.draw(main.batch, "Tap anywhere to begin!", main.viewWidth/2 - 73, 33);
-		main.batch.end();
+		GDXAppMain.INSTANCE.batch.begin();
+		GDXAppMain.INSTANCE.batch.draw(backgroundImage, 0, 0, GDXAppMain.INSTANCE.viewWidth, GDXAppMain.INSTANCE.viewHeight);
+		GDXAppMain.INSTANCE.font.draw(GDXAppMain.INSTANCE.batch, "Tap anywhere to begin!", GDXAppMain.INSTANCE.viewWidth/2 - 73, 33);
+		GDXAppMain.INSTANCE.batch.end();
 
 		if (Gdx.input.isTouched() || Gdx.input.isKeyPressed(Keys.ENTER) || Gdx.input.isKeyPressed(Keys.SPACE)) {
-			main.setScreen(new ScreenIntroMission(main));
+			GDXAppMain.INSTANCE.selectScreen(ScreenIntroMission.class);
 			dispose();
 		}
 	}
 
 	@Override
 	public void show() {
-		main.music.play(MusicSongType.INTRO);
+		GDXAppMain.INSTANCE.music.play(MusicSongType.INTRO);
 	}
 
 	@Override

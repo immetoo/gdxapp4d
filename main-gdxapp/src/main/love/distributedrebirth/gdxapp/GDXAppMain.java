@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.badlogic.gdx.Game;
+import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -17,8 +17,13 @@ import imgui.flag.ImGuiCond;
 import imgui.flag.ImGuiWindowFlags;
 import imgui.type.ImBoolean;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnClassInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinʸᴰ;
+import love.distributedrebirth.bassboonyd.BãßBȍőnPackageInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.jmx.DefaultEnumBaseᴶᴹˣ;
+import love.distributedrebirth.bassboonyd.jmx.DefaultEnumInstanceᴶᴹˣ;
+import love.distributedrebirth.bassboonyd.jmx.GuageCounterᴶᴹˣ;
 import love.distributedrebirth.gdxapp.desktop.DeskAppContourSection;
 import love.distributedrebirth.gdxapp.desktop.DeskAppRenderer;
 import love.distributedrebirth.gdxapp.desktop.DeskTopScreen;
@@ -42,26 +47,37 @@ import love.distributedrebirth.numberxd.base2t.part.warp.WaterBucket;
 import love.distributedrebirth.numberxd.glyph.BaseGlyphSet;
 import net.spookygames.gdx.nativefilechooser.NativeFileChooser;
 
-/**
- * Main loop render dispatcher and event handling.
- */
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public class GDXAppMain extends Game {
+@BãßBȍőnClassInfoʸᴰ(name = "GDXAppMain", purpose = "Main loop render dispatcher and bootup.")
+@BãßBȍőnPackageInfoʸᴰ(name = "love.distributedrebirth.gdxapp")
+public enum GDXAppMain implements DefaultEnumInstanceᴶᴹˣ<GDXAppMain,GDXAppMainKeyʸᴰ>,ApplicationListener {
+	
+	INSTANCE;
+	
+	protected Screen screen;
 	private int lazyIntCnt = 33;
 	private List<String> args;
 	public NativeFileChooser fileChooser;
 	public SpriteBatch batch;
 	public BitmapFont font;
 	public OrthographicCamera camera;
-	public final int viewWidth;
-	public final int viewHeight;
+	public int viewWidth;
+	public int viewHeight;
 	public MusicManager music;
 	public ImBoolean showImGuiDemo = new ImBoolean(false);
 	private Map<Class<? extends Screen>,Screen> screens;
 	private DeskTopScreenMenu screenMenu;
+	private final GuageCounterᴶᴹˣ selectScreenCounter;
+	private final BãßBȍőnCoffinOpenʸᴰ<GDXAppMainKeyʸᴰ> BBC = BãßBȍőnCoffinOpenʸᴰ.newInstance();
+	public BãßBȍőnCoffinʸᴰ<GDXAppMainKeyʸᴰ> GET_BBC() { return BBC; }
 	
+	private GDXAppMain() {
+		BBC.BOON_INIT(this);
+		BȍőnJmxInit(GDXAppMainKeyʸᴰ.JMX);
+		selectScreenCounter = BȍőnJmxInitGuageCounter(GDXAppMainKeyʸᴰ.JMX, "selectScreenCounter");
+	}
 	
-	public GDXAppMain(List<String> args, int viewWidth, int viewHeight, NativeFileChooser fileChooser) {
+	public void BãßInit(List<String> args, int viewWidth, int viewHeight, NativeFileChooser fileChooser) {
 		this.args = args;
 		this.viewWidth = viewWidth;
 		this.viewHeight = viewHeight;
@@ -88,6 +104,7 @@ public class GDXAppMain extends Game {
 		
 		// ref to init
 		System.out.println("BãßBȍőnCoffinʸᴰ init......");
+		BãßBȍőnCoffinOpenʸᴰ.lockCoffin(this);
 		for (DefaultEnumBaseᴶᴹˣ<?,?> coffin:coffinInstances()) {
 			BãßBȍőnCoffinOpenʸᴰ.lockCoffin(coffin);
 		}
@@ -124,9 +141,27 @@ public class GDXAppMain extends Game {
 		} else {
 			selectScreen(ScreenIntro.class);
 		}
-
 	}
 	
+	private void putScreen(Screen screen) {
+		screens.put(screen.getClass(), screen);
+	}
+	
+	public void selectScreen(Class<? extends Screen> screenClass) {
+		Screen screen = screens.get(screenClass);
+		if (screen == null) {
+			throw new NullPointerException("Unknow screen: "+screenClass);
+		}
+		selectScreenCounter.increment();
+		if (this.screen != null) this.screen.hide();
+		this.screen = screen;
+		if (this.screen != null) {
+			this.screen.show();
+			this.screen.resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+		}
+	}
+	
+	@Override
 	public void create() {
 		batch = new SpriteBatch();
 		font = new BitmapFont();
@@ -151,40 +186,22 @@ public class GDXAppMain extends Game {
 		DeskTopScreen desktop4 = new ScreenDesktop4();
 		screenMenu = new DeskTopScreenMenu(this, desktop1, desktop2, desktop3, desktop4);
 		
-		putScreen(new ScreenLoading(this));
-		putScreen(new ScreenIntro(this));
-		putScreen(new ScreenIntroMission(this));
+		putScreen(new ScreenLoading());
+		putScreen(new ScreenIntro());
+		putScreen(new ScreenIntroMission());
 		putScreen(desktop1);
 		putScreen(desktop2);
 		putScreen(desktop3);
 		putScreen(desktop4);
-		putScreen(new ScreenCredits(this));
-		putScreen(new ScreenHelp(this));
+		putScreen(new ScreenCredits());
+		putScreen(new ScreenHelp());
 		
 		selectScreen(ScreenLoading.class);
 	}
 	
 	@Override
-	public void dispose() {
-		ImGuiSetup.dispose();
-		for (Screen screen:screens.values()) {
-			screen.dispose();
-		}
-		music.dispose();
-		batch.dispose();
-		font.dispose();
-	}
-	
-	private void putScreen(Screen screen) {
-		screens.put(screen.getClass(), screen);
-	}
-	
-	public void selectScreen(Class<? extends Screen> screenClass) {
-		Screen screen = screens.get(screenClass);
-		if (screen == null) {
-			throw new NullPointerException("Unknow screen: "+screenClass);
-		}
-		setScreen(screen);
+	public void resize(int width, int height) {
+		if (screen != null) screen.resize(width, height);
 	}
 	
 	@Override
@@ -227,5 +244,26 @@ public class GDXAppMain extends Game {
 		}
 		ImGui.render();
 		ImGuiSetup.imGuiGlImp.renderDrawData(ImGui.getDrawData());
+	}
+	
+	@Override
+	public void pause() {
+		if (screen != null) screen.pause();
+	}
+	
+	@Override
+	public void resume() {
+		if (screen != null) screen.resume();
+	}
+	
+	@Override
+	public void dispose() {
+		ImGuiSetup.dispose();
+		for (Screen screen:screens.values()) {
+			screen.dispose();
+		}
+		music.dispose();
+		batch.dispose();
+		font.dispose();
 	}
 }

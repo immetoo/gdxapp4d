@@ -63,8 +63,8 @@ public class ScreenCredits extends AbstractScrollScreen {
 			" "
 			);
 	
-	public ScreenCredits(final GDXAppMain main) {
-		super(main, "background/doom-credits.png");
+	public ScreenCredits() {
+		super("background/doom-credits.png");
 	}
 
 	@Override
@@ -79,11 +79,11 @@ public class ScreenCredits extends AbstractScrollScreen {
 	
 	@Override
 	public void showScroll() {
-		main.music.play(MusicSongType.CREDITS);
+		GDXAppMain.INSTANCE.music.play(MusicSongType.CREDITS);
 	}
 	
 	@Override
 	public void hideScroll() {
-		main.music.play(MusicSongType.BACKGROUND);
+		GDXAppMain.INSTANCE.music.play(MusicSongType.BACKGROUND);
 	}
 }

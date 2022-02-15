@@ -2,16 +2,16 @@ package love.distributedrebirth.gdxapp.screen;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.ScreenAdapter;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.ScreenUtils;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.gdxapp.GDXAppMain;
-import love.distributedrebirth.gdxapp.GDXAppMainAdapter;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-abstract public class AbstractScrollScreen extends GDXAppMainAdapter {
+abstract public class AbstractScrollScreen extends ScreenAdapter {
 	private static final int LINE_HEIGHT = 16;
 	private float scrollDeltaTime = 0f;
 	private String scrollText = "";
@@ -19,8 +19,7 @@ abstract public class AbstractScrollScreen extends GDXAppMainAdapter {
 	private int scrollLine = LINE_HEIGHT;
 	private final Texture backgroundImage;
 	
-	public AbstractScrollScreen(final GDXAppMain main, String background) {
-		super(main);
+	public AbstractScrollScreen(String background) {
 		backgroundImage = new Texture(Gdx.files.internal(background));
 	}
 	
@@ -31,8 +30,8 @@ abstract public class AbstractScrollScreen extends GDXAppMainAdapter {
 	@Override
 	public final void render(float delta) {
 		ScreenUtils.clear(0f, 0f, 0f, 1f);
-		main.batch.begin();
-		main.batch.draw(backgroundImage, 0, 0, main.viewWidth, main.viewHeight);
+		GDXAppMain.INSTANCE.batch.begin();
+		GDXAppMain.INSTANCE.batch.draw(backgroundImage, 0, 0, GDXAppMain.INSTANCE.viewWidth, GDXAppMain.INSTANCE.viewHeight);
 		
 		scrollDeltaTime += delta;
 		if (scrollDeltaTime > 0.04f) {
@@ -51,14 +50,14 @@ abstract public class AbstractScrollScreen extends GDXAppMainAdapter {
 		String[] lines = scrollText.split("\n");
 		for (int i=lines.length;i>0;i--) {
 			String line = lines[i-1];
-			main.font.draw(main.batch, line, 100, scrollLine + (drawLine*LINE_HEIGHT));
+			GDXAppMain.INSTANCE.font.draw(GDXAppMain.INSTANCE.batch, line, 100, scrollLine + (drawLine*LINE_HEIGHT));
 			drawLine++;
 		}
-		main.batch.end();
+		GDXAppMain.INSTANCE.batch.end();
 		
 		if (scrollText.length() >= 33) {
-			if (scrollLine >= main.viewHeight || Gdx.input.isTouched() || Gdx.input.isKeyPressed(Keys.ENTER) || Gdx.input.isKeyPressed(Keys.SPACE)) {
-				main.selectScreen(getNextScreen(main));
+			if (scrollLine >=GDXAppMain.INSTANCE.viewHeight || Gdx.input.isTouched() || Gdx.input.isKeyPressed(Keys.ENTER) || Gdx.input.isKeyPressed(Keys.SPACE)) {
+				GDXAppMain.INSTANCE.selectScreen(getNextScreen(GDXAppMain.INSTANCE));
 			}
 		}
 	}
