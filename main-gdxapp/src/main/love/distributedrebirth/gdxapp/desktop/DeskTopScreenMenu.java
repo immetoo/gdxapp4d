@@ -1,0 +1,276 @@
+package love.distributedrebirth.gdxapp.desktop;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import com.badlogic.gdx.Gdx;
+
+import imgui.ImGui;
+import imgui.type.ImBoolean;
+import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
+import love.distributedrebirth.gdxapp.GDXAppLauncher;
+import love.distributedrebirth.gdxapp.GDXAppMain;
+import love.distributedrebirth.gdxapp.desktop.apps.BasicConsoleApp;
+import love.distributedrebirth.gdxapp.desktop.apps.HebrewWalletApp;
+import love.distributedrebirth.gdxapp.desktop.apps.MusicPlayerApp;
+import love.distributedrebirth.gdxapp.desktop.apps.SystemBaseGlyphApp;
+import love.distributedrebirth.gdxapp.desktop.apps.SystemBasePartApp;
+import love.distributedrebirth.gdxapp.desktop.apps.Unicode4DApp;
+import love.distributedrebirth.gdxapp.screen.ScreenCredits;
+import love.distributedrebirth.gdxapp.screen.ScreenDesktop1;
+import love.distributedrebirth.gdxapp.screen.ScreenDesktop2;
+import love.distributedrebirth.gdxapp.screen.ScreenDesktop3;
+import love.distributedrebirth.gdxapp.screen.ScreenDesktop4;
+import love.distributedrebirth.gdxapp.screen.ScreenHelp;
+
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
+public class DeskTopScreenMenu {
+	
+	private final GDXAppMain main;
+	private final DeskTopScreen desktop1;
+	private final DeskTopScreen desktop2;
+	private final DeskTopScreen desktop3;
+	private final DeskTopScreen desktop4;
+	private List<GDXAppLauncher> apps;
+	private ImBoolean fileMinimizeSelected = new ImBoolean(false);
+	private ImBoolean fileCloseSelected = new ImBoolean(false);
+	
+	public DeskTopScreenMenu(final GDXAppMain main, DeskTopScreen desktop1, DeskTopScreen desktop2,
+			DeskTopScreen desktop3, DeskTopScreen desktop4) {
+		this.main = main;
+		this.desktop1 = desktop1;
+		this.desktop2 = desktop2;
+		this.desktop3 = desktop3;
+		this.desktop4 = desktop4;
+		
+		apps = new ArrayList<>();
+		apps.add(new GDXAppLauncher("Basic Console", () -> new BasicConsoleApp()));
+		apps.add(new GDXAppLauncher("Base Glyphs", () -> new SystemBaseGlyphApp()));
+		apps.add(new GDXAppLauncher("Base Parts", () -> new SystemBasePartApp()));
+		apps.add(new GDXAppLauncher("Hebrew Wallet", () -> new HebrewWalletApp()));
+		apps.add(new GDXAppLauncher("Unicode4D", () -> new Unicode4DApp()));
+		apps.add(new GDXAppLauncher("Music Player", () -> new MusicPlayerApp(main)));
+	}
+
+	public void renderMenu(DeskTopScreen appScreen) {
+		DeskApp deskApp = appScreen.getDeskAppScreen().getCurrentDeskApp();
+		
+		ImGui.beginMainMenuBar();
+		renderVRGEM4Menu(appScreen);
+		
+		if (deskApp != null) {
+			renderEditMenu(deskApp);
+			renderFileMenu(deskApp);
+			renderSelfMenu(appScreen, deskApp);
+		}
+		ImGui.endMainMenuBar();
+	}
+	
+	private void renderSelfMenu(DeskTopScreen appScreen, DeskApp deskApp) {
+		if (ImGui.beginMenu(deskApp.getTitle())) {
+			if (ImGui.menuItem("Minimize", "", fileMinimizeSelected, deskApp != null )) {
+				fileMinimizeSelected.set(false);
+				if (deskApp != null) {
+					appScreen.getDeskAppScreen().setCurrentDeskApp(null);
+				}
+			}
+			if (ImGui.menuItem("Exit", "", fileCloseSelected, deskApp != null)) {
+				fileCloseSelected.set(false);
+				if (deskApp != null) {
+					appScreen.getDeskAppScreen().removeDeskApp(deskApp);
+					appScreen.getDeskAppScreen().setCurrentDeskApp(null);
+				}
+			}
+			ImGui.endMenu();
+		}
+	}
+	
+	private void renderFileMenu(DeskApp deskApp) {
+		DeskAppRenderer fileNew = deskApp.getContours().getContour(DeskAppContourSection.FILE_NEW);
+		DeskAppRenderer fileClose = deskApp.getContours().getContour(DeskAppContourSection.FILE_CLOSE);
+		DeskAppRenderer fileSave = deskApp.getContours().getContour(DeskAppContourSection.FILE_SAVE);
+		DeskAppRenderer fileOption = deskApp.getContours().getContour(DeskAppContourSection.FILE_OPTION);
+		DeskAppRenderer filePrint = deskApp.getContours().getContour(DeskAppContourSection.FILE_PRINT);
+		if (fileNew == null && fileClose == null && fileSave == null && fileOption == null && filePrint == null) {
+			return;
+		}
+		if (ImGui.beginMenu("File")) {
+			if (fileNew != null) {
+				fileNew.render();
+				ImGui.separator();
+			}
+			if (fileClose != null) {
+				fileClose.render();
+				ImGui.separator();
+			}
+			if (fileSave != null) {
+				fileSave.render();
+				ImGui.separator();
+			}
+			if (fileOption != null) {
+				fileOption.render();
+				ImGui.separator();
+			}
+			if (filePrint != null) {
+				filePrint.render();
+			}
+			ImGui.endMenu();
+		}
+	}
+	
+	private void renderEditMenu(DeskApp deskApp) {
+		DeskAppRenderer editUndo = deskApp.getContours().getContour(DeskAppContourSection.EDIT_UNDO);
+		DeskAppRenderer editCopy = deskApp.getContours().getContour(DeskAppContourSection.EDIT_COPY);
+		DeskAppRenderer editSelect = deskApp.getContours().getContour(DeskAppContourSection.EDIT_SELECT);
+		DeskAppRenderer editFind = deskApp.getContours().getContour(DeskAppContourSection.EDIT_FIND);
+		DeskAppRenderer editOption = deskApp.getContours().getContour(DeskAppContourSection.EDIT_OPTION);
+		if (editUndo != null || editCopy != null || editSelect != null || editFind != null || editOption != null) {
+			boolean first = false;
+			if (ImGui.beginMenu("Edit")) {
+				if (editUndo != null) {
+					editUndo.render();
+					first = true;
+				} 
+				if (editCopy != null) {
+					if (first) {
+						ImGui.separator();
+					}
+					editCopy.render();
+					first = true;
+				}
+				if (editSelect != null) {
+					if (first) {
+						ImGui.separator();
+					}
+					editSelect.render();
+					first = true;
+				}
+				if (editFind != null) {
+					if (first) {
+						ImGui.separator();
+					}
+					editFind.render();
+					first = true;
+				}
+				if (editOption != null) {
+					if (first) {
+						ImGui.separator();
+					}
+					editOption.render();
+					first = true;
+				}
+				ImGui.endMenu();
+			}
+		}
+	}
+	
+	private void renderVRGEM4Menu(DeskTopScreen appScreen) {
+		if (ImGui.beginMenu("vrGEM⁴")) {
+			String infix1 = "";
+			String infix2 = "";
+			String infix3 = "";
+			String infix4 = "";
+			if (appScreen instanceof ScreenDesktop1) {
+				infix1 = "=> ";
+			}
+			if (appScreen instanceof ScreenDesktop2) {
+				infix2 = "=> ";
+			}
+			if (appScreen instanceof ScreenDesktop3) {
+				infix3 = "=> ";
+			}
+			if (appScreen instanceof ScreenDesktop4) {
+				infix4 = "=> ";
+			}
+			if (ImGui.beginMenu(infix1+"Desktop1")) {
+				if (ImGui.menuItem("Main reality")) {
+					main.selectScreen(ScreenDesktop1.class);
+					desktop1.getDeskAppScreen().setCurrentDeskApp(null);
+				}
+				for (DeskApp app: desktop1.getDeskAppScreen().getDeskApps()) {
+					if (ImGui.menuItem(app.getTitle())) {
+						main.selectScreen(ScreenDesktop1.class);
+						desktop1.getDeskAppScreen().setCurrentDeskApp(app);
+					}
+				}
+				ImGui.endMenu();
+			}
+			if (ImGui.beginMenu(infix2+"Desktop2")) {
+				if (ImGui.menuItem("Main reality")) {
+					main.selectScreen(ScreenDesktop2.class);
+					desktop2.getDeskAppScreen().setCurrentDeskApp(null);
+				}
+				for (DeskApp app: desktop2.getDeskAppScreen().getDeskApps()) {
+					if (ImGui.menuItem(app.getTitle())) {
+						main.selectScreen(ScreenDesktop2.class);
+						desktop2.getDeskAppScreen().setCurrentDeskApp(app);
+					}
+				}
+				ImGui.endMenu();
+			}
+			if (ImGui.beginMenu(infix3+"Desktop3")) {
+				if (ImGui.menuItem("Main reality")) {
+					main.selectScreen(ScreenDesktop3.class);
+					desktop3.getDeskAppScreen().setCurrentDeskApp(null);
+				}
+				for (DeskApp app: desktop3.getDeskAppScreen().getDeskApps()) {
+					if (ImGui.menuItem(app.getTitle())) {
+						main.selectScreen(ScreenDesktop3.class);
+						desktop3.getDeskAppScreen().setCurrentDeskApp(app);
+					}
+				}
+				ImGui.endMenu();
+			}
+			if (ImGui.beginMenu(infix4+"Desktop4")) {
+				if (ImGui.menuItem("Main reality")) {
+					main.selectScreen(ScreenDesktop4.class);
+					desktop4.getDeskAppScreen().setCurrentDeskApp(null);
+				}
+				for (DeskApp app: desktop4.getDeskAppScreen().getDeskApps()) {
+					if (ImGui.menuItem(app.getTitle())) {
+						main.selectScreen(ScreenDesktop4.class);
+						desktop4.getDeskAppScreen().setCurrentDeskApp(app);
+					}
+				}
+				ImGui.endMenu();
+			}
+			ImGui.separator();
+			if (ImGui.beginMenu("Start App")) {
+				for (GDXAppLauncher launcher: apps) {
+					if (ImGui.menuItem(launcher.getName())) {
+						appScreen.getDeskAppScreen().addDeskApp(launcher.getLauncher().get());
+					}
+				}
+				ImGui.endMenu();
+			}
+			if (ImGui.menuItem("Run App")) {
+			}
+			ImGui.separator();
+			if (Gdx.graphics.isFullscreen()) {
+				if (ImGui.menuItem("Window Mode")) {
+					Gdx.graphics.setWindowedMode(main.viewWidth, main.viewHeight);
+				}
+			} else {
+				if (ImGui.menuItem("Full Screen")) {
+					Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());
+				}
+			}
+			ImGui.separator();
+			if (ImGui.menuItem("Credits")) {
+				main.selectScreen(ScreenCredits.class);
+			}
+			if (ImGui.menuItem("Help")) {
+				main.selectScreen(ScreenHelp.class);
+			}
+			ImGui.separator();
+			if (ImGui.menuItem("ImGui Demo")) {
+				main.showImGuiDemo.set(true);
+			}
+			if (ImGui.menuItem("Shutdown")) {
+				main.dispose();
+				System.exit(0);
+			}
+			ImGui.endMenu();
+		}
+	}
+}

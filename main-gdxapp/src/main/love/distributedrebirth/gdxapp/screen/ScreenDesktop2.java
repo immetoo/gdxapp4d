@@ -6,11 +6,11 @@ import com.badlogic.gdx.graphics.Texture;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.gdxapp.GDXAppMain;
-import love.distributedrebirth.gdxapp.GDXAppScreen;
 import love.distributedrebirth.gdxapp.desktop.DeskAppScreen;
+import love.distributedrebirth.gdxapp.desktop.DeskTopScreen;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public class ScreenDesktop2 extends ScreenAdapter implements GDXAppScreen {
+public class ScreenDesktop2 extends ScreenAdapter implements DeskTopScreen {
 	private final GDXAppMain main;
 	private DeskAppScreen deskAppScreen;
 	private Texture backgroundImage;

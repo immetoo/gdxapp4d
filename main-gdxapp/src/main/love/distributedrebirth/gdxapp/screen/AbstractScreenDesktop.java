@@ -10,13 +10,13 @@ import com.badlogic.gdx.graphics.g3d.utils.FirstPersonCameraController;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 import com.badlogic.gdx.utils.Array;
 
-import love.distributedrebirth.gdxapp.GDXAppScreen;
 import love.distributedrebirth.gdxapp.desktop.DeskApp;
 import love.distributedrebirth.gdxapp.desktop.DeskAppScreen;
 import love.distributedrebirth.gdxapp.desktop.DeskAppScreenListener;
 import love.distributedrebirth.gdxapp.desktop.FilteringInputProcessor;
+import love.distributedrebirth.gdxapp.desktop.DeskTopScreen;
 
-public abstract class AbstractScreenDesktop extends ScreenAdapter implements GDXAppScreen {
+public abstract class AbstractScreenDesktop extends ScreenAdapter implements DeskTopScreen {
 	
 	private final DeskAppScreen deskAppScreen;
 	private PerspectiveCamera cam;
