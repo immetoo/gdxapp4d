@@ -1,5 +1,6 @@
 package love.distributedrebirth.bassboonyd;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Consumer;
@@ -16,7 +17,7 @@ public interface BãßBȍőnCoffinOpenʸᴰ<T extends BãßBȍőnCoffinStoreKey�
 	}
 	
 	default void PUT_LIST(T key) {
-		PUT_OBJ(key, new HashMap<>());
+		PUT_OBJ(key, new ArrayList<>());
 	}
 	
 	static <T extends DefaultEnumBaseʸᴰ<?> & BãßBȍőnCoffinStoreʸᴰ<?>> void lockCoffin(T store) {
