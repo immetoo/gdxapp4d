@@ -248,12 +248,16 @@ public enum GDXAppMain implements DefaultEnumInstanceᴶᴹˣ<GDXAppMain,GDXAppM
 	
 	@Override
 	public void pause() {
-		if (screen != null) screen.pause();
+		if (screen != null) {
+			screen.pause();
+		}
 	}
 	
 	@Override
 	public void resume() {
-		if (screen != null) screen.resume();
+		if (screen != null) {
+			screen.resume();
+		}
 	}
 	
 	@Override
