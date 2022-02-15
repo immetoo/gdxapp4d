@@ -60,8 +60,7 @@ public class SystemBaseGlyphApp extends DefaultDeskApp {
 	private String print10Numbers(BaseGlyphSet set) {
 		StringBuilder buf = new StringBuilder();
 		for (int i=0;i<10;i++) {
-			buf.append(set.BȍőnNumber10().BȍőnCharFor(i));
-			buf.append(set.BȍőnNumber10().BȍőnCharSeperator());
+			buf.append(set.BȍőnPrintNumber10(i, 9));
 			buf.append(" ");
 		}
 		return buf.toString();
@@ -69,10 +68,12 @@ public class SystemBaseGlyphApp extends DefaultDeskApp {
 	
 	private String print16Numbers(BaseGlyphSet set) {
 		StringBuilder buf = new StringBuilder();
+		if (set.BȍőnNumber16() == null) {
+			return buf.toString();
+		}
 		int x=240;
 		for (int i=0;i<16;i++) {
-			buf.append(set.BȍőnPrintNumber16(i + x, 99));
-			buf.append(set.BȍőnNumber16().BȍőnCharSeperator());
+			buf.append(set.BȍőnPrintNumber16(i + x, 16)); // hex; +one 
 			buf.append(" ");
 			x = x - 16;
 		}
@@ -85,8 +86,7 @@ public class SystemBaseGlyphApp extends DefaultDeskApp {
 			return buf.toString();
 		}
 		for (int i=0;i<27;i++) {
-			buf.append(set.BȍőnPrintNumber27(i, 99));
-			buf.append(set.BȍőnNumber27().BȍőnCharSeperator());
+			buf.append(set.BȍőnPrintNumber27(i, 26));
 			buf.append(" ");
 		}
 		return buf.toString();

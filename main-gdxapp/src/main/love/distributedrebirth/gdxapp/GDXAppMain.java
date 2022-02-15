@@ -69,7 +69,6 @@ public class GDXAppMain extends Game {
 	private GDXAppScreen desktop2;
 	private GDXAppScreen desktop3;
 	private GDXAppScreen desktop4;
-	private ImBoolean openWindowFlag = new ImBoolean(true);
 	private ImBoolean showImGuiDemo = new ImBoolean(false);
 	
 	public GDXAppMain(List<String> args, int viewWidth, int viewHeight, NativeFileChooser fileChooser) {
@@ -228,18 +227,14 @@ public class GDXAppMain extends Game {
 		}
 		if (appScreen != null && appScreen.getDeskAppScreen().getCurrentDeskApp() != null) {
 			int sizeFlags = ImGuiCond.Always;
-			ImGui.setNextWindowPos(5, 30, sizeFlags);
-			ImGui.setNextWindowSize(Gdx.graphics.getWidth() - 10, Gdx.graphics.getHeight() - 35, sizeFlags);
-			int windowFlags = ImGuiWindowFlags.NoMove | ImGuiWindowFlags.NoResize;
-			if (ImGui.begin(appScreen.getDeskAppScreen().getCurrentDeskApp().getTitle(), openWindowFlag, windowFlags)) {
+			ImGui.setNextWindowPos(0, 28, sizeFlags);
+			ImGui.setNextWindowSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight() - 28, sizeFlags);
+			int windowFlags = ImGuiWindowFlags.NoMove | ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoTitleBar;
+			if (ImGui.begin(appScreen.getDeskAppScreen().getCurrentDeskApp().getTitle(), windowFlags)) {
 				DeskAppRenderer renderer = appScreen.getDeskAppScreen().getCurrentDeskApp().getContours().getContour(DeskAppContourSection.MAIN);
 				if (renderer != null) {
 					renderer.render();
 				}
-			}
-			if (openWindowFlag.get() == false) {
-				appScreen.getDeskAppScreen().setCurrentDeskApp(null);
-				openWindowFlag.set(true);
 			}
 			ImGui.end();
 		}
@@ -256,62 +251,8 @@ public class GDXAppMain extends Game {
 	private void renderMenu(GDXAppScreen appScreen) {
 		DeskApp deskApp = appScreen.getDeskAppScreen().getCurrentDeskApp();
 		ImGui.beginMainMenuBar();
-		if (ImGui.beginMenu("File")) {
-			if (deskApp != null) {
-				DeskAppRenderer fileNew = deskApp.getContours().getContour(DeskAppContourSection.FILE_NEW);
-				DeskAppRenderer fileClose = deskApp.getContours().getContour(DeskAppContourSection.FILE_CLOSE);
-				DeskAppRenderer fileSave = deskApp.getContours().getContour(DeskAppContourSection.FILE_SAVE);
-				DeskAppRenderer fileOption = deskApp.getContours().getContour(DeskAppContourSection.FILE_OPTION);
-				DeskAppRenderer filePrint = deskApp.getContours().getContour(DeskAppContourSection.FILE_PRINT);
-				if (fileNew != null) {
-					fileNew.render();
-					ImGui.separator();
-				}
-				if (fileClose != null) {
-					fileClose.render();
-					ImGui.separator();
-				}
-				if (fileSave != null) {
-					fileSave.render();
-					ImGui.separator();
-				}
-				if (fileOption != null) {
-					fileOption.render();
-					ImGui.separator();
-				}
-				if (filePrint != null) {
-					filePrint.render();
-					ImGui.separator();
-				}
-			}
-			if (ImGui.menuItem("Minimize", "", fileMinimizeSelected, deskApp != null )) {
-				if (deskApp != null) {
-					appScreen.getDeskAppScreen().setCurrentDeskApp(null);
-				}
-			}
-			if (ImGui.menuItem("Exit", "", fileCloseSelected, deskApp != null)) {
-				if (deskApp != null) {
-					appScreen.getDeskAppScreen().removeDeskApp(deskApp);
-					appScreen.getDeskAppScreen().setCurrentDeskApp(null);
-				}
-			}
-			ImGui.endMenu();
-		}
 		
-		if (deskApp != null) {
-			renderEditMenu(deskApp);
-		}
 		if (ImGui.beginMenu("vrGEM⁴")) {
-			if (ImGui.beginMenu("Start")) {
-				for (GDXAppLauncher launcher: apps) {
-					if (ImGui.menuItem(launcher.getName())) {
-						appScreen.getDeskAppScreen().addDeskApp(launcher.getLauncher().get());
-					}
-				}
-				ImGui.endMenu();
-			}
-			ImGui.separator();
-			
 			String infix1 = "";
 			String infix2 = "";
 			String infix3 = "";
@@ -381,6 +322,17 @@ public class GDXAppMain extends Game {
 				ImGui.endMenu();
 			}
 			ImGui.separator();
+			if (ImGui.beginMenu("Start App")) {
+				for (GDXAppLauncher launcher: apps) {
+					if (ImGui.menuItem(launcher.getName())) {
+						appScreen.getDeskAppScreen().addDeskApp(launcher.getLauncher().get());
+					}
+				}
+				ImGui.endMenu();
+			}
+			if (ImGui.menuItem("Run App")) {
+			}
+			ImGui.separator();
 			if (Gdx.graphics.isFullscreen()) {
 				if (ImGui.menuItem("Window Mode")) {
 					Gdx.graphics.setWindowedMode(viewWidth, viewHeight);
@@ -407,7 +359,67 @@ public class GDXAppMain extends Game {
 			}
 			ImGui.endMenu();
 		}
+		
+		
+		if (deskApp != null) {
+			renderEditMenu(deskApp);
+			renderFileMenu(deskApp);
+		}
+		
+		if (deskApp != null) {
+			if (ImGui.beginMenu(deskApp.getTitle())) {
+				if (ImGui.menuItem("Minimize", "", fileMinimizeSelected, deskApp != null )) {
+					fileMinimizeSelected.set(false);
+					if (deskApp != null) {
+						appScreen.getDeskAppScreen().setCurrentDeskApp(null);
+					}
+				}
+				if (ImGui.menuItem("Exit", "", fileCloseSelected, deskApp != null)) {
+					fileCloseSelected.set(false);
+					if (deskApp != null) {
+						appScreen.getDeskAppScreen().removeDeskApp(deskApp);
+						appScreen.getDeskAppScreen().setCurrentDeskApp(null);
+					}
+				}
+				ImGui.endMenu();
+			}
+		}
+		
+		
 		ImGui.endMainMenuBar();
+	}
+	
+	private void renderFileMenu(DeskApp deskApp) {
+		DeskAppRenderer fileNew = deskApp.getContours().getContour(DeskAppContourSection.FILE_NEW);
+		DeskAppRenderer fileClose = deskApp.getContours().getContour(DeskAppContourSection.FILE_CLOSE);
+		DeskAppRenderer fileSave = deskApp.getContours().getContour(DeskAppContourSection.FILE_SAVE);
+		DeskAppRenderer fileOption = deskApp.getContours().getContour(DeskAppContourSection.FILE_OPTION);
+		DeskAppRenderer filePrint = deskApp.getContours().getContour(DeskAppContourSection.FILE_PRINT);
+		if (fileNew == null && fileClose == null && fileSave == null && fileOption == null && filePrint == null) {
+			return;
+		}
+		if (ImGui.beginMenu("File")) {
+			if (fileNew != null) {
+				fileNew.render();
+				ImGui.separator();
+			}
+			if (fileClose != null) {
+				fileClose.render();
+				ImGui.separator();
+			}
+			if (fileSave != null) {
+				fileSave.render();
+				ImGui.separator();
+			}
+			if (fileOption != null) {
+				fileOption.render();
+				ImGui.separator();
+			}
+			if (filePrint != null) {
+				filePrint.render();
+			}
+			ImGui.endMenu();
+		}
 	}
 	
 	private void renderEditMenu(DeskApp deskApp) {

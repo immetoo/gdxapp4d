@@ -38,7 +38,9 @@ public class ImGuiSetup {
 	private static void initStyle() {
 		ImGui.styleColorsDark();
 		ImGuiStyle style = ImGui.getStyle();
-		style.setWindowRounding(6f);
+		style.setWindowRounding(0f);
+		style.setWindowBorderSize(0f);
+		style.setWindowPadding(6f, 6f);
 		style.setScrollbarSize(22f);
 	}
 	

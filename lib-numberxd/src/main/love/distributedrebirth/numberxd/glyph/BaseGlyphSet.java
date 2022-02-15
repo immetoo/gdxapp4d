@@ -25,7 +25,7 @@ public enum BaseGlyphSet implements DefaultEnumSetᴶᴹˣ<BaseGlyphSet,BãßBȍ
 	LATIN_DTMF(
 			new BaseGlyphSetNumber(v -> T10PartDecimal.PART_1.BãßVoorElk(x -> v.add(x.BȍőnChinaValue()))).withSeperator(BãßBȍőnConstantsʸᴰ.STR_SPACE),
 			new BaseGlyphSetNumber("1","2","3","A","4","5","6","B","7","8","9","C","*","0","#","D"),
-			LATIN_BASIC.BȍőnNumber27()),
+			null),
 	LATIN_TOP(
 			new BaseGlyphSetNumber("⁰","¹","²","³","⁴","⁵","⁶","⁷","⁸","⁹"),
 			new BaseGlyphSetNumber("⁰","¹","²","³","⁴","⁵","⁶","⁷","⁸","⁹","ᵃ","ᵇ","ᶜ","ᵈ","ᵉ","ᶠ"),
@@ -37,7 +37,11 @@ public enum BaseGlyphSet implements DefaultEnumSetᴶᴹˣ<BaseGlyphSet,BãßBȍ
 	LATIN_TOPHEX(
 			LATIN_BASIC.BȍőnNumber10(),
 			LATIN_BASIC.BȍőnNumber16().withAltGlyphSet(LATIN_TOP),
-			LATIN_BASIC.BȍőnNumber27()),
+			null),
+	LATIN_SUBHEX(
+			LATIN_BASIC.BȍőnNumber10(),
+			LATIN_BASIC.BȍőnNumber16().withAltGlyphSet(LATIN_SUB),
+			null),
 	
 	TONE_SCRIPT(
 			new BaseGlyphSetNumber(v -> T10PartDecimal.PART_1.BãßVoorElk(x -> v.add(x.BȍőnDialTone()))),
@@ -99,52 +103,44 @@ public enum BaseGlyphSet implements DefaultEnumSetᴶᴹˣ<BaseGlyphSet,BãßBȍ
 			new BaseGlyphSetNumber("ᛰ","ᚠ","ᚢ","ᚦ","ᚬ","ᚱ","ᚴ","ᚼ","ᚾ","ᛁ"),
 			new BaseGlyphSetNumber("ᛰ","ᚠ","ᚢ","ᚦ","ᚬ","ᚱ","ᚴ","ᚼ","ᚾ","ᛁ","ᛅ","ᛋ","ᛏ","ᛒ","ᛚ","ᛘ"),
 			new BaseGlyphSetNumber("ᚠ","ᚢ","ᚦ","ᚨ","ᚱ","ᚲ","ᚷ","ᚹ","ᚺ","ᚾ","ᛁ","ᛃ","ᛇ","ᛈ","ᛉ","ᛊ","ᛏ","ᛒ","ᛖ","ᛗ","ᛚ","ᛜ","ᛟ","ᛞ","ᚡ","ᚤ","ᚧ")),
-	RUNIC_TOPHEX(
-			RUNIC.BȍőnNumber10(),
-			RUNIC.BȍőnNumber16().withAltGlyphSet(LATIN_TOP),
-			RUNIC.BȍőnNumber27()),
 	KOREAN(
 			new BaseGlyphSetNumber("영","일","이","삼","사","오","육","칠","팔","구"),
 			new BaseGlyphSetNumber("ㅏ","ㅐ","ㅑ","ㅒ","ㅓ","ㅔ","ㅕ","ㅖ","ㅗ","ㅘ","ㅙ","ㅚ","ㅛ","ㅜ","ㅝ","ㅞ"),
 			new BaseGlyphSetNumber("ㄱ","ㄲ","ㄴ","ㄷ","ㄸ","ㄹ","ㅁ","ㅂ","ㅃ","ㅅ","ㅆ","ㅈ","ㅉ","ㅊ","ㅋ","ㅌ","ㅍ","ㅎ","ㄵ","ㄶ","ㄺ","ㄻ","ㄼ","ㄽ","ㄾ","ㄿ","ㅀ")),
-	KOREAN_TOPHEX(
-			KOREAN.BȍőnNumber10(),
-			KOREAN.BȍőnNumber16().withAltGlyphSet(LATIN_TOP),
-			KOREAN.BȍőnNumber27()),
 	
 	CHINA(
 			new BaseGlyphSetNumber("零","一","二","三","四","五","六","七","八","九"),
-			LATIN_BASIC.BȍőnNumber16(),
+			null,
 			null),
 	CHINA_FORMAL(
 			new BaseGlyphSetNumber(v -> T10PartDecimal.PART_1.BãßVoorElk(x -> v.add(x.BȍőnChinaKey()))),
-			LATIN_BASIC.BȍőnNumber16(),
+			null,
 			null),
 	CHINA_FORMAL_OLD(
 			new BaseGlyphSetNumber("零","壹","貳","參","肆","伍","陸","柒","捌","玖"),
-			LATIN_BASIC.BȍőnNumber16(),
+			null,
 			null),
 	JAPAN(
 			CHINA.BȍőnNumber10(),
-			LATIN_BASIC.BȍőnNumber16(),
+			null,
 			null),
 	JAPAN_FORMAL(
 			new BaseGlyphSetNumber("零","壱","弐","参","四","五","六","七","八","九"),
-			LATIN_BASIC.BȍőnNumber16(),
+			null,
 			null),
 	
 	CYRILLIC(
 			new BaseGlyphSetNumber("Ф","А","В","Г","Д","Є","Ѕ","З","И","Ѳ"),
-			LATIN_BASIC.BȍőnNumber16(),
+			new BaseGlyphSetNumber("Ф","А","В","Г","Д","Є","Ѕ","З","И","Ѳ","І","К","Л","М","Н","Ѯ"),
 			new BaseGlyphSetNumber("А","В","Г","Д","Є","Ѕ","З","И","Ѳ","І","К","Л","М","Н","Ѯ","Ѻ","П","Ч","Р","С","Т","Ѵ","Ф","Х","Ѱ","Ѿ","Ц")),
 	ARABIC(
 			new BaseGlyphSetNumber("٠","١","٢","٣","٤","٥","٦","٧","٨","٩"),
-			LATIN_BASIC.BȍőnNumber16(),
+			null,
 			new BaseGlyphSetNumber("ا","ب","ج","د","ه","و","ز","ح","ط","ي","ك","ل","م","ن","س","ع","ف","ص","ق","ر","ش","ت","ث","خ","ذ","ض","ظ"),
 			true),
 	HEBREW(
 			new BaseGlyphSetNumber("אֶפֶס","אֶחָד","שְׁתַּיִם","שְׁלֹשָׁה","אַרְבַּע‎","חֲמִשָּׁה‎","שֵׁשׁ‎","שִׁבְעָה","שְׁמוֹנֶה","תִּשְׁעָה‎").withSeperator(BãßBȍőnConstantsʸᴰ.STR_SPACE),
-			LATIN_BASIC.BȍőnNumber16(),
+			null,
 			new BaseGlyphSetNumber("א","ב","ג","ד","ה","ו","ז","ח","ט","י","כ","ל","מ","נ","ס","ע","פ","צ","ק","ר","ש","ת","ך","ם","ן","ף","ץ"),
 			true),
 	;
