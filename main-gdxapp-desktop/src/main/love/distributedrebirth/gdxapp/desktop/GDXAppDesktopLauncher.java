@@ -1,7 +1,6 @@
 package love.distributedrebirth.gdxapp.desktop;
 
 import java.util.Arrays;
-import java.util.List;
 
 import com.badlogic.gdx.Files.FileType;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
@@ -19,14 +18,17 @@ public class GDXAppDesktopLauncher {
 	
 	public static void main(String[] arg) {
 		GDXAppDesktopConfig.printBootMessage();
+		
+		int width = GDXAppDesktopConfig.WINDOW_WIDTH;
+		int height = GDXAppDesktopConfig.WINDOW_HEIGHT;
+		GDXAppMain.INSTANCE.BãßInit(Arrays.asList(arg), width, height, new DesktopFileChooser());
+		
 		Lwjgl3ApplicationConfiguration config = new Lwjgl3ApplicationConfiguration();
 		config.setMaxNetThreads(Runtime.getRuntime().availableProcessors());
 		config.setTitle(GDXAppDesktopConfig.WINDOW_TITLE);
 		config.setWindowIcon(FileType.Internal, GDXAppDesktopConfig.WINDOW_ICONS);
-		config.setWindowedMode(GDXAppDesktopConfig.WINDOW_WIDTH, GDXAppDesktopConfig.WINDOW_HEIGHT);
-		List<String> args = Arrays.asList(arg);
-		DesktopFileChooser aop0 = new DesktopFileChooser();
-		GDXAppMain.INSTANCE.BãßInit(args, GDXAppDesktopConfig.WINDOW_WIDTH, GDXAppDesktopConfig.WINDOW_HEIGHT, aop0);
+		config.setWindowedMode(width, height);
+		
 		Lwjgl3Application launcher = new Lwjgl3Application(GDXAppMain.INSTANCE, config);
 		launcher.exit();
 	}
