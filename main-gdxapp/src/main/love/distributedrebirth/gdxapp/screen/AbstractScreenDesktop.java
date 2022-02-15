@@ -13,7 +13,7 @@ import com.badlogic.gdx.utils.Array;
 import love.distributedrebirth.gdxapp.desktop.DeskApp;
 import love.distributedrebirth.gdxapp.desktop.DeskAppScreen;
 import love.distributedrebirth.gdxapp.desktop.DeskAppScreenListener;
-import love.distributedrebirth.gdxapp.desktop.FilteringInputProcessor;
+import love.distributedrebirth.gdxapp.desktop.DeskTopInputProcessor;
 import love.distributedrebirth.gdxapp.desktop.DeskTopScreen;
 
 public abstract class AbstractScreenDesktop extends ScreenAdapter implements DeskTopScreen {
@@ -21,7 +21,7 @@ public abstract class AbstractScreenDesktop extends ScreenAdapter implements Des
 	private final DeskAppScreen deskAppScreen;
 	private PerspectiveCamera cam;
 	private FirstPersonCameraController camController;
-	private FilteringInputProcessor inputFilter;
+	private DeskTopInputProcessor inputFilter;
 	private ModelBatch modelBatch;
 	private Array<ModelInstance> modelInstances = new Array<ModelInstance>();
 	
@@ -61,7 +61,7 @@ public abstract class AbstractScreenDesktop extends ScreenAdapter implements Des
 		camController = new FirstPersonCameraController(cam);
 		//camController = new CameraInputController(cam);
 		
-		inputFilter = new FilteringInputProcessor(camController);
+		inputFilter = new DeskTopInputProcessor(camController);
 	}
 	
 	@Override

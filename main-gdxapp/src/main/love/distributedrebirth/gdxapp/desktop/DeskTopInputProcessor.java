@@ -5,12 +5,12 @@ import com.badlogic.gdx.InputProcessor;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public class FilteringInputProcessor implements InputProcessor {
+public class DeskTopInputProcessor implements InputProcessor {
 	
 	private final InputProcessor input;
 	private boolean filtering = false;
 	
-	public FilteringInputProcessor(InputProcessor input) {
+	public DeskTopInputProcessor(InputProcessor input) {
 		this.input = input;
 	}
 	
