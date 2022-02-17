@@ -184,7 +184,7 @@ public enum GDXAppMain implements DefaultEnumInstanceᴶᴹˣ<GDXAppMain,GDXAppM
 		DeskTopScreen desktop2 = new ScreenDesktop2(this);
 		DeskTopScreen desktop3 = new ScreenDesktop3();
 		DeskTopScreen desktop4 = new ScreenDesktop4();
-		screenMenu = new DeskTopScreenMenu(this, desktop1, desktop2, desktop3, desktop4);
+		screenMenu = new DeskTopScreenMenu(desktop1, desktop2, desktop3, desktop4);
 		
 		putScreen(new ScreenLoading());
 		putScreen(new ScreenIntro());

@@ -24,10 +24,9 @@ import net.spookygames.gdx.nativefilechooser.NativeFileChooserConfiguration;
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class MusicPlayerApp extends DefaultDeskApp implements DeskAppRenderer {
 
-	private final GDXAppMain main;
 	private final NativeFileChooserConfiguration fileChooserConfig;
 	
-	public MusicPlayerApp(GDXAppMain main) {
+	public MusicPlayerApp() {
 		setTitle("Music Player");
 		getContours().registrateContour(DeskAppContourSection.MAIN, this);
 		getContours().registrateContour(DeskAppContourSection.FILE_NEW, new DeskAppRenderer() {
@@ -35,12 +34,12 @@ public class MusicPlayerApp extends DefaultDeskApp implements DeskAppRenderer {
 			@Override
 			public void render() {
 				if (ImGui.menuItem("Add")) {
-					main.fileChooser.chooseFile(fileChooserConfig, NativeFileChooserCallbackAdapter.onFileChosen(v -> main.music.addBackgroundMusic(v)));
+					GDXAppMain.INSTANCE.fileChooser.chooseFile(fileChooserConfig,
+							NativeFileChooserCallbackAdapter.onFileChosen(v -> GDXAppMain.INSTANCE.music.addBackgroundMusic(v)));
 				}
 			}
 			
 		});
-		this.main = main;
 		fileChooserConfig = new NativeFileChooserConfiguration();
 		fileChooserConfig.directory = Gdx.files.absolute(System.getProperty("user.home"));
 		fileChooserConfig.mimeFilter = "audio/*";
@@ -50,7 +49,7 @@ public class MusicPlayerApp extends DefaultDeskApp implements DeskAppRenderer {
 	@Override
 	public void render() {
 		ImGui.text("Current Song:");
-		MusicSong currentSong = main.music.getCurrentSong();
+		MusicSong currentSong = GDXAppMain.INSTANCE.music.getCurrentSong();
 		if (currentSong != null) {
 			ImGui.sameLine();
 			ImGui.text(currentSong.getName());
@@ -58,22 +57,22 @@ public class MusicPlayerApp extends DefaultDeskApp implements DeskAppRenderer {
 		ImGui.separator();
 		if (currentSong != null) {
 			if (ImGui.button("Play")) {
-				main.music.play(currentSong);
+				GDXAppMain.INSTANCE.music.play(currentSong);
 			}
 		} else {
 			ImGui.text("Play");
 		}
 		ImGui.sameLine();
 		if (ImGui.button("<")) {
-			main.music.prev();
+			GDXAppMain.INSTANCE.music.prev();
 		}
 		ImGui.sameLine();
 		if (ImGui.button(">")) {
-			main.music.next();
+			GDXAppMain.INSTANCE.music.next();
 		}
 		ImGui.sameLine();
 		if (ImGui.button("Stop")) {
-			main.music.stop();
+			GDXAppMain.INSTANCE.music.stop();
 		}
 		int flags = ImGuiTableFlags.ScrollX | ImGuiTableFlags.RowBg | ImGuiTableFlags.BordersOuter | ImGuiTableFlags.BordersV;
 		ImGui.beginTable("playlist", 3, flags);
@@ -82,14 +81,14 @@ public class MusicPlayerApp extends DefaultDeskApp implements DeskAppRenderer {
 		ImGui.tableSetupColumn("Name");
 		ImGui.tableHeadersRow();
 		int i=1;
-		for (MusicSong song:main.music.getBackgroundSongs()) {
+		for (MusicSong song:GDXAppMain.INSTANCE.music.getBackgroundSongs()) {
 			ImGui.pushID(i);
 			ImGui.tableNextRow();
 			ImGui.tableNextColumn();
 			ImGui.selectable(""+i, song.isPlaying(), ImGuiSelectableFlags.None);
 			ImGui.tableNextColumn();
 			if (ImGui.smallButton(">")) {
-				main.music.play(song);
+				GDXAppMain.INSTANCE.music.play(song);
 			}
 			ImGui.tableNextColumn();
 			ImGui.selectable(song.getName(), song.isPlaying(), ImGuiSelectableFlags.None);

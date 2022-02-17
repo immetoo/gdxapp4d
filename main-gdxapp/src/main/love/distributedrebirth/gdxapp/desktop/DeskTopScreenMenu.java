@@ -26,7 +26,6 @@ import love.distributedrebirth.gdxapp.screen.ScreenHelp;
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class DeskTopScreenMenu {
 	
-	private final GDXAppMain main;
 	private final DeskTopScreen desktop1;
 	private final DeskTopScreen desktop2;
 	private final DeskTopScreen desktop3;
@@ -35,9 +34,8 @@ public class DeskTopScreenMenu {
 	private ImBoolean fileMinimizeSelected = new ImBoolean(false);
 	private ImBoolean fileCloseSelected = new ImBoolean(false);
 	
-	public DeskTopScreenMenu(final GDXAppMain main, DeskTopScreen desktop1, DeskTopScreen desktop2,
+	public DeskTopScreenMenu(DeskTopScreen desktop1, DeskTopScreen desktop2,
 			DeskTopScreen desktop3, DeskTopScreen desktop4) {
-		this.main = main;
 		this.desktop1 = desktop1;
 		this.desktop2 = desktop2;
 		this.desktop3 = desktop3;
@@ -49,7 +47,7 @@ public class DeskTopScreenMenu {
 		apps.add(new GDXAppLauncher("Base Parts", () -> new SystemBasePartApp()));
 		apps.add(new GDXAppLauncher("Hebrew Wallet", () -> new HebrewWalletApp()));
 		apps.add(new GDXAppLauncher("Unicode4D", () -> new Unicode4DApp()));
-		apps.add(new GDXAppLauncher("Music Player", () -> new MusicPlayerApp(main)));
+		apps.add(new GDXAppLauncher("Music Player", () -> new MusicPlayerApp()));
 	}
 
 	public void renderMenu(DeskTopScreen appScreen) {
@@ -184,12 +182,12 @@ public class DeskTopScreenMenu {
 			}
 			if (ImGui.beginMenu(infix1+"Desktop1")) {
 				if (ImGui.menuItem("Main reality")) {
-					main.selectScreen(ScreenDesktop1.class);
+					GDXAppMain.INSTANCE.selectScreen(ScreenDesktop1.class);
 					desktop1.getDeskAppScreen().setCurrentDeskApp(null);
 				}
 				for (DeskApp app: desktop1.getDeskAppScreen().getDeskApps()) {
 					if (ImGui.menuItem(app.getTitle())) {
-						main.selectScreen(ScreenDesktop1.class);
+						GDXAppMain.INSTANCE.selectScreen(ScreenDesktop1.class);
 						desktop1.getDeskAppScreen().setCurrentDeskApp(app);
 					}
 				}
@@ -197,12 +195,12 @@ public class DeskTopScreenMenu {
 			}
 			if (ImGui.beginMenu(infix2+"Desktop2")) {
 				if (ImGui.menuItem("Main reality")) {
-					main.selectScreen(ScreenDesktop2.class);
+					GDXAppMain.INSTANCE.selectScreen(ScreenDesktop2.class);
 					desktop2.getDeskAppScreen().setCurrentDeskApp(null);
 				}
 				for (DeskApp app: desktop2.getDeskAppScreen().getDeskApps()) {
 					if (ImGui.menuItem(app.getTitle())) {
-						main.selectScreen(ScreenDesktop2.class);
+						GDXAppMain.INSTANCE.selectScreen(ScreenDesktop2.class);
 						desktop2.getDeskAppScreen().setCurrentDeskApp(app);
 					}
 				}
@@ -210,12 +208,12 @@ public class DeskTopScreenMenu {
 			}
 			if (ImGui.beginMenu(infix3+"Desktop3")) {
 				if (ImGui.menuItem("Main reality")) {
-					main.selectScreen(ScreenDesktop3.class);
+					GDXAppMain.INSTANCE.selectScreen(ScreenDesktop3.class);
 					desktop3.getDeskAppScreen().setCurrentDeskApp(null);
 				}
 				for (DeskApp app: desktop3.getDeskAppScreen().getDeskApps()) {
 					if (ImGui.menuItem(app.getTitle())) {
-						main.selectScreen(ScreenDesktop3.class);
+						GDXAppMain.INSTANCE.selectScreen(ScreenDesktop3.class);
 						desktop3.getDeskAppScreen().setCurrentDeskApp(app);
 					}
 				}
@@ -223,12 +221,12 @@ public class DeskTopScreenMenu {
 			}
 			if (ImGui.beginMenu(infix4+"Desktop4")) {
 				if (ImGui.menuItem("Main reality")) {
-					main.selectScreen(ScreenDesktop4.class);
+					GDXAppMain.INSTANCE.selectScreen(ScreenDesktop4.class);
 					desktop4.getDeskAppScreen().setCurrentDeskApp(null);
 				}
 				for (DeskApp app: desktop4.getDeskAppScreen().getDeskApps()) {
 					if (ImGui.menuItem(app.getTitle())) {
-						main.selectScreen(ScreenDesktop4.class);
+						GDXAppMain.INSTANCE.selectScreen(ScreenDesktop4.class);
 						desktop4.getDeskAppScreen().setCurrentDeskApp(app);
 					}
 				}
@@ -248,7 +246,7 @@ public class DeskTopScreenMenu {
 			ImGui.separator();
 			if (Gdx.graphics.isFullscreen()) {
 				if (ImGui.menuItem("Window Mode")) {
-					Gdx.graphics.setWindowedMode(main.viewWidth, main.viewHeight);
+					Gdx.graphics.setWindowedMode(GDXAppMain.INSTANCE.viewWidth, GDXAppMain.INSTANCE.viewHeight);
 				}
 			} else {
 				if (ImGui.menuItem("Full Screen")) {
@@ -257,17 +255,17 @@ public class DeskTopScreenMenu {
 			}
 			ImGui.separator();
 			if (ImGui.menuItem("Credits")) {
-				main.selectScreen(ScreenCredits.class);
+				GDXAppMain.INSTANCE.selectScreen(ScreenCredits.class);
 			}
 			if (ImGui.menuItem("Help")) {
-				main.selectScreen(ScreenHelp.class);
+				GDXAppMain.INSTANCE.selectScreen(ScreenHelp.class);
 			}
 			ImGui.separator();
 			if (ImGui.menuItem("ImGui Demo")) {
-				main.showImGuiDemo.set(true);
+				GDXAppMain.INSTANCE.showImGuiDemo.set(true);
 			}
 			if (ImGui.menuItem("Shutdown")) {
-				main.dispose();
+				GDXAppMain.INSTANCE.dispose();
 				System.exit(0);
 			}
 			ImGui.endMenu();
