@@ -42,9 +42,9 @@ import love.distributedrebirth.gdxapp.screen.ScreenLoading;
 import love.distributedrebirth.numberxd.base2t.Base2PartsFactory;
 import love.distributedrebirth.numberxd.base2t.Base2Terminator;
 import love.distributedrebirth.numberxd.base2t.part.warp.TOSWarpCore;
-import love.distributedrebirth.numberxd.base2t.part.warp.TOSWarpCoreDriver;
-import love.distributedrebirth.numberxd.base2t.part.warp.WaterBucket;
 import love.distributedrebirth.numberxd.glyph.BaseGlyphSet;
+import love.distributedrebirth.warpme.TOSWarpCoreDriver;
+import love.distributedrebirth.warpme.core.WaterBucket;
 import net.spookygames.gdx.nativefilechooser.NativeFileChooser;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")

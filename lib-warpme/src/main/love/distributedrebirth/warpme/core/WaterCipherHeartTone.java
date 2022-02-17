@@ -1,4 +1,4 @@
-package love.distributedrebirth.numberxd.base2t.part.warp;
+package love.distributedrebirth.warpme.core;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 

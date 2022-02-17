@@ -42,13 +42,24 @@ project(":lib-bassboonyd") {
 	}
 }
 
-project(":lib-numberxd") {
+project(":lib-warpme") {
 	apply plugin: "java-library"
 	dependencies {
 		api project(":lib-bassboonyd")
 		api files('../gradle-libs/x4o-driver-0.8.7-SNAPSHOT.jar')
 		api files('../gradle-libs/jasper-el-6.0.20.jar')
 		api files('../gradle-libs/el-api-6.0.20.jar')
+		testImplementation "org.junit.jupiter:junit-jupiter:$junitVersion"
+	}
+	tasks.named('test') {
+		useJUnitPlatform() 
+	}
+}
+
+project(":lib-numberxd") {
+	apply plugin: "java-library"
+	dependencies {
+		api project(":lib-warpme")
 		testImplementation "org.junit.jupiter:junit-jupiter:$junitVersion"
 	}
 	tasks.named('test') {
