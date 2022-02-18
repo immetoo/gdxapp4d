@@ -10,13 +10,45 @@ public class CodePointᶻᴰ {
 		this.value = value;
 	}
 	
+	enum TegerSplitMode {
+		NOP,
+		UNICODE, // + direction
+		ADVANCE,
+		XY_SET,
+		
+		XY_MIN,
+		XY_MAX,
+		NUMBER,
+		MOD_COLOR, // color = 4b+2b + mod 2x2b darker
+		// MODIFIER;
+		// STRIKE_HIGH,
+		// STRIKE_MID,
+		// STRIKE_LOW,
+		// STRIKE_UNDER,
+		// ITALIC_LR,
+		// ITALIC_RL,
+		// SCRIPT_TOP,
+		// SCRIPT_SUB,
+		// INVISIBLE
+		
+		FREE_B4, // envelop
+		FREE_B3,
+		FREE_B2,
+		FREE_B1,
+		
+		FREE_A4,
+		FREE_A3,
+		FREE_A2,
+		FREE_A1,
+	}
+	
 	/**
 	 * 72 bits (8x tyte)
 	 * 
 	 * 
-	 * point: x+y of 4 digits + sign + boolean 
+	 * V036Teger is point: x+y of 4 digits + sign + boolean 
 	 * x=2xtyte=tord=18bit
-	 * y=tord-3=14b + sign + boolean + seq/end + mode
+	 * y=tord-3=15b + mode
 	 * 
 	 * V072Tong - 0
 	 * cmd0 unicode="011000"

@@ -48,6 +48,10 @@ public final class V018Tord implements BaseNumberTyte<V018Tord> {
 		return getValue(part.splitPartBinary()).getValue(part.splitPartTrit());
 	}
 	
+	public void setTimblePart(T06PartSeximal part, T08PartOctal value) {
+		getValue(part.splitPartBinary()).setValue(part.splitPartTrit(), value);
+	}
+	
 	@Override
 	public int getBitCount() {
 		return BIT_COUNT;
