@@ -35,6 +35,18 @@ public final class V036Teger implements BaseNumberTyte<V036Teger> {
 		setValue(T02PartBinary.PART_2, valueLow);
 	}
 	
+	public long getValueNumber() {
+		int result = 0;
+		result += (getValue(T02PartBinary.PART_1).getValueNumber() << 0);
+		result += (getValue(T02PartBinary.PART_2).getValueNumber() << 18);
+		return result;
+	}
+	
+	public void setValueNumber(long number) {
+		getValue(T02PartBinary.PART_1).setValueNumber((int) ((number >> 0) & 0b111111111111111111));
+		getValue(T02PartBinary.PART_2).setValueNumber((int) ((number >> 18) & 0b111111111111111111));
+	}
+	
 	public V018Tord getValue(T02PartBinary part) {
 		return values[part.ordinal()];
 	}

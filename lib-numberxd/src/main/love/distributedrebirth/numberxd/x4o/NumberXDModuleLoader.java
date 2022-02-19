@@ -21,6 +21,9 @@ import love.distributedrebirth.numberxd.base2t.part.T03PartTrit;
 import love.distributedrebirth.numberxd.base2t.type.V006Tixte;
 import love.distributedrebirth.numberxd.base2t.type.V009Tyte;
 import love.distributedrebirth.numberxd.base2t.type.V018Tord;
+import love.distributedrebirth.numberxd.base2t.type.V036Teger;
+import love.distributedrebirth.numberxd.base2t.type.V072Tong;
+import love.distributedrebirth.numberxd.base2t.type.V144Tocta;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class NumberXDModuleLoader implements X4OLanguageModuleLoader {
@@ -61,13 +64,22 @@ public class NumberXDModuleLoader implements X4OLanguageModuleLoader {
 		ElementClass ec = null;
 		
 		ec = createElementClass(language,"v006",V006Tixte.class,null,"Defines an V006Tixte number.");
-		configBãßBȍőnPartAttributes(language, ec, T02PartBinary.PART_1);
+		//configBãßBȍőnPartAttributes(language, ec, T02PartBinary.PART_1);
 		
 		ec = createElementClass(language,"v009",V009Tyte.class,null,"Defines an V009Tyte number.");
-		configBãßBȍőnPartAttributes(language, ec, T03PartTrit.PART_1);
+		//configBãßBȍőnPartAttributes(language, ec, T03PartTrit.PART_1);
 		
 		ec = createElementClass(language,"v018",V018Tord.class,null,"Defines an V018Tord number.");
-		configBãßBȍőnPartAttributes(language, ec, T02PartBinary.PART_1);
+		//configBãßBȍőnPartAttributes(language, ec, T02PartBinary.PART_1);
+		
+		ec = createElementClass(language,"v036",V036Teger.class,null,"Defines an V036Teger number.");
+		//configBãßBȍőnPartAttributes(language, ec, T02PartBinary.PART_1);
+		
+		ec = createElementClass(language,"v072",V072Tong.class,null,"Defines an V072Tong number.");
+		//configBãßBȍőnPartAttributes(language, ec, T02PartBinary.PART_1);
+		
+		ec = createElementClass(language,"v072",V144Tocta.class,null,"Defines an V144Tocta number.");
+		//configBãßBȍőnPartAttributes(language, ec, T02PartBinary.PART_1);
 		
 		namespace.addElementClass(ec);
 	}

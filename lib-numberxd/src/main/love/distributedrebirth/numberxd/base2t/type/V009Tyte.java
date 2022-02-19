@@ -31,6 +31,20 @@ public final class V009Tyte implements BaseNumberTyte<V009Tyte> {
 		values[2] = valueLow;
 	}
 	
+	public short getValueNumber() {
+		short result = 0;
+		result += (getValue(T03PartTrit.PART_1).BȍőnRangTelNul() << 0);
+		result += (getValue(T03PartTrit.PART_2).BȍőnRangTelNul() << 3);
+		result += (getValue(T03PartTrit.PART_3).BȍőnRangTelNul() << 6);
+		return result;
+	}
+	
+	public void setValueNumber(short number) {
+		setValue(T03PartTrit.PART_1, T08PartOctal.values()[(number >> 0) & 0b111]);
+		setValue(T03PartTrit.PART_2, T08PartOctal.values()[(number >> 3) & 0b111]);
+		setValue(T03PartTrit.PART_3, T08PartOctal.values()[(number >> 6) & 0b111]);
+	}
+	
 	public T08PartOctal getValue(T03PartTrit part) {
 		return values[part.ordinal()];
 	}

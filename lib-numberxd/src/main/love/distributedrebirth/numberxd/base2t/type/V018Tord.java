@@ -36,6 +36,18 @@ public final class V018Tord implements BaseNumberTyte<V018Tord> {
 		setValue(T02PartBinary.PART_2, valueLow);
 	}
 	
+	public int getValueNumber() {
+		int result = 0;
+		result += (getValue(T02PartBinary.PART_1).getValueNumber() << 0);
+		result += (getValue(T02PartBinary.PART_2).getValueNumber() << 9);
+		return result;
+	}
+	
+	public void setValueNumber(int number) {
+		getValue(T02PartBinary.PART_1).setValueNumber((short) ((number >> 0) & 0b111111111));
+		getValue(T02PartBinary.PART_2).setValueNumber((short) ((number >> 9) & 0b111111111));
+	}
+	
 	public V009Tyte getValue(T02PartBinary part) {
 		return values[part.ordinal()];
 	}

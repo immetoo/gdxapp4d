@@ -1,69 +1,68 @@
 package love.distributedrebirth.unicode4d;
 
-import love.distributedrebirth.numberxd.base2t.type.V072Tong;
+import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
+import love.distributedrebirth.numberxd.base2t.part.T02PartBinary;
+import love.distributedrebirth.numberxd.base2t.type.V036Teger;
 
-public class CodePointᶻᴰ {
-
-	private final V072Tong value;
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
+public enum CodePointᶻᴰ {
 	
-	public CodePointᶻᴰ(V072Tong value) {
-		this.value = value;
+	INSTANCE;
+	
+	private static final int MASK_CMD     = 0b111000000000000000;
+	private static final int MASK_ARGU    = 0b000111111111111111;
+	
+	public static final int MODIFIER_STRIKE_HIGH  = 0b000000000000000001;
+	public static final int MODIFIER_STRIKE_MID   = 0b000000000000000010;
+	public static final int MODIFIER_STRIKE_LOW   = 0b000000000000000100;
+	public static final int MODIFIER_STRIKE_UNDER = 0b000000000000001000;
+	public static final int MODIFIER_ITALIC_LR    = 0b000000000000010000;
+	public static final int MODIFIER_ITALIC_RL    = 0b000000000000100000;
+	public static final int MODIFIER_SCRIPT_TOP   = 0b000000000001000000;
+	public static final int MODIFIER_SCRIPT_SUB   = 0b000000000010000000;
+	public static final int MODIFIER_ENVELOP      = 0b000000000100000000;
+	
+	public int getArgument(V036Teger teger, T02PartBinary part) {
+		return teger.getValue(part).getValueNumber() & MASK_ARGU;
 	}
 	
-	enum TegerSplitMode {
-		NOP,
-		UNICODE, // + direction
-		ADVANCE,
-		XY_SET,
-		
-		XY_MIN,
-		XY_MAX,
-		NUMBER,
-		MOD_COLOR, // color = 4b+2b + mod 2x2b darker
-		// MODIFIER;
-		// STRIKE_HIGH,
-		// STRIKE_MID,
-		// STRIKE_LOW,
-		// STRIKE_UNDER,
-		// ITALIC_LR,
-		// ITALIC_RL,
-		// SCRIPT_TOP,
-		// SCRIPT_SUB,
-		// INVISIBLE
-		
-		FREE_B4, // envelop
-		FREE_B3,
-		FREE_B2,
-		FREE_B1,
-		
-		FREE_A4,
-		FREE_A3,
-		FREE_A2,
-		FREE_A1,
+	public void setArgument(V036Teger teger, T02PartBinary part, int number) {
+		int value = teger.getValue(part).getValueNumber();
+		teger.getValue(part).setValueNumber((value & MASK_CMD) + (number & MASK_ARGU));
 	}
 	
-	/**
-	 * 72 bits (8x tyte)
-	 * 
-	 * 
-	 * V036Teger is point: x+y of 4 digits + sign + boolean 
-	 * x=2xtyte=tord=18bit
-	 * y=tord-3=15b + mode
-	 * 
-	 * V072Tong - 0
-	 * cmd0 unicode="011000"
-	 * cmd1 advanceWidth="183" leftSideBearing="10"
-	 * 
-	 * V072Tong - 1
-	 * cmd0 xMin="10"  yMin="480"
-	 * cmd1 xMax="134" yMax="616"
-	 * 
-	 * V072Tong - 2
-	 * cmd0 x="10" y="548" onCurve="true" start
-	 * cmd1 color select
-	 * 
-	 * V072Tong - 3
-	 * cmd0 x="10" y="548" onCurve="true" end
-	 * cmd1 nop padding.
-	 */
+	public int getArgumentUnicode(V036Teger teger) {
+		int unicode = 0;
+		unicode += teger.getValue(T02PartBinary.PART_1).getValueNumber();
+		unicode += teger.getValue(T02PartBinary.PART_2).getValueNumber() << 18;
+		return unicode;
+	}
+	
+	public void setArgumentUnicode(V036Teger teger, int unicode) {
+		teger.getValue(T02PartBinary.PART_1).setValueNumber(unicode);
+		teger.getValue(T02PartBinary.PART_2).setValueNumber(unicode >> 18);
+	}
+	
+	public long getArgumentNumber(V036Teger teger) {
+		return teger.getValueNumber();
+	}
+	
+	public void setArgumentNumber(V036Teger teger, long number) {
+		teger.setValueNumber(number);
+	}
+	
+	public CodePointCommandᶻᴰ getCommand(V036Teger teger) {
+		int mode = 0;
+		mode += ((teger.getValue(T02PartBinary.PART_1).getValueNumber() >> 15) & 0b111) << 0;
+		mode += ((teger.getValue(T02PartBinary.PART_2).getValueNumber() >> 15) & 0b111) << 3;
+		return CodePointCommandᶻᴰ.values()[mode];
+	}
+	
+	public void setCommand(V036Teger teger, CodePointCommandᶻᴰ command) {
+		int mode = command.ordinal();
+		int value1 = teger.getValue(T02PartBinary.PART_1).getValueNumber();
+		int value2 = teger.getValue(T02PartBinary.PART_2).getValueNumber();
+		teger.getValue(T02PartBinary.PART_1).setValueNumber((value1 & MASK_ARGU) + (((mode >> 0) & 0b111) << 15));
+		teger.getValue(T02PartBinary.PART_2).setValueNumber((value2 & MASK_ARGU) + (((mode >> 3) & 0b111) << 15));
+	}
 }
