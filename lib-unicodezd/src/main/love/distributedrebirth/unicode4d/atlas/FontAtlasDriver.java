@@ -1,4 +1,4 @@
-package love.distributedrebirth.unicode4d.base;
+package love.distributedrebirth.unicode4d.atlas;
 
 import org.x4o.xml.X4ODriver;
 import org.x4o.xml.X4ODriverManager;
@@ -6,9 +6,9 @@ import org.x4o.xml.X4ODriverManager;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public class UnicodePlaneDriver extends X4ODriver<UnicodePlane> {
+public class FontAtlasDriver extends X4ODriver<FontAtlas> {
 
-	static final public String LANGUAGE_NAME = "unicode-plane";
+	static final public String LANGUAGE_NAME = "unicode4d-atlas";
 	static final public String[] LANGUAGE_VERSIONS = new String[]{X4ODriver.DEFAULT_LANGUAGE_VERSION};
 	
 	@Override
@@ -21,7 +21,7 @@ public class UnicodePlaneDriver extends X4ODriver<UnicodePlane> {
 		return LANGUAGE_VERSIONS;
 	}
 	
-	static public UnicodePlaneDriver newInstance() {
-		return (UnicodePlaneDriver)X4ODriverManager.getX4ODriver(LANGUAGE_NAME);
+	static public FontAtlasDriver newInstance() {
+		return (FontAtlasDriver)X4ODriverManager.getX4ODriver(LANGUAGE_NAME);
 	}
 }

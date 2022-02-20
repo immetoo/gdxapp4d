@@ -34,7 +34,13 @@ public class Stringᶻᴰ {
 		int result = 0;
 		for (V072Tong points:string) {
 			CodePointCommandᶻᴰ cmd = CodePointᶻᴰ.INSTANCE.getCommand(points.getValue(T02PartBinary.PART_1));
-			if (cmd == CodePointCommandᶻᴰ.START) {
+			if (cmd == CodePointCommandᶻᴰ.START_LR) {
+				result++;
+			} else if (cmd == CodePointCommandᶻᴰ.START_RL) {
+				result++;
+			} else if (cmd == CodePointCommandᶻᴰ.START_TB) {
+				result++;
+			} else if (cmd == CodePointCommandᶻᴰ.START_BT) {
 				result++;
 			}
 		}

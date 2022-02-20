@@ -4,5 +4,5 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://language.x4o.org/xml/ns/drivers http://language.x4o.org/xml/ns/drivers-1.0.xsd"
 	>
-	<driver language="unicode-plane" className="love.distributedrebirth.unicode4d.base.UnicodePlaneDriver"/>
+	<driver language="unicode4d-atlas" className="love.distributedrebirth.unicode4d.atlas.FontAtlasDriver"/>
 </drivers>

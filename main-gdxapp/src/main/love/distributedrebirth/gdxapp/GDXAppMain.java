@@ -43,8 +43,8 @@ import love.distributedrebirth.numberxd.base2t.Base2PartsFactory;
 import love.distributedrebirth.numberxd.base2t.Base2Terminator;
 import love.distributedrebirth.numberxd.base2t.part.warp.TOSWarpCore;
 import love.distributedrebirth.numberxd.glyph.BaseGlyphSet;
-import love.distributedrebirth.unicode4d.base.UnicodePlane;
-import love.distributedrebirth.unicode4d.base.UnicodePlaneDriver;
+import love.distributedrebirth.unicode4d.atlas.FontAtlas;
+import love.distributedrebirth.unicode4d.atlas.FontAtlasDriver;
 import love.distributedrebirth.warpme.TOSWarpCoreDriver;
 import love.distributedrebirth.warpme.core.WaterBucket;
 import net.spookygames.gdx.nativefilechooser.NativeFileChooser;
@@ -66,7 +66,7 @@ public enum GDXAppMain implements DefaultEnumInstanceᴶᴹˣ<GDXAppMain,GDXAppM
 	public int viewWidth;
 	public int viewHeight;
 	public MusicManager music;
-	public UnicodePlane basePlane;
+	public FontAtlas basePlane;
 	public ImBoolean showImGuiDemo = new ImBoolean(false);
 	private Map<Class<? extends Screen>,Screen> screens;
 	private DeskTopScreenMenu screenMenu;
@@ -114,7 +114,7 @@ public enum GDXAppMain implements DefaultEnumInstanceᴶᴹˣ<GDXAppMain,GDXAppM
 		System.out.println("BãßBȍőnCoffinʸᴰ init done.");
 		
 		try {
-			basePlane = UnicodePlaneDriver.newInstance().createReader().readString(Gdx.files.internal("font/unicode4d.xml").readString());
+			basePlane = FontAtlasDriver.newInstance().createReader().readString(Gdx.files.internal("font/unicode4d.xml").readString());
 			
 			
 			if (args.contains("warpcore-load")) {

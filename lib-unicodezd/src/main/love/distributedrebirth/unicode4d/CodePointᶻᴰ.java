@@ -1,8 +1,11 @@
 package love.distributedrebirth.unicode4d;
 
+import java.util.List;
+
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.T02PartBinary;
 import love.distributedrebirth.numberxd.base2t.type.V036Teger;
+import love.distributedrebirth.numberxd.base2t.type.V072Tong;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public enum CodePointᶻᴰ {
@@ -64,5 +67,29 @@ public enum CodePointᶻᴰ {
 		int value2 = teger.getValue(T02PartBinary.PART_2).getValueNumber();
 		teger.getValue(T02PartBinary.PART_1).setValueNumber((value1 & MASK_ARGU) + (((mode >> 0) & 0b111) << 15));
 		teger.getValue(T02PartBinary.PART_2).setValueNumber((value2 & MASK_ARGU) + (((mode >> 3) & 0b111) << 15));
+	}
+	
+	public int searchUnicode(List<V072Tong> tongs) {
+		for (V072Tong tong:tongs) {
+			if (CodePointCommandᶻᴰ.UNICODE.equals(CodePointᶻᴰ.INSTANCE.getCommand(tong.getValue(T02PartBinary.PART_1)))) {
+				return CodePointᶻᴰ.INSTANCE.getArgumentUnicode(tong.getValue(T02PartBinary.PART_1));
+			}
+			if (CodePointCommandᶻᴰ.UNICODE.equals(CodePointᶻᴰ.INSTANCE.getCommand(tong.getValue(T02PartBinary.PART_2)))) {
+				return CodePointᶻᴰ.INSTANCE.getArgumentUnicode(tong.getValue(T02PartBinary.PART_2));
+			}
+		}
+		return -1;
+	}
+	
+	public int searchNumber(List<V072Tong> tongs) {
+		for (V072Tong tong:tongs) {
+			if (CodePointCommandᶻᴰ.NUMBER.equals(CodePointᶻᴰ.INSTANCE.getCommand(tong.getValue(T02PartBinary.PART_1)))) {
+				return CodePointᶻᴰ.INSTANCE.getArgumentUnicode(tong.getValue(T02PartBinary.PART_1));
+			}
+			if (CodePointCommandᶻᴰ.NUMBER.equals(CodePointᶻᴰ.INSTANCE.getCommand(tong.getValue(T02PartBinary.PART_2)))) {
+				return CodePointᶻᴰ.INSTANCE.getArgumentUnicode(tong.getValue(T02PartBinary.PART_2));
+			}
+		}
+		return -1;
 	}
 }

@@ -1,5 +1,7 @@
 package love.distributedrebirth.gdxapp.desktop.apps;
 
+import java.util.List;
+
 import imgui.ImColor;
 import imgui.ImDrawList;
 import imgui.ImGui;
@@ -9,8 +11,9 @@ import love.distributedrebirth.gdxapp.GDXAppMain;
 import love.distributedrebirth.gdxapp.desktop.DefaultDeskApp;
 import love.distributedrebirth.gdxapp.desktop.DeskAppContourSection;
 import love.distributedrebirth.gdxapp.desktop.DeskAppRenderer;
-import love.distributedrebirth.unicode4d.base.UnicodePlaneBase;
-import love.distributedrebirth.unicode4d.base.UnicodePlaneBaseGlyph;
+import love.distributedrebirth.numberxd.base2t.type.V072Tong;
+import love.distributedrebirth.unicode4d.atlas.FontAtlasStore;
+import love.distributedrebirth.unicode4d.atlas.FontAtlasStoreGlyph;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class Unicode4DApp extends DefaultDeskApp implements DeskAppRenderer {
@@ -24,8 +27,8 @@ public class Unicode4DApp extends DefaultDeskApp implements DeskAppRenderer {
 	public void render() {
 		ImGui.text("There is unicode and unicode4D");
 		
-		UnicodePlaneBase plane = GDXAppMain.INSTANCE.basePlane.getPlaneByName("MISCELLANEOUS_MATHEMATICAL_SYMBOLS_A");
-		UnicodePlaneBaseGlyph glyph = plane.getBaseGlyphByUnicode("27d6");
+		//FontAtlasStore plane = GDXAppMain.INSTANCE.basePlane.getPlaneByName("MISCELLANEOUS_MATHEMATICAL_SYMBOLS_A");
+		FontAtlasStoreGlyph glyph = null; //plane.getBaseGlyphByUnicode("27d6");
 		
 		ImCharacter c = new ImCharacter(glyph);
 		
@@ -34,10 +37,12 @@ public class Unicode4DApp extends DefaultDeskApp implements DeskAppRenderer {
 	
 	class ImCharacter {
 		
-		private final UnicodePlaneBaseGlyph glyph;
+		private final FontAtlasStoreGlyph glyph;
 		
-		public ImCharacter(UnicodePlaneBaseGlyph glyph) {
+		public ImCharacter(FontAtlasStoreGlyph glyph) {
 			this.glyph = glyph;
+			
+			List<V072Tong> tongs = glyph.getTongs();
 		}
 		
 		public void render() {

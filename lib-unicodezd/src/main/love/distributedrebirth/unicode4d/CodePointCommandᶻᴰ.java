@@ -5,7 +5,10 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public enum CodePointCommandᶻᴰ {
 	NOP,
-	START, // PART_1 = modifier, PART_2 = direction
+	START_LR, // PART_1 = modifier
+	START_RL,
+	START_TB,
+	START_BT,
 	UNICODE,
 	NUMBER,
 	ADVANCE,

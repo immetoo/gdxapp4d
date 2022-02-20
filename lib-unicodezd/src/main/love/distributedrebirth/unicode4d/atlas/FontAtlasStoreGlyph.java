@@ -1,4 +1,4 @@
-package love.distributedrebirth.unicode4d.base;
+package love.distributedrebirth.unicode4d.atlas;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -12,38 +12,29 @@ import love.distributedrebirth.numberxd.base2t.Base2Terminator;
 import love.distributedrebirth.numberxd.base2t.type.V072Tong;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public class UnicodePlaneBaseGlyph {
+public class FontAtlasStoreGlyph {
 
-	private String unicode;
-	private List<V072Tong> glyph = new ArrayList<>();
+	private List<V072Tong> tongs = new ArrayList<>();
 	
-	public UnicodePlaneBaseGlyph() {
+	public FontAtlasStoreGlyph() {
 	}
 	
-	public String getUnicode() {
-		return unicode;
+	public List<V072Tong> getTongs() {
+		return tongs;
 	}
 	
-	public void setUnicode(String unicode) {
-		this.unicode = unicode;
+	public void setTongs(List<V072Tong> glyph) {
+		this.tongs = glyph;
 	}
 	
-	public List<V072Tong> getGlyph() {
-		return glyph;
-	}
-	
-	public void setGlyph(List<V072Tong> glyph) {
-		this.glyph = glyph;
-	}
-	
-	public void addGlyph(V072Tong glyph) {
-		this.glyph.add(glyph);
+	public void addTong(V072Tong glyph) {
+		this.tongs.add(glyph);
 	}
 	
 	public String getBase64() {
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		try {
-			Base2Terminator.INSTANCE.Bãß2WriteTong(glyph, baos);
+			Base2Terminator.INSTANCE.Bãß2WriteTong(tongs, baos);
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}
@@ -56,7 +47,7 @@ public class UnicodePlaneBaseGlyph {
 		try {
 			List<V072Tong> result = new ArrayList<>();
 			Base2Terminator.INSTANCE.Bãß2ReadTong(bais, result);
-			glyph = result;
+			tongs = result;
 		} catch (IOException e) {
 			throw new RuntimeException(e);
 		}

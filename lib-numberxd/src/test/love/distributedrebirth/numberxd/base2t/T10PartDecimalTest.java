@@ -22,8 +22,8 @@ public class T10PartDecimalTest {
 	public void testToneMap() {
 		Assertions.assertEquals(T10PartDecimal.PART_1, T10PartDecimal.PART_1.BãßValueOfDialTone("˥"));
 		Assertions.assertEquals(T10PartDecimal.PART_2, T10PartDecimal.PART_1.BãßValueOfDialTone("˦"));
-		Assertions.assertEquals(T10PartDecimal.PART_9, T10PartDecimal.PART_1.BãßValueOfDialTone("꜕"));
-		Assertions.assertEquals(T10PartDecimal.PART_10, T10PartDecimal.PART_1.BãßValueOfDialTone("꜖"));
+		Assertions.assertEquals(T10PartDecimal.PART_9, T10PartDecimal.PART_1.BãßValueOfDialTone("꜓"));
+		Assertions.assertEquals(T10PartDecimal.PART_10, T10PartDecimal.PART_1.BãßValueOfDialTone("꜒"));
 	}
 	
 	@Test

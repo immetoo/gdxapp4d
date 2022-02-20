@@ -18,11 +18,10 @@ import org.xml.sax.XMLReader;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.T02PartBinary;
 import love.distributedrebirth.numberxd.base2t.type.V072Tong;
-import love.distributedrebirth.unicode4d.base.UnicodePlane;
-import love.distributedrebirth.unicode4d.base.UnicodePlaneBase;
-import love.distributedrebirth.unicode4d.base.UnicodePlaneBaseGlyph;
-import love.distributedrebirth.unicode4d.base.UnicodePlaneDriver;
-import love.distributedrebirth.unicode4d.base.UnicodePlaneᶻᴰ;
+import love.distributedrebirth.unicode4d.atlas.FontAtlas;
+import love.distributedrebirth.unicode4d.atlas.FontAtlasDriver;
+import love.distributedrebirth.unicode4d.atlas.FontAtlasStore;
+import love.distributedrebirth.unicode4d.atlas.FontAtlasStoreGlyph;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class TestConvFont {
@@ -33,97 +32,61 @@ public class TestConvFont {
 	}
 	
 	public void run() {
-		UnicodePlane unicodePlane = new UnicodePlane();
-		
 		try {
-			List<FontContentResult> results = new ArrayList<>();
-			
 			// NOTE: Are in order like the FontAtlas of ImGui
-			results.add(conf(unicodePlane, new File("../conv-font/bin/code-2000.xml")));
-			results.add(conf(unicodePlane, new File("../conv-font/bin/code-2001.xml")));
-			results.add(conf(unicodePlane, new File("../conv-font/bin/code-2002.xml")));
-			results.add(conf(unicodePlane, new File("../conv-font/bin/free-sans.xml")));
-			results.add(conf(unicodePlane, new File("../conv-font/bin/new-gardiner-bmp.xml")));
-			results.add(conf(unicodePlane, new File("../conv-font/bin/fa-solid-900.xml")));
-			results.add(conf(unicodePlane, new File("../conv-font/bin/noto-sans-brahmi.xml")));
-			
-			int totalChars = 0;
-			for (FontContentResult result:results) {
-				totalChars += result.getGlyphCounter();
-			}
-			System.out.println("Writing export unicode4d with characters: "+totalChars);
-			
-			UnicodePlaneDriver.newInstance().createWriter().writeFile(unicodePlane, "../main-gdxapp/assets/font/unicode4d.xml");
-			
-			for (FontContentResult result:results) {
-				System.out.println("Glyphs import: "+result.getGlyphCounter()+" dropped: "+result.getGlyphDropped()+" from: "+result.getInputName());
-			}
+			conf("Code2000", new File("../conv-font/bin/code-2000.xml"), new File("../main-gdxapp/assets/font/code-2000.xml"));
+			conf("Code2001", new File("../conv-font/bin/code-2001.xml"), new File("../main-gdxapp/assets/font/code-2001.xml"));
+			conf("Code2002", new File("../conv-font/bin/code-2002.xml"), new File("../main-gdxapp/assets/font/code-2002.xml"));
+			conf("Free Sans", new File("../conv-font/bin/free-sans.xml"), new File("../main-gdxapp/assets/font/free-sans.xml"));
+			conf("New Gardiner BMP", new File("../conv-font/bin/new-gardiner-bmp.xml"), new File("../main-gdxapp/assets/font/new-gardiner-bmp.xml"));
+			conf("Font Awesome", new File("../conv-font/bin/fa-solid-900.xml"), new File("../main-gdxapp/assets/font/fa-solid-900.xml"));
+			conf("Noto Sans Brahmi", new File("../conv-font/bin/noto-sans-brahmi.xml"), new File("../main-gdxapp/assets/font/noto-sans-brahmi.xml"));
+
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
-	public FontContentResult conf(UnicodePlane unicodePlane, File input) throws Exception {
+	public void conf(String fontName, File input, File output) throws Exception {
 		System.out.println("START WITH: "+input);
+		
 		SAXParserFactory factory = SAXParserFactory.newInstance();
 		SAXParser parser = factory.newSAXParser();
 		XMLReader reader = parser.getXMLReader();
-		FontContentHandler fontContentHandler = new FontContentHandler(unicodePlane, input.getName());
+		
+		FontAtlas fontAtlas = new FontAtlas();
+		FontAtlasStore fontStore = new FontAtlasStore();
+		fontStore.setName(fontName);
+		fontAtlas.addStore(fontStore);
+		FontContentHandler fontContentHandler = new FontContentHandler(fontStore, input.getName());
 		reader.setContentHandler(fontContentHandler);
 
 		InputSource inputSource = new InputSource(new FileInputStream(input));
 		reader.parse(inputSource);
-		return fontContentHandler.getResult();
-	}
-	
-	class FontContentResult {
-		private final String inputName;
-		private int glyphCounter  = 0;
-		private int glyphDropped  = 0;
 		
-		public FontContentResult(String inputName) {
-			this.inputName = inputName;
-		}
+		FontAtlasDriver.newInstance().createWriter().writeFile(fontAtlas, output);
 		
-		public String getInputName() {
-			return inputName;
-		}
-		
-		public int getGlyphCounter() {
-			return glyphCounter;
-		}
-		
-		public void incGlyphCounter() {
-			this.glyphCounter++;
-		}
-		
-		public int getGlyphDropped() {
-			return glyphDropped;
-		}
-		
-		public void incGlyphDropped() {
-			this.glyphDropped++;
-		}
+		System.out.println("END WITH: "+output+" wrote: "+fontContentHandler.getGlyphCounter());
 	}
 	
 	class FontContentHandler implements ContentHandler {
 		
-		private final UnicodePlane unicodePlane;
-		private final FontContentResult result;
-		private List<V072Tong> glyph;
+		private FontAtlasStore fontStore;
+		private int glyphCounter;
+		private List<V072Tong> tongs;
 		private boolean startPoint = false;
 		private V072Tong point = null;
 		private int unicode = -1;
+		private UnicodePlaneᶻᴰ unicodePlane2;
 		
 		
-		public FontContentHandler(UnicodePlane unicodePlane, String inputName) {
-			this.unicodePlane = unicodePlane;
-			this.result = new FontContentResult(inputName);
+		public FontContentHandler(FontAtlasStore fontStore, String inputName) {
+			this.fontStore = fontStore;
 		}
 		
-		public FontContentResult getResult() {
-			return result;
+		public int getGlyphCounter() {
+			return glyphCounter;
 		}
 		
 		@Override
@@ -141,35 +104,12 @@ public class TestConvFont {
 			} else if ("glyph".equals(qName)) {
 				
 				if (CodePointCommandᶻᴰ.NOP != CodePointᶻᴰ.INSTANCE.getCommand(point.getValue(T02PartBinary.PART_1))) {
-					glyph.add(point);
+					tongs.add(point);
 				}
-				UnicodePlaneᶻᴰ plane = UnicodePlaneᶻᴰ.valueOfUnicode(unicode);
-				
-				UnicodePlaneBase planeBase = unicodePlane.getPlaneByName(plane.name());
-				if (planeBase == null) {
-					planeBase = new UnicodePlaneBase();
-					planeBase.setName(plane.name());
-					unicodePlane.addPlane(planeBase);
-				}
-				String unicodeHex = Integer.toHexString(unicode);
-				UnicodePlaneBaseGlyph baseGlyph = planeBase.getBaseGlyphByUnicode(unicodeHex);
-				if (baseGlyph !=  null) {
-					//System.out.println("============== DUP unicode: "+unicodeHex);
-					result.incGlyphDropped();
-					return;
-				}
-				result.incGlyphCounter();
-				baseGlyph = new UnicodePlaneBaseGlyph();
-				baseGlyph.setUnicode(unicodeHex);
-				baseGlyph.setGlyph(glyph);
-				planeBase.addBaseGlyph(baseGlyph);
-				
-				//try {
-					//FileOutputStream out = new FileOutputStream("../conv-font/bin/test/"+unicode+".u4d");
-					//Base2Terminator.INSTANCE.Bãß2WriteTong(glyph, out);
-				//} catch (Exception e) {
-				//	throw new SAXException(e);
-				//}
+				glyphCounter++;
+				FontAtlasStoreGlyph baseGlyph = new FontAtlasStoreGlyph();
+				baseGlyph.setTongs(tongs);
+				fontStore.addGlyph(baseGlyph);
 				
 			} else if ("contour".equals(qName)) {
 				
@@ -206,12 +146,13 @@ public class TestConvFont {
 			if ("opentype".equals(qName)) {
 				
 			} else if ("glyph".equals(qName)) {
-				glyph = new ArrayList<>();
+				tongs = new ArrayList<>();
 				point = new V072Tong();
 				CodePointᶻᴰ.INSTANCE.setCommand(point.getValue(T02PartBinary.PART_1), CodePointCommandᶻᴰ.NOP);
 				CodePointᶻᴰ.INSTANCE.setCommand(point.getValue(T02PartBinary.PART_2), CodePointCommandᶻᴰ.NOP);
 				
 				unicode = Integer.parseInt(atts.getValue("unicode"), 16);
+				unicodePlane2 = UnicodePlaneᶻᴰ.valueOfUnicode(unicode);
 				int xMax = Integer.parseInt(atts.getValue("xMax"));
 				int yMax = Integer.parseInt(atts.getValue("yMax"));
 				int xMin = Integer.parseInt(atts.getValue("xMin"));
@@ -223,7 +164,11 @@ public class TestConvFont {
 				V072Tong v1 = new V072Tong();
 				V072Tong v2 = new V072Tong();
 				
-				CodePointᶻᴰ.INSTANCE.setCommand(v0.getValue(T02PartBinary.PART_1), CodePointCommandᶻᴰ.START);
+				if (unicodePlane2.isLeftToRight()) {
+					CodePointᶻᴰ.INSTANCE.setCommand(v0.getValue(T02PartBinary.PART_1), CodePointCommandᶻᴰ.START_LR);
+				} else {
+					CodePointᶻᴰ.INSTANCE.setCommand(v0.getValue(T02PartBinary.PART_1), CodePointCommandᶻᴰ.START_RL);
+				}
 				
 				CodePointᶻᴰ.INSTANCE.setCommand(v0.getValue(T02PartBinary.PART_2), CodePointCommandᶻᴰ.UNICODE);
 				CodePointᶻᴰ.INSTANCE.setArgumentUnicode(v0.getValue(T02PartBinary.PART_2), unicode);
@@ -242,9 +187,9 @@ public class TestConvFont {
 				
 				CodePointᶻᴰ.INSTANCE.setCommand(v2.getValue(T02PartBinary.PART_2), CodePointCommandᶻᴰ.NOP);
 				
-				glyph.add(v0);
-				glyph.add(v1);
-				glyph.add(v2);
+				tongs.add(v0);
+				tongs.add(v1);
+				tongs.add(v2);
 				
 			} else if ("contour".equals(qName)) {
 				startPoint = true;
@@ -274,7 +219,7 @@ public class TestConvFont {
 				CodePointᶻᴰ.INSTANCE.setArgument(point.getValue(part), T02PartBinary.PART_1, x);
 				CodePointᶻᴰ.INSTANCE.setArgument(point.getValue(part), T02PartBinary.PART_2, y);
 				if (part == T02PartBinary.PART_2) {
-					glyph.add(point);
+					tongs.add(point);
 					point = new V072Tong();
 					CodePointᶻᴰ.INSTANCE.setCommand(point.getValue(T02PartBinary.PART_1), CodePointCommandᶻᴰ.NOP);
 					CodePointᶻᴰ.INSTANCE.setCommand(point.getValue(T02PartBinary.PART_2), CodePointCommandᶻᴰ.NOP);
