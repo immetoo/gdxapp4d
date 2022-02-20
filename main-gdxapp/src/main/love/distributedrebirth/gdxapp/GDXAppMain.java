@@ -114,7 +114,7 @@ public enum GDXAppMain implements DefaultEnumInstanceᴶᴹˣ<GDXAppMain,GDXAppM
 		System.out.println("BãßBȍőnCoffinʸᴰ init done.");
 		
 		try {
-			basePlane = FontAtlasDriver.newInstance().createReader().readString(Gdx.files.internal("font/unicode4d.xml").readString());
+			//basePlane = FontAtlasDriver.newInstance().createReader().readString(Gdx.files.internal("font/unicode4d.xml").readString());
 			
 			
 			if (args.contains("warpcore-load")) {

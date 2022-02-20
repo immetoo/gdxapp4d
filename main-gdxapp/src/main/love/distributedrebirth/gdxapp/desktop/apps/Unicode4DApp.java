@@ -42,7 +42,7 @@ public class Unicode4DApp extends DefaultDeskApp implements DeskAppRenderer {
 		public ImCharacter(FontAtlasStoreGlyph glyph) {
 			this.glyph = glyph;
 			
-			List<V072Tong> tongs = glyph.getTongs();
+			//List<V072Tong> tongs = glyph.getTongs();
 		}
 		
 		public void render() {
