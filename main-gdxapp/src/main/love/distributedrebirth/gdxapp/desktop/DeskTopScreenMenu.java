@@ -16,6 +16,7 @@ import love.distributedrebirth.gdxapp.desktop.apps.HebrewWalletApp;
 import love.distributedrebirth.gdxapp.desktop.apps.MusicPlayerApp;
 import love.distributedrebirth.gdxapp.desktop.apps.SystemBaseGlyphApp;
 import love.distributedrebirth.gdxapp.desktop.apps.SystemBasePartApp;
+import love.distributedrebirth.gdxapp.desktop.apps.SystemBaseUnicodePlaneApp;
 import love.distributedrebirth.gdxapp.desktop.apps.Unicode4DApp;
 import love.distributedrebirth.gdxapp.screen.ScreenCredits;
 import love.distributedrebirth.gdxapp.screen.ScreenDesktop1;
@@ -44,8 +45,10 @@ public class DeskTopScreenMenu {
 		
 		apps = new ArrayList<>();
 		apps.add(new GDXAppLauncher("Basic Console", () -> new BasicConsoleApp()));
-		apps.add(new GDXAppLauncher("Base Glyphs", () -> new SystemBaseGlyphApp()));
-		apps.add(new GDXAppLauncher("Base Parts", () -> new SystemBasePartApp()));
+		apps.add(new GDXAppLauncher("Sys Glyph Set", () -> new SystemBaseGlyphApp()));
+		apps.add(new GDXAppLauncher("Sys Number Parts", () -> new SystemBasePartApp()));
+		apps.add(new GDXAppLauncher("Sys Unicode", () -> new SystemBaseUnicodePlaneApp()));
+		
 		apps.add(new GDXAppLauncher("Hebrew Wallet", () -> new HebrewWalletApp()));
 		apps.add(new GDXAppLauncher("Unicode4D", () -> new Unicode4DApp()));
 		apps.add(new GDXAppLauncher("Music Player", () -> new MusicPlayerApp()));
