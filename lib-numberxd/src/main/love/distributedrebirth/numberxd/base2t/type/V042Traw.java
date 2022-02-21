@@ -36,7 +36,7 @@ public final class V042Traw implements BaseNumber<V042Traw> {
 	}
 	
 	@Override
-	public int getBitCount() {
+	public int BãßBitCount() {
 		return BIT_COUNT;
 	}
 	

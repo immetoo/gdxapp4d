@@ -38,7 +38,7 @@ public class V0x000CA8ˣᴸ implements BaseNumberTyteˣᴸ<V0x000CA8ˣᴸ> {
 	}
 	
 	@Override
-	public int getBitCount() {
+	public int BãßBitCount() {
 		return BIT_COUNT;
 	}
 	

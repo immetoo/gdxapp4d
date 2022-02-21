@@ -34,10 +34,10 @@ public class TestConvFont {
 	public void run() {
 		try {
 			// NOTE: Are in order like the FontAtlas of ImGui
-			conf("Code2000", new File("../conv-font/bin/code-2000.xml"), new File("../main-gdxapp/assets/font/code-2000.xml"));
-			conf("Code2001", new File("../conv-font/bin/code-2001.xml"), new File("../main-gdxapp/assets/font/code-2001.xml"));
-			conf("Code2002", new File("../conv-font/bin/code-2002.xml"), new File("../main-gdxapp/assets/font/code-2002.xml"));
-			conf("Free Sans", new File("../conv-font/bin/free-sans.xml"), new File("../main-gdxapp/assets/font/free-sans.xml"));
+			//conf("Code2000", new File("../conv-font/bin/code-2000.xml"), new File("../main-gdxapp/assets/font/code-2000.xml"));
+			//conf("Code2001", new File("../conv-font/bin/code-2001.xml"), new File("../main-gdxapp/assets/font/code-2001.xml"));
+			//conf("Code2002", new File("../conv-font/bin/code-2002.xml"), new File("../main-gdxapp/assets/font/code-2002.xml"));
+			//conf("Free Sans", new File("../conv-font/bin/free-sans.xml"), new File("../main-gdxapp/assets/font/free-sans.xml"));
 			conf("New Gardiner BMP", new File("../conv-font/bin/new-gardiner-bmp.xml"), new File("../main-gdxapp/assets/font/new-gardiner-bmp.xml"));
 			conf("Font Awesome", new File("../conv-font/bin/fa-solid-900.xml"), new File("../main-gdxapp/assets/font/fa-solid-900.xml"));
 			conf("Noto Sans Brahmi", new File("../conv-font/bin/noto-sans-brahmi.xml"), new File("../main-gdxapp/assets/font/noto-sans-brahmi.xml"));

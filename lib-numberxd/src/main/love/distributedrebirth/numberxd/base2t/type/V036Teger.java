@@ -66,7 +66,7 @@ public final class V036Teger implements BaseNumberTyte<V036Teger> {
 	}
 	
 	@Override
-	public int getBitCount() {
+	public int BãßBitCount() {
 		return BIT_COUNT;
 	}
 	

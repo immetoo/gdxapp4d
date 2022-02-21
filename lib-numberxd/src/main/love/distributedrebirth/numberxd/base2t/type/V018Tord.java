@@ -65,7 +65,7 @@ public final class V018Tord implements BaseNumberTyte<V018Tord> {
 	}
 	
 	@Override
-	public int getBitCount() {
+	public int BãßBitCount() {
 		return BIT_COUNT;
 	}
 	

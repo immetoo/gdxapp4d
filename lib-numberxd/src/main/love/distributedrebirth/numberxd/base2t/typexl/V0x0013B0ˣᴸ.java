@@ -36,7 +36,7 @@ public class V0x0013B0ˣᴸ implements BaseNumberˣᴸ<V0x0013B0ˣᴸ> {
 	}
 	
 	@Override
-	public int getBitCount() {
+	public int BãßBitCount() {
 		return BIT_COUNT;
 	}
 	

@@ -14,11 +14,7 @@ public interface BaseNumber<V extends BaseNumber<V>> {
 	
 	static float CIRCLE_DEGREE = 360f;
 	
-	int getBitCount();
-	
-	default float getSliceAngle() {
-		return CIRCLE_DEGREE/getBitCount();
-	}
+	int BãßBitCount();
 	
 	V toClone();
 	

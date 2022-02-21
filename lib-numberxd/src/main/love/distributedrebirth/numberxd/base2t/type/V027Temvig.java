@@ -44,7 +44,7 @@ public final class V027Temvig implements BaseNumberTyte<V027Temvig> {
 	}
 	
 	@Override
-	public int getBitCount() {
+	public int BãßBitCount() {
 		return BIT_COUNT;
 	}
 	

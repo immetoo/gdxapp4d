@@ -73,7 +73,7 @@ public final class V144Tocta implements BaseNumberTyte<V144Tocta> {
 	}
 	
 	@Override
-	public int getBitCount() {
+	public int BãßBitCount() {
 		return BIT_COUNT;
 	}
 	

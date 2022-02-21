@@ -57,7 +57,7 @@ public final class V072Tong implements BaseNumberTyte<V072Tong> {
 	}
 	
 	@Override
-	public int getBitCount() {
+	public int BãßBitCount() {
 		return BIT_COUNT;
 	}
 	

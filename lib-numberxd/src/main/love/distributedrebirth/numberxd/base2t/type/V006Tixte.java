@@ -38,7 +38,7 @@ public final class V006Tixte implements BaseNumber<V006Tixte> {
 	}
 	
 	@Override
-	public int getBitCount() {
+	public int BãßBitCount() {
 		return BIT_COUNT;
 	}
 	

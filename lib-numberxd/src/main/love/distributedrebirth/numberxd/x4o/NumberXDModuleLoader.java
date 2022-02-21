@@ -2,6 +2,7 @@ package love.distributedrebirth.numberxd.x4o;
 
 import org.x4o.xml.conv.ObjectConverter;
 import org.x4o.xml.eld.lang.ModuleElement;
+import org.x4o.xml.element.ElementBindingHandler;
 import org.x4o.xml.element.ElementClass;
 import org.x4o.xml.element.ElementClassAttribute;
 import org.x4o.xml.element.ElementNamespace;
@@ -28,17 +29,17 @@ import love.distributedrebirth.numberxd.base2t.type.V144Tocta;
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class NumberXDModuleLoader implements X4OLanguageModuleLoader {
 
-	private static final String PP_NXD_PROVIDER_HOST = "numberxd.x4o.distributedrebirth.love";
+	private static final String PP_NXD_PROVIDER_HOST = "unicode4d.x4o.distributedrebirth.love";
 	private static final String PP_NXD_XMLNS = "http://"+PP_NXD_PROVIDER_HOST+"/xml/ns/";
 	private static final String PP_NXD_XSD_FILE = "-1.0.xsd";
-	private static final String NXD_CORE = "nxd-core";
-	private static final String NXD_ROOT = "nxd-root";
-	private static final String NXD_CORE_XSD_FILE = NXD_CORE+PP_NXD_XSD_FILE;
-	private static final String NXD_ROOT_XSD_FILE = NXD_ROOT+PP_NXD_XSD_FILE;
-	public  static final String NXD_CORE_URI = PP_NXD_XMLNS+NXD_CORE;
-	public  static final String NXD_ROOT_URI = PP_NXD_XMLNS+NXD_ROOT;
-	public  static final String NXD_CORE_XSD_URI = NXD_CORE_URI+PP_NXD_XSD_FILE;
-	public  static final String NXD_ROOT_XSD_URI = NXD_ROOT_URI+PP_NXD_XSD_FILE;
+	private static final String NXD_DATA = "d";
+	//private static final String NXD_ROOT = "nxd-root";
+	private static final String NXD_DATA_XSD_FILE = NXD_DATA+PP_NXD_XSD_FILE;
+	//private static final String NXD_ROOT_XSD_FILE = NXD_ROOT+PP_NXD_XSD_FILE;
+	public  static final String NXD_DATA_URI = PP_NXD_XMLNS+NXD_DATA;
+	//public  static final String NXD_ROOT_URI = PP_NXD_XMLNS+NXD_ROOT;
+	public  static final String NXD_DATA_XSD_URI = NXD_DATA_URI+PP_NXD_XSD_FILE;
+	//public  static final String NXD_ROOT_XSD_URI = NXD_ROOT_URI+PP_NXD_XSD_FILE;
 	
 	@Override
 	public void loadLanguageModule(X4OLanguageLocal language, X4OLanguageModuleLocal languageModule) throws X4OLanguageModuleLoaderException {
@@ -47,6 +48,11 @@ public class NumberXDModuleLoader implements X4OLanguageModuleLoader {
 		languageModule.setProviderHost(PP_NXD_PROVIDER_HOST);
 		languageModule.setDescription("Number eXtra Dimension Module Loader");
 		
+		addBindingHandler(languageModule,new V072TongBindingHandler(),"v072-bind","Binds the V072Tong childeren.");
+		addBindingHandler(languageModule,new V072TongP1BindingHandler(),"v072P1-bind","Binds the V072TongP1 childeren.");
+		addBindingHandler(languageModule,new V072TongP2BindingHandler(),"v072P2-bind","Binds the V072TongP2 childeren.");
+		
+		/*
 		ElementNamespace namespaceRoot = createNamespaceContext(language,NXD_ROOT,NXD_ROOT_URI,NXD_ROOT_XSD_URI,NXD_ROOT_XSD_FILE,NXD_ROOT);
 		namespaceRoot.setLanguageRoot(true); // Only define single language root so xsd is (mostly) not cicle import.
 		ElementClass rootElement = createElementClass(language,"module",language.getLanguageConfiguration().getDefaultElementLanguageModule(),ModuleElement.class,"The module tag is the root xml element for ELD language.");
@@ -54,8 +60,9 @@ public class NumberXDModuleLoader implements X4OLanguageModuleLoader {
 		rootElement.addElementClassAttribute(createElementClassAttribute(language,"providerHost",true,null));
 		namespaceRoot.addElementClass(rootElement);
 		startAndAddNamespace(language,languageModule,namespaceRoot);
+		*/
 		
-		ElementNamespace namespace = createNamespaceContext(language,NXD_CORE,NXD_CORE_URI,NXD_CORE_XSD_URI,NXD_CORE_XSD_FILE,NXD_CORE);
+		ElementNamespace namespace = createNamespaceContext(language,NXD_DATA,NXD_DATA_URI,NXD_DATA_XSD_URI,NXD_DATA_XSD_FILE,NXD_DATA);
 		configElementClasses(language,namespace);
 		startAndAddNamespace(language,languageModule,namespace);
 	}
@@ -65,22 +72,35 @@ public class NumberXDModuleLoader implements X4OLanguageModuleLoader {
 		
 		ec = createElementClass(language,"v006",V006Tixte.class,null,"Defines an V006Tixte number.");
 		//configBãßBȍőnPartAttributes(language, ec, T02PartBinary.PART_1);
+		namespace.addElementClass(ec);
 		
 		ec = createElementClass(language,"v009",V009Tyte.class,null,"Defines an V009Tyte number.");
 		//configBãßBȍőnPartAttributes(language, ec, T03PartTrit.PART_1);
+		namespace.addElementClass(ec);
 		
 		ec = createElementClass(language,"v018",V018Tord.class,null,"Defines an V018Tord number.");
 		//configBãßBȍőnPartAttributes(language, ec, T02PartBinary.PART_1);
+		namespace.addElementClass(ec);
 		
-		ec = createElementClass(language,"v036",V036Teger.class,null,"Defines an V036Teger number.");
+		ec = createElementClass(language,"陸",V036Teger.class,null,"Defines an V036Teger number.");
 		//configBãßBȍőnPartAttributes(language, ec, T02PartBinary.PART_1);
+		namespace.addElementClass(ec);
 		
-		ec = createElementClass(language,"v072",V072Tong.class,null,"Defines an V072Tong number.");
+		ec = createElementClass(language,"參",V072Tong.class,null,"Defines an V072Tong number.");
 		//configBãßBȍőnPartAttributes(language, ec, T02PartBinary.PART_1);
+		namespace.addElementClass(ec);
 		
-		ec = createElementClass(language,"v072",V144Tocta.class,null,"Defines an V144Tocta number.");
+		ec = createElementClass(language,"肆",V072TongP1.class,null,"Defines an V072TongP1 number.");
 		//configBãßBȍőnPartAttributes(language, ec, T02PartBinary.PART_1);
+		namespace.addElementClass(ec);
 		
+		ec = createElementClass(language,"伍",V072TongP2.class,null,"Defines an V072TongP1 number.");
+		//configBãßBȍőnPartAttributes(language, ec, T02PartBinary.PART_1);
+		namespace.addElementClass(ec);
+		
+		
+		ec = createElementClass(language,"v144",V144Tocta.class,null,"Defines an V144Tocta number.");
+		//configBãßBȍőnPartAttributes(language, ec, T02PartBinary.PART_1);
 		namespace.addElementClass(ec);
 	}
 	
@@ -157,5 +177,11 @@ public class NumberXDModuleLoader implements X4OLanguageModuleLoader {
 		namespace.setSchemaResource(schemaResource);
 		namespace.setSchemaPrefix(schemaPrefix);
 		return namespace;
+	}
+	
+	private void addBindingHandler(X4OLanguageModuleLocal languageModule,ElementBindingHandler handler,String id,String description) {
+		handler.setId(id);
+		handler.setDescription(description);
+		languageModule.addElementBindingHandler(handler);
 	}
 }

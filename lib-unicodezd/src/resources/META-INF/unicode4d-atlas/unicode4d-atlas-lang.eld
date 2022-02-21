@@ -15,6 +15,12 @@
 		parentClass="love.distributedrebirth.unicode4d.atlas.FontAtlasStore"
 		childClass="love.distributedrebirth.unicode4d.atlas.FontAtlasStoreGlyph"
 		addMethod="addGlyph" getMethod="getGlyphs" />
+	<!-- 
+	<eld:classBindingHandler id="FontAtlasStoreGlyph-V072Tong"
+		parentClass="love.distributedrebirth.unicode4d.atlas.FontAtlasStoreGlyph"
+		childClass="love.distributedrebirth.numberxd.base2t.type.V072Tong"
+		addMethod="addTong" getMethod="getTongs" />
+	-->
 	
 	<eld:namespace
 		uri="http://unicode4d-atlas.x4o.distributedrebirth.love/xml/ns/unicode4d-atlas-root"

@@ -54,7 +54,7 @@ public final class V009Tyte implements BaseNumberTyte<V009Tyte> {
 	}
 	
 	@Override
-	public int getBitCount() {
+	public int BãßBitCount() {
 		return BIT_COUNT;
 	}
 	
