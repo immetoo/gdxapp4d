@@ -1,15 +1,15 @@
-package love.distributedrebirth.warpme.chain;
+package love.distributedrebirth.warpme.sea;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public class WaterTagChain {
+public class WaterSeaChain {
 
 	private String path;
 	private String key;
 	private String tag;
 	
-	public WaterTagChain() {
+	public WaterSeaChain() {
 	}
 	
 	public String getPath() {
