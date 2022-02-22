@@ -59,6 +59,7 @@ public class DeskTopScreenMenu {
 		
 		ImGui.beginMainMenuBar();
 		renderVRGEM4Menu(appScreen);
+		renderTOS4Menu(appScreen);
 		
 		if (deskApp != null) {
 			renderEditMenu(deskApp);
@@ -166,75 +167,53 @@ public class DeskTopScreenMenu {
 		}
 	}
 	
+	private void renderTOS4Menu(DeskTopScreen appScreen) {
+		if (ImGui.beginMenu("仙" + " TOS⁴")) {
+			if (ImGui.menuItem(FontAwesomeIcons.Camera + " Main reality")) {
+				appScreen.getDeskAppScreen().setCurrentDeskApp(null);
+			}
+			for (DeskApp app: appScreen.getDeskAppScreen().getDeskApps()) {
+				String infix = "";
+				if (appScreen.getDeskAppScreen().getCurrentDeskApp() == app) {
+					infix = FontAwesomeIcons.Wrench + " ";;
+				}
+				if (ImGui.menuItem(infix + app.getTitle())) {
+					appScreen.getDeskAppScreen().setCurrentDeskApp(app);
+				}
+			}
+			ImGui.endMenu();
+		}
+	}
+	
 	private void renderVRGEM4Menu(DeskTopScreen appScreen) {
-		if (ImGui.beginMenu(FontAwesomeIcons.Star + " vrGEM⁴")) {
+		if (ImGui.beginMenu("ﷲ" + " vrGEM⁴")) {
 			String infix1 = "";
 			String infix2 = "";
 			String infix3 = "";
 			String infix4 = "";
 			if (appScreen instanceof ScreenDesktop1) {
-				infix1 = FontAwesomeIcons.Wrench + " ";
+				infix1 = FontAwesomeIcons.Eye + " ";
 			}
 			if (appScreen instanceof ScreenDesktop2) {
-				infix2 = FontAwesomeIcons.Wrench + " ";
+				infix2 = FontAwesomeIcons.Eye + " ";
 			}
 			if (appScreen instanceof ScreenDesktop3) {
-				infix3 = FontAwesomeIcons.Wrench + " ";
+				infix3 = FontAwesomeIcons.Eye + " ";
 			}
 			if (appScreen instanceof ScreenDesktop4) {
-				infix4 = FontAwesomeIcons.Wrench + " ";
+				infix4 = FontAwesomeIcons.Eye + " ";
 			}
-			if (ImGui.beginMenu(infix1+"Desktop1")) {
-				if (ImGui.menuItem(FontAwesomeIcons.Camera + " Main reality")) {
-					GDXAppMain.INSTANCE.selectScreen(ScreenDesktop1.class);
-					desktop1.getDeskAppScreen().setCurrentDeskApp(null);
-				}
-				for (DeskApp app: desktop1.getDeskAppScreen().getDeskApps()) {
-					if (ImGui.menuItem(app.getTitle())) {
-						GDXAppMain.INSTANCE.selectScreen(ScreenDesktop1.class);
-						desktop1.getDeskAppScreen().setCurrentDeskApp(app);
-					}
-				}
-				ImGui.endMenu();
+			if (ImGui.menuItem(infix1+"Desktop1")) {
+				GDXAppMain.INSTANCE.selectScreen(ScreenDesktop1.class);
 			}
-			if (ImGui.beginMenu(infix2+"Desktop2")) {
-				if (ImGui.menuItem(FontAwesomeIcons.Camera + " Main reality")) {
-					GDXAppMain.INSTANCE.selectScreen(ScreenDesktop2.class);
-					desktop2.getDeskAppScreen().setCurrentDeskApp(null);
-				}
-				for (DeskApp app: desktop2.getDeskAppScreen().getDeskApps()) {
-					if (ImGui.menuItem(app.getTitle())) {
-						GDXAppMain.INSTANCE.selectScreen(ScreenDesktop2.class);
-						desktop2.getDeskAppScreen().setCurrentDeskApp(app);
-					}
-				}
-				ImGui.endMenu();
+			if (ImGui.menuItem(infix2+"Desktop2")) {
+				GDXAppMain.INSTANCE.selectScreen(ScreenDesktop2.class);
 			}
-			if (ImGui.beginMenu(infix3+"Desktop3")) {
-				if (ImGui.menuItem(FontAwesomeIcons.Camera + " Main reality")) {
-					GDXAppMain.INSTANCE.selectScreen(ScreenDesktop3.class);
-					desktop3.getDeskAppScreen().setCurrentDeskApp(null);
-				}
-				for (DeskApp app: desktop3.getDeskAppScreen().getDeskApps()) {
-					if (ImGui.menuItem(app.getTitle())) {
-						GDXAppMain.INSTANCE.selectScreen(ScreenDesktop3.class);
-						desktop3.getDeskAppScreen().setCurrentDeskApp(app);
-					}
-				}
-				ImGui.endMenu();
+			if (ImGui.menuItem(infix3+"Desktop3")) {
+				GDXAppMain.INSTANCE.selectScreen(ScreenDesktop3.class);
 			}
-			if (ImGui.beginMenu(infix4+"Desktop4")) {
-				if (ImGui.menuItem(FontAwesomeIcons.Camera + " Main reality")) {
-					GDXAppMain.INSTANCE.selectScreen(ScreenDesktop4.class);
-					desktop4.getDeskAppScreen().setCurrentDeskApp(null);
-				}
-				for (DeskApp app: desktop4.getDeskAppScreen().getDeskApps()) {
-					if (ImGui.menuItem(app.getTitle())) {
-						GDXAppMain.INSTANCE.selectScreen(ScreenDesktop4.class);
-						desktop4.getDeskAppScreen().setCurrentDeskApp(app);
-					}
-				}
-				ImGui.endMenu();
+			if (ImGui.menuItem(infix4+"Desktop4")) {
+				GDXAppMain.INSTANCE.selectScreen(ScreenDesktop4.class);
 			}
 			ImGui.separator();
 			if (ImGui.beginMenu(FontAwesomeIcons.Plus + " Start App")) {
