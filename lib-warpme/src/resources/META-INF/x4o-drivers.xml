@@ -4,5 +4,7 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://language.x4o.org/xml/ns/drivers http://language.x4o.org/xml/ns/drivers-1.0.xsd"
 	>
-	<driver language="warpcore" className="love.distributedrebirth.numberxd.base2t.part.warp.TOSWarpCoreDriver"/>
+	<driver language="warp-core" className="love.distributedrebirth.warpme.core.WaterBucketDriver"/>
+	<driver language="warp-hash" className="love.distributedrebirth.warpme.hash.WaterDrugsDriver"/>
+	<driver language="warp-sea" className="love.distributedrebirth.warpme.sea.WaterOceanDriver"/>
 </drivers>

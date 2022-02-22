@@ -4,8 +4,8 @@
 	xmlns:conv="http://eld.x4o.org/xml/ns/eld-conv"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://eld.x4o.org/xml/ns/eld-root http://eld.x4o.org/xml/ns/eld-root-1.0.xsd"
-	providerHost="warpcore.x4o.distributedrebirth.love" providerName="WarpCore Encryption"
-	id="warpcore-module">
+	providerHost="warp-core.x4o.distributedrebirth.love" providerName="WarpCoreᵐᵉ"
+	id="warp-core-module">
 
 	<eld:classBindingHandler id="Bucket-Water"
 		parentClass="love.distributedrebirth.numberxd.base2t.part.warp.WaterBucket"
@@ -21,9 +21,9 @@
 		addMethod="addHeartTone" getMethod="getHeartTones" />
 	
 	<eld:namespace
-		uri="http://wrapcore.x4o.distributedrebirth.love/xml/ns/warpcore-root"
-		schemaUri="http://warpcore.x4o.distributedrebirth.love/xml/ns/warpcore-root-1.0.xsd"
-		schemaResource="warpcore-root-1.0.xsd" schemaPrefix="root"
+		uri="http://wrap-core.x4o.distributedrebirth.love/xml/ns/warp-core-root"
+		schemaUri="http://warp-core.x4o.distributedrebirth.love/xml/ns/warp-core-root-1.0.xsd"
+		schemaResource="warp-core-root-1.0.xsd" schemaPrefix="root"
 		description="Root namespace to have nice namespaceing."
 		name="WarpCore Root Namespace" languageRoot="true" id="root">
 		<eld:element tag="bucket"
@@ -31,9 +31,9 @@
 	</eld:namespace>
 
 	<eld:namespace
-		uri="http://warpcore.x4o.distributedrebirth.love/xml/ns/warpcore-cipher"
-		schemaUri="http://warpcore.x4o.distributedrebirth.love/xml/ns/warpcore-cipher-1.0.xsd"
-		schemaResource="warpcore-lang-1.0.xsd" schemaPrefix="cipher"
+		uri="http://warp-core.x4o.distributedrebirth.love/xml/ns/warp-core-cipher"
+		schemaUri="http://warp-core.x4o.distributedrebirth.love/xml/ns/warp-core-cipher-1.0.xsd"
+		schemaResource="warp-core-lang-1.0.xsd" schemaPrefix="cipher"
 		description="Language namespace to store warp cipher"
 		name="WarpCore Language Namespace" id="cipher">
 		<eld:element tag="water"
