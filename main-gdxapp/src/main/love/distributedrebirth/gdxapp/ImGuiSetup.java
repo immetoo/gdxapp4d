@@ -57,9 +57,26 @@ public class ImGuiSetup {
 		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/free-sans.ttf").readBytes(), 22, fontConfig, glyphRanges);
 		// Egyptian hieroglyphs
 		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/new-gardiner-bmp.ttf").readBytes(), 22, fontConfig, glyphRanges);
-		// Nice icons
 		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/fa-solid-900.ttf").readBytes(), 22, fontConfig, glyphRanges);
+		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/noto-sans-samaritan.ttf").readBytes(), 22, fontConfig, glyphRanges);
+		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/noto-sans-sinhala.ttf").readBytes(), 22, fontConfig, glyphRanges);
+		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/noto-serif-tibetan.ttf").readBytes(), 22, fontConfig, glyphRanges);
+		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/noto-sans-tagalog.ttf").readBytes(), 22, fontConfig, glyphRanges);
+		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/noto-sans-tagbanwa.ttf").readBytes(), 22, fontConfig, glyphRanges);
+		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/noto-sans-tai-le.ttf").readBytes(), 22, fontConfig, glyphRanges);
+		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/noto-sans-tai-tham.ttf").readBytes(), 22, fontConfig, glyphRanges);
+		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/noto-sans-batak.ttf").readBytes(), 22, fontConfig, glyphRanges);
+		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/noto-sans-lepcha.ttf").readBytes(), 22, fontConfig, glyphRanges);
+		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/noto-sans-balinese.ttf").readBytes(), 22, fontConfig, glyphRanges);
+		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/noto-sans-sundanese.ttf").readBytes(), 22, fontConfig, glyphRanges);
+		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/noto-sans-lisu.ttf").readBytes(), 22, fontConfig, glyphRanges);
+		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/noto-sans-bamum.ttf").readBytes(), 22, fontConfig, glyphRanges);
+		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/noto-sans-glagolitic.ttf").readBytes(), 22, fontConfig, glyphRanges);
 		
+		// Missig plane 1++
+		// - code-2001
+		// - code-2002
+		// - noto-sans-brahmi
 		fontConfig.destroy();
 	}
 	
