@@ -5,13 +5,13 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class WaterOcean {
 
-	private WaterSea sea;
+	private WaterSea water;
 	
-	public WaterSea theSea() {
-		return sea;
+	public WaterSea theWater() {
+		return water;
 	}
 	
-	public void setSea(WaterSea sea) {
-		this.sea = sea;
+	public void fillWater(WaterSea water) {
+		this.water = water;
 	}
 }

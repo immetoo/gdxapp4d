@@ -21,6 +21,6 @@ public class WaterShotDriverTest {
 		drugs.addSoftHash(new WaterSoftHash("test2.txt", "ASDFYYF234234SDFSDFASDFS"));
 		
 		Assertions.assertNotNull(drugs);
-		WaterShotDriver.newInstance().createWriter().writeFile(drugs, new java.io.File("build/output.xml"));
+		WaterShotDriver.newInstance().createWriter().writeFile(drugs, new java.io.File("build/out-hash.xml"));
 	}
 }

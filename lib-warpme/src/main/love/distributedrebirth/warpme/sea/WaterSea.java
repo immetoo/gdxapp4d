@@ -1,5 +1,6 @@
 package love.distributedrebirth.warpme.sea;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
@@ -8,8 +9,8 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 public class WaterSea {
 	
 	private String name;
-	private List<WaterSeaChain> seaChains;
-	private List<WaterSeaMagic> seaMagics;
+	private List<WaterSeaChain> seaChains = new ArrayList<>();
+	private List<WaterSeaMagic> seaMagics = new ArrayList<>();
 	
 	public String getName() {
 		return name;

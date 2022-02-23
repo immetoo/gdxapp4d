@@ -1,34 +1,34 @@
 package love.distributedrebirth.warpme.sea;
 
-import java.util.List;
-
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class WaterSeaMagic {
 	
-	private String magicMime;
-	private List<WaterSeaMagicResource> resources;
+	private String mime;
+	private String file;
 	
-	public String getMagicMime() {
-		return magicMime;
+	public WaterSeaMagic() {
 	}
 	
-	public void setMagicMime(String magicMime) {
-		this.magicMime = magicMime;
+	public WaterSeaMagic(String mime, String file) {
+		setMime(mime);
+		setFile(file);
 	}
 	
-	public List<WaterSeaMagicResource> getResources() {
-		return resources;
+	public String getMime() {
+		return mime;
 	}
 	
-	public void setResources(List<WaterSeaMagicResource> resources) {
-		for (WaterSeaMagicResource resource: resources) {
-			addResource(resource);
-		}
+	public void setMime(String mime) {
+		this.mime = mime;
 	}
 	
-	public void addResource(WaterSeaMagicResource resource) {
-		resources.add(resource);
+	public String getFile() {
+		return file;
+	}
+	
+	public void setFile(String file) {
+		this.file = file;
 	}
 }

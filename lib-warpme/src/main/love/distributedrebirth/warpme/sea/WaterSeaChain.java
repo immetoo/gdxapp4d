@@ -5,19 +5,19 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class WaterSeaChain {
 
-	private String path;
 	private String key;
 	private String tag;
 	
 	public WaterSeaChain() {
 	}
 	
-	public String getPath() {
-		return path;
+	public WaterSeaChain(String key) {
+		setKey(key);
 	}
 	
-	public void setPath(String path) {
-		this.path = path;
+	public WaterSeaChain(String key, String tag) {
+		setKey(key);
+		setTag(tag);
 	}
 	
 	public String getKey() {
