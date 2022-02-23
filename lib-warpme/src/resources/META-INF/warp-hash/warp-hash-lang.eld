@@ -7,10 +7,10 @@
 	providerHost="warp-hash.x4o.distributedrebirth.love" providerName="WarpHashᵐᵉ"
 	id="warp-hash-module">
 
-	<eld:classBindingHandler id="WaterDrugs-WaterFileHash"
-		parentClass="love.distributedrebirth.warpme.hash.WaterDrugs"
-		childClass="love.distributedrebirth.warpme.hash.WaterFileHash"
-		addMethod="addFileHash" getMethod="getFileHashes" />
+	<eld:classBindingHandler id="WaterShot-WaterShotHash"
+		parentClass="love.distributedrebirth.warpme.hash.WaterShot"
+		childClass="love.distributedrebirth.warpme.hash.WaterShotHash"
+		addMethod="addShotHash" getMethod="getShotHashes" />
 	
 	<eld:namespace
 		uri="http://wrap-core.x4o.distributedrebirth.love/xml/ns/warp-hash-root"
@@ -18,8 +18,8 @@
 		schemaResource="warp-hash-root-1.0.xsd" schemaPrefix="root"
 		description="Root namespace to have nice namespaceing."
 		name="WarpHash Root Namespace" languageRoot="true" id="root">
-		<eld:element tag="drugs"
-			objectClass="love.distributedrebirth.warpme.hash.WaterDrugs"/>
+		<eld:element tag="shot"
+			objectClass="love.distributedrebirth.warpme.hash.WaterShot"/>
 	</eld:namespace>
 
 	<eld:namespace
@@ -29,6 +29,6 @@
 		description="Language namespace to store warp hash"
 		name="WarpHash Language Namespace" id="soft">
 		<eld:element tag="hash"
-			objectClass="love.distributedrebirth.warpme.hash.WaterFileHash" />
+			objectClass="love.distributedrebirth.warpme.hash.WaterShotHash" />
 	</eld:namespace>
 </root:module>

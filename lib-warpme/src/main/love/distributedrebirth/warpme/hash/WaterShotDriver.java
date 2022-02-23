@@ -6,7 +6,7 @@ import org.x4o.xml.X4ODriverManager;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public class WaterDrugsDriver extends X4ODriver<WaterDrugs> {
+public class WaterShotDriver extends X4ODriver<WaterShot> {
 
 	static final public String LANGUAGE_NAME = "warp-hash";
 	static final public String[] LANGUAGE_VERSIONS = new String[]{X4ODriver.DEFAULT_LANGUAGE_VERSION};
@@ -21,7 +21,7 @@ public class WaterDrugsDriver extends X4ODriver<WaterDrugs> {
 		return LANGUAGE_VERSIONS;
 	}
 	
-	static public WaterDrugsDriver newInstance() {
-		return (WaterDrugsDriver)X4ODriverManager.getX4ODriver(LANGUAGE_NAME);
+	static public WaterShotDriver newInstance() {
+		return (WaterShotDriver)X4ODriverManager.getX4ODriver(LANGUAGE_NAME);
 	}
 }
