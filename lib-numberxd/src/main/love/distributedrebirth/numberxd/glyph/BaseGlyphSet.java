@@ -110,7 +110,7 @@ public enum BaseGlyphSet implements DefaultEnumSetᴶᴹˣ<BaseGlyphSet,BãßBȍ
 	
 	CHINA(
 			new BaseGlyphSetNumber("零","一","二","三","四","五","六","七","八","九"),
-			KOREAN.BȍőnNumber16(),
+			new BaseGlyphSetNumber("䷀", "䷁", "䷂", "䷃", "䷄", "䷅", "䷆", "䷇", "䷈", "䷉", "䷊", "䷋", "䷌", "䷍", "䷎", "䷏"),
 			new BaseGlyphSetNumber("𝌁","𝌂","𝌃","𝌄","𝌅","𝌆","𝌇","𝌈","𝌉","𝌊","𝌋","𝌌","𝌍","𝌎","𝌏","𝌐","𝌑","𝌒","𝌓","𝌔","𝌕","𝌖","𝌗","𝌘","𝌙","𝌚","𝌛")),
 	CHINA_FORMAL(
 			new BaseGlyphSetNumber(v -> T10PartDecimal.PART_1.BãßVoorElk(x -> v.add(x.BȍőnChinaKey()))),
