@@ -17,10 +17,10 @@ public class WaterShotDriverTest {
 	public void testWaterShot() throws X4OConnectionException, SAXException, IOException {
 		
 		WaterShot drugs = new WaterShot();
-		drugs.addShotHash(new WaterShotHash("test.txt", "234SDFSDF234234SDFSDF234"));
-		drugs.addShotHash(new WaterShotHash("test2.txt", "ASDFYYF234234SDFSDFASDFS"));
+		drugs.addSoftHash(new WaterSoftHash("test.txt", "234SDFSDF234234SDFSDF234"));
+		drugs.addSoftHash(new WaterSoftHash("test2.txt", "ASDFYYF234234SDFSDFASDFS"));
 		
 		Assertions.assertNotNull(drugs);
-		//WaterShotDriver.newInstance().createWriter().writeFile(drugs, new File("build/output.xml"));
+		WaterShotDriver.newInstance().createWriter().writeFile(drugs, new java.io.File("build/output.xml"));
 	}
 }

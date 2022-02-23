@@ -3,15 +3,15 @@ package love.distributedrebirth.warpme.hash;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public class WaterShotHash {
+public class WaterSoftHash {
 	
 	private String file;
 	private String hex;
 	
-	public WaterShotHash() {
+	public WaterSoftHash() {
 	}
 	
-	public WaterShotHash(String file, String hex) {
+	public WaterSoftHash(String file, String hex) {
 		setFile(file);
 		setHex(hex);
 	}

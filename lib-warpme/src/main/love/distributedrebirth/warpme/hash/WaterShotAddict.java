@@ -22,7 +22,7 @@ public class WaterShotAddict {
 			return false;
 		}
 		WaterShot waterShot = WaterShotDriver.newInstance().createReader().readFile(fileWarpHash);
-		for (WaterShotHash hash:waterShot.getShotHashes()) {
+		for (WaterSoftHash hash:waterShot.getSoftHashes()) {
 			File checkFile = new File(folder, hash.getFile());
 			if (!checkFile.exists()) {
 				return false;
@@ -38,7 +38,7 @@ public class WaterShotAddict {
 	public void updateWarpHashes(File folder) throws FileNotFoundException, X4OConnectionException, SAXException, IOException, NoSuchAlgorithmException {
 		File fileWarpHash = new File(folder, Warpᵐᵉ.WARP_HASH);
 		WaterShot waterShot = WaterShotDriver.newInstance().createReader().readFile(fileWarpHash);
-		for (WaterShotHash hash:waterShot.getShotHashes()) {
+		for (WaterSoftHash hash:waterShot.getSoftHashes()) {
 			hash.setHex(calcHashInHex(new File(folder, hash.getFile())));
 		}
 		WaterShotDriver.newInstance().createWriter().writeFile(waterShot, fileWarpHash);

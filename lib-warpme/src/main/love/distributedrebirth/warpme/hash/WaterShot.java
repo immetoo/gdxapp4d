@@ -8,19 +8,19 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class WaterShot {
 	
-	private List<WaterShotHash> shotHashes = new ArrayList<>();
+	private List<WaterSoftHash> softHashes = new ArrayList<>();
 	
-	public List<WaterShotHash> getShotHashes() {
-		return shotHashes;
+	public List<WaterSoftHash> getSoftHashes() {
+		return softHashes;
 	}
 	
-	public void setShotHashes(List<WaterShotHash> shotHashes) {
-		for (WaterShotHash hash:shotHashes) {
-			addShotHash(hash);
+	public void setSoftHashes(List<WaterSoftHash> shotHashes) {
+		for (WaterSoftHash hash:shotHashes) {
+			addSoftHash(hash);
 		}
 	}
 	
-	public void addShotHash(WaterShotHash shotHash) {
-		this.shotHashes.add(shotHash);
+	public void addSoftHash(WaterSoftHash softHash) {
+		this.softHashes.add(softHash);
 	}
 }

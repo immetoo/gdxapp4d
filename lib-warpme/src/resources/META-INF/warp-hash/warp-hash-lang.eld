@@ -7,10 +7,10 @@
 	providerHost="warp-hash.x4o.distributedrebirth.love" providerName="WarpHashᵐᵉ"
 	id="warp-hash-module">
 
-	<eld:classBindingHandler id="WaterShot-WaterShotHash"
+	<eld:classBindingHandler id="WaterShot-WaterSoftHash"
 		parentClass="love.distributedrebirth.warpme.hash.WaterShot"
-		childClass="love.distributedrebirth.warpme.hash.WaterShotHash"
-		addMethod="addShotHash" getMethod="getShotHashes" />
+		childClass="love.distributedrebirth.warpme.hash.WaterSoftHash"
+		addMethod="addSoftHash" getMethod="getSoftHashes" />
 	
 	<eld:namespace
 		uri="http://wrap-core.x4o.distributedrebirth.love/xml/ns/warp-hash-root"
@@ -29,6 +29,6 @@
 		description="Language namespace to store warp hash"
 		name="WarpHash Language Namespace" id="soft">
 		<eld:element tag="hash"
-			objectClass="love.distributedrebirth.warpme.hash.WaterShotHash" />
+			objectClass="love.distributedrebirth.warpme.hash.WaterSoftHash" />
 	</eld:namespace>
 </root:module>
