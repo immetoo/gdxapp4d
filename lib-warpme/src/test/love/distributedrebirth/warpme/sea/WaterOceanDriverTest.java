@@ -17,6 +17,8 @@ public class WaterOceanDriverTest {
 		WaterOcean ocean = new WaterOcean();
 		WaterSea sea = new WaterSea();
 		sea.setName("MyFirstSea");
+		sea.setAuthor("willemtsade");
+		sea.setProvider("GDXApp-base");
 		
 		ocean.fillWater(sea);
 

@@ -9,6 +9,8 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 public class WaterSea {
 	
 	private String name;
+	private String author;
+	private String provider;
 	private List<WaterSeaChain> seaChains = new ArrayList<>();
 	private List<WaterSeaMagic> seaMagics = new ArrayList<>();
 	
@@ -18,6 +20,22 @@ public class WaterSea {
 	
 	public void setName(String name) {
 		this.name = name;
+	}
+	
+	public String getAuthor() {
+		return author;
+	}
+	
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+	
+	public String getProvider() {
+		return provider;
+	}
+	
+	public void setProvider(String provider) {
+		this.provider = provider;
 	}
 	
 	public List<WaterSeaChain> getSeaChains() {

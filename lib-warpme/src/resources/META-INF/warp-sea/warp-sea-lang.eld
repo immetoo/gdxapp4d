@@ -37,7 +37,11 @@
 		description="Language namespace to store warp sea"
 		name="WarpSea Language Namespace" id="link">
 		<eld:element tag="sea"
-			objectClass="love.distributedrebirth.warpme.sea.WaterSea" />
+			objectClass="love.distributedrebirth.warpme.sea.WaterSea">
+			<eld:attribute id="name" writeOrder="0"/>
+			<eld:attribute id="provider" writeOrder="1" required="false"/>
+			<eld:attribute id="author" writeOrder="2" required="false"/>
+		</eld:element>
 		<eld:element tag="chain"
 			objectClass="love.distributedrebirth.warpme.sea.WaterSeaChain" />
 		<eld:element tag="magic"
