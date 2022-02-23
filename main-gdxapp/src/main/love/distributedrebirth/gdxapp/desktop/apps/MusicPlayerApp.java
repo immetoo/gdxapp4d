@@ -10,6 +10,7 @@ import imgui.flag.ImGuiSelectableFlags;
 import imgui.flag.ImGuiTableColumnFlags;
 import imgui.flag.ImGuiTableFlags;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
+import love.distributedrebirth.gdxapp.FontAwesomeIcons;
 import love.distributedrebirth.gdxapp.GDXAppMain;
 import love.distributedrebirth.gdxapp.desktop.DefaultDeskApp;
 import love.distributedrebirth.gdxapp.desktop.DeskAppContourSection;
@@ -27,13 +28,13 @@ public class MusicPlayerApp extends DefaultDeskApp implements DeskAppRenderer {
 	private final NativeFileChooserConfiguration fileChooserConfig;
 	
 	public MusicPlayerApp() {
-		setTitle("Music Player");
+		setTitle(FontAwesomeIcons.Music + " Music Player");
 		getContours().registrateContour(DeskAppContourSection.MAIN, this);
 		getContours().registrateContour(DeskAppContourSection.FILE_NEW, new DeskAppRenderer() {
 
 			@Override
 			public void render() {
-				if (ImGui.menuItem("Add")) {
+				if (ImGui.menuItem(FontAwesomeIcons.Plus + " Add")) {
 					GDXAppMain.INSTANCE.fileChooser.chooseFile(fileChooserConfig,
 							NativeFileChooserCallbackAdapter.onFileChosen(v -> GDXAppMain.INSTANCE.music.addBackgroundMusic(v)));
 				}

@@ -216,7 +216,7 @@ public class DeskTopScreenMenu {
 				GDXAppMain.INSTANCE.selectScreen(ScreenDesktop4.class);
 			}
 			ImGui.separator();
-			if (ImGui.beginMenu(FontAwesomeIcons.Plus + " Start App")) {
+			if (ImGui.beginMenu(FontAwesomeIcons.PlusSquare + " Start App")) {
 				for (GDXAppLauncher launcher: apps) {
 					if (ImGui.menuItem(launcher.getName())) {
 						appScreen.getDeskAppScreen().addDeskApp(launcher.getLauncher().get());
