@@ -7,5 +7,5 @@
 	<driver language="warp-core" className="love.distributedrebirth.warpme.core.WaterBucketDriver"/>
 	<driver language="warp-hash" className="love.distributedrebirth.warpme.hash.WaterShotDriver"/>
 	<driver language="warp-sea" className="love.distributedrebirth.warpme.sea.WaterOceanDriver"/>
-	<driver language="warp-ship" className="love.distributedrebirth.warpme.sea.WaterDeviceDriver"/>
+	<driver language="warp-ship" className="love.distributedrebirth.warpme.ship.WaterDeviceDriver"/>
 </drivers>

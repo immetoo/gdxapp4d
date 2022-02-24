@@ -33,7 +33,10 @@
 		description="Language namespace to store the warp ship."
 		name="WarpShip Language Namespace" id="boot">
 		<eld:element tag="ship"
-			objectClass="love.distributedrebirth.warpme.ship.WaterShip" />
+			objectClass="love.distributedrebirth.warpme.ship.WaterShip" >
+			<eld:attribute id="name" writeOrder="0"/>
+			<eld:attribute id="engine" writeOrder="1"/>
+		</eld:element>
 		<eld:element tag="ocean"
 			objectClass="love.distributedrebirth.warpme.ship.WaterShipOcean" />
 	</eld:namespace>
