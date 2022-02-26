@@ -5,11 +5,8 @@
 # Ignore project resources
 main-gdxapp-desktop/warpcore.xml
 
-# Ignore gradle resources
-bin
-build
-.gitignore
-.gradle
+# Ignore maven resources
+target
 
 # Ignore npm resources
 node_modules
