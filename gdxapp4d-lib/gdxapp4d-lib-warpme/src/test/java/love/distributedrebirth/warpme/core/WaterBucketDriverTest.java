@@ -34,6 +34,6 @@ public class WaterBucketDriverTest {
 		cipher.addCipherHeart(heart);
 		
 		Assertions.assertNotNull(bucket);
-		WaterBucketDriver.newInstance().createWriter().writeFile(bucket, new java.io.File("build/out-core.xml"));
+		WaterBucketDriver.newInstance().createWriter().writeFile(bucket, new java.io.File("target/out-core.xml"));
 	}
 }

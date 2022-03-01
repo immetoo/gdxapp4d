@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+	<entry key="1c2d010066a39d96ace8af0ecc37c72d6f79109f30939e2959befcd9ce25fc8d">../gdxapp4d-chain-sys-engine/src/chain</entry>
+	<entry key="f8be3b29da5b6b2cb464f781469ceede6ccfd848d158293a4cdffbc2c41a410b">../gdxapp4d-chain-sys-ocean/src/chain</entry>
+	<entry key="ccba3b29da8b1b1cb444f381449beede3cbfd442d158293a4cdffbc3c41a31cc">../gdxapp4d-vrgem4/src/chain</entry>
+	<entry key="ccba3b29da8b1b1cb444f381449beede3cbfd442d158293a4cdffbc3c41a31cc.gdxapp4d-vrgem4.jar">../gdxapp4d-vrgem4/target/classes</entry>
+</properties>

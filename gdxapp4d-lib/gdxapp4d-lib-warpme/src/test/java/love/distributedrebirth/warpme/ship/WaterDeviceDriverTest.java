@@ -26,6 +26,6 @@ public class WaterDeviceDriverTest {
 		device.buildShip(ship);
 		
 		Assertions.assertNotNull(device);
-		WaterDeviceDriver.newInstance().createWriter().writeFile(device, new java.io.File("build/out-ship.xml"));
+		WaterDeviceDriver.newInstance().createWriter().writeFile(device, new java.io.File("target/out-ship.xml"));
 	}
 }

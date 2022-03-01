@@ -29,6 +29,6 @@ public class WaterOceanDriverTest {
 		sea.addSeaMagic(new WaterSeaMagic("inode/directory", "album/"));
 		
 		Assertions.assertNotNull(ocean);
-		WaterOceanDriver.newInstance().createWriter().writeFile(ocean, new java.io.File("build/out-sea.xml"));
+		WaterOceanDriver.newInstance().createWriter().writeFile(ocean, new java.io.File("target/out-sea.xml"));
 	}
 }

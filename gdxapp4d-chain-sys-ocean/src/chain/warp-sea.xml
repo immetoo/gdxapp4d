@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root:ocean xmlns:root="http://wrap-sea.x4o.distributedrebirth.love/xml/ns/warp-sea-root"
+ xmlns:link="http://warp-sea.x4o.distributedrebirth.love/xml/ns/warp-sea-link"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://wrap-sea.x4o.distributedrebirth.love/xml/ns/warp-sea-root http://warp-sea.x4o.distributedrebirth.love/xml/ns/warp-sea-root-1.0.xsd">
+	<link:sea name="System Ocean" provider="gdxapp4d.system" author="willemtsade">
+	</link:sea>
+</root:ocean>
