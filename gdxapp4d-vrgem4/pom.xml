@@ -90,6 +90,11 @@
 							love.distributedrebirth.numberxd.base2t.typexl,
 							love.distributedrebirth.numberxd.glyph,
 							love.distributedrebirth.numberxd.x4o,
+							love.distributedrebirth.warpme,
+							love.distributedrebirth.warpme.core,
+							love.distributedrebirth.warpme.hash,
+							love.distributedrebirth.warpme.sea,
+							love.distributedrebirth.warpme.ship,
 							love.distributedrebirth.unicode4d,
 							love.distributedrebirth.unicode4d.atlas
 						</Import-Package>

@@ -2,6 +2,7 @@ package love.distributedrebirth.numberxd.base2t.part.warp;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Consumer;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnClassInfoʸᴰ;
@@ -51,11 +52,11 @@ public enum TOSWarpCore implements DefaultEnumInstanceᴶᴹˣ<TOSWarpCore,MBean
 		armedWarpCipherLock.setValueBoolean(false);
 	}
 	
-	public void BãßLockWarpCipher() {
+	public void BãßLockWarpCipher(Consumer<String> logHandler) {
 		armedWarpCipherLock.setValueBoolean(true);
 		for (int base:Base2PartsFactory.INSTANCE.BãßBases()) {
 			BãßBȍőnPartʸᴰ<?>[] parts = Base2PartsFactory.INSTANCE.BãßBuildPartsByBase(base);
-			BãßBȍőnCoffinOpenʸᴰ.lockCoffin(parts[0]);
+			BãßBȍőnCoffinOpenʸᴰ.lockCoffin(parts[0], logHandler);
 		}
 	}
 	

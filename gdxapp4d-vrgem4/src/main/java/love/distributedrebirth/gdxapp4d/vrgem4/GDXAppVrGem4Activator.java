@@ -12,6 +12,7 @@ import imgui.type.ImBoolean;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.jmx.DefaultEnumBaseᴶᴹˣ;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemWarpBootArgs;
+import love.distributedrebirth.gdxapp4d.tos4.service.SystemWarpShip;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemWarpTerminal;
 import love.distributedrebirth.gdxapp4d.vrgem4.screen.ScreenCredits;
 import love.distributedrebirth.gdxapp4d.vrgem4.screen.ScreenDesktop1;
@@ -19,7 +20,6 @@ import love.distributedrebirth.gdxapp4d.vrgem4.screen.ScreenDesktop2;
 import love.distributedrebirth.gdxapp4d.vrgem4.screen.ScreenDesktop3;
 import love.distributedrebirth.gdxapp4d.vrgem4.screen.ScreenDesktop4;
 import love.distributedrebirth.gdxapp4d.vrgem4.screen.ScreenHelp;
-import love.distributedrebirth.gdxapp4d.vrgem4.screen.ScreenIntro;
 import love.distributedrebirth.gdxapp4d.vrgem4.screen.ScreenIntroMission;
 import love.distributedrebirth.numberxd.base2t.Base2PartsFactory;
 import love.distributedrebirth.numberxd.base2t.Base2Terminator;
@@ -27,6 +27,7 @@ import love.distributedrebirth.numberxd.base2t.part.warp.TOSWarpCore;
 import love.distributedrebirth.numberxd.glyph.BaseGlyphSet;
 import love.distributedrebirth.warpme.core.WaterBucket;
 import love.distributedrebirth.warpme.core.WaterBucketDriver;
+import love.distributedrebirth.warpme.ship.WaterShipOcean;
 
 public class GDXAppVrGem4Activator implements BundleActivator {
 	
@@ -59,13 +60,16 @@ public class GDXAppVrGem4Activator implements BundleActivator {
 		bootScreen.bootLine("vrGEM4 Booting...");
 		
 		// ref to init
-//		LOG.debug("BãßBȍőnCoffinʸᴰ init......");
 		for (DefaultEnumBaseᴶᴹˣ<?,?> coffin:coffinInstances()) {
-			BãßBȍőnCoffinOpenʸᴰ.lockCoffin(coffin);
+			BãßBȍőnCoffinOpenʸᴰ.lockCoffin(coffin, v -> bootScreen.bootLine(v));
 		}
 		bootScreen.bootLine("BãßBȍőnCoffinʸᴰ init done.");
 		
 		bootScreen.bootLine("ImGui Setup");
+		try {
+			Thread.sleep(100);
+		} catch (InterruptedException ignored) {
+		}
 		ImBoolean imLoaded = new ImBoolean(false);
 		Gdx.app.postRunnable(new Runnable() {
 			@Override
@@ -82,11 +86,11 @@ public class GDXAppVrGem4Activator implements BundleActivator {
 		}
 		bootScreen.bootLine("ImGui Loaded");
 		
-		
 		ServiceReference<SystemWarpBootArgs> bootArgsRef = context.getServiceReference(SystemWarpBootArgs.class);
 		SystemWarpBootArgs bootArgs = context.getService(bootArgsRef);
 		List<String> args = bootArgs.getBootArgs();
 		
+		bootScreen.bootLine("warpcore: Check request");
 		try {
 			if (args.contains("warpcore-load")) {
 				bootScreen.bootLine("warpcore-load: requested");
@@ -103,13 +107,13 @@ public class GDXAppVrGem4Activator implements BundleActivator {
 		}
 		if (!args.contains("warpcore-nolock")) {
 			bootScreen.bootLine("warpcore-lock: BãßLockWarpCipher");
-			TOSWarpCore.INSTANCE.BãßLockWarpCipher();
+			TOSWarpCore.INSTANCE.BãßLockWarpCipher(v -> {});
 		} else {
 			bootScreen.bootLine("warpcore-nolock: requested");
 		}
 		
 		if (args.contains("full-screen")) {
-			System.out.println("full-screen: requested");
+			bootScreen.bootLine("full-screen: requested");
 			Gdx.app.postRunnable(new Runnable() {
 				@Override
 				public void run() {
@@ -118,32 +122,57 @@ public class GDXAppVrGem4Activator implements BundleActivator {
 			});
 		}
 		
+		bootScreen.bootLine("vrGEM4: init");
 		GDXAppVrGem4.INSTANCE.init(args, terminal);
 		
+		bootScreen.bootLine("terminal: added screens");
 		Gdx.app.postRunnable(new Runnable() {
 			@Override
 			public void run() {
-				terminal.registrateScreen(new ScreenIntro());
-				terminal.registrateScreen(new ScreenIntroMission());
 				terminal.registrateScreen(new ScreenDesktop1());
 				terminal.registrateScreen(new ScreenDesktop2());
 				terminal.registrateScreen(new ScreenDesktop3());
 				terminal.registrateScreen(new ScreenDesktop4());
 				terminal.registrateScreen(new ScreenCredits());
 				terminal.registrateScreen(new ScreenHelp());
-				
-				if (args.contains("intro-skip")) {
-					System.out.println("intro-skip: requested");
-					terminal.selectScreen(ScreenDesktop1.class);
-//					music.play(MusicSongType.BACKGROUND);
-				} else {
-					terminal.selectScreen(ScreenIntro.class);
-				}
+				terminal.registrateScreen(new ScreenIntroMission());
 			}
 		});
+		try {
+			Thread.sleep(100);
+		} catch (InterruptedException ignored) {
+		}
+		
+		
+		ServiceReference<SystemWarpShip> systemWarpShipRef = context.getServiceReference(SystemWarpShip.class);
+		SystemWarpShip systemWarpShip = context.getService(systemWarpShipRef);
+		
+		int result = 0;
+		try {
+			for (WaterShipOcean ocean:systemWarpShip.getWarpShip().theShip().getShipOceans()) {
+				result = systemWarpShip.loadWaterOcean(context, ocean.getSea(), v -> bootScreen.bootLine(v));
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			bootScreen.bootLine("ERROR: "+e.getMessage());
+			return;
+		}
+		if (result > 0) {
+			bootScreen.bootLine("vrGEM4: FAILURE BOOT ABORTED");
+		} else {
+			bootScreen.bootLine("vrGEM4: chains resolved.");
+			try {
+				Thread.sleep(5000);
+			} catch (InterruptedException ignored) {
+			}
+			Gdx.app.postRunnable(new Runnable() {
+				@Override
+				public void run() {
+					terminal.selectScreen(ScreenDesktop1.class);
+				}
+			});
+		}
 	}
-	
-	
 	
 	//TODO: add layer or ?? private <T extends BãßBȍőnCoffinStoreʸᴰ<?>,DefaultAuthorInfoʸᴰ> T[] storeInstances() {
 	@SuppressWarnings("unchecked")

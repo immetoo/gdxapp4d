@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Properties;
+import java.util.function.Consumer;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
@@ -40,6 +41,7 @@ public class GDXAppTos4Activator implements BundleActivator {
 	private NativeFileChooser fileChooser;
 	private File hyperdriveHome;
 	private File warpshipHome;
+	private Properties localOverrides;
 	private WaterDevice warpshipDevice;
 	private SystemWarpTerminal systemWarpTerminal;
 	private List<GDXAppTos4BootListener> listeners = new ArrayList<>();
@@ -110,12 +112,6 @@ public class GDXAppTos4Activator implements BundleActivator {
 			fireMessageEvent("ERROR: No warp-ship.xml found.");
 			return;
 		}
-		
-		context.registerService(SystemWarpBase.class.getName(), new SystemWarpBaseImpl(), new Hashtable<String, String>());
-		context.registerService(SystemWarpBootArgs.class.getName(), new SystemWarpBootArgsImpl(), new Hashtable<String, String>());
-		context.registerService(SystemWarpShip.class.getName(), new SystemWarpShipImpl(), new Hashtable<String, String>());
-		context.registerService(SystemWarpTerminal.class.getName(), systemWarpTerminal, new Hashtable<String, String>());
-		
 		try {
 			warpshipDevice = WaterDeviceDriver.newInstance().createReader().readFile(warpShip);
 		} catch (Exception e) {
@@ -125,12 +121,12 @@ public class GDXAppTos4Activator implements BundleActivator {
 		}
 		fireMessageEvent("warp-engine: "+warpshipDevice.theShip().getName());
 		
-		Properties overrides = new Properties();
+		localOverrides = new Properties();
 		if (useLocal) {
 			File localOverride = new File("local-override.xml");
 			if (localOverride.exists()) {
 				try {
-					overrides.loadFromXML(new FileInputStream(localOverride));
+					localOverrides.loadFromXML(new FileInputStream(localOverride));
 				} catch (Exception e) {
 					throw new RuntimeException(e);
 				}
@@ -138,11 +134,18 @@ public class GDXAppTos4Activator implements BundleActivator {
 			} else {
 				fireMessageEvent("use-local: local-override.xml not found.");
 			}
-			
 		}
+		
+		SystemWarpShipImpl systemWarpShip = new SystemWarpShipImpl();
+		
+		context.registerService(SystemWarpBase.class.getName(), new SystemWarpBaseImpl(), new Hashtable<String, String>());
+		context.registerService(SystemWarpBootArgs.class.getName(), new SystemWarpBootArgsImpl(), new Hashtable<String, String>());
+		context.registerService(SystemWarpShip.class.getName(), systemWarpShip, new Hashtable<String, String>());
+		context.registerService(SystemWarpTerminal.class.getName(), systemWarpTerminal, new Hashtable<String, String>());
+		
 		int result = 0;
 		try {
-			result = resolveWaterOcean(overrides, context, warpshipDevice.theShip().getEngine());
+			result = systemWarpShip.loadWaterOcean(context, warpshipDevice.theShip().getEngine(), v -> fireMessageEvent(v));
 		} catch (Exception e) {
 			e.printStackTrace();
 			fireMessageEvent("ERROR: "+e.getMessage());
@@ -153,69 +156,6 @@ public class GDXAppTos4Activator implements BundleActivator {
 		} else {
 			fireMessageEvent("tos4: chains resolved.");
 		}
-	}
-	
-	private int resolveWaterOcean(Properties overrides, BundleContext context, String key) throws IOException, InterruptedException, X4OConnectionException, SAXException, BundleException {
-		File waterHome;
-		String override = overrides.getProperty(key);
-		if (override == null) {
-			waterHome = new File(hyperdriveHome, key);
-			if (!waterHome.exists()) {
-				executeHyperdrive("hyperdrive", "mount", waterHome.getAbsolutePath(), key);
-			}
-			String infoResult = executeHyperdrive("hyperdrive", "info", waterHome.getAbsolutePath());
-			if (!infoResult.startsWith("Drive Info")) {
-				fireMessageEvent("ERROR: Couldn't get info on: "+waterHome);
-				return 1;
-			}
-		} else {
-			waterHome = new File(override);
-		}
-		File waterSea = new File(waterHome, Warpᵐᵉ.WARP_SEA);
-		if (!waterSea.exists()) {
-			fireMessageEvent("ERROR: No warp-sea.xml found.");
-			return 1;
-		}
-		WaterOcean ocean = WaterOceanDriver.newInstance().createReader().readFile(waterSea);
-		fireMessageEvent("water-ocean: "+key+" ("+ocean.theWater().getName()+")");
-		
-		Hashtable<String, String> props = new Hashtable<String, String>();
-		props.put(SystemWarpSea.NAME_PROPERTY, ocean.theWater().getName());
-		props.put(SystemWarpSea.PROVIDER_PROPERTY, ocean.theWater().getProvider());
-		context.registerService(SystemWarpSea.class.getName(), new SystemWarpSeaImpl(ocean), props);
-		
-		for (WaterSeaMagic magic:ocean.theWater().getSeaMagics()) {
-			if ("application/vnd.osgi.bundle".equals(magic.getMime())) {
-				String overrideBundleKey = key + "." + magic.getFile();
-				String overrideBundle = overrides.getProperty(overrideBundleKey);
-				if (overrideBundle == null) {
-					GDXAppTos4BootFactory.installAndStartBundles(context, "reference:file:"+waterHome.getAbsolutePath()+"/"+magic.getFile());
-				} else {
-					GDXAppTos4BootFactory.installAndStartBundles(context, "reference:file:"+overrideBundle);
-				}
-			}
-		}
-		int result = 0;
-		for (WaterSeaChain chain: ocean.theWater().getSeaChains()) {
-			result += resolveWaterOcean(overrides, context, chain.getKey());
-		}
-		return result;
-	}
-	
-	private String executeHyperdrive(String...cmd) throws IOException, InterruptedException {
-		ProcessBuilder builder = new ProcessBuilder();
-		builder.command(cmd);
-		builder.directory(new File(System.getProperty("user.home")));
-		Process process = builder.start();
-		StringBuilder buf = new StringBuilder();
-		try(BufferedReader input = new BufferedReader(new InputStreamReader(process.getInputStream()))) {
-			String line;
-			while ((line = input.readLine()) != null) {
-				buf.append(line);
-			}
-		}
-		process.waitFor();
-		return buf.toString();
 	}
 	
 	public class SystemWarpSeaImpl implements SystemWarpSea {
@@ -267,6 +207,11 @@ public class GDXAppTos4Activator implements BundleActivator {
 		public NativeFileChooser getFileChooser() {
 			return fileChooser;
 		}
+
+		@Override
+		public Properties getLocalOverrides() {
+			return localOverrides;
+		}
 	}
 	
 	public class SystemWarpShipImpl implements SystemWarpShip {
@@ -274,6 +219,71 @@ public class GDXAppTos4Activator implements BundleActivator {
 		@Override
 		public WaterDevice getWarpShip() {
 			return warpshipDevice;
+		}
+
+		@Override
+		public int loadWaterOcean(BundleContext context, String key, Consumer<String> logger)
+				throws IOException, InterruptedException, X4OConnectionException, SAXException, BundleException {
+			File waterHome;
+			String override = localOverrides.getProperty(key);
+			if (override == null) {
+				waterHome = new File(hyperdriveHome, key);
+				if (!waterHome.exists()) {
+					executeHyperdrive("hyperdrive", "mount", waterHome.getAbsolutePath(), key);
+				}
+				String infoResult = executeHyperdrive("hyperdrive", "info", waterHome.getAbsolutePath());
+				if (!infoResult.startsWith("Drive Info")) {
+					logger.accept("ERROR: Couldn't get info on: "+waterHome);
+					return 1;
+				}
+			} else {
+				waterHome = new File(override);
+			}
+			File waterSea = new File(waterHome, Warpᵐᵉ.WARP_SEA);
+			if (!waterSea.exists()) {
+				logger.accept("ERROR: No warp-sea.xml found.");
+				return 1;
+			}
+			WaterOcean ocean = WaterOceanDriver.newInstance().createReader().readFile(waterSea);
+			logger.accept("water-ocean: "+key+" ("+ocean.theWater().getName()+")");
+			
+			Hashtable<String, String> props = new Hashtable<String, String>();
+			props.put(SystemWarpSea.NAME_PROPERTY, ocean.theWater().getName());
+			props.put(SystemWarpSea.PROVIDER_PROPERTY, ocean.theWater().getProvider());
+			context.registerService(SystemWarpSea.class.getName(), new SystemWarpSeaImpl(ocean), props);
+			
+			for (WaterSeaMagic magic:ocean.theWater().getSeaMagics()) {
+				if ("application/vnd.osgi.bundle".equals(magic.getMime())) {
+					String overrideBundleKey = key + "." + magic.getFile();
+					String overrideBundle = localOverrides.getProperty(overrideBundleKey);
+					if (overrideBundle == null) {
+						GDXAppTos4BootFactory.installAndStartBundles(context, "reference:file:"+waterHome.getAbsolutePath()+"/"+magic.getFile());
+					} else {
+						GDXAppTos4BootFactory.installAndStartBundles(context, "reference:file:"+overrideBundle);
+					}
+				}
+			}
+			int result = 0;
+			for (WaterSeaChain chain: ocean.theWater().getSeaChains()) {
+				result += loadWaterOcean(context, chain.getKey(), logger);
+			}
+			return result;
+		}
+		
+		private String executeHyperdrive(String...cmd) throws IOException, InterruptedException {
+			ProcessBuilder builder = new ProcessBuilder();
+			builder.command(cmd);
+			builder.directory(new File(System.getProperty("user.home")));
+			Process process = builder.start();
+			StringBuilder buf = new StringBuilder();
+			try(BufferedReader input = new BufferedReader(new InputStreamReader(process.getInputStream()))) {
+				String line;
+				while ((line = input.readLine()) != null) {
+					buf.append(line);
+				}
+			}
+			process.waitFor();
+			return buf.toString();
 		}
 	}
 }

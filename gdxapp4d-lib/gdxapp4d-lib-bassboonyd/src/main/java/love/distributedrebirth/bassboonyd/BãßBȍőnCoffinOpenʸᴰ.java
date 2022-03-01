@@ -20,10 +20,6 @@ public interface BãßBȍőnCoffinOpenʸᴰ<T extends BãßBȍőnCoffinStoreKey�
 		PUT_OBJ(key, new ArrayList<>());
 	}
 	
-	static <T extends DefaultEnumBaseʸᴰ<?> & BãßBȍőnCoffinStoreʸᴰ<?>> void lockCoffin(T store) {
-		lockCoffin(store, v -> System.out.println(v));
-	}
-	
 	static <T extends DefaultEnumBaseʸᴰ<?> & BãßBȍőnCoffinStoreʸᴰ<?>>  void lockCoffin(T store, Consumer<String> logHandler) {
 		logHandler.accept("Lock: "+store.BãßClassNaam()+" since: "+store.BãßAuthorCopyright());
 		for (Object o:store.BãßInstances()) {

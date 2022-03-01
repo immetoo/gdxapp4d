@@ -1,5 +1,13 @@
 package love.distributedrebirth.gdxapp4d.tos4.service;
 
+import java.io.IOException;
+import java.util.function.Consumer;
+
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.BundleException;
+import org.x4o.xml.io.X4OConnectionException;
+import org.xml.sax.SAXException;
+
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.warpme.ship.WaterDevice;
 
@@ -7,4 +15,6 @@ import love.distributedrebirth.warpme.ship.WaterDevice;
 public interface SystemWarpShip {
 
 	WaterDevice getWarpShip();
+	
+	int loadWaterOcean(BundleContext context, String key, Consumer<String> logger) throws IOException, InterruptedException, X4OConnectionException, SAXException, BundleException;
 }

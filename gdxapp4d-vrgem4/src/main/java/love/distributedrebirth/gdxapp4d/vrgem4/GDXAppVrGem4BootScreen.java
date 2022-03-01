@@ -35,7 +35,7 @@ public class GDXAppVrGem4BootScreen extends ScreenAdapter implements GDXAppVrGem
 			for (String message:messages) { 
 				font.draw(batch, message, textX, textY-=textYStep);
 			}
-			batch.draw(backgroundImage, textY, textY, textY, textY);
+			batch.draw(backgroundImage, 200, textY, Gdx.graphics.getWidth() - 200, Gdx.graphics.getHeight() - textY);
 		}
 		batch.end();
 	}
