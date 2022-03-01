@@ -33,7 +33,6 @@ public enum GDXAppTos4 implements DefaultEnumInstanceᴶᴹˣ<GDXAppTos4,GDXAppT
 	private Framework systemBundle;
 	private GDXAppTos4Activator systemActivator;
 	private Map<Class<? extends Screen>,Screen> screens;
-	private NativeFileChooser fileChooser;
 	private final GuageCounterᴶᴹˣ selectScreenCounter;
 	private final BãßBȍőnCoffinOpenʸᴰ<GDXAppTos4Keyʸᴰ> BBC = BãßBȍőnCoffinOpenʸᴰ.newInstance();
 	public BãßBȍőnCoffinʸᴰ<GDXAppTos4Keyʸᴰ> GET_BBC() { return BBC; }
@@ -45,10 +44,9 @@ public enum GDXAppTos4 implements DefaultEnumInstanceᴶᴹˣ<GDXAppTos4,GDXAppT
 	}
 	
 	public void BãßInit(List<String> args, int viewWidth, int viewHeight, NativeFileChooser fileChooser) {
-		this.fileChooser = fileChooser;
 		screens = new HashMap<>();
 		systemActivator = new GDXAppTos4Activator();
-		systemActivator.BãßInit(args, viewWidth, viewHeight, this);
+		systemActivator.BãßInit(args, viewWidth, viewHeight, fileChooser, this);
 	}
 	
 	@Override
@@ -113,9 +111,5 @@ public enum GDXAppTos4 implements DefaultEnumInstanceᴶᴹˣ<GDXAppTos4,GDXAppT
 		this.screen.show();
 		this.screen.resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		selectScreenCounter.increment();
-	}
-	
-	public NativeFileChooser getFileChooser() {
-		return fileChooser;
 	}
 }

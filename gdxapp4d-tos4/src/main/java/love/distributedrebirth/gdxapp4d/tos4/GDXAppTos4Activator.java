@@ -29,13 +29,15 @@ import love.distributedrebirth.warpme.sea.WaterSeaChain;
 import love.distributedrebirth.warpme.sea.WaterSeaMagic;
 import love.distributedrebirth.warpme.ship.WaterDevice;
 import love.distributedrebirth.warpme.ship.WaterDeviceDriver;
+import net.spookygames.gdx.nativefilechooser.NativeFileChooser;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class GDXAppTos4Activator implements BundleActivator {
 	
-	public List<String> args;
-	public int viewWidth;
-	public int viewHeight;
+	private List<String> args;
+	private int viewWidth;
+	private int viewHeight;
+	private NativeFileChooser fileChooser;
 	private File hyperdriveHome;
 	private File warpshipHome;
 	private WaterDevice warpshipDevice;
@@ -49,10 +51,11 @@ public class GDXAppTos4Activator implements BundleActivator {
 	public GDXAppTos4Activator() {
 	}
 	
-	public void BãßInit(List<String> args, int viewWidth, int viewHeight, SystemWarpTerminal systemWarpTerminal) {
+	public void BãßInit(List<String> args, int viewWidth, int viewHeight,NativeFileChooser fileChooser, SystemWarpTerminal systemWarpTerminal) {
 		this.args = args;
 		this.viewWidth = viewWidth;
 		this.viewHeight = viewHeight;
+		this.fileChooser = fileChooser;
 		this.systemWarpTerminal = systemWarpTerminal;
 	}
 	
@@ -260,6 +263,10 @@ public class GDXAppTos4Activator implements BundleActivator {
 			return viewHeight;
 		}
 		
+		@Override
+		public NativeFileChooser getFileChooser() {
+			return fileChooser;
+		}
 	}
 	
 	public class SystemWarpShipImpl implements SystemWarpShip {
