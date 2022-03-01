@@ -90,6 +90,8 @@
 							love.distributedrebirth.numberxd.base2t.typexl,
 							love.distributedrebirth.numberxd.glyph,
 							love.distributedrebirth.numberxd.x4o,
+							love.distributedrebirth.unicode4d,
+							love.distributedrebirth.unicode4d.atlas
 						</Import-Package>
 						<Export-Package>love.distributedrebirth.gdxapp4d.vrgem4.service</Export-Package>
 						<Private-Package>love.distributedrebirth.gdxapp4d.vrgem4.*</Private-Package>

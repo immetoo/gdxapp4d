@@ -106,7 +106,9 @@ public class GDXAppTos4BootFactory {
 				"love.distributedrebirth.numberxd.base2t.type,"+
 				"love.distributedrebirth.numberxd.base2t.typexl,"+
 				"love.distributedrebirth.numberxd.glyph,"+
-				"love.distributedrebirth.numberxd.x4o"
+				"love.distributedrebirth.numberxd.x4o,"+
+				"love.distributedrebirth.unicode4d,"+
+				"love.distributedrebirth.unicode4d.atlas"
 				); // ; version=1.0.0
 		
 		if (cachedir != null) {
