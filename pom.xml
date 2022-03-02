@@ -9,16 +9,21 @@
 		<maven>3.0.1</maven>
 	</prerequisites>
 	<modules>
-		<module>gdxapp4d-lib</module>
-		<module>gdxapp4d-tos4</module>
-		<module>gdxapp4d-vrgem4</module>
-		<module>gdxapp4d-boot-desktop</module>
 		<module>gdxapp4d-app-notepad</module>
 		<module>gdxapp4d-app-tosamp</module>
-		<module>gdxapp4d-chain-music-templeos</module>
+		<module>gdxapp4d-boot-desktop</module>
 		<module>gdxapp4d-chain-music-msx</module>
+		<module>gdxapp4d-chain-music-templeos</module>
 		<module>gdxapp4d-chain-sys-engine</module>
 		<module>gdxapp4d-chain-sys-ocean</module>
+		<module>gdxapp4d-lib-basicwd</module>
+		<module>gdxapp4d-lib-imxmi</module>
+		<module>gdxapp4d-lib-numberxd</module>
+		<module>gdxapp4d-lib-unicodezd</module>
+		<module>gdxapp4d-lib-warpme</module>
+		<module>gdxapp4d-lib-bassboonyd</module>
+		<module>gdxapp4d-tos4</module>
+		<module>gdxapp4d-vrgem4</module>
 	</modules>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

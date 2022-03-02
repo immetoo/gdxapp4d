@@ -2,10 +2,10 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>love.distributedrebirth.gdxapp4d</groupId>
-		<artifactId>gdxapp4d-lib</artifactId>
+		<artifactId>gdxapp4d</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>gdxapp4d-lib-warpme</artifactId>
+	<artifactId>gdxapp4d-lib-numberxd</artifactId>
 	<dependencies>
 		<dependency>
 			<groupId>love.distributedrebirth.gdxapp4d</groupId>
@@ -13,8 +13,9 @@
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>org.x4o</groupId>
-			<artifactId>x4o-driver</artifactId>
+			<groupId>love.distributedrebirth.gdxapp4d</groupId>
+			<artifactId>gdxapp4d-lib-warpme</artifactId>
+			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
 </project>

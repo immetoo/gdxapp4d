@@ -5,14 +5,5 @@
 		<artifactId>gdxapp4d</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>gdxapp4d-lib</artifactId>
-	<packaging>pom</packaging>
-	<modules>
-		<module>gdxapp4d-lib-basicwd</module>
-		<module>gdxapp4d-lib-imxmi</module>
-		<module>gdxapp4d-lib-numberxd</module>
-		<module>gdxapp4d-lib-unicodezd</module>
-		<module>gdxapp4d-lib-warpme</module>
-		<module>gdxapp4d-lib-bassboonyd</module>
-	</modules>
+	<artifactId>gdxapp4d-lib-bassboonyd</artifactId>
 </project>

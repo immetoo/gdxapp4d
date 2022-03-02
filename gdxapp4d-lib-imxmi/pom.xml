@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>love.distributedrebirth.gdxapp4d</groupId>
-		<artifactId>gdxapp4d-lib</artifactId>
+		<artifactId>gdxapp4d</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 	<artifactId>gdxapp4d-lib-imxmi</artifactId>
