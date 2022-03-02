@@ -8,7 +8,6 @@ import com.badlogic.gdx.Gdx;
 import imgui.ImGui;
 import imgui.type.ImBoolean;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
-import love.distributedrebirth.gdxapp4d.tos4.GDXAppTos4;
 import love.distributedrebirth.gdxapp4d.vrgem4.FontAwesomeIcons;
 import love.distributedrebirth.gdxapp4d.vrgem4.GDXAppLauncher;
 import love.distributedrebirth.gdxapp4d.vrgem4.GDXAppVrGem4;
@@ -32,6 +31,7 @@ public class DeskTopScreenMenu {
 	private List<GDXAppLauncher> apps;
 	private ImBoolean fileMinimizeSelected = new ImBoolean(false);
 	private ImBoolean fileCloseSelected = new ImBoolean(false);
+	private ImBoolean tosSelfSelected = new ImBoolean(false);
 	
 	public DeskTopScreenMenu() {
 		apps = new ArrayList<>();
@@ -160,16 +160,18 @@ public class DeskTopScreenMenu {
 	
 	private void renderTOS4Menu(DeskTopScreen appScreen) {
 		if (ImGui.beginMenu("仙" + " TOS⁴")) {
-			if (ImGui.menuItem(FontAwesomeIcons.Camera + " Main reality")) {
+			if (ImGui.menuItem(FontAwesomeIcons.Camera + " Main reality", "", tosSelfSelected, appScreen.getDeskAppScreen().getCurrentDeskApp() != null)) {
 				appScreen.getDeskAppScreen().setCurrentDeskApp(null);
+				tosSelfSelected.set(false);
 			}
 			for (DeskApp app: appScreen.getDeskAppScreen().getDeskApps()) {
-				String infix = "";
+				boolean enabled = true;
 				if (appScreen.getDeskAppScreen().getCurrentDeskApp() == app) {
-					infix = FontAwesomeIcons.Wrench + " ";;
+					enabled = false;
 				}
-				if (ImGui.menuItem(infix + app.getTitle())) {
+				if (ImGui.menuItem(app.getTitle(), "", tosSelfSelected, enabled)) {
 					appScreen.getDeskAppScreen().setCurrentDeskApp(app);
+					tosSelfSelected.set(false);
 				}
 			}
 			ImGui.endMenu();
