@@ -6,7 +6,22 @@ Final version will be written in HolyC++ on templeOS called VRGEM⁴.
 
 ## Project Setup
 
-Use the AdoptOpenJDK(11++) to run the demo.
+Requirements;
+
+* Setup [Hyperdrive](https://github.com/hyperspace-org/hyperdrive-service)
+* Use an AdoptOpenJDK(11++) to run the demo.
+
+### Project Launch Release
+
+When hyperdrive is running just start the jar file with;
+
+	java -jar todo.jar
+
+### Project Launch IDE
+
+Run "mvn package" once before starting.
+
+Append "use-local" to the main launcher to use the local chains.
 
 ## Duytschen Code
 

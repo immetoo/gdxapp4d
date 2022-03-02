@@ -41,6 +41,11 @@ public class GDXAppVrGem4Activator implements BundleActivator {
 	public void start(final BundleContext context) {
 //		LOG.info("GDXAppVrGem4Activator started");
 		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException ignored) {
+		}
+		
 		ServiceReference<SystemWarpTerminal> termRef = context.getServiceReference(SystemWarpTerminal.class);
 		SystemWarpTerminal terminal = context.getService(termRef);
 		
@@ -162,7 +167,7 @@ public class GDXAppVrGem4Activator implements BundleActivator {
 		} else {
 			bootScreen.bootLine("vrGEM4: chains resolved.");
 			try {
-				Thread.sleep(5000);
+				Thread.sleep(2000);
 			} catch (InterruptedException ignored) {
 			}
 			Gdx.app.postRunnable(new Runnable() {

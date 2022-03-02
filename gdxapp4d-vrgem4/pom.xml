@@ -12,6 +12,7 @@
 			<groupId>love.distributedrebirth.gdxapp4d</groupId>
 			<artifactId>gdxapp4d-tos4</artifactId>
 			<version>${project.version}</version>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 	<build>
@@ -21,11 +22,20 @@
 				<artifactId>maven-bundle-plugin</artifactId>
 				<extensions>true</extensions>
 				<configuration>
+					<exportScr>true</exportScr>
 					<instructions>
 						<_donotcopy>(.git)</_donotcopy>
+						<!-- Enable processing of OSGI DS component annotations -->
+						<_dsannotations>*</_dsannotations>
+						<!-- Enable processing of OSGI metatype annotations -->
+						<_metatypeannotations>*</_metatypeannotations>
 						<Import-Package>
-							love.distributedrebirth.gdxapp4d.tos4.service,
 							org.osgi.framework,
+							org.osgi.service.packageadmin,
+							org.osgi.service.url,
+							org.osgi.service.startlevel,
+							org.osgi.util.tracker,
+							love.distributedrebirth.gdxapp4d.tos4.service,
 							com.badlogic.gdx,
 							com.badlogic.gdx.assets,
 							com.badlogic.gdx.assets.loaders,

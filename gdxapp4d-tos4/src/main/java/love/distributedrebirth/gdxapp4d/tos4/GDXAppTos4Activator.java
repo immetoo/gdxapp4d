@@ -14,12 +14,14 @@ import java.util.function.Consumer;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleException;
+import org.slf4j.LoggerFactory;
 import org.x4o.xml.io.X4OConnectionException;
 import org.xml.sax.SAXException;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemWarpBase;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemWarpBootArgs;
+import love.distributedrebirth.gdxapp4d.tos4.service.SystemWarpLogger;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemWarpSea;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemWarpShip;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemWarpTerminal;
@@ -138,6 +140,7 @@ public class GDXAppTos4Activator implements BundleActivator {
 		
 		SystemWarpShipImpl systemWarpShip = new SystemWarpShipImpl();
 		
+		context.registerService(SystemWarpLogger.class.getName(), new SystemWarpLoggerImpl(), new Hashtable<String, String>());
 		context.registerService(SystemWarpBase.class.getName(), new SystemWarpBaseImpl(), new Hashtable<String, String>());
 		context.registerService(SystemWarpBootArgs.class.getName(), new SystemWarpBootArgsImpl(), new Hashtable<String, String>());
 		context.registerService(SystemWarpShip.class.getName(), systemWarpShip, new Hashtable<String, String>());
@@ -284,6 +287,29 @@ public class GDXAppTos4Activator implements BundleActivator {
 			}
 			process.waitFor();
 			return buf.toString();
+		}
+	}
+	
+	public static class SystemWarpLoggerImpl implements SystemWarpLogger {
+		
+		@Override
+		public void infoTag(String tag, String message, Object...args) {
+			LoggerFactory.getLogger(tag).info(message, args);
+		}
+
+		@Override
+		public void debugTag(String tag, String message, Object...args) {
+			LoggerFactory.getLogger(tag).debug(message, args);
+		}
+
+		@Override
+		public void errorTag(String tag, String message, Object...args) {
+			LoggerFactory.getLogger(tag).error(message, args);
+		}
+
+		@Override
+		public void errorTag(String tag, String message, Throwable exception) {
+			LoggerFactory.getLogger(tag).error(message, exception);
 		}
 	}
 }

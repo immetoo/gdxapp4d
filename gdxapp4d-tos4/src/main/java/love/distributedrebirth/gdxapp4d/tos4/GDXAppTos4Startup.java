@@ -44,6 +44,7 @@ public class GDXAppTos4Startup {
 			}
 		};
 		Thread framework = new Thread(run);
+		framework.setName("boot");
 		framework.start();
 		
 		return systemBundle;
