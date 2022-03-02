@@ -1,8 +1,5 @@
 package love.distributedrebirth.gdxapp4d.vrgem4.screen;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.ScreenAdapter;
-import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.VertexAttributes.Usage;
 import com.badlogic.gdx.graphics.g3d.Material;
 import com.badlogic.gdx.graphics.g3d.Model;
@@ -12,16 +9,14 @@ import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 import com.badlogic.gdx.utils.Array;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
-import love.distributedrebirth.gdxapp4d.vrgem4.GDXAppVrGem4;
-import love.distributedrebirth.gdxapp4d.vrgem4.desktop.DeskAppScreen;
-import love.distributedrebirth.gdxapp4d.vrgem4.desktop.DeskTopScreen;
+import love.distributedrebirth.gdxapp4d.tos4.service.SystemWarpBootArgs;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class ScreenDesktop1 extends AbstractScreenDesktop {
 	private Model grid;
 	
-	public ScreenDesktop1() {
-		super("Desktop1");
+	public ScreenDesktop1(SystemWarpBootArgs bootArgs) {
+		super("Desktop1", bootArgs);
 		//backgroundImage = new Texture(Gdx.files.internal("background/terrydavis-front.png"));
 	}
 	

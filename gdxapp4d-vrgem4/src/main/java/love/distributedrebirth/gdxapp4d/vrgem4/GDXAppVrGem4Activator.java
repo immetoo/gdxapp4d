@@ -129,10 +129,10 @@ public class GDXAppVrGem4Activator implements BundleActivator {
 		Gdx.app.postRunnable(new Runnable() {
 			@Override
 			public void run() {
-				terminal.registrateScreen(new ScreenDesktop1());
-				terminal.registrateScreen(new ScreenDesktop2());
-				terminal.registrateScreen(new ScreenDesktop3());
-				terminal.registrateScreen(new ScreenDesktop4());
+				terminal.registrateScreen(new ScreenDesktop1(bootArgs));
+				terminal.registrateScreen(new ScreenDesktop2(bootArgs));
+				terminal.registrateScreen(new ScreenDesktop3(bootArgs));
+				terminal.registrateScreen(new ScreenDesktop4(bootArgs));
 				terminal.registrateScreen(new ScreenCredits());
 				terminal.registrateScreen(new ScreenHelp());
 				terminal.registrateScreen(new ScreenIntroMission());

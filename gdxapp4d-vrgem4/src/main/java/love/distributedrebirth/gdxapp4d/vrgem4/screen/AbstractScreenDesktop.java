@@ -17,6 +17,7 @@ import imgui.ImGui;
 import imgui.flag.ImGuiCond;
 import imgui.flag.ImGuiWindowFlags;
 import imgui.type.ImBoolean;
+import love.distributedrebirth.gdxapp4d.tos4.service.SystemWarpBootArgs;
 import love.distributedrebirth.gdxapp4d.vrgem4.ImGuiSetup;
 import love.distributedrebirth.gdxapp4d.vrgem4.desktop.DeskApp;
 import love.distributedrebirth.gdxapp4d.vrgem4.desktop.DeskAppContourSection;
@@ -41,8 +42,8 @@ public abstract class AbstractScreenDesktop extends ScreenAdapter implements Des
 	private ModelBatch modelBatch;
 	private Array<ModelInstance> modelInstances = new Array<ModelInstance>();
 	
-	public AbstractScreenDesktop(String name) {
-		this.create();
+	public AbstractScreenDesktop(String name, SystemWarpBootArgs bootArgs) {
+		this.create(bootArgs);
 		deskAppScreen = new DeskAppScreen(name);
 		deskAppScreen.addDeskAppListener(new DeskAppScreenListener() {
 			
@@ -61,7 +62,7 @@ public abstract class AbstractScreenDesktop extends ScreenAdapter implements Des
 		
 	}
 	
-	private void create() {
+	private void create(SystemWarpBootArgs bootArgs) {
 		batch = new SpriteBatch();
 		font = new BitmapFont();
 		camera = new OrthographicCamera();
@@ -70,7 +71,7 @@ public abstract class AbstractScreenDesktop extends ScreenAdapter implements Des
 		camera.update();
 		batch.setProjectionMatrix(camera.combined);
 		
-		screenMenu = new DeskTopScreenMenu();
+		screenMenu = new DeskTopScreenMenu(bootArgs);
 		
 		modelBatch = new ModelBatch();
 		
