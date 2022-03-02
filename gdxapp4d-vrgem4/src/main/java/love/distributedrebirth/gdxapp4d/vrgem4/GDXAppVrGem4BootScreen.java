@@ -11,18 +11,18 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 public class GDXAppVrGem4BootScreen extends ScreenAdapter implements GDXAppVrGem4BootListener {
 
-	private BitmapFont font;
+	private final BitmapFont font;
 	private SpriteBatch batch;
 	private Texture backgroundImage;
 	private List<String> messages = new ArrayList<>();
 	
-	public GDXAppVrGem4BootScreen() {
+	public GDXAppVrGem4BootScreen(BitmapFont font) {
+		this.font = font;
 	}
 	
 	public void create() {
 		batch = new SpriteBatch();
 		backgroundImage = new Texture(Gdx.files.internal("background/temple-os.png"));
-		font = new BitmapFont();
 	}
 	
 	@Override

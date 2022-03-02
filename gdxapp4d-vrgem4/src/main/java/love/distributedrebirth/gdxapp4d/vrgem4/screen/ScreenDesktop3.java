@@ -9,13 +9,13 @@ import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 import com.badlogic.gdx.utils.Array;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
-import love.distributedrebirth.gdxapp4d.tos4.service.SystemWarpBootArgs;
+import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxBootArgs;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class ScreenDesktop3 extends AbstractScreenDesktop {
 	private Model grid;
 	
-	public ScreenDesktop3(SystemWarpBootArgs bootArgs) {
+	public ScreenDesktop3(SystemGdxBootArgs bootArgs) {
 		super("Desktop3", bootArgs);
 	}
 	

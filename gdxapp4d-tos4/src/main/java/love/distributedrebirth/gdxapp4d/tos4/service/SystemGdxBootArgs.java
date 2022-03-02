@@ -1,21 +1,16 @@
 package love.distributedrebirth.gdxapp4d.tos4.service;
 
-import java.util.List;
-import java.util.Properties;
-
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import net.spookygames.gdx.nativefilechooser.NativeFileChooser;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public interface SystemWarpBootArgs {
-
-	List<String> getBootArgs();
+public interface SystemGdxBootArgs {
 	
-	int getBootWindowWidth();
+	boolean isWarpCoreNoLock();
 	
-	int getBootWindowHeight();
+	int getWindowWidth();
+	
+	int getWindowHeight();
 	
 	NativeFileChooser getFileChooser();
-	
-	Properties getLocalOverrides();
 }

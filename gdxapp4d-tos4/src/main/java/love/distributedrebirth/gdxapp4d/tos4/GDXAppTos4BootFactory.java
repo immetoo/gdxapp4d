@@ -51,6 +51,7 @@ public class GDXAppTos4BootFactory {
 				"com.badlogic.gdx.files,"+
 				"com.badlogic.gdx.graphics,"+
 				"com.badlogic.gdx.graphics.g2d,"+
+				"com.badlogic.gdx.graphics.g2d.freetype,"+
 				"com.badlogic.gdx.graphics.g3d,"+
 				"com.badlogic.gdx.graphics.g3d.attributes,"+
 				"com.badlogic.gdx.graphics.g3d.decals,"+

@@ -17,10 +17,6 @@
 			<artifactId>gdx-backend-lwjgl3</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>com.badlogicgames.gdx</groupId>
-			<artifactId>gdx-platform</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>games.spooky.gdx</groupId>
 			<artifactId>gdx-nativefilechooser-desktop</artifactId>
 		</dependency>

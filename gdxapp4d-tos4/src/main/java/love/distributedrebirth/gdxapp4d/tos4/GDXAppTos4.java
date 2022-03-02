@@ -19,13 +19,13 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnPackageInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.jmx.DefaultEnumInstanceᴶᴹˣ;
 import love.distributedrebirth.bassboonyd.jmx.GuageCounterᴶᴹˣ;
-import love.distributedrebirth.gdxapp4d.tos4.service.SystemWarpTerminal;
+import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxTerminal;
 import net.spookygames.gdx.nativefilechooser.NativeFileChooser;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 @BãßBȍőnClassInfoʸᴰ(name = "GDXAppTos4", purpose = "Main loop render dispatcher and bootup.")
 @BãßBȍőnPackageInfoʸᴰ(name = "love.distributedrebirth.gdxapp4d.tos4")
-public enum GDXAppTos4 implements DefaultEnumInstanceᴶᴹˣ<GDXAppTos4,GDXAppTos4Keyʸᴰ>, ApplicationListener, SystemWarpTerminal {
+public enum GDXAppTos4 implements DefaultEnumInstanceᴶᴹˣ<GDXAppTos4,GDXAppTos4Keyʸᴰ>, ApplicationListener, SystemGdxTerminal {
 
 	INSTANCE;
 

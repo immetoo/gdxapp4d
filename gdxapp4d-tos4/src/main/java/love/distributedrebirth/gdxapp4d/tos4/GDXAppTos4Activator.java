@@ -18,13 +18,19 @@ import org.slf4j.LoggerFactory;
 import org.x4o.xml.io.X4OConnectionException;
 import org.xml.sax.SAXException;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFontParameter;
+
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemWarpBase;
-import love.distributedrebirth.gdxapp4d.tos4.service.SystemWarpBootArgs;
-import love.distributedrebirth.gdxapp4d.tos4.service.SystemWarpLogger;
+import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxBootArgs;
+import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxFont;
+import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxLog;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemWarpSea;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemWarpShip;
-import love.distributedrebirth.gdxapp4d.tos4.service.SystemWarpTerminal;
+import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxTerminal;
 import love.distributedrebirth.warpme.Warpᵐᵉ;
 import love.distributedrebirth.warpme.sea.WaterOcean;
 import love.distributedrebirth.warpme.sea.WaterOceanDriver;
@@ -43,9 +49,10 @@ public class GDXAppTos4Activator implements BundleActivator {
 	private NativeFileChooser fileChooser;
 	private File hyperdriveHome;
 	private File warpshipHome;
+	private BitmapFont gdxFont;
 	private Properties localOverrides;
 	private WaterDevice warpshipDevice;
-	private SystemWarpTerminal systemWarpTerminal;
+	private SystemGdxTerminal systemGdxTerminal;
 	private List<GDXAppTos4BootListener> listeners = new ArrayList<>();
 	
 	private static final String SYSTEM_USER_HOME = "user.home";
@@ -55,12 +62,12 @@ public class GDXAppTos4Activator implements BundleActivator {
 	public GDXAppTos4Activator() {
 	}
 	
-	public void BãßInit(List<String> args, int viewWidth, int viewHeight,NativeFileChooser fileChooser, SystemWarpTerminal systemWarpTerminal) {
+	public void BãßInit(List<String> args, int viewWidth, int viewHeight,NativeFileChooser fileChooser, SystemGdxTerminal systemGdxTerminal) {
 		this.args = args;
 		this.viewWidth = viewWidth;
 		this.viewHeight = viewHeight;
 		this.fileChooser = fileChooser;
-		this.systemWarpTerminal = systemWarpTerminal;
+		this.systemGdxTerminal = systemGdxTerminal;
 	}
 	
 	private void fireMessageEvent(String message) {
@@ -138,13 +145,34 @@ public class GDXAppTos4Activator implements BundleActivator {
 			}
 		}
 		
+		FreeTypeFontParameter parameter = new FreeTypeFontParameter();
+		parameter.characters = FreeTypeFontGenerator.DEFAULT_CHARS + getRangeUnicodeUsed();
+		parameter.size = 14;
+		Gdx.app.postRunnable(new Runnable() {
+			@Override
+			public void run() {
+				FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("font/code-2000.ttf"));
+				gdxFont = generator.generateFont(parameter);
+			}
+		});
+		while (gdxFont == null) { 
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException ignored) {
+			}
+		}
+		fireMessageEvent("gdx-font: "+parameter.characters.length()+" glyphs loaded.");
+		
+		
 		SystemWarpShipImpl systemWarpShip = new SystemWarpShipImpl();
 		
-		context.registerService(SystemWarpLogger.class.getName(), new SystemWarpLoggerImpl(), new Hashtable<String, String>());
 		context.registerService(SystemWarpBase.class.getName(), new SystemWarpBaseImpl(), new Hashtable<String, String>());
-		context.registerService(SystemWarpBootArgs.class.getName(), new SystemWarpBootArgsImpl(), new Hashtable<String, String>());
 		context.registerService(SystemWarpShip.class.getName(), systemWarpShip, new Hashtable<String, String>());
-		context.registerService(SystemWarpTerminal.class.getName(), systemWarpTerminal, new Hashtable<String, String>());
+
+		context.registerService(SystemGdxFont.class.getName(), new SystemGdxFontImpl(gdxFont), new Hashtable<String, String>());
+		context.registerService(SystemGdxLog.class.getName(), new SystemGdxLogImpl(), new Hashtable<String, String>());
+		context.registerService(SystemGdxBootArgs.class.getName(), new SystemGdxBootArgsImpl(), new Hashtable<String, String>());
+		context.registerService(SystemGdxTerminal.class.getName(), systemGdxTerminal, new Hashtable<String, String>());
 		
 		int result = 0;
 		try {
@@ -159,6 +187,16 @@ public class GDXAppTos4Activator implements BundleActivator {
 		} else {
 			fireMessageEvent("tos4: chains resolved.");
 		}
+	}
+	
+	private static String getRangeUnicodeUsed() {
+		StringBuilder buf = new StringBuilder();
+		buf.append("©Δ∞ 仙上主天");
+		buf.append("BãßBȍőnAuthorInfoʸᴰ");
+		for (int c=0x0100;c<=0x0200;c++) {
+			buf.append(""+(char)c);
+		}
+		return buf.toString();
 	}
 	
 	public class SystemWarpSeaImpl implements SystemWarpSea {
@@ -189,31 +227,26 @@ public class GDXAppTos4Activator implements BundleActivator {
 		
 	}
 	
-	public class SystemWarpBootArgsImpl implements SystemWarpBootArgs {
+	public class SystemGdxBootArgsImpl implements SystemGdxBootArgs {
 		
 		@Override
-		public List<String> getBootArgs() {
-			return args;
+		public boolean isWarpCoreNoLock() {
+			return args.contains("warpcore-nolock");
 		}
-
+		
 		@Override
-		public int getBootWindowWidth() {
+		public int getWindowWidth() {
 			return viewWidth;
 		}
 
 		@Override
-		public int getBootWindowHeight() {
+		public int getWindowHeight() {
 			return viewHeight;
 		}
 		
 		@Override
 		public NativeFileChooser getFileChooser() {
 			return fileChooser;
-		}
-
-		@Override
-		public Properties getLocalOverrides() {
-			return localOverrides;
 		}
 	}
 	
@@ -290,26 +323,40 @@ public class GDXAppTos4Activator implements BundleActivator {
 		}
 	}
 	
-	public static class SystemWarpLoggerImpl implements SystemWarpLogger {
+	public static class SystemGdxLogImpl implements SystemGdxLog {
 		
 		@Override
 		public void infoTag(String tag, String message, Object...args) {
 			LoggerFactory.getLogger(tag).info(message, args);
 		}
-
+		
 		@Override
 		public void debugTag(String tag, String message, Object...args) {
 			LoggerFactory.getLogger(tag).debug(message, args);
 		}
-
+		
 		@Override
 		public void errorTag(String tag, String message, Object...args) {
 			LoggerFactory.getLogger(tag).error(message, args);
 		}
-
+		
 		@Override
 		public void errorTag(String tag, String message, Throwable exception) {
 			LoggerFactory.getLogger(tag).error(message, exception);
+		}
+	}
+	
+	public static class SystemGdxFontImpl implements SystemGdxFont {
+		
+		private final BitmapFont font;
+		
+		public SystemGdxFontImpl(BitmapFont font) {
+			this.font = font;
+		}
+		
+		@Override
+		public BitmapFont getFont() {
+			return font;
 		}
 	}
 }

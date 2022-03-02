@@ -3,7 +3,7 @@ package love.distributedrebirth.gdxapp4d.tos4.service;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public interface SystemWarpLogger {
+public interface SystemGdxLog {
 
 	void infoTag(String tag, String message, Object...args);
 	

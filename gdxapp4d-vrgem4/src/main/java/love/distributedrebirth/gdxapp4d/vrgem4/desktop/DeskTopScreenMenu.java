@@ -8,7 +8,7 @@ import com.badlogic.gdx.Gdx;
 import imgui.ImGui;
 import imgui.type.ImBoolean;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
-import love.distributedrebirth.gdxapp4d.tos4.service.SystemWarpBootArgs;
+import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxBootArgs;
 import love.distributedrebirth.gdxapp4d.vrgem4.FontAwesomeIcons;
 import love.distributedrebirth.gdxapp4d.vrgem4.GDXAppLauncher;
 import love.distributedrebirth.gdxapp4d.vrgem4.GDXAppVrGem4;
@@ -29,13 +29,13 @@ import love.distributedrebirth.gdxapp4d.vrgem4.screen.ScreenHelp;
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class DeskTopScreenMenu {
 	
-	private SystemWarpBootArgs bootArgs;
+	private SystemGdxBootArgs bootArgs;
 	private List<GDXAppLauncher> apps;
 	private ImBoolean fileMinimizeSelected = new ImBoolean(false);
 	private ImBoolean fileCloseSelected = new ImBoolean(false);
 	private ImBoolean tosSelfSelected = new ImBoolean(false);
 	
-	public DeskTopScreenMenu(SystemWarpBootArgs bootArgs) {
+	public DeskTopScreenMenu(SystemGdxBootArgs bootArgs) {
 		this.bootArgs = bootArgs; 
 		apps = new ArrayList<>();
 		apps.add(new GDXAppLauncher("Basic Console", () -> new BasicConsoleApp()));
@@ -225,7 +225,7 @@ public class DeskTopScreenMenu {
 			ImGui.separator();
 			if (Gdx.graphics.isFullscreen()) {
 				if (ImGui.menuItem(FontAwesomeIcons.Wheelchair + " Window Mode")) {
-					Gdx.graphics.setWindowedMode(bootArgs.getBootWindowWidth(), bootArgs.getBootWindowHeight());
+					Gdx.graphics.setWindowedMode(bootArgs.getWindowWidth(), bootArgs.getWindowHeight());
 				}
 			} else {
 				if (ImGui.menuItem(FontAwesomeIcons.FighterJet + " Full Screen")) {

@@ -8,7 +8,7 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnPackageInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.jmx.DefaultEnumInstanceᴶᴹˣ;
-import love.distributedrebirth.gdxapp4d.tos4.service.SystemWarpTerminal;
+import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxTerminal;
 import love.distributedrebirth.gdxapp4d.vrgem4.music.MusicManager;
 
 
@@ -19,7 +19,7 @@ public enum GDXAppVrGem4 implements DefaultEnumInstanceᴶᴹˣ<GDXAppVrGem4,GDX
 	
 	INSTANCE;
 	
-	public SystemWarpTerminal terminal;
+	public SystemGdxTerminal terminal;
 	public MusicManager music;
 	//public FontAtlas basePlane;
 	private final BãßBȍőnCoffinOpenʸᴰ<GDXAppVrGem4Keyʸᴰ> BBC = BãßBȍőnCoffinOpenʸᴰ.newInstance();
@@ -30,13 +30,9 @@ public enum GDXAppVrGem4 implements DefaultEnumInstanceᴶᴹˣ<GDXAppVrGem4,GDX
 		BȍőnJmxInit(GDXAppVrGem4Keyʸᴰ.JMX);
 	}
 	
-	public void init(List<String> args, SystemWarpTerminal terminal) {
-		boolean musicStop = args.contains("music-stop");
-		if (musicStop) {
-			System.out.println("music-stop: requested");
-		}
+	public void init(SystemGdxTerminal terminal) {
 		music = new MusicManager();
-		music.init(musicStop);
+		music.init(false);
 		
 		this.terminal = terminal;
 	}

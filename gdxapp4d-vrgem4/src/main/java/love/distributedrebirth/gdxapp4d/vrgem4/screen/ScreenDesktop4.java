@@ -20,7 +20,7 @@ import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
-import love.distributedrebirth.gdxapp4d.tos4.service.SystemWarpBootArgs;
+import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxBootArgs;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class ScreenDesktop4 extends AbstractScreenDesktop {
@@ -36,7 +36,7 @@ public class ScreenDesktop4 extends AbstractScreenDesktop {
 	private float colorFade = 0f;
 	private boolean colorPositive = true;
 	
-	public ScreenDesktop4(SystemWarpBootArgs bootArgs) {
+	public ScreenDesktop4(SystemGdxBootArgs bootArgs) {
 		super("Desktop4", bootArgs);
 		shader = new UserColorShader();
 		shader.init();
