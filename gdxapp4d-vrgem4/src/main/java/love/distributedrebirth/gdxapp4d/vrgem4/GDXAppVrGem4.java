@@ -1,7 +1,5 @@
 package love.distributedrebirth.gdxapp4d.vrgem4;
 
-import java.util.List;
-
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnClassInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
@@ -9,7 +7,6 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnPackageInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.jmx.DefaultEnumInstanceᴶᴹˣ;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxTerminal;
-import love.distributedrebirth.gdxapp4d.vrgem4.music.MusicManager;
 
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
@@ -20,7 +17,7 @@ public enum GDXAppVrGem4 implements DefaultEnumInstanceᴶᴹˣ<GDXAppVrGem4,GDX
 	INSTANCE;
 	
 	public SystemGdxTerminal terminal;
-	public MusicManager music;
+	//public MusicManager music;
 	//public FontAtlas basePlane;
 	private final BãßBȍőnCoffinOpenʸᴰ<GDXAppVrGem4Keyʸᴰ> BBC = BãßBȍőnCoffinOpenʸᴰ.newInstance();
 	public BãßBȍőnCoffinʸᴰ<GDXAppVrGem4Keyʸᴰ> GET_BBC() { return BBC; }
@@ -31,8 +28,8 @@ public enum GDXAppVrGem4 implements DefaultEnumInstanceᴶᴹˣ<GDXAppVrGem4,GDX
 	}
 	
 	public void init(SystemGdxTerminal terminal) {
-		music = new MusicManager();
-		music.init(false);
+		//music = new MusicManager();
+		//music.init(false);
 		
 		this.terminal = terminal;
 	}

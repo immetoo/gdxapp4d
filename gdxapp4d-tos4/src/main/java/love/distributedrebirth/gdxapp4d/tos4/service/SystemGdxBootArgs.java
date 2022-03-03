@@ -1,5 +1,7 @@
 package love.distributedrebirth.gdxapp4d.tos4.service;
 
+import java.util.Properties;
+
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import net.spookygames.gdx.nativefilechooser.NativeFileChooser;
 
@@ -13,4 +15,6 @@ public interface SystemGdxBootArgs {
 	int getWindowHeight();
 	
 	NativeFileChooser getFileChooser();
+	
+	Properties getLocalOverrides();
 }

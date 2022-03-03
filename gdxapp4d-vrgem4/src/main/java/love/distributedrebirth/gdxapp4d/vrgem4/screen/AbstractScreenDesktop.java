@@ -19,14 +19,15 @@ import imgui.flag.ImGuiWindowFlags;
 import imgui.type.ImBoolean;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxBootArgs;
 import love.distributedrebirth.gdxapp4d.vrgem4.ImGuiSetup;
-import love.distributedrebirth.gdxapp4d.vrgem4.desktop.DeskApp;
-import love.distributedrebirth.gdxapp4d.vrgem4.desktop.DeskAppContourSection;
-import love.distributedrebirth.gdxapp4d.vrgem4.desktop.DeskAppRenderer;
-import love.distributedrebirth.gdxapp4d.vrgem4.desktop.DeskAppScreen;
-import love.distributedrebirth.gdxapp4d.vrgem4.desktop.DeskAppScreenListener;
-import love.distributedrebirth.gdxapp4d.vrgem4.desktop.DeskTopInputProcessor;
-import love.distributedrebirth.gdxapp4d.vrgem4.desktop.DeskTopScreen;
-import love.distributedrebirth.gdxapp4d.vrgem4.desktop.DeskTopScreenMenu;
+import love.distributedrebirth.gdxapp4d.vrgem4.service.VrGem4DeskAppService;
+import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskApp;
+import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppContourSection;
+import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppRenderer;
+import love.distributedrebirth.gdxapp4d.vrgem4.view.DeskAppController;
+import love.distributedrebirth.gdxapp4d.vrgem4.view.DeskAppSelectionListener;
+import love.distributedrebirth.gdxapp4d.vrgem4.view.DeskAppInputProcessor;
+import love.distributedrebirth.gdxapp4d.vrgem4.view.DeskTopScreen;
+import love.distributedrebirth.gdxapp4d.vrgem4.view.DeskTopScreenMenu;
 
 public abstract class AbstractScreenDesktop extends ScreenAdapter implements DeskTopScreen {
 	
@@ -34,18 +35,19 @@ public abstract class AbstractScreenDesktop extends ScreenAdapter implements Des
 	protected BitmapFont font;
 	protected OrthographicCamera camera;
 	protected ImBoolean showImGuiDemo = new ImBoolean(false);
-	private DeskTopScreenMenu screenMenu;
-	private final DeskAppScreen deskAppScreen;
+	private final DeskTopScreenMenu screenMenu;
+	private final DeskAppController deskAppScreen;
 	private PerspectiveCamera cam;
 	private FirstPersonCameraController camController;
-	private DeskTopInputProcessor inputFilter;
+	private DeskAppInputProcessor inputFilter;
 	private ModelBatch modelBatch;
 	private Array<ModelInstance> modelInstances = new Array<ModelInstance>();
 	
-	public AbstractScreenDesktop(String name, SystemGdxBootArgs bootArgs) {
-		this.create(bootArgs);
-		deskAppScreen = new DeskAppScreen(name);
-		deskAppScreen.addDeskAppListener(new DeskAppScreenListener() {
+	public AbstractScreenDesktop(String name, SystemGdxBootArgs bootArgs, VrGem4DeskAppService deskAppService) {
+		this.create();
+		screenMenu = new DeskTopScreenMenu(bootArgs, deskAppService);
+		deskAppScreen = new DeskAppController(name);
+		deskAppScreen.addDeskAppListener(new DeskAppSelectionListener() {
 			
 			@Override
 			public void selectDeskApp(DeskApp deskApp) {
@@ -59,10 +61,9 @@ public abstract class AbstractScreenDesktop extends ScreenAdapter implements Des
 	}
 	
 	protected void createModel(ModelBuilder modelBuilder, Array<ModelInstance> modelInstances) {
-		
 	}
 	
-	private void create(SystemGdxBootArgs bootArgs) {
+	private void create() {
 		batch = new SpriteBatch();
 		font = new BitmapFont();
 		camera = new OrthographicCamera();
@@ -70,8 +71,6 @@ public abstract class AbstractScreenDesktop extends ScreenAdapter implements Des
 		camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		camera.update();
 		batch.setProjectionMatrix(camera.combined);
-		
-		screenMenu = new DeskTopScreenMenu(bootArgs);
 		
 		modelBatch = new ModelBatch();
 		
@@ -88,7 +87,7 @@ public abstract class AbstractScreenDesktop extends ScreenAdapter implements Des
 		camController = new FirstPersonCameraController(cam);
 		//camController = new CameraInputController(cam);
 		
-		inputFilter = new DeskTopInputProcessor(camController);
+		inputFilter = new DeskAppInputProcessor(camController);
 	}
 	
 	@Override
@@ -131,13 +130,13 @@ public abstract class AbstractScreenDesktop extends ScreenAdapter implements Des
 		if (showImGuiDemo.get()) {
 			ImGui.showDemoWindow(showImGuiDemo);
 		}
-		if (appScreen != null && appScreen.getDeskAppScreen().getCurrentDeskApp() != null) {
+		if (appScreen != null && appScreen.getDeskAppController().getCurrentDeskApp() != null) {
 			int sizeFlags = ImGuiCond.Always;
 			ImGui.setNextWindowPos(0, 28, sizeFlags);
 			ImGui.setNextWindowSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight() - 28, sizeFlags);
 			int windowFlags = ImGuiWindowFlags.NoMove | ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoTitleBar;
-			if (ImGui.begin(appScreen.getDeskAppScreen().getCurrentDeskApp().getTitle(), windowFlags)) {
-				DeskAppRenderer renderer = appScreen.getDeskAppScreen().getCurrentDeskApp().getContours().getContour(DeskAppContourSection.MAIN);
+			if (ImGui.begin(appScreen.getDeskAppController().getCurrentDeskApp().getContours().getTitle(), windowFlags)) {
+				DeskAppRenderer renderer = appScreen.getDeskAppController().getCurrentDeskApp().getContours().getContour(DeskAppContourSection.MAIN);
 				if (renderer != null) {
 					renderer.render();
 				}
@@ -163,7 +162,7 @@ public abstract class AbstractScreenDesktop extends ScreenAdapter implements Des
 	}
 	
 	@Override
-	public DeskAppScreen getDeskAppScreen() {
+	public DeskAppController getDeskAppController() {
 		return deskAppScreen;
 	}
 }

@@ -4,7 +4,6 @@ import com.badlogic.gdx.Screen;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.gdxapp4d.vrgem4.GDXAppVrGem4;
-import love.distributedrebirth.gdxapp4d.vrgem4.music.MusicSongType;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class ScreenIntroMission extends AbstractScrollScreen {
@@ -72,6 +71,6 @@ public class ScreenIntroMission extends AbstractScrollScreen {
 	
 	@Override
 	public void hideScroll() {
-		GDXAppVrGem4.INSTANCE.music.play(MusicSongType.BACKGROUND);
+		//GDXAppVrGem4.INSTANCE.music.play(MusicSongType.BACKGROUND);
 	}
 }

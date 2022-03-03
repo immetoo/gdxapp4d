@@ -4,6 +4,13 @@
 	<entry key="1c2d010066a39d96ace8af0ecc37c72d6f79109f30939e2959befcd9ce25fc8d">../gdxapp4d-chain-sys-engine/src/chain</entry>
 	<entry key="f8be3b29da5b6b2cb464f781469ceede6ccfd848d158293a4cdffbc2c41a410b">../gdxapp4d-chain-sys-ocean/src/chain</entry>
 	<entry key="8833aa29da5b6b2cb464f781469ceede6ccfd848d158293a4cdffbc2c41b58de">../gdxapp4d-chain-dep-osgi-scr/src/chain</entry>
+	
+	<entry key="6633aa29da5b6b2cb4bef781469cffde677fd848d158293a4cdffbc2c41b89fe">../gdxapp4d-app-hewallet/src/chain</entry>
+	<entry key="6633aa29da5b6b2cb4bef781469cffde677fd848d158293a4cdffbc2c41b89fe.gdxapp4d-app-hewallet.jar">../gdxapp4d-app-hewallet/target/classes</entry>
+	
+	<entry key="5522aa29da5b6b2cb4befaa14aacaade6aafd848d158293a4cdffbc2c41b23bd">../gdxapp4d-app-tosamp/src/chain</entry>
+	<entry key="5522aa29da5b6b2cb4befaa14aacaade6aafd848d158293a4cdffbc2c41b23bd.gdxapp4d-app-tosamp.jar">../gdxapp4d-app-tosamp/target/classes</entry>
+	
 	<entry key="ccba3b29da8b1b1cb444f381449beede3cbfd442d158293a4cdffbc3c41a31cc">../gdxapp4d-vrgem4/src/chain</entry>
 	<entry key="ccba3b29da8b1b1cb444f381449beede3cbfd442d158293a4cdffbc3c41a31cc.gdxapp4d-vrgem4.jar">../gdxapp4d-vrgem4/target/classes</entry>
 </properties>

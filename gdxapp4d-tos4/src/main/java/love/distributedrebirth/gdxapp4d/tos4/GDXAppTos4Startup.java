@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import com.badlogic.gdx.Gdx;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
+import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxBootFactory;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class GDXAppTos4Startup {
@@ -16,7 +17,7 @@ public class GDXAppTos4Startup {
 	
 	public static Framework init(GDXAppTos4 tos4, GDXAppTos4Activator systemActivator) {
 		LOG.info("Startup framework");
-		final Framework systemBundle = GDXAppTos4BootFactory.createFramework();
+		final Framework systemBundle = SystemGdxBootFactory.createFramework();
 		final GDXAppTos4BootScreen bootScreen = new GDXAppTos4BootScreen();
 		
 		systemActivator.addBootListener(bootScreen);
@@ -30,11 +31,13 @@ public class GDXAppTos4Startup {
 				LOG.debug("Startup system-activator");
 				systemActivator.start(systemBundle.getBundleContext());
 				
-				Gdx.app.postRunnable(() -> {
-					LOG.debug("Release boot-screen");
-					systemActivator.removeBootListener(bootScreen);
-					tos4.disposeScreen(bootScreen);
-				});
+				if (!systemActivator.hasStartError()) {
+					Gdx.app.postRunnable(() -> {
+						LOG.debug("Release boot-screen");
+						systemActivator.removeBootListener(bootScreen);
+						tos4.disposeScreen(bootScreen);
+					});
+				}
 			} catch (Exception e) {
 				throw new RuntimeException(e);
 			}

@@ -1,5 +1,8 @@
 package love.distributedrebirth.gdxapp4d.vrgem4;
 
+import java.io.File;
+import java.util.Hashtable;
+
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
@@ -9,10 +12,14 @@ import com.badlogic.gdx.Gdx;
 import imgui.type.ImBoolean;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.jmx.DefaultEnumBaseᴶᴹˣ;
+import love.distributedrebirth.gdxapp4d.tos4.GDXAppTos4Activator.SystemWarpBaseImpl;
+import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxBootFactory;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxBootArgs;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxFont;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemWarpShip;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxTerminal;
+import love.distributedrebirth.gdxapp4d.tos4.service.SystemWarpBase;
+import love.distributedrebirth.gdxapp4d.tos4.service.SystemWarpSea;
 import love.distributedrebirth.gdxapp4d.vrgem4.screen.ScreenCredits;
 import love.distributedrebirth.gdxapp4d.vrgem4.screen.ScreenDesktop1;
 import love.distributedrebirth.gdxapp4d.vrgem4.screen.ScreenDesktop2;
@@ -20,10 +27,12 @@ import love.distributedrebirth.gdxapp4d.vrgem4.screen.ScreenDesktop3;
 import love.distributedrebirth.gdxapp4d.vrgem4.screen.ScreenDesktop4;
 import love.distributedrebirth.gdxapp4d.vrgem4.screen.ScreenHelp;
 import love.distributedrebirth.gdxapp4d.vrgem4.screen.ScreenIntroMission;
+import love.distributedrebirth.gdxapp4d.vrgem4.service.VrGem4DeskAppService;
 import love.distributedrebirth.numberxd.base2t.Base2PartsFactory;
 import love.distributedrebirth.numberxd.base2t.Base2Terminator;
 import love.distributedrebirth.numberxd.base2t.part.warp.TOSWarpCore;
 import love.distributedrebirth.numberxd.glyph.BaseGlyphSet;
+import love.distributedrebirth.warpme.sea.WaterSeaMagic;
 import love.distributedrebirth.warpme.ship.WaterShipOcean;
 
 public class GDXAppVrGem4Activator implements BundleActivator {
@@ -64,7 +73,7 @@ public class GDXAppVrGem4Activator implements BundleActivator {
 		bootScreen.bootLine("        ©Δ∞ 仙上主天       ");
 		bootScreen.bootLine("בְּרֵאשִׁית :o: יְסוֺד :o: יִשְׂרָאֵל");
 		bootScreen.bootLine("==========================");
-		bootScreen.bootLine("vrGEM4 Booting...");
+		bootScreen.bootLine("Boot: vrGEM⁴ - TOS⁴ - MSX⁴");
 		
 		// ref to init
 		for (DefaultEnumBaseᴶᴹˣ<?,?> coffin:coffinInstances()) {
@@ -132,17 +141,21 @@ public class GDXAppVrGem4Activator implements BundleActivator {
 		}
 		*/
 		
-		bootScreen.bootLine("vrGEM4: init");
+		bootScreen.bootLine("vrGEM⁴: init");
 		GDXAppVrGem4.INSTANCE.init(terminal);
+		
+		
+		VrGem4DeskAppService deskAppService = new VrGem4DeskAppServiceImpl();
+		context.registerService(VrGem4DeskAppService.class.getName(), deskAppService, new Hashtable<String, String>());
 		
 		bootScreen.bootLine("terminal: added screens");
 		Gdx.app.postRunnable(new Runnable() {
 			@Override
 			public void run() {
-				terminal.registrateScreen(new ScreenDesktop1(bootArgs));
-				terminal.registrateScreen(new ScreenDesktop2(bootArgs));
-				terminal.registrateScreen(new ScreenDesktop3(bootArgs));
-				terminal.registrateScreen(new ScreenDesktop4(bootArgs));
+				terminal.registrateScreen(new ScreenDesktop1(bootArgs, deskAppService));
+				terminal.registrateScreen(new ScreenDesktop2(bootArgs, deskAppService));
+				terminal.registrateScreen(new ScreenDesktop3(bootArgs, deskAppService));
+				terminal.registrateScreen(new ScreenDesktop4(bootArgs, deskAppService));
 				terminal.registrateScreen(new ScreenCredits());
 				terminal.registrateScreen(new ScreenHelp());
 				terminal.registrateScreen(new ScreenIntroMission());
@@ -169,20 +182,47 @@ public class GDXAppVrGem4Activator implements BundleActivator {
 		}
 		if (result > 0) {
 			bootScreen.bootLine("vrGEM4: FAILURE BOOT ABORTED");
-		} else {
-			bootScreen.bootLine("vrGEM4: chains resolved.");
-			try {
-				Thread.sleep(2000);
-			} catch (InterruptedException ignored) {
-			}
-			Gdx.app.postRunnable(new Runnable() {
-				@Override
-				public void run() {
-					terminal.selectScreen(ScreenDesktop1.class);
-					terminal.disposeScreen(bootScreen);
-				}
-			});
+			return;
 		}
+		bootScreen.bootLine("vrGEM4: chains resolved.");
+		
+		try {
+			ServiceReference<?>[] refs = context.getServiceReferences( SystemWarpSea.class.getName(), "(warp.sea.name=*)" );
+			for (int i=0;i<refs.length;i++) {
+				SystemWarpSea service = (SystemWarpSea) context.getService( refs[i] );
+				String key = service.getWarpKey();
+				File waterHome = service.getWarpHome();
+				for (WaterSeaMagic magic:service.getWarpSea().theWater().getSeaMagics()) {
+					if ("application/vnd.osgi.bundle".equals(magic.getMime())) {
+						magic.setMime("application/vnd.osgi.bundle.loaded"); // TODO: HACK for now to not load again
+						String overrideBundleKey = key + "." + magic.getFile();
+						String overrideBundle = bootArgs.getLocalOverrides().getProperty(overrideBundleKey);
+						if (overrideBundle == null) {
+							SystemGdxBootFactory.installAndStartBundles(context, "reference:file:"+waterHome.getAbsolutePath()+"/"+magic.getFile());
+						} else {
+							SystemGdxBootFactory.installAndStartBundles(context, "reference:file:"+overrideBundle);
+						}
+					}
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			bootScreen.bootLine("ERROR: "+e.getMessage());
+			return;
+		}
+		
+		
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException ignored) {
+		}
+		Gdx.app.postRunnable(new Runnable() {
+			@Override
+			public void run() {
+				terminal.selectScreen(ScreenDesktop1.class);
+				terminal.disposeScreen(bootScreen);
+			}
+		});
 	}
 	
 	//TODO: add layer or ?? private <T extends BãßBȍőnCoffinStoreʸᴰ<?>,DefaultAuthorInfoʸᴰ> T[] storeInstances() {

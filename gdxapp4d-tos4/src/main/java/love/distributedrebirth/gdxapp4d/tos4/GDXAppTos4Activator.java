@@ -28,6 +28,7 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFont
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemWarpBase;
+import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxBootFactory;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxBootArgs;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxFont;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxLog;
@@ -53,6 +54,7 @@ public class GDXAppTos4Activator implements BundleActivator {
 	private NativeFileChooser fileChooser;
 	private File hyperdriveHome;
 	private File warpshipHome;
+	private boolean startError;
 	private BitmapFont gdxFont;
 	private Properties localOverrides;
 	private WaterDevice warpshipDevice;
@@ -64,6 +66,7 @@ public class GDXAppTos4Activator implements BundleActivator {
 	private static final String WARPSHIP_HOME = "Warpship";
 	
 	public GDXAppTos4Activator() {
+		startError = false;
 	}
 	
 	public void BãßInit(List<String> args, int viewWidth, int viewHeight,NativeFileChooser fileChooser, SystemGdxTerminal systemGdxTerminal) {
@@ -88,6 +91,10 @@ public class GDXAppTos4Activator implements BundleActivator {
 		listeners.remove(listener);
 	}
 	
+	public boolean hasStartError() {
+		return startError;
+	}
+	
 	@Override
 	public void stop(final BundleContext context) {
 		gdxFont.dispose();
@@ -106,6 +113,7 @@ public class GDXAppTos4Activator implements BundleActivator {
 		hyperdriveHome = new File(userHome, HYPERDRIVE_HOME);
 		if (!hyperdriveHome.exists()) {
 			fireMessageEvent("ERROR: No Hyperdrive home.");
+			startError = true;
 			return;
 		}
 		warpshipHome = new File(hyperdriveHome, WARPSHIP_HOME);
@@ -114,6 +122,7 @@ public class GDXAppTos4Activator implements BundleActivator {
 		}
 		if (!warpshipHome.exists()) {
 			fireMessageEvent("ERROR: No Warpship home.");
+			startError = true;
 			return;
 		}
 		File warpShip = new File(warpshipHome, Warpᵐᵉ.WARP_SHIP);
@@ -123,6 +132,7 @@ public class GDXAppTos4Activator implements BundleActivator {
 		fireMessageEvent("warp-ship: "+warpShip);
 		if (!warpShip.exists()) {
 			fireMessageEvent("ERROR: No warp-ship.xml found.");
+			startError = true;
 			return;
 		}
 		try {
@@ -130,6 +140,7 @@ public class GDXAppTos4Activator implements BundleActivator {
 		} catch (Exception e) {
 			e.printStackTrace();
 			fireMessageEvent("ERROR: "+e.getMessage());
+			startError = true;
 			return;
 		}
 		fireMessageEvent("warp-engine: "+warpshipDevice.theShip().getName());
@@ -188,13 +199,16 @@ public class GDXAppTos4Activator implements BundleActivator {
 		} catch (Exception e) {
 			e.printStackTrace();
 			fireMessageEvent("ERROR: "+e.getMessage());
+			startError = true;
 			return;
 		}
 		if (result > 0) {
 			fireMessageEvent("tos4: FAILURE BOOT ABORTED");
-		} else {
-			fireMessageEvent("tos4: chains resolved.");
+			startError = true;
+			return;
 		}
+		
+		fireMessageEvent("tos4: chains resolved.");
 		try {
 			ServiceReference<?>[] refs = context.getServiceReferences( SystemWarpSea.class.getName(), "(warp.sea.name=*)" );
 			for (int i=0;i<refs.length;i++) {
@@ -203,12 +217,13 @@ public class GDXAppTos4Activator implements BundleActivator {
 				File waterHome = service.getWarpHome();
 				for (WaterSeaMagic magic:service.getWarpSea().theWater().getSeaMagics()) {
 					if ("application/vnd.osgi.bundle".equals(magic.getMime())) {
+						magic.setMime("application/vnd.osgi.bundle.loaded"); // TODO: HACK for now to not load again
 						String overrideBundleKey = key + "." + magic.getFile();
 						String overrideBundle = localOverrides.getProperty(overrideBundleKey);
 						if (overrideBundle == null) {
-							GDXAppTos4BootFactory.installAndStartBundles(context, "reference:file:"+waterHome.getAbsolutePath()+"/"+magic.getFile());
+							SystemGdxBootFactory.installAndStartBundles(context, "reference:file:"+waterHome.getAbsolutePath()+"/"+magic.getFile());
 						} else {
-							GDXAppTos4BootFactory.installAndStartBundles(context, "reference:file:"+overrideBundle);
+							SystemGdxBootFactory.installAndStartBundles(context, "reference:file:"+overrideBundle);
 						}
 					}
 				}
@@ -216,6 +231,8 @@ public class GDXAppTos4Activator implements BundleActivator {
 		} catch (Exception e) {
 			e.printStackTrace();
 			fireMessageEvent("ERROR: "+e.getMessage());
+			startError = true;
+			return;
 		}
 	}
 	
@@ -294,6 +311,11 @@ public class GDXAppTos4Activator implements BundleActivator {
 		public NativeFileChooser getFileChooser() {
 			return fileChooser;
 		}
+		
+		@Override
+		public Properties getLocalOverrides() {
+			return localOverrides;
+		}
 	}
 	
 	public class SystemWarpShipImpl implements SystemWarpShip {
@@ -322,9 +344,28 @@ public class GDXAppTos4Activator implements BundleActivator {
 				waterHome = new File(override);
 			}
 			LOG.debug("loadWaterOcean key={} home={}",key, waterHome);
+			
+//			File waterHash = new File(waterHome, Warpᵐᵉ.WARP_HASH);
+//			if (!waterHash.exists()) {
+//				logger.accept("ERROR: Missing file: "+waterHash);
+//				return 1;
+//			}
+//			WaterShotAddict addict = new WaterShotAddict();
+//			try {
+//				if (!addict.validateWarpChainLink(waterHome)) {
+//					logger.accept("ERROR: Invalid hash in: "+waterHash);
+//					return 1;
+//				}
+//			} catch (NoSuchAlgorithmException | X4OConnectionException | SAXException | IOException e) {
+//				e.printStackTrace();
+//				logger.accept("ERROR: "+e.getMessage());
+//				return 1;
+//			}
+			
+			
 			File waterSea = new File(waterHome, Warpᵐᵉ.WARP_SEA);
 			if (!waterSea.exists()) {
-				logger.accept("ERROR: No warp-sea.xml found.");
+				logger.accept("ERROR: Missing file: "+waterSea);
 				return 1;
 			}
 			WaterOcean ocean = WaterOceanDriver.newInstance().createReader().readFile(waterSea);

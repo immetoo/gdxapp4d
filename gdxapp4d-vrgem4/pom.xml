@@ -12,7 +12,6 @@
 			<groupId>love.distributedrebirth.gdxapp4d</groupId>
 			<artifactId>gdxapp4d-tos4</artifactId>
 			<version>${project.version}</version>
-			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 	<build>
@@ -25,9 +24,7 @@
 					<exportScr>true</exportScr>
 					<instructions>
 						<_donotcopy>(.git)</_donotcopy>
-						<!-- Enable processing of OSGI DS component annotations -->
 						<_dsannotations>*</_dsannotations>
-						<!-- Enable processing of OSGI metatype annotations -->
 						<_metatypeannotations>*</_metatypeannotations>
 						<Import-Package>
 							org.osgi.framework,
@@ -109,7 +106,10 @@
 							love.distributedrebirth.unicode4d,
 							love.distributedrebirth.unicode4d.atlas
 						</Import-Package>
-						<Export-Package>love.distributedrebirth.gdxapp4d.vrgem4.service</Export-Package>
+						<Export-Package>
+							love.distributedrebirth.gdxapp4d.vrgem4.service,
+							love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp
+						</Export-Package>
 						<Private-Package>love.distributedrebirth.gdxapp4d.vrgem4.*</Private-Package>
 						<!--
 						<Embed-Dependency>*;artifactId=gdx;inline=true,*;artifactId=gdx-nativefilechooser;inline=true</Embed-Dependency>

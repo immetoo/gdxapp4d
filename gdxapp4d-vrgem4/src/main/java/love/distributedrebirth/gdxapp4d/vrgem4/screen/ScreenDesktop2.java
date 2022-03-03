@@ -10,13 +10,14 @@ import com.badlogic.gdx.utils.Array;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxBootArgs;
+import love.distributedrebirth.gdxapp4d.vrgem4.service.VrGem4DeskAppService;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class ScreenDesktop2  extends AbstractScreenDesktop {
 	private Model grid;
 	
-	public ScreenDesktop2(SystemGdxBootArgs bootArgs) {
-		super("Desktop2", bootArgs);
+	public ScreenDesktop2(SystemGdxBootArgs bootArgs, VrGem4DeskAppService deskAppService) {
+		super("Desktop2", bootArgs, deskAppService);
 		//backgroundImage = new Texture(Gdx.files.internal("background/terrydavis-nose.png"));
 	}
 	
