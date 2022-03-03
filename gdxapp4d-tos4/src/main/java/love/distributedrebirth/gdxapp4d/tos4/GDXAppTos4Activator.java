@@ -13,7 +13,7 @@ import java.util.function.Consumer;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
-import org.osgi.framework.BundleException;
+import org.osgi.framework.ServiceReference;
 import org.slf4j.LoggerFactory;
 import org.x4o.xml.io.X4OConnectionException;
 import org.xml.sax.SAXException;
@@ -86,6 +86,7 @@ public class GDXAppTos4Activator implements BundleActivator {
 	
 	@Override
 	public void stop(final BundleContext context) {
+		gdxFont.dispose();
 	}
 	
 	@Override
@@ -99,7 +100,6 @@ public class GDXAppTos4Activator implements BundleActivator {
 		
 		File userHome = new File(System.getProperty(SYSTEM_USER_HOME));
 		hyperdriveHome = new File(userHome, HYPERDRIVE_HOME);
-		fireMessageEvent("hyper-home: "+hyperdriveHome);
 		if (!hyperdriveHome.exists()) {
 			fireMessageEvent("ERROR: No Hyperdrive home.");
 			return;
@@ -187,6 +187,28 @@ public class GDXAppTos4Activator implements BundleActivator {
 		} else {
 			fireMessageEvent("tos4: chains resolved.");
 		}
+		try {
+			ServiceReference<?>[] refs = context.getServiceReferences( SystemWarpSea.class.getName(), "(warp.sea.name=*)" );
+			for (int i=0;i<refs.length;i++) {
+				SystemWarpSea service = (SystemWarpSea) context.getService( refs[i] );
+				String key = service.getWarpKey();
+				File waterHome = service.getWarpHome();
+				for (WaterSeaMagic magic:service.getWarpSea().theWater().getSeaMagics()) {
+					if ("application/vnd.osgi.bundle".equals(magic.getMime())) {
+						String overrideBundleKey = key + "." + magic.getFile();
+						String overrideBundle = localOverrides.getProperty(overrideBundleKey);
+						if (overrideBundle == null) {
+							GDXAppTos4BootFactory.installAndStartBundles(context, "reference:file:"+waterHome.getAbsolutePath()+"/"+magic.getFile());
+						} else {
+							GDXAppTos4BootFactory.installAndStartBundles(context, "reference:file:"+overrideBundle);
+						}
+					}
+				}
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			fireMessageEvent("ERROR: "+e.getMessage());
+		}
 	}
 	
 	private static String getRangeUnicodeUsed() {
@@ -201,10 +223,24 @@ public class GDXAppTos4Activator implements BundleActivator {
 	
 	public class SystemWarpSeaImpl implements SystemWarpSea {
 		
+		private final String warpKey;
+		private final File warpHome;
 		private final WaterOcean warpSea;
 		
-		public SystemWarpSeaImpl(WaterOcean warpSea) {
+		public SystemWarpSeaImpl(String warpKey, File warpHome, WaterOcean warpSea) {
+			this.warpKey = warpKey;
+			this.warpHome = warpHome;
 			this.warpSea = warpSea;
+		}
+		
+		@Override
+		public String getWarpKey() {
+			return warpKey;
+		}
+		
+		@Override
+		public File getWarpHome() {
+			return warpHome;
 		}
 		
 		@Override
@@ -259,7 +295,7 @@ public class GDXAppTos4Activator implements BundleActivator {
 
 		@Override
 		public int loadWaterOcean(BundleContext context, String key, Consumer<String> logger)
-				throws IOException, InterruptedException, X4OConnectionException, SAXException, BundleException {
+				throws IOException, InterruptedException, X4OConnectionException, SAXException {
 			File waterHome;
 			String override = localOverrides.getProperty(key);
 			if (override == null) {
@@ -285,20 +321,8 @@ public class GDXAppTos4Activator implements BundleActivator {
 			
 			Hashtable<String, String> props = new Hashtable<String, String>();
 			props.put(SystemWarpSea.NAME_PROPERTY, ocean.theWater().getName());
-			props.put(SystemWarpSea.PROVIDER_PROPERTY, ocean.theWater().getProvider());
-			context.registerService(SystemWarpSea.class.getName(), new SystemWarpSeaImpl(ocean), props);
+			context.registerService(SystemWarpSea.class.getName(), new SystemWarpSeaImpl(key, waterHome, ocean), props);
 			
-			for (WaterSeaMagic magic:ocean.theWater().getSeaMagics()) {
-				if ("application/vnd.osgi.bundle".equals(magic.getMime())) {
-					String overrideBundleKey = key + "." + magic.getFile();
-					String overrideBundle = localOverrides.getProperty(overrideBundleKey);
-					if (overrideBundle == null) {
-						GDXAppTos4BootFactory.installAndStartBundles(context, "reference:file:"+waterHome.getAbsolutePath()+"/"+magic.getFile());
-					} else {
-						GDXAppTos4BootFactory.installAndStartBundles(context, "reference:file:"+overrideBundle);
-					}
-				}
-			}
 			int result = 0;
 			for (WaterSeaChain chain: ocean.theWater().getSeaChains()) {
 				result += loadWaterOcean(context, chain.getKey(), logger);

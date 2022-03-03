@@ -28,16 +28,12 @@ import love.distributedrebirth.warpme.ship.WaterShipOcean;
 
 public class GDXAppVrGem4Activator implements BundleActivator {
 	
-//	private static final Logger LOG = LoggerFactory.getLogger(GDXAppVrGem4Activator.class);
-	
 	@Override
 	public void stop(final BundleContext context) {
 	}
 	
 	@Override
 	public void start(final BundleContext context) {
-//		LOG.info("GDXAppVrGem4Activator started");
-		
 		try {
 			Thread.sleep(2000);
 		} catch (InterruptedException ignored) {
@@ -170,13 +166,14 @@ public class GDXAppVrGem4Activator implements BundleActivator {
 		} else {
 			bootScreen.bootLine("vrGEM4: chains resolved.");
 			try {
-				Thread.sleep(6000);
+				Thread.sleep(2000);
 			} catch (InterruptedException ignored) {
 			}
 			Gdx.app.postRunnable(new Runnable() {
 				@Override
 				public void run() {
 					terminal.selectScreen(ScreenDesktop1.class);
+					terminal.disposeScreen(bootScreen);
 				}
 			});
 		}

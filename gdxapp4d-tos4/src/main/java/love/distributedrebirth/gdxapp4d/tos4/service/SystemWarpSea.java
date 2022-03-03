@@ -1,5 +1,7 @@
 package love.distributedrebirth.gdxapp4d.tos4.service;
 
+import java.io.File;
+
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.warpme.sea.WaterOcean;
 
@@ -7,7 +9,10 @@ import love.distributedrebirth.warpme.sea.WaterOcean;
 public interface SystemWarpSea {
 
 	String NAME_PROPERTY = "warp.sea.name";
-	String PROVIDER_PROPERTY = "warp.sea.provider";
+	
+	String getWarpKey();
+	
+	File getWarpHome();
 	
 	WaterOcean getWarpSea();
 }
