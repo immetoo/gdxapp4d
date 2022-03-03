@@ -223,6 +223,8 @@ public class GDXAppTos4Activator implements BundleActivator {
 		StringBuilder buf = new StringBuilder();
 		buf.append("©Δ∞ 仙上主天");
 		buf.append("BãßBȍőnAuthorInfoʸᴰ");
+		buf.append("@Ω仙⁴ ˧꜏⋇꜊꜔ ⁴ﷲΩ@");
+		buf.append("בְּרֵאשִׁית :o: יְסוֺד :o: יִשְׂרָאֵל");
 		for (int c=0x0100;c<=0x0200;c++) {
 			buf.append(""+(char)c);
 		}

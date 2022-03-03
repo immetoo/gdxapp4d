@@ -58,6 +58,12 @@ public class GDXAppVrGem4Activator implements BundleActivator {
 			Thread.sleep(100);
 		} catch (InterruptedException ignored) {
 		}
+		
+		bootScreen.bootLine("==========================");
+		bootScreen.bootLine("     @Ω仙⁴ ˧꜏⋇꜊꜔ ⁴ﷲΩ@    ");
+		bootScreen.bootLine("        ©Δ∞ 仙上主天       ");
+		bootScreen.bootLine("בְּרֵאשִׁית :o: יְסוֺד :o: יִשְׂרָאֵל");
+		bootScreen.bootLine("==========================");
 		bootScreen.bootLine("vrGEM4 Booting...");
 		
 		// ref to init
