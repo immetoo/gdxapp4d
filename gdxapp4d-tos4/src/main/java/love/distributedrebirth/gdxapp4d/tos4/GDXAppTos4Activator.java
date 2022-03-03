@@ -14,10 +14,13 @@ import java.util.function.Consumer;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.x4o.xml.io.X4OConnectionException;
 import org.xml.sax.SAXException;
 
+import com.badlogic.gdx.Application;
+import com.badlogic.gdx.ApplicationLogger;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
@@ -43,6 +46,7 @@ import net.spookygames.gdx.nativefilechooser.NativeFileChooser;
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class GDXAppTos4Activator implements BundleActivator {
 	
+	private static final Logger LOG = LoggerFactory.getLogger(GDXAppTos4Activator.class);
 	private List<String> args;
 	private int viewWidth;
 	private int viewHeight;
@@ -168,9 +172,13 @@ public class GDXAppTos4Activator implements BundleActivator {
 		
 		context.registerService(SystemWarpBase.class.getName(), new SystemWarpBaseImpl(), new Hashtable<String, String>());
 		context.registerService(SystemWarpShip.class.getName(), systemWarpShip, new Hashtable<String, String>());
-
+		
+		SystemGdxLogImpl systemGdxLog = new SystemGdxLogImpl();
+		Gdx.app.setLogLevel(Application.LOG_DEBUG);
+		Gdx.app.setApplicationLogger(systemGdxLog);
+		
 		context.registerService(SystemGdxFont.class.getName(), new SystemGdxFontImpl(gdxFont), new Hashtable<String, String>());
-		context.registerService(SystemGdxLog.class.getName(), new SystemGdxLogImpl(), new Hashtable<String, String>());
+		context.registerService(SystemGdxLog.class.getName(), systemGdxLog, new Hashtable<String, String>());
 		context.registerService(SystemGdxBootArgs.class.getName(), new SystemGdxBootArgsImpl(), new Hashtable<String, String>());
 		context.registerService(SystemGdxTerminal.class.getName(), systemGdxTerminal, new Hashtable<String, String>());
 		
@@ -311,6 +319,7 @@ public class GDXAppTos4Activator implements BundleActivator {
 			} else {
 				waterHome = new File(override);
 			}
+			LOG.debug("loadWaterOcean key={} home={}",key, waterHome);
 			File waterSea = new File(waterHome, Warpᵐᵉ.WARP_SEA);
 			if (!waterSea.exists()) {
 				logger.accept("ERROR: No warp-sea.xml found.");
@@ -347,7 +356,7 @@ public class GDXAppTos4Activator implements BundleActivator {
 		}
 	}
 	
-	public static class SystemGdxLogImpl implements SystemGdxLog {
+	public static class SystemGdxLogImpl implements SystemGdxLog, ApplicationLogger {
 		
 		@Override
 		public void infoTag(String tag, String message, Object...args) {
@@ -355,8 +364,18 @@ public class GDXAppTos4Activator implements BundleActivator {
 		}
 		
 		@Override
+		public void infoTag(String tag, String message, Throwable exception) {
+			LoggerFactory.getLogger(tag).info(message, exception);
+		}
+		
+		@Override
 		public void debugTag(String tag, String message, Object...args) {
 			LoggerFactory.getLogger(tag).debug(message, args);
+		}
+		
+		@Override
+		public void debugTag(String tag, String message, Throwable exception) {
+			LoggerFactory.getLogger(tag).debug(message, exception);
 		}
 		
 		@Override
@@ -367,6 +386,36 @@ public class GDXAppTos4Activator implements BundleActivator {
 		@Override
 		public void errorTag(String tag, String message, Throwable exception) {
 			LoggerFactory.getLogger(tag).error(message, exception);
+		}
+		
+		@Override
+		public void log(String tag, String message) {
+			infoTag(tag, message);
+		}
+		
+		@Override
+		public void log(String tag, String message, Throwable exception) {
+			infoTag(tag, message, exception);
+		}
+		
+		@Override
+		public void error(String tag, String message) {
+			errorTag(tag, message);
+		}
+		
+		@Override
+		public void error(String tag, String message, Throwable exception) {
+			errorTag(tag, message, exception);
+		}
+		
+		@Override
+		public void debug(String tag, String message) {
+			debugTag(tag, message);
+		}
+		
+		@Override
+		public void debug(String tag, String message, Throwable exception) {
+			debugTag(tag, message, exception);
 		}
 	}
 	

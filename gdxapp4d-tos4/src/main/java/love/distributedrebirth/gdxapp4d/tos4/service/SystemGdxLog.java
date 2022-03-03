@@ -7,7 +7,11 @@ public interface SystemGdxLog {
 
 	void infoTag(String tag, String message, Object...args);
 	
+	void infoTag(String tag, String message, Throwable exception);
+	
 	void debugTag(String tag, String message, Object...args);
+	
+	void debugTag(String tag, String message, Throwable exception);
 	
 	void errorTag(String tag, String message, Object...args);
 	

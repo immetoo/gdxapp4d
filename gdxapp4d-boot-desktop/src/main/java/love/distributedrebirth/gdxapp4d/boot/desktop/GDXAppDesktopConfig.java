@@ -1,5 +1,8 @@
 package love.distributedrebirth.gdxapp4d.boot.desktop;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 
 /**
@@ -8,6 +11,7 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public final class GDXAppDesktopConfig {
 
+	private static final Logger LOG = LoggerFactory.getLogger(GDXAppDesktopConfig.class);
 	public static int WINDOW_WIDTH = 1024;
 	public static int WINDOW_HEIGHT = 768;
 	public static String WINDOW_TITLE = "GDXApp⁴ᴰ";
@@ -18,12 +22,10 @@ public final class GDXAppDesktopConfig {
 	};
 	
 	public static void printBootMessage() {
-		System.out.println("==========================");
-		System.out.println("     @Ω仙⁴ ˧꜏⋇꜊꜔ ⁴ﷲΩ@    ");
-		System.out.println("        ©Δ∞ 仙上主天       ");
-		System.out.println("בְּרֵאשִׁית :o: יְסוֺד :o: יִשְׂרָאֵל");
-		System.out.println("==========================");
-		System.out.println("..Welcome to: Thy Matrix..");
-		System.out.println("..Starting GDXApp⁴ᴰ now;..");
+		LOG.info("==========================");
+		LOG.info("     @Ω仙⁴ ˧꜏⋇꜊꜔ ⁴ﷲΩ@    ");
+		LOG.info("        ©Δ∞ 仙上主天       ");
+		LOG.info("בְּרֵאשִׁית :o: יְסוֺד :o: יִשְׂרָאֵל");
+		LOG.info("==========================");
 	}
 }
