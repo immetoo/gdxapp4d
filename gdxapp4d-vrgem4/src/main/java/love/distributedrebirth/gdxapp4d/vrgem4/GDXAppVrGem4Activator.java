@@ -1,7 +1,9 @@
 package love.distributedrebirth.gdxapp4d.vrgem4;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Hashtable;
+import java.util.List;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
@@ -12,13 +14,11 @@ import com.badlogic.gdx.Gdx;
 import imgui.type.ImBoolean;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.jmx.DefaultEnumBaseᴶᴹˣ;
-import love.distributedrebirth.gdxapp4d.tos4.GDXAppTos4Activator.SystemWarpBaseImpl;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxBootFactory;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxBootArgs;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxFont;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemWarpShip;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxTerminal;
-import love.distributedrebirth.gdxapp4d.tos4.service.SystemWarpBase;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemWarpSea;
 import love.distributedrebirth.gdxapp4d.vrgem4.screen.ScreenCredits;
 import love.distributedrebirth.gdxapp4d.vrgem4.screen.ScreenDesktop1;
@@ -170,10 +170,11 @@ public class GDXAppVrGem4Activator implements BundleActivator {
 		ServiceReference<SystemWarpShip> systemWarpShipRef = context.getServiceReference(SystemWarpShip.class);
 		SystemWarpShip systemWarpShip = context.getService(systemWarpShipRef);
 		
+		List<SystemWarpSea> registratedSeas = new ArrayList<>();
 		int result = 0;
 		try {
 			for (WaterShipOcean ocean:systemWarpShip.getWarpShip().theShip().getShipOceans()) {
-				result = systemWarpShip.loadWaterOcean(context, ocean.getSea(), v -> bootScreen.bootLine(v));
+				result = systemWarpShip.loadWaterOcean(context, ocean.getSea(), v -> bootScreen.bootLine(v), registratedSeas);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -187,9 +188,7 @@ public class GDXAppVrGem4Activator implements BundleActivator {
 		bootScreen.bootLine("vrGEM4: chains resolved.");
 		
 		try {
-			ServiceReference<?>[] refs = context.getServiceReferences( SystemWarpSea.class.getName(), "(warp.sea.name=*)" );
-			for (int i=0;i<refs.length;i++) {
-				SystemWarpSea service = (SystemWarpSea) context.getService( refs[i] );
+			for (SystemWarpSea service: registratedSeas) {
 				String key = service.getWarpKey();
 				File waterHome = service.getWarpHome();
 				for (WaterSeaMagic magic:service.getWarpSea().theWater().getSeaMagics()) {

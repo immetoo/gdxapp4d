@@ -13,7 +13,6 @@ import java.util.function.Consumer;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
-import org.osgi.framework.ServiceReference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.x4o.xml.io.X4OConnectionException;
@@ -193,9 +192,10 @@ public class GDXAppTos4Activator implements BundleActivator {
 		context.registerService(SystemGdxBootArgs.class.getName(), new SystemGdxBootArgsImpl(), new Hashtable<String, String>());
 		context.registerService(SystemGdxTerminal.class.getName(), systemGdxTerminal, new Hashtable<String, String>());
 		
+		List<SystemWarpSea> registratedSeas = new ArrayList<>();
 		int result = 0;
 		try {
-			result = systemWarpShip.loadWaterOcean(context, warpshipDevice.theShip().getEngine(), v -> fireMessageEvent(v));
+			result = systemWarpShip.loadWaterOcean(context, warpshipDevice.theShip().getEngine(), v -> fireMessageEvent(v), registratedSeas);
 		} catch (Exception e) {
 			e.printStackTrace();
 			fireMessageEvent("ERROR: "+e.getMessage());
@@ -210,9 +210,9 @@ public class GDXAppTos4Activator implements BundleActivator {
 		
 		fireMessageEvent("tos4: chains resolved.");
 		try {
-			ServiceReference<?>[] refs = context.getServiceReferences( SystemWarpSea.class.getName(), "(warp.sea.name=*)" );
-			for (int i=0;i<refs.length;i++) {
-				SystemWarpSea service = (SystemWarpSea) context.getService( refs[i] );
+			//ServiceReference<?>[] refs = context.getServiceReferences( SystemWarpSea.class.getName(), "(warp.sea.name=*)" );
+			for (SystemWarpSea service : registratedSeas) {
+				//SystemWarpSea service = (SystemWarpSea) context.getService( refs[i] );
 				String key = service.getWarpKey();
 				File waterHome = service.getWarpHome();
 				for (WaterSeaMagic magic:service.getWarpSea().theWater().getSeaMagics()) {
@@ -221,8 +221,10 @@ public class GDXAppTos4Activator implements BundleActivator {
 						String overrideBundleKey = key + "." + magic.getFile();
 						String overrideBundle = localOverrides.getProperty(overrideBundleKey);
 						if (overrideBundle == null) {
+							LOG.debug("installAndStartBundles reference:file:"+waterHome.getAbsolutePath()+"/"+magic.getFile());
 							SystemGdxBootFactory.installAndStartBundles(context, "reference:file:"+waterHome.getAbsolutePath()+"/"+magic.getFile());
 						} else {
+							LOG.debug("installAndStartBundles reference:file:"+overrideBundle);
 							SystemGdxBootFactory.installAndStartBundles(context, "reference:file:"+overrideBundle);
 						}
 					}
@@ -326,7 +328,7 @@ public class GDXAppTos4Activator implements BundleActivator {
 		}
 
 		@Override
-		public int loadWaterOcean(BundleContext context, String key, Consumer<String> logger)
+		public int loadWaterOcean(BundleContext context, String key, Consumer<String> logger, List<SystemWarpSea> registratedSeas)
 				throws IOException, InterruptedException, X4OConnectionException, SAXException {
 			File waterHome;
 			String override = localOverrides.getProperty(key);
@@ -371,13 +373,15 @@ public class GDXAppTos4Activator implements BundleActivator {
 			WaterOcean ocean = WaterOceanDriver.newInstance().createReader().readFile(waterSea);
 			logger.accept("water-ocean: "+key+" ("+ocean.theWater().getName()+")");
 			
+			SystemWarpSeaImpl sea = new SystemWarpSeaImpl(key, waterHome, ocean);
 			Hashtable<String, String> props = new Hashtable<String, String>();
 			props.put(SystemWarpSea.NAME_PROPERTY, ocean.theWater().getName());
-			context.registerService(SystemWarpSea.class.getName(), new SystemWarpSeaImpl(key, waterHome, ocean), props);
+			context.registerService(SystemWarpSea.class.getName(), sea, props);
+			registratedSeas.add(sea);
 			
 			int result = 0;
 			for (WaterSeaChain chain: ocean.theWater().getSeaChains()) {
-				result += loadWaterOcean(context, chain.getKey(), logger);
+				result += loadWaterOcean(context, chain.getKey(), logger, registratedSeas);
 			}
 			return result;
 		}

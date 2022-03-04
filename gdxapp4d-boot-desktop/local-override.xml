@@ -13,4 +13,7 @@
 	
 	<entry key="ccba3b29da8b1b1cb444f381449beede3cbfd442d158293a4cdffbc3c41a31cc">../gdxapp4d-vrgem4/src/chain</entry>
 	<entry key="ccba3b29da8b1b1cb444f381449beede3cbfd442d158293a4cdffbc3c41a31cc.gdxapp4d-vrgem4.jar">../gdxapp4d-vrgem4/target/classes</entry>
+	
+	<entry key="ddcb3b29da8b1b1cb555f381449bffde3cbfd442d158293a4cdeebc3c41a12ab">../gdxapp4d-vrsys5/src/chain</entry>
+	<entry key="ddcb3b29da8b1b1cb555f381449bffde3cbfd442d158293a4cdeebc3c41a12ab.gdxapp4d-vrsys5.jar">../gdxapp4d-vrsys5/target/classes</entry>
 </properties>

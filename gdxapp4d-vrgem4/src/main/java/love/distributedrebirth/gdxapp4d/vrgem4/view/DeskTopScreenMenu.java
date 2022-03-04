@@ -22,7 +22,6 @@ import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskApp;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppContourSection;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppLauncher;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppRenderer;
-import love.distributedrebirth.gdxapp4d.vrgem4.view.apps.BasicConsoleApp;
 import love.distributedrebirth.gdxapp4d.vrgem4.view.apps.SystemBaseGlyphApp;
 import love.distributedrebirth.gdxapp4d.vrgem4.view.apps.SystemBasePartApp;
 import love.distributedrebirth.gdxapp4d.vrgem4.view.apps.SystemBaseUnicodePlaneApp;
@@ -42,7 +41,6 @@ public class DeskTopScreenMenu {
 		this.bootArgs = bootArgs; 
 		this.deskAppService = deskAppService;
 		apps = new ArrayList<>();
-		apps.add(new DeskAppLauncher("Basic Console", () -> new BasicConsoleApp()));
 		apps.add(new DeskAppLauncher("Sys Glyph Set", () -> new SystemBaseGlyphApp()));
 		apps.add(new DeskAppLauncher("Sys Number Parts", () -> new SystemBasePartApp()));
 		apps.add(new DeskAppLauncher("Sys Unicode", () -> new SystemBaseUnicodePlaneApp()));

@@ -3,12 +3,7 @@
  xmlns:link="http://warp-sea.x4o.distributedrebirth.love/xml/ns/warp-sea-link"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://wrap-sea.x4o.distributedrebirth.love/xml/ns/warp-sea-root http://warp-sea.x4o.distributedrebirth.love/xml/ns/warp-sea-root-1.0.xsd">
-	<link:sea name="System Engine" provider="gdxapp4d.system" author="willemtsade">
-		<!-- Link dep-osgi-scr -->
-		<link:chain key="8833aa29da5b6b2cb464f781469ceede6ccfd848d158293a4cdffbc2c41b58de"/>
-		<!-- Link vrgem4 -->
-		<link:chain key="ccba3b29da8b1b1cb444f381449beede3cbfd442d158293a4cdffbc3c41a31cc"/>
-		<!-- Link vrsys5 -->
-		<link:chain key="ddcb3b29da8b1b1cb555f381449bffde3cbfd442d158293a4cdeebc3c41a12ab"/>
+	<link:sea name="vrSys5" provider="gdxapp4d.system" author="willemtsade">
+		<link:magic file="gdxapp4d-vrsys5.jar" mime="application/vnd.osgi.bundle"/>
 	</link:sea>
 </root:ocean>
