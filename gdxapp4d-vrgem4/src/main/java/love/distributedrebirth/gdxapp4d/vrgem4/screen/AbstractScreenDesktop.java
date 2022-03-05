@@ -75,7 +75,7 @@ public abstract class AbstractScreenDesktop extends ScreenAdapter implements Des
 		modelBatch = new ModelBatch();
 		
 		cam = new PerspectiveCamera(67, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-		cam.position.set(10f, 10f, 10f);
+		cam.position.set(-20f, 30f, 0f);
 		cam.lookAt(0, 0, 0);
 		cam.near = 1f;
 		cam.far = 300f;
@@ -149,8 +149,6 @@ public abstract class AbstractScreenDesktop extends ScreenAdapter implements Des
 		
 		ImGui.render();
 		ImGuiSetup.imGuiGlImp.renderDrawData(ImGui.getDrawData());
-		//Gdx.gl.glViewport(0, 0, Gdx.graphics.getBackBufferWidth(), Gdx.graphics.getBackBufferHeight());
-		//Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
 	}
 	
 	protected void renderDesktop(float delta, ModelBatch modelBatch, PerspectiveCamera cam, Array<ModelInstance> modelInstances) {

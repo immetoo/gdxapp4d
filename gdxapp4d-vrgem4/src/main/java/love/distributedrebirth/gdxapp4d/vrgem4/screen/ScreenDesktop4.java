@@ -55,7 +55,7 @@ public class ScreenDesktop4 extends AbstractScreenDesktop {
 				}
 			}
 		}
-		grid = modelBuilder.createLineGrid(33, 33, 1f, 1f, new Material(ColorAttribute.createDiffuse(1f,1f,1f,.1f)), Usage.Position | Usage.Normal);
+		grid = modelBuilder.createLineGrid(33, 33, 1f, 1f, new Material(ColorAttribute.createDiffuse(.2f,.2f,.2f,1f)), Usage.Position | Usage.Normal);
 		modelInstances.add(new ModelInstance(grid, 0, 0, 0));
 	}
 	
