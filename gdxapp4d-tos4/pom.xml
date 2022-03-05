@@ -68,6 +68,7 @@
 				<artifactId>maven-bundle-plugin</artifactId>
 				<extensions>true</extensions>
 				<configuration>
+					<niceManifest>true</niceManifest>
 					<instructions>
 						<_donotcopy>(.git)</_donotcopy>
 						<Import-Package>org.osgi.framework,org.osgi.service.packageadmin,org.osgi.service.url,org.osgi.service.startlevel,org.osgi.util.tracker,*</Import-Package>

@@ -22,6 +22,7 @@
 				<extensions>true</extensions>
 				<configuration>
 					<exportScr>true</exportScr>
+					<niceManifest>true</niceManifest>
 					<instructions>
 						<_donotcopy>(.git)</_donotcopy>
 						<_dsannotations>*</_dsannotations>
