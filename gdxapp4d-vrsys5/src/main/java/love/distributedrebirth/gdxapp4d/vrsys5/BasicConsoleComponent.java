@@ -8,6 +8,7 @@ import org.osgi.service.component.annotations.Reference;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxLog;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.VrGem4DeskAppService;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppLauncher;
+import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppMenuSection;
 
 @Component
 public class BasicConsoleComponent {
@@ -21,7 +22,7 @@ public class BasicConsoleComponent {
 	@Activate
 	void open() {
 		log.info(this, "Activate BasicConsoleComponent");
-		deskAppService.registrateDeskApp(new DeskAppLauncher("Basic Console", () -> new BasicConsoleDeskApp()));
+		deskAppService.registrateDeskApp(DeskAppMenuSection.PROGRAMMING, new DeskAppLauncher("Basic Console", () -> new BasicConsoleDeskApp()));
 	}
 	
 	@Deactivate

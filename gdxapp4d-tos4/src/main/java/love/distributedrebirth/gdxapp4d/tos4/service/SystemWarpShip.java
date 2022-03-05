@@ -17,5 +17,7 @@ public interface SystemWarpShip {
 
 	WaterDevice getWarpShip();
 	
-	int loadWaterOcean(BundleContext context, String key, Consumer<String> logger, List<SystemWarpSea> registratedSeas) throws IOException, InterruptedException, X4OConnectionException, SAXException, BundleException;
+	int loadWaterOcean(BundleContext context, List<SystemWarpSea> registratedSeas, String key, Consumer<String> logger) throws IOException, InterruptedException, X4OConnectionException, SAXException, BundleException;
+	
+	void loadBundles(BundleContext context, List<SystemWarpSea> registratedSeas) throws BundleException;
 }

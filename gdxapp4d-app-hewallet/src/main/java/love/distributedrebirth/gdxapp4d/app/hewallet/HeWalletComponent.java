@@ -8,6 +8,7 @@ import org.osgi.service.component.annotations.Reference;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxLog;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.VrGem4DeskAppService;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppLauncher;
+import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppMenuSection;
 
 @Component
 public class HeWalletComponent {
@@ -21,7 +22,7 @@ public class HeWalletComponent {
 	@Activate
 	void open() {
 		log.info(this, "Activated HeWalletComponent");
-		deskAppService.registrateDeskApp(new DeskAppLauncher("Hebrew Wallet", () -> new HeWalletDeskApp()));
+		deskAppService.registrateDeskApp(DeskAppMenuSection.INTERNET, new DeskAppLauncher("Hebrew Wallet", () -> new HeWalletDeskApp()));
 	}
 	
 	@Deactivate

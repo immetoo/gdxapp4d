@@ -56,27 +56,36 @@ public enum GDXAppTos4 implements DefaultEnumInstanceᴶᴹˣ<GDXAppTos4,GDXAppT
 	
 	@Override
 	public void resize(int width, int height) {
-		screen.resize(width, height);
+		if (screen != null) {
+			screen.resize(width, height);
+		}
 	}
 	
 	@Override
 	public void render() {
 		ScreenUtils.clear(0f, 0f, 0f, 1f, true);
-		screen.render(Gdx.graphics.getDeltaTime());
+		if (screen != null) {
+			screen.render(Gdx.graphics.getDeltaTime());
+		}
 	}
 	
 	@Override
 	public void pause() {
-		screen.pause();
+		if (screen != null) {
+			screen.pause();
+		}
 	}
 	
 	@Override
 	public void resume() {
-		screen.resume();
+		if (screen != null) {
+			screen.resume();
+		}
 	}
 	
 	@Override
 	public void dispose() {
+		this.screen = null;
 		for (Screen screen:screens.values()) {
 			screen.dispose();
 		}

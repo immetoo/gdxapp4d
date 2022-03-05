@@ -1,12 +1,12 @@
 package love.distributedrebirth.gdxapp4d.vrgem4;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
 
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
+import org.osgi.framework.BundleException;
 import org.osgi.framework.ServiceReference;
 
 import com.badlogic.gdx.Gdx;
@@ -14,7 +14,6 @@ import com.badlogic.gdx.Gdx;
 import imgui.type.ImBoolean;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.jmx.DefaultEnumBaseᴶᴹˣ;
-import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxBootFactory;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxBootArgs;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxFont;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemWarpShip;
@@ -32,10 +31,11 @@ import love.distributedrebirth.numberxd.base2t.Base2PartsFactory;
 import love.distributedrebirth.numberxd.base2t.Base2Terminator;
 import love.distributedrebirth.numberxd.base2t.part.warp.TOSWarpCore;
 import love.distributedrebirth.numberxd.glyph.BaseGlyphSet;
-import love.distributedrebirth.warpme.sea.WaterSeaMagic;
 import love.distributedrebirth.warpme.ship.WaterShipOcean;
 
 public class GDXAppVrGem4Activator implements BundleActivator {
+	
+	private static final int VIEW_SLEEP_TIME = 1234;
 	
 	@Override
 	public void stop(final BundleContext context) {
@@ -44,7 +44,7 @@ public class GDXAppVrGem4Activator implements BundleActivator {
 	@Override
 	public void start(final BundleContext context) {
 		try {
-			Thread.sleep(2000);
+			Thread.sleep(VIEW_SLEEP_TIME);
 		} catch (InterruptedException ignored) {
 		}
 		
@@ -145,7 +145,7 @@ public class GDXAppVrGem4Activator implements BundleActivator {
 		GDXAppVrGem4.INSTANCE.init(terminal);
 		
 		
-		VrGem4DeskAppService deskAppService = new VrGem4DeskAppServiceImpl();
+		VrGem4DeskAppServiceImpl deskAppService = new VrGem4DeskAppServiceImpl();
 		context.registerService(VrGem4DeskAppService.class.getName(), deskAppService, new Hashtable<String, String>());
 		
 		bootScreen.bootLine("terminal: added screens");
@@ -174,7 +174,7 @@ public class GDXAppVrGem4Activator implements BundleActivator {
 		int result = 0;
 		try {
 			for (WaterShipOcean ocean:systemWarpShip.getWarpShip().theShip().getShipOceans()) {
-				result = systemWarpShip.loadWaterOcean(context, ocean.getSea(), v -> bootScreen.bootLine(v), registratedSeas);
+				result = systemWarpShip.loadWaterOcean(context, registratedSeas, ocean.getSea(), v -> bootScreen.bootLine(v));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -188,31 +188,14 @@ public class GDXAppVrGem4Activator implements BundleActivator {
 		bootScreen.bootLine("vrGEM4: chains resolved.");
 		
 		try {
-			for (SystemWarpSea service: registratedSeas) {
-				String key = service.getWarpKey();
-				File waterHome = service.getWarpHome();
-				for (WaterSeaMagic magic:service.getWarpSea().theWater().getSeaMagics()) {
-					if ("application/vnd.osgi.bundle".equals(magic.getMime())) {
-						magic.setMime("application/vnd.osgi.bundle.loaded"); // TODO: HACK for now to not load again
-						String overrideBundleKey = key + "." + magic.getFile();
-						String overrideBundle = bootArgs.getLocalOverrides().getProperty(overrideBundleKey);
-						if (overrideBundle == null) {
-							SystemGdxBootFactory.installAndStartBundles(context, "reference:file:"+waterHome.getAbsolutePath()+"/"+magic.getFile());
-						} else {
-							SystemGdxBootFactory.installAndStartBundles(context, "reference:file:"+overrideBundle);
-						}
-					}
-				}
-			}
-		} catch (Exception e) {
+			systemWarpShip.loadBundles(context, registratedSeas);
+		} catch (BundleException e) {
 			e.printStackTrace();
 			bootScreen.bootLine("ERROR: "+e.getMessage());
 			return;
 		}
-		
-		
 		try {
-			Thread.sleep(2000);
+			Thread.sleep(VIEW_SLEEP_TIME);
 		} catch (InterruptedException ignored) {
 		}
 		Gdx.app.postRunnable(new Runnable() {

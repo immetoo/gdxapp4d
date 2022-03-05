@@ -11,16 +11,17 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxBootArgs;
 import love.distributedrebirth.gdxapp4d.vrgem4.FontAwesomeIcons;
 import love.distributedrebirth.gdxapp4d.vrgem4.GDXAppVrGem4;
+import love.distributedrebirth.gdxapp4d.vrgem4.VrGem4DeskAppServiceImpl;
 import love.distributedrebirth.gdxapp4d.vrgem4.screen.ScreenCredits;
 import love.distributedrebirth.gdxapp4d.vrgem4.screen.ScreenDesktop1;
 import love.distributedrebirth.gdxapp4d.vrgem4.screen.ScreenDesktop2;
 import love.distributedrebirth.gdxapp4d.vrgem4.screen.ScreenDesktop3;
 import love.distributedrebirth.gdxapp4d.vrgem4.screen.ScreenDesktop4;
 import love.distributedrebirth.gdxapp4d.vrgem4.screen.ScreenHelp;
-import love.distributedrebirth.gdxapp4d.vrgem4.service.VrGem4DeskAppService;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskApp;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppContourSection;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppLauncher;
+import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppMenuSection;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppRenderer;
 import love.distributedrebirth.gdxapp4d.vrgem4.view.apps.SystemBaseGlyphApp;
 import love.distributedrebirth.gdxapp4d.vrgem4.view.apps.SystemBasePartApp;
@@ -31,13 +32,13 @@ import love.distributedrebirth.gdxapp4d.vrgem4.view.apps.Unicode4DApp;
 public class DeskTopScreenMenu {
 	
 	private SystemGdxBootArgs bootArgs;
-	private VrGem4DeskAppService deskAppService;
+	private VrGem4DeskAppServiceImpl deskAppService;
 	private List<DeskAppLauncher> apps;
 	private ImBoolean fileMinimizeSelected = new ImBoolean(false);
 	private ImBoolean fileCloseSelected = new ImBoolean(false);
 	private ImBoolean tosSelfSelected = new ImBoolean(false);
 	
-	public DeskTopScreenMenu(SystemGdxBootArgs bootArgs, VrGem4DeskAppService deskAppService) {
+	public DeskTopScreenMenu(SystemGdxBootArgs bootArgs, VrGem4DeskAppServiceImpl deskAppService) {
 		this.bootArgs = bootArgs; 
 		this.deskAppService = deskAppService;
 		apps = new ArrayList<>();
@@ -221,11 +222,23 @@ public class DeskTopScreenMenu {
 					}
 				}
 				ImGui.separator();
-				for (DeskAppLauncher launcher: deskAppService.getLaunchers()) {
-					if (ImGui.menuItem(launcher.getName())) {
-						DeskApp controller = launcher.getLauncher().get();
-						controller.create();
-						appScreen.getDeskAppController().addDeskApp(controller);
+				for (DeskAppMenuSection section: DeskAppMenuSection.values()) {
+					if (section.isSystem()) {
+						continue;
+					}
+					List<DeskAppLauncher> menu = deskAppService.getMenuSection(section);
+					if (menu.isEmpty()) {
+						continue;
+					}
+					if (ImGui.beginMenu(section.name())) {
+						for (DeskAppLauncher launcher: menu) {
+							if (ImGui.menuItem(launcher.getName())) {
+								DeskApp controller = launcher.getLauncher().get();
+								controller.create();
+								appScreen.getDeskAppController().addDeskApp(controller);
+							}
+						}
+						ImGui.endMenu();
 					}
 				}
 				ImGui.endMenu();
@@ -244,6 +257,19 @@ public class DeskTopScreenMenu {
 			}
 			
 			ImGui.separator();
+			List<DeskAppLauncher> menu = deskAppService.getMenuSection(DeskAppMenuSection.SYSTEM);
+			if (!menu.isEmpty()) {
+				if (ImGui.beginMenu(DeskAppMenuSection.SYSTEM.name())) {
+					for (DeskAppLauncher launcher: menu) {
+						if (ImGui.menuItem(launcher.getName())) {
+							DeskApp controller = launcher.getLauncher().get();
+							controller.create();
+							appScreen.getDeskAppController().addDeskApp(controller);
+						}
+					}
+					ImGui.endMenu();
+				}
+			}
 			if (ImGui.menuItem(FontAwesomeIcons.CreditCard + " Credits")) {
 				GDXAppVrGem4.INSTANCE.terminal.selectScreen(ScreenCredits.class);
 			}
@@ -255,8 +281,7 @@ public class DeskTopScreenMenu {
 //				GDXAppVrGem4.INSTANCE.showImGuiDemo.set(true);
 			}
 			if (ImGui.menuItem(FontAwesomeIcons.PowerOff + " Shutdown")) {
-//				GDXAppVrGem4.INSTANCE.dispose();
-				System.exit(0);
+				bootArgs.shutdown();
 			}
 			ImGui.endMenu();
 		}

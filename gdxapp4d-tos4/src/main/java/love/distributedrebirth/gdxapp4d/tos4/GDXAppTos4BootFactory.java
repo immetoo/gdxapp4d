@@ -1,4 +1,4 @@
-package love.distributedrebirth.gdxapp4d.tos4.service;
+package love.distributedrebirth.gdxapp4d.tos4;
 
 import java.io.File;
 import java.io.IOException;
@@ -16,7 +16,7 @@ import org.osgi.framework.launch.FrameworkFactory;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public class SystemGdxBootFactory {
+public class GDXAppTos4BootFactory {
 
 	public static void installAndStartBundles(BundleContext bundleContext, String... bundleLocations) throws BundleException {
 		for (String location : bundleLocations) {

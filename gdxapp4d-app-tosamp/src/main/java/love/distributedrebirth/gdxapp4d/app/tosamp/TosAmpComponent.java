@@ -9,6 +9,7 @@ import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxBootArgs;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxLog;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.VrGem4DeskAppService;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppLauncher;
+import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppMenuSection;
 
 @Component
 public class TosAmpComponent {
@@ -25,7 +26,7 @@ public class TosAmpComponent {
 	@Activate
 	void open() {
 		log.info(this, "Activated TosAmpComponent");
-		deskAppService.registrateDeskApp(new DeskAppLauncher("TosAmp", () -> new TosAmpDeskApp(bootArgs.getFileChooser())));
+		deskAppService.registrateDeskApp(DeskAppMenuSection.MULTIMEDIA, new DeskAppLauncher("TosAmp", () -> new TosAmpDeskApp(bootArgs.getFileChooser())));
 	}
 	
 	@Deactivate

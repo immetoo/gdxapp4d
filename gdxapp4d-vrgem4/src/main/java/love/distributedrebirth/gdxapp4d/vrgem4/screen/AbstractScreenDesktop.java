@@ -19,7 +19,7 @@ import imgui.flag.ImGuiWindowFlags;
 import imgui.type.ImBoolean;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxBootArgs;
 import love.distributedrebirth.gdxapp4d.vrgem4.ImGuiSetup;
-import love.distributedrebirth.gdxapp4d.vrgem4.service.VrGem4DeskAppService;
+import love.distributedrebirth.gdxapp4d.vrgem4.VrGem4DeskAppServiceImpl;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskApp;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppContourSection;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppRenderer;
@@ -43,7 +43,7 @@ public abstract class AbstractScreenDesktop extends ScreenAdapter implements Des
 	private ModelBatch modelBatch;
 	private Array<ModelInstance> modelInstances = new Array<ModelInstance>();
 	
-	public AbstractScreenDesktop(String name, SystemGdxBootArgs bootArgs, VrGem4DeskAppService deskAppService) {
+	public AbstractScreenDesktop(String name, SystemGdxBootArgs bootArgs, VrGem4DeskAppServiceImpl deskAppService) {
 		this.create();
 		screenMenu = new DeskTopScreenMenu(bootArgs, deskAppService);
 		deskAppScreen = new DeskAppController(name);

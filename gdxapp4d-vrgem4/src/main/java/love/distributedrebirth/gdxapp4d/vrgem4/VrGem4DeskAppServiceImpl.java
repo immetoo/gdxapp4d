@@ -1,22 +1,29 @@
 package love.distributedrebirth.gdxapp4d.vrgem4;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import love.distributedrebirth.gdxapp4d.vrgem4.service.VrGem4DeskAppService;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppLauncher;
+import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppMenuSection;
 
 public class VrGem4DeskAppServiceImpl implements VrGem4DeskAppService {
 	
-	private List<DeskAppLauncher> launchers = new ArrayList<>();
+	private Map<DeskAppMenuSection, List<DeskAppLauncher>> menu = new HashMap<>();
 	
-	@Override
-	public List<DeskAppLauncher> getLaunchers() {
-		return launchers;
+	public List<DeskAppLauncher> getMenuSection(DeskAppMenuSection section) {
+		List<DeskAppLauncher> result = menu.get(section);
+		if (result == null) {
+			result = new ArrayList<>();
+			menu.put(section, result);
+		}
+		return result;
 	}
 	
 	@Override
-	public void registrateDeskApp(DeskAppLauncher launcher) {
-		launchers.add(launcher);
+	public void registrateDeskApp(DeskAppMenuSection section, DeskAppLauncher launcher) {
+		getMenuSection(section).add(launcher);
 	}
 }

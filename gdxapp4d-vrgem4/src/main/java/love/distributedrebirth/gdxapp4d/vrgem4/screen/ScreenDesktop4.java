@@ -21,7 +21,7 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxBootArgs;
-import love.distributedrebirth.gdxapp4d.vrgem4.service.VrGem4DeskAppService;
+import love.distributedrebirth.gdxapp4d.vrgem4.VrGem4DeskAppServiceImpl;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class ScreenDesktop4 extends AbstractScreenDesktop {
@@ -37,7 +37,7 @@ public class ScreenDesktop4 extends AbstractScreenDesktop {
 	private float colorFade = 0f;
 	private boolean colorPositive = true;
 	
-	public ScreenDesktop4(SystemGdxBootArgs bootArgs, VrGem4DeskAppService deskAppService) {
+	public ScreenDesktop4(SystemGdxBootArgs bootArgs, VrGem4DeskAppServiceImpl deskAppService) {
 		super("Desktop4", bootArgs, deskAppService);
 		shader = new UserColorShader();
 		shader.init();
