@@ -5,6 +5,9 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public interface SystemGdxLog {
 
+	public static final String ACTIVATE = "Activate";
+	public static final String DEACTIVATE = "Deactivate";
+	
 	void infoTag(String tag, String message, Object...args);
 	
 	void infoTag(String tag, String message, Throwable exception);

@@ -16,6 +16,7 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.jmx.DefaultEnumBaseᴶᴹˣ;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxBootArgs;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxFont;
+import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxLog;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemWarpShip;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxTerminal;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemWarpSea;
@@ -48,12 +49,16 @@ public class GDXAppVrGem4Activator implements BundleActivator {
 		} catch (InterruptedException ignored) {
 		}
 		
+		ServiceReference<SystemGdxLog> loggerRef = context.getServiceReference(SystemGdxLog.class);
+		SystemGdxLog logger = context.getService(loggerRef);
+		
 		ServiceReference<SystemGdxTerminal> termRef = context.getServiceReference(SystemGdxTerminal.class);
 		SystemGdxTerminal terminal = context.getService(termRef);
 		
 		ServiceReference<SystemGdxFont> gdxFontRef = context.getServiceReference(SystemGdxFont.class);
 		SystemGdxFont gdxFont = context.getService(gdxFontRef);
 		
+		logger.info(this, "Booting");
 		GDXAppVrGem4BootScreen bootScreen = new GDXAppVrGem4BootScreen(gdxFont.getFont());
 		Gdx.app.postRunnable(new Runnable() {
 			@Override
@@ -205,6 +210,7 @@ public class GDXAppVrGem4Activator implements BundleActivator {
 				terminal.disposeScreen(bootScreen);
 			}
 		});
+		logger.info(this, "Boot done");
 	}
 	
 	//TODO: add layer or ?? private <T extends BãßBȍőnCoffinStoreʸᴰ<?>,DefaultAuthorInfoʸᴰ> T[] storeInstances() {

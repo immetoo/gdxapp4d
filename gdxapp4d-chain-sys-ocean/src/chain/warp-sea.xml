@@ -4,6 +4,8 @@
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://wrap-sea.x4o.distributedrebirth.love/xml/ns/warp-sea-root http://warp-sea.x4o.distributedrebirth.love/xml/ns/warp-sea-root-1.0.xsd">
 	<link:sea name="System Ocean" provider="gdxapp4d.system" author="willemtsade">
+		<!-- Link app-calculator -->
+		<link:chain key="7744aa29da5b6b2cb4b8f781469c33de688fd848d158293a4cdddbc2c41b12aa"/>
 		<!-- Link app-hewallet -->
 		<link:chain key="6633aa29da5b6b2cb4bef781469cffde677fd848d158293a4cdffbc2c41b89fe"/>
 		<!-- Link app-tosamp -->

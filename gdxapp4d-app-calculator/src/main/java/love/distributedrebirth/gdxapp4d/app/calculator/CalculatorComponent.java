@@ -1,18 +1,17 @@
-package love.distributedrebirth.gdxapp4d.app.tosamp;
+package love.distributedrebirth.gdxapp4d.app.calculator;
 
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Deactivate;
 import org.osgi.service.component.annotations.Reference;
 
-import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxBootArgs;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxLog;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.VrGem4DeskAppService;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppLauncher;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppMenuSection;
 
 @Component
-public class TosAmpComponent {
+public class CalculatorComponent {
 	
 	@Reference
 	private SystemGdxLog log;
@@ -20,24 +19,21 @@ public class TosAmpComponent {
 	@Reference
 	private VrGem4DeskAppService deskAppService;
 	
-	@Reference
-	private SystemGdxBootArgs bootArgs;
-	
 	private final DeskAppLauncher launcher;
 	
-	public TosAmpComponent() {
-		launcher = new DeskAppLauncher("TosAmp", () -> new TosAmpDeskApp(bootArgs.getFileChooser()));
+	public CalculatorComponent() {
+		launcher = new DeskAppLauncher("Calculator", () -> new CalculatorDeskApp());
 	}
 	
 	@Activate
 	void open() {
 		log.debug(this, SystemGdxLog.ACTIVATE);
-		deskAppService.installDeskApp(DeskAppMenuSection.MULTIMEDIA, launcher);
+		deskAppService.installDeskApp(DeskAppMenuSection.PROGRAMMING, launcher);
 	}
 	
 	@Deactivate
 	void close() {
 		log.debug(this, SystemGdxLog.DEACTIVATE);
-		deskAppService.installDeskApp(DeskAppMenuSection.MULTIMEDIA, launcher);
+		deskAppService.installDeskApp(DeskAppMenuSection.PROGRAMMING, launcher);
 	}
 }

@@ -19,13 +19,21 @@ public class BasicConsoleComponent {
 	@Reference
 	private VrGem4DeskAppService deskAppService;
 	
+	private final DeskAppLauncher launcher;
+	
+	public BasicConsoleComponent() {
+		launcher = new DeskAppLauncher("Basic Console", () -> new BasicConsoleDeskApp());
+	}
+	
 	@Activate
 	void open() {
-		log.info(this, "Activate BasicConsoleComponent");
-		deskAppService.registrateDeskApp(DeskAppMenuSection.PROGRAMMING, new DeskAppLauncher("Basic Console", () -> new BasicConsoleDeskApp()));
+		log.debug(this, SystemGdxLog.ACTIVATE);
+		deskAppService.installDeskApp(DeskAppMenuSection.SYSTEM, launcher);
 	}
 	
 	@Deactivate
 	void close() {
+		log.debug(this, SystemGdxLog.DEACTIVATE);
+		deskAppService.installDeskApp(DeskAppMenuSection.SYSTEM, launcher);
 	}
 }

@@ -19,13 +19,21 @@ public class HeWalletComponent {
 	@Reference
 	private VrGem4DeskAppService deskAppService;
 	
+	private final DeskAppLauncher launcher;
+	
+	public HeWalletComponent() {
+		launcher = new DeskAppLauncher("Hebrew Wallet", () -> new HeWalletDeskApp());
+	}
+	
 	@Activate
 	void open() {
-		log.info(this, "Activated HeWalletComponent");
-		deskAppService.registrateDeskApp(DeskAppMenuSection.INTERNET, new DeskAppLauncher("Hebrew Wallet", () -> new HeWalletDeskApp()));
+		log.debug(this, SystemGdxLog.ACTIVATE);
+		deskAppService.installDeskApp(DeskAppMenuSection.INTERNET, launcher);
 	}
 	
 	@Deactivate
 	void close() {
+		log.debug(this, SystemGdxLog.DEACTIVATE);
+		deskAppService.installDeskApp(DeskAppMenuSection.INTERNET, launcher);
 	}
 }

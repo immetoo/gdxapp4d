@@ -23,7 +23,12 @@ public class VrGem4DeskAppServiceImpl implements VrGem4DeskAppService {
 	}
 	
 	@Override
-	public void registrateDeskApp(DeskAppMenuSection section, DeskAppLauncher launcher) {
+	public void installDeskApp(DeskAppMenuSection section, DeskAppLauncher launcher) {
 		getMenuSection(section).add(launcher);
+	}
+
+	@Override
+	public void removeDeskApp(DeskAppMenuSection section, DeskAppLauncher launcher) {
+		getMenuSection(section).remove(launcher);
 	}
 }

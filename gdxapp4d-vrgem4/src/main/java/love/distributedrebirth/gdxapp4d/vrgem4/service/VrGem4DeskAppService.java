@@ -5,5 +5,7 @@ import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppMenuSectio
 
 public interface VrGem4DeskAppService {
 	
-	void registrateDeskApp(DeskAppMenuSection section, DeskAppLauncher launcher);
+	void installDeskApp(DeskAppMenuSection section, DeskAppLauncher launcher);
+	
+	void removeDeskApp(DeskAppMenuSection section, DeskAppLauncher launcher);
 }
