@@ -3,7 +3,7 @@ package love.distributedrebirth.gdxapp4d.vrgem4.screen;
 import com.badlogic.gdx.Screen;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
-import love.distributedrebirth.gdxapp4d.vrgem4.GDXAppVrGem4;
+import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxTerminal;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class ScreenHelp extends AbstractScrollScreen {
@@ -45,8 +45,8 @@ public class ScreenHelp extends AbstractScrollScreen {
 			" "
 			);
 	
-	public ScreenHelp() {
-		super("background/terrydavis-nose.png");
+	public ScreenHelp(SystemGdxTerminal terminal) {
+		super(terminal, "background/terrydavis-nose.png");
 	}
 
 	@Override
@@ -55,7 +55,7 @@ public class ScreenHelp extends AbstractScrollScreen {
 	}
 
 	@Override
-	protected Class<? extends Screen> getNextScreen(GDXAppVrGem4 main) {
+	protected Class<? extends Screen> getNextScreen() {
 		return ScreenDesktop1.class;
 	}
 	

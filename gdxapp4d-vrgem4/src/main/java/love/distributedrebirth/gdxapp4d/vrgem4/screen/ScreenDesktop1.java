@@ -15,6 +15,7 @@ import com.badlogic.gdx.utils.Array;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxBootArgs;
+import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxTerminal;
 import love.distributedrebirth.gdxapp4d.vrgem4.VrGem4DeskAppServiceImpl;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
@@ -23,8 +24,8 @@ public class ScreenDesktop1 extends AbstractScreenDesktop {
 	private Model background;
 	private Model grid;
 	
-	public ScreenDesktop1(SystemGdxBootArgs bootArgs, VrGem4DeskAppServiceImpl deskAppService) {
-		super("Desktop1", bootArgs, deskAppService);
+	public ScreenDesktop1(SystemGdxBootArgs bootArgs, SystemGdxTerminal terminal, VrGem4DeskAppServiceImpl deskAppService) {
+		super("Desktop1", bootArgs, terminal, deskAppService);
 		
 	}
 	

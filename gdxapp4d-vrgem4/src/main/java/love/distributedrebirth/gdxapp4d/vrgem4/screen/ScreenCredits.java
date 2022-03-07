@@ -3,7 +3,7 @@ package love.distributedrebirth.gdxapp4d.vrgem4.screen;
 import com.badlogic.gdx.Screen;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
-import love.distributedrebirth.gdxapp4d.vrgem4.GDXAppVrGem4;
+import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxTerminal;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class ScreenCredits extends AbstractScrollScreen {
@@ -62,8 +62,8 @@ public class ScreenCredits extends AbstractScrollScreen {
 			" "
 			);
 	
-	public ScreenCredits() {
-		super("background/doom-credits.png");
+	public ScreenCredits(SystemGdxTerminal terminal) {
+		super(terminal, "background/doom-credits.png");
 	}
 
 	@Override
@@ -72,7 +72,7 @@ public class ScreenCredits extends AbstractScrollScreen {
 	}
 
 	@Override
-	protected Class<? extends Screen> getNextScreen(GDXAppVrGem4 main) {
+	protected Class<? extends Screen> getNextScreen() {
 		return ScreenDesktop1.class;
 	}
 	

@@ -147,7 +147,7 @@ public class GDXAppVrGem4Activator implements BundleActivator {
 		*/
 		
 		bootScreen.bootLine("vrGEM⁴: init");
-		GDXAppVrGem4.INSTANCE.init(terminal);
+		//GDXAppVrGem4.INSTANCE.init(terminal);
 		
 		
 		VrGem4DeskAppServiceImpl deskAppService = new VrGem4DeskAppServiceImpl();
@@ -157,13 +157,13 @@ public class GDXAppVrGem4Activator implements BundleActivator {
 		Gdx.app.postRunnable(new Runnable() {
 			@Override
 			public void run() {
-				terminal.registrateScreen(new ScreenDesktop1(bootArgs, deskAppService));
-				terminal.registrateScreen(new ScreenDesktop2(bootArgs, deskAppService));
-				terminal.registrateScreen(new ScreenDesktop3(bootArgs, deskAppService));
-				terminal.registrateScreen(new ScreenDesktop4(bootArgs, deskAppService));
-				terminal.registrateScreen(new ScreenCredits());
-				terminal.registrateScreen(new ScreenHelp());
-				terminal.registrateScreen(new ScreenIntroMission());
+				terminal.registrateScreen(new ScreenDesktop1(bootArgs, terminal, deskAppService));
+				terminal.registrateScreen(new ScreenDesktop2(bootArgs, terminal, deskAppService));
+				terminal.registrateScreen(new ScreenDesktop3(bootArgs, terminal, deskAppService));
+				terminal.registrateScreen(new ScreenDesktop4(bootArgs, terminal, deskAppService));
+				terminal.registrateScreen(new ScreenCredits(terminal));
+				terminal.registrateScreen(new ScreenHelp(terminal));
+				terminal.registrateScreen(new ScreenIntroMission(terminal));
 			}
 		});
 		try {
@@ -217,7 +217,6 @@ public class GDXAppVrGem4Activator implements BundleActivator {
 	@SuppressWarnings("unchecked")
 	private <T extends DefaultEnumBaseᴶᴹˣ<?,?>> T[] coffinInstances() {
 		return (T[]) new DefaultEnumBaseᴶᴹˣ[] {
-				GDXAppVrGem4.INSTANCE,
 				BaseGlyphSet.values()[0],
 				Base2Terminator.INSTANCE,
 				Base2PartsFactory.INSTANCE,

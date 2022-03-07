@@ -10,7 +10,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.ScreenUtils;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
-import love.distributedrebirth.gdxapp4d.vrgem4.GDXAppVrGem4;
+import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxTerminal;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 abstract public class AbstractScrollScreen extends ScreenAdapter {
@@ -20,10 +20,12 @@ abstract public class AbstractScrollScreen extends ScreenAdapter {
 	private int scrollIndex = 0;
 	private int scrollLine = LINE_HEIGHT;
 	private final Texture backgroundImage;
+	private final SystemGdxTerminal terminal;
 	protected SpriteBatch batch;
 	protected BitmapFont font;
 	
-	public AbstractScrollScreen(String background) {
+	public AbstractScrollScreen(SystemGdxTerminal terminal, String background) {
+		this.terminal = terminal;
 		batch = new SpriteBatch();
 		font = new BitmapFont();
 		backgroundImage = new Texture(Gdx.files.internal(background));
@@ -31,7 +33,7 @@ abstract public class AbstractScrollScreen extends ScreenAdapter {
 	
 	abstract protected String getScrollText();
 	
-	abstract protected Class<? extends Screen> getNextScreen(GDXAppVrGem4 main);
+	abstract protected Class<? extends Screen> getNextScreen();
 	
 	@Override
 	public final void render(float delta) {
@@ -63,7 +65,7 @@ abstract public class AbstractScrollScreen extends ScreenAdapter {
 		
 		if (scrollText.length() >= 33) {
 			if (scrollLine >=Gdx.graphics.getHeight() || Gdx.input.isTouched() || Gdx.input.isKeyPressed(Keys.ENTER) || Gdx.input.isKeyPressed(Keys.SPACE)) {
-				GDXAppVrGem4.INSTANCE.terminal.selectScreen(getNextScreen(GDXAppVrGem4.INSTANCE));
+				terminal.selectScreen(getNextScreen());
 			}
 		}
 	}

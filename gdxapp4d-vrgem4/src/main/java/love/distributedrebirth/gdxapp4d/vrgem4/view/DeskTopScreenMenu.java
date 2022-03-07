@@ -9,8 +9,8 @@ import imgui.ImGui;
 import imgui.type.ImBoolean;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxBootArgs;
+import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxTerminal;
 import love.distributedrebirth.gdxapp4d.vrgem4.FontAwesomeIcons;
-import love.distributedrebirth.gdxapp4d.vrgem4.GDXAppVrGem4;
 import love.distributedrebirth.gdxapp4d.vrgem4.VrGem4DeskAppServiceImpl;
 import love.distributedrebirth.gdxapp4d.vrgem4.screen.ScreenCredits;
 import love.distributedrebirth.gdxapp4d.vrgem4.screen.ScreenDesktop1;
@@ -32,14 +32,16 @@ import love.distributedrebirth.gdxapp4d.vrgem4.view.apps.Unicode4DApp;
 public class DeskTopScreenMenu {
 	
 	private SystemGdxBootArgs bootArgs;
+	private SystemGdxTerminal terminal;
 	private VrGem4DeskAppServiceImpl deskAppService;
 	private List<DeskAppLauncher> apps;
 	private ImBoolean fileMinimizeSelected = new ImBoolean(false);
 	private ImBoolean fileCloseSelected = new ImBoolean(false);
 	private ImBoolean tosSelfSelected = new ImBoolean(false);
 	
-	public DeskTopScreenMenu(SystemGdxBootArgs bootArgs, VrGem4DeskAppServiceImpl deskAppService) {
+	public DeskTopScreenMenu(SystemGdxBootArgs bootArgs, SystemGdxTerminal terminal, VrGem4DeskAppServiceImpl deskAppService) {
 		this.bootArgs = bootArgs; 
+		this.terminal = terminal;
 		this.deskAppService = deskAppService;
 		apps = new ArrayList<>();
 		apps.add(new DeskAppLauncher("Sys Glyph Set", () -> new SystemBaseGlyphApp()));
@@ -201,16 +203,16 @@ public class DeskTopScreenMenu {
 				infix4 = FontAwesomeIcons.Eye + " ";
 			}
 			if (ImGui.menuItem(infix1+"Desktop1")) {
-				GDXAppVrGem4.INSTANCE.terminal.selectScreen(ScreenDesktop1.class);
+				terminal.selectScreen(ScreenDesktop1.class);
 			}
 			if (ImGui.menuItem(infix2+"Desktop2")) {
-				GDXAppVrGem4.INSTANCE.terminal.selectScreen(ScreenDesktop2.class);
+				terminal.selectScreen(ScreenDesktop2.class);
 			}
 			if (ImGui.menuItem(infix3+"Desktop3")) {
-				GDXAppVrGem4.INSTANCE.terminal.selectScreen(ScreenDesktop3.class);
+				terminal.selectScreen(ScreenDesktop3.class);
 			}
 			if (ImGui.menuItem(infix4+"Desktop4")) {
-				GDXAppVrGem4.INSTANCE.terminal.selectScreen(ScreenDesktop4.class);
+				terminal.selectScreen(ScreenDesktop4.class);
 			}
 			ImGui.separator();
 			if (ImGui.beginMenu(FontAwesomeIcons.PlusSquare + " Start App")) {
@@ -271,10 +273,10 @@ public class DeskTopScreenMenu {
 				}
 			}
 			if (ImGui.menuItem(FontAwesomeIcons.CreditCard + " Credits")) {
-				GDXAppVrGem4.INSTANCE.terminal.selectScreen(ScreenCredits.class);
+				terminal.selectScreen(ScreenCredits.class);
 			}
 			if (ImGui.menuItem(FontAwesomeIcons.HandsHelping + " Help")) {
-				GDXAppVrGem4.INSTANCE.terminal.selectScreen(ScreenHelp.class);
+				terminal.selectScreen(ScreenHelp.class);
 			}
 			ImGui.separator();
 			if (ImGui.menuItem(FontAwesomeIcons.Trademark + " ImGui Demo")) {
