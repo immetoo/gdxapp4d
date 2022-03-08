@@ -1,4 +1,4 @@
-package love.distributedrebirth.gdxapp4d.vrsys5;
+package love.distributedrebirth.gdxapp4d.vrsys5.apps;
 
 import imgui.ImGui;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
