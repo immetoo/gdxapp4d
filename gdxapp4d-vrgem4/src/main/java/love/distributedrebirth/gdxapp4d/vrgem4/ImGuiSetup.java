@@ -31,6 +31,7 @@ public class ImGuiSetup {
 		initFonts(ImGui.getIO());
 		imGuiImp.init(windowHandle, true);
 		imGuiGlImp.init("#version 140");
+		ImGui.getIO().setIniFilename(null);
 		ImGui.init();
 		initStyle();
 	}
