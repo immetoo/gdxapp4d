@@ -15,14 +15,26 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 public class GDXAppTos4BootScreen extends ScreenAdapter implements GDXAppTos4BootListener {
 
 	private BitmapFont font;
+	private BitmapFont fontError;
 	private SpriteBatch batch;
 	private Texture backgroundImage;
-	private List<String> messages = new ArrayList<>();
+	private List<BootMessage> messages = new ArrayList<>();
+	
+	class BootMessage {
+		String bootLine;
+		String bootLineError;
+		public BootMessage(String bootLine, String bootLineError) {
+			this.bootLine = bootLine;
+			this.bootLineError = bootLineError;
+		}
+	}
 	
 	public GDXAppTos4BootScreen() {
 		batch = new SpriteBatch();
 		backgroundImage = new Texture(Gdx.files.internal("background/msx-boot.png"));
 		font = new BitmapFont();
+		fontError = new BitmapFont();
+		fontError.setColor(1f, 0f, 0f, 1f);
 	}
 	
 	@Override
@@ -33,8 +45,12 @@ public class GDXAppTos4BootScreen extends ScreenAdapter implements GDXAppTos4Boo
 		batch.begin();
 		batch.draw(backgroundImage, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		synchronized (messages) {
-			for (String message:messages) { 
-				font.draw(batch, message, textX, textY-=textYStep);
+			for (BootMessage message:messages) {
+				if (message.bootLine != null) {
+					font.draw(batch, message.bootLine, textX, textY-=textYStep);
+				} else if (message.bootLineError != null) {
+					fontError.draw(batch, message.bootLineError, textX, textY-=textYStep);
+				}
 			}
 		}
 		batch.end();
@@ -45,12 +61,20 @@ public class GDXAppTos4BootScreen extends ScreenAdapter implements GDXAppTos4Boo
 		batch.dispose();
 		backgroundImage.dispose();
 		font.dispose();
+		fontError.dispose();
 	}
 
 	@Override
 	public void bootLine(String message) {
 		synchronized (messages) {
-			messages.add(message);
+			messages.add(new BootMessage(message, null));
+		}
+	}
+	
+	@Override
+	public void bootLineError(String message) {
+		synchronized (messages) {
+			messages.add(new BootMessage(null, message));
 		}
 	}
 }

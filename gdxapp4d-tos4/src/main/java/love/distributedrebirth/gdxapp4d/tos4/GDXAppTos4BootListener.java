@@ -6,4 +6,6 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 public interface GDXAppTos4BootListener {
 
 	void bootLine(String message);
+	
+	void bootLineError(String message);
 }

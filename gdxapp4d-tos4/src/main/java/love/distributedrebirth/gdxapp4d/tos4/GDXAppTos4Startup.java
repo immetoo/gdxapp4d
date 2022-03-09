@@ -19,7 +19,7 @@ public class GDXAppTos4Startup {
 		final Framework systemBundle = GDXAppTos4BootFactory.createFramework();
 		final GDXAppTos4BootScreen bootScreen = new GDXAppTos4BootScreen();
 		
-		systemActivator.addBootListener(bootScreen);
+		systemActivator.setBootListener(bootScreen);
 		tos4.registrateScreen(bootScreen);
 		tos4.selectScreen(GDXAppTos4BootScreen.class);
 		
@@ -33,7 +33,7 @@ public class GDXAppTos4Startup {
 				if (!systemActivator.hasStartError()) {
 					Gdx.app.postRunnable(() -> {
 						LOG.debug("Release boot-screen");
-						systemActivator.removeBootListener(bootScreen);
+						systemActivator.setBootListener(null);
 						tos4.disposeScreen(bootScreen);
 					});
 				}

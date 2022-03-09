@@ -58,7 +58,7 @@ public class GDXAppTos4Activator implements BundleActivator {
 	private Properties localOverrides;
 	private WaterDevice warpshipDevice;
 	private SystemGdxTerminal systemGdxTerminal;
-	private List<GDXAppTos4BootListener> listeners = new ArrayList<>();
+	private GDXAppTos4BootListener bootScreen;
 	
 	private static final String SYSTEM_USER_HOME = "user.home";
 	private static final String HYPERDRIVE_HOME = "Hyperdrive";
@@ -76,18 +76,8 @@ public class GDXAppTos4Activator implements BundleActivator {
 		this.systemGdxTerminal = systemGdxTerminal;
 	}
 	
-	private void fireMessageEvent(String message) {
-		for (GDXAppTos4BootListener listener:listeners) {
-			listener.bootLine(message);
-		}
-	}
-	
-	public void addBootListener(GDXAppTos4BootListener listener) {
-		listeners.add(listener);
-	}
-	
-	public void removeBootListener(GDXAppTos4BootListener listener) {
-		listeners.remove(listener);
+	public void setBootListener(GDXAppTos4BootListener bootScreen) {
+		this.bootScreen = bootScreen;
 	}
 	
 	public boolean hasStartError() {
@@ -101,17 +91,17 @@ public class GDXAppTos4Activator implements BundleActivator {
 	
 	@Override
 	public void start(final BundleContext context) {
-		fireMessageEvent("Mecca System eXtension superscript Four");
-		fireMessageEvent("tos4: starting...");
-		fireMessageEvent("init-cpus: "+Runtime.getRuntime().availableProcessors());
-		fireMessageEvent("free-memory: 0x"+Long.toHexString(Runtime.getRuntime().freeMemory()));
+		bootScreen.bootLine("Mecca System eXtension superscript Four");
+		bootScreen.bootLine("tos4: starting...");
+		bootScreen.bootLine("init-cpus: "+Runtime.getRuntime().availableProcessors());
+		bootScreen.bootLine("free-memory: 0x"+Long.toHexString(Runtime.getRuntime().freeMemory()));
 		
 		boolean useLocal = args.contains("use-local");
 		
 		File userHome = new File(System.getProperty(SYSTEM_USER_HOME));
 		hyperdriveHome = new File(userHome, HYPERDRIVE_HOME);
 		if (!hyperdriveHome.exists()) {
-			fireMessageEvent("ERROR: No Hyperdrive home.");
+			bootScreen.bootLineError("ERROR: No Hyperdrive home.");
 			startError = true;
 			return;
 		}
@@ -120,7 +110,7 @@ public class GDXAppTos4Activator implements BundleActivator {
 			warpshipHome = new File(".");
 		}
 		if (!warpshipHome.exists()) {
-			fireMessageEvent("ERROR: No Warpship home.");
+			bootScreen.bootLineError("ERROR: No Warpship home.");
 			startError = true;
 			return;
 		}
@@ -128,9 +118,9 @@ public class GDXAppTos4Activator implements BundleActivator {
 		if (useLocal) {
 			warpShip = new File(warpshipHome, "local-ship.xml");
 		}
-		fireMessageEvent("warp-ship: "+warpShip);
+		bootScreen.bootLine("warp-ship: "+warpShip);
 		if (!warpShip.exists()) {
-			fireMessageEvent("ERROR: No warp-ship.xml found.");
+			bootScreen.bootLineError("ERROR: No warp-ship.xml found.");
 			startError = true;
 			return;
 		}
@@ -138,11 +128,11 @@ public class GDXAppTos4Activator implements BundleActivator {
 			warpshipDevice = WaterDeviceDriver.newInstance().createReader().readFile(warpShip);
 		} catch (Exception e) {
 			e.printStackTrace();
-			fireMessageEvent("ERROR: "+e.getMessage());
+			bootScreen.bootLineError("ERROR: "+e.getMessage());
 			startError = true;
 			return;
 		}
-		fireMessageEvent("warp-engine: "+warpshipDevice.theShip().getName());
+		bootScreen.bootLine("warp-engine: "+warpshipDevice.theShip().getName());
 		
 		localOverrides = new Properties();
 		if (useLocal) {
@@ -153,9 +143,9 @@ public class GDXAppTos4Activator implements BundleActivator {
 				} catch (Exception e) {
 					throw new RuntimeException(e);
 				}
-				fireMessageEvent("use-local: local-override.xml loaded.");
+				bootScreen.bootLine("use-local: local-override.xml loaded.");
 			} else {
-				fireMessageEvent("use-local: local-override.xml not found.");
+				bootScreen.bootLine("use-local: local-override.xml not found.");
 			}
 		}
 		
@@ -175,7 +165,7 @@ public class GDXAppTos4Activator implements BundleActivator {
 			} catch (InterruptedException ignored) {
 			}
 		}
-		fireMessageEvent("gdx-font: "+parameter.characters.length()+" glyphs loaded.");
+		bootScreen.bootLine("gdx-font: "+parameter.characters.length()+" glyphs loaded.");
 		
 		
 		SystemWarpShipImpl systemWarpShip = new SystemWarpShipImpl();
@@ -195,25 +185,25 @@ public class GDXAppTos4Activator implements BundleActivator {
 		List<SystemWarpSea> registratedSeas = new ArrayList<>();
 		int result = 0;
 		try {
-			result = systemWarpShip.loadWaterOcean(context, registratedSeas, warpshipDevice.theShip().getEngine(), v -> fireMessageEvent(v));
+			result = systemWarpShip.loadWaterOcean(context, registratedSeas, warpshipDevice.theShip().getEngine(), v -> bootScreen.bootLine(v));
 		} catch (Exception e) {
 			e.printStackTrace();
-			fireMessageEvent("ERROR: "+e.getMessage());
+			bootScreen.bootLineError("ERROR: "+e.getMessage());
 			startError = true;
 			return;
 		}
 		if (result > 0) {
-			fireMessageEvent("tos4: FAILURE BOOT ABORTED");
+			bootScreen.bootLineError("tos4: FAILURE BOOT ABORTED");
 			startError = true;
 			return;
 		}
 		
-		fireMessageEvent("tos4: chains resolved.");
+		bootScreen.bootLine("tos4: chains resolved.");
 		try {
 			systemWarpShip.loadBundles(context, registratedSeas);
 		} catch (BundleException e) {
 			e.printStackTrace();
-			fireMessageEvent("ERROR: "+e.getMessage());
+			bootScreen.bootLineError("ERROR: "+e.getMessage());
 			startError = true;
 			return;
 		}
