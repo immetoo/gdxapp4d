@@ -16,7 +16,6 @@ import com.badlogic.gdx.utils.ScreenUtils;
 import imgui.ImGui;
 import imgui.flag.ImGuiCond;
 import imgui.flag.ImGuiWindowFlags;
-import imgui.type.ImBoolean;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxBootArgs;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxTerminal;
 import love.distributedrebirth.gdxapp4d.vrgem4.ImGuiSetup;
@@ -35,7 +34,6 @@ public abstract class AbstractScreenDesktop extends ScreenAdapter implements Des
 	protected SpriteBatch batch;
 	protected BitmapFont font;
 	protected OrthographicCamera camera;
-	protected ImBoolean showImGuiDemo = new ImBoolean(false);
 	private final DeskTopScreenMenu screenMenu;
 	private final DeskAppController deskAppScreen;
 	private PerspectiveCamera cam;
@@ -128,9 +126,6 @@ public abstract class AbstractScreenDesktop extends ScreenAdapter implements Des
 		
 		DeskTopScreen appScreen = this;
 		screenMenu.renderMenu(appScreen);
-		if (showImGuiDemo.get()) {
-			ImGui.showDemoWindow(showImGuiDemo);
-		}
 		if (appScreen != null && appScreen.getDeskAppController().getCurrentDeskApp() != null) {
 			int sizeFlags = ImGuiCond.Always;
 			ImGui.setNextWindowPos(0, 28, sizeFlags);

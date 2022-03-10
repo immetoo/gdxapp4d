@@ -277,9 +277,6 @@ public class DeskTopScreenMenu {
 				terminal.selectScreen(ScreenHelp.class);
 			}
 			ImGui.separator();
-			if (ImGui.menuItem(FontAwesomeIcons.Trademark + " ImGui Demo")) {
-//				GDXAppVrGem4.INSTANCE.showImGuiDemo.set(true);
-			}
 			if (ImGui.menuItem(FontAwesomeIcons.PowerOff + " Shutdown")) {
 				bootArgs.shutdown();
 			}

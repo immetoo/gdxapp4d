@@ -12,6 +12,7 @@ import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppLauncher;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppMenuSection;
 import love.distributedrebirth.gdxapp4d.vrsys5.apps.BaseUnicodePlaneDeskApp;
 import love.distributedrebirth.gdxapp4d.vrsys5.apps.BasicConsoleDeskApp;
+import love.distributedrebirth.gdxapp4d.vrsys5.apps.ImGuiDeskApp;
 
 @Component
 public class VrSys5Component {
@@ -27,10 +28,12 @@ public class VrSys5Component {
 	
 	private final DeskAppLauncher basicLauncher;
 	private final DeskAppLauncher unicodeLauncher;
+	private final DeskAppLauncher imguiLauncher;
 	
 	public VrSys5Component() {
 		basicLauncher = new DeskAppLauncher("Basic Console", () -> new BasicConsoleDeskApp());
 		unicodeLauncher = new DeskAppLauncher("Base Unicode Plane", () -> new BaseUnicodePlaneDeskApp(localeService));
+		imguiLauncher = new DeskAppLauncher("ImGui Demo", () -> new ImGuiDeskApp());
 	}
 	
 	@Activate
@@ -38,12 +41,14 @@ public class VrSys5Component {
 		log.debug(this, SystemGdxLog.ACTIVATE);
 		deskAppService.installDeskApp(DeskAppMenuSection.SYSTEM, basicLauncher);
 		deskAppService.installDeskApp(DeskAppMenuSection.SYSTEM, unicodeLauncher);
+		deskAppService.installDeskApp(DeskAppMenuSection.PROGRAMMING, imguiLauncher);
 	}
 	
 	@Deactivate
 	void close() {
 		log.debug(this, SystemGdxLog.DEACTIVATE);
-		deskAppService.installDeskApp(DeskAppMenuSection.SYSTEM, basicLauncher);
-		deskAppService.installDeskApp(DeskAppMenuSection.SYSTEM, unicodeLauncher);
+		deskAppService.removeDeskApp(DeskAppMenuSection.SYSTEM, basicLauncher);
+		deskAppService.removeDeskApp(DeskAppMenuSection.SYSTEM, unicodeLauncher);
+		deskAppService.removeDeskApp(DeskAppMenuSection.PROGRAMMING, imguiLauncher);
 	}
 }

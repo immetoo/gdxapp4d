@@ -34,6 +34,6 @@ public class CalculatorComponent {
 	@Deactivate
 	void close() {
 		log.debug(this, SystemGdxLog.DEACTIVATE);
-		deskAppService.installDeskApp(DeskAppMenuSection.PROGRAMMING, launcher);
+		deskAppService.removeDeskApp(DeskAppMenuSection.PROGRAMMING, launcher);
 	}
 }

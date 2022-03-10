@@ -34,6 +34,6 @@ public class HeWalletComponent {
 	@Deactivate
 	void close() {
 		log.debug(this, SystemGdxLog.DEACTIVATE);
-		deskAppService.installDeskApp(DeskAppMenuSection.INTERNET, launcher);
+		deskAppService.removeDeskApp(DeskAppMenuSection.INTERNET, launcher);
 	}
 }

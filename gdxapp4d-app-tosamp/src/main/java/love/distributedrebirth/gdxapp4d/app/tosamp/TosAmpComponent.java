@@ -38,6 +38,6 @@ public class TosAmpComponent {
 	@Deactivate
 	void close() {
 		log.debug(this, SystemGdxLog.DEACTIVATE);
-		deskAppService.installDeskApp(DeskAppMenuSection.MULTIMEDIA, launcher);
+		deskAppService.removeDeskApp(DeskAppMenuSection.MULTIMEDIA, launcher);
 	}
 }
