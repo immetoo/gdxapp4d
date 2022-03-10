@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root:ocean xmlns:root="http://wrap-sea.x4o.distributedrebirth.love/xml/ns/warp-sea-root"
+ xmlns:link="http://warp-sea.x4o.distributedrebirth.love/xml/ns/warp-sea-link"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://wrap-sea.x4o.distributedrebirth.love/xml/ns/warp-sea-root http://warp-sea.x4o.distributedrebirth.love/xml/ns/warp-sea-root-1.0.xsd">
+	<link:sea name="System Unicode4D" provider="gdxapp4d.system" author="willemtsade">
+		<link:magic file="plane0/code-2000.ttf" mime="application/x-font-ttf-plane0"/>
+		<link:magic file="plane0/free-sans.ttf" mime="application/x-font-ttf-plane0"/>
+		<link:magic file="plane0/new-gardiner-bmp.ttf" mime="application/x-font-ttf-plane0"/>
+		<link:magic file="plane0/fa-solid-900.ttf" mime="application/x-font-ttf-plane0"/>
+		<link:magic file="plane0/noto-sans-samaritan.ttf" mime="application/x-font-ttf-plane0"/>
+		<link:magic file="plane0/noto-sans-sinhala.ttf" mime="application/x-font-ttf-plane0"/>
+		<link:magic file="plane0/noto-serif-tibetan.ttf" mime="application/x-font-ttf-plane0"/>
+		<link:magic file="plane0/noto-sans-tagalog.ttf" mime="application/x-font-ttf-plane0"/>
+		<link:magic file="plane0/noto-sans-tagbanwa.ttf" mime="application/x-font-ttf-plane0"/>
+		<link:magic file="plane0/noto-sans-tai-le.ttf" mime="application/x-font-ttf-plane0"/>
+		<link:magic file="plane0/noto-sans-tai-tham.ttf" mime="application/x-font-ttf-plane0"/>
+		<link:magic file="plane0/noto-sans-batak.ttf" mime="application/x-font-ttf-plane0"/>
+		<link:magic file="plane0/noto-sans-lepcha.ttf" mime="application/x-font-ttf-plane0"/>
+		<link:magic file="plane0/noto-sans-balinese.ttf" mime="application/x-font-ttf-plane0"/>
+		<link:magic file="plane0/noto-sans-sundanese.ttf" mime="application/x-font-ttf-plane0"/>
+		<link:magic file="plane0/noto-sans-lisu.ttf" mime="application/x-font-ttf-plane0"/>
+		<link:magic file="plane0/noto-sans-bamum.ttf" mime="application/x-font-ttf-plane0"/>
+		<link:magic file="plane0/noto-sans-glagolitic.ttf" mime="application/x-font-ttf-plane0"/>
+		<link:magic file="plane1/code-2001.ttf" mime="application/x-font-ttf-plane1"/>
+		<link:magic file="plane1/new-gardiner-smp.ttf" mime="application/x-font-ttf-plane1"/>
+		<link:magic file="plane1/noto-sans-brahmi.ttf" mime="application/x-font-ttf-plane1"/>
+		<link:magic file="plane2/code-2002.ttf" mime="application/x-font-ttf-plane2"/>
+	</link:sea>
+</root:ocean>

@@ -1,5 +1,6 @@
 package love.distributedrebirth.gdxapp4d.vrgem4;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
@@ -38,8 +39,16 @@ public class GDXAppVrGem4Activator implements BundleActivator {
 	
 	private static final int VIEW_SLEEP_TIME = 1234;
 	
+	private ImGuiSetup imguiSetup = new ImGuiSetup();
+	
 	@Override
 	public void stop(final BundleContext context) {
+		Gdx.app.postRunnable(new Runnable() {
+			@Override
+			public void run() {
+				imguiSetup.dispose();
+			}
+		});
 	}
 	
 	@Override
@@ -57,6 +66,9 @@ public class GDXAppVrGem4Activator implements BundleActivator {
 		
 		ServiceReference<SystemGdxFont> gdxFontRef = context.getServiceReference(SystemGdxFont.class);
 		SystemGdxFont gdxFont = context.getService(gdxFontRef);
+		
+		ServiceReference<SystemWarpShip> systemWarpShipRef = context.getServiceReference(SystemWarpShip.class);
+		SystemWarpShip systemWarpShip = context.getService(systemWarpShipRef);
 		
 		logger.info(this, "Booting");
 		GDXAppVrGem4BootScreen bootScreen = new GDXAppVrGem4BootScreen(gdxFont.getFont());
@@ -86,16 +98,13 @@ public class GDXAppVrGem4Activator implements BundleActivator {
 		}
 		bootScreen.bootLine("BãßBȍőnCoffinʸᴰ init done.");
 		
+		List<File> fonts = systemWarpShip.searchMagic(context, "application/x-font-ttf-plane0");
 		bootScreen.bootLine("ImGui Setup");
-		try {
-			Thread.sleep(100);
-		} catch (InterruptedException ignored) {
-		}
 		ImBoolean imLoaded = new ImBoolean(false);
 		Gdx.app.postRunnable(new Runnable() {
 			@Override
 			public void run() {
-				ImGuiSetup.init();
+				imguiSetup.init(fonts, v -> logger.info(imguiSetup, v));
 				imLoaded.set(true);
 			}
 		});
@@ -172,8 +181,7 @@ public class GDXAppVrGem4Activator implements BundleActivator {
 		}
 		
 		
-		ServiceReference<SystemWarpShip> systemWarpShipRef = context.getServiceReference(SystemWarpShip.class);
-		SystemWarpShip systemWarpShip = context.getService(systemWarpShipRef);
+
 		
 		List<SystemWarpSea> registratedSeas = new ArrayList<>();
 		int result = 0;

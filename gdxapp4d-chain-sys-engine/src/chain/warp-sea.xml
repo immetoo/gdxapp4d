@@ -4,6 +4,8 @@
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://wrap-sea.x4o.distributedrebirth.love/xml/ns/warp-sea-root http://warp-sea.x4o.distributedrebirth.love/xml/ns/warp-sea-root-1.0.xsd">
 	<link:sea name="System Engine" provider="gdxapp4d.system" author="willemtsade">
+		<!-- Link sys-unicode -->
+		<link:chain key="9944bb29da5b6b2cb464f781469ceede6ccfd848d158293a4cdffbc2c41b62ed"/>
 		<!-- Link dep-osgi-scr -->
 		<link:chain key="8833aa29da5b6b2cb464f781469ceede6ccfd848d158293a4cdffbc2c41b58de"/>
 		<!-- Link vrgem4 -->

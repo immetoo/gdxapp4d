@@ -1,5 +1,9 @@
 package love.distributedrebirth.gdxapp4d.vrgem4;
 
+import java.io.File;
+import java.util.List;
+import java.util.function.Consumer;
+
 import com.badlogic.gdx.Gdx;
 
 import imgui.ImFontConfig;
@@ -16,10 +20,10 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
  */
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class ImGuiSetup {
-	public static final ImGuiImplGlfw imGuiImp = new ImGuiImplGlfw();
-	public static final ImGuiImplGl3 imGuiGlImp = new ImGuiImplGl3();
+	public final static ImGuiImplGlfw imGuiImp = new ImGuiImplGlfw();
+	public final static ImGuiImplGl3 imGuiGlImp = new ImGuiImplGl3();
 	
-	public static void init() {
+	public void init(List<File> fonts, Consumer<String> logger) {
 		long windowHandle = -1;
 		try {
 			Object window = Gdx.graphics.getClass().getMethod("getWindow").invoke(Gdx.graphics);
@@ -28,7 +32,7 @@ public class ImGuiSetup {
 			throw new RuntimeException(e);
 		}
 		ImGui.createContext();
-		initFonts(ImGui.getIO());
+		initFonts(ImGui.getIO(), fonts, logger);
 		imGuiImp.init(windowHandle, true);
 		imGuiGlImp.init("#version 140");
 		ImGui.getIO().setIniFilename(null);
@@ -36,7 +40,7 @@ public class ImGuiSetup {
 		initStyle();
 	}
 	
-	private static void initStyle() {
+	private void initStyle() {
 		ImGui.styleColorsDark();
 		ImGuiStyle style = ImGui.getStyle();
 		style.setWindowRounding(0f);
@@ -45,43 +49,25 @@ public class ImGuiSetup {
 		style.setScrollbarSize(22f);
 	}
 	
-	private static void initFonts(final ImGuiIO io) {
+	private void initFonts(final ImGuiIO io, List<File> fonts, Consumer<String> logger) {
 		ImFontConfig fontConfig = new ImFontConfig();
 		ImFontGlyphRangesBuilder fontBuilder = new ImFontGlyphRangesBuilder();
 		addRangeUnicodePlane0(fontBuilder);
 		final short[] glyphRanges = fontBuilder.buildRanges();
 		
-		// Base font has almost everything
-		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/code-2000.ttf").readBytes(), 22, fontConfig, glyphRanges);
-		fontConfig.setMergeMode(true);
-		// note: merges ~148 chars, just for 3 sub chars for SUBHEX, but still missing 2 chars from T12 alt1 clock
-		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/free-sans.ttf").readBytes(), 22, fontConfig, glyphRanges);
-		// Egyptian hieroglyphs
-		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/new-gardiner-bmp.ttf").readBytes(), 22, fontConfig, glyphRanges);
-		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/fa-solid-900.ttf").readBytes(), 22, fontConfig, glyphRanges);
-		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/noto-sans-samaritan.ttf").readBytes(), 22, fontConfig, glyphRanges);
-		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/noto-sans-sinhala.ttf").readBytes(), 22, fontConfig, glyphRanges);
-		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/noto-serif-tibetan.ttf").readBytes(), 22, fontConfig, glyphRanges);
-		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/noto-sans-tagalog.ttf").readBytes(), 22, fontConfig, glyphRanges);
-		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/noto-sans-tagbanwa.ttf").readBytes(), 22, fontConfig, glyphRanges);
-		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/noto-sans-tai-le.ttf").readBytes(), 22, fontConfig, glyphRanges);
-		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/noto-sans-tai-tham.ttf").readBytes(), 22, fontConfig, glyphRanges);
-		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/noto-sans-batak.ttf").readBytes(), 22, fontConfig, glyphRanges);
-		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/noto-sans-lepcha.ttf").readBytes(), 22, fontConfig, glyphRanges);
-		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/noto-sans-balinese.ttf").readBytes(), 22, fontConfig, glyphRanges);
-		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/noto-sans-sundanese.ttf").readBytes(), 22, fontConfig, glyphRanges);
-		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/noto-sans-lisu.ttf").readBytes(), 22, fontConfig, glyphRanges);
-		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/noto-sans-bamum.ttf").readBytes(), 22, fontConfig, glyphRanges);
-		io.getFonts().addFontFromMemoryTTF(Gdx.files.internal("font/noto-sans-glagolitic.ttf").readBytes(), 22, fontConfig, glyphRanges);
-		
-		// Missig plane 1++
-		// - code-2001
-		// - code-2002
-		// - noto-sans-brahmi
+		boolean first = true;
+		for (File font: fonts) {
+			logger.accept("Load font: "+font);
+			io.getFonts().addFontFromMemoryTTF(Gdx.files.absolute(font.getAbsolutePath()).readBytes(), 22, fontConfig, glyphRanges);
+			if (first) {
+				fontConfig.setMergeMode(true);
+				first = false;
+			}
+		}
 		fontConfig.destroy();
 	}
 	
-	private static void addRangeUnicodePlane0(ImFontGlyphRangesBuilder fontBuilder) {
+	private void addRangeUnicodePlane0(ImFontGlyphRangesBuilder fontBuilder) {
 		for (int c=0x0001;c<=0xFFEF;c++) {
 			StringBuilder buf = new StringBuilder();
 			buf.append(""+(char)c);
@@ -89,7 +75,7 @@ public class ImGuiSetup {
 		}
 	}
 	
-	public static void dispose() {
+	public void dispose() {
 		imGuiImp.dispose();
 		imGuiGlImp.dispose();
 		ImGui.destroyContext();

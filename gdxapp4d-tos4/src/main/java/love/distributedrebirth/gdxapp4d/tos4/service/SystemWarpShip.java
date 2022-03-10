@@ -1,5 +1,6 @@
 package love.distributedrebirth.gdxapp4d.tos4.service;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.function.Consumer;
@@ -20,4 +21,6 @@ public interface SystemWarpShip {
 	int loadWaterOcean(BundleContext context, List<SystemWarpSea> registratedSeas, String key, Consumer<String> logger) throws IOException, InterruptedException, X4OConnectionException, SAXException, BundleException;
 	
 	void loadBundles(BundleContext context, List<SystemWarpSea> registratedSeas) throws BundleException;
+	
+	List<File> searchMagic(BundleContext context, String mimeType);
 }

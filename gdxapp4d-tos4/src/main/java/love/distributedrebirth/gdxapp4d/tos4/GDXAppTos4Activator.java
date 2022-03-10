@@ -6,6 +6,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Properties;
@@ -14,6 +15,8 @@ import java.util.function.Consumer;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.BundleException;
+import org.osgi.framework.InvalidSyntaxException;
+import org.osgi.framework.ServiceReference;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.x4o.xml.io.X4OConnectionException;
@@ -149,25 +152,6 @@ public class GDXAppTos4Activator implements BundleActivator {
 			}
 		}
 		
-		FreeTypeFontParameter parameter = new FreeTypeFontParameter();
-		parameter.characters = FreeTypeFontGenerator.DEFAULT_CHARS + getRangeUnicodeUsed();
-		parameter.size = 14;
-		Gdx.app.postRunnable(new Runnable() {
-			@Override
-			public void run() {
-				FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("font/code-2000.ttf"));
-				gdxFont = generator.generateFont(parameter);
-			}
-		});
-		while (gdxFont == null) { 
-			try {
-				Thread.sleep(100);
-			} catch (InterruptedException ignored) {
-			}
-		}
-		bootScreen.bootLine("gdx-font: "+parameter.characters.length()+" glyphs loaded.");
-		
-		
 		SystemWarpShipImpl systemWarpShip = new SystemWarpShipImpl();
 		
 		context.registerService(SystemWarpBase.class.getName(), new SystemWarpBaseImpl(), new Hashtable<String, String>());
@@ -176,11 +160,6 @@ public class GDXAppTos4Activator implements BundleActivator {
 		SystemGdxLogImpl systemGdxLog = new SystemGdxLogImpl();
 		Gdx.app.setLogLevel(Application.LOG_DEBUG);
 		Gdx.app.setApplicationLogger(systemGdxLog);
-		
-		context.registerService(SystemGdxFont.class.getName(), new SystemGdxFontImpl(gdxFont), new Hashtable<String, String>());
-		context.registerService(SystemGdxLog.class.getName(), systemGdxLog, new Hashtable<String, String>());
-		context.registerService(SystemGdxBootArgs.class.getName(), new SystemGdxBootArgsImpl(), new Hashtable<String, String>());
-		context.registerService(SystemGdxTerminal.class.getName(), systemGdxTerminal, new Hashtable<String, String>());
 		
 		List<SystemWarpSea> registratedSeas = new ArrayList<>();
 		int result = 0;
@@ -197,8 +176,34 @@ public class GDXAppTos4Activator implements BundleActivator {
 			startError = true;
 			return;
 		}
-		
 		bootScreen.bootLine("tos4: chains resolved.");
+		
+		List<File> fonts = systemWarpShip.searchMagic(context, "application/x-font-ttf-plane0");
+		File systemFont = fonts.get(0);
+		FreeTypeFontParameter parameter = new FreeTypeFontParameter();
+		parameter.characters = FreeTypeFontGenerator.DEFAULT_CHARS + getRangeUnicodeUsed();
+		parameter.size = 14;
+		Gdx.app.postRunnable(new Runnable() {
+			@Override
+			public void run() {
+				FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.absolute(systemFont.getAbsolutePath()));
+				gdxFont = generator.generateFont(parameter);
+			}
+		});
+		while (gdxFont == null) { 
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException ignored) {
+			}
+		}
+		bootScreen.bootLine("gdx-font: "+parameter.characters.length()+" glyphs loaded.");
+		
+		
+		context.registerService(SystemGdxFont.class.getName(), new SystemGdxFontImpl(gdxFont), new Hashtable<String, String>());
+		context.registerService(SystemGdxLog.class.getName(), systemGdxLog, new Hashtable<String, String>());
+		context.registerService(SystemGdxBootArgs.class.getName(), new SystemGdxBootArgsImpl(), new Hashtable<String, String>());
+		context.registerService(SystemGdxTerminal.class.getName(), systemGdxTerminal, new Hashtable<String, String>());
+		
 		try {
 			systemWarpShip.loadBundles(context, registratedSeas);
 		} catch (BundleException e) {
@@ -393,6 +398,28 @@ public class GDXAppTos4Activator implements BundleActivator {
 					}
 				}
 			}
+		}
+		
+		@Override
+		public List<File> searchMagic(BundleContext context, String mimeType) {
+			Collection<ServiceReference<SystemWarpSea>> oceansRefs = null;
+			try {
+				oceansRefs = context.getServiceReferences(SystemWarpSea.class, "(warp.sea.name=*)");
+			} catch (InvalidSyntaxException e) {
+				throw new RuntimeException(e);
+			}
+			List<File> result = new ArrayList<>();
+			for (ServiceReference<SystemWarpSea> serviceRef : oceansRefs) {
+				SystemWarpSea service = context.getService(serviceRef);
+				File waterHome = service.getWarpHome();
+				for (WaterSeaMagic magic:service.getWarpSea().theWater().getSeaMagics()) {
+					if (mimeType.equals(magic.getMime())) {
+						File file = new File(waterHome, magic.getFile());
+						result.add(file);
+					}
+				}
+			}
+			return result;
 		}
 	}
 	
