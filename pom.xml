@@ -16,7 +16,7 @@
 		<module>gdxapp4d-chain-music-msx</module>
 		<module>gdxapp4d-chain-music-templeos</module>
 		<module>gdxapp4d-chain-sys-engine</module>
-		<module>gdxapp4d-chain-sys-ocean</module>
+		<module>gdxapp4d-chain-sys-engine-fuel</module>
 		<module>gdxapp4d-lib-basicwd</module>
 		<module>gdxapp4d-lib-imxmi</module>
 		<module>gdxapp4d-lib-numberxd</module>
