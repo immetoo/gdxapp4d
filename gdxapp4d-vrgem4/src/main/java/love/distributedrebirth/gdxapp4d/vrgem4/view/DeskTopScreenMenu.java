@@ -43,10 +43,10 @@ public class DeskTopScreenMenu {
 		this.terminal = terminal;
 		this.deskAppService = deskAppService;
 		apps = new ArrayList<>();
-		apps.add(new DeskAppLauncher("Sys Glyph Set", () -> new SystemBaseGlyphApp()));
-		apps.add(new DeskAppLauncher("Sys Number Parts", () -> new SystemBasePartApp()));
+		apps.add(new DeskAppLauncher(DeskAppMenuSection.PROGRAMMING, "Sys Glyph Set", () -> new SystemBaseGlyphApp()));
+		apps.add(new DeskAppLauncher(DeskAppMenuSection.PROGRAMMING, "Sys Number Parts", () -> new SystemBasePartApp()));
 		
-		apps.add(new DeskAppLauncher("Unicode4D", () -> new Unicode4DApp()));
+		apps.add(new DeskAppLauncher(DeskAppMenuSection.PROGRAMMING, "Unicode4D", () -> new Unicode4DApp()));
 	}
 
 	public void renderMenu(DeskTopScreen appScreen) {

@@ -31,24 +31,24 @@ public class VrSys5Component {
 	private final DeskAppLauncher imguiLauncher;
 	
 	public VrSys5Component() {
-		basicLauncher = new DeskAppLauncher("Basic Console", () -> new BasicConsoleDeskApp());
-		unicodeLauncher = new DeskAppLauncher("Base Unicode Plane", () -> new BaseUnicodePlaneDeskApp(localeService));
-		imguiLauncher = new DeskAppLauncher("ImGui Demo", () -> new ImGuiDeskApp());
+		basicLauncher = new DeskAppLauncher(DeskAppMenuSection.SYSTEM, "Basic Console", () -> new BasicConsoleDeskApp());
+		unicodeLauncher = new DeskAppLauncher(DeskAppMenuSection.SYSTEM, "Base Unicode Plane", () -> new BaseUnicodePlaneDeskApp(localeService));
+		imguiLauncher = new DeskAppLauncher(DeskAppMenuSection.PROGRAMMING, "ImGui Demo", () -> new ImGuiDeskApp());
 	}
 	
 	@Activate
 	void open() {
 		log.debug(this, SystemGdxLog.ACTIVATE);
-		deskAppService.installDeskApp(DeskAppMenuSection.SYSTEM, basicLauncher);
-		deskAppService.installDeskApp(DeskAppMenuSection.SYSTEM, unicodeLauncher);
-		deskAppService.installDeskApp(DeskAppMenuSection.PROGRAMMING, imguiLauncher);
+		deskAppService.installDeskApp(basicLauncher);
+		deskAppService.installDeskApp(unicodeLauncher);
+		deskAppService.installDeskApp(imguiLauncher);
 	}
 	
 	@Deactivate
 	void close() {
 		log.debug(this, SystemGdxLog.DEACTIVATE);
-		deskAppService.removeDeskApp(DeskAppMenuSection.SYSTEM, basicLauncher);
-		deskAppService.removeDeskApp(DeskAppMenuSection.SYSTEM, unicodeLauncher);
-		deskAppService.removeDeskApp(DeskAppMenuSection.PROGRAMMING, imguiLauncher);
+		deskAppService.removeDeskApp(basicLauncher);
+		deskAppService.removeDeskApp(unicodeLauncher);
+		deskAppService.removeDeskApp(imguiLauncher);
 	}
 }

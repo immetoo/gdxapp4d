@@ -26,18 +26,18 @@ public class TosAmpComponent {
 	private final DeskAppLauncher launcher;
 	
 	public TosAmpComponent() {
-		launcher = new DeskAppLauncher("TosAmp", () -> new TosAmpDeskApp(bootArgs.getFileChooser()));
+		launcher = new DeskAppLauncher(DeskAppMenuSection.MULTIMEDIA, "TosAmp", () -> new TosAmpDeskApp(bootArgs.getFileChooser()));
 	}
 	
 	@Activate
 	void open() {
 		log.debug(this, SystemGdxLog.ACTIVATE);
-		deskAppService.installDeskApp(DeskAppMenuSection.MULTIMEDIA, launcher);
+		deskAppService.installDeskApp(launcher);
 	}
 	
 	@Deactivate
 	void close() {
 		log.debug(this, SystemGdxLog.DEACTIVATE);
-		deskAppService.removeDeskApp(DeskAppMenuSection.MULTIMEDIA, launcher);
+		deskAppService.removeDeskApp(launcher);
 	}
 }

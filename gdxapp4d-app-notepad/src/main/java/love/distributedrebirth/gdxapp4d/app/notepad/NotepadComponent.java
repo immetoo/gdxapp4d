@@ -1,4 +1,4 @@
-package love.distributedrebirth.gdxapp4d.app.calculator;
+package love.distributedrebirth.gdxapp4d.app.notepad;
 
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
@@ -11,7 +11,7 @@ import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppLauncher;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppMenuSection;
 
 @Component
-public class CalculatorComponent {
+public class NotepadComponent {
 	
 	@Reference
 	private SystemGdxLog log;
@@ -21,8 +21,8 @@ public class CalculatorComponent {
 	
 	private final DeskAppLauncher launcher;
 	
-	public CalculatorComponent() {
-		launcher = new DeskAppLauncher(DeskAppMenuSection.PROGRAMMING, "Calculator", () -> new CalculatorDeskApp());
+	public NotepadComponent() {
+		launcher = new DeskAppLauncher(DeskAppMenuSection.EDITORS, "Notepad", () -> new NotepadDeskApp());
 	}
 	
 	@Activate

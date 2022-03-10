@@ -22,18 +22,18 @@ public class HeWalletComponent {
 	private final DeskAppLauncher launcher;
 	
 	public HeWalletComponent() {
-		launcher = new DeskAppLauncher("Hebrew Wallet", () -> new HeWalletDeskApp());
+		launcher = new DeskAppLauncher(DeskAppMenuSection.INTERNET, "Hebrew Wallet", () -> new HeWalletDeskApp());
 	}
 	
 	@Activate
 	void open() {
 		log.debug(this, SystemGdxLog.ACTIVATE);
-		deskAppService.installDeskApp(DeskAppMenuSection.INTERNET, launcher);
+		deskAppService.installDeskApp(launcher);
 	}
 	
 	@Deactivate
 	void close() {
 		log.debug(this, SystemGdxLog.DEACTIVATE);
-		deskAppService.removeDeskApp(DeskAppMenuSection.INTERNET, launcher);
+		deskAppService.removeDeskApp(launcher);
 	}
 }

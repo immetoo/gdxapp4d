@@ -10,5 +10,7 @@
 		<link:chain key="6633aa29da5b6b2cb4bef781469cffde677fd848d158293a4cdffbc2c41b89fe"/>
 		<!-- Link app-tosamp -->
 		<link:chain key="5522aa29da5b6b2cb4befaa14aacaade6aafd848d158293a4cdffbc2c41b23bd"/>
+		<!-- Link app-notepad -->
+		<link:chain key="4411aa29da5b6b2cb4befcc14aac55de6fffd848d158293a4cdffbc2c41b83fb"/>
 	</link:sea>
 </root:ocean>

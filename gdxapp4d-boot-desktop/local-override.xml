@@ -14,6 +14,9 @@
 	<entry key="5522aa29da5b6b2cb4befaa14aacaade6aafd848d158293a4cdffbc2c41b23bd">../gdxapp4d-app-tosamp/src/chain</entry>
 	<entry key="5522aa29da5b6b2cb4befaa14aacaade6aafd848d158293a4cdffbc2c41b23bd.gdxapp4d-app-tosamp.jar">../gdxapp4d-app-tosamp/target/classes</entry>
 	
+	<entry key="4411aa29da5b6b2cb4befcc14aac55de6fffd848d158293a4cdffbc2c41b83fb">../gdxapp4d-app-notepad/src/chain</entry>
+	<entry key="4411aa29da5b6b2cb4befcc14aac55de6fffd848d158293a4cdffbc2c41b83fb.gdxapp4d-app-notepad.jar">../gdxapp4d-app-notepad/target/classes</entry>
+	
 	<entry key="ccba3b29da8b1b1cb444f381449beede3cbfd442d158293a4cdffbc3c41a31cc">../gdxapp4d-vrgem4/src/chain</entry>
 	<entry key="ccba3b29da8b1b1cb444f381449beede3cbfd442d158293a4cdffbc3c41a31cc.gdxapp4d-vrgem4.jar">../gdxapp4d-vrgem4/target/classes</entry>
 	
