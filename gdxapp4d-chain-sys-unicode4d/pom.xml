@@ -7,4 +7,26 @@
 	</parent>
 	<artifactId>gdxapp4d-chain-sys-unicode4d</artifactId>
 	<packaging>pom</packaging>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<configuration>
+							<target>
+								<copy todir="target/chain">
+									<fileset dir="src/main/chain" />
+								</copy>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>

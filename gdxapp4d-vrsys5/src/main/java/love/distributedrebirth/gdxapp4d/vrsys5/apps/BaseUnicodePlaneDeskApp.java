@@ -40,12 +40,19 @@ public class BaseUnicodePlaneDeskApp extends AbstractDeskApp implements DeskAppR
 		ImGui.tableSetupColumn(getTxt("colText"));
 		ImGui.tableHeadersRow();
 		for (UnicodePlaneᶻᴰ plane:UnicodePlaneᶻᴰ.values()) {
+			if (plane.name().contains("SUPPLE")) {
+				continue;
+			}
+			if (plane.name().contains("EXTEN")) {
+				continue;
+			}
 			ImGui.tableNextRow();
 			ImGui.tableNextColumn();
 			ImGui.text(plane.name());
 			ImGui.tableNextColumn();
 			StringBuilder buf = new StringBuilder();
-			for (int i=plane.getStart();i<plane.getStart()+33;i++) {
+			int offset = 33;
+			for (int i=plane.getStart()+offset;i<plane.getStart()+33+offset;i++) {
 				if (i < 65536) {
 					buf.append((char)i);
 				}

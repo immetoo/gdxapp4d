@@ -31,16 +31,48 @@ public class TestConvFont {
 		tcf.run();
 	}
 	
+	// manually run;
+	// gdxapp4d-chain-sys-unicode4d/src/main/nodejs$ npm install
+	// gdxapp4d-chain-sys-unicode4d/src/main/nodejs$ ./conv-font.sh ../chain/plane0/ ../../../target/chain2/plane0/
+	// gdxapp4d-chain-sys-unicode4d/src/main/nodejs$ ./conv-font.sh ../chain/plane1/ ../../../target/chain2/plane1/
+	// gdxapp4d-chain-sys-unicode4d/src/main/nodejs$ ./conv-font.sh ../chain/plane2/ ../../../target/chain2/plane2/
+	
 	public void run() {
+		System.out.println("Starting conversion.");
 		try {
 			// NOTE: Are in order like the FontAtlas of ImGui
-			//conf("Code2000", new File("../conv-font/bin/code-2000.xml"), new File("../main-gdxapp/assets/font/code-2000.xml"));
-			//conf("Code2001", new File("../conv-font/bin/code-2001.xml"), new File("../main-gdxapp/assets/font/code-2001.xml"));
-			//conf("Code2002", new File("../conv-font/bin/code-2002.xml"), new File("../main-gdxapp/assets/font/code-2002.xml"));
-			//conf("Free Sans", new File("../conv-font/bin/free-sans.xml"), new File("../main-gdxapp/assets/font/free-sans.xml"));
-			conf("New Gardiner BMP", new File("../conv-font/bin/new-gardiner-bmp.xml"), new File("../main-gdxapp/assets/font/new-gardiner-bmp.xml"));
-			conf("Font Awesome", new File("../conv-font/bin/fa-solid-900.xml"), new File("../main-gdxapp/assets/font/fa-solid-900.xml"));
-			conf("Noto Sans Brahmi", new File("../conv-font/bin/noto-sans-brahmi.xml"), new File("../main-gdxapp/assets/font/noto-sans-brahmi.xml"));
+			String in = "../gdxapp4d-chain-sys-unicode4d/target/chain2/";
+			String out = "../gdxapp4d-chain-sys-unicode4d/target/chain/";
+			
+			conf("code-2000", new File(in+"plane0/code-2000.ttf.xml"), new File(out+"plane0/code-2000.ttf4d"));
+			conf("fa-solid-900", new File(in+"plane0/fa-solid-900.ttf.xml"), new File(out+"plane0/fa-solid-900.ttf4d"));
+			conf("free-sans", new File(in+"plane0/free-sans.ttf.xml"), new File(out+"plane0/free-sans.ttf4d"));
+			conf("new-gardiner-bmp", new File(in+"plane0/new-gardiner-bmp.ttf.xml"), new File(out+"plane0/new-gardiner-bmp.ttf4d"));
+			conf("noto-sans-balinese", new File(in+"plane0/noto-sans-balinese.ttf.xml"), new File(out+"plane0/noto-sans-balinese.ttf4d"));
+			conf("noto-sans-bamum", new File(in+"plane0/noto-sans-bamum.ttf.xml"), new File(out+"plane0/noto-sans-bamum.ttf4d"));
+			conf("noto-sans-batak", new File(in+"plane0/noto-sans-batak.ttf.xml"), new File(out+"plane0/noto-sans-batak.ttf4d"));
+			conf("noto-sans-glagolitic", new File(in+"plane0/noto-sans-glagolitic.ttf.xml"), new File(out+"plane0/noto-sans-glagolitic.ttf4d"));
+			conf("noto-sans-javanese", new File(in+"plane0/noto-sans-javanese.ttf.xml"), new File(out+"plane0/noto-sans-javanese.ttf4d"));
+			conf("noto-sans-lepcha", new File(in+"plane0/noto-sans-lepcha.ttf.xml"), new File(out+"plane0/noto-sans-lepcha.ttf4d"));
+			conf("noto-sans-lisu", new File(in+"plane0/noto-sans-lisu.ttf.xml"), new File(out+"plane0/noto-sans-lisu.ttf4d"));
+			conf("noto-sans-meetei-mayek", new File(in+"plane0/noto-sans-meetei-mayek.ttf.xml"), new File(out+"plane0/noto-sans-meetei-mayek.ttf4d"));
+			conf("noto-sans-new-tai-lue", new File(in+"plane0/noto-sans-new-tai-lue.ttf.xml"), new File(out+"plane0/noto-sans-new-tai-lue.ttf4d"));
+			conf("noto-sans-samaritan", new File(in+"plane0/noto-sans-samaritan.ttf.xml"), new File(out+"plane0/noto-sans-samaritan.ttf4d"));
+			conf("noto-sans-sinhala", new File(in+"plane0/noto-sans-sinhala.ttf.xml"), new File(out+"plane0/noto-sans-sinhala.ttf4d"));
+			conf("noto-sans-sundanese", new File(in+"plane0/noto-sans-sundanese.ttf.xml"), new File(out+"plane0/noto-sans-sundanese.ttf4d"));
+			conf("noto-sans-syloti-nagri", new File(in+"plane0/noto-sans-syloti-nagri.ttf.xml"), new File(out+"plane0/noto-sans-syloti-nagri.ttf4d"));
+			conf("noto-sans-tagalog", new File(in+"plane0/noto-sans-tagalog.ttf.xml"), new File(out+"plane0/noto-sans-tagalog.ttf4d"));
+			conf("noto-sans-tagbanwa", new File(in+"plane0/noto-sans-tagbanwa.ttf.xml"), new File(out+"plane0/noto-sans-tagbanwa.ttf4d"));
+			conf("noto-sans-tai-le", new File(in+"plane0/noto-sans-tai-le.ttf.xml"), new File(out+"plane0/noto-sans-tai-le.ttf4d"));
+			conf("noto-sans-tai-tham", new File(in+"plane0/noto-sans-tai-tham.ttf.xml"), new File(out+"plane0/noto-sans-tai-tham.ttf4d"));
+			conf("noto-sans-tai-viet", new File(in+"plane0/noto-sans-tai-viet.ttf.xml"), new File(out+"plane0/noto-sans-tai-viet.ttf4d"));
+			conf("noto-serif-tibetan", new File(in+"plane0/noto-serif-tibetan.ttf.xml"), new File(out+"plane0/noto-serif-tibetan.ttf4d"));
+			
+			conf("code-2001", new File(in+"plane1/code-2001.ttf.xml"), new File(out+"plane1/code-2001.ttf4d"));
+			conf("new-gardiner-smp", new File(in+"plane1/new-gardiner-smp.ttf.xml"), new File(out+"plane1/new-gardiner-smp.ttf4d"));
+			conf("noto-sans-brahmi", new File(in+"plane1/noto-sans-brahmi.ttf.xml"), new File(out+"plane1/noto-sans-brahmi.ttf4d"));
+			
+			conf("code-2002", new File(in+"plane2/code-2002.ttf.xml"), new File(out+"plane2/code-2002.ttf4d"));
 
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -49,8 +81,6 @@ public class TestConvFont {
 	}
 	
 	public void conf(String fontName, File input, File output) throws Exception {
-		System.out.println("START WITH: "+input);
-		
 		SAXParserFactory factory = SAXParserFactory.newInstance();
 		SAXParser parser = factory.newSAXParser();
 		XMLReader reader = parser.getXMLReader();
@@ -67,7 +97,7 @@ public class TestConvFont {
 		
 		FontAtlasDriver.newInstance().createWriter().writeFile(fontAtlas, output);
 		
-		System.out.println("END WITH: "+output+" wrote: "+fontContentHandler.getGlyphCounter());
+		System.out.println("Done: "+output+" wrote: "+fontContentHandler.getGlyphCounter());
 	}
 	
 	class FontContentHandler implements ContentHandler {

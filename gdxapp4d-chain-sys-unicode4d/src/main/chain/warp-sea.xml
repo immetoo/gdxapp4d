@@ -22,9 +22,42 @@
 		<link:magic file="plane0/noto-sans-lisu.ttf" mime="application/x-font-ttf-plane0"/>
 		<link:magic file="plane0/noto-sans-bamum.ttf" mime="application/x-font-ttf-plane0"/>
 		<link:magic file="plane0/noto-sans-glagolitic.ttf" mime="application/x-font-ttf-plane0"/>
+		<link:magic file="plane0/noto-sans-javanese.ttf" mime="application/x-font-ttf-plane0"/>
+		<link:magic file="plane0/noto-sans-new-tai-lue.ttf" mime="application/x-font-ttf-plane0"/>
+		<link:magic file="plane0/noto-sans-tai-viet.ttf" mime="application/x-font-ttf-plane0"/>
+		<link:magic file="plane0/noto-sans-syloti-nagri.ttf" mime="application/x-font-ttf-plane0"/>
+		<link:magic file="plane0/noto-sans-meetei-mayek.ttf" mime="application/x-font-ttf-plane0"/>
 		<link:magic file="plane1/code-2001.ttf" mime="application/x-font-ttf-plane1"/>
 		<link:magic file="plane1/new-gardiner-smp.ttf" mime="application/x-font-ttf-plane1"/>
 		<link:magic file="plane1/noto-sans-brahmi.ttf" mime="application/x-font-ttf-plane1"/>
 		<link:magic file="plane2/code-2002.ttf" mime="application/x-font-ttf-plane2"/>
+		
+		<link:magic file="plane0/code-2000.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane0/free-sans.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane0/new-gardiner-bmp.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane0/fa-solid-900.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane0/noto-sans-samaritan.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane0/noto-sans-sinhala.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane0/noto-serif-tibetan.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane0/noto-sans-tagalog.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane0/noto-sans-tagbanwa.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane0/noto-sans-tai-le.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane0/noto-sans-tai-tham.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane0/noto-sans-batak.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane0/noto-sans-lepcha.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane0/noto-sans-balinese.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane0/noto-sans-sundanese.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane0/noto-sans-lisu.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane0/noto-sans-bamum.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane0/noto-sans-glagolitic.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane0/noto-sans-javanese.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane0/noto-sans-new-tai-lue.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane0/noto-sans-tai-viet.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane0/noto-sans-syloti-nagri.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane0/noto-sans-meetei-mayek.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane1/code-2001.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane1/new-gardiner-smp.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane1/noto-sans-brahmi.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane2/code-2002.ttf4d" mime="application/x-font-ttf4d"/>
 	</link:sea>
 </root:ocean>
