@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<root:device xmlns:root="http://wrap-ship.x4o.distributedrebirth.love/xml/ns/warp-ship-root"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xmlns:boot="http://warp-ship.x4o.distributedrebirth.love/xml/ns/warp-ship-boot"
- xsi:schemaLocation="http://wrap-ship.x4o.distributedrebirth.love/xml/ns/warp-ship-root http://warp-ship.x4o.distributedrebirth.love/xml/ns/warp-ship-root-1.0.xsd">
-        <boot:ship name="tos4-mark1-local" engine="1c2d010066a39d96ace8af0ecc37c72d6f79109f30939e2959befcd9ce25fc8d">
-                <boot:ocean sea="f8be3b29da5b6b2cb464f781469ceede6ccfd848d158293a4cdffbc2c41a410b"/>
-        </boot:ship>
+<root:device
+	xmlns:root="http://wrap-ship.x4o.distributedrebirth.love/xml/ns/warp-ship-root"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:boot="http://warp-ship.x4o.distributedrebirth.love/xml/ns/warp-ship-boot"
+	xsi:schemaLocation="http://wrap-ship.x4o.distributedrebirth.love/xml/ns/warp-ship-root http://warp-ship.x4o.distributedrebirth.love/xml/ns/warp-ship-root-1.0.xsd">
+	<boot:ship name="tos4-mark1-local"
+		engine="1c2d010066a39d96ace8af0ecc37c72d6f79109f30939e2959befcd9ce25fc8d">
+		<boot:ocean
+			sea="f8be3b29da5b6b2cb464f781469ceede6ccfd848d158293a4cdffbc2c41a410b" />
+	</boot:ship>
 </root:device>
