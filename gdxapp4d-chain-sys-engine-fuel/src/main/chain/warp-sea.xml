@@ -12,5 +12,10 @@
 		<link:chain key="5522aa29da5b6b2cb4befaa14aacaade6aafd848d158293a4cdffbc2c41b23bd"/>
 		<!-- Link app-notepad -->
 		<link:chain key="4411aa29da5b6b2cb4befcc14aac55de6fffd848d158293a4cdffbc2c41b83fb"/>
+		
+		<!-- Link music-msx -->
+		<link:chain key="ffee3329da5b6b2cb4befcc14aac55de6777d848d158293a4cdffbc2c41b12ad"/>
+		<!-- Link music-templeos -->
+		<link:chain key="eecc3329da5b6b2cb4befcc14aac55de6777d848d158293a4cdffbc2c41b75cd"/>
 	</link:sea>
 </root:ocean>

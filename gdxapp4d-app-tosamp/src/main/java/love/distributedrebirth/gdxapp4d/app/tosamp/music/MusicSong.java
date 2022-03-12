@@ -1,6 +1,6 @@
 package love.distributedrebirth.gdxapp4d.app.tosamp.music;
 
-import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.files.FileHandle;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 
@@ -9,19 +9,19 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
  */
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class MusicSong {
-	protected final Music music;
+	private final FileHandle fileHandle;
 	private final String name;
 	
-	public MusicSong(Music music, String name) {
-		this.music = music;
+	public MusicSong(FileHandle fileHandle, String name) {
+		this.fileHandle = fileHandle;
 		this.name = name;
+	}
+	
+	public FileHandle getFileHandle() {
+		return fileHandle;
 	}
 	
 	public String getName() {
 		return name;
-	}
-	
-	public boolean isPlaying() {
-		return music.isPlaying();
 	}
 }

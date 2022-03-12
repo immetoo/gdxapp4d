@@ -2,6 +2,8 @@ package love.distributedrebirth.gdxapp4d.app.tosamp;
 
 import java.util.function.Consumer;
 
+import org.osgi.framework.BundleContext;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 
@@ -12,6 +14,7 @@ import imgui.flag.ImGuiTableFlags;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.gdxapp4d.app.tosamp.music.MusicManager;
 import love.distributedrebirth.gdxapp4d.app.tosamp.music.MusicSong;
+import love.distributedrebirth.gdxapp4d.tos4.service.SystemWarpShip;
 import love.distributedrebirth.gdxapp4d.vrgem4.FontAwesomeIcons;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.AbstractDeskApp;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppContourSection;
@@ -27,16 +30,16 @@ public class TosAmpDeskApp extends AbstractDeskApp implements DeskAppRenderer {
 	private final NativeFileChooser fileChooser;
 	private NativeFileChooserConfiguration fileChooserConfig;
 	
-	public TosAmpDeskApp(NativeFileChooser fileChooser) {
+	public TosAmpDeskApp(NativeFileChooser fileChooser, BundleContext context, SystemWarpShip warpShip) {
 		this.fileChooser = fileChooser;
 		this.music = new MusicManager();
+		this.music.init(context, warpShip);
 	}
 	
 	public void create() {
 		getContours().setTitle("\uf001 TosAmp");
 		getContours().registrateContour(DeskAppContourSection.MAIN, this);
 		getContours().registrateContour(DeskAppContourSection.FILE_NEW, new DeskAppRenderer() {
-
 			@Override
 			public void render() {
 				if (ImGui.menuItem(FontAwesomeIcons.Plus + " Add")) {
@@ -44,7 +47,6 @@ public class TosAmpDeskApp extends AbstractDeskApp implements DeskAppRenderer {
 							NativeFileChooserCallbackAdapter.onFileChosen(v -> music.addBackgroundMusic(v)));
 				}
 			}
-			
 		});
 		fileChooserConfig = new NativeFileChooserConfiguration();
 		fileChooserConfig.directory = Gdx.files.absolute(System.getProperty("user.home"));
@@ -87,17 +89,17 @@ public class TosAmpDeskApp extends AbstractDeskApp implements DeskAppRenderer {
 		ImGui.tableSetupColumn("Name");
 		ImGui.tableHeadersRow();
 		int i=1;
-		for (MusicSong song:music.getBackgroundSongs()) {
+		for (MusicSong song:music.getMusicSongs()) {
 			ImGui.pushID(i);
 			ImGui.tableNextRow();
 			ImGui.tableNextColumn();
-			ImGui.selectable(""+i, song.isPlaying(), ImGuiSelectableFlags.None);
+			ImGui.selectable(""+i, music.isPlaying(song), ImGuiSelectableFlags.None);
 			ImGui.tableNextColumn();
 			if (ImGui.smallButton(">")) {
 				music.play(song);
 			}
 			ImGui.tableNextColumn();
-			ImGui.selectable(song.getName(), song.isPlaying(), ImGuiSelectableFlags.None);
+			ImGui.selectable(song.getName(), music.isPlaying(song), ImGuiSelectableFlags.None);
 			ImGui.popID();
 			i++;
 		}
@@ -105,7 +107,7 @@ public class TosAmpDeskApp extends AbstractDeskApp implements DeskAppRenderer {
 	}
 	
 	static class NativeFileChooserCallbackAdapter implements NativeFileChooserCallback {
-
+		
 		@Override
 		public void onFileChosen(FileHandle file) {
 		}
