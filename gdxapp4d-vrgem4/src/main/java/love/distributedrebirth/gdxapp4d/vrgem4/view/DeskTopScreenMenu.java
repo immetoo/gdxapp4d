@@ -25,7 +25,6 @@ import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppMenuSectio
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppRenderer;
 import love.distributedrebirth.gdxapp4d.vrgem4.view.apps.SystemBaseGlyphApp;
 import love.distributedrebirth.gdxapp4d.vrgem4.view.apps.SystemBasePartApp;
-import love.distributedrebirth.gdxapp4d.vrgem4.view.apps.Unicode4DApp;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class DeskTopScreenMenu {
@@ -45,8 +44,6 @@ public class DeskTopScreenMenu {
 		apps = new ArrayList<>();
 		apps.add(new DeskAppLauncher(DeskAppMenuSection.PROGRAMMING, "Sys Glyph Set", () -> new SystemBaseGlyphApp()));
 		apps.add(new DeskAppLauncher(DeskAppMenuSection.PROGRAMMING, "Sys Number Parts", () -> new SystemBasePartApp()));
-		
-		apps.add(new DeskAppLauncher(DeskAppMenuSection.PROGRAMMING, "Unicode4D", () -> new Unicode4DApp()));
 	}
 
 	public void renderMenu(DeskTopScreen appScreen) {

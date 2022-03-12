@@ -32,6 +32,7 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator.FreeTypeFont
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemWarpBase;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxBootArgs;
+import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxBootReadyListener;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxFont;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxLog;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemWarpSea;
@@ -62,6 +63,7 @@ public class GDXAppTos4Activator implements BundleActivator {
 	private WaterDevice warpshipDevice;
 	private SystemGdxTerminal systemGdxTerminal;
 	private GDXAppTos4BootListener bootScreen;
+	private List<SystemGdxBootReadyListener> bootReadyListeners = new ArrayList<>();
 	
 	private static final String SYSTEM_USER_HOME = "user.home";
 	private static final String HYPERDRIVE_HOME = "Hyperdrive";
@@ -81,6 +83,12 @@ public class GDXAppTos4Activator implements BundleActivator {
 	
 	public void setBootListener(GDXAppTos4BootListener bootScreen) {
 		this.bootScreen = bootScreen;
+	}
+	
+	public void fireBootCompleted() {
+		for (SystemGdxBootReadyListener listener: bootReadyListeners) {
+			listener.bootCompleted();
+		}
 	}
 	
 	public boolean hasStartError() {
@@ -293,6 +301,11 @@ public class GDXAppTos4Activator implements BundleActivator {
 		@Override
 		public void shutdown() {
 			Gdx.app.exit();
+		}
+		
+		@Override
+		public void addBootReadyListener(SystemGdxBootReadyListener listener) {
+			bootReadyListeners.add(listener);
 		}
 	}
 	

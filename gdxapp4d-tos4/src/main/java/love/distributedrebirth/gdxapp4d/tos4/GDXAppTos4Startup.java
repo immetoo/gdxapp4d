@@ -35,6 +35,7 @@ public class GDXAppTos4Startup {
 						LOG.debug("Release boot-screen");
 						systemActivator.setBootListener(null);
 						tos4.disposeScreen(bootScreen);
+						systemActivator.fireBootCompleted();
 					});
 				}
 			} catch (Exception e) {

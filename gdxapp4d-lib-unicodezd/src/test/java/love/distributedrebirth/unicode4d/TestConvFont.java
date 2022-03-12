@@ -73,7 +73,8 @@ public class TestConvFont {
 			conf("noto-sans-brahmi", new File(in+"plane1/noto-sans-brahmi.ttf.xml"), new File(out+"plane1/noto-sans-brahmi.ttf4d"));
 			
 			conf("code-2002", new File(in+"plane2/code-2002.ttf.xml"), new File(out+"plane2/code-2002.ttf4d"));
-
+			
+			System.out.println("Done conversion.");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -140,6 +141,15 @@ public class TestConvFont {
 				FontAtlasStoreGlyph baseGlyph = new FontAtlasStoreGlyph();
 				baseGlyph.setTongs(tongs);
 				fontStore.addGlyph(baseGlyph);
+				
+				int unicode = CodePointᶻᴰ.INSTANCE.searchUnicode(baseGlyph.getTongs());
+				System.out.println("Converted: "+Integer.toHexString(unicode));
+				
+				FontAtlasStoreGlyph baseGlyph2 = new FontAtlasStoreGlyph();
+				baseGlyph2.setByte64(baseGlyph.getByte64());
+				
+				int unicode2 = CodePointᶻᴰ.INSTANCE.searchUnicode(baseGlyph2.getTongs());
+				System.out.println("Converted2: "+Integer.toHexString(unicode2));
 				
 			} else if ("contour".equals(qName)) {
 				

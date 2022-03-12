@@ -15,4 +15,6 @@ public interface SystemGdxBootArgs {
 	NativeFileChooser getFileChooser();
 	
 	void shutdown();
+	
+	void addBootReadyListener(SystemGdxBootReadyListener listener);
 }

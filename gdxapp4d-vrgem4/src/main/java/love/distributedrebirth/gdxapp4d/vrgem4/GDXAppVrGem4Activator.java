@@ -16,6 +16,7 @@ import imgui.type.ImBoolean;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.jmx.DefaultEnumBaseᴶᴹˣ;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxBootArgs;
+import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxBootReadyListener;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxFont;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxLog;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemWarpShip;
@@ -199,7 +200,6 @@ public class GDXAppVrGem4Activator implements BundleActivator {
 			return;
 		}
 		bootScreen.bootLine("vrGEM4: chains resolved.");
-		
 		try {
 			systemWarpShip.loadBundles(context, registratedSeas);
 		} catch (BundleException e) {
@@ -207,18 +207,25 @@ public class GDXAppVrGem4Activator implements BundleActivator {
 			bootScreen.bootLine("ERROR: "+e.getMessage());
 			return;
 		}
+		bootArgs.addBootReadyListener(new SystemGdxBootReadyListener() {
+			@Override
+			public void bootCompleted() {
+				Gdx.app.postRunnable(new Runnable() {
+					@Override
+					public void run() {
+						terminal.selectScreen(ScreenDesktop1.class);
+						terminal.disposeScreen(bootScreen);
+					}
+				});
+				logger.info(this, "Boot done");
+			}
+		});
+		
 		try {
 			Thread.sleep(VIEW_SLEEP_TIME);
 		} catch (InterruptedException ignored) {
 		}
-		Gdx.app.postRunnable(new Runnable() {
-			@Override
-			public void run() {
-				terminal.selectScreen(ScreenDesktop1.class);
-				terminal.disposeScreen(bootScreen);
-			}
-		});
-		logger.info(this, "Boot done");
+		bootScreen.bootLine("vrGEM4: Init bundles...");
 	}
 	
 	//TODO: add layer or ?? private <T extends BãßBȍőnCoffinStoreʸᴰ<?>,DefaultAuthorInfoʸᴰ> T[] storeInstances() {

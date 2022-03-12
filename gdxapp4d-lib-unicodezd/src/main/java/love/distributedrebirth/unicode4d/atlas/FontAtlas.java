@@ -2,7 +2,6 @@ package love.distributedrebirth.unicode4d.atlas;
 
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
@@ -23,7 +22,7 @@ public class FontAtlas {
 		return stores.values();
 	}
 	
-	public void setStores(List<FontAtlasStore> planes) {
+	public void setStores(Collection<FontAtlasStore> planes) {
 		for (FontAtlasStore plane:planes) {
 			addStore(plane);
 		}

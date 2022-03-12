@@ -7,6 +7,7 @@ import org.osgi.service.component.annotations.Reference;
 
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxLog;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.VrGem4DeskAppService;
+import love.distributedrebirth.gdxapp4d.vrgem4.service.VrGem4Unicode4DService;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppLauncher;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppMenuSection;
 
@@ -18,6 +19,9 @@ public class NotepadComponent {
 	
 	@Reference
 	private VrGem4DeskAppService deskAppService;
+	
+	@Reference
+	private VrGem4Unicode4DService unicode4DService;
 	
 	private final DeskAppLauncher launcher;
 	

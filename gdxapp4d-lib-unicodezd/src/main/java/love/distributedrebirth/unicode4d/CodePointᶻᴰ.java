@@ -36,16 +36,16 @@ public enum CodePointᶻᴰ {
 	
 	public int getArgumentUnicode(V036Teger teger) {
 		int unicode = 0;
-		unicode += teger.getValue(T02PartBinary.PART_1).getValueNumber();
-		unicode += teger.getValue(T02PartBinary.PART_2).getValueNumber() << 18;
+		unicode += getArgument(teger, T02PartBinary.PART_1);
+		unicode += getArgument(teger, T02PartBinary.PART_2) << 15;
 		return unicode;
 	}
 	
 	public void setArgumentUnicode(V036Teger teger, int unicode) {
-		teger.getValue(T02PartBinary.PART_1).setValueNumber(unicode);
-		teger.getValue(T02PartBinary.PART_2).setValueNumber(unicode >> 18);
+		setArgument(teger, T02PartBinary.PART_1, unicode);
+		setArgument(teger, T02PartBinary.PART_2, unicode >> 15);
 	}
-	
+	/*
 	public long getArgumentNumber(V036Teger teger) {
 		return teger.getValueNumber();
 	}
@@ -53,11 +53,11 @@ public enum CodePointᶻᴰ {
 	public void setArgumentNumber(V036Teger teger, long number) {
 		teger.setValueNumber(number);
 	}
-	
+	*/
 	public CodePointCommandᶻᴰ getCommand(V036Teger teger) {
 		int mode = 0;
-		mode += ((teger.getValue(T02PartBinary.PART_1).getValueNumber() >> 15) & 0b111) << 0;
-		mode += ((teger.getValue(T02PartBinary.PART_2).getValueNumber() >> 15) & 0b111) << 3;
+		mode += (teger.getValue(T02PartBinary.PART_1).getValueNumber() >> 15) << 0;
+		mode += (teger.getValue(T02PartBinary.PART_2).getValueNumber() >> 15) << 3;
 		return CodePointCommandᶻᴰ.values()[mode];
 	}
 	

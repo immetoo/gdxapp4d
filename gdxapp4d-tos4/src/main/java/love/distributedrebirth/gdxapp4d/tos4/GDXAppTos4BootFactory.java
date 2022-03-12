@@ -98,6 +98,26 @@ public class GDXAppTos4BootFactory {
 				"imgui.gl3,"+
 				"imgui.type,"+
 				"net.spookygames.gdx.nativefilechooser,"+
+				"org.x4o.xml,"+
+				"org.x4o.xml.conv,"+
+				"org.x4o.xml.conv.text,"+
+				"org.x4o.xml.el,"+
+				"org.x4o.xml.eld,"+
+				"org.x4o.xml.eld.lang,"+
+				"org.x4o.xml.eld.xsd,"+
+				"org.x4o.xml.element,"+
+				"org.x4o.xml.io,"+
+				"org.x4o.xml.io.sax,"+
+				"org.x4o.xml.io.sax.ext,"+
+				"org.x4o.xml.lang,"+
+				"org.x4o.xml.lang.phase,"+
+				"org.x4o.xml.lang.task,"+
+				"org.x4o.xml.lang.task.run,"+
+				"javax.el,"+
+				"org.apache.el,"+
+				"org.apache.el.lang,"+
+				"org.apache.el.parser,"+
+				"org.apache.el.util,"+
 				"love.distributedrebirth.bassboonyd,"+
 				"love.distributedrebirth.bassboonyd.jmx,"+
 				"love.distributedrebirth.numberxd,"+
