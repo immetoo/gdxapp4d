@@ -1,7 +1,10 @@
 package love.distributedrebirth.gdxapp4d.vrgem4.screen;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.PerspectiveCamera;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.VertexAttributes;
 import com.badlogic.gdx.graphics.VertexAttributes.Usage;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.BitmapFontCache;
@@ -12,6 +15,8 @@ import com.badlogic.gdx.graphics.g3d.ModelBatch;
 import com.badlogic.gdx.graphics.g3d.ModelInstance;
 import com.badlogic.gdx.graphics.g3d.Shader;
 import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
+import com.badlogic.gdx.graphics.g3d.attributes.TextureAttribute;
+import com.badlogic.gdx.graphics.g3d.utils.MeshPartBuilder;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector3;
@@ -37,6 +42,8 @@ public class ScreenDesktop4 extends AbstractScreenDesktop {
 	private float colorDeltaTime = 0f;
 	private float colorFade = 0f;
 	private boolean colorPositive = true;
+	private Texture backgroundImage;
+	private Model background;
 	
 	public ScreenDesktop4(SystemGdxBootArgs bootArgs, SystemGdxTerminal terminal, VrGem4DeskAppServiceImpl deskAppService) {
 		super("Desktop4", bootArgs, terminal, deskAppService);
@@ -48,6 +55,15 @@ public class ScreenDesktop4 extends AbstractScreenDesktop {
 	}
 	
 	protected void createModel(ModelBuilder modelBuilder, Array<ModelInstance> modelInstances) {
+		backgroundImage = new Texture(Gdx.files.internal("background/map-africa-sambuyu.png"));
+		int attr = VertexAttributes.Usage.Position | VertexAttributes.Usage.Normal | VertexAttributes.Usage.TextureCoordinates;
+		Material material = new Material(TextureAttribute.createDiffuse(backgroundImage));
+		modelBuilder.begin();
+		MeshPartBuilder mpb = modelBuilder.part("floor", GL20.GL_TRIANGLES, attr, material);
+		mpb.rect(-20f,-1f,-20f, -20f,-1f,20f,  20f,-1f,20f, 20f,-1f,-20f, 0,1,0);
+		background = modelBuilder.end();
+		
+		
 		model = modelBuilder.createBox(.3f, .3f, .3f,new Material(ColorAttribute.createDiffuse(.1f,.1f,.1f,0f)), Usage.Position | Usage.Normal);
 		for (int x = -4; x < 6; x++) {
 			for (int y = 1; y < 11; y++) {
@@ -58,10 +74,13 @@ public class ScreenDesktop4 extends AbstractScreenDesktop {
 		}
 		grid = modelBuilder.createLineGrid(33, 33, 1f, 1f, new Material(ColorAttribute.createDiffuse(.2f,.2f,.2f,1f)), Usage.Position | Usage.Normal);
 		modelInstances.add(new ModelInstance(grid, 0, 0, 0));
+		modelInstances.add(new ModelInstance(background, 0, 0, 0));
 	}
 	
 	@Override
 	protected void disposeDesktop() {
+		backgroundImage.dispose();
+		background.dispose();
 		grid.dispose();
 		model.dispose();
 	}
