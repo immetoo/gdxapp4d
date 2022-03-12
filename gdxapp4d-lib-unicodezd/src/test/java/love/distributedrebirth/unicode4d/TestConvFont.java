@@ -146,7 +146,7 @@ public class TestConvFont {
 				System.out.println("Converted: "+Integer.toHexString(unicode));
 				
 				FontAtlasStoreGlyph baseGlyph2 = new FontAtlasStoreGlyph();
-				baseGlyph2.setByte64(baseGlyph.getByte64());
+				baseGlyph2.doByte64(baseGlyph.theByte64());
 				
 				int unicode2 = CodePointᶻᴰ.INSTANCE.searchUnicode(baseGlyph2.getTongs());
 				System.out.println("Converted2: "+Integer.toHexString(unicode2));

@@ -120,6 +120,7 @@ public enum Base2Terminator implements DefaultEnumInstanceᴶᴹˣ<Base2Terminat
 	
 	public int Bãß2WriteTong(List<V072Tong> data, OutputStream output) throws IOException {
 		int totalBytes = Bãß2Write(data, output);
+		output.flush();
 		writeV072TongInvokes.increment();
 		writeV072TongByteReads.increment(totalBytes);
 		writeV072TongTypeWrites.increment(data.size());
@@ -129,6 +130,7 @@ public enum Base2Terminator implements DefaultEnumInstanceᴶᴹˣ<Base2Terminat
 	
 	public int Bãß2WriteTocta(List<V144Tocta> data, OutputStream output) throws IOException {
 		int totalBytes = Bãß2Write(data, output);
+		output.flush();
 		writeV144ToctaInvokes.increment();
 		writeV144ToctaBytesReads.increment(totalBytes);
 		writeV144ToctaTypeWrites.increment(data.size());

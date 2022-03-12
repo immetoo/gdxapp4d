@@ -34,7 +34,7 @@ public class FontAtlasStoreGlyph {
 		this.tongs.add(glyph);
 	}
 
-	public List<T08PartOctal> getOct64() {
+	public List<T08PartOctal> theOct64() {
 		List<T08PartOctal> result = new ArrayList<>();
 		BaseAppenderOctal appender = new BaseAppenderOctal(result);
 		for (V072Tong tong: tongs) {
@@ -43,7 +43,7 @@ public class FontAtlasStoreGlyph {
 		return result;
 	}
 	
-	public void setOct64(List<T08PartOctal> data) {
+	public void doOct64(List<T08PartOctal> data) {
 		BaseIteratorOctalAdapter adapter = new BaseIteratorOctalAdapter(data.iterator());
 		List<V072Tong> result = new ArrayList<>();
 		while (adapter.hasNext()) {
@@ -52,7 +52,7 @@ public class FontAtlasStoreGlyph {
 		tongs = result;
 	}
 	
-	public byte[] getByte64() {
+	public byte[] theByte64() {
 		ByteArrayOutputStream baos = new ByteArrayOutputStream();
 		try {
 			Base2Terminator.INSTANCE.Bãß2WriteTong(tongs, baos);
@@ -62,7 +62,7 @@ public class FontAtlasStoreGlyph {
 		return baos.toByteArray();
 	}
 	
-	public void setByte64(byte[] decodedBytes) {
+	public void doByte64(byte[] decodedBytes) {
 		ByteArrayInputStream bais = new ByteArrayInputStream(decodedBytes);
 		try {
 			List<V072Tong> result = new ArrayList<>();
