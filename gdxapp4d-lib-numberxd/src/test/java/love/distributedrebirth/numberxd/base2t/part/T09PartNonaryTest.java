@@ -1,4 +1,4 @@
-package love.distributedrebirth.numberxd.base2t;
+package love.distributedrebirth.numberxd.base2t.part;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

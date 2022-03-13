@@ -10,7 +10,7 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public class BasePartFactoryTest {
+public class Base2PartsFactoryTest {
 
 	@Test
 	public void testSupportedBases() {
