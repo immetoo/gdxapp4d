@@ -22,6 +22,14 @@ public class DeskAppInputProcessor implements InputProcessor {
 		return filtering;
 	}
 	
+	private boolean isFilterMenu(int screenY) {
+		// font22 + margin top-bottom = 26px
+		if (screenY <= 26) {
+			return true;
+		}
+		return false;
+	}
+	
 	@Override
 	public boolean keyDown(int keycode) {
 		if (filtering) {
@@ -51,6 +59,9 @@ public class DeskAppInputProcessor implements InputProcessor {
 
 	@Override
 	public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+		if (isFilterMenu(screenY)) {
+			return false;
+		}
 		if (filtering) {
 			return false;
 		} else {
@@ -60,6 +71,9 @@ public class DeskAppInputProcessor implements InputProcessor {
 
 	@Override
 	public boolean touchUp(int screenX, int screenY, int pointer, int button) {
+		if (isFilterMenu(screenY)) {
+			return false;
+		}
 		if (filtering) {
 			return false;
 		} else {
@@ -69,6 +83,9 @@ public class DeskAppInputProcessor implements InputProcessor {
 
 	@Override
 	public boolean touchDragged(int screenX, int screenY, int pointer) {
+		if (isFilterMenu(screenY)) {
+			return false;
+		}
 		if (filtering) {
 			return false;
 		} else {
@@ -78,6 +95,9 @@ public class DeskAppInputProcessor implements InputProcessor {
 
 	@Override
 	public boolean mouseMoved(int screenX, int screenY) {
+		if (isFilterMenu(screenY)) {
+			return false;
+		}
 		if (filtering) {
 			return false;
 		} else {
