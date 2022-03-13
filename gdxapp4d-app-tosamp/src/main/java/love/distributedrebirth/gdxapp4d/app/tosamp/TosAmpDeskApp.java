@@ -83,9 +83,10 @@ public class TosAmpDeskApp extends AbstractDeskApp implements DeskAppRenderer {
 			music.stop();
 		}
 		int flags = ImGuiTableFlags.ScrollX | ImGuiTableFlags.RowBg | ImGuiTableFlags.BordersOuter | ImGuiTableFlags.BordersV;
-		ImGui.beginTable("playlist", 3, flags);
+		ImGui.beginTable("playlist", 4, flags);
 		ImGui.tableSetupColumn("#", ImGuiTableColumnFlags.NoHide);
 		ImGui.tableSetupColumn("Play");
+		ImGui.tableSetupColumn("List");
 		ImGui.tableSetupColumn("Name");
 		ImGui.tableHeadersRow();
 		int i=1;
@@ -98,6 +99,8 @@ public class TosAmpDeskApp extends AbstractDeskApp implements DeskAppRenderer {
 			if (ImGui.smallButton(">")) {
 				music.play(song);
 			}
+			ImGui.tableNextColumn();
+			ImGui.selectable(song.getPlaylist(), music.isPlaying(song), ImGuiSelectableFlags.None);
 			ImGui.tableNextColumn();
 			ImGui.selectable(song.getName(), music.isPlaying(song), ImGuiSelectableFlags.None);
 			ImGui.popID();

@@ -11,10 +11,12 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 public class MusicSong {
 	private final FileHandle fileHandle;
 	private final String name;
+	private final String playlist;
 	
-	public MusicSong(FileHandle fileHandle, String name) {
+	public MusicSong(FileHandle fileHandle, String name, String playlist) {
 		this.fileHandle = fileHandle;
 		this.name = name;
+		this.playlist = playlist;
 	}
 	
 	public FileHandle getFileHandle() {
@@ -23,5 +25,9 @@ public class MusicSong {
 	
 	public String getName() {
 		return name;
+	}
+	
+	public String getPlaylist() {
+		return playlist;
 	}
 }

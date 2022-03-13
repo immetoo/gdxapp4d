@@ -1,6 +1,8 @@
 package love.distributedrebirth.gdxapp4d.app.tosamp.music;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,6 +14,8 @@ import com.badlogic.gdx.audio.Music.OnCompletionListener;
 import com.badlogic.gdx.files.FileHandle;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
+import love.distributedrebirth.gdxapp4d.app.tosamp.music.M3UParser.M3UPlaylist;
+import love.distributedrebirth.gdxapp4d.app.tosamp.music.M3UParser.M3UTrack;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemWarpShip;
 
 /**
@@ -31,23 +35,25 @@ public class MusicManager {
 	}
 	
 	public void addBackgroundMusic(FileHandle file) {
-		musicSongs.add(new MusicSong(file, file.name()));
+		musicSongs.add(new MusicSong(file, file.name(), ""));
 	}
 	
 	public void init(BundleContext context, SystemWarpShip warpShip) {
-		
 		List<File> playlists = warpShip.searchMagic(context, "audio/mpegurl");
 		for (File playlist:playlists) {
-			System.out.println("Playlist: "+playlist);
+			try {
+				M3UPlaylist play = M3UParser.parse(new FileInputStream(playlist));
+				
+				for (M3UTrack track:play.getTracks()) {
+					FileHandle fileHandle = Gdx.files.absolute(playlist.getParent() + "/" + track.getFile());
+					musicSongs.add(new MusicSong(fileHandle, track.getName(), play.getName()));
+				}
+				
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
-		/*
-		addBackgroundMusic(Gdx.files.internal("music/sanctumwave-risen.mp3"));
-		addBackgroundMusic(Gdx.files.internal("music/sanctumwave-devine-intellect.mp3"));
-		addBackgroundMusic(Gdx.files.internal("music/theselfhelpgroup-temple-os.mp3"));
-		addBackgroundMusic(Gdx.files.internal("music/sanctumwave-nightwalk.mp3"));
-		addBackgroundMusic(Gdx.files.internal("music/beeble-i-used-temple-os-to-write.mp3"));
-		addBackgroundMusic(Gdx.files.internal("music/ryanfarran-risen-temple-os.mp3"));
-		*/
 	}
 	
 	public void dispose() {
