@@ -56,18 +56,18 @@ public class VrGem4LocaleServiceImpl implements VrGem4LocaleService {
 	void close() {
 		log.debug(this, SystemGdxLog.DEACTIVATE);
 	}
-
+	
 	@Override
 	public void setTextLocaleI18n(String isoCode) {
 		// TODO Auto-generated method stub
 		
 	}
-
+	
 	@Override
 	public String getTextLocaleI18n() {
 		return properties.getProperty(LocaleKey.TEXT_LOCALE.name(), "en");
 	}
-
+	
 	@Override
 	public Locale getTextLocale() {
 		return new Locale(getTextLocaleI18n());

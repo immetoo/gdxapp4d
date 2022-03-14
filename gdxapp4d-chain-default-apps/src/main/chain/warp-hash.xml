@@ -8,4 +8,5 @@
 	<soft:hash file="bundle/gdxapp4d-app-hewallet.jar" hex="0"/>
 	<soft:hash file="bundle/gdxapp4d-app-notepad.jar" hex="0"/>
 	<soft:hash file="bundle/gdxapp4d-app-tosamp.jar" hex="0"/>
+	<soft:hash file="bundle/gdxapp4d-app-glyphdemo.jar" hex="0"/>
 </root:shot>

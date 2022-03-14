@@ -30,6 +30,7 @@
 		<module>gdxapp4d-vrsys5</module>
 		<module>gdxapp4d-chain-default-apps</module>
 		<module>gdxapp4d-chain-vrlib</module>
+		<module>gdxapp4d-app-glyphdemo</module>
 	</modules>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

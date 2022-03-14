@@ -8,5 +8,6 @@
 		<link:magic file="bundle/gdxapp4d-app-hewallet.jar" mime="application/vnd.osgi.bundle"/>
 		<link:magic file="bundle/gdxapp4d-app-notepad.jar" mime="application/vnd.osgi.bundle"/>
 		<link:magic file="bundle/gdxapp4d-app-tosamp.jar" mime="application/vnd.osgi.bundle"/>
+		<link:magic file="bundle/gdxapp4d-app-glyphdemo.jar" mime="application/vnd.osgi.bundle"/>
 	</link:sea>
 </root:ocean>

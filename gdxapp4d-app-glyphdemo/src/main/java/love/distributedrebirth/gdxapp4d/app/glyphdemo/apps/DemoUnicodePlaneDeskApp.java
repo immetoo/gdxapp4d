@@ -1,6 +1,5 @@
-package love.distributedrebirth.gdxapp4d.vrsys5.apps;
+package love.distributedrebirth.gdxapp4d.app.glyphdemo.apps;
 
-import java.util.Locale;
 import java.util.ResourceBundle;
 
 import imgui.ImGui;
@@ -13,18 +12,17 @@ import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppRenderer;
 import love.distributedrebirth.unicode4d.UnicodePlaneᶻᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-public class BaseUnicodePlaneDeskApp extends AbstractDeskApp implements DeskAppRenderer {
+public class DemoUnicodePlaneDeskApp extends AbstractDeskApp implements DeskAppRenderer {
 	
 	private final VrGem4LocaleService localeService;
 	
-	public BaseUnicodePlaneDeskApp(VrGem4LocaleService localeService) {
+	public DemoUnicodePlaneDeskApp(VrGem4LocaleService localeService) {
 		this.localeService = localeService;
 	}
 	
 	private String getTxt(String key) {
-		Locale loc = localeService.getTextLocale();
-		ResourceBundle bundle = ResourceBundle.getBundle("love.distributedrebirth.gdxapp4d.vrsys5.Main", loc);
-		return bundle.getString("SystemBaseUnicodePlaneApp."+key);
+		ResourceBundle bundle = ResourceBundle.getBundle("love.distributedrebirth.gdxapp4d.app.glyphdemo.Main", localeService.getTextLocale());
+		return bundle.getString(DemoUnicodePlaneDeskApp.class.getSimpleName()+"."+key);
 	}
 	
 	public void create() {

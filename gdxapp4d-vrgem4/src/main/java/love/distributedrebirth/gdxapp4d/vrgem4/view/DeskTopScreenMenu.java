@@ -1,6 +1,5 @@
 package love.distributedrebirth.gdxapp4d.vrgem4.view;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.badlogic.gdx.Gdx;
@@ -23,8 +22,6 @@ import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppContourSec
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppLauncher;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppMenuSection;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppRenderer;
-import love.distributedrebirth.gdxapp4d.vrgem4.view.apps.SystemBaseGlyphApp;
-import love.distributedrebirth.gdxapp4d.vrgem4.view.apps.SystemBasePartApp;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class DeskTopScreenMenu {
@@ -32,7 +29,6 @@ public class DeskTopScreenMenu {
 	private SystemGdxBootArgs bootArgs;
 	private SystemGdxTerminal terminal;
 	private VrGem4DeskAppServiceImpl deskAppService;
-	private List<DeskAppLauncher> apps;
 	private ImBoolean fileMinimizeSelected = new ImBoolean(false);
 	private ImBoolean fileCloseSelected = new ImBoolean(false);
 	private ImBoolean tosSelfSelected = new ImBoolean(false);
@@ -41,9 +37,6 @@ public class DeskTopScreenMenu {
 		this.bootArgs = bootArgs; 
 		this.terminal = terminal;
 		this.deskAppService = deskAppService;
-		apps = new ArrayList<>();
-		apps.add(new DeskAppLauncher(DeskAppMenuSection.PROGRAMMING, "Sys Glyph Set", () -> new SystemBaseGlyphApp()));
-		apps.add(new DeskAppLauncher(DeskAppMenuSection.PROGRAMMING, "Sys Number Parts", () -> new SystemBasePartApp()));
 	}
 
 	public void renderMenu(DeskTopScreen appScreen) {
@@ -211,14 +204,6 @@ public class DeskTopScreenMenu {
 			}
 			ImGui.separator();
 			if (ImGui.beginMenu(FontAwesomeIcons.PlusSquare + " Start App")) {
-				for (DeskAppLauncher launcher: apps) {
-					if (ImGui.menuItem(launcher.getName())) {
-						DeskApp controller = launcher.getLauncher().get();
-						controller.create();
-						appScreen.getDeskAppController().addDeskApp(controller);
-					}
-				}
-				ImGui.separator();
 				for (DeskAppMenuSection section: DeskAppMenuSection.values()) {
 					if (section.isSystem()) {
 						continue;

@@ -3,7 +3,7 @@
  xmlns:link="http://warp-sea.x4o.distributedrebirth.love/xml/ns/warp-sea-link"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://wrap-sea.x4o.distributedrebirth.love/xml/ns/warp-sea-root http://warp-sea.x4o.distributedrebirth.love/xml/ns/warp-sea-root-1.0.xsd">
-	<link:sea name="DepOSGI SCR" provider="gdxapp4d.system" author="willemtsade">
+	<link:sea name="Osgi SCR" provider="gdxapp4d.system" author="willemtsade">
 		<link:magic file="bundle/org.osgi.util.function-1.2.0.jar" mime="application/vnd.osgi.bundle"/>
 		<link:magic file="bundle/org.osgi.util.promise-1.2.0.jar" mime="application/vnd.osgi.bundle"/>
 		<link:magic file="bundle/org.apache.felix.scr-2.2.0.jar" mime="application/vnd.osgi.bundle"/>
