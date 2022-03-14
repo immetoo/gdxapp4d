@@ -5,6 +5,6 @@
 		<artifactId>gdxapp4d</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>gdxapp4d-chain-sys-engine-fuel</artifactId>
+	<artifactId>gdxapp4d-chain-default-music</artifactId>
 	<packaging>pom</packaging>
 </project>

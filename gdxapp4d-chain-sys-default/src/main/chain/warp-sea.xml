@@ -3,7 +3,10 @@
  xmlns:link="http://warp-sea.x4o.distributedrebirth.love/xml/ns/warp-sea-link"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://wrap-sea.x4o.distributedrebirth.love/xml/ns/warp-sea-root http://warp-sea.x4o.distributedrebirth.love/xml/ns/warp-sea-root-1.0.xsd">
-	<link:sea name="TosAmp" provider="gdxapp4d.apps" author="willemtsade">
-		<link:magic file="gdxapp4d-app-tosamp.jar" mime="application/vnd.osgi.bundle"/>
+	<link:sea name="System Default" provider="gdxapp4d.system" author="willemtsade">
+		<!-- Link default-apps -->
+		<link:chain key="7744aa29da5b6b2cb4b8f781469c33de688fd848d158293a4cdddbc2c41b12aa"/>
+		<!-- Link default-music -->
+		<link:chain key="ffee3329da5b6b2cb4befcc14aac55de6777d848d158293a4cdffbc2c41b12ad"/>
 	</link:sea>
 </root:ocean>

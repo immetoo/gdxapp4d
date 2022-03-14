@@ -5,6 +5,6 @@
 		<artifactId>gdxapp4d</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>gdxapp4d-chain-music-templeos</artifactId>
+	<artifactId>gdxapp4d-chain-sys-default</artifactId>
 	<packaging>pom</packaging>
 </project>

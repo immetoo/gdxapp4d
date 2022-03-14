@@ -1,0 +1,36 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>love.distributedrebirth.gdxapp4d</groupId>
+		<artifactId>gdxapp4d</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>gdxapp4d-chain-default-apps</artifactId>
+	<packaging>pom</packaging>
+	<dependencies>
+		<dependency>
+			<groupId>love.distributedrebirth.gdxapp4d</groupId>
+			<artifactId>gdxapp4d-app-calculator</artifactId>
+			<version>${project.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>love.distributedrebirth.gdxapp4d</groupId>
+			<artifactId>gdxapp4d-app-hewallet</artifactId>
+			<version>${project.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>love.distributedrebirth.gdxapp4d</groupId>
+			<artifactId>gdxapp4d-app-notepad</artifactId>
+			<version>${project.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>love.distributedrebirth.gdxapp4d</groupId>
+			<artifactId>gdxapp4d-app-tosamp</artifactId>
+			<version>${project.version}</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
+</project>

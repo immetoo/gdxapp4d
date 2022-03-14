@@ -12,12 +12,11 @@
 		<module>gdxapp4d-app-notepad</module>
 		<module>gdxapp4d-app-tosamp</module>
 		<module>gdxapp4d-boot-desktop</module>
+		<module>gdxapp4d-chain-default-music</module>
 		<module>gdxapp4d-chain-dep-osgi-scr</module>
-		<module>gdxapp4d-chain-music-msx</module>
-		<module>gdxapp4d-chain-music-templeos</module>
+		<module>gdxapp4d-chain-font-unicode4d</module>
+		<module>gdxapp4d-chain-sys-default</module>
 		<module>gdxapp4d-chain-sys-engine</module>
-		<module>gdxapp4d-chain-sys-engine-fuel</module>
-		<module>gdxapp4d-chain-sys-unicode4d</module>
 		<module>gdxapp4d-lib-basicwd</module>
 		<module>gdxapp4d-lib-imxmi</module>
 		<module>gdxapp4d-lib-numberxd</module>
@@ -29,6 +28,8 @@
 		<module>gdxapp4d-app-calculator</module>
 		<module>gdxapp4d-app-hewallet</module>
 		<module>gdxapp4d-vrsys5</module>
+		<module>gdxapp4d-chain-default-apps</module>
+		<module>gdxapp4d-chain-vrlib</module>
 	</modules>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

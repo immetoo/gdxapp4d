@@ -3,7 +3,8 @@
  xmlns:link="http://warp-sea.x4o.distributedrebirth.love/xml/ns/warp-sea-link"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:schemaLocation="http://wrap-sea.x4o.distributedrebirth.love/xml/ns/warp-sea-root http://warp-sea.x4o.distributedrebirth.love/xml/ns/warp-sea-root-1.0.xsd">
-	<link:sea name="Notepad" provider="gdxapp4d.apps" author="willemtsade">
-		<link:magic file="gdxapp4d-app-notepad.jar" mime="application/vnd.osgi.bundle"/>
+	<link:sea name="vrlib" provider="gdxapp4d.system" author="willemtsade">
+		<link:magic file="gdxapp4d-vrgem4.jar" mime="application/vnd.osgi.bundle"/>
+		<link:magic file="gdxapp4d-vrsys5.jar" mime="application/vnd.osgi.bundle"/>
 	</link:sea>
 </root:ocean>

@@ -5,7 +5,7 @@
 		<artifactId>gdxapp4d</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>gdxapp4d-chain-sys-unicode4d</artifactId>
+	<artifactId>gdxapp4d-chain-font-unicode4d</artifactId>
 	<packaging>pom</packaging>
 	<build>
 		<plugins>
