@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root:shot xmlns:root="http://wrap-core.x4o.distributedrebirth.love/xml/ns/warp-hash-root"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:soft="http://warp-hash.x4o.distributedrebirth.love/xml/ns/warp-hash-soft"
+ xsi:schemaLocation="http://wrap-core.x4o.distributedrebirth.love/xml/ns/warp-hash-root http://warp-hash.x4o.distributedrebirth.love/xml/ns/warp-hash-root-1.0.xsd">
+	<soft:hash file="warp-sea.xml" hex="0"/>
+	<soft:hash file="bundle/org.osgi.util.function-1.2.0.jar" hex="0"/>
+	<soft:hash file="bundle/org.osgi.util.promise-1.2.0.jar" hex="0"/>
+	<soft:hash file="bundle/org.apache.felix.scr-2.2.0.jar" hex="0"/>
+</root:shot>

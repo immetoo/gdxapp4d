@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root:shot xmlns:root="http://wrap-core.x4o.distributedrebirth.love/xml/ns/warp-hash-root"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:soft="http://warp-hash.x4o.distributedrebirth.love/xml/ns/warp-hash-soft"
+ xsi:schemaLocation="http://wrap-core.x4o.distributedrebirth.love/xml/ns/warp-hash-root http://warp-hash.x4o.distributedrebirth.love/xml/ns/warp-hash-root-1.0.xsd">
+	<soft:hash file="warp-sea.xml" hex="0"/>
+	<soft:hash file="plane0/code-2000.ttf" hex="0"/>
+	<soft:hash file="plane0/free-sans.ttf" hex="0"/>
+	<soft:hash file="plane0/new-gardiner-bmp.ttf" hex="0"/>
+	<soft:hash file="plane0/fa-solid-900.ttf" hex="0"/>
+	<soft:hash file="plane0/noto-sans-samaritan.ttf" hex="0"/>
+	<soft:hash file="plane0/noto-sans-sinhala.ttf" hex="0"/>
+	<soft:hash file="plane0/noto-serif-tibetan.ttf" hex="0"/>
+	<soft:hash file="plane0/noto-sans-tagalog.ttf" hex="0"/>
+	<soft:hash file="plane0/noto-sans-tagbanwa.ttf" hex="0"/>
+	<soft:hash file="plane0/noto-sans-tai-le.ttf" hex="0"/>
+	<soft:hash file="plane0/noto-sans-tai-tham.ttf" hex="0"/>
+	<soft:hash file="plane0/noto-sans-batak.ttf" hex="0"/>
+	<soft:hash file="plane0/noto-sans-lepcha.ttf" hex="0"/>
+	<soft:hash file="plane0/noto-sans-balinese.ttf" hex="0"/>
+	<soft:hash file="plane0/noto-sans-sundanese.ttf" hex="0"/>
+	<soft:hash file="plane0/noto-sans-lisu.ttf" hex="0"/>
+	<soft:hash file="plane0/noto-sans-bamum.ttf" hex="0"/>
+	<soft:hash file="plane0/noto-sans-glagolitic.ttf" hex="0"/>
+	<soft:hash file="plane0/noto-sans-javanese.ttf" hex="0"/>
+	<soft:hash file="plane0/noto-sans-new-tai-lue.ttf" hex="0"/>
+	<soft:hash file="plane0/noto-sans-tai-viet.ttf" hex="0"/>
+	<soft:hash file="plane0/noto-sans-syloti-nagri.ttf" hex="0"/>
+	<soft:hash file="plane0/noto-sans-meetei-mayek.ttf" hex="0"/>
+	<soft:hash file="plane1/code-2001.ttf" hex="0"/>
+	<soft:hash file="plane1/new-gardiner-smp.ttf" hex="0"/>
+	<soft:hash file="plane1/noto-sans-brahmi.ttf" hex="0"/>
+	<soft:hash file="plane2/code-2002.ttf" hex="0"/>
+	
+	<soft:hash file="plane0/code-2000.ttf4d" hex="0"/>
+	<soft:hash file="plane0/free-sans.ttf4d" hex="0"/>
+	<soft:hash file="plane0/new-gardiner-bmp.ttf4d" hex="0"/>
+	<soft:hash file="plane0/fa-solid-900.ttf4d" hex="0"/>
+	<soft:hash file="plane0/noto-sans-samaritan.ttf4d" hex="0"/>
+	<soft:hash file="plane0/noto-sans-sinhala.ttf4d" hex="0"/>
+	<soft:hash file="plane0/noto-serif-tibetan.ttf4d" hex="0"/>
+	<soft:hash file="plane0/noto-sans-tagalog.ttf4d" hex="0"/>
+	<soft:hash file="plane0/noto-sans-tagbanwa.ttf4d" hex="0"/>
+	<soft:hash file="plane0/noto-sans-tai-le.ttf4d" hex="0"/>
+	<soft:hash file="plane0/noto-sans-tai-tham.ttf4d" hex="0"/>
+	<soft:hash file="plane0/noto-sans-batak.ttf4d" hex="0"/>
+	<soft:hash file="plane0/noto-sans-lepcha.ttf4d" hex="0"/>
+	<soft:hash file="plane0/noto-sans-balinese.ttf4d" hex="0"/>
+	<soft:hash file="plane0/noto-sans-sundanese.ttf4d" hex="0"/>
+	<soft:hash file="plane0/noto-sans-lisu.ttf4d" hex="0"/>
+	<soft:hash file="plane0/noto-sans-bamum.ttf4d" hex="0"/>
+	<soft:hash file="plane0/noto-sans-glagolitic.ttf4d" hex="0"/>
+	<soft:hash file="plane0/noto-sans-javanese.ttf4d" hex="0"/>
+	<soft:hash file="plane0/noto-sans-new-tai-lue.ttf4d" hex="0"/>
+	<soft:hash file="plane0/noto-sans-tai-viet.ttf4d" hex="0"/>
+	<soft:hash file="plane0/noto-sans-syloti-nagri.ttf4d" hex="0"/>
+	<soft:hash file="plane0/noto-sans-meetei-mayek.ttf4d" hex="0"/>
+	<soft:hash file="plane1/code-2001.ttf4d" hex="0"/>
+	<soft:hash file="plane1/new-gardiner-smp.ttf4d" hex="0"/>
+	<soft:hash file="plane1/noto-sans-brahmi.ttf4d" hex="0"/>
+	<soft:hash file="plane2/code-2002.ttf4d" hex="0"/>
+</root:shot>

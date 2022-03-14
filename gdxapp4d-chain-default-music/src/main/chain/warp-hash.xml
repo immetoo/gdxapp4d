@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root:shot xmlns:root="http://wrap-core.x4o.distributedrebirth.love/xml/ns/warp-hash-root"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xmlns:soft="http://warp-hash.x4o.distributedrebirth.love/xml/ns/warp-hash-soft"
+ xsi:schemaLocation="http://wrap-core.x4o.distributedrebirth.love/xml/ns/warp-hash-root http://warp-hash.x4o.distributedrebirth.love/xml/ns/warp-hash-root-1.0.xsd">
+	<soft:hash file="warp-sea.xml" hex="0"/>
+	
+	<soft:hash file="music-msx/000-playlist.m3u" hex="0"/>
+	<soft:hash file="music-msx/Hybris_0.mp3" hex="0"/>
+	<soft:hash file="music-msx/Jorito-copyisprofile.mp3" hex="0"/>
+	<soft:hash file="music-msx/magical_tree_jorito.mp3" hex="0"/>
+	<soft:hash file="music-msx/25_-_under_the_cloud_of_darkness_night_bgm.mp3" hex="0"/>
+	<soft:hash file="music-msx/DEVA-Shop Neutral.mp3" hex="0"/>
+	<soft:hash file="music-msx/meits_illusion_city_-_the_one_who_rules_the_heaven.mp3" hex="0"/>
+	<soft:hash file="music-msx/golvellius_medley_bart_roijmans_2014_192kbps.mp3" hex="0"/>
+	<soft:hash file="music-msx/08SD-SNATCHER-CODA.MP3" hex="0"/>
+	<soft:hash file="music-msx/Bart-XakTheTowerofGazzel-FirstFloor.mp3" hex="0"/>
+	
+	<soft:hash file="music-templeos/000-playlist.m3u" hex="0"/>
+	<soft:hash file="music-templeos/panoramacircle-waterfowl.mp3" hex="0"/>
+	<soft:hash file="music-templeos/sanctumwave-devine-intellect.mp3" hex="0"/>
+	<soft:hash file="music-templeos/sanctumwave-nightwalk.mp3" hex="0"/>
+	<soft:hash file="music-templeos/theselfhelpgroup-temple-os.mp3" hex="0"/>
+	<soft:hash file="music-templeos/sanctumwave-risen.mp3" hex="0"/>
+	<soft:hash file="music-templeos/beeble-i-used-temple-os-to-write.mp3" hex="0"/>
+	<soft:hash file="music-templeos/ryanfarran-risen-temple-os.mp3" hex="0"/>
+</root:shot>
