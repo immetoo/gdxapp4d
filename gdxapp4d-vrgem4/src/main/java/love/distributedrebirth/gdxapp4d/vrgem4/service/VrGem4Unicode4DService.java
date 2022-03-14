@@ -7,5 +7,5 @@ public interface VrGem4Unicode4DService {
 	
 	FontAtlas getMasterFontAtlas();
 	
-	FontAtlasStoreGlyph getGlyphForUnicode(char unicode);
+	FontAtlasStoreGlyph getGlyphForUnicode(int unicode);
 }

@@ -142,15 +142,6 @@ public class TestConvFont {
 				baseGlyph.setTongs(tongs);
 				fontStore.addGlyph(baseGlyph);
 				
-				int unicode = CodePointᶻᴰ.INSTANCE.searchUnicode(baseGlyph.getTongs());
-				System.out.println("Converted: "+Integer.toHexString(unicode));
-				
-				FontAtlasStoreGlyph baseGlyph2 = new FontAtlasStoreGlyph();
-				baseGlyph2.doByte64(baseGlyph.theByte64());
-				
-				int unicode2 = CodePointᶻᴰ.INSTANCE.searchUnicode(baseGlyph2.getTongs());
-				System.out.println("Converted2: "+Integer.toHexString(unicode2));
-				
 			} else if ("contour".equals(qName)) {
 				
 			}

@@ -24,7 +24,7 @@ import love.distributedrebirth.unicode4d.atlas.FontAtlasStoreGlyph;
 public class VrGem4Unicode4DServiceImpl implements VrGem4Unicode4DService {
 	
 	private final FontAtlas masterFontAtlas;
-	private final Map<Character, FontAtlasStoreGlyph> unicodeMap;
+	private final Map<Integer, FontAtlasStoreGlyph> unicodeMap;
 	
 	@Reference
 	private SystemGdxLog log;
@@ -54,11 +54,11 @@ public class VrGem4Unicode4DServiceImpl implements VrGem4Unicode4DService {
 		log.info(this, "Master font atlas size: {}", masterFontAtlas.getStores().size());
 		
 		for (FontAtlasStore fontStore:masterFontAtlas.getStores()) {
-			log.info(this,"Map unicode: {}", fontStore.getName());
+			log.info(this,"Map unicode: {} size: {}", fontStore.getName(), fontStore.getGlyphs().size());
 			for (FontAtlasStoreGlyph glyph: fontStore.getGlyphs()) {
 				int unicode = CodePointᶻᴰ.INSTANCE.searchUnicode(glyph.getTongs());
 				if (unicode > 0) {
-					unicodeMap.put(Character.valueOf((char) unicode), glyph);
+					unicodeMap.put(unicode, glyph);
 				}
 			}
 		}
@@ -76,7 +76,7 @@ public class VrGem4Unicode4DServiceImpl implements VrGem4Unicode4DService {
 	}
 
 	@Override
-	public FontAtlasStoreGlyph getGlyphForUnicode(char unicode) {
+	public FontAtlasStoreGlyph getGlyphForUnicode(int unicode) {
 		return unicodeMap.get(unicode);
 	}
 }

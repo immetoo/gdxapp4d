@@ -19,8 +19,8 @@ public class Base2TerminatorTest {
 	@Test
 	public void testBytes() throws IOException {
 		V072Tong tong = new V072Tong();
-		tong.getValue(T02PartBinary.PART_1).setValueNumber(123456000);
-		tong.getValue(T02PartBinary.PART_2).setValueNumber(234567000);
+		tong.getValue(T02PartBinary.PART_1).setValueNumber(32768);
+		tong.getValue(T02PartBinary.PART_2).setValueNumber(689024);
 		
 		List<V072Tong> tongs = new ArrayList<>();
 		tongs.add(tong);
@@ -36,8 +36,7 @@ public class Base2TerminatorTest {
 		V072Tong tong2 = result.get(0);
 		Assertions.assertNotNull(tong2);
 		
-		Assertions.assertEquals(123456000L, tong.getValue(T02PartBinary.PART_1).getValueNumber());
-		Assertions.assertEquals(234567000L, tong.getValue(T02PartBinary.PART_2).getValueNumber());
+		Assertions.assertEquals(32768, tong2.getValue(T02PartBinary.PART_1).getValueNumber());
+		Assertions.assertEquals(689024, tong2.getValue(T02PartBinary.PART_2).getValueNumber());
 	}
-	
 }

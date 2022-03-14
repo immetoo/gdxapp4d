@@ -69,9 +69,9 @@ public enum Base2Terminator implements DefaultEnumInstanceᴶᴹˣ<Base2Terminat
 		int readDataSize = 0; // per 9 bytes we have 24 octals for one V072Tong number
 		while ((readDataSize = input.read(data, 0, data.length)) != STREAM_EOF) {
 			Bãß2ReadCheckSize(readDataSize, BLOCK_TONG_SIZE);
-			int v0 =  data[0] +  (data[1] << SHIFT_8) +  (data[2] << SHIFT_16);
-			int v1 =  data[3] +  (data[4] << SHIFT_8) +  (data[5] << SHIFT_16);
-			int v2 =  data[6] +  (data[7] << SHIFT_8) +  (data[8] << SHIFT_16);
+			int v0 =  (data[0] & 0xFF) +  ((data[1] << SHIFT_8) & 0xFF00) +  ((data[2] << SHIFT_16) & 0xFF0000);
+			int v1 =  (data[3] & 0xFF) +  ((data[4] << SHIFT_8) & 0xFF00) +  ((data[5] << SHIFT_16) & 0xFF0000);
+			int v2 =  (data[6] & 0xFF) +  ((data[7] << SHIFT_8) & 0xFF00) +  ((data[8] << SHIFT_16) & 0xFF0000);
 			List<T08PartOctal> octals = Bãß2ReadOctals(v0, v1, v2);
 			output.add(new V072Tong(new BaseIteratorOctalAdapter(octals.iterator())));
 			totalBytes += BLOCK_TONG_SIZE;
@@ -88,12 +88,12 @@ public enum Base2Terminator implements DefaultEnumInstanceᴶᴹˣ<Base2Terminat
 		int readDataSize = 0; // per 18 bytes we have 48 octals for one V144Tocta number
 		while ((readDataSize = input.read(data, 0, data.length)) != STREAM_EOF) {
 			Bãß2ReadCheckSize(readDataSize, BLOCK_TOCTA_SIZE);
-			int v0 =  data[0] +  (data[1] << SHIFT_8) +  (data[2] << SHIFT_16);
-			int v1 =  data[3] +  (data[4] << SHIFT_8) +  (data[5] << SHIFT_16);
-			int v2 =  data[6] +  (data[7] << SHIFT_8) +  (data[8] << SHIFT_16);
-			int v3 =  data[9] + (data[10] << SHIFT_8) + (data[11] << SHIFT_16);
-			int v4 = data[12] + (data[13] << SHIFT_8) + (data[14] << SHIFT_16);
-			int v5 = data[15] + (data[16] << SHIFT_8) + (data[17] << SHIFT_16);
+			int v0 =  (data[0] & 0xFF) +  ((data[1] << SHIFT_8) & 0xFF00) +  ((data[2] << SHIFT_16) & 0xFF0000);
+			int v1 =  (data[3] & 0xFF) +  ((data[4] << SHIFT_8) & 0xFF00) +  ((data[5] << SHIFT_16) & 0xFF0000);
+			int v2 =  (data[6] & 0xFF) +  ((data[7] << SHIFT_8) & 0xFF00) +  ((data[8] << SHIFT_16) & 0xFF0000);
+			int v3 =  (data[9] & 0xFF) + ((data[10] << SHIFT_8) & 0xFF00) + ((data[11] << SHIFT_16) & 0xFF0000);
+			int v4 = (data[12] & 0xFF) + ((data[13] << SHIFT_8) & 0xFF00) + ((data[14] << SHIFT_16) & 0xFF0000);
+			int v5 = (data[15] & 0xFF) + ((data[16] << SHIFT_8) & 0xFF00) + ((data[17] << SHIFT_16) & 0xFF0000);
 			List<T08PartOctal> octals = Bãß2ReadOctals(v0, v1, v2, v3, v4, v5);
 			output.add(new V144Tocta(new BaseIteratorOctalAdapter(octals.iterator())));
 			totalBytes += BLOCK_TOCTA_SIZE;
