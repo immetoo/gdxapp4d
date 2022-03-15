@@ -6,8 +6,11 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.PerspectiveCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g3d.Environment;
 import com.badlogic.gdx.graphics.g3d.ModelBatch;
 import com.badlogic.gdx.graphics.g3d.ModelInstance;
+import com.badlogic.gdx.graphics.g3d.attributes.ColorAttribute;
+import com.badlogic.gdx.graphics.g3d.environment.DirectionalLight;
 import com.badlogic.gdx.graphics.g3d.utils.FirstPersonCameraController;
 import com.badlogic.gdx.graphics.g3d.utils.ModelBuilder;
 import com.badlogic.gdx.utils.Array;
@@ -39,6 +42,7 @@ public abstract class AbstractScreenDesktop extends ScreenAdapter implements Des
 	private PerspectiveCamera cam;
 	private FirstPersonCameraController camController;
 	private DeskAppInputProcessor inputFilter;
+	private Environment environment;
 	private ModelBatch modelBatch;
 	private Array<ModelInstance> modelInstances = new Array<ModelInstance>();
 	
@@ -70,6 +74,10 @@ public abstract class AbstractScreenDesktop extends ScreenAdapter implements Des
 		camera.setToOrtho(false, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		camera.update();
 		batch.setProjectionMatrix(camera.combined);
+		
+		environment = new Environment();
+		environment.set(new ColorAttribute(ColorAttribute.AmbientLight, .4f, .4f, .4f, 1f));
+		environment.add(new DirectionalLight().set(1, 1, 1, -.2f, -.7f, -.1f));
 		
 		modelBatch = new ModelBatch();
 		
@@ -150,7 +158,7 @@ public abstract class AbstractScreenDesktop extends ScreenAdapter implements Des
 	protected void renderDesktop(float delta, ModelBatch modelBatch, PerspectiveCamera cam, Array<ModelInstance> modelInstances) {
 		modelBatch.begin(cam);
 		for (ModelInstance instance : modelInstances) {
-			modelBatch.render(instance);
+			modelBatch.render(instance, environment);
 		}
 		modelBatch.end();
 	}
