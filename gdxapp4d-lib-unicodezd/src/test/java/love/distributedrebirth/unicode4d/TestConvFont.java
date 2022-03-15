@@ -32,17 +32,17 @@ public class TestConvFont {
 	}
 	
 	// manually run;
-	// gdxapp4d-chain-sys-unicode4d/src/main/nodejs$ npm install
-	// gdxapp4d-chain-sys-unicode4d/src/main/nodejs$ ./conv-font.sh ../chain/plane0/ ../../../target/chain2/plane0/
-	// gdxapp4d-chain-sys-unicode4d/src/main/nodejs$ ./conv-font.sh ../chain/plane1/ ../../../target/chain2/plane1/
-	// gdxapp4d-chain-sys-unicode4d/src/main/nodejs$ ./conv-font.sh ../chain/plane2/ ../../../target/chain2/plane2/
+	// gdxapp4d-chain-font-unicode4d/src/main/nodejs$ npm install
+	// gdxapp4d-chain-font-unicode4d/src/main/nodejs$ ./conv-font.sh ../chain/plane0/ ../../../target/chain2/plane0/
+	// gdxapp4d-chain-font-unicode4d/src/main/nodejs$ ./conv-font.sh ../chain/plane1/ ../../../target/chain2/plane1/
+	// gdxapp4d-chain-font-unicode4d/src/main/nodejs$ ./conv-font.sh ../chain/plane2/ ../../../target/chain2/plane2/
 	
 	public void run() {
-		System.out.println("Starting conversion.");
+		System.out.println("Starting conversion;");
 		try {
 			// NOTE: Are in order like the FontAtlas of ImGui
-			String in = "../gdxapp4d-chain-sys-unicode4d/target/chain2/";
-			String out = "../gdxapp4d-chain-sys-unicode4d/target/chain/";
+			String in = "../gdxapp4d-chain-font-unicode4d/target/chain2/";
+			String out = "../gdxapp4d-chain-font-unicode4d/target/chain/";
 			
 			conf("code-2000", new File(in+"plane0/code-2000.ttf.xml"), new File(out+"plane0/code-2000.ttf4d"));
 			conf("fa-solid-900", new File(in+"plane0/fa-solid-900.ttf.xml"), new File(out+"plane0/fa-solid-900.ttf4d"));

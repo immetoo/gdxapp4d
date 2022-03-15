@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
-	<entry key="1c2d010066a39d96ace8af0ecc37c72d6f79109f30939e2959befcd9ce25fc8d">../gdxapp4d-chain-sys-engine/src/main/chain</entry>
-	<entry key="f8be3b29da5b6b2cb464f781469ceede6ccfd848d158293a4cdffbc2c41a410b">../gdxapp4d-chain-sys-default/src/main/chain</entry>
+	<entry key="1c2d010066a39d96ace8af0ecc37c72d6f79109f30939e2959befcd9ce25fc8d">../gdxapp4d-chain-sys-engine/target/chain</entry>
+	<entry key="f8be3b29da5b6b2cb464f781469ceede6ccfd848d158293a4cdffbc2c41a410b">../gdxapp4d-chain-sys-default/target/chain</entry>
 	
-	<entry key="8833aa29da5b6b2cb464f781469ceede6ccfd848d158293a4cdffbc2c41b58de">../gdxapp4d-chain-dep-osgi-scr/src/main/chain</entry>
+	<entry key="8833aa29da5b6b2cb464f781469ceede6ccfd848d158293a4cdffbc2c41b58de">../gdxapp4d-chain-dep-osgi-scr/target/chain</entry>
 	<entry key="9944bb29da5b6b2cb464f781469ceede6ccfd848d158293a4cdffbc2c41b62ed">../gdxapp4d-chain-font-unicode4d/target/chain</entry>
-	<entry key="ffee3329da5b6b2cb4befcc14aac55de6777d848d158293a4cdffbc2c41b12ad">../gdxapp4d-chain-default-music/src/main/chain</entry>
-	<entry key="7744aa29da5b6b2cb4b8f781469c33de688fd848d158293a4cdddbc2c41b12aa">../gdxapp4d-chain-default-apps/src/main/chain</entry>
+	<entry key="ffee3329da5b6b2cb4befcc14aac55de6777d848d158293a4cdffbc2c41b12ad">../gdxapp4d-chain-default-music/target/chain</entry>
+	<entry key="7744aa29da5b6b2cb4b8f781469c33de688fd848d158293a4cdddbc2c41b12aa">../gdxapp4d-chain-default-apps/target/chain</entry>
 	<entry key="7744aa29da5b6b2cb4b8f781469c33de688fd848d158293a4cdddbc2c41b12aa.bundle/gdxapp4d-app-calculator.jar">../gdxapp4d-app-calculator/target/classes</entry>
 	<entry key="7744aa29da5b6b2cb4b8f781469c33de688fd848d158293a4cdddbc2c41b12aa.bundle/gdxapp4d-app-hewallet.jar">../gdxapp4d-app-hewallet/target/classes</entry>
 	<entry key="7744aa29da5b6b2cb4b8f781469c33de688fd848d158293a4cdddbc2c41b12aa.bundle/gdxapp4d-app-tosamp.jar">../gdxapp4d-app-tosamp/target/classes</entry>
 	<entry key="7744aa29da5b6b2cb4b8f781469c33de688fd848d158293a4cdddbc2c41b12aa.bundle/gdxapp4d-app-notepad.jar">../gdxapp4d-app-notepad/target/classes</entry>
 	<entry key="7744aa29da5b6b2cb4b8f781469c33de688fd848d158293a4cdddbc2c41b12aa.bundle/gdxapp4d-app-glyphdemo.jar">../gdxapp4d-app-glyphdemo/target/classes</entry>
 	
-	<entry key="ccba3b29da8b1b1cb444f381449beede3cbfd442d158293a4cdffbc3c41a31cc">../gdxapp4d-chain-vrlib/src/main/chain</entry>
+	<entry key="ccba3b29da8b1b1cb444f381449beede3cbfd442d158293a4cdffbc3c41a31cc">../gdxapp4d-chain-vrlib/target/chain</entry>
 	<entry key="ccba3b29da8b1b1cb444f381449beede3cbfd442d158293a4cdffbc3c41a31cc.bundle/gdxapp4d-vrgem4.jar">../gdxapp4d-vrgem4/target/classes</entry>
 	<entry key="ccba3b29da8b1b1cb444f381449beede3cbfd442d158293a4cdffbc3c41a31cc.bundle/gdxapp4d-vrsys5.jar">../gdxapp4d-vrsys5/target/classes</entry>
 </properties>

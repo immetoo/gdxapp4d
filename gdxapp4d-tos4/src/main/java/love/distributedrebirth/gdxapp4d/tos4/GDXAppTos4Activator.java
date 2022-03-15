@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Hashtable;
@@ -39,6 +40,7 @@ import love.distributedrebirth.gdxapp4d.tos4.service.SystemWarpSea;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemWarpShip;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxTerminal;
 import love.distributedrebirth.warpme.Warpᵐᵉ;
+import love.distributedrebirth.warpme.hash.WaterShotAddict;
 import love.distributedrebirth.warpme.sea.WaterOcean;
 import love.distributedrebirth.warpme.sea.WaterOceanDriver;
 import love.distributedrebirth.warpme.sea.WaterSeaChain;
@@ -336,22 +338,22 @@ public class GDXAppTos4Activator implements BundleActivator {
 			}
 			LOG.debug("loadWaterOcean key={} home={}",key, waterHome);
 			
-//			File waterHash = new File(waterHome, Warpᵐᵉ.WARP_HASH);
-//			if (!waterHash.exists()) {
-//				logger.accept("ERROR: Missing file: "+waterHash);
-//				return 1;
-//			}
-//			WaterShotAddict addict = new WaterShotAddict();
-//			try {
-//				if (!addict.validateWarpChainLink(waterHome)) {
-//					logger.accept("ERROR: Invalid hash in: "+waterHash);
-//					return 1;
-//				}
-//			} catch (NoSuchAlgorithmException | X4OConnectionException | SAXException | IOException e) {
-//				e.printStackTrace();
-//				logger.accept("ERROR: "+e.getMessage());
-//				return 1;
-//			}
+			File waterHash = new File(waterHome, Warpᵐᵉ.WARP_HASH);
+			if (!waterHash.exists()) {
+				logger.accept("ERROR: Missing file: "+waterHash);
+				return 1;
+			}
+			WaterShotAddict addict = new WaterShotAddict();
+			try {
+				if (!addict.validateWarpChainLink(waterHome)) {
+					logger.accept("ERROR: Invalid hash in: "+waterHash);
+					return 1;
+				}
+			} catch (NoSuchAlgorithmException | X4OConnectionException | SAXException | IOException e) {
+				e.printStackTrace();
+				logger.accept("ERROR: "+e.getMessage());
+				return 1;
+			}
 			
 			
 			File waterSea = new File(waterHome, Warpᵐᵉ.WARP_SEA);

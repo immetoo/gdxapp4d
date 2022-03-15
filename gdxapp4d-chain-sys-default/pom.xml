@@ -7,4 +7,35 @@
 	</parent>
 	<artifactId>gdxapp4d-chain-sys-default</artifactId>
 	<packaging>pom</packaging>
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<configuration>
+							<target>
+								<copy todir="target/chain">
+									<fileset dir="src/main/chain" />
+								</copy>
+								<java failonerror="true" fork="true" classname="love.distributedrebirth.warpme.hash.WaterShotAddict">
+									<arg value="target/chain" />
+									<classpath>
+										<pathelement location="../gdxapp4d-lib-warpme/target/gdxapp4d-lib-warpme.jar" />
+										<pathelement location="../gdxapp4d-lib-warpme/target/dependency/x4o-driver-0.8.7-SNAPSHOT.jar" />
+										<pathelement location="../gdxapp4d-lib-warpme/target/dependency/jasper-el-6.0.20.jar" />
+										<pathelement location="../gdxapp4d-lib-warpme/target/dependency/el-api-6.0.20.jar" />
+									</classpath>
+								</java>
+							</target>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>

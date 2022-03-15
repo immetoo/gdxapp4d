@@ -16,6 +16,17 @@ import love.distributedrebirth.warpme.Warpᵐᵉ;
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class WaterShotAddict {
 	
+	public static void main(String[] args) {
+		try {
+			WaterShotAddict addict = new WaterShotAddict();
+			addict.updateWarpHashes(new File(args[0]));
+			System.exit(0);
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.exit(1);
+		}
+	}
+	
 	public boolean validateWarpChainLink(File folder) throws FileNotFoundException, X4OConnectionException, SAXException, IOException, NoSuchAlgorithmException {
 		File fileWarpHash = new File(folder, Warpᵐᵉ.WARP_HASH);
 		if (!fileWarpHash.exists()) {
