@@ -19,5 +19,6 @@ public enum CodePointCommandᶻᴰ {
 	XY_OFF_CURVE_START,
 	XY_ON_CURVE,
 	XY_OFF_CURVE,
-	XY_SPACE
+	XY_SPACE,
+	;
 }

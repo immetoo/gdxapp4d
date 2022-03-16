@@ -26,7 +26,7 @@ public class NotepadComponent {
 	private final DeskAppLauncher launcher;
 	
 	public NotepadComponent() {
-		launcher = new DeskAppLauncher(DeskAppMenuSection.EDITORS, "Notepad", () -> new NotepadDeskApp());
+		launcher = new DeskAppLauncher(DeskAppMenuSection.EDITORS, "Notepad", () -> new NotepadDeskApp(unicode4DService));
 	}
 	
 	@Activate

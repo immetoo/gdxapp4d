@@ -19,12 +19,14 @@ import love.distributedrebirth.unicode4d.atlas.FontAtlas;
 import love.distributedrebirth.unicode4d.atlas.FontAtlasDriver;
 import love.distributedrebirth.unicode4d.atlas.FontAtlasStore;
 import love.distributedrebirth.unicode4d.atlas.FontAtlasStoreGlyph;
+import love.distributedrebirth.unicode4d.draw.DrawCharacter;
 
 @Component
 public class VrGem4Unicode4DServiceImpl implements VrGem4Unicode4DService {
 	
 	private final FontAtlas masterFontAtlas;
 	private final Map<Integer, FontAtlasStoreGlyph> unicodeMap;
+	private final Map<Integer, DrawCharacter> unicodeCharMap;
 	
 	@Reference
 	private SystemGdxLog log;
@@ -36,6 +38,7 @@ public class VrGem4Unicode4DServiceImpl implements VrGem4Unicode4DService {
 	public VrGem4Unicode4DServiceImpl() {
 		masterFontAtlas = new FontAtlas();
 		unicodeMap = new HashMap<>();
+		unicodeCharMap = new HashMap<>();
 	}
 	
 	@Activate
@@ -53,16 +56,26 @@ public class VrGem4Unicode4DServiceImpl implements VrGem4Unicode4DService {
 		}
 		log.info(this, "Master font atlas size: {}", masterFontAtlas.getStores().size());
 		
+		int dup = 0;
 		for (FontAtlasStore fontStore:masterFontAtlas.getStores()) {
 			log.info(this,"Map unicode: {} size: {}", fontStore.getName(), fontStore.getGlyphs().size());
 			for (FontAtlasStoreGlyph glyph: fontStore.getGlyphs()) {
 				int unicode = CodePointᶻᴰ.INSTANCE.searchUnicode(glyph.getTongs());
+				if (unicodeMap.containsKey(unicode)) {
+					dup++;
+					continue;
+				}
 				if (unicode > 0) {
 					unicodeMap.put(unicode, glyph);
+					try {
+						unicodeCharMap.put(unicode, new DrawCharacter(glyph));
+					} catch (Exception e) {
+						log.error(this, e.getMessage(), e);
+					}
 				}
 			}
 		}
-		log.info(this, "unicode map size: {}", unicodeMap.size());
+		log.info(this, "unicode map size: {} dups: {}", unicodeMap.size(), dup);
 	}
 	
 	@Deactivate
@@ -71,12 +84,17 @@ public class VrGem4Unicode4DServiceImpl implements VrGem4Unicode4DService {
 	}
 	
 	@Override
-	public FontAtlas getMasterFontAtlas() {
+	public FontAtlas getFontAtlas() {
 		return masterFontAtlas;
 	}
-
+	
 	@Override
 	public FontAtlasStoreGlyph getGlyphForUnicode(int unicode) {
 		return unicodeMap.get(unicode);
+	}
+	
+	@Override
+	public DrawCharacter getCharacterForUnicode(int unicode) {
+		return unicodeCharMap.get(unicode);
 	}
 }

@@ -31,7 +31,6 @@
 		<link:magic file="plane1/new-gardiner-smp.ttf" mime="application/x-font-ttf-plane1"/>
 		<link:magic file="plane1/noto-sans-brahmi.ttf" mime="application/x-font-ttf-plane1"/>
 		<link:magic file="plane2/code-2002.ttf" mime="application/x-font-ttf-plane2"/>
-		
 		<link:magic file="plane0/code-2000.ttf4d" mime="application/x-font-ttf4d"/>
 		<link:magic file="plane0/free-sans.ttf4d" mime="application/x-font-ttf4d"/>
 		<link:magic file="plane0/new-gardiner-bmp.ttf4d" mime="application/x-font-ttf4d"/>

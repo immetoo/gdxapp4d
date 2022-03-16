@@ -134,7 +134,8 @@ public class GDXAppTos4BootFactory {
 				"love.distributedrebirth.warpme.sea,"+
 				"love.distributedrebirth.warpme.ship,"+
 				"love.distributedrebirth.unicode4d,"+
-				"love.distributedrebirth.unicode4d.atlas"
+				"love.distributedrebirth.unicode4d.atlas,"+
+				"love.distributedrebirth.unicode4d.draw"
 				); // ; version=1.0.0
 		
 		if (cachedir != null) {
