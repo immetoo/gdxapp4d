@@ -9,7 +9,6 @@ import imgui.flag.ImGuiTableFlags;
 import imgui.type.ImBoolean;
 import imgui.type.ImInt;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
-import love.distributedrebirth.gdxapp4d.vrgem4.service.VrGem4LocaleService;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.AbstractDeskApp;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppContourSection;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppRenderer;
@@ -24,18 +23,17 @@ import love.distributedrebirth.numberxd.glyph.BaseGlyphSet;
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class DemoNumberPartDeskApp extends AbstractDeskApp implements DeskAppRenderer {
 
-	private final VrGem4LocaleService localeService;
+	private final ResourceBundle bundle;
 	private ImInt selectedBasePart = new ImInt();
 	private final ImBoolean showBase10 = new ImBoolean(false);
 	private final ImBoolean showBase16 = new ImBoolean(false);
 	private final ImBoolean showBase27 = new ImBoolean(false);
 	
-	public DemoNumberPartDeskApp(VrGem4LocaleService localeService) {
-		this.localeService = localeService;
+	public DemoNumberPartDeskApp(ResourceBundle bundle) {
+		this.bundle = bundle;
 	}
 	
 	private String getTxt(String key) {
-		ResourceBundle bundle = ResourceBundle.getBundle("love.distributedrebirth.gdxapp4d.app.glyphdemo.Main", localeService.getTextLocale());
 		return bundle.getString(DemoNumberPartDeskApp.class.getSimpleName()+"."+key);
 	}
 	

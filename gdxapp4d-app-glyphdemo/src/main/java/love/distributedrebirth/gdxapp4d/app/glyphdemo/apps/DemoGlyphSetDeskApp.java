@@ -6,7 +6,6 @@ import imgui.ImGui;
 import imgui.flag.ImGuiTableFlags;
 import imgui.type.ImBoolean;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
-import love.distributedrebirth.gdxapp4d.vrgem4.service.VrGem4LocaleService;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.AbstractDeskApp;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppContourSection;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppRenderer;
@@ -15,15 +14,14 @@ import love.distributedrebirth.numberxd.glyph.BaseGlyphSet;
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class DemoGlyphSetDeskApp extends AbstractDeskApp {
 	
-	private final VrGem4LocaleService localeService;
+	private final ResourceBundle bundle;
 	private final ImBoolean showBase27 = new ImBoolean(false);
 	
-	public DemoGlyphSetDeskApp(VrGem4LocaleService localeService) {
-		this.localeService = localeService;
+	public DemoGlyphSetDeskApp(ResourceBundle bundle) {
+		this.bundle = bundle;
 	}
 	
 	private String getTxt(String key) {
-		ResourceBundle bundle = ResourceBundle.getBundle("love.distributedrebirth.gdxapp4d.app.glyphdemo.Main", localeService.getTextLocale());
 		return bundle.getString(DemoGlyphSetDeskApp.class.getSimpleName()+"."+key);
 	}
 	

@@ -1,5 +1,7 @@
 package love.distributedrebirth.gdxapp4d.app.glyphdemo;
 
+import java.util.ResourceBundle;
+
 import org.osgi.service.component.annotations.Activate;
 import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Deactivate;
@@ -11,6 +13,7 @@ import love.distributedrebirth.gdxapp4d.app.glyphdemo.apps.DemoNumberPartDeskApp
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxLog;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.VrGem4DeskAppService;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.VrGem4LocaleService;
+import love.distributedrebirth.gdxapp4d.vrgem4.service.VrGem4Unicode4DService;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppLauncher;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppMenuSection;
 
@@ -26,14 +29,22 @@ public class GlyphDemoComponent {
 	@Reference
 	private VrGem4LocaleService localeService;
 	
+	@Reference
+	private VrGem4Unicode4DService unicode4DService;
+	
+	private final static String I18N_BUNDLE = "love.distributedrebirth.gdxapp4d.app.glyphdemo.Main";
 	private final DeskAppLauncher unicodeLauncher;
 	private final DeskAppLauncher baseGlyphLauncher;
 	private final DeskAppLauncher basePartLauncher;
 	
 	public GlyphDemoComponent() {
-		unicodeLauncher = new DeskAppLauncher(DeskAppMenuSection.PROGRAMMING, "Demo Unicode Plane", () -> new DemoUnicodePlaneDeskApp(localeService));
-		baseGlyphLauncher = new DeskAppLauncher(DeskAppMenuSection.PROGRAMMING, "Demo Glyph Set", () -> new DemoGlyphSetDeskApp(localeService));
-		basePartLauncher = new DeskAppLauncher(DeskAppMenuSection.PROGRAMMING, "Demo Number Parts", () -> new DemoNumberPartDeskApp(localeService));
+		unicodeLauncher = new DeskAppLauncher(DeskAppMenuSection.PROGRAMMING, "Demo Unicode Plane", () -> new DemoUnicodePlaneDeskApp(createBundle()));
+		baseGlyphLauncher = new DeskAppLauncher(DeskAppMenuSection.PROGRAMMING, "Demo Glyph Set", () -> new DemoGlyphSetDeskApp(createBundle()));
+		basePartLauncher = new DeskAppLauncher(DeskAppMenuSection.PROGRAMMING, "Demo Number Parts", () -> new DemoNumberPartDeskApp(createBundle()));
+	}
+	
+	private ResourceBundle createBundle() {
+		return ResourceBundle.getBundle(I18N_BUNDLE, localeService.getTextLocale());
 	}
 	
 	@Activate

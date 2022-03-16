@@ -5,7 +5,6 @@ import java.util.ResourceBundle;
 import imgui.ImGui;
 import imgui.flag.ImGuiTableFlags;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
-import love.distributedrebirth.gdxapp4d.vrgem4.service.VrGem4LocaleService;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.AbstractDeskApp;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppContourSection;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppRenderer;
@@ -14,14 +13,13 @@ import love.distributedrebirth.unicode4d.UnicodePlaneᶻᴰ;
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class DemoUnicodePlaneDeskApp extends AbstractDeskApp implements DeskAppRenderer {
 	
-	private final VrGem4LocaleService localeService;
+	private final ResourceBundle bundle;
 	
-	public DemoUnicodePlaneDeskApp(VrGem4LocaleService localeService) {
-		this.localeService = localeService;
+	public DemoUnicodePlaneDeskApp(ResourceBundle bundle) {
+		this.bundle = bundle;
 	}
 	
 	private String getTxt(String key) {
-		ResourceBundle bundle = ResourceBundle.getBundle("love.distributedrebirth.gdxapp4d.app.glyphdemo.Main", localeService.getTextLocale());
 		return bundle.getString(DemoUnicodePlaneDeskApp.class.getSimpleName()+"."+key);
 	}
 	
@@ -38,12 +36,6 @@ public class DemoUnicodePlaneDeskApp extends AbstractDeskApp implements DeskAppR
 		ImGui.tableSetupColumn(getTxt("colText"));
 		ImGui.tableHeadersRow();
 		for (UnicodePlaneᶻᴰ plane:UnicodePlaneᶻᴰ.values()) {
-			if (plane.name().contains("SUPPLE")) {
-				continue;
-			}
-			if (plane.name().contains("EXTEN")) {
-				continue;
-			}
 			ImGui.tableNextRow();
 			ImGui.tableNextColumn();
 			ImGui.text(plane.name());
