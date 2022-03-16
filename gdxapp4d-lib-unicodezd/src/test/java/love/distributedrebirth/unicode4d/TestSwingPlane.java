@@ -22,12 +22,6 @@ public class TestSwingPlane extends JPanel {
 		
 		int x=0;
 		for (UnicodePlaneᶻᴰ plane:UnicodePlaneᶻᴰ.values()) {
-			if (plane.name().contains("SUPPLE")) {
-				continue;
-			}
-			if (plane.name().contains("EXTEN")) {
-				continue;
-			}
 			data[x][0] = plane.name();
 			StringBuilder buf = new StringBuilder();
 			int offset = 33;
