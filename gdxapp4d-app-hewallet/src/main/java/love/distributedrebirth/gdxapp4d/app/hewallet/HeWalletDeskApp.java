@@ -24,7 +24,7 @@ public class HeWalletDeskApp extends AbstractDeskApp implements DeskAppRenderer 
 		ImGui.separator();
 		if (ImGui.button("Pay")) {
 		}
-		int flags = ImGuiTableFlags.ScrollX | ImGuiTableFlags.RowBg | ImGuiTableFlags.BordersOuter | ImGuiTableFlags.BordersV;
+		int flags = ImGuiTableFlags.ScrollX | ImGuiTableFlags.RowBg | ImGuiTableFlags.BordersOuter | ImGuiTableFlags.BordersV | ImGuiTableFlags.Resizable;
 		ImGui.beginTable("wallet", 4, flags);
 		ImGui.tableSetupColumn("In/Out");
 		ImGui.tableSetupColumn("AmountRaw");
