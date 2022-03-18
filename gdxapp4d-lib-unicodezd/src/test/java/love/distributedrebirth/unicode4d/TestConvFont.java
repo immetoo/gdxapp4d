@@ -71,6 +71,15 @@ public class TestConvFont {
 			conf("code-2001", new File(in+"plane1/code-2001.ttf.xml"), new File(out+"plane1/code-2001.ttf4d"));
 			conf("new-gardiner-smp", new File(in+"plane1/new-gardiner-smp.ttf.xml"), new File(out+"plane1/new-gardiner-smp.ttf4d"));
 			conf("noto-sans-brahmi", new File(in+"plane1/noto-sans-brahmi.ttf.xml"), new File(out+"plane1/noto-sans-brahmi.ttf4d"));
+			conf("noto-sans-carian", new File(in+"plane1/noto-sans-carian.ttf.xml"), new File(out+"plane1/noto-sans-carian.ttf4d"));
+			conf("noto-sans-elbasan", new File(in+"plane1/noto-sans-elbasan.ttf.xml"), new File(out+"plane1/noto-sans-elbasan.ttf4d"));
+			conf("noto-sans-kaithi", new File(in+"plane1/noto-sans-kaithi.ttf.xml"), new File(out+"plane1/noto-sans-kaithi.ttf4d"));
+			conf("noto-sans-lycian", new File(in+"plane1/noto-sans-lycian.ttf.xml"), new File(out+"plane1/noto-sans-lycian.ttf4d"));
+			conf("noto-sans-old-sogdian", new File(in+"plane1/noto-sans-old-sogdian.ttf.xml"), new File(out+"plane1/noto-sans-old-sogdian.ttf4d"));
+			conf("noto-sans-osage", new File(in+"plane1/noto-sans-osage.ttf.xml"), new File(out+"plane1/noto-sans-osage.ttf4d"));
+			conf("noto-sans-psalter-pahlavi", new File(in+"plane1/noto-sans-psalter-pahlavi.ttf.xml"), new File(out+"plane1/noto-sans-psalter-pahlavi.ttf4d"));
+			conf("noto-sans-sogdian", new File(in+"plane1/noto-sans-sogdian.ttf.xml"), new File(out+"plane1/noto-sans-sogdian.ttf4d"));
+			conf("noto-serif-yezidi", new File(in+"plane1/noto-serif-yezidi.ttf.xml"), new File(out+"plane1/noto-serif-yezidi.ttf4d"));
 			
 			conf("code-2002", new File(in+"plane2/code-2002.ttf.xml"), new File(out+"plane2/code-2002.ttf4d"));
 			

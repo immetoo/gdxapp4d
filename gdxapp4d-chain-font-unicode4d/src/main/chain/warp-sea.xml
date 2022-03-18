@@ -30,6 +30,15 @@
 		<link:magic file="plane1/code-2001.ttf" mime="application/x-font-ttf-plane1"/>
 		<link:magic file="plane1/new-gardiner-smp.ttf" mime="application/x-font-ttf-plane1"/>
 		<link:magic file="plane1/noto-sans-brahmi.ttf" mime="application/x-font-ttf-plane1"/>
+		<link:magic file="plane1/noto-sans-carian.ttf" mime="application/x-font-ttf-plane1"/>
+		<link:magic file="plane1/noto-sans-elbasan.ttf" mime="application/x-font-ttf-plane1"/>
+		<link:magic file="plane1/noto-sans-kaithi.ttf" mime="application/x-font-ttf-plane1"/>
+		<link:magic file="plane1/noto-sans-lycian.ttf" mime="application/x-font-ttf-plane1"/>
+		<link:magic file="plane1/noto-sans-old-sogdian.ttf" mime="application/x-font-ttf-plane1"/>
+		<link:magic file="plane1/noto-sans-osage.ttf" mime="application/x-font-ttf-plane1"/>
+		<link:magic file="plane1/noto-sans-psalter-pahlavi.ttf" mime="application/x-font-ttf-plane1"/>
+		<link:magic file="plane1/noto-sans-sogdian.ttf" mime="application/x-font-ttf-plane1"/>
+		<link:magic file="plane1/noto-serif-yezidi.ttf" mime="application/x-font-ttf-plane1"/>
 		<link:magic file="plane2/code-2002.ttf" mime="application/x-font-ttf-plane2"/>
 		<link:magic file="plane0/code-2000.ttf4d" mime="application/x-font-ttf4d"/>
 		<link:magic file="plane0/free-sans.ttf4d" mime="application/x-font-ttf4d"/>
@@ -57,6 +66,15 @@
 		<link:magic file="plane1/code-2001.ttf4d" mime="application/x-font-ttf4d"/>
 		<link:magic file="plane1/new-gardiner-smp.ttf4d" mime="application/x-font-ttf4d"/>
 		<link:magic file="plane1/noto-sans-brahmi.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane1/noto-sans-carian.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane1/noto-sans-elbasan.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane1/noto-sans-kaithi.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane1/noto-sans-lycian.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane1/noto-sans-old-sogdian.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane1/noto-sans-osage.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane1/noto-sans-psalter-pahlavi.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane1/noto-sans-sogdian.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane1/noto-serif-yezidi.ttf4d" mime="application/x-font-ttf4d"/>
 		<link:magic file="plane2/code-2002.ttf4d" mime="application/x-font-ttf4d"/>
 	</link:sea>
 </root:ocean>

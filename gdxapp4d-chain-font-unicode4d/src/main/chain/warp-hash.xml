@@ -30,6 +30,15 @@
 	<soft:hash file="plane1/code-2001.ttf" hex="0"/>
 	<soft:hash file="plane1/new-gardiner-smp.ttf" hex="0"/>
 	<soft:hash file="plane1/noto-sans-brahmi.ttf" hex="0"/>
+	<soft:hash file="plane1/noto-sans-carian.ttf" hex="0"/>
+	<soft:hash file="plane1/noto-sans-elbasan.ttf" hex="0"/>
+	<soft:hash file="plane1/noto-sans-kaithi.ttf" hex="0"/>
+	<soft:hash file="plane1/noto-sans-lycian.ttf" hex="0"/>
+	<soft:hash file="plane1/noto-sans-old-sogdian.ttf" hex="0"/>
+	<soft:hash file="plane1/noto-sans-osage.ttf" hex="0"/>
+	<soft:hash file="plane1/noto-sans-psalter-pahlavi.ttf" hex="0"/>
+	<soft:hash file="plane1/noto-sans-sogdian.ttf" hex="0"/>
+	<soft:hash file="plane1/noto-serif-yezidi.ttf" hex="0"/>
 	<soft:hash file="plane2/code-2002.ttf" hex="0"/>
 	<soft:hash file="plane0/code-2000.ttf4d" hex="0"/>
 	<soft:hash file="plane0/free-sans.ttf4d" hex="0"/>
@@ -57,5 +66,14 @@
 	<soft:hash file="plane1/code-2001.ttf4d" hex="0"/>
 	<soft:hash file="plane1/new-gardiner-smp.ttf4d" hex="0"/>
 	<soft:hash file="plane1/noto-sans-brahmi.ttf4d" hex="0"/>
+	<soft:hash file="plane1/noto-sans-carian.ttf4d" hex="0"/>
+	<soft:hash file="plane1/noto-sans-elbasan.ttf4d" hex="0"/>
+	<soft:hash file="plane1/noto-sans-kaithi.ttf4d" hex="0"/>
+	<soft:hash file="plane1/noto-sans-lycian.ttf4d" hex="0"/>
+	<soft:hash file="plane1/noto-sans-old-sogdian.ttf4d" hex="0"/>
+	<soft:hash file="plane1/noto-sans-osage.ttf4d" hex="0"/>
+	<soft:hash file="plane1/noto-sans-psalter-pahlavi.ttf4d" hex="0"/>
+	<soft:hash file="plane1/noto-sans-sogdian.ttf4d" hex="0"/>
+	<soft:hash file="plane1/noto-serif-yezidi.ttf4d" hex="0"/>
 	<soft:hash file="plane2/code-2002.ttf4d" hex="0"/>
 </root:shot>
