@@ -105,7 +105,10 @@ public class GDXAppVrGem4Activator implements BundleActivator {
 		Gdx.app.postRunnable(new Runnable() {
 			@Override
 			public void run() {
-				imguiSetup.init(fonts, v -> logger.info(imguiSetup, v));
+				imguiSetup.init(fonts, v -> {
+					logger.info(imguiSetup, v);
+					bootScreen.bootLine(v);
+				});
 				imLoaded.set(true);
 			}
 		});

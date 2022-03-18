@@ -11,6 +11,7 @@ import imgui.ImFontGlyphRangesBuilder;
 import imgui.ImGui;
 import imgui.ImGuiIO;
 import imgui.ImGuiStyle;
+import imgui.flag.ImGuiBackendFlags;
 import imgui.gl3.ImGuiImplGl3;
 import imgui.glfw.ImGuiImplGlfw;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
@@ -36,6 +37,7 @@ public class ImGuiSetup {
 		imGuiImp.init(windowHandle, true);
 		imGuiGlImp.init("#version 140");
 		ImGui.getIO().setIniFilename(null);
+		ImGui.getIO().setBackendFlags(ImGuiBackendFlags.RendererHasVtxOffset);
 		ImGui.init();
 		initStyle();
 	}

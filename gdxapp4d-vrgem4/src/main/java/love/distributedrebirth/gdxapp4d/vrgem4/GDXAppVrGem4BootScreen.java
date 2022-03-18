@@ -22,7 +22,7 @@ public class GDXAppVrGem4BootScreen extends ScreenAdapter implements GDXAppVrGem
 	
 	public void create() {
 		batch = new SpriteBatch();
-		backgroundImage = new Texture(Gdx.files.internal("background/temple-os.png"));
+		backgroundImage = new Texture(Gdx.files.internal("background/gdxapp-loading.png"));
 	}
 	
 	@Override
@@ -31,11 +31,16 @@ public class GDXAppVrGem4BootScreen extends ScreenAdapter implements GDXAppVrGem
 		int textY = Gdx.graphics.getHeight();
 		int textYStep = 20;
 		batch.begin();
+		batch.draw(backgroundImage, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 		synchronized (messages) {
-			for (String message:messages) { 
+			int start = 0;
+			if (messages.size() > 33) {
+				start = messages.size() - 33;
+			}
+			List<String> part = messages.subList(start, messages.size());
+			for (String message:part) {
 				font.draw(batch, message, textX, textY-=textYStep);
 			}
-			batch.draw(backgroundImage, 200, textY, Gdx.graphics.getWidth() - 200, Gdx.graphics.getHeight() - textY);
 		}
 		batch.end();
 	}
