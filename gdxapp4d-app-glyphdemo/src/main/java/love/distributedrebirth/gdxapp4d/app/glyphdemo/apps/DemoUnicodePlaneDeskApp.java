@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 import imgui.ImGui;
 import imgui.flag.ImGuiStyleVar;
 import imgui.flag.ImGuiTableFlags;
+import imgui.type.ImBoolean;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.VrGem4Unicode4DService;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.AbstractDeskApp;
@@ -19,6 +20,7 @@ public class DemoUnicodePlaneDeskApp extends AbstractDeskApp implements DeskAppR
 	
 	private final VrGem4Unicode4DService unicode4DService;
 	private final ResourceBundle bundle;
+	private final ImBoolean render4DPlane0 = new ImBoolean(false);
 	
 	public DemoUnicodePlaneDeskApp(ResourceBundle bundle, VrGem4Unicode4DService unicode4DService) {
 		this.unicode4DService = unicode4DService;
@@ -36,6 +38,7 @@ public class DemoUnicodePlaneDeskApp extends AbstractDeskApp implements DeskAppR
 	
 	@Override
 	public void render() {
+		ImGui.checkbox(getTxt("render4DPlane0"), render4DPlane0);
 		int flags = ImGuiTableFlags.ScrollX | ImGuiTableFlags.RowBg | ImGuiTableFlags.BordersOuter | ImGuiTableFlags.BordersV | ImGuiTableFlags.Resizable;
 		ImGui.beginTable("base-part", 2, flags);
 		ImGui.tableSetupColumn(getTxt("colPlane"));
@@ -46,7 +49,7 @@ public class DemoUnicodePlaneDeskApp extends AbstractDeskApp implements DeskAppR
 			ImGui.tableNextColumn();
 			ImGui.text(plane.name());
 			ImGui.tableNextColumn();
-			if (1==0 && plane.isPlane0()) {
+			if (plane.isPlane0() && render4DPlane0.get() == false) {
 				StringBuilder buf = new StringBuilder();
 				int offset = 33;
 				for (int i=plane.getStart()+offset;i<plane.getStart()+33+offset;i++) {
@@ -57,20 +60,14 @@ public class DemoUnicodePlaneDeskApp extends AbstractDeskApp implements DeskAppR
 				}
 				ImGui.text(buf.toString());
 			} else {
-				// LIMITED;
-				// Dear ImGui Assertion Failed: draw_list->_VtxCurrentIdx < (1 << 16) && "Too many vertices in ImDrawList using 16-bit indices. Read comment above"
-				// Assertion Located At: /tmp/imgui/jni/imgui.cpp:4526
-				
 				ImGui.pushStyleVar(ImGuiStyleVar.ItemSpacing, 0f, 0f);
-				
 				DrawCharacter drawChar2 = unicode4DService.getCharacterForUnicode(' ');
 				if (drawChar2 != null) {
 					ImCharacter.render(drawChar2);
-					ImGui.sameLine(); // print before beginChild to fix height of table row
+					ImGui.sameLine(); // print before beginChild to fix row height of table
 				}
-				
 				int offset = 33;
-				ImGui.beginChild("row"+plane.name());
+				ImGui.beginChild("row"+plane.name()); // workaround for error; Too many vertices in ImDrawList using 16-bit indices.
 				for (int i=plane.getStart()+offset;i<plane.getStart()+33+offset;i++) {
 					DrawCharacter drawChar = unicode4DService.getCharacterForUnicode(i);
 					if (drawChar != null) {
@@ -81,7 +78,6 @@ public class DemoUnicodePlaneDeskApp extends AbstractDeskApp implements DeskAppR
 					ImGui.sameLine();
 				}
 				ImGui.endChild();
-				
 				ImGui.popStyleVar();
 			}
 		}
