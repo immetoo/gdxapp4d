@@ -38,7 +38,7 @@ public class GlyphDemoComponent {
 	private final DeskAppLauncher basePartLauncher;
 	
 	public GlyphDemoComponent() {
-		unicodeLauncher = new DeskAppLauncher(DeskAppMenuSection.PROGRAMMING, "Demo Unicode Plane", () -> new DemoUnicodePlaneDeskApp(createBundle()));
+		unicodeLauncher = new DeskAppLauncher(DeskAppMenuSection.PROGRAMMING, "Demo Unicode Plane", () -> new DemoUnicodePlaneDeskApp(createBundle(), unicode4DService));
 		baseGlyphLauncher = new DeskAppLauncher(DeskAppMenuSection.PROGRAMMING, "Demo Glyph Set", () -> new DemoGlyphSetDeskApp(createBundle()));
 		basePartLauncher = new DeskAppLauncher(DeskAppMenuSection.PROGRAMMING, "Demo Number Parts", () -> new DemoNumberPartDeskApp(createBundle()));
 	}

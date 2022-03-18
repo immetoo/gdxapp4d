@@ -13,7 +13,8 @@ public enum CodePointᶻᴰ {
 	INSTANCE;
 	
 	private static final int MASK_CMD     = 0b111000000000000000;
-	private static final int MASK_ARGU    = 0b000111111111111111;
+	private static final int MASK_SIGN    = 0b000100000000000000;
+	private static final int MASK_ARGU    = 0b000011111111111111;
 	
 	public static final int MODIFIER_STRIKE_HIGH  = 0b000000000000000001;
 	public static final int MODIFIER_STRIKE_MID   = 0b000000000000000010;
@@ -26,34 +27,36 @@ public enum CodePointᶻᴰ {
 	public static final int MODIFIER_ENVELOP      = 0b000000000100000000;
 	
 	public int getArgument(V036Teger teger, T02PartBinary part) {
-		return teger.getValue(part).getValueNumber() & MASK_ARGU;
+		int value = teger.getValue(part).getValueNumber();
+		int result = value & MASK_ARGU;
+		if ((value & MASK_SIGN) != 0) {
+			result |= 0xFFFFC000;
+		}
+		return result;
 	}
 	
 	public void setArgument(V036Teger teger, T02PartBinary part, int number) {
 		int value = teger.getValue(part).getValueNumber();
-		teger.getValue(part).setValueNumber((value & MASK_CMD) + (number & MASK_ARGU));
+		int result = (value & MASK_CMD) + ((number >> 17) & MASK_SIGN) + (number & MASK_ARGU);
+		teger.getValue(part).setValueNumber(result);
 	}
 	
 	public int getArgumentUnicode(V036Teger teger) {
 		int unicode = 0;
-		unicode += getArgument(teger, T02PartBinary.PART_1);
-		unicode += getArgument(teger, T02PartBinary.PART_2) << 15;
+		unicode += teger.getValue(T02PartBinary.PART_1).getValueNumber() & MASK_ARGU+MASK_SIGN;
+		unicode += (teger.getValue(T02PartBinary.PART_2).getValueNumber() & MASK_ARGU+MASK_SIGN) << 15;
 		return unicode;
 	}
 	
 	public void setArgumentUnicode(V036Teger teger, int unicode) {
-		setArgument(teger, T02PartBinary.PART_1, unicode);
-		setArgument(teger, T02PartBinary.PART_2, unicode >> 15);
-	}
-	/*
-	public long getArgumentNumber(V036Teger teger) {
-		return teger.getValueNumber();
+		int value1 = teger.getValue(T02PartBinary.PART_1).getValueNumber();
+		int value2 = teger.getValue(T02PartBinary.PART_2).getValueNumber();
+		value1 = (value1 & MASK_CMD) + (unicode & MASK_ARGU+MASK_SIGN);
+		value2 = (value2 & MASK_CMD) + ((unicode >> 15) & MASK_ARGU+MASK_SIGN);
+		teger.getValue(T02PartBinary.PART_1).setValueNumber(value1);
+		teger.getValue(T02PartBinary.PART_2).setValueNumber(value2);
 	}
 	
-	public void setArgumentNumber(V036Teger teger, long number) {
-		teger.setValueNumber(number);
-	}
-	*/
 	public CodePointCommandᶻᴰ getCommand(V036Teger teger) {
 		int mode = 0;
 		mode += (teger.getValue(T02PartBinary.PART_1).getValueNumber() >> 15) << 0;
@@ -65,8 +68,8 @@ public enum CodePointᶻᴰ {
 		int mode = command.ordinal();
 		int value1 = teger.getValue(T02PartBinary.PART_1).getValueNumber();
 		int value2 = teger.getValue(T02PartBinary.PART_2).getValueNumber();
-		teger.getValue(T02PartBinary.PART_1).setValueNumber((value1 & MASK_ARGU) + (((mode >> 0) & 0b111) << 15));
-		teger.getValue(T02PartBinary.PART_2).setValueNumber((value2 & MASK_ARGU) + (((mode >> 3) & 0b111) << 15));
+		teger.getValue(T02PartBinary.PART_1).setValueNumber(value1 | (((mode >> 0) << 15)) & MASK_CMD);
+		teger.getValue(T02PartBinary.PART_2).setValueNumber(value2 | (((mode >> 3) << 15)) & MASK_CMD);
 	}
 	
 	public int searchUnicode(List<V072Tong> tongs) {

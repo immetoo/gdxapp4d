@@ -391,6 +391,10 @@ public enum UnicodePlaneᶻᴰ {
 		return leftToRight;
 	}
 	
+	public boolean isPlane0() {
+		return getStart() < 0xFFFF;
+	}
+	
 	public static UnicodePlaneᶻᴰ valueOfUnicode(int unicode) {
 		for (UnicodePlaneᶻᴰ value:values()) {
 			if (unicode >= value.getStart() && unicode <= value.getStop()) {
