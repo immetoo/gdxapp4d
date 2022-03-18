@@ -42,7 +42,7 @@ public class TestConvFont {
 		try {
 			// NOTE: Are in order like the FontAtlas of ImGui
 			String in = "../gdxapp4d-chain-font-unicode4d/target/chain2/";
-			String out = "../gdxapp4d-chain-font-unicode4d/target/chain/";
+			String out = "../gdxapp4d-chain-font-unicode4d/src/main/chain/";
 			
 			conf("code-2000", new File(in+"plane0/code-2000.ttf.xml"), new File(out+"plane0/code-2000.ttf4d"));
 			conf("fa-solid-900", new File(in+"plane0/fa-solid-900.ttf.xml"), new File(out+"plane0/fa-solid-900.ttf4d"));
@@ -182,7 +182,11 @@ public class TestConvFont {
 				CodePointᶻᴰ.INSTANCE.setCommand(point.getValue(T02PartBinary.PART_1), CodePointCommandᶻᴰ.NOP);
 				CodePointᶻᴰ.INSTANCE.setCommand(point.getValue(T02PartBinary.PART_2), CodePointCommandᶻᴰ.NOP);
 				
-				unicode = Integer.parseInt(atts.getValue("unicode"), 16);
+				String unicodeStr = atts.getValue("unicode");
+				if (unicodeStr.startsWith("0000, ")) {
+					unicodeStr = unicodeStr.substring(7);
+				}
+				unicode = Integer.parseInt(unicodeStr, 16);
 				unicodePlane2 = UnicodePlaneᶻᴰ.valueOfUnicode(unicode);
 				int xMax = Integer.parseInt(atts.getValue("xMax"));
 				int yMax = Integer.parseInt(atts.getValue("yMax"));

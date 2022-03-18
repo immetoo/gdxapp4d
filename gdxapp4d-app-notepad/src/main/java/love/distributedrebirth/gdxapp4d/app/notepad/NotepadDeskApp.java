@@ -28,32 +28,24 @@ public class NotepadDeskApp extends AbstractDeskApp implements DeskAppRenderer {
 		ImGui.text("Value:");
 		ImGui.text(value);
 		
-		new ImCharacter(unicode4DService.getCharacterForUnicode(new Character('ﷲ').charValue())).render();
+		ImCharacter.render(unicode4DService.getCharacterForUnicode('ﷲ'));
 		ImGui.sameLine();
-		new ImCharacter(unicode4DService.getCharacterForUnicode(new Character('v').charValue())).render();
+		ImCharacter.render(unicode4DService.getCharacterForUnicode('v'));
 		ImGui.sameLine();
-		new ImCharacter(unicode4DService.getCharacterForUnicode(new Character('r').charValue())).render();
-		//ImGui.sameLine();
-		new ImCharacter(unicode4DService.getCharacterForUnicode(new Character('G').charValue())).render();
+		ImCharacter.render(unicode4DService.getCharacterForUnicode('r'));
 		ImGui.sameLine();
-		new ImCharacter(unicode4DService.getCharacterForUnicode(new Character('E').charValue())).render();
+		ImCharacter.render(unicode4DService.getCharacterForUnicode('G'));
 		ImGui.sameLine();
-		new ImCharacter(unicode4DService.getCharacterForUnicode(new Character('M').charValue())).render();
+		ImCharacter.render(unicode4DService.getCharacterForUnicode('E'));
 		ImGui.sameLine();
-		new ImCharacter(unicode4DService.getCharacterForUnicode(new Character('⁴').charValue())).render();
+		ImCharacter.render(unicode4DService.getCharacterForUnicode('M'));
 		ImGui.sameLine();
-		new ImCharacter(unicode4DService.getCharacterForUnicode(new Character('\'').charValue())).render();
+		ImCharacter.render(unicode4DService.getCharacterForUnicode('⁴'));
 		
-		new ImCharacter(unicode4DService.getCharacterForUnicode(new Character('^').charValue())).render();
+		ImCharacter.render(unicode4DService.getCharacterForUnicode('M'));
 		ImGui.sameLine();
-		new ImCharacter(unicode4DService.getCharacterForUnicode(new Character('ᵃ').charValue())).render();
+		ImCharacter.render(unicode4DService.getCharacterForUnicode(Integer.parseInt("27d6", 16)));
 		ImGui.sameLine();
-		new ImCharacter(unicode4DService.getCharacterForUnicode(new Character('a').charValue())).render();
-		ImGui.sameLine();
-		new ImCharacter(unicode4DService.getCharacterForUnicode(new Character('A').charValue())).render();
-		ImGui.sameLine();
-		new ImCharacter(unicode4DService.getCharacterForUnicode(Integer.parseInt("27d6", 16))).render();
-		ImGui.sameLine();
-		new ImCharacter(unicode4DService.getCharacterForUnicode(new Character('仙').charValue())).render();
+		ImCharacter.render(unicode4DService.getCharacterForUnicode('仙'));
 	}
 }

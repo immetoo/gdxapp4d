@@ -22,15 +22,26 @@ for(let glyphIndex = 0; glyphIndex < num; glyphIndex++) {
 	// JS NOTE: without calling xMin the getContours returns empty set.... :''(
 	glyph.xMin;
 	var contours = glyph.getContours();
-	if (contours.length === 0) {
-		continue; // TODO: add compound support
-	}
+//space is also without contours
+//	if (contours.length === 0) {
+//		continue; // TODO: add compound support
+//	}
 	if (glyph.unicodes.length === 0) {
 		continue; // with cmds, these are compound glyphs by index base only
 	}
 	let uni = glyph.unicodes.map(formatUnicode).join(', ');
+	
+	let xMax = glyph.xMax;
+	let yMax = glyph.yMax;
+	let xMin = glyph.xMin;
+	let yMin = glyph.yMin;
+	if (glyph.xMax === undefined) { xMax = 0; }
+	if (glyph.yMax === undefined) { yMax = 0; }
+	if (glyph.xMin === undefined) { xMin = 0; }
+	if (glyph.yMin === undefined) { yMin = 0; }
+	
 	console.log("\t<glyph unicode=\""+uni+"\" name=\""+glyph.name+"\" advanceWidth=\""+glyph.advanceWidth+"\" "+
-		"xMin=\""+glyph.xMin+"\" xMax=\""+glyph.xMax+"\" yMin=\""+glyph.yMin+"\" yMax=\""+glyph.yMax+"\" "+
+		"xMin=\""+xMin+"\" xMax=\""+xMax+"\" yMin=\""+yMin+"\" yMax=\""+yMax+"\" "+
 		"leftSideBearing=\""+glyph.leftSideBearing+"\">");
 	
 	for (let contourIndex = 0; contourIndex < contours.length; ++contourIndex) {
