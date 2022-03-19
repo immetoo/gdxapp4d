@@ -6,7 +6,6 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinStoreʸᴰ;
 import love.distributedrebirth.bassboonyd.DefaultEnumSetʸᴰ;
-import love.distributedrebirth.numberxd.glyph.BaseGlyphSet;
 import love.distributedrebirth.bassboonyd.BãßBȍőnInitMethodʸᴰ;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
@@ -50,17 +49,5 @@ public interface BãßBȍőnPartʸᴰ<T extends BãßBȍőnPartʸᴰ<T>> extends
 			mapChina.putAll(BãßInstancesToMap(v -> v.BȍőnChinaKey()));
 		}
 		return (T) mapChina.get(chinaKey);
-	}
-	
-	default String BȍőnPrintGlyphSetNumber10(BaseGlyphSet glyphSet) {
-		return glyphSet.BȍőnPrintNumber10(BȍőnRangTelNul(), BãßInstances().length - 1);
-	}
-	
-	default String BȍőnPrintGlyphSetNumber16(BaseGlyphSet glyphSet) {
-		return glyphSet.BȍőnPrintNumber16(BȍőnRangTelNul(), BãßInstances().length - 1);
-	}
-	
-	default String BȍőnPrintGlyphSetNumber27(BaseGlyphSet glyphSet) {
-		return glyphSet.BȍőnPrintNumber27(BȍőnRangTelNul(), BãßInstances().length - 1);
 	}
 }

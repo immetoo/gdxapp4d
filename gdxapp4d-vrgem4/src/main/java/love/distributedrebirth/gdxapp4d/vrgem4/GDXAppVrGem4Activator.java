@@ -33,7 +33,7 @@ import love.distributedrebirth.gdxapp4d.vrgem4.service.VrGem4DeskAppService;
 import love.distributedrebirth.numberxd.base2t.Base2PartsFactory;
 import love.distributedrebirth.numberxd.base2t.Base2Terminator;
 import love.distributedrebirth.numberxd.base2t.part.warp.TOSWarpCore;
-import love.distributedrebirth.numberxd.glyph.BaseGlyphSet;
+import love.distributedrebirth.unicode4d.BaseGlyphSet;
 import love.distributedrebirth.warpme.ship.WaterShipOcean;
 
 public class GDXAppVrGem4Activator implements BundleActivator {

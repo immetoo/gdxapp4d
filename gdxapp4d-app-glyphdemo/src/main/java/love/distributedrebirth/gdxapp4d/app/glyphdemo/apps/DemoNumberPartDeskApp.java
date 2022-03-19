@@ -18,7 +18,7 @@ import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt2ʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt3ʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartAlt4ʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartʸᴰ;
-import love.distributedrebirth.numberxd.glyph.BaseGlyphSet;
+import love.distributedrebirth.unicode4d.BaseGlyphSet;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class DemoNumberPartDeskApp extends AbstractDeskApp implements DeskAppRenderer {
@@ -124,35 +124,35 @@ public class DemoNumberPartDeskApp extends AbstractDeskApp implements DeskAppRen
 			ImGui.text(part.BȍőnDialTone());
 			if (showBase10.get()) {
 				ImGui.tableNextColumn();
-				ImGui.text(part.BȍőnPrintGlyphSetNumber10(BaseGlyphSet.TONE_SCRIPT));
+				ImGui.text(BaseGlyphSet.TONE_SCRIPT.BȍőnPrintNumber10(part.BȍőnRangTelNul(), part.BãßInstances().length - 1));
 				ImGui.tableNextColumn();
-				ImGui.text(part.BȍőnPrintGlyphSetNumber10(BaseGlyphSet.KOREAN));
+				ImGui.text(BaseGlyphSet.KOREAN.BȍőnPrintNumber10(part.BȍőnRangTelNul(), part.BãßInstances().length - 1));
 				ImGui.tableNextColumn();
-				ImGui.text(part.BȍőnPrintGlyphSetNumber10(BaseGlyphSet.BENGALI));
+				ImGui.text(BaseGlyphSet.BENGALI.BȍőnPrintNumber10(part.BȍőnRangTelNul(), part.BãßInstances().length - 1));
 				ImGui.tableNextColumn();
-				ImGui.text(part.BȍőnPrintGlyphSetNumber10(BaseGlyphSet.ARABIC));
+				ImGui.text(BaseGlyphSet.ARABIC.BȍőnPrintNumber10(part.BȍőnRangTelNul(), part.BãßInstances().length - 1));
 			}
 			if (showBase16.get()) {
 				ImGui.tableNextColumn();
-				ImGui.text(part.BȍőnPrintGlyphSetNumber16(BaseGlyphSet.TONE_SCRIPT));
+				ImGui.text(BaseGlyphSet.TONE_SCRIPT.BȍőnPrintNumber16(part.BȍőnRangTelNul(), part.BãßInstances().length - 1));
 				ImGui.tableNextColumn();
-				ImGui.text(part.BȍőnPrintGlyphSetNumber16(BaseGlyphSet.KOREAN));
+				ImGui.text(BaseGlyphSet.KOREAN.BȍőnPrintNumber16(part.BȍőnRangTelNul(), part.BãßInstances().length - 1));
 				ImGui.tableNextColumn();
-				ImGui.text(part.BȍőnPrintGlyphSetNumber16(BaseGlyphSet.RUNIC));
+				ImGui.text(BaseGlyphSet.RUNIC.BȍőnPrintNumber16(part.BȍőnRangTelNul(), part.BãßInstances().length - 1));
 				ImGui.tableNextColumn();
-				ImGui.text(part.BȍőnPrintGlyphSetNumber16(BaseGlyphSet.LATIN_BASIC));
+				ImGui.text(BaseGlyphSet.LATIN_BASIC.BȍőnPrintNumber16(part.BȍőnRangTelNul(), part.BãßInstances().length - 1));
 			}
 			if (showBase27.get()) {
 				ImGui.tableNextColumn();
-				ImGui.text(part.BȍőnPrintGlyphSetNumber27(BaseGlyphSet.TONE_SCRIPT));
+				ImGui.text(BaseGlyphSet.TONE_SCRIPT.BȍőnPrintNumber27(part.BȍőnRangTelNul(), part.BãßInstances().length - 1));
 				ImGui.tableNextColumn();
-				ImGui.text(part.BȍőnPrintGlyphSetNumber27(BaseGlyphSet.KOREAN));
+				ImGui.text(BaseGlyphSet.KOREAN.BȍőnPrintNumber27(part.BȍőnRangTelNul(), part.BãßInstances().length - 1));
 				ImGui.tableNextColumn();
-				ImGui.text(part.BȍőnPrintGlyphSetNumber27(BaseGlyphSet.LATIN_BASIC));
+				ImGui.text(BaseGlyphSet.LATIN_BASIC.BȍőnPrintNumber27(part.BȍőnRangTelNul(), part.BãßInstances().length - 1));
 				ImGui.tableNextColumn();
-				ImGui.text(part.BȍőnPrintGlyphSetNumber27(BaseGlyphSet.GREEK));
+				ImGui.text(BaseGlyphSet.GREEK.BȍőnPrintNumber27(part.BȍőnRangTelNul(), part.BãßInstances().length - 1));
 				ImGui.tableNextColumn();
-				ImGui.text(part.BȍőnPrintGlyphSetNumber27(BaseGlyphSet.MALAYALAM));
+				ImGui.text(BaseGlyphSet.MALAYALAM.BȍőnPrintNumber27(part.BȍőnRangTelNul(), part.BãßInstances().length - 1));
 			}
 			ImGui.tableNextColumn();
 			ImGui.text(part.BȍőnChinaKey());

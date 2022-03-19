@@ -1,4 +1,4 @@
-package love.distributedrebirth.numberxd.glyph;
+package love.distributedrebirth.unicode4d;
 
 import java.text.DecimalFormat;
 

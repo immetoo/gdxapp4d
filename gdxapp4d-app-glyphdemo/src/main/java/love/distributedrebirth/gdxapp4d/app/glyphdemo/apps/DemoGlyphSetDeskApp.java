@@ -9,7 +9,7 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.AbstractDeskApp;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppContourSection;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppRenderer;
-import love.distributedrebirth.numberxd.glyph.BaseGlyphSet;
+import love.distributedrebirth.unicode4d.BaseGlyphSet;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class DemoGlyphSetDeskApp extends AbstractDeskApp {
