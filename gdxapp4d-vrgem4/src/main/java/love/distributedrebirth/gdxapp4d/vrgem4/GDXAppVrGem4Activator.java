@@ -30,6 +30,7 @@ import love.distributedrebirth.gdxapp4d.vrgem4.screen.ScreenDesktop4;
 import love.distributedrebirth.gdxapp4d.vrgem4.screen.ScreenHelp;
 import love.distributedrebirth.gdxapp4d.vrgem4.screen.ScreenIntroMission;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.VrGem4DeskAppService;
+import love.distributedrebirth.gdxapp4d.vrgem4.service.VrGem4Unicode4DService;
 import love.distributedrebirth.numberxd.base2t.Base2PartsFactory;
 import love.distributedrebirth.numberxd.base2t.Base2Terminator;
 import love.distributedrebirth.numberxd.base2t.Base2WarpCore;
@@ -71,121 +72,21 @@ public class GDXAppVrGem4Activator implements BundleActivator {
 		ServiceReference<SystemWarpShip> systemWarpShipRef = context.getServiceReference(SystemWarpShip.class);
 		SystemWarpShip systemWarpShip = context.getService(systemWarpShipRef);
 		
-		logger.info(this, "Booting");
-		GDXAppVrGem4BootScreen bootScreen = new GDXAppVrGem4BootScreen(gdxFont.getFont());
-		Gdx.app.postRunnable(new Runnable() {
-			@Override
-			public void run() {
-				bootScreen.create();
-				terminal.registrateScreen(bootScreen);
-				terminal.selectScreen(GDXAppVrGem4BootScreen.class);
-			}
-		});
-		try {
-			Thread.sleep(100);
-		} catch (InterruptedException ignored) {
-		}
-		
-		bootScreen.bootLine("==========================");
-		bootScreen.bootLine("     @Ω仙⁴ ˧꜏⋇꜊꜔ ⁴ﷲΩ@    ");
-		bootScreen.bootLine("        ©Δ∞ 仙上主天       ");
-		bootScreen.bootLine("בְּרֵאשִׁית :o: יְסוֺד :o: יִשְׂרָאֵל");
-		bootScreen.bootLine("==========================");
-		bootScreen.bootLine("Boot: vrGEM⁴ - TOS⁴ - MSX⁴");
-		
-		// ref to init
-		for (DefaultEnumBaseᴶᴹˣ<?,?> coffin:coffinInstances()) {
-			BãßBȍőnCoffinOpenʸᴰ.lockCoffin(coffin, v -> bootScreen.bootLine(v));
-		}
-		bootScreen.bootLine("BãßBȍőnCoffinʸᴰ init done.");
-		
-		List<File> fonts = systemWarpShip.searchMagic(context, "application/x-font-ttf-plane0");
-		bootScreen.bootLine("ImGui Setup");
-		ImBoolean imLoaded = new ImBoolean(false);
-		Gdx.app.postRunnable(new Runnable() {
-			@Override
-			public void run() {
-				imguiSetup.init(fonts, v -> {
-					logger.info(imguiSetup, v);
-					bootScreen.bootLine(v);
-				});
-				imLoaded.set(true);
-			}
-		});
-		while (!imLoaded.get()) { 
-			try {
-				Thread.sleep(100);
-			} catch (InterruptedException ignored) {
-			}
-		}
-		bootScreen.bootLine("ImGui Loaded");
-		
 		ServiceReference<SystemGdxBootArgs> bootArgsRef = context.getServiceReference(SystemGdxBootArgs.class);
 		SystemGdxBootArgs bootArgs = context.getService(bootArgsRef);
 		
-		/*
-		bootScreen.bootLine("warpcore: Check request");
-		try {
-			if (args.contains("warpcore-load")) {
-				bootScreen.bootLine("warpcore-load: requested");
-				WaterBucket bucket = WaterBucketDriver.newInstance().createReader().readFile("./warpcore.xml");
-				TOSWarpCore.INSTANCE.BãßArmWarpCore(bucket);
-			}
-			if (args.contains("warpcore-save")) {
-				bootScreen.bootLine("warpcore-save: requested");
-				WaterBucket bucket = TOSWarpCore.INSTANCE.BãßCurrentWarpCore();
-				WaterBucketDriver.newInstance().createWriter().writeFile(bucket, "./warpcore.xml");
-			}
-		} catch (Exception e) {
-			throw new RuntimeException(e);
-		}
-		*/
-		if (!bootArgs.isWarpCoreNoLock()) {
-			bootScreen.bootLine("warpcore-lock: BãßLockWarpCipher");
-			Base2WarpCore.INSTANCE.BãßLockWarpCipher(v -> {});
-		} else {
-			bootScreen.bootLine("warpcore-nolock: requested");
-		}
+		logger.info(this, "Booting");
+		GDXAppVrGem4BootScreen bootScreen = createBootScreen(terminal, gdxFont);
 		
-		/*
-		if (args.contains("full-screen")) {
-			bootScreen.bootLine("full-screen: requested");
-			Gdx.app.postRunnable(new Runnable() {
-				@Override
-				public void run() {
-					Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());
-				}
-			});
-		}
-		*/
-		
-		bootScreen.bootLine("vrGEM⁴: init");
-		//GDXAppVrGem4.INSTANCE.init(terminal);
-		
+		printBootLogo(bootScreen);
+		lockCoffins(bootScreen);
+		startImGui(bootScreen, context, systemWarpShip);
+		startWarpCore(bootScreen, bootArgs);
 		
 		VrGem4DeskAppServiceImpl deskAppService = new VrGem4DeskAppServiceImpl();
 		context.registerService(VrGem4DeskAppService.class.getName(), deskAppService, new Hashtable<String, String>());
 		
-		bootScreen.bootLine("terminal: added screens");
-		Gdx.app.postRunnable(new Runnable() {
-			@Override
-			public void run() {
-				terminal.registrateScreen(new ScreenDesktop1(bootArgs, terminal, deskAppService));
-				terminal.registrateScreen(new ScreenDesktop2(bootArgs, terminal, deskAppService));
-				terminal.registrateScreen(new ScreenDesktop3(bootArgs, terminal, deskAppService));
-				terminal.registrateScreen(new ScreenDesktop4(bootArgs, terminal, deskAppService));
-				terminal.registrateScreen(new ScreenCredits(terminal));
-				terminal.registrateScreen(new ScreenHelp(terminal));
-				terminal.registrateScreen(new ScreenIntroMission(terminal));
-			}
-		});
-		try {
-			Thread.sleep(100);
-		} catch (InterruptedException ignored) {
-		}
-		
-		
-
+		startTerminalScreens(bootScreen, bootArgs, terminal, deskAppService);
 		
 		List<SystemWarpSea> registratedSeas = new ArrayList<>();
 		int result = 0;
@@ -224,6 +125,97 @@ public class GDXAppVrGem4Activator implements BundleActivator {
 			}
 		});
 		
+		VrGem4Unicode4DServiceImpl unicodeService = new VrGem4Unicode4DServiceImpl();
+		unicodeService.init(context, systemWarpShip, (v) -> bootScreen.bootLine(v));
+		context.registerService(VrGem4Unicode4DService.class.getName(), unicodeService, new Hashtable<String, String>());
+		
+		startBundles(bootScreen);
+	}
+	
+	private GDXAppVrGem4BootScreen createBootScreen(SystemGdxTerminal terminal, SystemGdxFont gdxFont) {
+		GDXAppVrGem4BootScreen bootScreen = new GDXAppVrGem4BootScreen(gdxFont.getFont());
+		Gdx.app.postRunnable(new Runnable() {
+			@Override
+			public void run() {
+				bootScreen.create();
+				terminal.registrateScreen(bootScreen);
+				terminal.selectScreen(GDXAppVrGem4BootScreen.class);
+			}
+		});
+		try {
+			Thread.sleep(100);
+		} catch (InterruptedException ignored) {
+		}
+		return bootScreen;
+	}
+	
+	private void printBootLogo(GDXAppVrGem4BootScreen bootScreen) {
+		bootScreen.bootLine("==========================");
+		bootScreen.bootLine("     @Ω仙⁴ ˧꜏⋇꜊꜔ ⁴ﷲΩ@    ");
+		bootScreen.bootLine("        ©Δ∞ 仙上主天       ");
+		bootScreen.bootLine("בְּרֵאשִׁית :o: יְסוֺד :o: יִשְׂרָאֵל");
+		bootScreen.bootLine("==========================");
+		bootScreen.bootLine("Boot: MSX⁴ - TOS⁴ - vrGEM⁴");
+	}
+	
+	private void lockCoffins(GDXAppVrGem4BootScreen bootScreen) {
+		// ref to init
+		for (DefaultEnumBaseᴶᴹˣ<?,?> coffin:coffinInstances()) {
+			BãßBȍőnCoffinOpenʸᴰ.lockCoffin(coffin, v -> bootScreen.bootLine(v));
+		}
+		bootScreen.bootLine("BãßBȍőnCoffinʸᴰ init done.");
+	}
+	
+	private void startImGui(GDXAppVrGem4BootScreen bootScreen, BundleContext context, SystemWarpShip systemWarpShip) {
+		List<File> fonts = systemWarpShip.searchMagic(context, "application/x-font-ttf-plane0");
+		bootScreen.bootLine("ImGui Setup");
+		ImBoolean imLoaded = new ImBoolean(false);
+		Gdx.app.postRunnable(new Runnable() {
+			@Override
+			public void run() {
+				imguiSetup.init(fonts, v -> bootScreen.bootLine(v));
+				imLoaded.set(true);
+			}
+		});
+		while (!imLoaded.get()) { 
+			try {
+				Thread.sleep(100);
+			} catch (InterruptedException ignored) {
+			}
+		}
+		bootScreen.bootLine("ImGui Loaded");
+	}
+	
+	private void startWarpCore(GDXAppVrGem4BootScreen bootScreen, SystemGdxBootArgs bootArgs) {
+		if (!bootArgs.isWarpCoreNoLock()) {
+			bootScreen.bootLine("warpcore-lock: BãßLockWarpCipher");
+			Base2WarpCore.INSTANCE.BãßLockWarpCipher(v -> {});
+		} else {
+			bootScreen.bootLine("warpcore-nolock: requested");
+		}
+	}
+	
+	private void startTerminalScreens(GDXAppVrGem4BootScreen bootScreen, SystemGdxBootArgs bootArgs, SystemGdxTerminal terminal, VrGem4DeskAppServiceImpl deskAppService) {
+		bootScreen.bootLine("vrGEM⁴: add terminal screens");
+		Gdx.app.postRunnable(new Runnable() {
+			@Override
+			public void run() {
+				terminal.registrateScreen(new ScreenDesktop1(bootArgs, terminal, deskAppService));
+				terminal.registrateScreen(new ScreenDesktop2(bootArgs, terminal, deskAppService));
+				terminal.registrateScreen(new ScreenDesktop3(bootArgs, terminal, deskAppService));
+				terminal.registrateScreen(new ScreenDesktop4(bootArgs, terminal, deskAppService));
+				terminal.registrateScreen(new ScreenCredits(terminal));
+				terminal.registrateScreen(new ScreenHelp(terminal));
+				terminal.registrateScreen(new ScreenIntroMission(terminal));
+			}
+		});
+		try {
+			Thread.sleep(100);
+		} catch (InterruptedException ignored) {
+		}
+	}
+	
+	private void startBundles(GDXAppVrGem4BootScreen bootScreen) {
 		try {
 			Thread.sleep(VIEW_SLEEP_TIME);
 		} catch (InterruptedException ignored) {

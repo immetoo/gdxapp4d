@@ -4,14 +4,10 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Consumer;
 
 import org.osgi.framework.BundleContext;
-import org.osgi.service.component.annotations.Activate;
-import org.osgi.service.component.annotations.Component;
-import org.osgi.service.component.annotations.Deactivate;
-import org.osgi.service.component.annotations.Reference;
 
-import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxLog;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemWarpShip;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.VrGem4Unicode4DService;
 import love.distributedrebirth.unicode4d.CodePointᶻᴰ;
@@ -21,19 +17,11 @@ import love.distributedrebirth.unicode4d.atlas.FontAtlasStore;
 import love.distributedrebirth.unicode4d.atlas.FontAtlasStoreGlyph;
 import love.distributedrebirth.unicode4d.draw.DrawCharacter;
 
-@Component
 public class VrGem4Unicode4DServiceImpl implements VrGem4Unicode4DService {
 	
 	private final FontAtlas masterFontAtlas;
 	private final Map<Integer, FontAtlasStoreGlyph> unicodeMap;
 	private final Map<Integer, DrawCharacter> unicodeCharMap;
-	
-	@Reference
-	private SystemGdxLog log;
-	
-	@Reference
-	private SystemWarpShip warpShip;
-	
 	
 	public VrGem4Unicode4DServiceImpl() {
 		masterFontAtlas = new FontAtlas();
@@ -41,24 +29,23 @@ public class VrGem4Unicode4DServiceImpl implements VrGem4Unicode4DService {
 		unicodeCharMap = new HashMap<>();
 	}
 	
-	@Activate
-	void open(final BundleContext context) {
-		log.debug(this, SystemGdxLog.ACTIVATE);
+	public void init(final BundleContext context, SystemWarpShip warpShip, Consumer<String> log) {
 		List<File> glyps = warpShip.searchMagic(context, "application/x-font-ttf4d");
 		try {
 			for (File glypSet:glyps) {
-				log.debug(this, "Loading glypSet: {}", glypSet);
+				log.accept("Loading glypSet: "+glypSet);
 				FontAtlas atlas = FontAtlasDriver.newInstance().createReader().readFile(glypSet);
 				masterFontAtlas.setStores(atlas.getStores());
 			}
 		} catch (Exception e) {
-			log.error(this, e.getMessage(), e);
+			e.printStackTrace();
+			log.accept("ERROR: "+e.getMessage());
 		}
-		log.info(this, "Master font atlas size: {}", masterFontAtlas.getStores().size());
+		log.accept("Master font atlas size: "+masterFontAtlas.getStores().size());
 		
 		int dup = 0;
 		for (FontAtlasStore fontStore:masterFontAtlas.getStores()) {
-			log.info(this,"Map unicode: {} size: {}", fontStore.getName(), fontStore.getGlyphs().size());
+			log.accept("Map unicode: "+fontStore.getName()+" size: "+fontStore.getGlyphs().size());
 			for (FontAtlasStoreGlyph glyph: fontStore.getGlyphs()) {
 				int unicode = CodePointᶻᴰ.INSTANCE.searchUnicode(glyph.getTongs());
 				if (unicodeMap.containsKey(unicode)) {
@@ -70,17 +57,13 @@ public class VrGem4Unicode4DServiceImpl implements VrGem4Unicode4DService {
 					try {
 						unicodeCharMap.put(unicode, new DrawCharacter(glyph));
 					} catch (Exception e) {
-						log.error(this, e.getMessage(), e);
+						e.printStackTrace();
+						log.accept("ERROR: "+e.getMessage());
 					}
 				}
 			}
 		}
-		log.info(this, "unicode map size: {} dups: {}", unicodeMap.size(), dup);
-	}
-	
-	@Deactivate
-	void close() {
-		log.debug(this, SystemGdxLog.DEACTIVATE);
+		log.accept("unicode map size: "+unicodeMap.size()+" dups: "+dup);
 	}
 	
 	@Override
