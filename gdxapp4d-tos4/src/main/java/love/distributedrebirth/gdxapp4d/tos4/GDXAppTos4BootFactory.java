@@ -123,7 +123,6 @@ public class GDXAppTos4BootFactory {
 				"love.distributedrebirth.numberxd,"+
 				"love.distributedrebirth.numberxd.base2t,"+
 				"love.distributedrebirth.numberxd.base2t.part,"+
-				"love.distributedrebirth.numberxd.base2t.part.warp,"+
 				"love.distributedrebirth.numberxd.base2t.type,"+
 				"love.distributedrebirth.numberxd.base2t.typexl,"+
 				"love.distributedrebirth.numberxd.x4o,"+

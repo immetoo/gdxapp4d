@@ -32,7 +32,7 @@ import love.distributedrebirth.gdxapp4d.vrgem4.screen.ScreenIntroMission;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.VrGem4DeskAppService;
 import love.distributedrebirth.numberxd.base2t.Base2PartsFactory;
 import love.distributedrebirth.numberxd.base2t.Base2Terminator;
-import love.distributedrebirth.numberxd.base2t.part.warp.TOSWarpCore;
+import love.distributedrebirth.numberxd.base2t.Base2WarpCore;
 import love.distributedrebirth.unicode4d.BaseGlyphSet;
 import love.distributedrebirth.warpme.ship.WaterShipOcean;
 
@@ -142,7 +142,7 @@ public class GDXAppVrGem4Activator implements BundleActivator {
 		*/
 		if (!bootArgs.isWarpCoreNoLock()) {
 			bootScreen.bootLine("warpcore-lock: BãßLockWarpCipher");
-			TOSWarpCore.INSTANCE.BãßLockWarpCipher(v -> {});
+			Base2WarpCore.INSTANCE.BãßLockWarpCipher(v -> {});
 		} else {
 			bootScreen.bootLine("warpcore-nolock: requested");
 		}
@@ -238,7 +238,7 @@ public class GDXAppVrGem4Activator implements BundleActivator {
 				BaseGlyphSet.values()[0],
 				Base2Terminator.INSTANCE,
 				Base2PartsFactory.INSTANCE,
-				TOSWarpCore.INSTANCE
+				Base2WarpCore.INSTANCE
 		};
 	}
 }

@@ -1,4 +1,4 @@
-package love.distributedrebirth.numberxd.base2t.part.warp;
+package love.distributedrebirth.numberxd.base2t;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,7 +14,6 @@ import love.distributedrebirth.bassboonyd.jmx.MBeanStoreKeyᴶᴹˣ;
 import love.distributedrebirth.bassboonyd.jmx.DefaultEnumInstanceᴶᴹˣ;
 import love.distributedrebirth.bassboonyd.jmx.GuageCounterᴶᴹˣ;
 import love.distributedrebirth.bassboonyd.jmx.StringAttributeᴶᴹˣ;
-import love.distributedrebirth.numberxd.base2t.Base2PartsFactory;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartKeyʸᴰ;
 import love.distributedrebirth.numberxd.base2t.part.BãßBȍőnPartʸᴰ;
 import love.distributedrebirth.warpme.core.WaterBucket;
@@ -23,9 +22,9 @@ import love.distributedrebirth.warpme.core.WaterCipherHeart;
 import love.distributedrebirth.warpme.core.WaterCipherHeartTone;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
-@BãßBȍőnClassInfoʸᴰ(name = "TOSWarpCore", purpose = "The warpcore writer and armor manager.")
+@BãßBȍőnClassInfoʸᴰ(name = "Base2WarpCore", purpose = "The warpcore writer and armor manager.")
 @BãßBȍőnPackageInfoʸᴰ(name = "love.distributedrebirth.numberxd")
-public enum TOSWarpCore implements DefaultEnumInstanceᴶᴹˣ<TOSWarpCore,MBeanStoreKeyᴶᴹˣ> {
+public enum Base2WarpCore implements DefaultEnumInstanceᴶᴹˣ<Base2WarpCore,MBeanStoreKeyᴶᴹˣ> {
 	
 	INSTANCE;
 	
@@ -38,7 +37,7 @@ public enum TOSWarpCore implements DefaultEnumInstanceᴶᴹˣ<TOSWarpCore,MBean
 	private final BãßBȍőnCoffinOpenʸᴰ<MBeanStoreKeyᴶᴹˣ> BBC = BãßBȍőnCoffinOpenʸᴰ.newInstance();
 	public BãßBȍőnCoffinʸᴰ<MBeanStoreKeyᴶᴹˣ> GET_BBC() { return BBC; }
 	
-	private TOSWarpCore() {
+	private Base2WarpCore() {
 		BBC.BOON_INIT(this);
 		BȍőnJmxInit(MBeanStoreKeyᴶᴹˣ.JMX);
 		warpCoreReads = BȍőnJmxInitGuageCounter(MBeanStoreKeyᴶᴹˣ.JMX, "warpCoreReads", "The amount of warpcore reads.");
