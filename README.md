@@ -1,8 +1,20 @@
 # GDXApp⁴ᴰ
 
-POC of UI/Code coded in java with libGDX and ImGui.
+In Duytschen "Geloof Doom eXtensie APPlicatie 4D" which tranlates to: faith doom extension application 4D.
 
-Final version will be written in HolyC++ on templeOS called VRGEM⁴.
+Is a demo or POC of TempleOS Next Generation coded in java with libGDX and ImGui.
+
+Final version will be written in HolyC++ on TempleOS and runs on dedicated 144 bit hardware.
+
+## Project Features
+
+* Single Endpoint Application model (user)
+* Single Window Application model (touch)
+* Single MenuBar Application model (tricorder)
+* Applications are distributed as OSGI bundles
+* Blockchain app distribution and storage and OS boot layer
+* Mimetype based link chain sea file system model
+* Unicode4D 72 bit glyph sequences
 
 ## Project Setup
 
