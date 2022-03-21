@@ -51,7 +51,7 @@ public class ScreenDesktop1 extends AbstractScreenDesktop {
 		mpb.rect(-20f,-1f,-20f, -20f,-1f,20f,  20f,-1f,20f, 20f,-1f,-20f, 0,1,0);
 		background = modelBuilder.end();
 		
-		pyramidImage = new Texture(Gdx.files.internal("background/doom-credits.png"));
+		pyramidImage = new Texture(Gdx.files.internal("background/amalia-kiss-reflex.png"));
 		//Material material2 = new Material(ColorAttribute.createDiffuse(.2f,.2f,.7f,1f));
 		Material material = new Material(TextureAttribute.createDiffuse(pyramidImage));
 		
@@ -87,21 +87,21 @@ public class ScreenDesktop1 extends AbstractScreenDesktop {
 		
 		modelBuilder.begin();
 		MeshPartBuilder mpb = modelBuilder.part(name, GL20.GL_TRIANGLES, attr, material);
-		v1.set(new Vector3(-width,0, width), normal, null, new Vector2(1,0));
-		v2.set(new Vector3(width,0, width), normal, null, new Vector2(0,1));
-		v3.set(new Vector3(0, height, 0), normal, null, new Vector2(1,1));
+		v1.set(new Vector3(-width,0, width), normal, null, new Vector2(1,1));
+		v2.set(new Vector3(width,0, width), normal, null, new Vector2(0,.6f));
+		v3.set(new Vector3(0, height, 0), normal, null, new Vector2(1,0));
 		mpb.triangle(v1, v2, v3);
-		v1.set(new Vector3(width,0, width), normal, null, new Vector2(1,0));
-		v2.set(new Vector3(width,0, -width), normal, null, new Vector2(0,1));
-		v3.set(new Vector3(0, height, 0), normal, null, new Vector2(1,1));
+		v1.set(new Vector3(width,0, width), normal, null, new Vector2(1,1));
+		v2.set(new Vector3(width,0, -width), normal, null, new Vector2(0,.6f));
+		v3.set(new Vector3(0, height, 0), normal, null, new Vector2(1,0));
 		mpb.triangle(v1, v2, v3);
-		v1.set(new Vector3(width,0, -width), normal, null, new Vector2(1,0));
-		v2.set(new Vector3(-width,0, -width), normal, null, new Vector2(0,1));
-		v3.set(new Vector3(0, height, 0), normal, null, new Vector2(1,1));
+		v1.set(new Vector3(width,0, -width), normal, null, new Vector2(1,1));
+		v2.set(new Vector3(-width,0, -width), normal, null, new Vector2(0,.6f));
+		v3.set(new Vector3(0, height, 0), normal, null, new Vector2(1,0));
 		mpb.triangle(v1, v2, v3);
-		v1.set(new Vector3(-width,0, -width), normal, null, new Vector2(1,0));
-		v2.set(new Vector3(-width,0, width), normal, null, new Vector2(0,1));
-		v3.set(new Vector3(0, height, 0), normal, null, new Vector2(1,1));
+		v1.set(new Vector3(-width,0, -width), normal, null, new Vector2(1,1));
+		v2.set(new Vector3(-width,0, width), normal, null, new Vector2(0,.6f));
+		v3.set(new Vector3(0, height, 0), normal, null, new Vector2(1,0));
 		mpb.triangle(v1, v2, v3);
 		return modelBuilder.end();
 	}
