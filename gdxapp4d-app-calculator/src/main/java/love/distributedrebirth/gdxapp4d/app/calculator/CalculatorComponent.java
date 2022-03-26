@@ -25,7 +25,7 @@ public class CalculatorComponent {
 	@Reference
 	private VrGem4LocaleService localeService;
 	
-	private final static String I18N_BUNDLE = "love.distributedrebirth.gdxapp4d.app.calculator.Main";
+	private final static String I18N_BUNDLE = "love.distributedrebirth.gdxapp4d.app.calculator.Messages";
 	private final DeskAppLauncher launcher;
 	
 	public CalculatorComponent() {
