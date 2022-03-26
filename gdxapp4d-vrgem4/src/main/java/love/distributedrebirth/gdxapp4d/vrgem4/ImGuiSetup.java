@@ -15,6 +15,7 @@ import imgui.flag.ImGuiBackendFlags;
 import imgui.gl3.ImGuiImplGl3;
 import imgui.glfw.ImGuiImplGlfw;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
+import love.distributedrebirth.unicode4d.draw.ImCharacter;
 
 /**
  * Create and shutdown of ImGui and font activations.
@@ -57,10 +58,11 @@ public class ImGuiSetup {
 		addRangeUnicodePlane0(fontBuilder);
 		final short[] glyphRanges = fontBuilder.buildRanges();
 		
+		float fontSize = ImCharacter.HEIGHT;
 		boolean first = true;
 		for (File font: fonts) {
 			logger.accept("Load font: "+font);
-			io.getFonts().addFontFromMemoryTTF(Gdx.files.absolute(font.getAbsolutePath()).readBytes(), 22, fontConfig, glyphRanges);
+			io.getFonts().addFontFromMemoryTTF(Gdx.files.absolute(font.getAbsolutePath()).readBytes(), fontSize, fontConfig, glyphRanges);
 			if (first) {
 				fontConfig.setMergeMode(true);
 				first = false;

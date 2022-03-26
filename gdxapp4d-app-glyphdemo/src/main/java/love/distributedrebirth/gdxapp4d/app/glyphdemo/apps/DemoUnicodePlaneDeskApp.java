@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 import imgui.ImGui;
 import imgui.flag.ImGuiStyleVar;
 import imgui.flag.ImGuiTableFlags;
+import imgui.flag.ImGuiWindowFlags;
 import imgui.type.ImBoolean;
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.VrGem4Unicode4DService;
@@ -61,13 +62,10 @@ public class DemoUnicodePlaneDeskApp extends AbstractDeskApp implements DeskAppR
 				ImGui.text(buf.toString());
 			} else {
 				ImGui.pushStyleVar(ImGuiStyleVar.ItemSpacing, 0f, 0f);
-				DrawCharacter drawChar2 = unicode4DService.getCharacterForUnicode(' ');
-				if (drawChar2 != null) {
-					ImCharacter.render(drawChar2);
-					ImGui.sameLine(); // print before beginChild to fix row height of table
-				}
 				int offset = 33;
-				ImGui.beginChild("row"+plane.name()); // workaround for error; Too many vertices in ImDrawList using 16-bit indices.
+				// workaround for error; Too many vertices in ImDrawList using 16-bit indices.
+				// hard coded height to fix line height and row0 height + no scoll to disable mouse scroll
+				ImGui.beginChild("row"+plane.name(), 0f, ImCharacter.HEIGHT, false, ImGuiWindowFlags.NoScrollWithMouse);
 				for (int i=plane.getStart()+offset;i<plane.getStart()+33+offset;i++) {
 					DrawCharacter drawChar = unicode4DService.getCharacterForUnicode(i);
 					if (drawChar != null) {

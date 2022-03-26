@@ -3,6 +3,7 @@ package love.distributedrebirth.gdxapp4d.vrgem4.view;
 import com.badlogic.gdx.InputProcessor;
 
 import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
+import love.distributedrebirth.unicode4d.draw.ImCharacter;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class DeskAppInputProcessor implements InputProcessor {
@@ -23,8 +24,8 @@ public class DeskAppInputProcessor implements InputProcessor {
 	}
 	
 	private boolean isFilterMenu(int screenY) {
-		// font22 + margin top-bottom = 26px
-		if (screenY <= 26) {
+		// font + margin top-bottom = 4px
+		if (screenY <= ImCharacter.HEIGHT+4) {
 			return true;
 		}
 		return false;

@@ -10,8 +10,10 @@ import love.distributedrebirth.unicode4d.draw.DrawGlyphPath.ImGlyphQuadCurveTo;
 
 public class ImCharacter {
 	
+	public static final float HEIGHT = 26f;
+	
 	public static void render(DrawCharacter drawChar) {
-		ImVec2 size = new ImVec2(22f, 26f);
+		ImVec2 size = new ImVec2(22f, HEIGHT);
 		ImGui.invisibleButton("canvas", size.x, size.y);
 		ImVec2 p0 = ImGui.getItemRectMin();
 		ImVec2 p1 = ImGui.getItemRectMax(); // p1 = p0 + size
