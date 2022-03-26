@@ -13,6 +13,7 @@ import org.osgi.framework.ServiceReference;
 import com.badlogic.gdx.Gdx;
 
 import imgui.type.ImBoolean;
+import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.bassboonyd.BãßBȍőnCoffinOpenʸᴰ;
 import love.distributedrebirth.bassboonyd.jmx.DefaultEnumBaseᴶᴹˣ;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxBootArgs;
@@ -37,6 +38,7 @@ import love.distributedrebirth.numberxd.base2t.Base2WarpCore;
 import love.distributedrebirth.unicode4d.BaseGlyphSet;
 import love.distributedrebirth.warpme.ship.WaterShipOcean;
 
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class GDXAppVrGem4Activator implements BundleActivator {
 	
 	private static final int VIEW_SLEEP_TIME = 1234;

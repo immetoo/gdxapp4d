@@ -8,6 +8,7 @@ import java.util.function.Consumer;
 
 import org.osgi.framework.BundleContext;
 
+import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemWarpShip;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.VrGem4Unicode4DService;
 import love.distributedrebirth.unicode4d.CodePointᶻᴰ;
@@ -17,6 +18,7 @@ import love.distributedrebirth.unicode4d.atlas.FontAtlasStore;
 import love.distributedrebirth.unicode4d.atlas.FontAtlasStoreGlyph;
 import love.distributedrebirth.unicode4d.draw.DrawCharacter;
 
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class VrGem4Unicode4DServiceImpl implements VrGem4Unicode4DService {
 	
 	private final FontAtlas masterFontAtlas;

@@ -19,6 +19,7 @@ import com.badlogic.gdx.utils.ScreenUtils;
 import imgui.ImGui;
 import imgui.flag.ImGuiCond;
 import imgui.flag.ImGuiWindowFlags;
+import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxBootArgs;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemGdxTerminal;
 import love.distributedrebirth.gdxapp4d.vrgem4.ImGuiSetup;
@@ -32,6 +33,7 @@ import love.distributedrebirth.gdxapp4d.vrgem4.view.DeskAppInputProcessor;
 import love.distributedrebirth.gdxapp4d.vrgem4.view.DeskTopScreen;
 import love.distributedrebirth.gdxapp4d.vrgem4.view.DeskTopScreenMenu;
 
+@BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public abstract class AbstractScreenDesktop extends ScreenAdapter implements DeskTopScreen {
 	
 	protected SpriteBatch batch;
