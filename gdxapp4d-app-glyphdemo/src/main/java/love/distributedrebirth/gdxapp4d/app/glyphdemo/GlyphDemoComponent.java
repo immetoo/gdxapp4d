@@ -32,7 +32,7 @@ public class GlyphDemoComponent {
 	@Reference
 	private VrGem4Unicode4DService unicode4DService;
 	
-	private final static String I18N_BUNDLE = "love.distributedrebirth.gdxapp4d.app.glyphdemo.Main";
+	private final static String I18N_BUNDLE = "love.distributedrebirth.gdxapp4d.app.glyphdemo.Messages";
 	private final DeskAppLauncher unicodeLauncher;
 	private final DeskAppLauncher baseGlyphLauncher;
 	private final DeskAppLauncher basePartLauncher;
