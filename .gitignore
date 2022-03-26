@@ -3,7 +3,8 @@
 #
 
 # Ignore project resources
-main-gdxapp-desktop/warpcore.xml
+gdxapp4d-boot-desktop/warpcore.xml
+gdxapp4d-boot-desktop/etc
 
 # Ignore maven resources
 target

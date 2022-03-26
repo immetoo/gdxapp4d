@@ -2,7 +2,9 @@ package love.distributedrebirth.gdxapp4d.vrgem4;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.Locale;
 import java.util.Properties;
 
@@ -37,11 +39,26 @@ public class VrGem4LocaleServiceImpl implements VrGem4LocaleService {
 		properties = new Properties();
 	}
 	
+	private void save() {
+		File propFile = new File(warpBase.getWarpshipHome(), "etc/locale.xml");
+		try {
+			properties.storeToXML(new FileOutputStream(propFile), "Locales", StandardCharsets.UTF_8);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	@Activate
 	void open() {
 		log.debug(this, SystemGdxLog.ACTIVATE);
 		
-		File propFile = new File(warpBase.getWarpshipHome(), "etc/locale.properties");
+		File etcFile = new File(warpBase.getWarpshipHome(), "etc");
+		if (!etcFile.exists()) {
+			etcFile.mkdir();
+		}
+		
+		File propFile = new File(warpBase.getWarpshipHome(), "etc/locale.xml");
 		if (propFile.exists()) {
 			try {
 				properties.loadFromXML(new FileInputStream(propFile));
@@ -59,8 +76,8 @@ public class VrGem4LocaleServiceImpl implements VrGem4LocaleService {
 	
 	@Override
 	public void setTextLocaleI18n(String isoCode) {
-		// TODO Auto-generated method stub
-		
+		properties.put(LocaleKey.TEXT_LOCALE.name(), isoCode);
+		save();
 	}
 	
 	@Override
