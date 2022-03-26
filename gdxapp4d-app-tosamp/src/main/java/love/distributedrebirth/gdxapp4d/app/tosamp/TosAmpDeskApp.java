@@ -1,5 +1,6 @@
 package love.distributedrebirth.gdxapp4d.app.tosamp;
 
+import java.util.ResourceBundle;
 import java.util.function.Consumer;
 
 import org.osgi.framework.BundleContext;
@@ -25,24 +26,30 @@ import net.spookygames.gdx.nativefilechooser.NativeFileChooserConfiguration;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class TosAmpDeskApp extends AbstractDeskApp implements DeskAppRenderer {
-
+	
+	private final ResourceBundle bundle;
 	private final MusicManager music;
 	private final NativeFileChooser fileChooser;
 	private NativeFileChooserConfiguration fileChooserConfig;
 	
-	public TosAmpDeskApp(NativeFileChooser fileChooser, BundleContext context, SystemWarpShip warpShip) {
+	public TosAmpDeskApp(ResourceBundle bundle, NativeFileChooser fileChooser, BundleContext context, SystemWarpShip warpShip) {
+		this.bundle = bundle;
 		this.fileChooser = fileChooser;
 		this.music = new MusicManager();
 		this.music.init(context, warpShip);
 	}
 	
+	private String getTxt(String key) {
+		return bundle.getString(TosAmpDeskApp.class.getSimpleName()+"."+key);
+	}
+	
 	public void create() {
-		getContours().setTitle("\uf001 TosAmp");
+		getContours().setTitle(getTxt("title"));
 		getContours().registrateContour(DeskAppContourSection.MAIN, this);
 		getContours().registrateContour(DeskAppContourSection.FILE_NEW, new DeskAppRenderer() {
 			@Override
 			public void render() {
-				if (ImGui.menuItem(FontAwesomeIcons.Plus + " Add")) {
+				if (ImGui.menuItem(getTxt("menuAdd"))) {
 					fileChooser.chooseFile(fileChooserConfig,
 							NativeFileChooserCallbackAdapter.onFileChosen(v -> music.addBackgroundMusic(v)));
 				}
@@ -56,7 +63,7 @@ public class TosAmpDeskApp extends AbstractDeskApp implements DeskAppRenderer {
 
 	@Override
 	public void render() {
-		ImGui.text("Current Song:");
+		ImGui.text(getTxt("currentSong"));
 		MusicSong currentSong = music.getCurrentSong();
 		if (currentSong != null) {
 			ImGui.sameLine();
@@ -64,11 +71,11 @@ public class TosAmpDeskApp extends AbstractDeskApp implements DeskAppRenderer {
 		}
 		ImGui.separator();
 		if (currentSong != null) {
-			if (ImGui.button("Play")) {
+			if (ImGui.button(getTxt("play"))) {
 				music.play(currentSong);
 			}
 		} else {
-			ImGui.text("Play");
+			ImGui.text(getTxt("actionPlay"));
 		}
 		ImGui.sameLine();
 		if (ImGui.button("<")) {
@@ -79,15 +86,15 @@ public class TosAmpDeskApp extends AbstractDeskApp implements DeskAppRenderer {
 			music.next();
 		}
 		ImGui.sameLine();
-		if (ImGui.button("Stop")) {
+		if (ImGui.button(getTxt("actionStop"))) {
 			music.stop();
 		}
 		int flags = ImGuiTableFlags.ScrollX | ImGuiTableFlags.RowBg | ImGuiTableFlags.BordersOuter | ImGuiTableFlags.BordersV;
 		ImGui.beginTable("playlist", 4, flags);
 		ImGui.tableSetupColumn("#", ImGuiTableColumnFlags.NoHide);
-		ImGui.tableSetupColumn("Play");
-		ImGui.tableSetupColumn("List");
-		ImGui.tableSetupColumn("Name");
+		ImGui.tableSetupColumn(getTxt("listPlay"));
+		ImGui.tableSetupColumn(getTxt("listName"));
+		ImGui.tableSetupColumn(getTxt("listSong"));
 		ImGui.tableHeadersRow();
 		int i=1;
 		for (MusicSong song:music.getMusicSongs()) {
