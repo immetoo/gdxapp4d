@@ -27,8 +27,11 @@ public class SettingLocaleDeskApp extends AbstractDeskApp implements DeskAppRend
 		getContours().registrateContour(DeskAppContourSection.MAIN, this);
 		
 		List<String> bases = new ArrayList<>();
-		bases.add("en");
+		bases.add("default");
 		bases.add("hiero");
+		bases.add("chn");
+		bases.add("runic");
+		bases.add("nl");
 		localeItems = new String[bases.size()];
 		localeItems = bases.toArray(localeItems);
 		
