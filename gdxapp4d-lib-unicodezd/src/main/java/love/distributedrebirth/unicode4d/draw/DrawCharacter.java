@@ -9,12 +9,10 @@ import love.distributedrebirth.numberxd.base2t.type.V036Teger;
 import love.distributedrebirth.numberxd.base2t.type.V072Tong;
 import love.distributedrebirth.unicode4d.CodePointCommandᶻᴰ;
 import love.distributedrebirth.unicode4d.CodePointᶻᴰ;
-import love.distributedrebirth.unicode4d.atlas.FontAtlasStoreGlyph;
 import love.distributedrebirth.unicode4d.draw.DrawGlyphContour.ImGlyphPoint;
 
 public class DrawCharacter {
-	
-	private final FontAtlasStoreGlyph glyph;
+	private final List<V072Tong> tongs;
 	private final List<DrawGlyphContour> contours = new ArrayList<>();
 	private final DrawGlyphPath glyphPath;
 	private DrawGlyphContour currentContour;
@@ -27,9 +25,9 @@ public class DrawCharacter {
 	private int leftSideBearing;
 	private boolean leftToRight;
 	
-	public DrawCharacter(FontAtlasStoreGlyph glyph) {
-		this.glyph = glyph;
-		for (V072Tong tong: glyph.getTongs()) {
+	public DrawCharacter(List<V072Tong> tongs) {
+		this.tongs = tongs;
+		for (V072Tong tong: tongs) {
 			processCodePoint(tong.getValue(T02PartBinary.PART_1));
 			processCodePoint(tong.getValue(T02PartBinary.PART_2));
 		}
@@ -150,10 +148,6 @@ public class DrawCharacter {
 		}
 		
 		return p;
-	}
-	
-	public FontAtlasStoreGlyph getGlyph() {
-		return glyph;
 	}
 	
 	public List<DrawGlyphContour> getContours() {

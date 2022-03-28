@@ -8,9 +8,9 @@ import love.distributedrebirth.unicode4d.draw.DrawCharacter;
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public interface VrGem4Unicode4DService {
 	
-	FontAtlas getFontAtlas();
+	//FontAtlas getFontAtlas();
 	
-	FontAtlasStoreGlyph getGlyphForUnicode(int unicode);
+	//FontAtlasStoreGlyph getGlyphForUnicode(int unicode);
 	
 	DrawCharacter getCharacterForUnicode(int unicode);
 }

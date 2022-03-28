@@ -39,6 +39,31 @@
 	<soft:hash file="plane1/noto-sans-psalter-pahlavi.ttf" hex="0"/>
 	<soft:hash file="plane1/noto-sans-sogdian.ttf" hex="0"/>
 	<soft:hash file="plane1/noto-serif-yezidi.ttf" hex="0"/>
+	<soft:hash file="plane1/noto-sans-avestan.ttf" hex="0"/>
+	<soft:hash file="plane1/noto-sans-chakma.ttf" hex="0"/>
+	<soft:hash file="plane1/noto-sans-grantha.ttf" hex="0"/>
+	<soft:hash file="plane1/noto-sans-hanifi-rohingya.ttf" hex="0"/>
+	<soft:hash file="plane1/noto-sans-inscriptional-parthian.ttf" hex="0"/>
+	<soft:hash file="plane1/noto-sans-kharoshthi.ttf" hex="0"/>
+	<soft:hash file="plane1/noto-sans-khojki.ttf" hex="0"/>
+	<soft:hash file="plane1/noto-sans-khudawadi.ttf" hex="0"/>
+	<soft:hash file="plane1/noto-sans-linear-a.ttf" hex="0"/>
+	<soft:hash file="plane1/noto-sans-lydian.ttf" hex="0"/>
+	<soft:hash file="plane1/noto-sans-mahajani.ttf" hex="0"/>
+	<soft:hash file="plane1/noto-sans-manichaean.ttf" hex="0"/>
+	<soft:hash file="plane1/noto-sans-meroitic.ttf" hex="0"/>
+	<soft:hash file="plane1/noto-sans-multani.ttf" hex="0"/>
+	<soft:hash file="plane1/noto-sans-nabataean.ttf" hex="0"/>
+	<soft:hash file="plane1/noto-sans-newa.ttf" hex="0"/>
+	<soft:hash file="plane1/noto-sans-old-hungarian.ttf" hex="0"/>
+	<soft:hash file="plane1/noto-sans-old-north-arabian.ttf" hex="0"/>
+	<soft:hash file="plane1/noto-sans-old-south-arabian.ttf" hex="0"/>
+	<soft:hash file="plane1/noto-sans-old-turkic.ttf" hex="0"/>
+	<soft:hash file="plane1/noto-sans-palmyrene.ttf" hex="0"/>
+	<soft:hash file="plane1/noto-sans-phoenician.ttf" hex="0"/>
+	<soft:hash file="plane1/noto-sans-sharada.ttf" hex="0"/>
+	<soft:hash file="plane1/noto-sans-sora-sompeng.ttf" hex="0"/>
+	<soft:hash file="plane1/noto-sans-tirhuta.ttf" hex="0"/>
 	<soft:hash file="plane2/code-2002.ttf" hex="0"/>
 	<soft:hash file="plane0/code-2000.ttf4d" hex="0"/>
 	<soft:hash file="plane0/free-sans.ttf4d" hex="0"/>
@@ -75,5 +100,30 @@
 	<soft:hash file="plane1/noto-sans-psalter-pahlavi.ttf4d" hex="0"/>
 	<soft:hash file="plane1/noto-sans-sogdian.ttf4d" hex="0"/>
 	<soft:hash file="plane1/noto-serif-yezidi.ttf4d" hex="0"/>
+	<soft:hash file="plane1/noto-sans-avestan.ttf4d" hex="0"/>
+	<soft:hash file="plane1/noto-sans-chakma.ttf4d" hex="0"/>
+	<soft:hash file="plane1/noto-sans-grantha.ttf4d" hex="0"/>
+	<soft:hash file="plane1/noto-sans-hanifi-rohingya.ttf4d" hex="0"/>
+	<soft:hash file="plane1/noto-sans-inscriptional-parthian.ttf4d" hex="0"/>
+	<soft:hash file="plane1/noto-sans-kharoshthi.ttf4d" hex="0"/>
+	<soft:hash file="plane1/noto-sans-khojki.ttf4d" hex="0"/>
+	<soft:hash file="plane1/noto-sans-khudawadi.ttf4d" hex="0"/>
+	<soft:hash file="plane1/noto-sans-linear-a.ttf4d" hex="0"/>
+	<soft:hash file="plane1/noto-sans-lydian.ttf4d" hex="0"/>
+	<soft:hash file="plane1/noto-sans-mahajani.ttf4d" hex="0"/>
+	<soft:hash file="plane1/noto-sans-manichaean.ttf4d" hex="0"/>
+	<soft:hash file="plane1/noto-sans-meroitic.ttf4d" hex="0"/>
+	<soft:hash file="plane1/noto-sans-multani.ttf4d" hex="0"/>
+	<soft:hash file="plane1/noto-sans-nabataean.ttf4d" hex="0"/>
+	<soft:hash file="plane1/noto-sans-newa.ttf4d" hex="0"/>
+	<soft:hash file="plane1/noto-sans-old-hungarian.ttf4d" hex="0"/>
+	<soft:hash file="plane1/noto-sans-old-north-arabian.ttf4d" hex="0"/>
+	<soft:hash file="plane1/noto-sans-old-south-arabian.ttf4d" hex="0"/>
+	<soft:hash file="plane1/noto-sans-old-turkic.ttf4d" hex="0"/>
+	<soft:hash file="plane1/noto-sans-palmyrene.ttf4d" hex="0"/>
+	<soft:hash file="plane1/noto-sans-phoenician.ttf4d" hex="0"/>
+	<soft:hash file="plane1/noto-sans-sharada.ttf4d" hex="0"/>
+	<soft:hash file="plane1/noto-sans-sora-sompeng.ttf4d" hex="0"/>
+	<soft:hash file="plane1/noto-sans-tirhuta.ttf4d" hex="0"/>
 	<soft:hash file="plane2/code-2002.ttf4d" hex="0"/>
 </root:shot>

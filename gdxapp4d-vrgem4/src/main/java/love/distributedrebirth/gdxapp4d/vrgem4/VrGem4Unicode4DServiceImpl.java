@@ -21,17 +21,18 @@ import love.distributedrebirth.unicode4d.draw.DrawCharacter;
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public class VrGem4Unicode4DServiceImpl implements VrGem4Unicode4DService {
 	
-	private final FontAtlas masterFontAtlas;
-	private final Map<Integer, FontAtlasStoreGlyph> unicodeMap;
+	//private final FontAtlas masterFontAtlas;
+	//private final Map<Integer, FontAtlasStoreGlyph> unicodeMap;
 	private final Map<Integer, DrawCharacter> unicodeCharMap;
 	
 	public VrGem4Unicode4DServiceImpl() {
-		masterFontAtlas = new FontAtlas();
-		unicodeMap = new HashMap<>();
+		//masterFontAtlas = new FontAtlas();
+		//unicodeMap = new HashMap<>();
 		unicodeCharMap = new HashMap<>();
 	}
 	
 	public void init(final BundleContext context, SystemWarpShip warpShip, Consumer<String> log) {
+		FontAtlas masterFontAtlas = new FontAtlas();
 		List<File> glyps = warpShip.searchMagic(context, "application/x-font-ttf4d");
 		try {
 			for (File glypSet:glyps) {
@@ -50,14 +51,14 @@ public class VrGem4Unicode4DServiceImpl implements VrGem4Unicode4DService {
 			log.accept("Map unicode: "+fontStore.getName()+" size: "+fontStore.getGlyphs().size());
 			for (FontAtlasStoreGlyph glyph: fontStore.getGlyphs()) {
 				int unicode = CodePointᶻᴰ.INSTANCE.searchUnicode(glyph.getTongs());
-				if (unicodeMap.containsKey(unicode)) {
+				if (unicodeCharMap.containsKey(unicode)) {
 					dup++;
 					continue;
 				}
 				if (unicode > 0) {
-					unicodeMap.put(unicode, glyph);
+					//unicodeMap.put(unicode, glyph);
 					try {
-						unicodeCharMap.put(unicode, new DrawCharacter(glyph));
+						unicodeCharMap.put(unicode, new DrawCharacter(glyph.getTongs()));
 					} catch (Exception e) {
 						e.printStackTrace();
 						log.accept("ERROR: "+e.getMessage());
@@ -65,9 +66,9 @@ public class VrGem4Unicode4DServiceImpl implements VrGem4Unicode4DService {
 				}
 			}
 		}
-		log.accept("unicode map size: "+unicodeMap.size()+" dups: "+dup);
+		log.accept("unicode map size: "+unicodeCharMap.size()+" dups: "+dup);
 	}
-	
+	/*
 	@Override
 	public FontAtlas getFontAtlas() {
 		return masterFontAtlas;
@@ -77,7 +78,7 @@ public class VrGem4Unicode4DServiceImpl implements VrGem4Unicode4DService {
 	public FontAtlasStoreGlyph getGlyphForUnicode(int unicode) {
 		return unicodeMap.get(unicode);
 	}
-	
+	*/
 	@Override
 	public DrawCharacter getCharacterForUnicode(int unicode) {
 		return unicodeCharMap.get(unicode);

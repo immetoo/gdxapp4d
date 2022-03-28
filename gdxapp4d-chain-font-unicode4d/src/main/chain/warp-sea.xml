@@ -39,6 +39,31 @@
 		<link:magic file="plane1/noto-sans-psalter-pahlavi.ttf" mime="application/x-font-ttf-plane1"/>
 		<link:magic file="plane1/noto-sans-sogdian.ttf" mime="application/x-font-ttf-plane1"/>
 		<link:magic file="plane1/noto-serif-yezidi.ttf" mime="application/x-font-ttf-plane1"/>
+		<link:magic file="plane1/noto-sans-avestan.ttf" mime="application/x-font-ttf-plane1"/>
+		<link:magic file="plane1/noto-sans-chakma.ttf" mime="application/x-font-ttf-plane1"/>
+		<link:magic file="plane1/noto-sans-grantha.ttf" mime="application/x-font-ttf-plane1"/>
+		<link:magic file="plane1/noto-sans-hanifi-rohingya.ttf" mime="application/x-font-ttf-plane1"/>
+		<link:magic file="plane1/noto-sans-inscriptional-parthian.ttf" mime="application/x-font-ttf-plane1"/>
+		<link:magic file="plane1/noto-sans-kharoshthi.ttf" mime="application/x-font-ttf-plane1"/>
+		<link:magic file="plane1/noto-sans-khojki.ttf" mime="application/x-font-ttf-plane1"/>
+		<link:magic file="plane1/noto-sans-khudawadi.ttf" mime="application/x-font-ttf-plane1"/>
+		<link:magic file="plane1/noto-sans-linear-a.ttf" mime="application/x-font-ttf-plane1"/>
+		<link:magic file="plane1/noto-sans-lydian.ttf" mime="application/x-font-ttf-plane1"/>
+		<link:magic file="plane1/noto-sans-mahajani.ttf" mime="application/x-font-ttf-plane1"/>
+		<link:magic file="plane1/noto-sans-manichaean.ttf" mime="application/x-font-ttf-plane1"/>
+		<link:magic file="plane1/noto-sans-meroitic.ttf" mime="application/x-font-ttf-plane1"/>
+		<link:magic file="plane1/noto-sans-multani.ttf" mime="application/x-font-ttf-plane1"/>
+		<link:magic file="plane1/noto-sans-nabataean.ttf" mime="application/x-font-ttf-plane1"/>
+		<link:magic file="plane1/noto-sans-newa.ttf" mime="application/x-font-ttf-plane1"/>
+		<link:magic file="plane1/noto-sans-old-hungarian.ttf" mime="application/x-font-ttf-plane1"/>
+		<link:magic file="plane1/noto-sans-old-north-arabian.ttf" mime="application/x-font-ttf-plane1"/>
+		<link:magic file="plane1/noto-sans-old-south-arabian.ttf" mime="application/x-font-ttf-plane1"/>
+		<link:magic file="plane1/noto-sans-old-turkic.ttf" mime="application/x-font-ttf-plane1"/>
+		<link:magic file="plane1/noto-sans-palmyrene.ttf" mime="application/x-font-ttf-plane1"/>
+		<link:magic file="plane1/noto-sans-phoenician.ttf" mime="application/x-font-ttf-plane1"/>
+		<link:magic file="plane1/noto-sans-sharada.ttf" mime="application/x-font-ttf-plane1"/>
+		<link:magic file="plane1/noto-sans-sora-sompeng.ttf" mime="application/x-font-ttf-plane1"/>
+		<link:magic file="plane1/noto-sans-tirhuta.ttf" mime="application/x-font-ttf-plane1"/>
 		<link:magic file="plane2/code-2002.ttf" mime="application/x-font-ttf-plane2"/>
 		<link:magic file="plane0/code-2000.ttf4d" mime="application/x-font-ttf4d"/>
 		<link:magic file="plane0/free-sans.ttf4d" mime="application/x-font-ttf4d"/>
@@ -75,6 +100,31 @@
 		<link:magic file="plane1/noto-sans-psalter-pahlavi.ttf4d" mime="application/x-font-ttf4d"/>
 		<link:magic file="plane1/noto-sans-sogdian.ttf4d" mime="application/x-font-ttf4d"/>
 		<link:magic file="plane1/noto-serif-yezidi.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane1/noto-sans-avestan.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane1/noto-sans-chakma.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane1/noto-sans-grantha.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane1/noto-sans-hanifi-rohingya.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane1/noto-sans-inscriptional-parthian.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane1/noto-sans-kharoshthi.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane1/noto-sans-khojki.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane1/noto-sans-khudawadi.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane1/noto-sans-linear-a.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane1/noto-sans-lydian.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane1/noto-sans-mahajani.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane1/noto-sans-manichaean.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane1/noto-sans-meroitic.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane1/noto-sans-multani.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane1/noto-sans-nabataean.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane1/noto-sans-newa.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane1/noto-sans-old-hungarian.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane1/noto-sans-old-north-arabian.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane1/noto-sans-old-south-arabian.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane1/noto-sans-old-turkic.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane1/noto-sans-palmyrene.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane1/noto-sans-phoenician.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane1/noto-sans-sharada.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane1/noto-sans-sora-sompeng.ttf4d" mime="application/x-font-ttf4d"/>
+		<link:magic file="plane1/noto-sans-tirhuta.ttf4d" mime="application/x-font-ttf4d"/>
 		<link:magic file="plane2/code-2002.ttf4d" mime="application/x-font-ttf4d"/>
 	</link:sea>
 </root:ocean>

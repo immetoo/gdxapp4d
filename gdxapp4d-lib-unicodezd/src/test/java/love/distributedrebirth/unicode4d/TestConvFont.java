@@ -81,6 +81,32 @@ public class TestConvFont {
 			conf("noto-sans-sogdian", new File(in+"plane1/noto-sans-sogdian.ttf.xml"), new File(out+"plane1/noto-sans-sogdian.ttf4d"));
 			conf("noto-serif-yezidi", new File(in+"plane1/noto-serif-yezidi.ttf.xml"), new File(out+"plane1/noto-serif-yezidi.ttf4d"));
 			
+			conf("noto-sans-avestan", new File(in+"plane1/noto-sans-avestan.ttf.xml"), new File(out+"plane1/noto-sans-avestan.ttf4d"));
+			conf("noto-sans-chakma", new File(in+"plane1/noto-sans-chakma.ttf.xml"), new File(out+"plane1/noto-sans-chakma.ttf4d"));
+			conf("noto-sans-grantha", new File(in+"plane1/noto-sans-grantha.ttf.xml"), new File(out+"plane1/noto-sans-grantha.ttf4d"));
+			conf("noto-sans-hanifi-rohingya", new File(in+"plane1/noto-sans-hanifi-rohingya.ttf.xml"), new File(out+"plane1/noto-sans-hanifi-rohingya.ttf4d"));
+			conf("noto-sans-inscriptional-parthian", new File(in+"plane1/noto-sans-inscriptional-parthian.ttf.xml"), new File(out+"plane1/noto-sans-inscriptional-parthian.ttf4d"));
+			conf("noto-sans-kharoshthi", new File(in+"plane1/noto-sans-kharoshthi.ttf.xml"), new File(out+"plane1/noto-sans-kharoshthi.ttf4d"));
+			conf("noto-sans-khojki", new File(in+"plane1/noto-sans-khojki.ttf.xml"), new File(out+"plane1/noto-sans-khojki.ttf4d"));
+			conf("noto-sans-khudawadi", new File(in+"plane1/noto-sans-khudawadi.ttf.xml"), new File(out+"plane1/noto-sans-khudawadi.ttf4d"));
+			conf("noto-sans-linear-a", new File(in+"plane1/noto-sans-linear-a.ttf.xml"), new File(out+"plane1/noto-sans-linear-a.ttf4d"));
+			conf("noto-sans-lydian", new File(in+"plane1/noto-sans-lydian.ttf.xml"), new File(out+"plane1/noto-sans-lydian.ttf4d"));
+			conf("noto-sans-mahajani", new File(in+"plane1/noto-sans-mahajani.ttf.xml"), new File(out+"plane1/noto-sans-mahajani.ttf4d"));
+			conf("noto-sans-manichaean", new File(in+"plane1/noto-sans-manichaean.ttf.xml"), new File(out+"plane1/noto-sans-manichaean.ttf4d"));
+			conf("noto-sans-meroitic", new File(in+"plane1/noto-sans-meroitic.ttf.xml"), new File(out+"plane1/noto-sans-meroitic.ttf4d"));
+			conf("noto-sans-multani", new File(in+"plane1/noto-sans-multani.ttf.xml"), new File(out+"plane1/noto-sans-multani.ttf4d"));
+			conf("noto-sans-nabataean", new File(in+"plane1/noto-sans-nabataean.ttf.xml"), new File(out+"plane1/noto-sans-nabataean.ttf4d"));
+			conf("noto-sans-newa", new File(in+"plane1/noto-sans-newa.ttf.xml"), new File(out+"plane1/noto-sans-newa.ttf4d"));
+			conf("noto-sans-old-hungarian", new File(in+"plane1/noto-sans-old-hungarian.ttf.xml"), new File(out+"plane1/noto-sans-old-hungarian.ttf4d"));
+			conf("noto-sans-old-north-arabian", new File(in+"plane1/noto-sans-old-north-arabian.ttf.xml"), new File(out+"plane1/noto-sans-old-north-arabian.ttf4d"));
+			conf("noto-sans-old-south-arabian", new File(in+"plane1/noto-sans-old-south-arabian.ttf.xml"), new File(out+"plane1/noto-sans-old-south-arabian.ttf4d"));
+			conf("noto-sans-old-turkic", new File(in+"plane1/noto-sans-old-turkic.ttf.xml"), new File(out+"plane1/noto-sans-old-turkic.ttf4d"));
+			conf("noto-sans-palmyrene", new File(in+"plane1/noto-sans-palmyrene.ttf.xml"), new File(out+"plane1/noto-sans-palmyrene.ttf4d"));
+			conf("noto-sans-phoenician", new File(in+"plane1/noto-sans-phoenician.ttf.xml"), new File(out+"plane1/noto-sans-phoenician.ttf4d"));
+			conf("noto-sans-sharada", new File(in+"plane1/noto-sans-sharada.ttf.xml"), new File(out+"plane1/noto-sans-sharada.ttf4d"));
+			conf("noto-sans-sora-sompeng", new File(in+"plane1/noto-sans-sora-sompeng.ttf.xml"), new File(out+"plane1/noto-sans-sora-sompeng.ttf4d"));
+			conf("noto-sans-tirhuta", new File(in+"plane1/noto-sans-tirhuta.ttf.xml"), new File(out+"plane1/noto-sans-tirhuta.ttf4d"));
+			
 			conf("code-2002", new File(in+"plane2/code-2002.ttf.xml"), new File(out+"plane2/code-2002.ttf4d"));
 			
 			System.out.println("Done conversion.");
