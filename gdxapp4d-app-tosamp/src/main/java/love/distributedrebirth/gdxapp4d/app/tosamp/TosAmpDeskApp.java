@@ -16,7 +16,6 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.gdxapp4d.app.tosamp.music.MusicManager;
 import love.distributedrebirth.gdxapp4d.app.tosamp.music.MusicSong;
 import love.distributedrebirth.gdxapp4d.tos4.service.SystemWarpShip;
-import love.distributedrebirth.gdxapp4d.vrgem4.FontAwesomeIcons;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.AbstractDeskApp;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppContourSection;
 import love.distributedrebirth.gdxapp4d.vrgem4.service.deskapp.DeskAppRenderer;
@@ -71,7 +70,7 @@ public class TosAmpDeskApp extends AbstractDeskApp implements DeskAppRenderer {
 		}
 		ImGui.separator();
 		if (currentSong != null) {
-			if (ImGui.button(getTxt("play"))) {
+			if (ImGui.button(getTxt("actionPlay"))) {
 				music.play(currentSong);
 			}
 		} else {
