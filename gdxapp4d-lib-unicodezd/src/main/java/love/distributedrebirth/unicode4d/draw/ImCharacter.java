@@ -11,10 +11,11 @@ import love.distributedrebirth.unicode4d.draw.DrawGlyphPath.ImGlyphQuadCurveTo;
 public class ImCharacter {
 	
 	public static final float HEIGHT = 26f;
+	private static final ImVec2 SIZE = new ImVec2(22f, HEIGHT);
+	private static final int COLOR = ImColor.intToColor(255, 255, 255, 255);
 	
 	public static void render(DrawCharacter drawChar) {
-		ImVec2 size = new ImVec2(22f, HEIGHT);
-		ImGui.invisibleButton("canvas", size.x, size.y);
+		ImGui.invisibleButton("canvas", SIZE.x, SIZE.y);
 		ImVec2 p0 = ImGui.getItemRectMin();
 		ImVec2 p1 = ImGui.getItemRectMax(); // p1 = p0 + size
 		ImDrawList drawList = ImGui.getWindowDrawList();
@@ -24,10 +25,12 @@ public class ImCharacter {
 		float xOff = p0.x;
 		float yOff = p0.y + 19f;
 		float yFlip = -1f;
-		float scale = 0.0090f;
+		float scale = 0.0199f;
+		if (drawChar.getyMax() > 800) {
+			scale = 0.0100f;
+		}
 		ImGlyphPathCommand first = null;
 		ImGlyphPathCommand prev = null;
-		int color = ImColor.intToColor(255, 255, 255, 255);
 		for (ImGlyphPathCommand cmd: drawChar.getGlyphPath().getPath()) {
 			if (cmd.isImGlyphMoveTo()) {
 				first = cmd;
@@ -41,7 +44,7 @@ public class ImCharacter {
 						yOff+prev.getY()*scale*yFlip,
 						xOff+lineTo.getX()*scale,
 						yOff+lineTo.getY()*scale*yFlip,
-						color);
+						COLOR);
 				prev = cmd;
 				continue;
 			}
@@ -54,7 +57,7 @@ public class ImCharacter {
 						yOff+quadCurveTo.getY1()*scale*yFlip,
 						xOff+quadCurveTo.getX()*scale,
 						yOff+quadCurveTo.getY()*scale*yFlip,
-						color,
+						COLOR,
 						1);
 				prev = cmd;
 				continue;
@@ -65,7 +68,7 @@ public class ImCharacter {
 						yOff+prev.getY()*scale*yFlip,
 						xOff+first.getX()*scale,
 						yOff+first.getY()*scale*yFlip,
-						color);
+						COLOR);
 			}
 		}
 		//drawList.addQuad(p0.x, p0.y, p0.x+size.x, p0.y, p1.x, p1.y, p0.x, p0.y+size.y,

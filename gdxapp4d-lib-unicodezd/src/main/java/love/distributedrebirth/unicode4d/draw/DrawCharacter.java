@@ -150,6 +150,10 @@ public class DrawCharacter {
 		return p;
 	}
 	
+	public List<V072Tong> getTongs() {
+		return tongs;
+	}
+	
 	public List<DrawGlyphContour> getContours() {
 		return contours;
 	}
