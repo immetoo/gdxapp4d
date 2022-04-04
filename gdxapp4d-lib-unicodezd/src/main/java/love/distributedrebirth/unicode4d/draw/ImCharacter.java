@@ -11,6 +11,7 @@ import love.distributedrebirth.unicode4d.draw.DrawGlyphPath.ImGlyphQuadCurveTo;
 public class ImCharacter {
 	
 	public static final float HEIGHT = 26f;
+	public static final float MARGIN_MENUBAR = 4f;
 	private static final ImVec2 SIZE = new ImVec2(22f, HEIGHT);
 	private static final int COLOR = ImColor.intToColor(255, 255, 255, 255);
 	

@@ -25,7 +25,7 @@ public class DeskAppInputProcessor implements InputProcessor {
 	
 	private boolean isFilterMenu(int screenY) {
 		// font + margin top-bottom = 4px
-		if (screenY <= ImCharacter.HEIGHT+4) {
+		if (screenY <= ImCharacter.HEIGHT+ImCharacter.MARGIN_MENUBAR) {
 			return true;
 		}
 		return false;

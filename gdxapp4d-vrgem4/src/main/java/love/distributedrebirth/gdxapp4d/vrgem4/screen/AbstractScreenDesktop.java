@@ -32,6 +32,7 @@ import love.distributedrebirth.gdxapp4d.vrgem4.view.DeskAppSelectionListener;
 import love.distributedrebirth.gdxapp4d.vrgem4.view.DeskAppInputProcessor;
 import love.distributedrebirth.gdxapp4d.vrgem4.view.DeskTopScreen;
 import love.distributedrebirth.gdxapp4d.vrgem4.view.DeskTopScreenMenu;
+import love.distributedrebirth.unicode4d.draw.ImCharacter;
 
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public abstract class AbstractScreenDesktop extends ScreenAdapter implements DeskTopScreen {
@@ -138,8 +139,9 @@ public abstract class AbstractScreenDesktop extends ScreenAdapter implements Des
 		screenMenu.renderMenu(appScreen);
 		if (appScreen != null && appScreen.getDeskAppController().getCurrentDeskApp() != null) {
 			int sizeFlags = ImGuiCond.Always;
-			ImGui.setNextWindowPos(0, 28, sizeFlags);
-			ImGui.setNextWindowSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight() - 28, sizeFlags);
+			float sizeMenu = ImCharacter.HEIGHT+ImCharacter.MARGIN_MENUBAR;
+			ImGui.setNextWindowPos(0, sizeMenu, sizeFlags);
+			ImGui.setNextWindowSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight() - sizeMenu, sizeFlags);
 			int windowFlags = ImGuiWindowFlags.NoMove | ImGuiWindowFlags.NoResize | ImGuiWindowFlags.NoTitleBar;
 			if (ImGui.begin(appScreen.getDeskAppController().getCurrentDeskApp().getContours().getTitle(), windowFlags)) {
 				DeskAppRenderer renderer = appScreen.getDeskAppController().getCurrentDeskApp().getContours().getContour(DeskAppContourSection.MAIN);
