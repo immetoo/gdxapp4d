@@ -78,8 +78,8 @@ public final class V144Tocta implements BaseNumberTyte<V144Tocta> {
 	}
 	
 	@Override
-	public V144Tocta toClone() {
-		return new V144Tocta(iteratorOctalsByClone());
+	public V144Tocta toClone(BaseIteratorOctal values) {
+		return new V144Tocta(values);
 	}
 	
 	@Override

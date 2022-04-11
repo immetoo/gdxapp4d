@@ -43,8 +43,8 @@ public class V0x000654ˣᴸ implements BaseNumberTyteˣᴸ<V0x000654ˣᴸ> {
 	}
 	
 	@Override
-	public V0x000654ˣᴸ toClone() {
-		return new V0x000654ˣᴸ(iteratorOctalsByClone());
+	public V0x000654ˣᴸ toClone(BaseIteratorOctal values) {
+		return new V0x000654ˣᴸ(values);
 	}
 	
 	@Override

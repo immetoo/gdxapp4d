@@ -49,8 +49,8 @@ public final class V027Temvig implements BaseNumberTyte<V027Temvig> {
 	}
 	
 	@Override
-	public V027Temvig toClone() {
-		return new V027Temvig(iteratorOctalsByClone());
+	public V027Temvig toClone(BaseIteratorOctal values) {
+		return new V027Temvig(values);
 	}
 	
 	@Override

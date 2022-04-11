@@ -41,8 +41,8 @@ public final class V042Traw implements BaseNumber<V042Traw> {
 	}
 	
 	@Override
-	public V042Traw toClone() {
-		return new V042Traw(iteratorOctalsByClone());
+	public V042Traw toClone(BaseIteratorOctal values) {
+		return new V042Traw(values);
 	}
 	
 	@Override

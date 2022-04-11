@@ -62,8 +62,8 @@ public final class V072Tong implements BaseNumberTyte<V072Tong> {
 	}
 	
 	@Override
-	public V072Tong toClone() {
-		return new V072Tong(iteratorOctalsByClone());
+	public V072Tong toClone(BaseIteratorOctal values) {
+		return new V072Tong(values);
 	}
 	
 	@Override

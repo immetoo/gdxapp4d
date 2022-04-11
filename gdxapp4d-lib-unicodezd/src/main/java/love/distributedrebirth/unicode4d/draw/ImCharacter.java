@@ -27,7 +27,7 @@ public class ImCharacter {
 		float yOff = p0.y + 19f;
 		float yFlip = -1f;
 		float scale = 0.0199f;
-		if (drawChar.getyMax() > 800) {
+		if (drawChar.getyMax() > 900) {
 			scale = 0.0100f;
 		}
 		ImGlyphPathCommand first = null;

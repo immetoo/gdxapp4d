@@ -16,7 +16,11 @@ public interface BaseNumber<V extends BaseNumber<V>> {
 	
 	int BãßBitCount();
 	
-	V toClone();
+	default V toClone() {
+		return toClone(iteratorOctalsByClone());
+	}
+	
+	V toClone(BaseIteratorOctal values);
 	
 	void fillOctalsByClone(BaseAppenderOctal appender);
 	

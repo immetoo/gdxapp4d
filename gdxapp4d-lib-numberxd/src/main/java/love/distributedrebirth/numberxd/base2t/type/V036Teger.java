@@ -71,8 +71,8 @@ public final class V036Teger implements BaseNumberTyte<V036Teger> {
 	}
 	
 	@Override
-	public V036Teger toClone() {
-		return new V036Teger(iteratorOctalsByClone());
+	public V036Teger toClone(BaseIteratorOctal values) {
+		return new V036Teger(values);
 	}
 	
 	@Override

@@ -41,8 +41,8 @@ public class V0x0013B0ˣᴸ implements BaseNumberˣᴸ<V0x0013B0ˣᴸ> {
 	}
 	
 	@Override
-	public V0x0013B0ˣᴸ toClone() {
-		return new V0x0013B0ˣᴸ(iteratorOctalsByClone());
+	public V0x0013B0ˣᴸ toClone(BaseIteratorOctal values) {
+		return new V0x0013B0ˣᴸ(values);
 	}
 	
 	@Override

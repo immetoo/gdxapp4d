@@ -70,8 +70,8 @@ public final class V018Tord implements BaseNumberTyte<V018Tord> {
 	}
 	
 	@Override
-	public V018Tord toClone() {
-		return new V018Tord(iteratorOctalsByClone());
+	public V018Tord toClone(BaseIteratorOctal values) {
+		return new V018Tord(values);
 	}
 	
 	@Override

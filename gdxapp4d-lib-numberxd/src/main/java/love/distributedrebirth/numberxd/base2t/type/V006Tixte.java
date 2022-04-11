@@ -43,8 +43,8 @@ public final class V006Tixte implements BaseNumber<V006Tixte> {
 	}
 	
 	@Override
-	public V006Tixte toClone() {
-		return new V006Tixte(iteratorOctalsByClone());
+	public V006Tixte toClone(BaseIteratorOctal values) {
+		return new V006Tixte(values);
 	}
 	
 	@Override

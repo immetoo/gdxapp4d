@@ -59,8 +59,8 @@ public final class V009Tyte implements BaseNumberTyte<V009Tyte> {
 	}
 	
 	@Override
-	public V009Tyte toClone() {
-		return new V009Tyte(iteratorOctalsByClone());
+	public V009Tyte toClone(BaseIteratorOctal values) {
+		return new V009Tyte(values);
 	}
 	
 	@Override
