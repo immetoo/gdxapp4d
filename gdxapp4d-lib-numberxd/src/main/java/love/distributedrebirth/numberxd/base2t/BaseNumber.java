@@ -12,8 +12,6 @@ import love.distributedrebirth.numberxd.base2t.part.T08PartOctal;
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public interface BaseNumber<V extends BaseNumber<V>> {
 	
-	static float CIRCLE_DEGREE = 360f;
-	
 	int BãßBitCount();
 	
 	default V toClone() {

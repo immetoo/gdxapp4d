@@ -57,7 +57,12 @@ public final class V027Temvig implements BaseNumberTyte<V027Temvig> {
 	public void fillOctalsByClone(BaseAppenderOctal appender) {
 		T03PartTrit.PART_1.BãßVoorElk(v -> getValue(v).fillOctalsByClone(appender));
 	}
-
+	
+	@Override
+	public V027Temvig toReference(BaseIteratorTyte values) {
+		return new V027Temvig(values);
+	}
+	
 	@Override
 	public void fillTytesByReference(BaseAppenderTyte appender) {
 		T03PartTrit.PART_1.BãßVoorElk(v -> getValue(v).fillTytesByReference(appender));

@@ -70,7 +70,12 @@ public final class V072Tong implements BaseNumberTyte<V072Tong> {
 	public void fillOctalsByClone(BaseAppenderOctal appender) {
 		T02PartBinary.PART_1.BãßVoorElk(v -> getValue(v).fillOctalsByClone(appender));
 	}
-
+	
+	@Override
+	public V072Tong toReference(BaseIteratorTyte values) {
+		return new V072Tong(values);
+	}
+	
 	@Override
 	public void fillTytesByReference(BaseAppenderTyte appender) {
 		T02PartBinary.PART_1.BãßVoorElk(v -> getValue(v).fillTytesByReference(appender));

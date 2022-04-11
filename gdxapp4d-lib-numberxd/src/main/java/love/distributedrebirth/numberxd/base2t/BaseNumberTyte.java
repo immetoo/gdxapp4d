@@ -12,6 +12,12 @@ import love.distributedrebirth.numberxd.base2t.type.V009Tyte;
 @BãßBȍőnAuthorInfoʸᴰ(name = "willemtsade", copyright = "©Δ∞ 仙上主天")
 public interface BaseNumberTyte<V extends BaseNumber<V>> extends BaseNumber<V> {
 	
+	default V toReference() {
+		return toReference(iteratorTytesByReference());
+	}
+	
+	V toReference(BaseIteratorTyte values);
+	
 	void fillTytesByReference(BaseAppenderTyte appender);
 	
 	default BaseIteratorTyte iteratorTytesByReference() {

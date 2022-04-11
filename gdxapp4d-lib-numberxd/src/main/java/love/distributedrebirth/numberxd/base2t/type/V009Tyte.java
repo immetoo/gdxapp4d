@@ -4,6 +4,7 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.BaseAppenderOctal;
 import love.distributedrebirth.numberxd.base2t.BaseAppenderTyte;
 import love.distributedrebirth.numberxd.base2t.BaseIteratorOctal;
+import love.distributedrebirth.numberxd.base2t.BaseIteratorTyte;
 import love.distributedrebirth.numberxd.base2t.BaseNumberTyte;
 import love.distributedrebirth.numberxd.base2t.part.T03PartTrit;
 import love.distributedrebirth.numberxd.base2t.part.T08PartOctal;
@@ -69,7 +70,12 @@ public final class V009Tyte implements BaseNumberTyte<V009Tyte> {
 		appender.add(values[1]);
 		appender.add(values[2]);
 	}
-
+	
+	@Override
+	public V009Tyte toReference(BaseIteratorTyte values) {
+		return values.next();
+	}
+	
 	@Override
 	public void fillTytesByReference(BaseAppenderTyte appender) {
 		appender.add(this);

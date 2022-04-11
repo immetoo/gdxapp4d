@@ -86,7 +86,12 @@ public final class V144Tocta implements BaseNumberTyte<V144Tocta> {
 	public void fillOctalsByClone(BaseAppenderOctal appender) {
 		T02PartBinary.PART_1.BãßVoorElk(v -> getValue(v).fillOctalsByClone(appender));
 	}
-
+	
+	@Override
+	public V144Tocta toReference(BaseIteratorTyte values) {
+		return new V144Tocta(values);
+	}
+	
 	@Override
 	public void fillTytesByReference(BaseAppenderTyte appender) {
 		T02PartBinary.PART_1.BãßVoorElk(v -> getValue(v).fillTytesByReference(appender));

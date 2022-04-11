@@ -79,7 +79,12 @@ public final class V036Teger implements BaseNumberTyte<V036Teger> {
 	public void fillOctalsByClone(BaseAppenderOctal appender) {
 		T02PartBinary.PART_1.BãßVoorElk(v -> getValue(v).fillOctalsByClone(appender));
 	}
-
+	
+	@Override
+	public V036Teger toReference(BaseIteratorTyte values) {
+		return new V036Teger(values);
+	}
+	
 	@Override
 	public void fillTytesByReference(BaseAppenderTyte appender) {
 		T02PartBinary.PART_1.BãßVoorElk(v -> getValue(v).fillTytesByReference(appender));

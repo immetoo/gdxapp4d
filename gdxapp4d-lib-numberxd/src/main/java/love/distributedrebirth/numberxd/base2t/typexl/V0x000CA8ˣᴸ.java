@@ -4,6 +4,7 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.BaseAppenderOctal;
 import love.distributedrebirth.numberxd.base2t.BaseAppenderTyte;
 import love.distributedrebirth.numberxd.base2t.BaseIteratorOctal;
+import love.distributedrebirth.numberxd.base2t.BaseIteratorTyte;
 import love.distributedrebirth.numberxd.base2t.BaseNumberTyteˣᴸ;
 import love.distributedrebirth.numberxd.base2t.part.T02PartBinary;
 
@@ -21,6 +22,10 @@ public class V0x000CA8ˣᴸ implements BaseNumberTyteˣᴸ<V0x000CA8ˣᴸ> {
 	}
 	
 	public V0x000CA8ˣᴸ(BaseIteratorOctal values) {
+		this(new V0x000654ˣᴸ(values), new V0x000654ˣᴸ(values));
+	}
+	
+	public V0x000CA8ˣᴸ(BaseIteratorTyte values) {
 		this(new V0x000654ˣᴸ(values), new V0x000654ˣᴸ(values));
 	}
 	
@@ -51,7 +56,12 @@ public class V0x000CA8ˣᴸ implements BaseNumberTyteˣᴸ<V0x000CA8ˣᴸ> {
 	public void fillOctalsByClone(BaseAppenderOctal appender) {
 		T02PartBinary.PART_1.BãßVoorElk(v -> getValue(v).fillOctalsByClone(appender));
 	}
-
+	
+	@Override
+	public V0x000CA8ˣᴸ toReference(BaseIteratorTyte values) {
+		return new V0x000CA8ˣᴸ(values);
+	}
+	
 	@Override
 	public void fillTytesByReference(BaseAppenderTyte appender) {
 		T02PartBinary.PART_1.BãßVoorElk(v -> getValue(v).fillTytesByReference(appender));

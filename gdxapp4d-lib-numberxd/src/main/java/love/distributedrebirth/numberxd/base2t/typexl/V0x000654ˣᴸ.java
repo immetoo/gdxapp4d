@@ -4,6 +4,7 @@ import love.distributedrebirth.bassboonyd.BãßBȍőnAuthorInfoʸᴰ;
 import love.distributedrebirth.numberxd.base2t.BaseAppenderOctal;
 import love.distributedrebirth.numberxd.base2t.BaseAppenderTyte;
 import love.distributedrebirth.numberxd.base2t.BaseIteratorOctal;
+import love.distributedrebirth.numberxd.base2t.BaseIteratorTyte;
 import love.distributedrebirth.numberxd.base2t.BaseNumberTyteˣᴸ;
 import love.distributedrebirth.numberxd.base2t.part.T60PartSexagesimal;
 import love.distributedrebirth.numberxd.base2t.type.V027Temvig;
@@ -24,6 +25,12 @@ public class V0x000654ˣᴸ implements BaseNumberTyteˣᴸ<V0x000654ˣᴸ> {
 	}
 	
 	public V0x000654ˣᴸ(BaseIteratorOctal values) {
+		for (int i=0;i<this.values.length;i++) {
+			this.values[i] = new V027Temvig(values);
+		}
+	}
+	
+	public V0x000654ˣᴸ(BaseIteratorTyte values) {
 		for (int i=0;i<this.values.length;i++) {
 			this.values[i] = new V027Temvig(values);
 		}
@@ -51,7 +58,12 @@ public class V0x000654ˣᴸ implements BaseNumberTyteˣᴸ<V0x000654ˣᴸ> {
 	public void fillOctalsByClone(BaseAppenderOctal appender) {
 		T60PartSexagesimal.PART_1.BãßVoorElk(v -> getValue(v).fillOctalsByClone(appender));
 	}
-
+	
+	@Override
+	public V0x000654ˣᴸ toReference(BaseIteratorTyte values) {
+		return new V0x000654ˣᴸ(values);
+	}
+	
 	@Override
 	public void fillTytesByReference(BaseAppenderTyte appender) {
 		T60PartSexagesimal.PART_1.BãßVoorElk(v -> getValue(v).fillTytesByReference(appender));
